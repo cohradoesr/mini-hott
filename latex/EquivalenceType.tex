@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Equivalence Type"
-permalink : /equivalence-type/
 toc: true
 agda: true
 gallery: true

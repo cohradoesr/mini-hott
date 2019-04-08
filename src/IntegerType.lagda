@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Integer Type"
-permalink : /integer-type/
 toc: true
 agda: true
 gallery: true

@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "H-Levels Types"
-permalink : /hlevels/
 category: types
 toc: true
 agda: true

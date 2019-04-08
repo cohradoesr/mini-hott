@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Lemmas about transport "
-permalink : /transport-lemmas/
 category: lemmas functions transport
 toc: true
 agda: true

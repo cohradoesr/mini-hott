@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+ <title>Mini-HoTT</title>
+ <link href="http://jonaprieto.github.io/mini-hott/atom.xml" rel="self"/>
+ <link href="http://jonaprieto.github.io/mini-hott/"/>
+ <updated>2019-04-08T18:32:23+02:00</updated>
+ <id>http://jonaprieto.github.io/mini-hott</id>
+ <author>
+   <name></name>
+   <email></email>
+ </author>
+
+ 
+
+</feed>

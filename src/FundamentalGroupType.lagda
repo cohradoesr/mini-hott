@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Fundamental Group Type"
-permalink : /fundamental-group-type/
 toc: true
 agda: true
 gallery: true

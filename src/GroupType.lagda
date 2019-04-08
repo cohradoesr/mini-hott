@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Group Type"
-permalink : /group-type/
 toc: true
 agda: true
 gallery: true

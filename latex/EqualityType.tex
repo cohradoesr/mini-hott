@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Identity type"
-permalink : /identity-type/
 category: types
 toc: true
 agda: true

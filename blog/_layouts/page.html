@@ -1,0 +1,227 @@
+---
+layout: default
+---
+
+{% if page.agda %}
+  {% assign filepath = page.path | replace: '_posts', 'blog/_src/notes' | replace: '.md', '.lagda' %}
+  {% assign rawagda  = page.path | replace: '_posts', 'blog/agda' | replace: '.md', '.agda' %}
+{% else %}
+  {% assign filepath = page.path | replace: '_posts', 'blog/_src/notes' %}
+{% endif %}
+{% assign viewsource = site.github.repository_url | append: "/blob/" | append: page.git.last_commit.long_sha | append: "/" | append: filepath %}
+{% assign latestcommit = page.git.last_commit.short_sha %}
+{% assign editsource = site.github.repository_url | append: "/edit/sources/" | append: filepath %}
+{% assign history = site.github.repository_url | append: "/commits/" | append: page.git.last_commit.long_sha | append: "/" | append: filepath %}
+{% assign raw = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" | append: page.git.last_commit.long_sha | append: "/" | append: filepath %}
+{% assign agdaCode = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" | append: page.git.last_commit.long_sha | append: "/" | append: rawagda %}
+
+<div class="post">
+
+  <div class="print-version">
+    <center>
+      <h1>{{ page.title }}</h1><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                {% if page.author %}
+                  {{ page.author}}
+                {% else %}
+                  {{ site.author.name }}
+                {% endif %}
+              </div>
+              <div class="print-author-affiliation">
+                {% if page.author_affiliation %}
+                  {{ page.author_affiliation}}
+                {% else %}
+                  {{ site.affiliation }}
+                {% endif %}
+                </div>
+            </div>
+          </div>
+          {% if page.coauthor %}
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">{{ page.coauthor}}</div>
+              {% if page.coauthor_affiliation %}
+              <div class="print-author-affiliation">{{ page.coauthor_affiliation}}</div>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+          {% if page.coauthor2 %}
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">{{ page.coauthor2}}</div>
+              {% if page.coauthor2_affiliation %}
+              <div class="print-author-affiliation">{{ page.coauthor2_affiliation}}</div>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="print-date">{{ page.date | date_to_long_string }}</div>
+        {% if page.abstract %}<div class="print-abstract">{{page.abstract}}</div>{% endif %}
+        {% if page.abstract %}<div class="print-keywords">{{page.keywords}}</div>{% endif %}
+    </center>
+  </div>
+
+  {% if page.git %}
+  <div class="main-heading">
+    <div class="main-title">
+      <div class="main-title-prefix">Latest change:</div>
+      <div class="main-commit-message">
+            <a href="{{viewsource}}">
+              {{page.git.last_commit.message}}</a>
+      </div>
+    </div>
+
+    <div class="main-last-date">
+      Latest commit <a href="{{viewsource}}">{{latestcommit}} </a> on  {{ site.time | date_to_string  }}
+    </div>
+  </div>
+  {% else %}
+  No git information available.
+  {% endif %}
+  <h1 class="post-title" id="stickyTitle">{% octicon bookmark height:22 %} {{ page.title }}
+  </h1>
+
+  <!-- {% if page.toc %}
+  <div class="toc">
+    <nav>
+    <h2 class="table-of-contents"> Table of Contents </h2>
+      {% include toc.html html=content %}
+    </nav>
+  </div>
+  {% endif %} -->
+
+  <noscript>
+  <div style="font-size:16px;font-weight:700; color:red;">{% octicon alert height:18 %} Javascript is disabled, please activate it to see correctly this post.</div><br/>
+  </noscript>
+
+  {{ content }}
+
+  <div class="cited-references" markdown="1">
+  {% bibliography --cited %}
+  </div>
+
+
+  {% if page.showcitation %}
+  <div id="citation">
+  <h2> Citation </h2>
+  If you want to cite the content of this post,
+  we suggest to use the following latex bibtex entry.
+  This is generated automatically.
+
+  <br/>
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag ="{{ page.bibtextag }}"
+       data-bibtexauthors ="{{ page.bibtexauthors  }}"
+       data-year ="{{ page.date | date: '%Y' }}"
+       data-lastchecked ="{{ site.time | date: '%Y-%m-%d' }}"
+       data-originalyear ="{{ page.date | date: '%Y-%m-%d' }}"
+       data-title ="{{ page.title}}"
+       data-url ="{{ site.url}}{{ page.url}}"
+  ></pre>
+  </div>
+  {% endif %}
+
+  <div id="github-links">
+    <div class="view-source">
+      {% if page.agda %}
+        <a href="{{raw}}" download target="_blank">{% octicon file height:12 class:"right left" %} Raw + Agda</a>
+        <a href="{{agdaCode}}" download target="_blank">{% octicon file-code height:12 class:"right left" %} Agda </a>
+      {% else %}
+        <a href="{{raw}}" download target="_blank">{% octicon file height:12 class:"right left" %} Raw</a>
+      {% endif %}
+      <a href="{{viewsource}}" target="_blank">{% octicon mark-github height:12 class:"right left" %} Github</a>
+      <a href="{{editsource}}" target="_blank">{% octicon pencil height:12 class:"right left" %} Edit</a>
+      <a href="{{history}}" target="_blank">{% octicon history height:12 class:"right left" %} History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank">{% octicon file-pdf height:12 class:"right left" %} Print</a>
+      {% if page.showcitation %}<a  href="#citation">{% octicon quote height:12 class:"right left" %} Cite
+      </a>{% endif %}
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]{{ page.title }} - Commit {{latestcommit}}" target="_top">{% octicon mail height:12 class:"right left" %} Send Mail</a>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- https://octicons.github.com/ -->
+
+
+{% if page.related_posts %}
+<div class="related">
+  <h2>Related Posts</h2>
+  <ul class="related-posts">
+    {% for post in site.related_posts limit:3 %}
+      {% unless post.categories contains "learning" or post.categories contains "thoughts" %}
+        <li>
+          <h3>
+            <a href="{{ site.baseurl }}{{ post.url }}">
+              {{ post.title }}
+              {% if post.date %}
+                <small>{{ post.date | date_to_string }}</small>
+              {% endif %}
+            </a>
+          </h3>
+        </li>
+      {% endunless %}
+    {% endfor %}
+  </ul>
+</div>
+{% endif %}
+
+{% include mathjax.html %}
+
+<script>
+  // When the user scrolls the page, execute myFunction
+function stickyToogle(obj, sticky) {
+  if (window.pageYOffset > sticky) {
+    obj.classList.add("sticky");
+  } else {
+    obj.classList.remove("sticky");
+  }
+};
+
+// Get the header
+function stickyThing(idObj){
+  var obj = document.getElementById(idObj);
+  if (obj){
+    // Get the offset position of the navbar
+    stickyToogle(obj, obj.offsetTop);
+    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  }
+};
+
+window.onscroll = function() {
+  stickyThing("stickyTitle");
+};
+
+</script>
+
+{% if page.disqus %}
+<div id="disqus_thread"></div>
+<script>
+
+/**
+*  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+*  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables*/
+/*
+var disqus_config = function () {
+this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+};
+*/
+(function() { // DON'T EDIT BELOW THIS LINE
+var d = document, s = d.createElement('script');
+s.src = 'https://jonaprieto-blog.disqus.com/embed.js';
+s.setAttribute('data-timestamp', +new Date());
+(d.head || d.body).appendChild(s);
+})();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+{% endif %}

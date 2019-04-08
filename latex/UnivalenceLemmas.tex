@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Univalence Lemmas"
-permalink : /ua-lemmas/
 category: lemmas functions homotopy
 toc: true
 agda: true

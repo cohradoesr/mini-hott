@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Circle Type"
-permalink : /circle-type/
 toc: true
 agda: true
 gallery: true

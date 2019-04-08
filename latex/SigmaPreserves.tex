@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Sigma preserves"
-permalink : /sigma-preserves/
 category: lemmas functions homotopy
 toc: true
 agda: true

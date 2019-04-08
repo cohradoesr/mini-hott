@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Half Adjoint"
-permalink : /halfadjoint-type/
 category: homotopy
 toc: true
 agda: true

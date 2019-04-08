@@ -1,0 +1,908 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+      
+        Quotient Type |
+      
+        Mini-HoTT
+    
+  </title><!-- Begin Jekyll SEO tag v2.5.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Quotient Type" />
+<meta name="author" content="Jonathan Prieto-Cubides" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Jonathan Prieto-Cubides" />
+<meta property="og:description" content="Jonathan Prieto-Cubides" />
+<link rel="canonical" href="http://jonaprieto.github.io/mini-hott/pages/QuotientType.html" />
+<meta property="og:url" content="http://jonaprieto.github.io/mini-hott/pages/QuotientType.html" />
+<meta property="og:site_name" content="Mini-HoTT" />
+<script type="application/ld+json">
+{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/pages/QuotientType.html","headline":"Quotient Type","dateModified":"2019-04-08T18:09:08+02:00","@context":"http://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="description" content="Jonathan Prieto-Cubides">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="preload" as="script" href="/assets/main.js" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114360791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114360791-1');
+  </script>
+
+  
+</head>
+
+
+
+
+  <body>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item" >
+    <p style="text-decoration:left">Quotient Type</p>
+  </div>
+  <nav class="sidebar-nav">
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+</ul>
+
+
+    <!--  -->
+    <!-- 
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/AlgebraOnPaths.html">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/all/">All</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/UnivalenceAxiom.html">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/BasicFunctions.html">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/BasicTypes.html">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/CircleType.html">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/ContractibleType.html">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/DecidableEquality.html">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/EquivalenceType.html">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/EquivalenceReasoning.html">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/FiberType.html">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/FunExtAxiom.html">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/FunExtTransport.html">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/FunExtTransportDependent.html">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/FundamentalGroupType.html">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/GroupType.html">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/HLevelLemmas.html">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/HLevelTypes.html">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/HalfAdjointType.html">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/HedbergLemmas.html">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/HomotopyType.html">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/HomotopyLemmas.html">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/EqualityType.html">Identity type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/IntegerType.html">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/IntervalType.html">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/Intro.html">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/TransportLemmas.html">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/references/">List of references</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/MiniHoTT.html">Mini-HoTT</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/NaturalType.html">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/PiPreserves.html">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/QuasiinverseType.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/QuasiinverseLemmas.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/pages/QuotientType.html">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/RelationType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/MonoidType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/SetTruncationType.html">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/SigmaEquivalence.html">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/SigmaPreserves.html">Sigma preserves</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/SuspensionType.html">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/Transport.html">Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/TruncationType.html">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/UnivalenceTransport.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/pages/UnivalenceLemmas.html">Univalence Lemmas</a>
+        
+      
+     -->
+
+    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
+    <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
+    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
+    <!-- <span class="sidebar-nav-item">Currently v</span> -->
+  </nav>
+</div>
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
+            <a href="/" title="Home">Mini-HoTT</a>
+            <small style="text-decoration:left"></small>
+          </h3>
+        </div>
+      
+      <div class="container content">
+        
+
+
+
+
+
+
+
+<div class="post">
+
+  <div class="print-version">
+    <center>
+      <h1>Quotient Type</h1><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                
+                  Jonathan Prieto-Cubides
+                
+              </div>
+              <div class="print-author-affiliation">
+                
+                  University of Bergen
+                
+                </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="print-date"></div>
+        
+        
+    </center>
+  </div>
+
+  
+  No git information available.
+  
+  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Quotient Type
+  </h1>
+
+  <!-- 
+  <div class="toc">
+    <nav>
+    <h2 class="table-of-contents"> Table of Contents </h2>
+      
+
+    </nav>
+  </div>
+   -->
+
+  <noscript>
+  <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
+  </noscript>
+
+  <div class="hide">
+<pre class="Agda">
+<a id="188" class="Symbol">{-#</a> <a id="192" class="Keyword">OPTIONS</a> <a id="200" class="Pragma">--without-K</a> <a id="212" class="Symbol">#-}</a>
+<a id="216" class="Keyword">open</a> <a id="221" class="Keyword">import</a> <a id="228" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="244" class="Keyword">open</a> <a id="249" class="Keyword">import</a> <a id="256" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+
+<a id="273" class="Keyword">open</a> <a id="278" class="Keyword">import</a> <a id="285" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="298" class="Keyword">open</a> <a id="303" class="Keyword">import</a> <a id="310" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
+<a id="322" class="Keyword">open</a> <a id="327" class="Keyword">import</a> <a id="334" href="QuasiinverseType.html" class="Module">QuasiinverseType</a>
+<a id="351" class="Keyword">open</a> <a id="356" class="Keyword">import</a> <a id="363" href="DecidableEquality.html" class="Module">DecidableEquality</a>
+<a id="381" class="Keyword">open</a> <a id="386" class="Keyword">import</a> <a id="393" href="NaturalType.html" class="Module">NaturalType</a>
+<a id="405" class="Keyword">open</a> <a id="410" class="Keyword">import</a> <a id="417" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="429" class="Keyword">open</a> <a id="434" class="Keyword">import</a> <a id="441" href="HLevelLemmas.html" class="Module">HLevelLemmas</a>
+<a id="454" class="Keyword">open</a> <a id="459" class="Keyword">import</a> <a id="466" href="HedbergLemmas.html" class="Module">HedbergLemmas</a>
+</pre>
+</div>
+
+<pre class="Agda">
+<a id="513" class="Keyword">module</a> <a id="520" href="QuotientType.html" class="Module">QuotientType</a> <a id="533" class="Keyword">where</a>
+
+  <a id="542" class="Keyword">record</a> <a id="QRel"></a><a id="549" href="QuotientType.html#549" class="Record">QRel</a> <a id="554" class="Symbol">{</a><a id="555" href="QuotientType.html#555" class="Bound">ℓ</a><a id="556" class="Symbol">}</a> <a id="558" class="Symbol">(</a><a id="559" href="QuotientType.html#559" class="Bound">A</a> <a id="561" class="Symbol">:</a> <a id="563" href="Intro.html#1442" class="Function">Type</a> <a id="568" href="QuotientType.html#555" class="Bound">ℓ</a><a id="569" class="Symbol">)</a> <a id="571" class="Symbol">:</a> <a id="573" href="Intro.html#1442" class="Function">Type</a> <a id="578" class="Symbol">(</a><a id="579" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="584" href="QuotientType.html#555" class="Bound">ℓ</a><a id="585" class="Symbol">)</a> <a id="587" class="Keyword">where</a>
+    <a id="597" class="Keyword">field</a>
+      <a id="QRel.R"></a><a id="609" href="QuotientType.html#609" class="Field">R</a> <a id="611" class="Symbol">:</a> <a id="613" href="QuotientType.html#559" class="Bound">A</a> <a id="615" class="Symbol">→</a> <a id="617" href="QuotientType.html#559" class="Bound">A</a> <a id="619" class="Symbol">→</a> <a id="621" href="Intro.html#1442" class="Function">Type</a> <a id="626" href="QuotientType.html#555" class="Bound">ℓ</a>
+      <a id="QRel.Aset"></a><a id="634" href="QuotientType.html#634" class="Field">Aset</a> <a id="639" class="Symbol">:</a> <a id="641" href="HLevelTypes.html#1355" class="Function">isSet</a> <a id="647" href="QuotientType.html#559" class="Bound">A</a>
+      <a id="QRel.Rprop"></a><a id="655" href="QuotientType.html#655" class="Field">Rprop</a> <a id="661" class="Symbol">:</a> <a id="663" class="Symbol">(</a><a id="664" href="QuotientType.html#664" class="Bound">a</a> <a id="666" href="QuotientType.html#666" class="Bound">b</a> <a id="668" class="Symbol">:</a> <a id="670" href="QuotientType.html#559" class="Bound">A</a><a id="671" class="Symbol">)</a> <a id="673" class="Symbol">→</a> <a id="675" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="682" class="Symbol">(</a><a id="683" href="QuotientType.html#609" class="Field">R</a> <a id="685" href="QuotientType.html#664" class="Bound">a</a> <a id="687" href="QuotientType.html#666" class="Bound">b</a><a id="688" class="Symbol">)</a>
+  <a id="692" class="Keyword">open</a> <a id="697" href="QuotientType.html#549" class="Module">QRel</a> <a id="702" class="Symbol"></a> <a id="710" class="Keyword">public</a>
+
+  <a id="720" class="Keyword">private</a>
+    <a id="732" class="Comment">-- Higher inductive type</a>
+    <a id="761" class="Keyword">data</a> <a id="_!/_"></a><a id="766" href="QuotientType.html#766" class="Datatype Operator">_!/_</a> <a id="771" class="Symbol">{</a><a id="772" href="QuotientType.html#772" class="Bound">ℓ</a><a id="773" class="Symbol">}</a> <a id="775" class="Symbol">(</a><a id="776" href="QuotientType.html#776" class="Bound">A</a> <a id="778" class="Symbol">:</a> <a id="780" href="Intro.html#1442" class="Function">Type</a> <a id="785" href="QuotientType.html#772" class="Bound">ℓ</a><a id="786" class="Symbol">)</a> <a id="788" class="Symbol">(</a><a id="789" href="QuotientType.html#789" class="Bound">r</a> <a id="791" class="Symbol">:</a> <a id="793" href="QuotientType.html#549" class="Record">QRel</a> <a id="798" href="QuotientType.html#776" class="Bound">A</a><a id="799" class="Symbol">)</a> <a id="801" class="Symbol">:</a> <a id="803" href="Intro.html#1442" class="Function">Type</a> <a id="808" class="Symbol">(</a><a id="809" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="814" href="QuotientType.html#772" class="Bound">ℓ</a><a id="815" class="Symbol">)</a> <a id="817" class="Keyword">where</a>
+      <a id="_!/_.![_]"></a><a id="829" href="QuotientType.html#829" class="InductiveConstructor Operator">![_]</a> <a id="834" class="Symbol">:</a> <a id="836" href="QuotientType.html#776" class="Bound">A</a> <a id="838" class="Symbol">→</a> <a id="840" class="Symbol">(</a><a id="841" href="QuotientType.html#776" class="Bound">A</a> <a id="843" href="QuotientType.html#766" class="Datatype Operator">!/</a> <a id="846" href="QuotientType.html#789" class="Bound">r</a><a id="847" class="Symbol">)</a>
+
+  <a id="_/_"></a><a id="852" href="QuotientType.html#852" class="Function Operator">_/_</a> <a id="856" class="Symbol">:</a> <a id="858" class="Symbol">∀</a> <a id="860" class="Symbol">{</a><a id="861" href="QuotientType.html#861" class="Bound">ℓ</a><a id="862" class="Symbol">}</a> <a id="864" class="Symbol">(</a><a id="865" href="QuotientType.html#865" class="Bound">A</a> <a id="867" class="Symbol">:</a> <a id="869" href="Intro.html#1442" class="Function">Type</a> <a id="874" href="QuotientType.html#861" class="Bound">ℓ</a><a id="875" class="Symbol">)</a> <a id="877" class="Symbol">(</a><a id="878" href="QuotientType.html#878" class="Bound">r</a> <a id="880" class="Symbol">:</a> <a id="882" href="QuotientType.html#549" class="Record">QRel</a> <a id="887" href="QuotientType.html#865" class="Bound">A</a><a id="888" class="Symbol">)</a> <a id="890" class="Symbol">→</a> <a id="892" href="Intro.html#1442" class="Function">Type</a> <a id="897" class="Symbol">(</a><a id="898" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="903" href="QuotientType.html#861" class="Bound">ℓ</a><a id="904" class="Symbol">)</a>
+  <a id="908" href="QuotientType.html#908" class="Bound">A</a> <a id="910" href="QuotientType.html#852" class="Function Operator">/</a> <a id="912" href="QuotientType.html#912" class="Bound">r</a> <a id="914" class="Symbol">=</a> <a id="916" class="Symbol">(</a><a id="917" href="QuotientType.html#908" class="Bound">A</a> <a id="919" href="QuotientType.html#766" class="Datatype Operator">!/</a> <a id="922" href="QuotientType.html#912" class="Bound">r</a><a id="923" class="Symbol">)</a>
+
+  <a id="[_]"></a><a id="928" href="QuotientType.html#928" class="Function Operator">[_]</a> <a id="932" class="Symbol">:</a> <a id="934" class="Symbol">∀</a> <a id="936" class="Symbol">{</a><a id="937" href="QuotientType.html#937" class="Bound">ℓ</a><a id="938" class="Symbol">}</a> <a id="940" class="Symbol">{</a><a id="941" href="QuotientType.html#941" class="Bound">A</a> <a id="943" class="Symbol">:</a> <a id="945" href="Intro.html#1442" class="Function">Type</a> <a id="950" href="QuotientType.html#937" class="Bound">ℓ</a><a id="951" class="Symbol">}</a> <a id="953" class="Symbol">→</a> <a id="955" href="QuotientType.html#941" class="Bound">A</a> <a id="957" class="Symbol">→</a> <a id="959" class="Symbol">{</a><a id="960" href="QuotientType.html#960" class="Bound">r</a> <a id="962" class="Symbol">:</a> <a id="964" href="QuotientType.html#549" class="Record">QRel</a> <a id="969" href="QuotientType.html#941" class="Bound">A</a><a id="970" class="Symbol">}</a> <a id="972" class="Symbol">→</a> <a id="974" class="Symbol">(</a><a id="975" href="QuotientType.html#941" class="Bound">A</a> <a id="977" href="QuotientType.html#852" class="Function Operator">/</a> <a id="979" href="QuotientType.html#960" class="Bound">r</a><a id="980" class="Symbol">)</a>
+  <a id="984" href="QuotientType.html#928" class="Function Operator">[</a> <a id="986" href="QuotientType.html#986" class="Bound">a</a> <a id="988" href="QuotientType.html#928" class="Function Operator">]</a> <a id="990" class="Symbol">=</a> <a id="992" href="QuotientType.html#829" class="InductiveConstructor Operator">![</a> <a id="995" href="QuotientType.html#986" class="Bound">a</a> <a id="997" href="QuotientType.html#829" class="InductiveConstructor Operator">]</a>
+
+  <a id="1002" class="Comment">-- Equalities induced by the relation</a>
+  <a id="1042" class="Keyword">postulate</a>
+    <a id="Req"></a><a id="1056" href="QuotientType.html#1056" class="Postulate">Req</a>
+      <a id="1066" class="Symbol">:</a> <a id="1068" class="Symbol">∀</a> <a id="1070" class="Symbol">{</a><a id="1071" href="QuotientType.html#1071" class="Bound">ℓ</a><a id="1072" class="Symbol">}</a> <a id="1074" class="Symbol">{</a><a id="1075" href="QuotientType.html#1075" class="Bound">A</a> <a id="1077" class="Symbol">:</a> <a id="1079" href="Intro.html#1442" class="Function">Type</a> <a id="1084" href="QuotientType.html#1071" class="Bound">ℓ</a><a id="1085" class="Symbol">}</a> <a id="1087" class="Symbol">{</a><a id="1088" href="QuotientType.html#1088" class="Bound">r</a> <a id="1090" class="Symbol">:</a> <a id="1092" href="QuotientType.html#549" class="Record">QRel</a> <a id="1097" href="QuotientType.html#1075" class="Bound">A</a><a id="1098" class="Symbol">}</a>
+      <a id="1106" class="Symbol">→</a> <a id="1108" class="Symbol">{</a><a id="1109" href="QuotientType.html#1109" class="Bound">a</a> <a id="1111" href="QuotientType.html#1111" class="Bound">b</a> <a id="1113" class="Symbol">:</a> <a id="1115" href="QuotientType.html#1075" class="Bound">A</a><a id="1116" class="Symbol">}</a>
+      <a id="1124" class="Symbol">→</a> <a id="1126" href="QuotientType.html#609" class="Field">R</a> <a id="1128" class="Symbol"></a> <a id="1134" href="QuotientType.html#1109" class="Bound">a</a> <a id="1136" href="QuotientType.html#1111" class="Bound">b</a>
+      <a id="1144" class="Comment">--------------------</a>
+      <a id="1171" class="Symbol">→</a> <a id="1173" href="QuotientType.html#928" class="Function Operator">[</a> <a id="1175" href="QuotientType.html#1109" class="Bound">a</a> <a id="1177" href="QuotientType.html#928" class="Function Operator">]</a> <a id="1179" class="Symbol">{</a><a id="1180" href="QuotientType.html#1088" class="Bound">r</a><a id="1181" class="Symbol">}</a> <a id="1183" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1186" href="QuotientType.html#928" class="Function Operator">[</a> <a id="1188" href="QuotientType.html#1111" class="Bound">b</a> <a id="1190" href="QuotientType.html#928" class="Function Operator">]</a>
+
+  <a id="1195" class="Comment">-- The quotient of a set is again a set</a>
+  <a id="1237" class="Keyword">postulate</a>
+    <a id="Rtrunc"></a><a id="1251" href="QuotientType.html#1251" class="Postulate">Rtrunc</a>
+      <a id="1264" class="Symbol">:</a> <a id="1266" class="Symbol">∀</a> <a id="1268" class="Symbol">{</a><a id="1269" href="QuotientType.html#1269" class="Bound">ℓ</a><a id="1270" class="Symbol">}</a> <a id="1272" class="Symbol">{</a><a id="1273" href="QuotientType.html#1273" class="Bound">A</a> <a id="1275" class="Symbol">:</a> <a id="1277" href="Intro.html#1442" class="Function">Type</a> <a id="1282" href="QuotientType.html#1269" class="Bound">ℓ</a><a id="1283" class="Symbol">}</a> <a id="1285" class="Symbol">{</a><a id="1286" href="QuotientType.html#1286" class="Bound">r</a> <a id="1288" class="Symbol">:</a> <a id="1290" href="QuotientType.html#549" class="Record">QRel</a> <a id="1295" href="QuotientType.html#1273" class="Bound">A</a><a id="1296" class="Symbol">}</a>
+      <a id="1304" class="Comment">---------------</a>
+      <a id="1326" class="Symbol">→</a> <a id="1328" href="HLevelTypes.html#1355" class="Function">isSet</a> <a id="1334" class="Symbol">(</a><a id="1335" href="QuotientType.html#1273" class="Bound">A</a> <a id="1337" href="QuotientType.html#852" class="Function Operator">/</a> <a id="1339" href="QuotientType.html#1286" class="Bound">r</a><a id="1340" class="Symbol">)</a>
+
+  <a id="1345" class="Comment">-- Recursion principle</a>
+  <a id="QRel-rec"></a><a id="1370" href="QuotientType.html#1370" class="Function">QRel-rec</a> <a id="1379" class="Symbol">:</a> <a id="1381" class="Symbol">∀</a> <a id="1383" class="Symbol">{</a><a id="1384" href="QuotientType.html#1384" class="Bound">ℓᵢ</a> <a id="1387" href="QuotientType.html#1387" class="Bound">ℓⱼ</a><a id="1389" class="Symbol">}</a> <a id="1391" class="Symbol">{</a><a id="1392" href="QuotientType.html#1392" class="Bound">A</a> <a id="1394" class="Symbol">:</a> <a id="1396" href="Intro.html#1442" class="Function">Type</a> <a id="1401" href="QuotientType.html#1384" class="Bound">ℓᵢ</a><a id="1403" class="Symbol">}</a> <a id="1405" class="Symbol">{</a><a id="1406" href="QuotientType.html#1406" class="Bound">r</a> <a id="1408" class="Symbol">:</a> <a id="1410" href="QuotientType.html#549" class="Record">QRel</a> <a id="1415" href="QuotientType.html#1392" class="Bound">A</a><a id="1416" class="Symbol">}</a> <a id="1418" class="Symbol">{</a><a id="1419" href="QuotientType.html#1419" class="Bound">B</a> <a id="1421" class="Symbol">:</a> <a id="1423" href="Intro.html#1442" class="Function">Type</a> <a id="1428" href="QuotientType.html#1387" class="Bound">ℓⱼ</a><a id="1430" class="Symbol">}</a>
+            <a id="1444" class="Symbol">→</a> <a id="1446" class="Symbol">(</a><a id="1447" href="QuotientType.html#1447" class="Bound">f</a> <a id="1449" class="Symbol">:</a> <a id="1451" href="QuotientType.html#1392" class="Bound">A</a> <a id="1453" class="Symbol">→</a> <a id="1455" href="QuotientType.html#1419" class="Bound">B</a><a id="1456" class="Symbol">)</a> <a id="1458" class="Symbol">→</a> <a id="1460" class="Symbol">((</a><a id="1462" href="QuotientType.html#1462" class="Bound">x</a> <a id="1464" href="QuotientType.html#1464" class="Bound">y</a> <a id="1466" class="Symbol">:</a> <a id="1468" href="QuotientType.html#1392" class="Bound">A</a><a id="1469" class="Symbol">)</a> <a id="1471" class="Symbol">→</a> <a id="1473" href="QuotientType.html#609" class="Field">R</a> <a id="1475" class="Symbol"></a> <a id="1481" href="QuotientType.html#1462" class="Bound">x</a> <a id="1483" href="QuotientType.html#1464" class="Bound">y</a> <a id="1485" class="Symbol">→</a> <a id="1487" href="QuotientType.html#1447" class="Bound">f</a> <a id="1489" href="QuotientType.html#1462" class="Bound">x</a> <a id="1491" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1494" href="QuotientType.html#1447" class="Bound">f</a> <a id="1496" href="QuotientType.html#1464" class="Bound">y</a><a id="1497" class="Symbol">)</a> <a id="1499" class="Symbol">→</a> <a id="1501" href="QuotientType.html#1392" class="Bound">A</a> <a id="1503" href="QuotientType.html#852" class="Function Operator">/</a> <a id="1505" href="QuotientType.html#1406" class="Bound">r</a> <a id="1507" class="Symbol">→</a> <a id="1509" href="QuotientType.html#1419" class="Bound">B</a>
+  <a id="1513" href="QuotientType.html#1370" class="Function">QRel-rec</a> <a id="1522" href="QuotientType.html#1522" class="Bound">f</a> <a id="1524" href="QuotientType.html#1524" class="Bound">p</a> <a id="1526" href="QuotientType.html#829" class="InductiveConstructor Operator">![</a> <a id="1529" href="QuotientType.html#1529" class="Bound">x</a> <a id="1531" href="QuotientType.html#829" class="InductiveConstructor Operator">]</a> <a id="1533" class="Symbol">=</a> <a id="1535" href="QuotientType.html#1522" class="Bound">f</a> <a id="1537" href="QuotientType.html#1529" class="Bound">x</a>
+
+  <a id="1542" class="Comment">-- Induction principle</a>
+  <a id="QRel-ind"></a><a id="1567" href="QuotientType.html#1567" class="Function">QRel-ind</a> <a id="1576" class="Symbol">:</a> <a id="1578" class="Symbol">∀</a> <a id="1580" class="Symbol">{</a><a id="1581" href="QuotientType.html#1581" class="Bound">ℓᵢ</a> <a id="1584" href="QuotientType.html#1584" class="Bound">ℓⱼ</a><a id="1586" class="Symbol">}</a> <a id="1588" class="Symbol">{</a><a id="1589" href="QuotientType.html#1589" class="Bound">A</a> <a id="1591" class="Symbol">:</a> <a id="1593" href="Intro.html#1442" class="Function">Type</a> <a id="1598" href="QuotientType.html#1581" class="Bound">ℓᵢ</a><a id="1600" class="Symbol">}</a> <a id="1602" class="Symbol">{</a><a id="1603" href="QuotientType.html#1603" class="Bound">r</a> <a id="1605" class="Symbol">:</a> <a id="1607" href="QuotientType.html#549" class="Record">QRel</a> <a id="1612" href="QuotientType.html#1589" class="Bound">A</a><a id="1613" class="Symbol">}</a> <a id="1615" class="Symbol">{</a><a id="1616" href="QuotientType.html#1616" class="Bound">B</a> <a id="1618" class="Symbol">:</a> <a id="1620" href="QuotientType.html#1589" class="Bound">A</a> <a id="1622" href="QuotientType.html#852" class="Function Operator">/</a> <a id="1624" href="QuotientType.html#1603" class="Bound">r</a> <a id="1626" class="Symbol">→</a> <a id="1628" href="Intro.html#1442" class="Function">Type</a> <a id="1633" href="QuotientType.html#1584" class="Bound">ℓⱼ</a><a id="1635" class="Symbol">}</a>
+            <a id="1649" class="Symbol">→</a> <a id="1651" class="Symbol">(</a><a id="1652" href="QuotientType.html#1652" class="Bound">f</a> <a id="1654" class="Symbol">:</a> <a id="1656" class="Symbol">((</a><a id="1658" href="QuotientType.html#1658" class="Bound">a</a> <a id="1660" class="Symbol">:</a> <a id="1662" href="QuotientType.html#1589" class="Bound">A</a><a id="1663" class="Symbol">)</a> <a id="1665" class="Symbol">→</a> <a id="1667" href="QuotientType.html#1616" class="Bound">B</a> <a id="1669" href="QuotientType.html#928" class="Function Operator">[</a> <a id="1671" href="QuotientType.html#1658" class="Bound">a</a> <a id="1673" href="QuotientType.html#928" class="Function Operator">]</a><a id="1674" class="Symbol">))</a>
+            <a id="1689" class="Symbol">→</a> <a id="1691" class="Symbol">((</a><a id="1693" href="QuotientType.html#1693" class="Bound">x</a> <a id="1695" href="QuotientType.html#1695" class="Bound">y</a> <a id="1697" class="Symbol">:</a> <a id="1699" href="QuotientType.html#1589" class="Bound">A</a><a id="1700" class="Symbol">)</a> <a id="1702" class="Symbol">→</a> <a id="1704" class="Symbol">(</a><a id="1705" href="QuotientType.html#1705" class="Bound">o</a> <a id="1707" class="Symbol">:</a> <a id="1709" href="QuotientType.html#609" class="Field">R</a> <a id="1711" class="Symbol"></a> <a id="1717" href="QuotientType.html#1693" class="Bound">x</a> <a id="1719" href="QuotientType.html#1695" class="Bound">y</a><a id="1720" class="Symbol">)</a> <a id="1722" class="Symbol">→</a> <a id="1724" class="Symbol">(</a><a id="1725" href="Transport.html#473" class="Function">transport</a> <a id="1735" href="QuotientType.html#1616" class="Bound">B</a> <a id="1737" class="Symbol">(</a><a id="1738" href="QuotientType.html#1056" class="Postulate">Req</a> <a id="1742" href="QuotientType.html#1705" class="Bound">o</a><a id="1743" class="Symbol">)</a> <a id="1745" class="Symbol">(</a><a id="1746" href="QuotientType.html#1652" class="Bound">f</a> <a id="1748" href="QuotientType.html#1693" class="Bound">x</a><a id="1749" class="Symbol">))</a> <a id="1752" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1755" href="QuotientType.html#1652" class="Bound">f</a> <a id="1757" href="QuotientType.html#1695" class="Bound">y</a><a id="1758" class="Symbol">)</a>
+            <a id="1772" class="Symbol">→</a> <a id="1774" class="Symbol">(</a><a id="1775" href="QuotientType.html#1775" class="Bound">z</a> <a id="1777" class="Symbol">:</a> <a id="1779" href="QuotientType.html#1589" class="Bound">A</a> <a id="1781" href="QuotientType.html#852" class="Function Operator">/</a> <a id="1783" href="QuotientType.html#1603" class="Bound">r</a><a id="1784" class="Symbol">)</a> <a id="1786" class="Symbol">→</a> <a id="1788" href="QuotientType.html#1616" class="Bound">B</a> <a id="1790" href="QuotientType.html#1775" class="Bound">z</a>
+  <a id="1794" href="QuotientType.html#1567" class="Function">QRel-ind</a> <a id="1803" href="QuotientType.html#1803" class="Bound">f</a> <a id="1805" href="QuotientType.html#1805" class="Bound">p</a> <a id="1807" href="QuotientType.html#829" class="InductiveConstructor Operator">![</a> <a id="1810" href="QuotientType.html#1810" class="Bound">x</a> <a id="1812" href="QuotientType.html#829" class="InductiveConstructor Operator">]</a> <a id="1814" class="Symbol">=</a> <a id="1816" href="QuotientType.html#1803" class="Bound">f</a> <a id="1818" href="QuotientType.html#1810" class="Bound">x</a>
+
+  <a id="1823" class="Comment">-- Recursion in two arguments</a>
+  <a id="QRel-rec-bi"></a><a id="1855" href="QuotientType.html#1855" class="Function">QRel-rec-bi</a> <a id="1867" class="Symbol">:</a> <a id="1869" class="Symbol">∀</a> <a id="1871" class="Symbol">{</a><a id="1872" href="QuotientType.html#1872" class="Bound">ℓᵢ</a> <a id="1875" href="QuotientType.html#1875" class="Bound">ℓⱼ</a><a id="1877" class="Symbol">}</a> <a id="1879" class="Symbol">{</a><a id="1880" href="QuotientType.html#1880" class="Bound">A</a> <a id="1882" class="Symbol">:</a> <a id="1884" href="Intro.html#1442" class="Function">Type</a> <a id="1889" href="QuotientType.html#1872" class="Bound">ℓᵢ</a><a id="1891" class="Symbol">}</a> <a id="1893" class="Symbol">{</a><a id="1894" href="QuotientType.html#1894" class="Bound">r</a> <a id="1896" class="Symbol">:</a> <a id="1898" href="QuotientType.html#549" class="Record">QRel</a> <a id="1903" href="QuotientType.html#1880" class="Bound">A</a><a id="1904" class="Symbol">}</a> <a id="1906" class="Symbol">{</a><a id="1907" href="QuotientType.html#1907" class="Bound">B</a> <a id="1909" class="Symbol">:</a> <a id="1911" href="Intro.html#1442" class="Function">Type</a> <a id="1916" href="QuotientType.html#1875" class="Bound">ℓⱼ</a><a id="1918" class="Symbol">}</a>
+              <a id="1934" class="Symbol">→</a> <a id="1936" class="Symbol">(</a><a id="1937" href="QuotientType.html#1937" class="Bound">f</a> <a id="1939" class="Symbol">:</a> <a id="1941" href="QuotientType.html#1880" class="Bound">A</a> <a id="1943" class="Symbol">→</a> <a id="1945" href="QuotientType.html#1880" class="Bound">A</a> <a id="1947" class="Symbol">→</a> <a id="1949" href="QuotientType.html#1907" class="Bound">B</a><a id="1950" class="Symbol">)</a> <a id="1952" class="Symbol">→</a> <a id="1954" class="Symbol">((</a><a id="1956" href="QuotientType.html#1956" class="Bound">x</a> <a id="1958" href="QuotientType.html#1958" class="Bound">y</a> <a id="1960" href="QuotientType.html#1960" class="Bound">z</a> <a id="1962" href="QuotientType.html#1962" class="Bound">t</a> <a id="1964" class="Symbol">:</a> <a id="1966" href="QuotientType.html#1880" class="Bound">A</a><a id="1967" class="Symbol">)</a> <a id="1969" class="Symbol">→</a> <a id="1971" href="QuotientType.html#609" class="Field">R</a> <a id="1973" class="Symbol"></a> <a id="1979" href="QuotientType.html#1956" class="Bound">x</a> <a id="1981" href="QuotientType.html#1958" class="Bound">y</a> <a id="1983" class="Symbol">→</a> <a id="1985" href="QuotientType.html#609" class="Field">R</a> <a id="1987" class="Symbol"></a> <a id="1993" href="QuotientType.html#1960" class="Bound">z</a> <a id="1995" href="QuotientType.html#1962" class="Bound">t</a> <a id="1997" class="Symbol">→</a> <a id="1999" href="QuotientType.html#1937" class="Bound">f</a> <a id="2001" href="QuotientType.html#1956" class="Bound">x</a> <a id="2003" href="QuotientType.html#1960" class="Bound">z</a> <a id="2005" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="2008" href="QuotientType.html#1937" class="Bound">f</a> <a id="2010" href="QuotientType.html#1958" class="Bound">y</a> <a id="2012" href="QuotientType.html#1962" class="Bound">t</a><a id="2013" class="Symbol">)</a>
+              <a id="2029" class="Symbol">→</a> <a id="2031" href="QuotientType.html#1880" class="Bound">A</a> <a id="2033" href="QuotientType.html#852" class="Function Operator">/</a> <a id="2035" href="QuotientType.html#1894" class="Bound">r</a> <a id="2037" class="Symbol">→</a> <a id="2039" href="QuotientType.html#1880" class="Bound">A</a> <a id="2041" href="QuotientType.html#852" class="Function Operator">/</a> <a id="2043" href="QuotientType.html#1894" class="Bound">r</a> <a id="2045" class="Symbol">→</a> <a id="2047" href="QuotientType.html#1907" class="Bound">B</a>
+  <a id="2051" href="QuotientType.html#1855" class="Function">QRel-rec-bi</a> <a id="2063" href="QuotientType.html#2063" class="Bound">f</a> <a id="2065" href="QuotientType.html#2065" class="Bound">p</a> <a id="2067" href="QuotientType.html#829" class="InductiveConstructor Operator">![</a> <a id="2070" href="QuotientType.html#2070" class="Bound">x</a> <a id="2072" href="QuotientType.html#829" class="InductiveConstructor Operator">]</a> <a id="2074" href="QuotientType.html#829" class="InductiveConstructor Operator">![</a> <a id="2077" href="QuotientType.html#2077" class="Bound">y</a> <a id="2079" href="QuotientType.html#829" class="InductiveConstructor Operator">]</a> <a id="2081" class="Symbol">=</a> <a id="2083" href="QuotientType.html#2063" class="Bound">f</a> <a id="2085" href="QuotientType.html#2070" class="Bound">x</a> <a id="2087" href="QuotientType.html#2077" class="Bound">y</a>
+
+
+  <a id="Qrel-prod"></a><a id="2093" href="QuotientType.html#2093" class="Function">Qrel-prod</a> <a id="2103" class="Symbol">:</a> <a id="2105" class="Symbol">∀</a> <a id="2107" class="Symbol">{</a><a id="2108" href="QuotientType.html#2108" class="Bound">ℓᵢ</a><a id="2110" class="Symbol">}{</a><a id="2112" href="QuotientType.html#2112" class="Bound">A</a> <a id="2114" class="Symbol">:</a> <a id="2116" href="Intro.html#1442" class="Function">Type</a> <a id="2121" href="QuotientType.html#2108" class="Bound">ℓᵢ</a><a id="2123" class="Symbol">}</a> <a id="2125" class="Symbol">(</a><a id="2126" href="QuotientType.html#2126" class="Bound">r</a> <a id="2128" class="Symbol">:</a> <a id="2130" href="QuotientType.html#549" class="Record">QRel</a> <a id="2135" href="QuotientType.html#2112" class="Bound">A</a><a id="2136" class="Symbol">)</a> <a id="2138" class="Symbol">→</a> <a id="2140" href="QuotientType.html#549" class="Record">QRel</a> <a id="2145" class="Symbol">(</a><a id="2146" href="QuotientType.html#2112" class="Bound">A</a> <a id="2148" href="BasicTypes.html#1956" class="Function Operator">×</a> <a id="2150" href="QuotientType.html#2112" class="Bound">A</a><a id="2151" class="Symbol">)</a>
+  <a id="2155" href="QuotientType.html#2093" class="Function">Qrel-prod</a> <a id="2165" href="QuotientType.html#2165" class="Bound">r</a> <a id="2167" class="Symbol">=</a> <a id="2169" class="Keyword">record</a> <a id="2176" class="Symbol">{</a> <a id="2178" href="QuotientType.html#609" class="Field">R</a> <a id="2180" class="Symbol">=</a> <a id="2182" class="Symbol">λ</a> <a id="2184" class="Symbol">{</a> <a id="2186" class="Symbol">(</a><a id="2187" href="QuotientType.html#2187" class="Bound">a</a> <a id="2189" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="2191" href="QuotientType.html#2191" class="Bound">b</a><a id="2192" class="Symbol">)</a> <a id="2194" class="Symbol">(</a><a id="2195" href="QuotientType.html#2195" class="Bound">c</a> <a id="2197" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="2199" href="QuotientType.html#2199" class="Bound">d</a><a id="2200" class="Symbol">)</a> <a id="2202" class="Symbol">→</a> <a id="2204" class="Symbol">(</a><a id="2205" href="QuotientType.html#609" class="Field">R</a> <a id="2207" class="Symbol"></a> <a id="2213" href="QuotientType.html#2187" class="Bound">a</a> <a id="2215" href="QuotientType.html#2195" class="Bound">c</a><a id="2216" class="Symbol">)</a> <a id="2218" href="BasicTypes.html#1956" class="Function Operator">×</a> <a id="2220" class="Symbol">(</a><a id="2221" href="QuotientType.html#609" class="Field">R</a> <a id="2223" class="Symbol"></a> <a id="2229" href="QuotientType.html#2191" class="Bound">b</a> <a id="2231" href="QuotientType.html#2199" class="Bound">d</a><a id="2232" class="Symbol">)</a> <a id="2234" class="Symbol">}</a>
+                       <a id="2259" class="Symbol">;</a> <a id="2261" href="QuotientType.html#634" class="Field">Aset</a> <a id="2266" class="Symbol">=</a> <a id="2268" href="HLevelLemmas.html#3831" class="Function">isSet-prod</a> <a id="2279" class="Symbol">(</a><a id="2280" href="QuotientType.html#634" class="Field">Aset</a> <a id="2285" class="Symbol">)</a> <a id="2292" class="Symbol">(</a><a id="2293" href="QuotientType.html#634" class="Field">Aset</a> <a id="2298" class="Symbol">)</a>
+                       <a id="2328" class="Symbol">;</a> <a id="2330" href="QuotientType.html#655" class="Field">Rprop</a> <a id="2336" class="Symbol">=</a> <a id="2338" class="Symbol">λ</a> <a id="2340" class="Symbol">{</a> <a id="2342" class="Symbol">(</a><a id="2343" href="QuotientType.html#2343" class="Bound">x</a> <a id="2345" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="2347" href="QuotientType.html#2347" class="Bound">y</a><a id="2348" class="Symbol">)</a> <a id="2350" class="Symbol">(</a><a id="2351" href="QuotientType.html#2351" class="Bound">z</a> <a id="2353" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="2355" href="QuotientType.html#2355" class="Bound">w</a><a id="2356" class="Symbol">)</a> <a id="2358" class="Symbol">→</a> <a id="2360" href="HLevelLemmas.html#3451" class="Function">isProp-prod</a> <a id="2372" class="Symbol">(</a><a id="2373" href="QuotientType.html#655" class="Field">Rprop</a> <a id="2379" class="Symbol"></a> <a id="2385" href="QuotientType.html#2343" class="Bound">x</a> <a id="2387" href="QuotientType.html#2351" class="Bound">z</a><a id="2388" class="Symbol">)</a> <a id="2390" class="Symbol">(</a><a id="2391" href="QuotientType.html#655" class="Field">Rprop</a> <a id="2397" class="Symbol"></a> <a id="2403" href="QuotientType.html#2347" class="Bound">y</a> <a id="2405" href="QuotientType.html#2355" class="Bound">w</a><a id="2406" class="Symbol">)}</a> <a id="2409" class="Symbol">}</a>
+</pre>
+
+
+  <div class="cited-references" markdown="1">
+  <ol class="bibliography"></ol>
+  </div>
+
+
+  
+  <div id="citation">
+  <h2> Citation </h2>
+  If you want to cite the content of this post,
+  we suggest to use the following latex bibtex entry.
+  This is generated automatically.
+
+  <br/>
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag =""
+       data-bibtexauthors =""
+       data-year =""
+       data-lastchecked ="2019-04-08"
+       data-originalyear =""
+       data-title ="Quotient Type"
+       data-url ="http://jonaprieto.github.io/mini-hott/pages/QuotientType.html"
+  ></pre>
+  </div>
+  
+
+  <div id="github-links">
+    <div class="view-source">
+      
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//pages/QuotientType.lagda" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//pages/QuotientType.agda" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
+      
+      <a href="http://github.com/jonaprieto/mini-hott/blob//pages/QuotientType.lagda" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="http://github.com/jonaprieto/mini-hott/edit/sources/pages/QuotientType.lagda" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="http://github.com/jonaprieto/mini-hott/commits//pages/QuotientType.lagda" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
+      <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
+      </a>
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Quotient Type - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- https://octicons.github.com/ -->
+
+
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$'],['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
+      TagSide: "left",
+      Macros: {
+        field: ['\\mathbb{#1}', 1],
+        C: ['\\field{C}'],
+        F: ['\\field{F}'],
+        N: ['\\field{N}'],
+        Q: ['\\field{Q}'],
+        R: ['\\field{R}'],
+        Z: ['\\field{Z}'],
+
+        U: ['\\mathcal{U}'],
+        to: ['\\rightarrow'],
+        zero: ['\\field{0}'],
+        one: ['\\field{1}'],
+        two: ['\\field{2}'],
+        id: ['\\mathsf{Id}'],
+
+        fun: ['\\mathsf{fun}{#1}', 1],
+
+        true: ['\\mathsf{true}'],
+        false: ['\\mathsf{false}'],
+
+        proj: ['\\mathsf{proj}'],
+
+        trans: ['\\mathsf{trans}'],
+        refl: ['\\mathsf{refl}'],
+        sym: ['\\mathsf{sym}'],
+
+        Fin:['\\mathsf{Fin}\\,'],
+        ind: ['\\mathsf{ind}'],
+        rec:['\\mathsf{rec}'],
+
+        zeros: ['\\mathbf{0}'],
+        ud: ['\\,\\mathrm{d}'],
+
+        vect:['\\boldsymbol{\\mathbf{#1}}',1],
+        abs: ['\\lvert#1\\rvert', 1],
+        abslr:['\\left\\lvert#1\\right\\rvert', 1],
+        norm: ['\\lVert#1\\rVert', 1],
+        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
+
+        lcm: ['\\mathop{\\mathrm{lcm}}'],
+        interior: ['\\mathop{\\mathrm{int}}'],
+        exterior: ['\\mathop{\\mathrm{ext}}'],
+        volume: ['\\mathop{\\mathrm{vol}}'],
+
+        E: ['{\\rm I\\kern-.3em E}'],
+        Var: ['\\mathop{\\mathrm{Var}}'],
+        Cov: ['\\mathop{\\mathrm{Cov}}'],
+        Binom: ['\\mathop{\\mathrm{Binom}}'],
+        Exp: ['\\mathop{\\mathrm{Exp}}'],
+        Poi: ['\\mathop{\\mathrm{Poi}}'],
+
+        GL: ['\\mathrm{GL}'],
+        SL: ['\\mathrm{SL}'],
+        Aut: ['\\mathrm{Aut}'],
+        ker: ['\\mathrm{ker}'],
+
+        Re: ['\\mathop{\\mathrm{Re}}'],
+        Im: ['\\mathop{\\mathrm{Im}}'],
+        Res: ['\\mathop{\\mathrm{Res}}'],
+
+        Type : ['\\mathsf{Type}\\,'],
+        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
+        Graph : ['\\mathsf{Graph}\\,'],
+        Face : ['\\mathsf{Face}\\,'],
+        Node : ['\\mathsf{Node}\\,'],
+        Edge : ['\\mathsf{Edge}\\,'],
+        Path : ['\\mathsf{Path}\\,'],
+        Walk : ['\\mathsf{Walk}\\,'],
+
+        isContr:['\\mathsf{isContr{#1}}',1],
+        isProp:['\\mathsf{isProp{#1}}',1],
+        isSet:['\\mathsf{isSet{#1}}',1],
+
+        minimize : ['\\mathsf{minimize}'],
+        maximize : ['\\mathsf{maximize}'],
+        st : ['\\mathsf{st}'],
+        and : ['\\,\\wedge\\, '],
+        or : ['\\,\\vee\\,']
+
+
+
+      }
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+
+
+
+<script>
+  // When the user scrolls the page, execute myFunction
+function stickyToogle(obj, sticky) {
+  if (window.pageYOffset > sticky) {
+    obj.classList.add("sticky");
+  } else {
+    obj.classList.remove("sticky");
+  }
+};
+
+// Get the header
+function stickyThing(idObj){
+  var obj = document.getElementById(idObj);
+  if (obj){
+    // Get the offset position of the navbar
+    stickyToogle(obj, obj.offsetTop);
+    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  }
+};
+
+window.onscroll = function() {
+  stickyThing("stickyTitle");
+};
+
+</script>
+
+
+
+      </div>
+      
+      </div>
+    </div>
+    
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+<script src="/assets/jquery.min.js"></script>
+
+
+<script src="/assets/linkify.min.js"></script>
+<script src="/assets/linkify-jquery.min.js"></script>
+
+<script type="text/javascript">
+$('.references').linkify();
+$('.bibliography').linkify();
+$('.links').linkify();
+</script>
+
+
+<script type="text/javascript">
+WebFontConfig = {
+ google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
+};
+(function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+
+<!-- FOLDABLE  -->
+<script type="text/javascript">
+ $('pre.foldable').each(function(){
+     var lineHeight = parseFloat($(this).css('line-height'));
+     var plus    = $('<div><svg height="12" class="octicon octicon-fold" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg></div>');
+     var horLine = $("<div></div>");
+     var verLine = $("<div></div>");
+     $(this).prepend(plus);
+     plus.css({
+         'position'         : 'relative',
+         'float'            : 'right',
+         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
+         'width'            : lineHeight,
+         'height'           : lineHeight
+       });
+
+     var until = parseFloat($(this).attr('until'));
+     if ( isNaN(until) ) { until= 1; }
+     if ( until <= 0 ){
+       $(this).hide();
+     }
+     else{
+       var newHeight = ((1.2 * until) + 0.7) + "rem";
+       //                               ^^^----------- for the padding
+       //                ^^-- line-height
+
+       // console.log('afuera-until: ', until);
+       // console.log('afuera-newheight: ', newHeight );
+       $(this).css("padding", "0.5rem 1rem");
+       $(this).css("overflow", "hidden");
+       $(this).css("height", newHeight);
+       $(this).attr("original", "false");
+
+       $(this).click(function(){
+
+         // console.log('dentro-original: ', $(this).attr('original') );
+         // console.log('dentro-newheight: ', newHeight );
+
+         if ( $(this).attr('original') == "true" ) {
+           $(this).css("overflow", "hidden");
+           $(this).css("height", newHeight);
+           $(this).attr("original", "false");
+           $(this).css("padding", "0.5rem 1rem");
+           // plus.show();
+         }
+         else {
+           $(this).height('auto');
+           $(this).attr("original", "true");
+           // plus.hide();
+         }
+       });
+     }
+ });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  if ( $('div').hasClass('cited-references') ){
+    $('.cited-references').append( $('.references').html() );
+    $('.references').hide();
+    $(".cited-references").prepend("<h2 id='refs'>References</h2>");
+    $(".toc nav>ul").append("<li><a href='#refs'>References</a></li>");
+  }
+</script>
+
+
+
+<script type="text/javascript">
+var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
+
+$('#citation').hide();
+$('#citation pre').each(function(){
+
+    var pre           = $(this);
+    var title         = $(this).data('title');
+    var title         = $(this).data('title');
+    var id            = $(this).data('url');
+    var year          = $(this).data('year');
+    var lastchecked   = $(this).data('lastchecked');
+    var originalyear  = $(this).data('originalyear');
+    var url           = $(this).data('url');
+
+    var bibtextag     = $(this).data('bibtextag');
+    var bibtexauthors = $(this).data('bibtexauthors');
+
+    if (bibtexauthors == ""){
+      bibtexauthors = "Prieto-Cubides, Jonathan";
+    }
+
+    if (bibtextag == "")
+    {
+      bibtextag = "Prieto-Cubides:" + lastchecked
+    }
+
+    pre.append(
+    "@online{ " + bibtextag + ",\n" +
+    "  author  = { " + bibtexauthors +" },\n" +
+    "  title   = { " + title + " },\n" +
+    "  url     = { \\url{" + url   + "} }\n" +
+    "  year    = { " + year  + " }\n" +
+    "  lastchecked  = { " + lastchecked  + " }\n" +
+    "  originalyear = { " + originalyear  + " }\n" +
+    "}\n"
+    );
+  });
+
+$('#citation').show();
+</script>
+
+
+
+
+    <!-- <script>
+      (function(document) {
+        var toggle   = document.querySelector('.sidebar-toggle');
+        var sidebar  = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          // if(!checkbox.checked ||
+          //    sidebar.contains(target) ||
+          //    (target === checkbox || target === toggle)) return;
+          //
+          if(target === toggle)
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script> -->
+
+    
+    <script src="/assets/galleryjs/lightgallery.js"></script>
+
+    <script src="/assets/galleryjs/lg-thumbnail.min.js"></script>
+    <script src="/assets/galleryjs/lg-fullscreen.min.js"></script>
+
+    <script  type="text/javascript">
+      $(document).ready(function() {
+        $('.post img').wrap(function(){
+          return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
+        });
+
+        lightGallery(document.querySelector('.post'),
+          { selector     : ".gallery"
+          // , mode         : 'slide'
+          , thumbnail    : true
+          , animateThumb: false
+          , closable     : true
+          , counter      : true
+          , enableTouch  : true
+          , enableDrag   : true
+          , showThumbByDefault   : false
+          , thumbWidth           : 90
+          , thumbMargin          : 5,
+          });
+      });
+    </script>
+    
+  </body>
+</html>

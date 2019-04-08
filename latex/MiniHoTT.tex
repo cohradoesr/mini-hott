@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Mini-HoTT"
-permalink : /everything/
 toc: true
 agda: true
 gallery: true

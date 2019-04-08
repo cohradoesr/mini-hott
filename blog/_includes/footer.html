@@ -1,0 +1,151 @@
+
+<script src="{{ site.baseurl }}/assets/jquery.min.js"></script>
+
+{% if page.linkify %}
+<script src="{{ site.baseurl }}/assets/linkify.min.js"></script>
+<script src="{{ site.baseurl }}/assets/linkify-jquery.min.js"></script>
+
+<script type="text/javascript">
+$('.references').linkify();
+$('.bibliography').linkify();
+$('.links').linkify();
+</script>
+{% endif %}
+
+<script type="text/javascript">
+WebFontConfig = {
+ google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
+};
+(function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+{% if page.agda %}
+<!-- FOLDABLE  -->
+<script type="text/javascript">
+ $('pre.foldable').each(function(){
+     var lineHeight = parseFloat($(this).css('line-height'));
+     var plus    = $('<div>{% octicon fold height:12 %}</div>');
+     var horLine = $("<div></div>");
+     var verLine = $("<div></div>");
+     $(this).prepend(plus);
+     plus.css({
+         'position'         : 'relative',
+         'float'            : 'right',
+         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
+         'width'            : lineHeight,
+         'height'           : lineHeight
+       });
+
+     var until = parseFloat($(this).attr('until'));
+     if ( isNaN(until) ) { until= 1; }
+     if ( until <= 0 ){
+       $(this).hide();
+     }
+     else{
+       var newHeight = ((1.2 * until) + 0.7) + "rem";
+       //                               ^^^----------- for the padding
+       //                ^^-- line-height
+
+       // console.log('afuera-until: ', until);
+       // console.log('afuera-newheight: ', newHeight );
+       $(this).css("padding", "0.5rem 1rem");
+       $(this).css("overflow", "hidden");
+       $(this).css("height", newHeight);
+       $(this).attr("original", "false");
+
+       $(this).click(function(){
+
+         // console.log('dentro-original: ', $(this).attr('original') );
+         // console.log('dentro-newheight: ', newHeight );
+
+         if ( $(this).attr('original') == "true" ) {
+           $(this).css("overflow", "hidden");
+           $(this).css("height", newHeight);
+           $(this).attr("original", "false");
+           $(this).css("padding", "0.5rem 1rem");
+           // plus.show();
+         }
+         else {
+           $(this).height('auto');
+           $(this).attr("original", "true");
+           // plus.hide();
+         }
+       });
+     }
+ });
+</script>
+{% endif %}
+
+{% if page.algolia %}
+<script type="text/javascript">
+// moment(moment(modifiedDate).format('YYYYMMDD')).fromNow();
+$('.algolia-modified a').map(
+  function(){
+    var modifiedDate = $(this).text();
+    $(this).text(moment(moment(modifiedDate).format('YYYYMMDD')).fromNow());
+  }
+);
+</script>
+{% endif %}
+
+
+{% if page.references %}
+<script type="text/javascript">
+  if ( $('div').hasClass('cited-references') ){
+    $('.cited-references').append( $('.references').html() );
+    $('.references').hide();
+    $(".cited-references").prepend("<h2 id='refs'>References</h2>");
+    $(".toc nav>ul").append("<li><a href='#refs'>References</a></li>");
+  }
+</script>
+{% endif %}
+
+{% if page.showcitation %}
+<script type="text/javascript">
+var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
+
+$('#citation').hide();
+$('#citation pre').each(function(){
+
+    var pre           = $(this);
+    var title         = $(this).data('title');
+    var title         = $(this).data('title');
+    var id            = $(this).data('url');
+    var year          = $(this).data('year');
+    var lastchecked   = $(this).data('lastchecked');
+    var originalyear  = $(this).data('originalyear');
+    var url           = $(this).data('url');
+
+    var bibtextag     = $(this).data('bibtextag');
+    var bibtexauthors = $(this).data('bibtexauthors');
+
+    if (bibtexauthors == ""){
+      bibtexauthors = "Prieto-Cubides, Jonathan";
+    }
+
+    if (bibtextag == "")
+    {
+      bibtextag = "Prieto-Cubides:" + lastchecked
+    }
+
+    pre.append(
+    "@online{ " + bibtextag + ",\n" +
+    "  author  = { " + bibtexauthors +" },\n" +
+    "  title   = { " + title + " },\n" +
+    "  url     = { \\url{" + url   + "} }\n" +
+    "  year    = { " + year  + " }\n" +
+    "  lastchecked  = { " + lastchecked  + " }\n" +
+    "  originalyear = { " + originalyear  + " }\n" +
+    "}\n"
+    );
+  });
+
+$('#citation').show();
+</script>
+
+{% endif %}

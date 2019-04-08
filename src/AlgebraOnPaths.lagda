@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Algebra On Paths"
-permalink : /algebra-on-paths/
 category: lemmas functions
 toc: true
 agda: true

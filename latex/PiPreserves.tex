@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Pi preserves equivalence"
-permalink : /pi-preserves/
 category: lemmas functions homotopy
 toc: true
 agda: true

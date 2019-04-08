@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Hedberg Lemmas"
-permalink : /hedberg-lemmas/
 toc: true
 agda: true
 gallery: true

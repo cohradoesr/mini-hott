@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Suspension Type"
-permalink : /suspension-type/
 toc: true
 agda: true
 gallery: true

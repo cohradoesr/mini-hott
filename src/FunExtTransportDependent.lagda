@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Function extensionality and transporting dependent functions "
-permalink : /funext-transport-dependent/
 category: lemmas functions homotopy transport
 toc: true
 agda: true

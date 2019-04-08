@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Quasiinverse Type"
-permalink : /quasiinverse-type/
 category: homotopy
 toc: true
 agda: true

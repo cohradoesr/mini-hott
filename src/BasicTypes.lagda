@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Basic Types"
-permalink : /basic-types/
 category: types
 toc: true
 agda: true

@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Basic Functions"
-permalink : /basic-functions/
 category: functions
 toc: true
 agda: true

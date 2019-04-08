@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Introduction"
-permalink : /intro/
 toc: true
 agda: true
 gallery: true

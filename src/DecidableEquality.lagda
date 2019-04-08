@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Decidable Equality"
-permalink : /decidable-equality/
 category: lemmas functions homotopy
 toc: true
 agda: true

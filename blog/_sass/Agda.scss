@@ -1,0 +1,57 @@
+/* Agda. */
+.Agda {
+    // padding: .4em .4em;
+    background: #f0f8ff;
+    border: 1px solid #f0f0f0;
+    border-radius: 5px;
+    font-family: Menlo, Source Code Pro, Consolas, Monaco, Lucida Console, Liberation Mono, DejaVu Sans Mono, Bitstream Vera Sans Mono, Courier New, monospace, serif;
+    font-size: .75em;
+    font-weight: 500;
+   }
+
+.Spec {
+    border: 1px dashed hsl(208,71%,71%) !important;
+  }
+
+/* Aspects. */
+.Comment       { color: lighten(#82827c,5%); font-style: italic; }
+.Keyword       { color: #6D508B; font-weight: 500; }
+.String        { color: #BF516B; }
+.Number        { color: #2F8FB2; }
+.Symbol        { color: #990073; font-weight: 450; }
+.PrimitiveType { color: #574EA4; }
+.Operator      { color: #3F6260; font-weight: 600;}
+
+/* NameKinds. */
+.Bound                  { color: #515151; }
+
+.InductiveConstructor   { color: lighten(#3F6260,5%); font-weight: 500;}
+.CoinductiveConstructor { color: lighten(#3F6260,5%); font-weight: 500;}
+
+.Datatype               { color: #574EA4; font-weight: 600; }
+.Datatype.Operator      { color: #574EA4; font-weight: 600; }
+
+.Record                 { color: #574EA4; }
+.Record.Operator        { color: #574EA4; font-weight: 600; }
+.Field                  { color: darken(#2F8FB2, 10%); }
+
+.Function               { color: #574EA4; font-weight: 600;}
+.Function.Operator      { color: #574EA4; font-weight: 600;}
+
+.Module                 { color: #C1418B; font-weight: 400;}
+.Postulate              { color: #642969; }
+.Primitive              { color: #7F449A; }
+
+
+/* OtherAspects. */
+.DottedPattern      { color: #927295; }
+.UnsolvedMeta       { color: gray; background: yellow;        }
+.UnsolvedConstraint { color: gray; background: yellow;        }
+.TerminationProblem { color: gray; background: #FB9E54;        }
+.IncompletePattern  { color: gray; background: #F5DEB3;        }
+.Error              { color: #a61717;  background: #e3d2d2; text-decoration: underline }
+.TypeChecks         { color: gray; background: #ADD8E6;        }
+
+/* Standard attributes. */
+.Agda a { text-decoration: none }
+.Agda a[href]:hover { background-color: #B4EEB4; }

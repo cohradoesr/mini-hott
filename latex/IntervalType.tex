@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Interval Type"
-permalink : /interval-type/
 toc: true
 agda: true
 gallery: true

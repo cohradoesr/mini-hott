@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Axiom of Univalence"
-permalink : /ua/
 category: lemmas functions homotopy
 toc: true
 agda: true

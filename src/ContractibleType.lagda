@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Contractible Type"
-permalink : /contractible-type/
 toc: true
 agda: true
 gallery: true

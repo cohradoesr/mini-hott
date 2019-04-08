@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "H-Levels Lemmas"
-permalink : /hlevels-lemmas/
 category: types lemmas
 toc: true
 agda: true

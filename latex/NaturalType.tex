@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Natural number Type"
-permalink : /quotient-type/
 toc: true
 agda: true
 gallery: true

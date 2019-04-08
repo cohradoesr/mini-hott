@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Function extensionality"
-permalink : /funext/
 category: lemmas functions homotopy
 toc: true
 agda: true

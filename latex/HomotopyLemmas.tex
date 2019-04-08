@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Homotopy Lemmas"
-permalink : /homotopy-lemmas/
 category: lemmas functions homotopy
 toc: true
 agda: true

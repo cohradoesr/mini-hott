@@ -1,0 +1,109 @@
+{% if page.latex %}
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$'],['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
+      TagSide: "left",
+      Macros: {
+        field: ['\\mathbb{#1}', 1],
+        C: ['\\field{C}'],
+        F: ['\\field{F}'],
+        N: ['\\field{N}'],
+        Q: ['\\field{Q}'],
+        R: ['\\field{R}'],
+        Z: ['\\field{Z}'],
+
+        U: ['\\mathcal{U}'],
+        to: ['\\rightarrow'],
+        zero: ['\\field{0}'],
+        one: ['\\field{1}'],
+        two: ['\\field{2}'],
+        id: ['\\mathsf{Id}'],
+
+        fun: ['\\mathsf{fun}{#1}', 1],
+
+        true: ['\\mathsf{true}'],
+        false: ['\\mathsf{false}'],
+
+        proj: ['\\mathsf{proj}'],
+
+        trans: ['\\mathsf{trans}'],
+        refl: ['\\mathsf{refl}'],
+        sym: ['\\mathsf{sym}'],
+
+        Fin:['\\mathsf{Fin}\\,'],
+        ind: ['\\mathsf{ind}'],
+        rec:['\\mathsf{rec}'],
+
+        zeros: ['\\mathbf{0}'],
+        ud: ['\\,\\mathrm{d}'],
+
+        vect:['\\boldsymbol{\\mathbf{#1}}',1],
+        abs: ['\\lvert#1\\rvert', 1],
+        abslr:['\\left\\lvert#1\\right\\rvert', 1],
+        norm: ['\\lVert#1\\rVert', 1],
+        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
+
+        lcm: ['\\mathop{\\mathrm{lcm}}'],
+        interior: ['\\mathop{\\mathrm{int}}'],
+        exterior: ['\\mathop{\\mathrm{ext}}'],
+        volume: ['\\mathop{\\mathrm{vol}}'],
+
+        E: ['{\\rm I\\kern-.3em E}'],
+        Var: ['\\mathop{\\mathrm{Var}}'],
+        Cov: ['\\mathop{\\mathrm{Cov}}'],
+        Binom: ['\\mathop{\\mathrm{Binom}}'],
+        Exp: ['\\mathop{\\mathrm{Exp}}'],
+        Poi: ['\\mathop{\\mathrm{Poi}}'],
+
+        GL: ['\\mathrm{GL}'],
+        SL: ['\\mathrm{SL}'],
+        Aut: ['\\mathrm{Aut}'],
+        ker: ['\\mathrm{ker}'],
+
+        Re: ['\\mathop{\\mathrm{Re}}'],
+        Im: ['\\mathop{\\mathrm{Im}}'],
+        Res: ['\\mathop{\\mathrm{Res}}'],
+
+        Type : ['\\mathsf{Type}\\,'],
+        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
+        Graph : ['\\mathsf{Graph}\\,'],
+        Face : ['\\mathsf{Face}\\,'],
+        Node : ['\\mathsf{Node}\\,'],
+        Edge : ['\\mathsf{Edge}\\,'],
+        Path : ['\\mathsf{Path}\\,'],
+        Walk : ['\\mathsf{Walk}\\,'],
+
+        isContr:['\\mathsf{isContr{#1}}',1],
+        isProp:['\\mathsf{isProp{#1}}',1],
+        isSet:['\\mathsf{isSet{#1}}',1],
+
+        minimize : ['\\mathsf{minimize}'],
+        maximize : ['\\mathsf{maximize}'],
+        st : ['\\mathsf{st}'],
+        and : ['\\,\\wedge\\, '],
+        or : ['\\,\\vee\\,']
+
+
+
+      }
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+{% endif %}

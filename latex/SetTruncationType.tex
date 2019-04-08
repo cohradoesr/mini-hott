@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Set Truncation Type"
-permalink : /set-truncation-type/
 toc: true
 agda: true
 gallery: true

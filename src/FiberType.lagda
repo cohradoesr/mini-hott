@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Fiber Type"
-permalink : /fiber-type/
 toc: true
 agda: true
 gallery: true

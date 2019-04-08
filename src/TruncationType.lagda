@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Truncation Type"
-permalink : /truncation-type/
 toc: true
 agda: true
 gallery: true

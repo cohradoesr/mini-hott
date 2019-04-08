@@ -1,0 +1,82 @@
+# Setup
+repository:          'jonaprieto/mini-hott'
+title:               'Mini-HoTT'
+tagline:             ''
+description:         'Jonathan Prieto-Cubides'
+url:                 'http://jonaprieto.github.io/mini-hott'
+baseurl:             ''
+timezone:            'Europe/Oslo'
+# paginate:            100
+
+# permalink: /:title/
+
+affiliation: 'University of Bergen'
+email:  'jonathan.cubides@uib.no'
+
+highlighter: pygments
+gist:
+  noscript: false
+
+markdown: kramdown
+# kramdown:
+  # parse_block_html: true
+excerpt_separator: "\n\n"
+
+# permalink: pretty
+
+plugins_dir: _plugins
+
+scholar:
+  style: apa
+  bibliography: ref.bib
+  source: ./_bibliography
+  locale: en
+  sort_by: 'year,month'
+  order: 'descending'
+  use_raw_bibtex_entry: true
+
+
+destination: ./../docs  
+
+exclude:
+  - _src
+  - Gemfile
+  - Gemfile.lock
+  - Makefile
+  - .travis.yml
+  - fix-references.sh
+  - package.json
+  - package-lock.json
+  - gulpfile.js
+  - node_modules
+
+include:
+  - .nojekyll
+
+future: true
+
+defaults:
+  -
+    scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "page"
+      author: "Jonathan Prieto-Cubides"
+      toc: true
+      agda: true
+      gallery: true
+      latex: true
+      linkify: true
+      home: true
+...
+
+# ----------------------------------------------------------------------------
+
+# About/contact
+author:
+  name:              Jonathan Prieto-Cubides
+  url:               https://github.com/jonaprieto
+  email:             jonathan.cubides@uib.no
+
+version:             0.0.1

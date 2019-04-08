@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Equivalence reasoning"
-permalink : /equivalence-reasoning/
 category: functions
 toc: true
 agda: true

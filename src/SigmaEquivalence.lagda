@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Sigma Equivalence"
-permalink : /sigma-equivalence/
 category: lemmas functions homotopy
 toc: true
 agda: true

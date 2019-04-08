@@ -1,7 +1,6 @@
 ---
 layout: page
 title: "Relation Type"
-permalink : /quotient-type/
 toc: true
 agda: true
 gallery: true
