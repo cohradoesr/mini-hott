@@ -13,7 +13,7 @@ home: true
 ---
 
 <div class="hide" >
-\begin{code}
+\begin{code} %latex:prop
 {-# OPTIONS --without-K #-}
 open import EqualityType public
 \end{code}

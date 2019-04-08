@@ -9,6 +9,7 @@ iimgpng := $(subst images/,docs/assets/ipe-images/,$(subst .ipe,.png,$(iimages))
 
 all:
 	- @make mini-hott.tex
+	- python3 extractblocks.py
 	- @make docs-build
 	- @mkdir -p docs/agda
 	- @mkdir -p docs/assets/ipe-images
@@ -21,7 +22,7 @@ statics: $(md) $(rawagda) $(iimgpng)
 mini-hott.tex: $(latex)
 	- @rm -f mini-hott.tex
 	- @for filename in latex/*.tex;do\
-			echo "\input{\\minihottpath/$$filename}" >> mini-hott.tex;\
+			echo "\input{\\MiniHoTTPath/$$filename}" >> mini-hott.tex;\
 		done
 
 # I'm planning to use Agda definitions on my articles from this library, so\
