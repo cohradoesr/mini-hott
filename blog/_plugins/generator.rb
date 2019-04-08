@@ -3,7 +3,6 @@ require 'pathname'
 
 module Jekyll
   module GitMetadata
-    warn "jonaprieto's blog".yellow + "!"
     class Generator < Jekyll::Generator
 
       # safe true

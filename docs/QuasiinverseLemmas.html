@@ -1,0 +1,932 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+      
+        Quasiinverse Type |
+      
+        Mini-HoTT
+    
+  </title><!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Quasiinverse Type" />
+<meta name="author" content="Jonathan Prieto-Cubides" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Jonathan Prieto-Cubides" />
+<meta property="og:description" content="Jonathan Prieto-Cubides" />
+<link rel="canonical" href="http://jonaprieto.github.io/mini-hott/QuasiinverseLemmas.html" />
+<meta property="og:url" content="http://jonaprieto.github.io/mini-hott/QuasiinverseLemmas.html" />
+<meta property="og:site_name" content="Mini-HoTT" />
+<script type="application/ld+json">
+{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/QuasiinverseLemmas.html","headline":"Quasiinverse Type","dateModified":"2019-04-08T20:54:34+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="description" content="Jonathan Prieto-Cubides">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="preload" as="script" href="/assets/main.js" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114360791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114360791-1');
+  </script>
+
+  
+</head>
+
+
+
+
+  <body>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item" >
+    <p style="text-decoration:left">Quasiinverse Type</p>
+  </div>
+  <nav class="sidebar-nav">
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+  <li class="sidebar-toc-item"><a href="#equivalence-composition" class="sidebar-nav-item">Equivalence composition</a></li>
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+</ul>
+
+
+    <!--  -->
+    <!-- 
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/all/">All</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.html">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.html">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.html">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ContractibleType.html">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.html">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.html">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.html">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FiberType.html">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.html">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.html">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.html">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.html">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.html">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.html">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.html">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.html">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.html">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EqualityType.html">Identity type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.html">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/references/">List of references</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/NaturalType.html">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.html">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/QuasiinverseLemmas.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.html">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaEquivalence.html">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma preserves</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.html">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Transport.html">Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.html">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
+        
+      
+     -->
+
+    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
+    <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
+    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
+    <!-- <span class="sidebar-nav-item">Currently v</span> -->
+  </nav>
+</div>
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
+            <a href="/" title="Home">Mini-HoTT</a>
+            <small style="text-decoration:left"></small>
+          </h3>
+        </div>
+      
+      <div class="container content">
+        
+
+
+
+
+
+
+
+<div class="post">
+
+  <div class="print-version">
+    <center>
+      <h1>Quasiinverse Type</h1><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                
+                  Jonathan Prieto-Cubides
+                
+              </div>
+              <div class="print-author-affiliation">
+                
+                  University of Bergen
+                
+                </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="print-date"></div>
+        
+        
+    </center>
+  </div>
+
+  
+  No git information available.
+  
+  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Quasiinverse Type
+  </h1>
+
+  <!-- 
+  <div class="toc">
+    <nav>
+    <h2 class="table-of-contents"> Table of Contents </h2>
+      <ul>
+  <li><a href="#equivalence-composition">Equivalence composition</a></li>
+</ul>
+
+    </nav>
+  </div>
+   -->
+
+  <noscript>
+  <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
+  </noscript>
+
+  <p>Two functions are quasi-inverses if we can construct a function providing
+<code>(g ∘ f) x = x</code> and <code>(f ∘ g) y = y</code> for any given <code>x</code> and <code>y</code>.</p>
+
+<div class="hide">
+<pre class="Agda">
+<a id="348" class="Symbol">{-#</a> <a id="352" class="Keyword">OPTIONS</a> <a id="360" class="Pragma">--without-K</a> <a id="372" class="Symbol">#-}</a>
+<a id="376" class="Keyword">open</a> <a id="381" class="Keyword">import</a> <a id="388" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="404" class="Keyword">open</a> <a id="409" class="Keyword">import</a> <a id="416" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+
+<a id="433" class="Keyword">open</a> <a id="438" class="Keyword">import</a> <a id="445" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="458" class="Keyword">open</a> <a id="463" class="Keyword">import</a> <a id="470" href="HomotopyLemmas.html" class="Module">HomotopyLemmas</a>
+
+<a id="486" class="Keyword">open</a> <a id="491" class="Keyword">import</a> <a id="498" href="ContractibleType.html" class="Module">ContractibleType</a>
+<a id="515" class="Keyword">open</a> <a id="520" class="Keyword">import</a> <a id="527" href="QuasiinverseType.html" class="Module">QuasiinverseType</a>
+</pre>
+</div>
+
+<h2 id="equivalence-composition">Equivalence composition</h2>
+
+<pre class="Agda">
+<a id="604" class="Keyword">module</a> <a id="611" href="QuasiinverseLemmas.html" class="Module">QuasiinverseLemmas</a> <a id="630" class="Keyword">where</a>
+</pre>
+
+<p>The equivalence types are indeed equivalence</p>
+
+<pre class="Agda foldable" until="7">
+  <a id="734" class="Comment">-- Composition of quasiinverses</a>
+  <a id="qinv-comp"></a><a id="768" href="QuasiinverseLemmas.html#768" class="Function">qinv-comp</a>
+    <a id="782" class="Symbol">:</a> <a id="784" class="Symbol">∀</a> <a id="786" class="Symbol">{</a><a id="787" href="QuasiinverseLemmas.html#787" class="Bound">ℓ₁</a> <a id="790" href="QuasiinverseLemmas.html#790" class="Bound">ℓ₂</a> <a id="793" href="QuasiinverseLemmas.html#793" class="Bound">ℓ₃</a><a id="795" class="Symbol">}</a> <a id="797" class="Symbol">{</a><a id="798" href="QuasiinverseLemmas.html#798" class="Bound">A</a> <a id="800" class="Symbol">:</a> <a id="802" href="Intro.html#1442" class="Function">Type</a> <a id="807" href="QuasiinverseLemmas.html#787" class="Bound">ℓ₁</a><a id="809" class="Symbol">}{</a><a id="811" href="QuasiinverseLemmas.html#811" class="Bound">B</a> <a id="813" class="Symbol">:</a> <a id="815" href="Intro.html#1442" class="Function">Type</a> <a id="820" href="QuasiinverseLemmas.html#790" class="Bound">ℓ₂</a><a id="822" class="Symbol">}{</a><a id="824" href="QuasiinverseLemmas.html#824" class="Bound">C</a> <a id="826" class="Symbol">:</a> <a id="828" href="Intro.html#1442" class="Function">Type</a> <a id="833" href="QuasiinverseLemmas.html#793" class="Bound">ℓ₃</a><a id="835" class="Symbol">}</a>
+    <a id="841" class="Symbol">→</a> <a id="843" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="845" class="Symbol">(</a><a id="846" href="QuasiinverseLemmas.html#798" class="Bound">A</a> <a id="848" class="Symbol">→</a> <a id="850" href="QuasiinverseLemmas.html#811" class="Bound">B</a><a id="851" class="Symbol">)</a> <a id="853" href="QuasiinverseType.html#732" class="Function">qinv</a>
+    <a id="862" class="Symbol">→</a> <a id="864" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="866" class="Symbol">(</a><a id="867" href="QuasiinverseLemmas.html#811" class="Bound">B</a> <a id="869" class="Symbol">→</a> <a id="871" href="QuasiinverseLemmas.html#824" class="Bound">C</a><a id="872" class="Symbol">)</a> <a id="874" href="QuasiinverseType.html#732" class="Function">qinv</a>
+    <a id="883" class="Comment">----------------</a>
+    <a id="904" class="Symbol">→</a> <a id="906" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="908" class="Symbol">(</a><a id="909" href="QuasiinverseLemmas.html#798" class="Bound">A</a> <a id="911" class="Symbol">→</a> <a id="913" href="QuasiinverseLemmas.html#824" class="Bound">C</a><a id="914" class="Symbol">)</a> <a id="916" href="QuasiinverseType.html#732" class="Function">qinv</a>
+
+  <a id="924" href="QuasiinverseLemmas.html#768" class="Function">qinv-comp</a> <a id="934" class="Symbol">(</a><a id="935" href="QuasiinverseLemmas.html#935" class="Bound">f</a> <a id="937" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="939" class="Symbol">(</a><a id="940" href="QuasiinverseLemmas.html#940" class="Bound">if</a> <a id="943" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="945" class="Symbol">(</a><a id="946" href="QuasiinverseLemmas.html#946" class="Bound">εf</a> <a id="949" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="951" href="QuasiinverseLemmas.html#951" class="Bound">ηf</a><a id="953" class="Symbol">)))</a> <a id="957" class="Symbol">(</a><a id="958" href="QuasiinverseLemmas.html#958" class="Bound">g</a> <a id="960" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="962" class="Symbol">(</a><a id="963" href="QuasiinverseLemmas.html#963" class="Bound">ig</a> <a id="966" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="968" class="Symbol">(</a><a id="969" href="QuasiinverseLemmas.html#969" class="Bound">εg</a> <a id="972" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="974" href="QuasiinverseLemmas.html#974" class="Bound">ηg</a><a id="976" class="Symbol">)))</a> <a id="980" class="Symbol">=</a> <a id="982" class="Symbol">(</a><a id="983" href="QuasiinverseLemmas.html#958" class="Bound">g</a> <a id="985" href="BasicFunctions.html#910" class="Function Operator">∘</a> <a id="987" href="QuasiinverseLemmas.html#935" class="Bound">f</a><a id="988" class="Symbol">)</a> <a id="990" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="992" class="Symbol">((</a><a id="994" href="QuasiinverseLemmas.html#940" class="Bound">if</a> <a id="997" href="BasicFunctions.html#910" class="Function Operator">∘</a> <a id="999" href="QuasiinverseLemmas.html#963" class="Bound">ig</a><a id="1001" class="Symbol">)</a> <a id="1003" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a>
+     <a id="1010" class="Symbol">(</a> <a id="1012" class="Symbol">(λ</a> <a id="1015" href="QuasiinverseLemmas.html#1015" class="Bound">x</a> <a id="1017" class="Symbol">→</a> <a id="1019" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="1022" href="QuasiinverseLemmas.html#958" class="Bound">g</a> <a id="1024" class="Symbol">(</a><a id="1025" href="QuasiinverseLemmas.html#946" class="Bound">εf</a> <a id="1028" class="Symbol">(</a><a id="1029" href="QuasiinverseLemmas.html#963" class="Bound">ig</a> <a id="1032" href="QuasiinverseLemmas.html#1015" class="Bound">x</a><a id="1033" class="Symbol">))</a> <a id="1036" href="EqualityType.html#2151" class="Function Operator">·</a> <a id="1038" href="QuasiinverseLemmas.html#969" class="Bound">εg</a> <a id="1041" href="QuasiinverseLemmas.html#1015" class="Bound">x</a><a id="1042" class="Symbol">)</a>
+     <a id="1049" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a>  <a id="1052" class="Symbol">λ</a> <a id="1054" href="QuasiinverseLemmas.html#1054" class="Bound">x</a> <a id="1056" class="Symbol">→</a> <a id="1058" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="1061" href="QuasiinverseLemmas.html#940" class="Bound">if</a> <a id="1064" class="Symbol">(</a><a id="1065" href="QuasiinverseLemmas.html#974" class="Bound">ηg</a> <a id="1068" class="Symbol">(</a><a id="1069" href="QuasiinverseLemmas.html#935" class="Bound">f</a> <a id="1071" href="QuasiinverseLemmas.html#1054" class="Bound">x</a><a id="1072" class="Symbol">))</a> <a id="1075" href="EqualityType.html#2151" class="Function Operator">·</a> <a id="1077" href="QuasiinverseLemmas.html#951" class="Bound">ηf</a> <a id="1080" href="QuasiinverseLemmas.html#1054" class="Bound">x</a><a id="1081" class="Symbol">))</a>
+</pre>
+
+<pre class="Agda foldable" until="6">
+  <a id="1136" class="Comment">-- Lemma.</a>
+  <a id="qinv-inv"></a><a id="1148" href="QuasiinverseLemmas.html#1148" class="Function">qinv-inv</a>
+    <a id="1161" class="Symbol">:</a> <a id="1163" class="Symbol">∀</a> <a id="1165" class="Symbol">{</a><a id="1166" href="QuasiinverseLemmas.html#1166" class="Bound">ℓ₁</a> <a id="1169" href="QuasiinverseLemmas.html#1169" class="Bound">ℓ₂</a><a id="1171" class="Symbol">}</a> <a id="1173" class="Symbol">{</a><a id="1174" href="QuasiinverseLemmas.html#1174" class="Bound">A</a> <a id="1176" class="Symbol">:</a> <a id="1178" href="Intro.html#1442" class="Function">Type</a> <a id="1183" href="QuasiinverseLemmas.html#1166" class="Bound">ℓ₁</a><a id="1185" class="Symbol">}{</a><a id="1187" href="QuasiinverseLemmas.html#1187" class="Bound">B</a> <a id="1189" class="Symbol">:</a> <a id="1191" href="Intro.html#1442" class="Function">Type</a> <a id="1196" href="QuasiinverseLemmas.html#1169" class="Bound">ℓ₂</a><a id="1198" class="Symbol">}</a>
+    <a id="1204" class="Symbol">→</a> <a id="1206" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="1208" class="Symbol">(</a><a id="1209" href="QuasiinverseLemmas.html#1174" class="Bound">A</a> <a id="1211" class="Symbol">→</a> <a id="1213" href="QuasiinverseLemmas.html#1187" class="Bound">B</a><a id="1214" class="Symbol">)</a> <a id="1216" href="QuasiinverseType.html#732" class="Function">qinv</a>
+    <a id="1225" class="Comment">----------------</a>
+    <a id="1246" class="Symbol">→</a> <a id="1248" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="1250" class="Symbol">(</a><a id="1251" href="QuasiinverseLemmas.html#1187" class="Bound">B</a> <a id="1253" class="Symbol">→</a> <a id="1255" href="QuasiinverseLemmas.html#1174" class="Bound">A</a><a id="1256" class="Symbol">)</a> <a id="1258" href="QuasiinverseType.html#732" class="Function">qinv</a>
+
+  <a id="1266" href="QuasiinverseLemmas.html#1148" class="Function">qinv-inv</a> <a id="1275" class="Symbol">(</a><a id="1276" href="QuasiinverseLemmas.html#1276" class="Bound">f</a> <a id="1278" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1280" class="Symbol">(</a><a id="1281" href="QuasiinverseLemmas.html#1281" class="Bound">g</a> <a id="1283" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1285" class="Symbol">(</a><a id="1286" href="QuasiinverseLemmas.html#1286" class="Bound">ε</a> <a id="1288" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1290" href="QuasiinverseLemmas.html#1290" class="Bound">η</a><a id="1291" class="Symbol">)))</a> <a id="1295" class="Symbol">=</a> <a id="1297" href="QuasiinverseLemmas.html#1281" class="Bound">g</a> <a id="1299" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1301" class="Symbol">(</a><a id="1302" href="QuasiinverseLemmas.html#1276" class="Bound">f</a> <a id="1304" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1306" class="Symbol">(</a><a id="1307" href="QuasiinverseLemmas.html#1290" class="Bound">η</a> <a id="1309" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1311" href="QuasiinverseLemmas.html#1286" class="Bound">ε</a><a id="1312" class="Symbol">))</a>
+</pre>
+
+<p>Equivalence types are equivalence relations.</p>
+
+<pre class="Agda foldable" until="4">
+  <a id="idEqv"></a><a id="1413" href="QuasiinverseLemmas.html#1413" class="Function">idEqv</a>
+    <a id="1423" class="Symbol">:</a> <a id="1425" class="Symbol">∀</a> <a id="1427" class="Symbol">{</a><a id="1428" href="QuasiinverseLemmas.html#1428" class="Bound">ℓ</a><a id="1429" class="Symbol">}</a> <a id="1431" class="Symbol">{</a><a id="1432" href="QuasiinverseLemmas.html#1432" class="Bound">A</a> <a id="1434" class="Symbol">:</a> <a id="1436" href="Intro.html#1442" class="Function">Type</a> <a id="1441" href="QuasiinverseLemmas.html#1428" class="Bound">ℓ</a><a id="1442" class="Symbol">}</a>
+    <a id="1448" class="Comment">-------</a>
+    <a id="1460" class="Symbol">→</a> <a id="1462" href="QuasiinverseLemmas.html#1432" class="Bound">A</a> <a id="1464" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="1466" href="QuasiinverseLemmas.html#1432" class="Bound">A</a>
+
+  <a id="1471" href="QuasiinverseLemmas.html#1413" class="Function">idEqv</a> <a id="1477" class="Symbol">=</a> <a id="1479" href="BasicFunctions.html#364" class="Function">id</a> <a id="1482" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1484" class="Symbol">λ</a> <a id="1486" href="QuasiinverseLemmas.html#1486" class="Bound">a</a> <a id="1488" class="Symbol">→</a> <a id="1490" class="Symbol">(</a><a id="1491" href="QuasiinverseLemmas.html#1486" class="Bound">a</a> <a id="1493" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1495" href="EqualityType.html#1111" class="Function">refl</a> <a id="1500" href="QuasiinverseLemmas.html#1486" class="Bound">a</a><a id="1501" class="Symbol">)</a> <a id="1503" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1505" class="Symbol">λ</a> <a id="1507" class="Symbol">{</a> <a id="1509" class="Symbol">(_</a> <a id="1512" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1514" href="EqualityType.html#985" class="InductiveConstructor">idp</a><a id="1517" class="Symbol">)</a> <a id="1519" class="Symbol">→</a> <a id="1521" href="EqualityType.html#1111" class="Function">refl</a> <a id="1526" class="Symbol">(</a><a id="1527" href="QuasiinverseLemmas.html#1486" class="Bound">a</a> <a id="1529" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1531" href="EqualityType.html#1111" class="Function">refl</a> <a id="1536" href="QuasiinverseLemmas.html#1486" class="Bound">a</a><a id="1537" class="Symbol">)</a> <a id="1539" class="Symbol">}</a>
+
+  <a id="1544" class="Comment">-- Synonyms</a>
+  <a id="≃-refl"></a><a id="1558" href="QuasiinverseLemmas.html#1558" class="Function">≃-refl</a> <a id="1565" class="Symbol">=</a> <a id="1567" href="QuasiinverseLemmas.html#1413" class="Function">idEqv</a>
+  <a id="A≃A"></a><a id="1575" href="QuasiinverseLemmas.html#1575" class="Function">A≃A</a>    <a id="1582" class="Symbol">=</a> <a id="1584" href="QuasiinverseLemmas.html#1413" class="Function">idEqv</a>
+</pre>
+
+<pre class="Agda foldable" until="7">
+  <a id="1641" class="Comment">-- Lemma.</a>
+  <a id="≃-trans"></a><a id="1653" href="QuasiinverseLemmas.html#1653" class="Function">≃-trans</a>
+    <a id="1665" class="Symbol">:</a> <a id="1667" class="Symbol">∀</a> <a id="1669" class="Symbol">{</a><a id="1670" href="QuasiinverseLemmas.html#1670" class="Bound">ℓ₁</a> <a id="1673" href="QuasiinverseLemmas.html#1673" class="Bound">ℓ₂</a> <a id="1676" href="QuasiinverseLemmas.html#1676" class="Bound">ℓ₃</a><a id="1678" class="Symbol">}</a> <a id="1680" class="Symbol">{</a><a id="1681" href="QuasiinverseLemmas.html#1681" class="Bound">A</a> <a id="1683" class="Symbol">:</a> <a id="1685" href="Intro.html#1442" class="Function">Type</a> <a id="1690" href="QuasiinverseLemmas.html#1670" class="Bound">ℓ₁</a><a id="1692" class="Symbol">}{</a><a id="1694" href="QuasiinverseLemmas.html#1694" class="Bound">B</a> <a id="1696" class="Symbol">:</a> <a id="1698" href="Intro.html#1442" class="Function">Type</a> <a id="1703" href="QuasiinverseLemmas.html#1673" class="Bound">ℓ₂</a><a id="1705" class="Symbol">}{</a><a id="1707" href="QuasiinverseLemmas.html#1707" class="Bound">C</a> <a id="1709" class="Symbol">:</a> <a id="1711" href="Intro.html#1442" class="Function">Type</a> <a id="1716" href="QuasiinverseLemmas.html#1676" class="Bound">ℓ₃</a><a id="1718" class="Symbol">}</a>
+    <a id="1724" class="Symbol">→</a> <a id="1726" href="QuasiinverseLemmas.html#1681" class="Bound">A</a> <a id="1728" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="1730" href="QuasiinverseLemmas.html#1694" class="Bound">B</a>
+    <a id="1736" class="Symbol">→</a> <a id="1738" href="QuasiinverseLemmas.html#1694" class="Bound">B</a> <a id="1740" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="1742" href="QuasiinverseLemmas.html#1707" class="Bound">C</a>
+    <a id="1748" class="Comment">-------</a>
+    <a id="1760" class="Symbol">→</a> <a id="1762" href="QuasiinverseLemmas.html#1681" class="Bound">A</a> <a id="1764" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="1766" href="QuasiinverseLemmas.html#1707" class="Bound">C</a>
+
+  <a id="1771" href="QuasiinverseLemmas.html#1653" class="Function">≃-trans</a> <a id="1779" class="Symbol">{</a><a id="1780" class="Argument">A</a> <a id="1782" class="Symbol">=</a> <a id="1784" href="QuasiinverseLemmas.html#1784" class="Bound">A</a><a id="1785" class="Symbol">}</a> <a id="1787" class="Symbol">{</a><a id="1788" class="Argument">C</a> <a id="1790" class="Symbol">=</a> <a id="1792" href="QuasiinverseLemmas.html#1792" class="Bound">C</a><a id="1793" class="Symbol">}</a> <a id="1795" href="QuasiinverseLemmas.html#1795" class="Bound">eq-f</a> <a id="1800" href="QuasiinverseLemmas.html#1800" class="Bound">eq-g</a> <a id="1805" class="Symbol">=</a> <a id="1807" href="QuasiinverseType.html#3135" class="Function">qinv-≃</a> <a id="1814" class="Symbol">(</a><a id="1815" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="1818" href="QuasiinverseLemmas.html#1850" class="Function">qcomp</a><a id="1823" class="Symbol">)</a> <a id="1825" class="Symbol">(</a><a id="1826" href="BasicTypes.html#1506" class="Field">π₂</a> <a id="1829" href="QuasiinverseLemmas.html#1850" class="Function">qcomp</a><a id="1834" class="Symbol">)</a>
+   <a id="1839" class="Keyword">where</a>
+     <a id="1850" href="QuasiinverseLemmas.html#1850" class="Function">qcomp</a> <a id="1856" class="Symbol">:</a> <a id="1858" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="1860" class="Symbol">(</a><a id="1861" href="QuasiinverseLemmas.html#1784" class="Bound">A</a> <a id="1863" class="Symbol">→</a> <a id="1865" href="QuasiinverseLemmas.html#1792" class="Bound">C</a><a id="1866" class="Symbol">)</a> <a id="1868" href="QuasiinverseType.html#732" class="Function">qinv</a>
+     <a id="1878" href="QuasiinverseLemmas.html#1850" class="Function">qcomp</a> <a id="1884" class="Symbol">=</a> <a id="1886" href="QuasiinverseLemmas.html#768" class="Function">qinv-comp</a> <a id="1896" class="Symbol">(</a><a id="1897" href="QuasiinverseType.html#3210" class="Function">≃-qinv</a> <a id="1904" href="QuasiinverseLemmas.html#1795" class="Bound">eq-f</a><a id="1908" class="Symbol">)</a> <a id="1910" class="Symbol">(</a><a id="1911" href="QuasiinverseType.html#3210" class="Function">≃-qinv</a> <a id="1918" href="QuasiinverseLemmas.html#1800" class="Bound">eq-g</a><a id="1922" class="Symbol">)</a>
+
+  <a id="1927" class="Comment">-- Synonyms</a>
+  <a id="compEqv"></a><a id="1941" href="QuasiinverseLemmas.html#1941" class="Function">compEqv</a> <a id="1949" class="Symbol">=</a> <a id="1951" href="QuasiinverseLemmas.html#1653" class="Function">≃-trans</a>
+</pre>
+
+<pre class="Agda foldable" until="5">
+  <a id="≃-sym"></a><a id="2010" href="QuasiinverseLemmas.html#2010" class="Function">≃-sym</a>
+    <a id="2020" class="Symbol">:</a> <a id="2022" class="Symbol">∀</a> <a id="2024" class="Symbol">{</a><a id="2025" href="QuasiinverseLemmas.html#2025" class="Bound">ℓ₁</a> <a id="2028" href="QuasiinverseLemmas.html#2028" class="Bound">ℓ₂</a><a id="2030" class="Symbol">}</a> <a id="2032" class="Symbol">{</a><a id="2033" href="QuasiinverseLemmas.html#2033" class="Bound">A</a> <a id="2035" class="Symbol">:</a> <a id="2037" href="Intro.html#1442" class="Function">Type</a> <a id="2042" href="QuasiinverseLemmas.html#2025" class="Bound">ℓ₁</a><a id="2044" class="Symbol">}{</a><a id="2046" href="QuasiinverseLemmas.html#2046" class="Bound">B</a> <a id="2048" class="Symbol">:</a> <a id="2050" href="Intro.html#1442" class="Function">Type</a> <a id="2055" href="QuasiinverseLemmas.html#2028" class="Bound">ℓ₂</a><a id="2057" class="Symbol">}</a>
+    <a id="2063" class="Symbol">→</a> <a id="2065" href="QuasiinverseLemmas.html#2033" class="Bound">A</a> <a id="2067" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="2069" href="QuasiinverseLemmas.html#2046" class="Bound">B</a>
+    <a id="2075" class="Comment">-------</a>
+    <a id="2087" class="Symbol">→</a> <a id="2089" href="QuasiinverseLemmas.html#2046" class="Bound">B</a> <a id="2091" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="2093" href="QuasiinverseLemmas.html#2033" class="Bound">A</a>
+
+  <a id="2098" href="QuasiinverseLemmas.html#2010" class="Function">≃-sym</a> <a id="2104" class="Symbol">{</a><a id="2105" href="QuasiinverseLemmas.html#2105" class="Bound">ℓ</a><a id="2106" class="Symbol">}{_}</a> <a id="2111" class="Symbol">{</a><a id="2112" href="QuasiinverseLemmas.html#2112" class="Bound">A</a><a id="2113" class="Symbol">}</a> <a id="2115" class="Symbol">{</a><a id="2116" href="QuasiinverseLemmas.html#2116" class="Bound">B</a><a id="2117" class="Symbol">}</a> <a id="2119" href="QuasiinverseLemmas.html#2119" class="Bound">eq-f</a> <a id="2124" class="Symbol">=</a> <a id="2126" href="QuasiinverseType.html#3135" class="Function">qinv-≃</a> <a id="2133" class="Symbol">(</a><a id="2134" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="2137" href="QuasiinverseLemmas.html#2169" class="Function">qcinv</a><a id="2142" class="Symbol">)</a> <a id="2144" class="Symbol">(</a><a id="2145" href="BasicTypes.html#1506" class="Field">π₂</a> <a id="2148" href="QuasiinverseLemmas.html#2169" class="Function">qcinv</a><a id="2153" class="Symbol">)</a>
+   <a id="2158" class="Keyword">where</a>
+     <a id="2169" href="QuasiinverseLemmas.html#2169" class="Function">qcinv</a> <a id="2175" class="Symbol">:</a> <a id="2177" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="2179" class="Symbol">(</a><a id="2180" href="QuasiinverseLemmas.html#2116" class="Bound">B</a> <a id="2182" class="Symbol">→</a> <a id="2184" href="QuasiinverseLemmas.html#2112" class="Bound">A</a><a id="2185" class="Symbol">)</a> <a id="2187" href="QuasiinverseType.html#732" class="Function">qinv</a>
+     <a id="2197" href="QuasiinverseLemmas.html#2169" class="Function">qcinv</a> <a id="2203" class="Symbol">=</a> <a id="2205" href="QuasiinverseLemmas.html#1148" class="Function">qinv-inv</a> <a id="2214" class="Symbol">(</a><a id="2215" href="QuasiinverseType.html#3210" class="Function">≃-qinv</a> <a id="2222" href="QuasiinverseLemmas.html#2119" class="Bound">eq-f</a><a id="2226" class="Symbol">)</a>
+
+  <a id="2231" class="Comment">-- Synonyms</a>
+  <a id="invEqv"></a><a id="2245" href="QuasiinverseLemmas.html#2245" class="Function">invEqv</a> <a id="2252" class="Symbol">=</a> <a id="2254" href="QuasiinverseLemmas.html#2010" class="Function">≃-sym</a>
+  <a id="≃-flip"></a><a id="2262" href="QuasiinverseLemmas.html#2262" class="Function">≃-flip</a> <a id="2269" class="Symbol">=</a> <a id="2271" href="QuasiinverseLemmas.html#2010" class="Function">≃-sym</a>
+</pre>
+
+
+  <div class="cited-references" markdown="1">
+  <ol class="bibliography"></ol>
+  </div>
+
+
+  
+  <div id="citation">
+  <h2> Citation </h2>
+  If you want to cite the content of this post,
+  we suggest to use the following latex bibtex entry.
+  This is generated automatically.
+
+  <br/>
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag =""
+       data-bibtexauthors =""
+       data-year =""
+       data-lastchecked ="2019-04-08"
+       data-originalyear =""
+       data-title ="Quasiinverse Type"
+       data-url ="http://jonaprieto.github.io/mini-hott/QuasiinverseLemmas.html"
+  ></pre>
+  </div>
+  
+
+  <div id="github-links">
+    <div class="view-source">
+      
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//QuasiinverseLemmas.lagda" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//QuasiinverseLemmas.agda" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
+      
+      <a href="https://github.com/jonaprieto/mini-hott/blob//QuasiinverseLemmas.lagda" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/edit/sources/QuasiinverseLemmas.lagda" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits//QuasiinverseLemmas.lagda" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
+      <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
+      </a>
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Quasiinverse Type - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- https://octicons.github.com/ -->
+
+
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$'],['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
+      TagSide: "left",
+      Macros: {
+        field: ['\\mathbb{#1}', 1],
+        C: ['\\field{C}'],
+        F: ['\\field{F}'],
+        N: ['\\field{N}'],
+        Q: ['\\field{Q}'],
+        R: ['\\field{R}'],
+        Z: ['\\field{Z}'],
+
+        U: ['\\mathcal{U}'],
+        to: ['\\rightarrow'],
+        zero: ['\\field{0}'],
+        one: ['\\field{1}'],
+        two: ['\\field{2}'],
+        id: ['\\mathsf{Id}'],
+
+        fun: ['\\mathsf{fun}{#1}', 1],
+
+        true: ['\\mathsf{true}'],
+        false: ['\\mathsf{false}'],
+
+        proj: ['\\mathsf{proj}'],
+
+        trans: ['\\mathsf{trans}'],
+        refl: ['\\mathsf{refl}'],
+        sym: ['\\mathsf{sym}'],
+
+        Fin:['\\mathsf{Fin}\\,'],
+        ind: ['\\mathsf{ind}'],
+        rec:['\\mathsf{rec}'],
+
+        zeros: ['\\mathbf{0}'],
+        ud: ['\\,\\mathrm{d}'],
+
+        vect:['\\boldsymbol{\\mathbf{#1}}',1],
+        abs: ['\\lvert#1\\rvert', 1],
+        abslr:['\\left\\lvert#1\\right\\rvert', 1],
+        norm: ['\\lVert#1\\rVert', 1],
+        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
+
+        lcm: ['\\mathop{\\mathrm{lcm}}'],
+        interior: ['\\mathop{\\mathrm{int}}'],
+        exterior: ['\\mathop{\\mathrm{ext}}'],
+        volume: ['\\mathop{\\mathrm{vol}}'],
+
+        E: ['{\\rm I\\kern-.3em E}'],
+        Var: ['\\mathop{\\mathrm{Var}}'],
+        Cov: ['\\mathop{\\mathrm{Cov}}'],
+        Binom: ['\\mathop{\\mathrm{Binom}}'],
+        Exp: ['\\mathop{\\mathrm{Exp}}'],
+        Poi: ['\\mathop{\\mathrm{Poi}}'],
+
+        GL: ['\\mathrm{GL}'],
+        SL: ['\\mathrm{SL}'],
+        Aut: ['\\mathrm{Aut}'],
+        ker: ['\\mathrm{ker}'],
+
+        Re: ['\\mathop{\\mathrm{Re}}'],
+        Im: ['\\mathop{\\mathrm{Im}}'],
+        Res: ['\\mathop{\\mathrm{Res}}'],
+
+        Type : ['\\mathsf{Type}\\,'],
+        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
+        Graph : ['\\mathsf{Graph}\\,'],
+        Face : ['\\mathsf{Face}\\,'],
+        Node : ['\\mathsf{Node}\\,'],
+        Edge : ['\\mathsf{Edge}\\,'],
+        Path : ['\\mathsf{Path}\\,'],
+        Walk : ['\\mathsf{Walk}\\,'],
+
+        isContr:['\\mathsf{isContr{#1}}',1],
+        isProp:['\\mathsf{isProp{#1}}',1],
+        isSet:['\\mathsf{isSet{#1}}',1],
+
+        minimize : ['\\mathsf{minimize}'],
+        maximize : ['\\mathsf{maximize}'],
+        st : ['\\mathsf{st}'],
+        and : ['\\,\\wedge\\, '],
+        or : ['\\,\\vee\\,']
+
+
+
+      }
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+
+
+
+<script>
+  // When the user scrolls the page, execute myFunction
+function stickyToogle(obj, sticky) {
+  if (window.pageYOffset > sticky) {
+    obj.classList.add("sticky");
+  } else {
+    obj.classList.remove("sticky");
+  }
+};
+
+// Get the header
+function stickyThing(idObj){
+  var obj = document.getElementById(idObj);
+  if (obj){
+    // Get the offset position of the navbar
+    stickyToogle(obj, obj.offsetTop);
+    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  }
+};
+
+window.onscroll = function() {
+  stickyThing("stickyTitle");
+};
+
+</script>
+
+
+
+      </div>
+      
+      </div>
+    </div>
+    
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+<script src="/assets/jquery.min.js"></script>
+
+
+<script src="/assets/linkify.min.js"></script>
+<script src="/assets/linkify-jquery.min.js"></script>
+
+<script type="text/javascript">
+$('.references').linkify();
+$('.bibliography').linkify();
+$('.links').linkify();
+</script>
+
+
+<script type="text/javascript">
+WebFontConfig = {
+ google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
+};
+(function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+
+<!-- FOLDABLE  -->
+<script type="text/javascript">
+ $('pre.foldable').each(function(){
+     var lineHeight = parseFloat($(this).css('line-height'));
+     var plus    = $('<div><svg height="12" class="octicon octicon-fold" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg></div>');
+     var horLine = $("<div></div>");
+     var verLine = $("<div></div>");
+     $(this).prepend(plus);
+     plus.css({
+         'position'         : 'relative',
+         'float'            : 'right',
+         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
+         'width'            : lineHeight,
+         'height'           : lineHeight
+       });
+
+     var until = parseFloat($(this).attr('until'));
+     if ( isNaN(until) ) { until= 1; }
+     if ( until <= 0 ){
+       $(this).hide();
+     }
+     else{
+       var newHeight = ((1.2 * until) + 0.7) + "rem";
+       //                               ^^^----------- for the padding
+       //                ^^-- line-height
+
+       // console.log('afuera-until: ', until);
+       // console.log('afuera-newheight: ', newHeight );
+       $(this).css("padding", "0.5rem 1rem");
+       $(this).css("overflow", "hidden");
+       $(this).css("height", newHeight);
+       $(this).attr("original", "false");
+
+       $(this).click(function(){
+
+         // console.log('dentro-original: ', $(this).attr('original') );
+         // console.log('dentro-newheight: ', newHeight );
+
+         if ( $(this).attr('original') == "true" ) {
+           $(this).css("overflow", "hidden");
+           $(this).css("height", newHeight);
+           $(this).attr("original", "false");
+           $(this).css("padding", "0.5rem 1rem");
+           // plus.show();
+         }
+         else {
+           $(this).height('auto');
+           $(this).attr("original", "true");
+           // plus.hide();
+         }
+       });
+     }
+ });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  if ( $('div').hasClass('cited-references') ){
+    $('.cited-references').append( $('.references').html() );
+    $('.references').hide();
+    $(".cited-references").prepend("<h2 id='refs'>References</h2>");
+    $(".toc nav>ul").append("<li><a href='#refs'>References</a></li>");
+  }
+</script>
+
+
+
+<script type="text/javascript">
+var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
+
+$('#citation').hide();
+$('#citation pre').each(function(){
+
+    var pre           = $(this);
+    var title         = $(this).data('title');
+    var title         = $(this).data('title');
+    var id            = $(this).data('url');
+    var year          = $(this).data('year');
+    var lastchecked   = $(this).data('lastchecked');
+    var originalyear  = $(this).data('originalyear');
+    var url           = $(this).data('url');
+
+    var bibtextag     = $(this).data('bibtextag');
+    var bibtexauthors = $(this).data('bibtexauthors');
+
+    if (bibtexauthors == ""){
+      bibtexauthors = "Prieto-Cubides, Jonathan";
+    }
+
+    if (bibtextag == "")
+    {
+      bibtextag = "Prieto-Cubides:" + lastchecked
+    }
+
+    pre.append(
+    "@online{ " + bibtextag + ",\n" +
+    "  author  = { " + bibtexauthors +" },\n" +
+    "  title   = { " + title + " },\n" +
+    "  url     = { \\url{" + url   + "} }\n" +
+    "  year    = { " + year  + " }\n" +
+    "  lastchecked  = { " + lastchecked  + " }\n" +
+    "  originalyear = { " + originalyear  + " }\n" +
+    "}\n"
+    );
+  });
+
+$('#citation').show();
+</script>
+
+
+
+
+    <!-- <script>
+      (function(document) {
+        var toggle   = document.querySelector('.sidebar-toggle');
+        var sidebar  = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          // if(!checkbox.checked ||
+          //    sidebar.contains(target) ||
+          //    (target === checkbox || target === toggle)) return;
+          //
+          if(target === toggle)
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script> -->
+
+    
+    <script src="/assets/galleryjs/lightgallery.js"></script>
+
+    <script src="/assets/galleryjs/lg-thumbnail.min.js"></script>
+    <script src="/assets/galleryjs/lg-fullscreen.min.js"></script>
+
+    <script  type="text/javascript">
+      $(document).ready(function() {
+        $('.post img').wrap(function(){
+          return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
+        });
+
+        lightGallery(document.querySelector('.post'),
+          { selector     : ".gallery"
+          // , mode         : 'slide'
+          , thumbnail    : true
+          , animateThumb: false
+          , closable     : true
+          , counter      : true
+          , enableTouch  : true
+          , enableDrag   : true
+          , showThumbByDefault   : false
+          , thumbWidth           : 90
+          , thumbMargin          : 5,
+          });
+      });
+    </script>
+    
+  </body>
+</html>

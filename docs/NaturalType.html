@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+      
+        Natural number Type |
+      
+        Mini-HoTT
+    
+  </title><!-- Begin Jekyll SEO tag v2.6.0 -->
+<meta name="generator" content="Jekyll v3.8.5" />
+<meta property="og:title" content="Natural number Type" />
+<meta name="author" content="Jonathan Prieto-Cubides" />
+<meta property="og:locale" content="en_US" />
+<meta name="description" content="Jonathan Prieto-Cubides" />
+<meta property="og:description" content="Jonathan Prieto-Cubides" />
+<link rel="canonical" href="http://jonaprieto.github.io/mini-hott/NaturalType.html" />
+<meta property="og:url" content="http://jonaprieto.github.io/mini-hott/NaturalType.html" />
+<meta property="og:site_name" content="Mini-HoTT" />
+<script type="application/ld+json">
+{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/NaturalType.html","headline":"Natural number Type","dateModified":"2019-04-08T20:54:34+02:00","@context":"https://schema.org"}</script>
+<!-- End Jekyll SEO tag -->
+<meta name="description" content="Jonathan Prieto-Cubides">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="preload" as="script" href="/assets/main.js" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114360791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114360791-1');
+  </script>
+
+  
+</head>
+
+
+
+
+  <body>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item" >
+    <p style="text-decoration:left">Natural number Type</p>
+  </div>
+  <nav class="sidebar-nav">
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#naturals" class="sidebar-nav-item">Naturals</a></li>
+    </ul>
+  </li>
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+</ul>
+
+
+    <!--  -->
+    <!-- 
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/all/">All</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.html">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.html">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.html">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ContractibleType.html">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.html">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.html">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.html">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FiberType.html">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.html">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.html">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.html">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.html">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.html">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.html">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.html">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.html">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.html">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EqualityType.html">Identity type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.html">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/references/">List of references</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/NaturalType.html">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.html">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.html">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaEquivalence.html">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma preserves</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.html">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Transport.html">Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.html">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
+        
+      
+     -->
+
+    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
+    <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
+    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
+    <!-- <span class="sidebar-nav-item">Currently v</span> -->
+  </nav>
+</div>
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
+            <a href="/" title="Home">Mini-HoTT</a>
+            <small style="text-decoration:left"></small>
+          </h3>
+        </div>
+      
+      <div class="container content">
+        
+
+
+
+
+
+
+
+<div class="post">
+
+  <div class="print-version">
+    <center>
+      <h1>Natural number Type</h1><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                
+                  Jonathan Prieto-Cubides
+                
+              </div>
+              <div class="print-author-affiliation">
+                
+                  University of Bergen
+                
+                </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="print-date"></div>
+        
+        
+    </center>
+  </div>
+
+  
+  No git information available.
+  
+  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Natural number Type
+  </h1>
+
+  <!-- 
+  <div class="toc">
+    <nav>
+    <h2 class="table-of-contents"> Table of Contents </h2>
+      <ul>
+  <li><a href="#naturals">Naturals</a></li>
+</ul>
+
+    </nav>
+  </div>
+   -->
+
+  <noscript>
+  <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
+  </noscript>
+
+  <div class="hide">
+<pre class="Agda">
+<a id="193" class="Symbol">{-#</a> <a id="197" class="Keyword">OPTIONS</a> <a id="205" class="Pragma">--without-K</a> <a id="217" class="Symbol">#-}</a>
+<a id="221" class="Keyword">open</a> <a id="226" class="Keyword">import</a> <a id="233" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="249" class="Keyword">open</a> <a id="254" class="Keyword">import</a> <a id="261" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+
+<a id="278" class="Keyword">open</a> <a id="283" class="Keyword">import</a> <a id="290" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="303" class="Keyword">open</a> <a id="308" class="Keyword">import</a> <a id="315" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
+<a id="327" class="Keyword">open</a> <a id="332" class="Keyword">import</a> <a id="339" href="QuasiinverseType.html" class="Module">QuasiinverseType</a>
+<a id="356" class="Keyword">open</a> <a id="361" class="Keyword">import</a> <a id="368" href="DecidableEquality.html" class="Module">DecidableEquality</a>
+<a id="386" class="Keyword">open</a> <a id="391" class="Keyword">import</a> <a id="398" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="410" class="Keyword">open</a> <a id="415" class="Keyword">import</a> <a id="422" href="HedbergLemmas.html" class="Module">HedbergLemmas</a>
+<a id="436" class="Keyword">open</a> <a id="441" class="Keyword">import</a> <a id="448" href="MonoidType.html" class="Module">MonoidType</a>
+</pre>
+</div>
+
+<h3 id="naturals">Naturals</h3>
+
+<pre class="Agda">
+<a id="506" class="Keyword">module</a> <a id="513" href="NaturalType.html" class="Module">NaturalType</a> <a id="525" class="Keyword">where</a>
+
+  <a id="534" class="Comment">-- Addition of natural numbers</a>
+  <a id="plus"></a><a id="567" href="NaturalType.html#567" class="Function">plus</a> <a id="572" class="Symbol">:</a> <a id="574" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="576" class="Symbol">→</a> <a id="578" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="580" class="Symbol">→</a> <a id="582" href="BasicTypes.html#3186" class="Datatype">ℕ</a>
+  <a id="586" href="NaturalType.html#567" class="Function">plus</a> <a id="591" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="596" href="NaturalType.html#596" class="Bound">y</a> <a id="598" class="Symbol">=</a> <a id="600" href="NaturalType.html#596" class="Bound">y</a>
+  <a id="604" href="NaturalType.html#567" class="Function">plus</a> <a id="609" class="Symbol">(</a><a id="610" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="615" href="NaturalType.html#615" class="Bound">x</a><a id="616" class="Symbol">)</a> <a id="618" href="NaturalType.html#618" class="Bound">y</a> <a id="620" class="Symbol">=</a> <a id="622" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="627" class="Symbol">(</a><a id="628" href="NaturalType.html#567" class="Function">plus</a> <a id="633" href="NaturalType.html#615" class="Bound">x</a> <a id="635" href="NaturalType.html#618" class="Bound">y</a><a id="636" class="Symbol">)</a>
+
+  <a id="641" class="Keyword">infixl</a> <a id="648" class="Number">60</a> <a id="651" href="NaturalType.html#658" class="Function Operator">_+ₙ_</a>
+  <a id="_+ₙ_"></a><a id="658" href="NaturalType.html#658" class="Function Operator">_+ₙ_</a> <a id="663" class="Symbol">:</a> <a id="665" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="667" class="Symbol">→</a> <a id="669" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="671" class="Symbol">→</a> <a id="673" href="BasicTypes.html#3186" class="Datatype">ℕ</a>
+  <a id="677" href="NaturalType.html#658" class="Function Operator">_+ₙ_</a> <a id="682" class="Symbol">=</a> <a id="684" href="NaturalType.html#567" class="Function">plus</a>
+
+  <a id="692" class="Comment">-- Lemmas about addition</a>
+  <a id="plus-lunit"></a><a id="719" href="NaturalType.html#719" class="Function">plus-lunit</a> <a id="730" class="Symbol">:</a> <a id="732" class="Symbol">(</a><a id="733" href="NaturalType.html#733" class="Bound">n</a> <a id="735" class="Symbol">:</a> <a id="737" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="738" class="Symbol">)</a> <a id="740" class="Symbol">→</a> <a id="742" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="747" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="750" href="NaturalType.html#733" class="Bound">n</a> <a id="752" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="755" href="NaturalType.html#733" class="Bound">n</a>
+  <a id="759" href="NaturalType.html#719" class="Function">plus-lunit</a> <a id="770" href="NaturalType.html#770" class="Bound">n</a> <a id="772" class="Symbol">=</a> <a id="774" href="EqualityType.html#1111" class="Function">refl</a> <a id="779" href="NaturalType.html#770" class="Bound">n</a>
+
+  <a id="plus-runit"></a><a id="784" href="NaturalType.html#784" class="Function">plus-runit</a> <a id="795" class="Symbol">:</a> <a id="797" class="Symbol">(</a><a id="798" href="NaturalType.html#798" class="Bound">n</a> <a id="800" class="Symbol">:</a> <a id="802" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="803" class="Symbol">)</a> <a id="805" class="Symbol">→</a> <a id="807" href="NaturalType.html#798" class="Bound">n</a> <a id="809" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="812" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="817" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="820" href="NaturalType.html#798" class="Bound">n</a>
+  <a id="824" href="NaturalType.html#784" class="Function">plus-runit</a> <a id="835" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="840" class="Symbol">=</a> <a id="842" href="EqualityType.html#1111" class="Function">refl</a> <a id="847" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>
+  <a id="854" href="NaturalType.html#784" class="Function">plus-runit</a> <a id="865" class="Symbol">(</a><a id="866" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="871" href="NaturalType.html#871" class="Bound">n</a><a id="872" class="Symbol">)</a> <a id="874" class="Symbol">=</a> <a id="876" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="879" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="884" class="Symbol">(</a><a id="885" href="NaturalType.html#784" class="Function">plus-runit</a> <a id="896" href="NaturalType.html#871" class="Bound">n</a><a id="897" class="Symbol">)</a>
+
+  <a id="plus-succ"></a><a id="902" href="NaturalType.html#902" class="Function">plus-succ</a> <a id="912" class="Symbol">:</a> <a id="914" class="Symbol">(</a><a id="915" href="NaturalType.html#915" class="Bound">n</a> <a id="917" href="NaturalType.html#917" class="Bound">m</a> <a id="919" class="Symbol">:</a> <a id="921" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="922" class="Symbol">)</a> <a id="924" class="Symbol">→</a> <a id="926" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="931" class="Symbol">(</a><a id="932" href="NaturalType.html#915" class="Bound">n</a> <a id="934" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="937" href="NaturalType.html#917" class="Bound">m</a><a id="938" class="Symbol">)</a> <a id="940" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="943" class="Symbol">(</a><a id="944" href="NaturalType.html#915" class="Bound">n</a> <a id="946" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="949" class="Symbol">(</a><a id="950" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="955" href="NaturalType.html#917" class="Bound">m</a><a id="956" class="Symbol">))</a>
+  <a id="961" href="NaturalType.html#902" class="Function">plus-succ</a> <a id="971" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>     <a id="980" href="NaturalType.html#980" class="Bound">m</a> <a id="982" class="Symbol">=</a> <a id="984" href="EqualityType.html#1111" class="Function">refl</a> <a id="989" class="Symbol">(</a><a id="990" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="995" href="NaturalType.html#980" class="Bound">m</a><a id="996" class="Symbol">)</a>
+  <a id="1000" href="NaturalType.html#902" class="Function">plus-succ</a> <a id="1010" class="Symbol">(</a><a id="1011" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1016" href="NaturalType.html#1016" class="Bound">n</a><a id="1017" class="Symbol">)</a> <a id="1019" href="NaturalType.html#1019" class="Bound">m</a> <a id="1021" class="Symbol">=</a> <a id="1023" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="1026" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1031" class="Symbol">(</a><a id="1032" href="NaturalType.html#902" class="Function">plus-succ</a> <a id="1042" href="NaturalType.html#1016" class="Bound">n</a> <a id="1044" href="NaturalType.html#1019" class="Bound">m</a><a id="1045" class="Symbol">)</a>
+
+  <a id="plus-succ-rs"></a><a id="1050" href="NaturalType.html#1050" class="Function">plus-succ-rs</a> <a id="1063" class="Symbol">:</a> <a id="1065" class="Symbol">(</a><a id="1066" href="NaturalType.html#1066" class="Bound">n</a> <a id="1068" href="NaturalType.html#1068" class="Bound">m</a> <a id="1070" href="NaturalType.html#1070" class="Bound">o</a> <a id="1072" href="NaturalType.html#1072" class="Bound">p</a> <a id="1074" class="Symbol">:</a> <a id="1076" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="1077" class="Symbol">)</a> <a id="1079" class="Symbol">→</a> <a id="1081" href="NaturalType.html#1066" class="Bound">n</a> <a id="1083" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1086" href="NaturalType.html#1068" class="Bound">m</a> <a id="1088" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1091" href="NaturalType.html#1070" class="Bound">o</a> <a id="1093" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1096" href="NaturalType.html#1072" class="Bound">p</a> <a id="1098" class="Symbol">→</a> <a id="1100" href="NaturalType.html#1066" class="Bound">n</a> <a id="1102" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1105" class="Symbol">(</a><a id="1106" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1111" href="NaturalType.html#1068" class="Bound">m</a><a id="1112" class="Symbol">)</a> <a id="1114" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1117" href="NaturalType.html#1070" class="Bound">o</a> <a id="1119" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1122" class="Symbol">(</a><a id="1123" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1128" href="NaturalType.html#1072" class="Bound">p</a><a id="1129" class="Symbol">)</a>
+  <a id="1133" href="NaturalType.html#1050" class="Function">plus-succ-rs</a> <a id="1146" href="NaturalType.html#1146" class="Bound">n</a> <a id="1148" href="NaturalType.html#1148" class="Bound">m</a> <a id="1150" href="NaturalType.html#1150" class="Bound">o</a> <a id="1152" href="NaturalType.html#1152" class="Bound">p</a> <a id="1154" href="NaturalType.html#1154" class="Bound">α</a> <a id="1156" class="Symbol">=</a> <a id="1158" href="EqualityType.html#2412" class="Function">inv</a> <a id="1162" class="Symbol">(</a><a id="1163" href="NaturalType.html#902" class="Function">plus-succ</a> <a id="1173" href="NaturalType.html#1146" class="Bound">n</a> <a id="1175" href="NaturalType.html#1148" class="Bound">m</a><a id="1176" class="Symbol">)</a> <a id="1178" href="EqualityType.html#2151" class="Function Operator">·</a> <a id="1180" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="1183" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1188" href="NaturalType.html#1154" class="Bound">α</a> <a id="1190" href="EqualityType.html#2151" class="Function Operator">·</a> <a id="1192" class="Symbol">(</a><a id="1193" href="NaturalType.html#902" class="Function">plus-succ</a> <a id="1203" href="NaturalType.html#1150" class="Bound">o</a> <a id="1205" href="NaturalType.html#1152" class="Bound">p</a><a id="1206" class="Symbol">)</a>
+
+  <a id="1211" class="Comment">-- Commutativity</a>
+  <a id="plus-comm"></a><a id="1230" href="NaturalType.html#1230" class="Function">plus-comm</a> <a id="1240" class="Symbol">:</a> <a id="1242" class="Symbol">(</a><a id="1243" href="NaturalType.html#1243" class="Bound">n</a> <a id="1245" href="NaturalType.html#1245" class="Bound">m</a> <a id="1247" class="Symbol">:</a> <a id="1249" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="1250" class="Symbol">)</a> <a id="1252" class="Symbol">→</a> <a id="1254" href="NaturalType.html#1243" class="Bound">n</a> <a id="1256" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1259" href="NaturalType.html#1245" class="Bound">m</a> <a id="1261" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1264" href="NaturalType.html#1245" class="Bound">m</a> <a id="1266" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1269" href="NaturalType.html#1243" class="Bound">n</a>
+  <a id="1273" href="NaturalType.html#1230" class="Function">plus-comm</a> <a id="1283" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>     <a id="1292" href="NaturalType.html#1292" class="Bound">m</a> <a id="1294" class="Symbol">=</a> <a id="1296" href="EqualityType.html#2412" class="Function">inv</a> <a id="1300" class="Symbol">(</a><a id="1301" href="NaturalType.html#784" class="Function">plus-runit</a> <a id="1312" href="NaturalType.html#1292" class="Bound">m</a><a id="1313" class="Symbol">)</a>
+  <a id="1317" href="NaturalType.html#1230" class="Function">plus-comm</a> <a id="1327" class="Symbol">(</a><a id="1328" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1333" href="NaturalType.html#1333" class="Bound">n</a><a id="1334" class="Symbol">)</a> <a id="1336" href="NaturalType.html#1336" class="Bound">m</a> <a id="1338" class="Symbol">=</a> <a id="1340" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="1343" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1348" class="Symbol">(</a><a id="1349" href="NaturalType.html#1230" class="Function">plus-comm</a> <a id="1359" href="NaturalType.html#1333" class="Bound">n</a> <a id="1361" href="NaturalType.html#1336" class="Bound">m</a><a id="1362" class="Symbol">)</a> <a id="1364" href="EqualityType.html#2151" class="Function Operator">·</a> <a id="1366" href="NaturalType.html#902" class="Function">plus-succ</a> <a id="1376" href="NaturalType.html#1336" class="Bound">m</a> <a id="1378" href="NaturalType.html#1333" class="Bound">n</a>
+
+  <a id="1383" class="Comment">-- Associativity</a>
+  <a id="plus-assoc"></a><a id="1402" href="NaturalType.html#1402" class="Function">plus-assoc</a> <a id="1413" class="Symbol">:</a> <a id="1415" class="Symbol">(</a><a id="1416" href="NaturalType.html#1416" class="Bound">n</a> <a id="1418" href="NaturalType.html#1418" class="Bound">m</a> <a id="1420" href="NaturalType.html#1420" class="Bound">p</a> <a id="1422" class="Symbol">:</a> <a id="1424" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="1425" class="Symbol">)</a> <a id="1427" class="Symbol">→</a> <a id="1429" href="NaturalType.html#1416" class="Bound">n</a> <a id="1431" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1434" class="Symbol">(</a><a id="1435" href="NaturalType.html#1418" class="Bound">m</a> <a id="1437" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1440" href="NaturalType.html#1420" class="Bound">p</a><a id="1441" class="Symbol">)</a> <a id="1443" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1446" class="Symbol">(</a><a id="1447" href="NaturalType.html#1416" class="Bound">n</a> <a id="1449" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1452" href="NaturalType.html#1418" class="Bound">m</a><a id="1453" class="Symbol">)</a> <a id="1455" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1458" href="NaturalType.html#1420" class="Bound">p</a>
+  <a id="1462" href="NaturalType.html#1402" class="Function">plus-assoc</a> <a id="1473" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>     <a id="1482" href="NaturalType.html#1482" class="Bound">m</a> <a id="1484" href="NaturalType.html#1484" class="Bound">p</a> <a id="1486" class="Symbol">=</a> <a id="1488" href="EqualityType.html#1111" class="Function">refl</a> <a id="1493" class="Symbol">(</a><a id="1494" href="NaturalType.html#1482" class="Bound">m</a> <a id="1496" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="1499" href="NaturalType.html#1484" class="Bound">p</a><a id="1500" class="Symbol">)</a>
+  <a id="1504" href="NaturalType.html#1402" class="Function">plus-assoc</a> <a id="1515" class="Symbol">(</a><a id="1516" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1521" href="NaturalType.html#1521" class="Bound">n</a><a id="1522" class="Symbol">)</a> <a id="1524" href="NaturalType.html#1524" class="Bound">m</a> <a id="1526" href="NaturalType.html#1526" class="Bound">p</a> <a id="1528" class="Symbol">=</a> <a id="1530" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="1533" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1538" class="Symbol">(</a><a id="1539" href="NaturalType.html#1402" class="Function">plus-assoc</a> <a id="1550" href="NaturalType.html#1521" class="Bound">n</a> <a id="1552" href="NaturalType.html#1524" class="Bound">m</a> <a id="1554" href="NaturalType.html#1526" class="Bound">p</a><a id="1555" class="Symbol">)</a>
+
+
+  <a id="1561" class="Comment">-- Decidable equality</a>
+  <a id="1585" class="Comment">-- Encode-decode technique for natural numbers</a>
+  <a id="1634" class="Keyword">private</a>
+    <a id="code"></a><a id="1646" href="NaturalType.html#1646" class="Function">code</a> <a id="1651" class="Symbol">:</a> <a id="1653" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="1655" class="Symbol">→</a> <a id="1657" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="1659" class="Symbol">→</a> <a id="1661" href="Intro.html#1516" class="Function">Type₀</a>
+    <a id="1671" href="NaturalType.html#1646" class="Function">code</a> <a id="1676" class="Number">0</a>        <a id="1685" class="Number">0</a>        <a id="1694" class="Symbol">=</a> <a id="1696" href="BasicTypes.html#1019" class="Record">⊤</a>
+    <a id="1702" href="NaturalType.html#1646" class="Function">code</a> <a id="1707" class="Number">0</a>        <a id="1716" class="Symbol">(</a><a id="1717" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1722" href="NaturalType.html#1722" class="Bound">m</a><a id="1723" class="Symbol">)</a> <a id="1725" class="Symbol">=</a> <a id="1727" href="BasicTypes.html#397" class="Datatype">⊥</a>
+    <a id="1733" href="NaturalType.html#1646" class="Function">code</a> <a id="1738" class="Symbol">(</a><a id="1739" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1744" href="NaturalType.html#1744" class="Bound">n</a><a id="1745" class="Symbol">)</a> <a id="1747" class="Number">0</a>        <a id="1756" class="Symbol">=</a> <a id="1758" href="BasicTypes.html#397" class="Datatype">⊥</a>
+    <a id="1764" href="NaturalType.html#1646" class="Function">code</a> <a id="1769" class="Symbol">(</a><a id="1770" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1775" href="NaturalType.html#1775" class="Bound">n</a><a id="1776" class="Symbol">)</a> <a id="1778" class="Symbol">(</a><a id="1779" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1784" href="NaturalType.html#1784" class="Bound">m</a><a id="1785" class="Symbol">)</a> <a id="1787" class="Symbol">=</a> <a id="1789" href="NaturalType.html#1646" class="Function">code</a> <a id="1794" href="NaturalType.html#1775" class="Bound">n</a> <a id="1796" href="NaturalType.html#1784" class="Bound">m</a>
+
+  <a id="crefl"></a><a id="1801" href="NaturalType.html#1801" class="Function">crefl</a> <a id="1807" class="Symbol">:</a> <a id="1809" class="Symbol">(</a><a id="1810" href="NaturalType.html#1810" class="Bound">n</a> <a id="1812" class="Symbol">:</a> <a id="1814" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="1815" class="Symbol">)</a> <a id="1817" class="Symbol">→</a> <a id="1819" href="NaturalType.html#1646" class="Function">code</a> <a id="1824" href="NaturalType.html#1810" class="Bound">n</a> <a id="1826" href="NaturalType.html#1810" class="Bound">n</a>
+  <a id="1830" href="NaturalType.html#1801" class="Function">crefl</a> <a id="1836" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>     <a id="1845" class="Symbol">=</a> <a id="1847" href="BasicTypes.html#1054" class="InductiveConstructor">★</a>
+  <a id="1851" href="NaturalType.html#1801" class="Function">crefl</a> <a id="1857" class="Symbol">(</a><a id="1858" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="1863" href="NaturalType.html#1863" class="Bound">n</a><a id="1864" class="Symbol">)</a> <a id="1866" class="Symbol">=</a> <a id="1868" href="NaturalType.html#1801" class="Function">crefl</a> <a id="1874" href="NaturalType.html#1863" class="Bound">n</a>
+
+  <a id="1879" class="Keyword">private</a>
+    <a id="encode"></a><a id="1891" href="NaturalType.html#1891" class="Function">encode</a> <a id="1898" class="Symbol">:</a> <a id="1900" class="Symbol">(</a><a id="1901" href="NaturalType.html#1901" class="Bound">n</a> <a id="1903" href="NaturalType.html#1903" class="Bound">m</a> <a id="1905" class="Symbol">:</a> <a id="1907" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="1908" class="Symbol">)</a> <a id="1910" class="Symbol">→</a> <a id="1912" class="Symbol">(</a><a id="1913" href="NaturalType.html#1901" class="Bound">n</a> <a id="1915" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="1918" href="NaturalType.html#1903" class="Bound">m</a><a id="1919" class="Symbol">)</a> <a id="1921" class="Symbol">→</a> <a id="1923" href="NaturalType.html#1646" class="Function">code</a> <a id="1928" href="NaturalType.html#1901" class="Bound">n</a> <a id="1930" href="NaturalType.html#1903" class="Bound">m</a>
+    <a id="1936" href="NaturalType.html#1891" class="Function">encode</a> <a id="1943" href="NaturalType.html#1943" class="Bound">n</a> <a id="1945" href="NaturalType.html#1945" class="Bound">m</a> <a id="1947" href="NaturalType.html#1947" class="Bound">p</a> <a id="1949" class="Symbol">=</a> <a id="1951" href="Transport.html#473" class="Function">transport</a> <a id="1961" class="Symbol">(</a><a id="1962" href="NaturalType.html#1646" class="Function">code</a> <a id="1967" href="NaturalType.html#1943" class="Bound">n</a><a id="1968" class="Symbol">)</a> <a id="1970" href="NaturalType.html#1947" class="Bound">p</a> <a id="1972" class="Symbol">(</a><a id="1973" href="NaturalType.html#1801" class="Function">crefl</a> <a id="1979" href="NaturalType.html#1943" class="Bound">n</a><a id="1980" class="Symbol">)</a>
+
+    <a id="decode"></a><a id="1987" href="NaturalType.html#1987" class="Function">decode</a> <a id="1994" class="Symbol">:</a> <a id="1996" class="Symbol">(</a><a id="1997" href="NaturalType.html#1997" class="Bound">n</a> <a id="1999" href="NaturalType.html#1999" class="Bound">m</a> <a id="2001" class="Symbol">:</a> <a id="2003" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="2004" class="Symbol">)</a> <a id="2006" class="Symbol">→</a> <a id="2008" href="NaturalType.html#1646" class="Function">code</a> <a id="2013" href="NaturalType.html#1997" class="Bound">n</a> <a id="2015" href="NaturalType.html#1999" class="Bound">m</a> <a id="2017" class="Symbol">→</a> <a id="2019" href="NaturalType.html#1997" class="Bound">n</a> <a id="2021" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="2024" href="NaturalType.html#1999" class="Bound">m</a>
+    <a id="2030" href="NaturalType.html#1987" class="Function">decode</a> <a id="2037" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2042" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2047" href="NaturalType.html#2047" class="Bound">c</a> <a id="2049" class="Symbol">=</a> <a id="2051" href="EqualityType.html#1111" class="Function">refl</a> <a id="2056" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>
+    <a id="2065" href="NaturalType.html#1987" class="Function">decode</a> <a id="2072" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2077" class="Symbol">(</a><a id="2078" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2083" href="NaturalType.html#2083" class="Bound">m</a><a id="2084" class="Symbol">)</a> <a id="2086" class="Symbol">()</a>
+    <a id="2093" href="NaturalType.html#1987" class="Function">decode</a> <a id="2100" class="Symbol">(</a><a id="2101" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2106" href="NaturalType.html#2106" class="Bound">n</a><a id="2107" class="Symbol">)</a> <a id="2109" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2114" class="Symbol">()</a>
+    <a id="2121" href="NaturalType.html#1987" class="Function">decode</a> <a id="2128" class="Symbol">(</a><a id="2129" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2134" href="NaturalType.html#2134" class="Bound">n</a><a id="2135" class="Symbol">)</a> <a id="2137" class="Symbol">(</a><a id="2138" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2143" href="NaturalType.html#2143" class="Bound">m</a><a id="2144" class="Symbol">)</a> <a id="2146" href="NaturalType.html#2146" class="Bound">c</a> <a id="2148" class="Symbol">=</a> <a id="2150" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="2153" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2158" class="Symbol">(</a><a id="2159" href="NaturalType.html#1987" class="Function">decode</a> <a id="2166" href="NaturalType.html#2134" class="Bound">n</a> <a id="2168" href="NaturalType.html#2143" class="Bound">m</a> <a id="2170" href="NaturalType.html#2146" class="Bound">c</a><a id="2171" class="Symbol">)</a>
+
+  <a id="zero-not-succ"></a><a id="2176" href="NaturalType.html#2176" class="Function">zero-not-succ</a> <a id="2190" class="Symbol">:</a> <a id="2192" class="Symbol">(</a><a id="2193" href="NaturalType.html#2193" class="Bound">n</a> <a id="2195" class="Symbol">:</a> <a id="2197" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="2198" class="Symbol">)</a> <a id="2200" class="Symbol">→</a> <a id="2202" href="BasicTypes.html#806" class="Function">¬</a> <a id="2204" class="Symbol">(</a><a id="2205" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2210" href="NaturalType.html#2193" class="Bound">n</a> <a id="2212" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="2215" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a><a id="2219" class="Symbol">)</a>
+  <a id="2223" href="NaturalType.html#2176" class="Function">zero-not-succ</a> <a id="2237" href="NaturalType.html#2237" class="Bound">n</a> <a id="2239" class="Symbol">=</a> <a id="2241" href="NaturalType.html#1891" class="Function">encode</a> <a id="2248" class="Symbol">(</a><a id="2249" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2254" href="NaturalType.html#2237" class="Bound">n</a><a id="2255" class="Symbol">)</a> <a id="2257" class="Number">0</a>
+
+  <a id="2262" class="Comment">-- The successor function is injective</a>
+  <a id="succ-inj"></a><a id="2303" href="NaturalType.html#2303" class="Function">succ-inj</a> <a id="2312" class="Symbol">:</a> <a id="2314" class="Symbol">{</a><a id="2315" href="NaturalType.html#2315" class="Bound">n</a> <a id="2317" href="NaturalType.html#2317" class="Bound">m</a> <a id="2319" class="Symbol">:</a> <a id="2321" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="2322" class="Symbol">}</a> <a id="2324" class="Symbol">→</a> <a id="2326" class="Symbol">(</a><a id="2327" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2332" href="NaturalType.html#2315" class="Bound">n</a> <a id="2334" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="2337" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2342" href="NaturalType.html#2317" class="Bound">m</a><a id="2343" class="Symbol">)</a> <a id="2345" class="Symbol">→</a> <a id="2347" href="NaturalType.html#2315" class="Bound">n</a> <a id="2349" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="2352" href="NaturalType.html#2317" class="Bound">m</a>
+  <a id="2356" href="NaturalType.html#2303" class="Function">succ-inj</a> <a id="2365" class="Symbol">{</a><a id="2366" href="NaturalType.html#2366" class="Bound">n</a><a id="2367" class="Symbol">}</a> <a id="2369" class="Symbol">{</a><a id="2370" href="NaturalType.html#2370" class="Bound">m</a><a id="2371" class="Symbol">}</a> <a id="2373" href="NaturalType.html#2373" class="Bound">p</a> <a id="2375" class="Symbol">=</a> <a id="2377" href="NaturalType.html#1987" class="Function">decode</a> <a id="2384" href="NaturalType.html#2366" class="Bound">n</a> <a id="2386" href="NaturalType.html#2370" class="Bound">m</a> <a id="2388" class="Symbol">(</a><a id="2389" href="NaturalType.html#1891" class="Function">encode</a> <a id="2396" class="Symbol">(</a><a id="2397" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2402" href="NaturalType.html#2366" class="Bound">n</a><a id="2403" class="Symbol">)</a> <a id="2405" class="Symbol">(</a><a id="2406" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2411" href="NaturalType.html#2370" class="Bound">m</a><a id="2412" class="Symbol">)</a> <a id="2414" href="NaturalType.html#2373" class="Bound">p</a><a id="2415" class="Symbol">)</a>
+
+  <a id="+-inj"></a><a id="2420" href="NaturalType.html#2420" class="Function">+-inj</a> <a id="2426" class="Symbol">:</a> <a id="2428" class="Symbol">(</a><a id="2429" href="NaturalType.html#2429" class="Bound">k</a> <a id="2431" class="Symbol">:</a> <a id="2433" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="2434" class="Symbol">)</a> <a id="2436" class="Symbol">{</a><a id="2437" href="NaturalType.html#2437" class="Bound">n</a> <a id="2439" href="NaturalType.html#2439" class="Bound">m</a> <a id="2441" class="Symbol">:</a> <a id="2443" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="2444" class="Symbol">}</a> <a id="2446" class="Symbol">→</a> <a id="2448" class="Symbol">(</a><a id="2449" href="NaturalType.html#2429" class="Bound">k</a> <a id="2451" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="2454" href="NaturalType.html#2437" class="Bound">n</a> <a id="2456" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="2459" href="NaturalType.html#2429" class="Bound">k</a> <a id="2461" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="2464" href="NaturalType.html#2439" class="Bound">m</a><a id="2465" class="Symbol">)</a> <a id="2467" class="Symbol">→</a> <a id="2469" href="NaturalType.html#2437" class="Bound">n</a> <a id="2471" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="2474" href="NaturalType.html#2439" class="Bound">m</a>
+  <a id="2478" href="NaturalType.html#2420" class="Function">+-inj</a> <a id="2484" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>   <a id="2491" href="NaturalType.html#2491" class="Bound">p</a> <a id="2493" class="Symbol">=</a> <a id="2495" href="NaturalType.html#2491" class="Bound">p</a>
+  <a id="2499" href="NaturalType.html#2420" class="Function">+-inj</a> <a id="2505" class="Symbol">(</a><a id="2506" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2511" href="NaturalType.html#2511" class="Bound">k</a><a id="2512" class="Symbol">)</a> <a id="2514" href="NaturalType.html#2514" class="Bound">p</a> <a id="2516" class="Symbol">=</a> <a id="2518" href="NaturalType.html#2420" class="Function">+-inj</a> <a id="2524" href="NaturalType.html#2511" class="Bound">k</a> <a id="2526" class="Symbol">(</a><a id="2527" href="NaturalType.html#2303" class="Function">succ-inj</a> <a id="2536" href="NaturalType.html#2514" class="Bound">p</a><a id="2537" class="Symbol">)</a>
+
+  <a id="nat-decEq"></a><a id="2542" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2552" class="Symbol">:</a> <a id="2554" href="DecidableEquality.html#741" class="Function">decEq</a> <a id="2560" href="BasicTypes.html#3186" class="Datatype">ℕ</a>
+  <a id="2564" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2574" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2579" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2584" class="Symbol">=</a> <a id="2586" href="BasicTypes.html#2238" class="InductiveConstructor">inl</a> <a id="2590" class="Symbol">(</a><a id="2591" href="EqualityType.html#1111" class="Function">refl</a> <a id="2596" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a><a id="2600" class="Symbol">)</a>
+  <a id="2604" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2614" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2619" class="Symbol">(</a><a id="2620" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2625" href="NaturalType.html#2625" class="Bound">m</a><a id="2626" class="Symbol">)</a> <a id="2628" class="Symbol">=</a> <a id="2630" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2634" class="Symbol">(λ</a> <a id="2637" class="Symbol">())</a>
+  <a id="2643" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2653" class="Symbol">(</a><a id="2654" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2659" href="NaturalType.html#2659" class="Bound">n</a><a id="2660" class="Symbol">)</a> <a id="2662" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a> <a id="2667" class="Symbol">=</a> <a id="2669" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2673" class="Symbol">(λ</a> <a id="2676" class="Symbol">())</a>
+  <a id="2682" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2692" class="Symbol">(</a><a id="2693" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2698" href="NaturalType.html#2698" class="Bound">n</a><a id="2699" class="Symbol">)</a> <a id="2701" class="Symbol">(</a><a id="2702" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2707" href="NaturalType.html#2707" class="Bound">m</a><a id="2708" class="Symbol">)</a> <a id="2710" class="Keyword">with</a> <a id="2715" class="Symbol">(</a><a id="2716" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2726" href="NaturalType.html#2698" class="Bound">n</a> <a id="2728" href="NaturalType.html#2707" class="Bound">m</a><a id="2729" class="Symbol">)</a>
+  <a id="2733" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2743" class="Symbol">(</a><a id="2744" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2749" href="NaturalType.html#2749" class="Bound">n</a><a id="2750" class="Symbol">)</a> <a id="2752" class="Symbol">(</a><a id="2753" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2758" href="NaturalType.html#2758" class="Bound">m</a><a id="2759" class="Symbol">)</a> <a id="2761" class="Symbol">|</a> <a id="2763" href="BasicTypes.html#2238" class="InductiveConstructor">inl</a> <a id="2767" href="NaturalType.html#2767" class="Bound">p</a> <a id="2769" class="Symbol">=</a> <a id="2771" href="BasicTypes.html#2238" class="InductiveConstructor">inl</a> <a id="2775" class="Symbol">(</a><a id="2776" href="AlgebraOnPaths.html#442" class="Function">ap</a> <a id="2779" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2784" href="NaturalType.html#2767" class="Bound">p</a><a id="2785" class="Symbol">)</a>
+  <a id="2789" href="NaturalType.html#2542" class="Function">nat-decEq</a> <a id="2799" class="Symbol">(</a><a id="2800" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2805" href="NaturalType.html#2805" class="Bound">n</a><a id="2806" class="Symbol">)</a> <a id="2808" class="Symbol">(</a><a id="2809" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="2814" href="NaturalType.html#2814" class="Bound">m</a><a id="2815" class="Symbol">)</a> <a id="2817" class="Symbol">|</a> <a id="2819" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2823" href="NaturalType.html#2823" class="Bound">f</a> <a id="2825" class="Symbol">=</a> <a id="2827" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2831" class="Symbol">λ</a> <a id="2833" href="NaturalType.html#2833" class="Bound">p</a> <a id="2835" class="Symbol">→</a> <a id="2837" href="NaturalType.html#2823" class="Bound">f</a> <a id="2839" class="Symbol">(</a><a id="2840" href="NaturalType.html#2303" class="Function">succ-inj</a> <a id="2849" href="NaturalType.html#2833" class="Bound">p</a><a id="2850" class="Symbol">)</a>
+
+  <a id="nat-isSet"></a><a id="2855" href="NaturalType.html#2855" class="Function">nat-isSet</a> <a id="2865" class="Symbol">:</a> <a id="2867" href="HLevelTypes.html#1355" class="Function">isSet</a> <a id="2873" href="BasicTypes.html#3186" class="Datatype">ℕ</a>
+  <a id="2877" href="NaturalType.html#2855" class="Function">nat-isSet</a> <a id="2887" class="Symbol">=</a> <a id="2889" href="HedbergLemmas.html#1739" class="Function">hedberg</a> <a id="2897" href="NaturalType.html#2542" class="Function">nat-decEq</a>
+
+  <a id="2910" class="Comment">-- Naturals form a monoid with addition</a>
+  <a id="ℕ-plus-monoid"></a><a id="2952" href="NaturalType.html#2952" class="Function">ℕ-plus-monoid</a> <a id="2966" class="Symbol">:</a> <a id="2968" href="MonoidType.html#415" class="Record">Monoid</a>
+  <a id="2977" href="NaturalType.html#2952" class="Function">ℕ-plus-monoid</a> <a id="2991" class="Symbol">=</a> <a id="2993" class="Keyword">record</a>
+    <a id="3004" class="Symbol">{</a> <a id="3006" href="MonoidType.html#492" class="Field">G</a> <a id="3008" class="Symbol">=</a> <a id="3010" href="BasicTypes.html#3186" class="Datatype">ℕ</a>
+    <a id="3016" class="Symbol">;</a> <a id="3018" href="MonoidType.html#509" class="Field">GisSet</a> <a id="3025" class="Symbol">=</a> <a id="3027" href="NaturalType.html#2855" class="Function">nat-isSet</a>
+    <a id="3041" class="Symbol">;</a> <a id="3043" href="MonoidType.html#532" class="Field Operator">_&lt;&gt;_</a> <a id="3048" class="Symbol">=</a> <a id="3050" href="NaturalType.html#567" class="Function">plus</a>
+    <a id="3059" class="Symbol">;</a> <a id="3061" href="MonoidType.html#583" class="Field">e</a> <a id="3063" class="Symbol">=</a> <a id="3065" href="BasicTypes.html#3204" class="InductiveConstructor">zero</a>
+    <a id="3074" class="Symbol">;</a> <a id="3076" href="MonoidType.html#652" class="Field">lunit</a> <a id="3082" class="Symbol">=</a> <a id="3084" href="NaturalType.html#719" class="Function">plus-lunit</a>
+    <a id="3099" class="Symbol">;</a> <a id="3101" href="MonoidType.html#690" class="Field">runit</a> <a id="3107" class="Symbol">=</a> <a id="3109" href="NaturalType.html#784" class="Function">plus-runit</a>
+    <a id="3124" class="Symbol">;</a> <a id="3126" href="MonoidType.html#728" class="Field">assoc</a> <a id="3132" class="Symbol">=</a> <a id="3134" href="NaturalType.html#1402" class="Function">plus-assoc</a>
+    <a id="3149" class="Symbol">}</a>
+
+  <a id="3154" class="Comment">-- Ordering</a>
+  <a id="_&lt;ₙ_"></a><a id="3168" href="NaturalType.html#3168" class="Function Operator">_&lt;ₙ_</a> <a id="3173" class="Symbol">:</a> <a id="3175" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="3177" class="Symbol">→</a> <a id="3179" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="3181" class="Symbol">→</a> <a id="3183" href="Intro.html#1516" class="Function">Type₀</a>
+  <a id="3191" href="NaturalType.html#3191" class="Bound">n</a> <a id="3193" href="NaturalType.html#3168" class="Function Operator">&lt;ₙ</a> <a id="3196" href="NaturalType.html#3196" class="Bound">m</a> <a id="3198" class="Symbol">=</a> <a id="3200" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="3202" href="BasicTypes.html#3186" class="Datatype">ℕ</a> <a id="3204" class="Symbol">(λ</a> <a id="3207" href="NaturalType.html#3207" class="Bound">k</a> <a id="3209" class="Symbol">→</a> <a id="3211" href="NaturalType.html#3191" class="Bound">n</a> <a id="3213" href="NaturalType.html#658" class="Function Operator">+ₙ</a> <a id="3216" href="BasicTypes.html#3215" class="InductiveConstructor">succ</a> <a id="3221" href="NaturalType.html#3207" class="Bound">k</a> <a id="3223" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="3226" href="NaturalType.html#3196" class="Bound">m</a><a id="3227" class="Symbol">)</a>
+
+  <a id="&lt;-isProp"></a><a id="3232" href="NaturalType.html#3232" class="Function">&lt;-isProp</a> <a id="3241" class="Symbol">:</a> <a id="3243" class="Symbol">(</a><a id="3244" href="NaturalType.html#3244" class="Bound">n</a> <a id="3246" href="NaturalType.html#3246" class="Bound">m</a> <a id="3248" class="Symbol">:</a> <a id="3250" href="BasicTypes.html#3186" class="Datatype">ℕ</a><a id="3251" class="Symbol">)</a> <a id="3253" class="Symbol">→</a> <a id="3255" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="3262" class="Symbol">(</a><a id="3263" href="NaturalType.html#3244" class="Bound">n</a> <a id="3265" href="NaturalType.html#3168" class="Function Operator">&lt;ₙ</a> <a id="3268" href="NaturalType.html#3246" class="Bound">m</a><a id="3269" class="Symbol">)</a>
+  <a id="3273" href="NaturalType.html#3232" class="Function">&lt;-isProp</a> <a id="3282" href="NaturalType.html#3282" class="Bound">n</a> <a id="3284" href="NaturalType.html#3284" class="Bound">m</a> <a id="3286" class="Symbol">(</a><a id="3287" href="NaturalType.html#3287" class="Bound">k1</a> <a id="3290" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="3292" href="NaturalType.html#3292" class="Bound">p1</a><a id="3294" class="Symbol">)</a> <a id="3296" class="Symbol">(</a><a id="3297" href="NaturalType.html#3297" class="Bound">k2</a> <a id="3300" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="3302" href="NaturalType.html#3302" class="Bound">p2</a><a id="3304" class="Symbol">)</a> <a id="3306" class="Symbol">=</a> <a id="3308" href="TransportLemmas.html#8769" class="Function">Σ-bycomponents</a> <a id="3323" class="Symbol">(</a><a id="3324" href="NaturalType.html#2303" class="Function">succ-inj</a> <a id="3333" class="Symbol">(</a><a id="3334" href="NaturalType.html#2420" class="Function">+-inj</a> <a id="3340" href="NaturalType.html#3282" class="Bound">n</a> <a id="3342" class="Symbol">(</a><a id="3343" href="NaturalType.html#3292" class="Bound">p1</a> <a id="3346" href="EqualityType.html#2151" class="Function Operator">·</a> <a id="3348" href="EqualityType.html#2412" class="Function">inv</a> <a id="3352" href="NaturalType.html#3302" class="Bound">p2</a><a id="3354" class="Symbol">))</a> <a id="3357" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="3359" href="NaturalType.html#2855" class="Function">nat-isSet</a> <a id="3369" class="Symbol">_</a> <a id="3371" class="Symbol">_</a> <a id="3373" class="Symbol">_</a> <a id="3375" class="Symbol">_)</a>
+
+</pre>
+
+
+  <div class="cited-references" markdown="1">
+  <ol class="bibliography"></ol>
+  </div>
+
+
+  
+  <div id="citation">
+  <h2> Citation </h2>
+  If you want to cite the content of this post,
+  we suggest to use the following latex bibtex entry.
+  This is generated automatically.
+
+  <br/>
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag =""
+       data-bibtexauthors =""
+       data-year =""
+       data-lastchecked ="2019-04-08"
+       data-originalyear =""
+       data-title ="Natural number Type"
+       data-url ="http://jonaprieto.github.io/mini-hott/NaturalType.html"
+  ></pre>
+  </div>
+  
+
+  <div id="github-links">
+    <div class="view-source">
+      
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//NaturalType.lagda" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//NaturalType.agda" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
+      
+      <a href="https://github.com/jonaprieto/mini-hott/blob//NaturalType.lagda" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/edit/sources/NaturalType.lagda" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits//NaturalType.lagda" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
+      <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
+      </a>
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Natural number Type - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- https://octicons.github.com/ -->
+
+
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$'],['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
+      TagSide: "left",
+      Macros: {
+        field: ['\\mathbb{#1}', 1],
+        C: ['\\field{C}'],
+        F: ['\\field{F}'],
+        N: ['\\field{N}'],
+        Q: ['\\field{Q}'],
+        R: ['\\field{R}'],
+        Z: ['\\field{Z}'],
+
+        U: ['\\mathcal{U}'],
+        to: ['\\rightarrow'],
+        zero: ['\\field{0}'],
+        one: ['\\field{1}'],
+        two: ['\\field{2}'],
+        id: ['\\mathsf{Id}'],
+
+        fun: ['\\mathsf{fun}{#1}', 1],
+
+        true: ['\\mathsf{true}'],
+        false: ['\\mathsf{false}'],
+
+        proj: ['\\mathsf{proj}'],
+
+        trans: ['\\mathsf{trans}'],
+        refl: ['\\mathsf{refl}'],
+        sym: ['\\mathsf{sym}'],
+
+        Fin:['\\mathsf{Fin}\\,'],
+        ind: ['\\mathsf{ind}'],
+        rec:['\\mathsf{rec}'],
+
+        zeros: ['\\mathbf{0}'],
+        ud: ['\\,\\mathrm{d}'],
+
+        vect:['\\boldsymbol{\\mathbf{#1}}',1],
+        abs: ['\\lvert#1\\rvert', 1],
+        abslr:['\\left\\lvert#1\\right\\rvert', 1],
+        norm: ['\\lVert#1\\rVert', 1],
+        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
+
+        lcm: ['\\mathop{\\mathrm{lcm}}'],
+        interior: ['\\mathop{\\mathrm{int}}'],
+        exterior: ['\\mathop{\\mathrm{ext}}'],
+        volume: ['\\mathop{\\mathrm{vol}}'],
+
+        E: ['{\\rm I\\kern-.3em E}'],
+        Var: ['\\mathop{\\mathrm{Var}}'],
+        Cov: ['\\mathop{\\mathrm{Cov}}'],
+        Binom: ['\\mathop{\\mathrm{Binom}}'],
+        Exp: ['\\mathop{\\mathrm{Exp}}'],
+        Poi: ['\\mathop{\\mathrm{Poi}}'],
+
+        GL: ['\\mathrm{GL}'],
+        SL: ['\\mathrm{SL}'],
+        Aut: ['\\mathrm{Aut}'],
+        ker: ['\\mathrm{ker}'],
+
+        Re: ['\\mathop{\\mathrm{Re}}'],
+        Im: ['\\mathop{\\mathrm{Im}}'],
+        Res: ['\\mathop{\\mathrm{Res}}'],
+
+        Type : ['\\mathsf{Type}\\,'],
+        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
+        Graph : ['\\mathsf{Graph}\\,'],
+        Face : ['\\mathsf{Face}\\,'],
+        Node : ['\\mathsf{Node}\\,'],
+        Edge : ['\\mathsf{Edge}\\,'],
+        Path : ['\\mathsf{Path}\\,'],
+        Walk : ['\\mathsf{Walk}\\,'],
+
+        isContr:['\\mathsf{isContr{#1}}',1],
+        isProp:['\\mathsf{isProp{#1}}',1],
+        isSet:['\\mathsf{isSet{#1}}',1],
+
+        minimize : ['\\mathsf{minimize}'],
+        maximize : ['\\mathsf{maximize}'],
+        st : ['\\mathsf{st}'],
+        and : ['\\,\\wedge\\, '],
+        or : ['\\,\\vee\\,']
+
+
+
+      }
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+
+
+
+<script>
+  // When the user scrolls the page, execute myFunction
+function stickyToogle(obj, sticky) {
+  if (window.pageYOffset > sticky) {
+    obj.classList.add("sticky");
+  } else {
+    obj.classList.remove("sticky");
+  }
+};
+
+// Get the header
+function stickyThing(idObj){
+  var obj = document.getElementById(idObj);
+  if (obj){
+    // Get the offset position of the navbar
+    stickyToogle(obj, obj.offsetTop);
+    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  }
+};
+
+window.onscroll = function() {
+  stickyThing("stickyTitle");
+};
+
+</script>
+
+
+
+      </div>
+      
+      </div>
+    </div>
+    
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+<script src="/assets/jquery.min.js"></script>
+
+
+<script src="/assets/linkify.min.js"></script>
+<script src="/assets/linkify-jquery.min.js"></script>
+
+<script type="text/javascript">
+$('.references').linkify();
+$('.bibliography').linkify();
+$('.links').linkify();
+</script>
+
+
+<script type="text/javascript">
+WebFontConfig = {
+ google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
+};
+(function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+
+<!-- FOLDABLE  -->
+<script type="text/javascript">
+ $('pre.foldable').each(function(){
+     var lineHeight = parseFloat($(this).css('line-height'));
+     var plus    = $('<div><svg height="12" class="octicon octicon-fold" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg></div>');
+     var horLine = $("<div></div>");
+     var verLine = $("<div></div>");
+     $(this).prepend(plus);
+     plus.css({
+         'position'         : 'relative',
+         'float'            : 'right',
+         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
+         'width'            : lineHeight,
+         'height'           : lineHeight
+       });
+
+     var until = parseFloat($(this).attr('until'));
+     if ( isNaN(until) ) { until= 1; }
+     if ( until <= 0 ){
+       $(this).hide();
+     }
+     else{
+       var newHeight = ((1.2 * until) + 0.7) + "rem";
+       //                               ^^^----------- for the padding
+       //                ^^-- line-height
+
+       // console.log('afuera-until: ', until);
+       // console.log('afuera-newheight: ', newHeight );
+       $(this).css("padding", "0.5rem 1rem");
+       $(this).css("overflow", "hidden");
+       $(this).css("height", newHeight);
+       $(this).attr("original", "false");
+
+       $(this).click(function(){
+
+         // console.log('dentro-original: ', $(this).attr('original') );
+         // console.log('dentro-newheight: ', newHeight );
+
+         if ( $(this).attr('original') == "true" ) {
+           $(this).css("overflow", "hidden");
+           $(this).css("height", newHeight);
+           $(this).attr("original", "false");
+           $(this).css("padding", "0.5rem 1rem");
+           // plus.show();
+         }
+         else {
+           $(this).height('auto');
+           $(this).attr("original", "true");
+           // plus.hide();
+         }
+       });
+     }
+ });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  if ( $('div').hasClass('cited-references') ){
+    $('.cited-references').append( $('.references').html() );
+    $('.references').hide();
+    $(".cited-references").prepend("<h2 id='refs'>References</h2>");
+    $(".toc nav>ul").append("<li><a href='#refs'>References</a></li>");
+  }
+</script>
+
+
+
+<script type="text/javascript">
+var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
+
+$('#citation').hide();
+$('#citation pre').each(function(){
+
+    var pre           = $(this);
+    var title         = $(this).data('title');
+    var title         = $(this).data('title');
+    var id            = $(this).data('url');
+    var year          = $(this).data('year');
+    var lastchecked   = $(this).data('lastchecked');
+    var originalyear  = $(this).data('originalyear');
+    var url           = $(this).data('url');
+
+    var bibtextag     = $(this).data('bibtextag');
+    var bibtexauthors = $(this).data('bibtexauthors');
+
+    if (bibtexauthors == ""){
+      bibtexauthors = "Prieto-Cubides, Jonathan";
+    }
+
+    if (bibtextag == "")
+    {
+      bibtextag = "Prieto-Cubides:" + lastchecked
+    }
+
+    pre.append(
+    "@online{ " + bibtextag + ",\n" +
+    "  author  = { " + bibtexauthors +" },\n" +
+    "  title   = { " + title + " },\n" +
+    "  url     = { \\url{" + url   + "} }\n" +
+    "  year    = { " + year  + " }\n" +
+    "  lastchecked  = { " + lastchecked  + " }\n" +
+    "  originalyear = { " + originalyear  + " }\n" +
+    "}\n"
+    );
+  });
+
+$('#citation').show();
+</script>
+
+
+
+
+    <!-- <script>
+      (function(document) {
+        var toggle   = document.querySelector('.sidebar-toggle');
+        var sidebar  = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          // if(!checkbox.checked ||
+          //    sidebar.contains(target) ||
+          //    (target === checkbox || target === toggle)) return;
+          //
+          if(target === toggle)
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script> -->
+
+    
+    <script src="/assets/galleryjs/lightgallery.js"></script>
+
+    <script src="/assets/galleryjs/lg-thumbnail.min.js"></script>
+    <script src="/assets/galleryjs/lg-fullscreen.min.js"></script>
+
+    <script  type="text/javascript">
+      $(document).ready(function() {
+        $('.post img').wrap(function(){
+          return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
+        });
+
+        lightGallery(document.querySelector('.post'),
+          { selector     : ".gallery"
+          // , mode         : 'slide'
+          , thumbnail    : true
+          , animateThumb: false
+          , closable     : true
+          , counter      : true
+          , enableTouch  : true
+          , enableDrag   : true
+          , showThumbByDefault   : false
+          , thumbWidth           : 90
+          , thumbMargin          : 5,
+          });
+      });
+    </script>
+    
+  </body>
+</html>

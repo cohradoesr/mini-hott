@@ -1,5 +1,3 @@
-process.chdir('blog');
-
 const gulp        = require('gulp');
 var browserSync   = require('browser-sync').create();
 const reload      = browserSync.reload;
@@ -18,7 +16,7 @@ gutil.log         = gutil.noop;
 const watch       = require('gulp-watch');
 var Vinyl         = require('vinyl');
 
-const scriptFiles = '_js/**/*.js';
+const scriptFiles = 'blog/_js/**/*.js';
 
 
 var messages = {
@@ -28,10 +26,7 @@ var messages = {
 
 gulp.task('jekyll-dev', function (done) {
   browserSync.notify(messages.jekyllDev);
-  const jekyll = child.spawn( 'jekyll'
-                            , ['build', '--incremental']
-                            , {stdio: 'inherit'}
-                            )
+  const jekyll = child.spawn( 'make' ,['docs-build'] )
                       .on('close', done);
 });
 
