@@ -8,11 +8,20 @@ iimgpng := $(subst images/,docs/assets/ipe-images/,$(subst .ipe,.png,$(iimages))
 
 
 all:
+	- @echo "We have these options:"
+	- @echo "  For latex imports:"
+	- @echo "    $$ make latex       (generate agda codes to include in latex, see mini-hott.tex)"
+	- @echo "  For the website:"
+	- @echo "    $$ make agda        (just agda files in docs/agda)"
+	- @echo "    $$ make docs-build  (generate the website for agda files)"
+	- @echo "    $$ make statics     (additional files from agda files and images)"
+	- @echo "    $$ make docs-serve  (serve on localhost the site)"
+
+agda: $(rawagda)
+
+latex:
 	- @make mini-hott.tex
-	- @make docs-build
-	- @mkdir -p docs/agda
-	- @mkdir -p docs/assets/ipe-images
-	- @make statics
+	- python3 extractblocks.py
 
 statics: $(md) $(rawagda) $(iimgpng)
 	- @echo "Serve the website: \n\t$$ make docs-serve"  
@@ -21,7 +30,7 @@ statics: $(md) $(rawagda) $(iimgpng)
 mini-hott.tex: $(latex)
 	- @rm -f mini-hott.tex
 	- @for filename in latex/*.tex;do\
-			echo "\input{\\minihottpath/$$filename}" >> mini-hott.tex;\
+			echo "\input{\\MiniHoTTPath/$$filename}" >> mini-hott.tex;\
 		done
 
 # I'm planning to use Agda definitions on my articles from this library, so\
@@ -30,6 +39,7 @@ latex/%.tex : src/%.lagda
 	- @agda --latex --without-K --allow-unsolved-metas $<
 
 
+.PHONY: clean
 clean:
 	-@rm -rf docs/* blog/_site 
 
@@ -40,16 +50,19 @@ clean:
 # At the moment, --html is ouput .tex files from lagda (this is a bug I must report)
 # when the option is --html-highlight=code
 blog/%.tex : src/%.lagda 
+	- @mkdir -p docs/agda
 	- @agda --html --html-dir=blog --html-highlight=code --without-K --allow-unsolved-metas $<
 
 blog/%.md : blog/%.tex
 	- @cp $< $@
 
 docs/agda/%.agda : src/%.lagda
+	- @mkdir -p docs/agda
 	- @gsed -n '/\\begin/,/\\end/ {/{code}/!p}' $< > $@
 
 docs/assets/ipe-images/%.png : images/%.ipe
-	- @iperender -png -resolution 400 $< $@ > /dev/null 2>&1
+	- @mkdir -p docs/assets/ipe-images
+	- iperender -png -resolution 400 $< $@ 
 
 docs-install:
 	@npm install .
@@ -66,6 +79,7 @@ docs-build:
 	  --layouts blog/_layouts\
 	  --plugins blog/_plugins
 	@echo " [!] run $$ make docs-serve"
+	- @make statics
 
 docs-serve:
 	cd docs && gulp default
