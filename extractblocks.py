@@ -16,7 +16,11 @@ for i in tex:
       for line in lines:
         s = re.search('.*latex:(.*)%.*', line, re.IGNORECASE)
         if line.startswith("\\begin{code}") and s:
+<<<<<<< HEAD
           # print("line:",line)
+=======
+          print("line:",line)
+>>>>>>> ba1950e7c1bf172e8b9d0dd5d8c6573770e232b6
           print("\\CodeMiniHoTT{"+str(s.group(1))+"}{%", file=outf)
           keep = True
           print(line, file=outf)
