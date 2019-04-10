@@ -19,13 +19,13 @@ all:
 
 agda: $(rawagda)
 
-latex:
-	- @make mini-hott.tex
-	- python3 extractblocks.py
 
 statics: $(md) $(rawagda) $(iimgpng)
 	- @echo "Serve the website: \n\t$$ make docs-serve"  
 
+latex:
+	- @make mini-hott.tex
+	- python3 extractblocks.py
 
 mini-hott.tex: $(latex)
 	- @rm -f mini-hott.tex
