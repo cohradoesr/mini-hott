@@ -8,12 +8,12 @@ layout: default
 {% else %}
   {% assign filepath = page.path %}
 {% endif %}
-{% assign viewsource = site.github.repository_url | append: "/blob/" | append: page.git.last_commit.long_sha | append: "/" | append: filepath %}
+{% assign viewsource = site.github.repository_url | append: "/blob/" | append: "master" | append: "/" | append: filepath %}
 {% assign latestcommit = page.git.last_commit.short_sha %}
 {% assign editsource = site.github.repository_url | append: "/edit/master/src/" | append: filepath %}
-{% assign history = site.github.repository_url | append: "/commits/" | append: page.git.last_commit.long_sha | append: "/src/" | append: filepath %}
-{% assign raw = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" | append: page.git.last_commit.long_sha | append: "/docs/agda/" | append: filepath %}
-{% assign agdaCode = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" | append: page.git.last_commit.long_sha | append: "/src/" | append: rawagda %}
+{% assign history = site.github.repository_url | append: "/commits/" | append: "master" | append: "/src/" | append: filepath %}
+{% assign raw = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" | append: "master" | append: "/docs/agda/" | append: filepath %}
+{% assign agdaCode = "https://raw.githubusercontent.com/" | append: site.repository | append: "/" | append: "master" | append: "/src/" | append: rawagda %}
 
 <div class="post">
 
