@@ -19,11 +19,11 @@
 <meta property="og:locale" content="en_US" />
 <meta name="description" content="Jonathan Prieto-Cubides" />
 <meta property="og:description" content="Jonathan Prieto-Cubides" />
-<link rel="canonical" href="http://jonaprieto.github.io/mini-hott/BasicFunctions.html" />
-<meta property="og:url" content="http://jonaprieto.github.io/mini-hott/BasicFunctions.html" />
+<link rel="canonical" href="http://jonaprieto.github.io/mini-hott/BasicFunctions.tex" />
+<meta property="og:url" content="http://jonaprieto.github.io/mini-hott/BasicFunctions.tex" />
 <meta property="og:site_name" content="Mini-HoTT" />
 <script type="application/ld+json">
-{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/BasicFunctions.html","headline":"Basic Functions","dateModified":"2019-04-08T21:58:48+02:00","@context":"https://schema.org"}</script>
+{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/BasicFunctions.tex","headline":"Basic Functions","dateModified":"2019-04-16T17:11:41+02:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <meta name="description" content="Jonathan Prieto-Cubides">
 
@@ -80,17 +80,7 @@
   </div>
   <nav class="sidebar-nav">
     <ul id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
-    <ul>
-      <li class="sidebar-toc-item"><a href="#identity-function" class="sidebar-nav-item">Identity function</a></li>
-      <li class="sidebar-toc-item"><a href="#constant-function" class="sidebar-nav-item">Constant function</a></li>
-      <li class="sidebar-toc-item"><a href="#composition" class="sidebar-nav-item">Composition</a></li>
-      <li class="sidebar-toc-item"><a href="#application" class="sidebar-nav-item">Application</a></li>
-      <li class="sidebar-toc-item"><a href="#curryfication" class="sidebar-nav-item">Curryfication</a></li>
-      <li class="sidebar-toc-item"><a href="#uncurryfication" class="sidebar-nav-item">Uncurryfication</a></li>
-      <li class="sidebar-toc-item"><a href="#instance-search" class="sidebar-nav-item">Instance search</a></li>
-    </ul>
-  </li>
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
   <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
 </ul>
 
@@ -127,13 +117,13 @@
     
       
         
-          <a class="sidebar-nav-item active" href="/BasicFunctions.html">Basic Functions</a>
+          <a class="sidebar-nav-item" href="/BasicFunctions.html">Basic Functions</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/BasicFunctions.tex">Basic Functions</a>
+          <a class="sidebar-nav-item active" href="/BasicFunctions.tex">Basic Functions</a>
         
       
     
@@ -440,19 +430,7 @@
   </div>
 
   
-  <div class="main-heading">
-    <div class="main-title">
-      <div class="main-title-prefix">Latest change:</div>
-      <div class="main-commit-message">
-            <a href="https://github.com/jonaprieto/mini-hott/blob/1da8e9a76da455368ce8e88f938d457428dcc0b4/BasicFunctions.lagda">
-              Fixed targets for Makefile</a>
-      </div>
-    </div>
-
-    <div class="main-last-date">
-      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/1da8e9a76da455368ce8e88f938d457428dcc0b4/BasicFunctions.lagda">1da8e9a </a> on  16 Apr 2019
-    </div>
-  </div>
+  No git information available.
   
   <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Basic Functions
   </h1>
@@ -461,15 +439,7 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ul>
-  <li><a href="#identity-function">Identity function</a></li>
-  <li><a href="#constant-function">Constant function</a></li>
-  <li><a href="#composition">Composition</a></li>
-  <li><a href="#application">Application</a></li>
-  <li><a href="#curryfication">Curryfication</a></li>
-  <li><a href="#uncurryfication">Uncurryfication</a></li>
-  <li><a href="#instance-search">Instance search</a></li>
-</ul>
+      
 
     </nav>
   </div>
@@ -479,16 +449,16 @@
   <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
   </noscript>
 
-  <div class="hide">
+  <div class="hide" >
 <pre class="Agda">
 <a id="209" class="Symbol">{-#</a> <a id="213" class="Keyword">OPTIONS</a> <a id="221" class="Pragma">--without-K</a> <a id="233" class="Symbol">#-}</a>
 <a id="237" class="Keyword">open</a> <a id="242" class="Keyword">import</a> <a id="249" href="BasicTypes.html" class="Module">BasicTypes</a> <a id="260" class="Keyword">public</a>
 </pre>
 </div>
 
-<h3 id="identity-function">Identity function</h3>
+### Identity function
 
-<p>The identity function with implicit type.</p>
+The identity function with implicit type.
 <pre class="Agda">
 <a id="id"></a><a id="364" href="BasicFunctions.html#364" class="Function">id</a>
   <a id="369" class="Symbol">:</a> <a id="371" class="Symbol">∀</a> <a id="373" class="Symbol">{</a><a id="374" href="BasicFunctions.html#374" class="Bound">ℓ</a><a id="375" class="Symbol">}</a> <a id="377" class="Symbol">{</a><a id="378" href="BasicFunctions.html#378" class="Bound">A</a> <a id="380" class="Symbol">:</a> <a id="382" href="Intro.html#1442" class="Function">Type</a> <a id="387" href="BasicFunctions.html#374" class="Bound">ℓ</a><a id="388" class="Symbol">}</a>
@@ -497,7 +467,7 @@
 <a id="401" href="BasicFunctions.html#364" class="Function">id</a> <a id="404" class="Symbol">=</a> <a id="406" class="Symbol">λ</a> <a id="408" href="BasicFunctions.html#408" class="Bound">x</a> <a id="410" class="Symbol">→</a> <a id="412" href="BasicFunctions.html#408" class="Bound">x</a>
 </pre>
 
-<p>The identity function on a type <code>A</code> is <code>idf A</code>.</p>
+The identity function on a type `A` is `idf A`.
 
 <pre class="Agda">
 <a id="idf"></a><a id="488" href="BasicFunctions.html#488" class="Function">idf</a>
@@ -509,9 +479,9 @@
 <a id="552" href="BasicFunctions.html#488" class="Function">idf</a> <a id="556" href="BasicFunctions.html#556" class="Bound">A</a> <a id="558" class="Symbol">=</a> <a id="560" class="Symbol">λ</a> <a id="562" href="BasicFunctions.html#562" class="Bound">x</a> <a id="564" class="Symbol">→</a> <a id="566" href="BasicFunctions.html#562" class="Bound">x</a>
 </pre>
 
-<h3 id="constant-function">Constant function</h3>
+### Constant function
 
-<p>Constant function at some point <code>b</code> is <code>cst b</code></p>
+Constant function at some point `b` is `cst b`
 
 <pre class="Agda">
 <a id="cst"></a><a id="664" href="BasicFunctions.html#664" class="Function">cst</a>
@@ -523,11 +493,12 @@
 <a id="747" href="BasicFunctions.html#664" class="Function">cst</a> <a id="751" href="BasicFunctions.html#751" class="Bound">b</a> <a id="753" class="Symbol">=</a> <a id="755" class="Symbol">λ</a> <a id="757" href="BasicFunctions.html#757" class="Bound">_</a> <a id="759" class="Symbol">→</a> <a id="761" href="BasicFunctions.html#751" class="Bound">b</a>
 </pre>
 
-<h3 id="composition">Composition</h3>
+### Composition
 
-<p>A more sophisticated composition function that can handle dependent functions.</p>
+A more sophisticated composition function that can handle dependent functions.
 
-<pre class="Agda foldable" until="7">
+{: .foldable until="7" }
+<pre class="Agda">
 <a id="_∘_"></a><a id="910" href="BasicFunctions.html#910" class="Function Operator">_∘_</a>
   <a id="916" class="Symbol">:</a> <a id="918" class="Symbol">∀</a> <a id="920" class="Symbol">{</a><a id="921" href="BasicFunctions.html#921" class="Bound">ℓᵢ</a> <a id="924" href="BasicFunctions.html#924" class="Bound">ℓⱼ</a> <a id="927" href="BasicFunctions.html#927" class="Bound">ℓₖ</a><a id="929" class="Symbol">}</a>
   <a id="933" class="Symbol">→</a> <a id="935" class="Symbol">{</a><a id="936" href="BasicFunctions.html#936" class="Bound">A</a> <a id="938" class="Symbol">:</a> <a id="940" href="Intro.html#1442" class="Function">Type</a> <a id="945" href="BasicFunctions.html#921" class="Bound">ℓᵢ</a><a id="947" class="Symbol">}</a> <a id="949" class="Symbol">{</a><a id="950" href="BasicFunctions.html#950" class="Bound">B</a> <a id="952" class="Symbol">:</a> <a id="954" href="BasicFunctions.html#936" class="Bound">A</a> <a id="956" class="Symbol">→</a> <a id="958" href="Intro.html#1442" class="Function">Type</a> <a id="963" href="BasicFunctions.html#924" class="Bound">ℓⱼ</a><a id="965" class="Symbol">}</a> <a id="967" class="Symbol">{</a><a id="968" href="BasicFunctions.html#968" class="Bound">C</a> <a id="970" class="Symbol">:</a> <a id="972" class="Symbol">(</a><a id="973" href="BasicFunctions.html#973" class="Bound">a</a> <a id="975" class="Symbol">:</a> <a id="977" href="BasicFunctions.html#936" class="Bound">A</a><a id="978" class="Symbol">)</a> <a id="980" class="Symbol">→</a> <a id="982" class="Symbol">(</a><a id="983" href="BasicFunctions.html#950" class="Bound">B</a> <a id="985" href="BasicFunctions.html#973" class="Bound">a</a> <a id="987" class="Symbol">→</a> <a id="989" href="Intro.html#1442" class="Function">Type</a> <a id="994" href="BasicFunctions.html#927" class="Bound">ℓₖ</a><a id="996" class="Symbol">)}</a>
@@ -540,7 +511,7 @@
 <a id="1132" class="Keyword">infixr</a> <a id="1139" class="Number">80</a> <a id="1142" href="BasicFunctions.html#910" class="Function Operator">_∘_</a>
 </pre>
 
-<p>Synonym for composition (diagrammatic version)</p>
+Synonym for composition (diagrammatic version)
 
 <pre class="Agda">
 <a id="_//_"></a><a id="1219" href="BasicFunctions.html#1219" class="Function Operator">_//_</a>
@@ -558,7 +529,7 @@
 
 </pre>
 
-<h3 id="application">Application</h3>
+### Application
 
 <pre class="Agda">
 <a id="1494" class="Keyword">infixr</a> <a id="1501" class="Number">0</a> <a id="1503" href="BasicFunctions.html#1507" class="Function Operator">_$_</a>
@@ -571,7 +542,7 @@
 <a id="1606" href="BasicFunctions.html#1606" class="Bound">f</a> <a id="1608" href="BasicFunctions.html#1507" class="Function Operator">$</a> <a id="1610" href="BasicFunctions.html#1610" class="Bound">x</a> <a id="1612" class="Symbol">=</a> <a id="1614" href="BasicFunctions.html#1606" class="Bound">f</a> <a id="1616" href="BasicFunctions.html#1610" class="Bound">x</a>
 </pre>
 
-<h3 id="curryfication">Curryfication</h3>
+### Curryfication
 
 <pre class="Agda">
 <a id="curry"></a><a id="1662" href="BasicFunctions.html#1662" class="Function">curry</a>
@@ -583,7 +554,7 @@
 <a id="1798" href="BasicFunctions.html#1662" class="Function">curry</a> <a id="1804" href="BasicFunctions.html#1804" class="Bound">f</a> <a id="1806" href="BasicFunctions.html#1806" class="Bound">x</a> <a id="1808" href="BasicFunctions.html#1808" class="Bound">y</a> <a id="1810" class="Symbol">=</a> <a id="1812" href="BasicFunctions.html#1804" class="Bound">f</a> <a id="1814" class="Symbol">(</a><a id="1815" href="BasicFunctions.html#1806" class="Bound">x</a> <a id="1817" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="1819" href="BasicFunctions.html#1808" class="Bound">y</a><a id="1820" class="Symbol">)</a>
 </pre>
 
-<h3 id="uncurryfication">Uncurryfication</h3>
+### Uncurryfication
 
 <pre class="Agda">
 <a id="uncurry"></a><a id="1868" href="BasicFunctions.html#1868" class="Function">uncurry</a>
@@ -595,7 +566,7 @@
 <a id="2022" href="BasicFunctions.html#1868" class="Function">uncurry</a> <a id="2030" href="BasicFunctions.html#2030" class="Bound">f</a> <a id="2032" class="Symbol">(</a><a id="2033" href="BasicFunctions.html#2033" class="Bound">x</a> <a id="2035" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="2037" href="BasicFunctions.html#2037" class="Bound">y</a><a id="2038" class="Symbol">)</a> <a id="2040" class="Symbol">=</a> <a id="2042" href="BasicFunctions.html#2030" class="Bound">f</a> <a id="2044" href="BasicFunctions.html#2033" class="Bound">x</a> <a id="2046" href="BasicFunctions.html#2037" class="Bound">y</a>
 </pre>
 
-<h3 id="instance-search">Instance search</h3>
+### Instance search
 
 <pre class="Agda">
 <a id="⟨⟩"></a><a id="2094" href="BasicFunctions.html#2094" class="Function">⟨⟩</a>
@@ -626,7 +597,7 @@
        data-lastchecked ="2019-04-16"
        data-originalyear =""
        data-title ="Basic Functions"
-       data-url ="http://jonaprieto.github.io/mini-hott/BasicFunctions.html"
+       data-url ="http://jonaprieto.github.io/mini-hott/BasicFunctions.tex"
   ></pre>
   </div>
   
@@ -634,17 +605,17 @@
   <div id="github-links">
     <div class="view-source">
       
-        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/1da8e9a76da455368ce8e88f938d457428dcc0b4/docs/agda/BasicFunctions.lagda" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
-        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/1da8e9a76da455368ce8e88f938d457428dcc0b4/src/BasicFunctions.agda" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//docs/agda/BasicFunctions.tex" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott//src/BasicFunctions.tex" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
       
-      <a href="https://github.com/jonaprieto/mini-hott/blob/1da8e9a76da455368ce8e88f938d457428dcc0b4/BasicFunctions.lagda" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
-      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/BasicFunctions.lagda" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
-      <a href="https://github.com/jonaprieto/mini-hott/commits/1da8e9a76da455368ce8e88f938d457428dcc0b4/src/BasicFunctions.lagda" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a href="https://github.com/jonaprieto/mini-hott/blob//BasicFunctions.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/BasicFunctions.tex" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits//src/BasicFunctions.tex" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
       <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
       <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
       </a>
 
-      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Basic Functions - Commit 1da8e9a" target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Basic Functions - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
 
     </div>
   </div>
