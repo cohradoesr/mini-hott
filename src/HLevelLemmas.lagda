@@ -50,6 +50,23 @@ For any type, $A : \Type$,
 
 {: .foldable until="6"}
 \begin{code}
+  -- Contractible types are Propositions.
+  contrIsProp
+    : ∀ {ℓ}  {A : Type ℓ}
+    → isContr A
+    -----------
+    → isProp A
+
+  contrIsProp (a , p) x y = ! (p x) · p y
+
+  -- Synonyms
+  isContr→isProp = contrIsProp
+\end{code}
+
+To be contractible is itself a proposition.
+
+{: .foldable until="6"}
+\begin{code}
   -- Lemma. Propositions are Sets.
   propIsSet
     : ∀ {ℓ} {A : Type ℓ}
@@ -76,6 +93,25 @@ For any type, $A : \Type$,
   prop→set     = propIsSet
   isProp-isSet = propIsSet
 \end{code}
+
+Examples of propositions:
+
+\begin{code}
+  ⊥-is-prop : isProp {lzero} ⊥
+  ⊥-is-prop x ()
+\end{code}
+
+\begin{code}
+  is-prop-A+B : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
+    → isProp A → isProp B → ¬ (A × B)
+    --------------------------------
+    → isProp (A + B)
+  is-prop-A+B ispropA ispropB ¬A×B (inl x) (inl x₁) = ap inl (ispropA x x₁)
+  is-prop-A+B ispropA ispropB ¬A×B (inl x) (inr x₁) = ⊥-elim (¬A×B ( x , x₁))
+  is-prop-A+B ispropA ispropB ¬A×B (inr x) (inl x₁) = ⊥-elim (¬A×B (x₁ , x))
+  is-prop-A+B ispropA ispropB ¬A×B (inr x) (inr x₁) = ap inr (ispropB x x₁)
+\end{code}
+
 
 {: .foldable until="5"}
 \begin{code}
@@ -205,21 +241,6 @@ Product of sets is a set.
   set×set→set   = isSet-prod
 \end{code}
 
-{: .foldable until="6"}
-\begin{code}
-  -- Contractible types are Propositions.
-  contrIsProp
-    : ∀ {ℓ}  {A : Type ℓ}
-    → isContr A
-    -----------
-    → isProp A
-
-  contrIsProp (a , p) x y = ! (p x) · p y
-
-  -- Synonyms
-  isContr→isProp = contrIsProp
-\end{code}
-To be contractible is itself a proposition.
 
 {: .foldable until="5"}
 \begin{code}

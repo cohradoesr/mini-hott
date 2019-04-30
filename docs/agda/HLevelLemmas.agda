@@ -17,6 +17,17 @@ open import FunExtAxiom
 open import UnivalenceAxiom
 open import HLevelTypes
 module HLevelLemmas where
+  -- Contractible types are Propositions.
+  contrIsProp
+    : ∀ {ℓ}  {A : Type ℓ}
+    → isContr A
+    -----------
+    → isProp A
+
+  contrIsProp (a , p) x y = ! (p x) · p y
+
+  -- Synonyms
+  isContr→isProp = contrIsProp
   -- Lemma. Propositions are Sets.
   propIsSet
     : ∀ {ℓ} {A : Type ℓ}
@@ -42,6 +53,16 @@ module HLevelLemmas where
   prop-is-set  = propIsSet
   prop→set     = propIsSet
   isProp-isSet = propIsSet
+  ⊥-is-prop : isProp {lzero} ⊥
+  ⊥-is-prop x ()
+  is-prop-A+B : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
+    → isProp A → isProp B → ¬ (A × B)
+    --------------------------------
+    → isProp (A + B)
+  is-prop-A+B ispropA ispropB ¬A×B (inl x) (inl x₁) = ap inl (ispropA x x₁)
+  is-prop-A+B ispropA ispropB ¬A×B (inl x) (inr x₁) = ⊥-elim (¬A×B ( x , x₁))
+  is-prop-A+B ispropA ispropB ¬A×B (inr x) (inl x₁) = ⊥-elim (¬A×B (x₁ , x))
+  is-prop-A+B ispropA ispropB ¬A×B (inr x) (inr x₁) = ap inr (ispropB x x₁)
   -- Lemma. Propositions are propositions.
   propIsProp
     :  ∀ {ℓ}{A : Type ℓ}
@@ -134,17 +155,6 @@ module HLevelLemmas where
   isSetA×B      = isSet-prod
   ×-isSet       = isSet-prod
   set×set→set   = isSet-prod
-  -- Contractible types are Propositions.
-  contrIsProp
-    : ∀ {ℓ}  {A : Type ℓ}
-    → isContr A
-    -----------
-    → isProp A
-
-  contrIsProp (a , p) x y = ! (p x) · p y
-
-  -- Synonyms
-  isContr→isProp = contrIsProp
   -- Lemma 3.11.3 in HoTT-Book.
   isContrIsProp
     : ∀ {ℓ} {A : Type ℓ}

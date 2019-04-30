@@ -57,6 +57,13 @@ infixr 80 _+_
 data _+_ {ℓᵢ ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ) : Type (ℓᵢ ⊔ ℓⱼ) where
   inl : A → A + B
   inr : B → A + B
+
++-elim : ∀{ℓ₁ ℓ₂ ℓ₃}{A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+  → (A → C) → (B → C)
+  -------------------
+  → (A + B) → C
++-elim A→C B→C (inl x) = A→C x
++-elim A→C B→C (inr x) = B→C x
 -- Implication.
 data _⇒_ {ℓ}(A B : Type ℓ) : Type ℓ where
   fun : (A → B) → A ⇒ B
