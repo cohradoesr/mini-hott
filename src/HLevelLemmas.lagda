@@ -167,6 +167,11 @@ proposition.
   props-⇔-to-== = ispropA-B
 \end{code}
 
+A similar lemma but for sets states, a function $f : A → B$ is an equivalence if
+given A and B sets, f is injective and surjective.
+
+
+
 
 {: .foldable until="6"}
 \begin{code}
@@ -241,6 +246,51 @@ Product of sets is a set.
   set×set→set   = isSet-prod
 \end{code}
 
+H-levels actually are preserved by products, coproducts, pi-types and sigma-types.
+
+{: .foldable until="6" }
+\begin{code}
+  postulate -- Ex. 3.3
+    isSet-Σ
+      : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
+      → isSet A → ((a : A) →  isSet (B a))
+      -------------------
+      → isSet (Σ A B)
+
+  sigma-is-set = isSet-Σ
+  -- isSet-Σ sa sb (a , b) (c , d) p q = {!   !}
+\end{code}
+
+\begin{code}
+  postulate
+    +-of-sets-is-set
+      : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
+      → isSet A → isSet B
+      -------------------
+      → isSet (A + B)
+
+  -- +-of-sets-is-set {A = A}{B} issetA issetB (inl x) (inl .x) idp q =
+    -- {!   !}
+    -- where
+    --   f⁻¹ : ∀ {x y : A} → inl {A = A}{B = B} x == inl y → x == y
+    --   f⁻¹ idp = idp
+    --
+    --   f : ∀ {x y : A} → x == y → inl {A = A}{B = B} x == inl y
+    --   f  idp = idp
+      --
+      -- t : f⁻¹ idp == f⁻¹ q
+      -- t = issetA x x (f⁻¹ (refl (inl x))) (f⁻¹ q)
+      --
+      -- ap-f : ap (inl {A = A}{B = B}) (f⁻¹ idp) == ap inl (f⁻¹ q)
+      -- ap-f = ap (ap inl) t
+      --
+      -- h : ∀ {y : A} {x : inl y == inl y}
+      --   → f (f⁻¹ x) == x
+      -- h {x = x} = {!   !}
+
+
+  -- +-of-sets-is-set issetA issetB (inr x) (inr x₁) p q = {!   !}
+\end{code}
 
 {: .foldable until="5"}
 \begin{code}

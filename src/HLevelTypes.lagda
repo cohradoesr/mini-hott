@@ -83,3 +83,7 @@ module Sets where
 
 open Sets public
 \end{code}
+
+\begin{code}
+-- TODO: define hlevels by the recursive definition
+\end{code}

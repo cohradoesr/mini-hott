@@ -51,3 +51,11 @@ Type ℓ = Set ℓ
 Type₀ : Type (lsuc lzero)
 Type₀ = Type lzero
 \end{code}
+
+\begin{code}
+record ↑ {a} ℓ (A : Type a) : Type (a ⊔ ℓ) where
+  constructor Lift
+  field lower : A
+
+open ↑ public
+\end{code}

@@ -54,7 +54,7 @@ If a type is contractible, any of its points is a center of contraction:
 ## Contractible maps.
 
 A map is *contractible* if the fiber in any point is contractible, that is, each
-element has a unique preimage.
+element has a unique preimagen.
 
 \begin{code}
   -- Def.

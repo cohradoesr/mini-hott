@@ -29,3 +29,4 @@ module Sets where
   hSet {ℓ} = Σ (Type ℓ) isSet
 
 open Sets public
+-- TODO: define hlevels by the recursive definition

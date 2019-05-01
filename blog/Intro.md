@@ -51,3 +51,11 @@ use this later on to define types in full generality.
 <a id="Type₀"></a><a id="1516" href="Intro.html#1516" class="Function">Type₀</a> <a id="1522" class="Symbol">:</a> <a id="1524" href="Intro.html#1442" class="Function">Type</a> <a id="1529" class="Symbol">(</a><a id="1530" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="1535" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="1540" class="Symbol">)</a>
 <a id="1542" href="Intro.html#1516" class="Function">Type₀</a> <a id="1548" class="Symbol">=</a> <a id="1550" href="Intro.html#1442" class="Function">Type</a> <a id="1555" href="Agda.Primitive.html#611" class="Primitive">lzero</a>
 </pre>
+
+<pre class="Agda">
+<a id="1586" class="Keyword">record</a> <a id="↑"></a><a id="1593" href="Intro.html#1593" class="Record">↑</a> <a id="1595" class="Symbol">{</a><a id="1596" href="Intro.html#1596" class="Bound">a</a><a id="1597" class="Symbol">}</a> <a id="1599" href="Intro.html#1599" class="Bound">ℓ</a> <a id="1601" class="Symbol">(</a><a id="1602" href="Intro.html#1602" class="Bound">A</a> <a id="1604" class="Symbol">:</a> <a id="1606" href="Intro.html#1442" class="Function">Type</a> <a id="1611" href="Intro.html#1596" class="Bound">a</a><a id="1612" class="Symbol">)</a> <a id="1614" class="Symbol">:</a> <a id="1616" href="Intro.html#1442" class="Function">Type</a> <a id="1621" class="Symbol">(</a><a id="1622" href="Intro.html#1596" class="Bound">a</a> <a id="1624" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1626" href="Intro.html#1599" class="Bound">ℓ</a><a id="1627" class="Symbol">)</a> <a id="1629" class="Keyword">where</a>
+  <a id="1637" class="Keyword">constructor</a> <a id="↑.Lift"></a><a id="1649" href="Intro.html#1649" class="InductiveConstructor">Lift</a>
+  <a id="1656" class="Keyword">field</a> <a id="↑.lower"></a><a id="1662" href="Intro.html#1662" class="Field">lower</a> <a id="1668" class="Symbol">:</a> <a id="1670" href="Intro.html#1602" class="Bound">A</a>
+
+<a id="1673" class="Keyword">open</a> <a id="1678" href="Intro.html#1593" class="Module">↑</a> <a id="1680" class="Keyword">public</a>
+</pre>

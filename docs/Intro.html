@@ -106,6 +106,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/all/">All</a>
         
       
@@ -130,13 +136,19 @@
     
       
         
+          <a class="sidebar-nav-item" href="/BasicTypes.tex">Basic Types</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/BasicTypes.html">Basic Types</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/BasicTypes.tex">Basic Types</a>
+          <a class="sidebar-nav-item" href="/CircleType.tex">Circle Type</a>
         
       
     
@@ -148,7 +160,19 @@
     
       
         
+          <a class="sidebar-nav-item" href="/ContractibleType.tex">Contractible Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/ContractibleType.html">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.tex">Decidable Equality</a>
         
       
     
@@ -160,7 +184,19 @@
     
       
         
+          <a class="sidebar-nav-item" href="/EquivalenceType.tex">Equivalence Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/EquivalenceType.html">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.tex">Equivalence reasoning</a>
         
       
     
@@ -172,13 +208,37 @@
     
       
         
+          <a class="sidebar-nav-item" href="/EquivalencesForSets.html">Equivalences for Sets</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/FiberType.html">Fiber Type</a>
         
       
     
       
         
+          <a class="sidebar-nav-item" href="/FiberType.tex">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.tex">Function extensionality</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/FunExtAxiom.html">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.tex">Function extensionality and Transport</a>
         
       
     
@@ -196,6 +256,18 @@
     
       
         
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.tex">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.tex">Fundamental Group Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/FundamentalGroupType.html">Fundamental Group Type</a>
         
       
@@ -203,6 +275,12 @@
       
         
           <a class="sidebar-nav-item" href="/GroupType.html">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.tex">Group Type</a>
         
       
     
@@ -221,6 +299,12 @@
       
         
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.tex">Hedberg Lemmas</a>
         
       
     
@@ -250,13 +334,31 @@
     
       
         
+          <a class="sidebar-nav-item" href="/EqualityType.tex">Identity type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
         
       
     
       
         
+          <a class="sidebar-nav-item" href="/IntegerType.tex">Integer Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/IntervalType.html">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.tex">Interval Type</a>
         
       
     
@@ -441,7 +543,7 @@
     </div>
 
     <div class="main-last-date">
-      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/Intro.lagda">1da8e9a </a> on  16 Apr 2019
+      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/Intro.lagda">1da8e9a </a> on  01 May 2019
     </div>
   </div>
   
@@ -505,6 +607,14 @@ use this later on to define types in full generality.</p>
 <a id="1542" href="Intro.html#1516" class="Function">Type₀</a> <a id="1548" class="Symbol">=</a> <a id="1550" href="Intro.html#1442" class="Function">Type</a> <a id="1555" href="Agda.Primitive.html#611" class="Primitive">lzero</a>
 </pre>
 
+<pre class="Agda">
+<a id="1586" class="Keyword">record</a> <a id="↑"></a><a id="1593" href="Intro.html#1593" class="Record">↑</a> <a id="1595" class="Symbol">{</a><a id="1596" href="Intro.html#1596" class="Bound">a</a><a id="1597" class="Symbol">}</a> <a id="1599" href="Intro.html#1599" class="Bound">ℓ</a> <a id="1601" class="Symbol">(</a><a id="1602" href="Intro.html#1602" class="Bound">A</a> <a id="1604" class="Symbol">:</a> <a id="1606" href="Intro.html#1442" class="Function">Type</a> <a id="1611" href="Intro.html#1596" class="Bound">a</a><a id="1612" class="Symbol">)</a> <a id="1614" class="Symbol">:</a> <a id="1616" href="Intro.html#1442" class="Function">Type</a> <a id="1621" class="Symbol">(</a><a id="1622" href="Intro.html#1596" class="Bound">a</a> <a id="1624" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1626" href="Intro.html#1599" class="Bound">ℓ</a><a id="1627" class="Symbol">)</a> <a id="1629" class="Keyword">where</a>
+  <a id="1637" class="Keyword">constructor</a> <a id="↑.Lift"></a><a id="1649" href="Intro.html#1649" class="InductiveConstructor">Lift</a>
+  <a id="1656" class="Keyword">field</a> <a id="↑.lower"></a><a id="1662" href="Intro.html#1662" class="Field">lower</a> <a id="1668" class="Symbol">:</a> <a id="1670" href="Intro.html#1602" class="Bound">A</a>
+
+<a id="1673" class="Keyword">open</a> <a id="1678" href="Intro.html#1593" class="Module">↑</a> <a id="1680" class="Keyword">public</a>
+</pre>
+
 
   <div class="cited-references" markdown="1">
   <ol class="bibliography"></ol>
@@ -524,7 +634,7 @@ use this later on to define types in full generality.</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-04-16"
+       data-lastchecked ="2019-05-01"
        data-originalyear =""
        data-title ="Introduction"
        data-url ="http://jonaprieto.github.io/mini-hott/Intro.html"

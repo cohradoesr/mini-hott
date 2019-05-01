@@ -83,3 +83,7 @@ homotopic and the homotopy is given by a continuous function on the two paths.
 
 <a id="1518" class="Keyword">open</a> <a id="1523" href="HLevelTypes.html#1341" class="Module">Sets</a> <a id="1528" class="Keyword">public</a>
 </pre>
+
+<pre class="Agda">
+<a id="1560" class="Comment">-- TODO: define hlevels by the recursive definition</a>
+</pre>
