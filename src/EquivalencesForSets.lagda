@@ -46,19 +46,20 @@ module EquivalencesForSets where
     → Type (ℓ₁ ⊔ ℓ₂)
   IsSetEmbedding {A = A} f iA iB = (x y : A) → (f x == f y → x == y)
 
-  IsEquivBetweenSets
+  IsBijection
     : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
       → (f : A → B) → isSet A → isSet B
       → Type (ℓ₁ ⊔ ℓ₂)
 
-  IsEquivBetweenSets f iA iB = IsSetEmbedding f iA iB × IsSurjection f
+  IsBijection f iA iB = IsSetEmbedding f iA iB × IsSurjection f
 
   open import ContractibleType
 
   postulate
-    EquivInSets
+    Bijection
       : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
       → (f : A → B) → (ia : isSet A) → (ib : isSet B)
-      → IsSetEmbedding f ia ib → IsSurjection f
+      → IsBijection f ia ib
       → A ≃ B
+
 \end{code}
