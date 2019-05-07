@@ -81,10 +81,10 @@ WebFontConfig = {
 </script>
 {% endif %}
 
-{% if page.algolia %}
+{% if page.myentry %}
 <script type="text/javascript">
 // moment(moment(modifiedDate).format('YYYYMMDD')).fromNow();
-$('.algolia-modified a').map(
+$('.myentry-modified a').map(
   function(){
     var modifiedDate = $(this).text();
     $(this).text(moment(moment(modifiedDate).format('YYYYMMDD')).fromNow());

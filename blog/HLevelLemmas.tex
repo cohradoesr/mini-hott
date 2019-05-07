@@ -1,575 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
+---
+layout: page
+title: "H-Levels Lemmas"
+category: types lemmas
+toc: true
+agda: true
+gallery: true
+latex: true
+references: true
+linkify: true
+showcitation: true
+home: true
+---
 
-<head>
-  <meta charset="utf-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>
-    
-      
-        H-Levels Lemmas |
-      
-        Mini-HoTT
-    
-  </title><!-- Begin Jekyll SEO tag v2.6.0 -->
-<meta name="generator" content="Jekyll v3.8.5" />
-<meta property="og:title" content="H-Levels Lemmas" />
-<meta name="author" content="Jonathan Prieto-Cubides" />
-<meta property="og:locale" content="en_US" />
-<meta name="description" content="Jonathan Prieto-Cubides" />
-<meta property="og:description" content="Jonathan Prieto-Cubides" />
-<link rel="canonical" href="http://jonaprieto.github.io/mini-hott/HLevelLemmas.html" />
-<meta property="og:url" content="http://jonaprieto.github.io/mini-hott/HLevelLemmas.html" />
-<meta property="og:site_name" content="Mini-HoTT" />
-<script type="application/ld+json">
-{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/HLevelLemmas.html","headline":"H-Levels Lemmas","dateModified":"2019-05-01T02:28:12+02:00","@context":"https://schema.org"}</script>
-<!-- End Jekyll SEO tag -->
-<meta name="description" content="Jonathan Prieto-Cubides">
-
-  <link rel="stylesheet" href="/assets/main.css">
-  <link rel="preload" as="script" href="/assets/main.js" >
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
-  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
-  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
-  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
-  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
-  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
-  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
-  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
-  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
-  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
-  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
-
-  <link rel="manifest" href="/manifest.json">
-  <meta name="msapplication-TileColor" content="#ffffff">
-  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-  <meta name="theme-color" content="#ffffff">
-  
-  <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-
-  <!-- Global site tag (gtag.js) - Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114360791-1"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'UA-114360791-1');
-  </script>
-
-  
-</head>
-
-
-
-
-  <body>
-    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
-     styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
-
-<!-- Toggleable sidebar -->
-<div class="sidebar" id="sidebar">
-  <div class="sidebar-item" >
-    <p style="text-decoration:left">H-Levels Lemmas</p>
-  </div>
-  <nav class="sidebar-nav">
-    <ul id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
-    <ul>
-      <li class="sidebar-toc-item"><a href="#proposition-and-set-lemmas" class="sidebar-nav-item">Proposition and Set lemmas</a></li>
-    </ul>
-  </li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ul>
-
-
-    <!--  -->
-    <!-- 
-      
-    
-      
-    
-      
-    
-      
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/all/">All</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/BasicFunctions.html">Basic Functions</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/BasicFunctions.tex">Basic Functions</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/BasicTypes.tex">Basic Types</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/BasicTypes.html">Basic Types</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/CircleType.tex">Circle Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/CircleType.html">Circle Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/ContractibleType.tex">Contractible Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/ContractibleType.html">Contractible Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/DecidableEquality.tex">Decidable Equality</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/DecidableEquality.html">Decidable Equality</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EquivalenceType.tex">Equivalence Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EquivalenceType.html">Equivalence Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EquivalenceReasoning.tex">Equivalence reasoning</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EquivalenceReasoning.html">Equivalence reasoning</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EquivalencesForSets.html">Equivalences for Sets</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FiberType.html">Fiber Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FiberType.tex">Fiber Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FunExtAxiom.tex">Function extensionality</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FunExtAxiom.html">Function extensionality</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FunExtTransport.tex">Function extensionality and Transport</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FunExtTransport.html">Function extensionality and Transport</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FunExtTransportDependent.html">Function extensionality and transporting dependent functions </a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FunExtTransportDependent.tex">Function extensionality and transporting dependent functions </a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FundamentalGroupType.tex">Fundamental Group Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/FundamentalGroupType.html">Fundamental Group Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/GroupType.html">Group Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/GroupType.tex">Group Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item active" href="/HLevelLemmas.html">H-Levels Lemmas</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/HLevelTypes.html">H-Levels Types</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/HedbergLemmas.tex">Hedberg Lemmas</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/HedbergLemmas.html">Hedberg Lemmas</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/HomotopyType.html">Homotopy</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EqualityType.html">Identity type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EqualityType.tex">Identity type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/IntegerType.tex">Integer Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/IntervalType.html">Interval Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/IntervalType.tex">Interval Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/references/">List of references</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/NaturalType.html">Natural number Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/PiPreserves.html">Pi preserves equivalence</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.html">Quasiinverse Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/QuotientType.html">Quotient Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/RelationType.html">Relation Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/SigmaEquivalence.html">Sigma Equivalence</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma preserves</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/SuspensionType.html">Suspension Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/Transport.html">Transport</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/TruncationType.html">Truncation Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/UnivalenceTransport.html">Univalence Lemmas</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
-        
-      
-     -->
-
-    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
-    <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
-    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
-    <!-- <span class="sidebar-nav-item">Currently v</span> -->
-  </nav>
-</div>
-
-    <div class="wrap">
-      <div class="masthead">
-        <div class="container">
-          <h3 class="masthead-title">
-            <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
-            <a href="/" title="Home">Mini-HoTT</a>
-            <small style="text-decoration:left"></small>
-          </h3>
-        </div>
-      
-      <div class="container content">
-        
-
-
-
-
-
-
-
-<div class="post">
-
-  <div class="print-version">
-    <center>
-      <h1>H-Levels Lemmas</h1><br/>
-        <div class="print-authors">
-          <div class="print-info">
-            <div class="print-author">
-              <div class="print-author-name">
-                
-                  Jonathan Prieto-Cubides
-                
-              </div>
-              <div class="print-author-affiliation">
-                
-                  University of Bergen
-                
-                </div>
-            </div>
-          </div>
-          
-          
-        </div>
-        <div class="print-date"></div>
-        
-        
-    </center>
-  </div>
-
-  
-  <div class="main-heading">
-    <div class="main-title">
-      <div class="main-title-prefix">Latest change:</div>
-      <div class="main-commit-message">
-            <a href="https://github.com/jonaprieto/mini-hott/blob/master/HLevelLemmas.lagda">
-              Added more lemmas to be proved later</a>
-      </div>
-    </div>
-
-    <div class="main-last-date">
-      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/HLevelLemmas.lagda">45a20e6 </a> on  08 May 2019
-    </div>
-  </div>
-  
-  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> H-Levels Lemmas
-  </h1>
-
-  <!-- 
-  <div class="toc">
-    <nav>
-    <h2 class="table-of-contents"> Table of Contents </h2>
-      <ul>
-  <li><a href="#proposition-and-set-lemmas">Proposition and Set lemmas</a></li>
-</ul>
-
-    </nav>
-  </div>
-   -->
-
-  <noscript>
-  <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
-  </noscript>
-
-  <div class="hide">
+<div class="hide" >
 <pre class="Agda">
 <a id="212" class="Symbol">{-#</a> <a id="216" class="Keyword">OPTIONS</a> <a id="224" class="Pragma">--without-K</a> <a id="236" class="Symbol">#-}</a>
 <a id="240" class="Keyword">module</a> <a id="247" href="HLevelLemmas.html" class="Module">_</a> <a id="249" class="Keyword">where</a>
@@ -592,18 +35,21 @@
 </pre>
 </div>
 
-<h3 id="proposition-and-set-lemmas">Proposition and Set lemmas</h3>
+
+
+### Proposition and Set lemmas
 
 <pre class="Agda">
 <a id="627" class="Keyword">module</a> <a id="HLevelLemmas"></a><a id="634" href="HLevelLemmas.html#634" class="Module">HLevelLemmas</a> <a id="647" class="Keyword">where</a>
 </pre>
 
-<p>For any type, $A : \Type$,</p>
+For any type, $A : \Type$,
 
-<script type="math/tex; mode=display">% <![CDATA[
-\isCo<a id="718" class="Bound">n</a>t<a id="720" class="Bound">r</a>{A}<a id="724" class="Bound"> </a>⇒<a id="726" class="Function"> \isPro</a>p<a id="734" class="Bound">{</a>A} ⇒ \isSet{A}. %]]></script>
+{: .equation }
+  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A}.$$
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6"}
+<pre class="Agda">
   <a id="793" class="Comment">-- Contractible types are Propositions.</a>
   <a id="HLevelLemmas.contrIsProp"></a><a id="835" href="HLevelLemmas.html#835" class="Function">contrIsProp</a>
     <a id="851" class="Symbol">:</a> <a id="853" class="Symbol">∀</a> <a id="855" class="Symbol">{</a><a id="856" href="HLevelLemmas.html#856" class="Bound">ℓ</a><a id="857" class="Symbol">}</a>  <a id="860" class="Symbol">{</a><a id="861" href="HLevelLemmas.html#861" class="Bound">A</a> <a id="863" class="Symbol">:</a> <a id="865" href="Intro.html#1442" class="Function">Type</a> <a id="870" href="HLevelLemmas.html#856" class="Bound">ℓ</a><a id="871" class="Symbol">}</a>
@@ -617,9 +63,10 @@
   <a id="HLevelLemmas.isContr→isProp"></a><a id="980" href="HLevelLemmas.html#980" class="Function">isContr→isProp</a> <a id="995" class="Symbol">=</a> <a id="997" href="HLevelLemmas.html#835" class="Function">contrIsProp</a>
 </pre>
 
-<p>To be contractible is itself a proposition.</p>
+To be contractible is itself a proposition.
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6"}
+<pre class="Agda">
   <a id="1105" class="Comment">-- Lemma. Propositions are Sets.</a>
   <a id="HLevelLemmas.propIsSet"></a><a id="1140" href="HLevelLemmas.html#1140" class="Function">propIsSet</a>
     <a id="1154" class="Symbol">:</a> <a id="1156" class="Symbol">∀</a> <a id="1158" class="Symbol">{</a><a id="1159" href="HLevelLemmas.html#1159" class="Bound">ℓ</a><a id="1160" class="Symbol">}</a> <a id="1162" class="Symbol">{</a><a id="1163" href="HLevelLemmas.html#1163" class="Bound">A</a> <a id="1165" class="Symbol">:</a> <a id="1167" href="Intro.html#1442" class="Function">Type</a> <a id="1172" href="HLevelLemmas.html#1159" class="Bound">ℓ</a><a id="1173" class="Symbol">}</a>
@@ -647,7 +94,7 @@
   <a id="HLevelLemmas.isProp-isSet"></a><a id="1819" href="HLevelLemmas.html#1819" class="Function">isProp-isSet</a> <a id="1832" class="Symbol">=</a> <a id="1834" href="HLevelLemmas.html#1140" class="Function">propIsSet</a>
 </pre>
 
-<p>Examples of propositions:</p>
+Examples of propositions:
 
 <pre class="Agda">
   <a id="HLevelLemmas.⊥-is-prop"></a><a id="1898" href="HLevelLemmas.html#1898" class="Function">⊥-is-prop</a> <a id="1908" class="Symbol">:</a> <a id="1910" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="1917" class="Symbol">{</a><a id="1918" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="1923" class="Symbol">}</a> <a id="1925" href="BasicTypes.html#397" class="Datatype">⊥</a>
@@ -665,7 +112,9 @@
   <a id="2351" href="HLevelLemmas.html#1971" class="Function">is-prop-A+B</a> <a id="2363" href="HLevelLemmas.html#2363" class="Bound">ispropA</a> <a id="2371" href="HLevelLemmas.html#2371" class="Bound">ispropB</a> <a id="2379" href="HLevelLemmas.html#2379" class="Bound">¬A×B</a> <a id="2384" class="Symbol">(</a><a id="2385" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2389" href="HLevelLemmas.html#2389" class="Bound">x</a><a id="2390" class="Symbol">)</a> <a id="2392" class="Symbol">(</a><a id="2393" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2397" href="HLevelLemmas.html#2397" class="Bound">x₁</a><a id="2399" class="Symbol">)</a> <a id="2401" class="Symbol">=</a> <a id="2403" href="AlgebraOnPaths.html#454" class="Function">ap</a> <a id="2406" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2410" class="Symbol">(</a><a id="2411" href="HLevelLemmas.html#2371" class="Bound">ispropB</a> <a id="2419" href="HLevelLemmas.html#2389" class="Bound">x</a> <a id="2421" href="HLevelLemmas.html#2397" class="Bound">x₁</a><a id="2423" class="Symbol">)</a>
 </pre>
 
-<pre class="Agda foldable" until="5">
+
+{: .foldable until="5"}
+<pre class="Agda">
   <a id="2477" class="Comment">-- Lemma. Propositions are propositions.</a>
   <a id="HLevelLemmas.propIsProp"></a><a id="2520" href="HLevelLemmas.html#2520" class="Function">propIsProp</a>
     <a id="2535" class="Symbol">:</a>  <a id="2538" class="Symbol">∀</a> <a id="2540" class="Symbol">{</a><a id="2541" href="HLevelLemmas.html#2541" class="Bound">ℓ</a><a id="2542" class="Symbol">}{</a><a id="2544" href="HLevelLemmas.html#2544" class="Bound">A</a> <a id="2546" class="Symbol">:</a> <a id="2548" href="Intro.html#1442" class="Function">Type</a> <a id="2553" href="HLevelLemmas.html#2541" class="Bound">ℓ</a><a id="2554" class="Symbol">}</a>
@@ -683,10 +132,11 @@
   <a id="HLevelLemmas.isProp-isProp"></a><a id="2840" href="HLevelLemmas.html#2840" class="Function">isProp-isProp</a>       <a id="2860" class="Symbol">=</a> <a id="2862" href="HLevelLemmas.html#2520" class="Function">propIsProp</a>
 </pre>
 
-<p>The dependent function type to proposition types is itself a
-proposition.</p>
+The dependent function type to proposition types is itself a
+proposition.
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6"}
+<pre class="Agda">
   <a id="2999" class="Comment">-- Lemma.</a>
   <a id="HLevelLemmas.isProp-pi"></a><a id="3011" href="HLevelLemmas.html#3011" class="Function">isProp-pi</a>
     <a id="3025" class="Symbol">:</a> <a id="3027" class="Symbol">∀</a> <a id="3029" class="Symbol">{</a><a id="3030" href="HLevelLemmas.html#3030" class="Bound">ℓᵢ</a> <a id="3033" href="HLevelLemmas.html#3033" class="Bound">ℓⱼ</a><a id="3035" class="Symbol">}</a> <a id="3037" class="Symbol">→</a> <a id="3039" class="Symbol">{</a><a id="3040" href="HLevelLemmas.html#3040" class="Bound">A</a> <a id="3042" class="Symbol">:</a> <a id="3044" href="Intro.html#1442" class="Function">Type</a> <a id="3049" href="HLevelLemmas.html#3030" class="Bound">ℓᵢ</a><a id="3051" class="Symbol">}</a> <a id="3053" class="Symbol">→</a> <a id="3055" class="Symbol">{</a><a id="3056" href="HLevelLemmas.html#3056" class="Bound">B</a> <a id="3058" class="Symbol">:</a> <a id="3060" href="HLevelLemmas.html#3040" class="Bound">A</a> <a id="3062" class="Symbol">→</a> <a id="3064" href="Intro.html#1442" class="Function">Type</a> <a id="3069" href="HLevelLemmas.html#3033" class="Bound">ℓⱼ</a><a id="3071" class="Symbol">}</a>
@@ -701,7 +151,8 @@ proposition.</p>
   <a id="HLevelLemmas.piIsProp"></a><a id="3275" href="HLevelLemmas.html#3275" class="Function">piIsProp</a>   <a id="3286" class="Symbol">=</a> <a id="3288" href="HLevelLemmas.html#3011" class="Function">isProp-pi</a>
 </pre>
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6"}
+<pre class="Agda">
   <a id="3349" class="Comment">-- Lemma.</a>
   <a id="HLevelLemmas.ispropA-B"></a><a id="3361" href="HLevelLemmas.html#3361" class="Function">ispropA-B</a>
     <a id="3375" class="Symbol">:</a> <a id="3377" class="Symbol">∀</a> <a id="3379" class="Symbol">{</a><a id="3380" href="HLevelLemmas.html#3380" class="Bound">ℓ</a><a id="3381" class="Symbol">}</a> <a id="3383" class="Symbol">{</a><a id="3384" href="HLevelLemmas.html#3384" class="Bound">A</a> <a id="3386" href="HLevelLemmas.html#3386" class="Bound">B</a> <a id="3388" class="Symbol">:</a> <a id="3390" href="Intro.html#1442" class="Function">Type</a> <a id="3395" href="HLevelLemmas.html#3380" class="Bound">ℓ</a><a id="3396" class="Symbol">}</a>
@@ -716,10 +167,14 @@ proposition.</p>
   <a id="HLevelLemmas.props-⇔-to-=="></a><a id="3598" href="HLevelLemmas.html#3598" class="Function">props-⇔-to-==</a> <a id="3612" class="Symbol">=</a> <a id="3614" href="HLevelLemmas.html#3361" class="Function">ispropA-B</a>
 </pre>
 
-<p>A similar lemma but for sets states, a function $f : A → B$ is an equivalence if
-given A and B sets, f is injective and surjective.</p>
+A similar lemma but for sets states, a function $f : A → B$ is an equivalence if
+given A and B sets, f is injective and surjective.
 
-<pre class="Agda foldable" until="6">
+
+
+
+{: .foldable until="6"}
+<pre class="Agda">
   <a id="3811" class="Comment">-- Lemma.</a>
   <a id="3823" class="Comment">-- propEqvIsprop</a>
   <a id="3842" class="Comment">--   : ∀ {ℓ} {A B : Type ℓ}</a>
@@ -730,7 +185,8 @@ given A and B sets, f is injective and surjective.</p>
   <a id="3960" class="Comment">-- propEqvIsprop {ℓ} {A} {B} x x₁ x₂ y = {!   !}</a>
 </pre>
 
-<pre class="Agda foldable" until="4">
+{: .foldable until="4"}
+<pre class="Agda">
   <a id="4060" class="Comment">-- Lemma.</a>
   <a id="HLevelLemmas.setIsProp"></a><a id="4072" href="HLevelLemmas.html#4072" class="Function">setIsProp</a>
     <a id="4086" class="Symbol">:</a> <a id="4088" class="Symbol">∀</a> <a id="4090" class="Symbol">{</a><a id="4091" href="HLevelLemmas.html#4091" class="Bound">ℓ</a><a id="4092" class="Symbol">}</a> <a id="4094" class="Symbol">{</a><a id="4095" href="HLevelLemmas.html#4095" class="Bound">A</a> <a id="4097" class="Symbol">:</a> <a id="4099" href="Intro.html#1442" class="Function">Type</a> <a id="4104" href="HLevelLemmas.html#4091" class="Bound">ℓ</a><a id="4105" class="Symbol">}</a>
@@ -746,9 +202,10 @@ given A and B sets, f is injective and surjective.</p>
   <a id="HLevelLemmas.set-is-prop-always"></a><a id="4332" href="HLevelLemmas.html#4332" class="Function">set-is-prop-always</a> <a id="4351" class="Symbol">=</a> <a id="4353" href="HLevelLemmas.html#4072" class="Function">setIsProp</a>
 </pre>
 
-<p>The product of propositions is itself a proposition.</p>
+The product of propositions is itself a proposition.
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6"}
+<pre class="Agda">
   <a id="4468" class="Comment">-- Lemma.</a>
   <a id="HLevelLemmas.isProp-prod"></a><a id="4480" href="HLevelLemmas.html#4480" class="Function">isProp-prod</a>
     <a id="4496" class="Symbol">:</a> <a id="4498" class="Symbol">∀</a> <a id="4500" class="Symbol">{</a><a id="4501" href="HLevelLemmas.html#4501" class="Bound">ℓᵢ</a> <a id="4504" href="HLevelLemmas.html#4504" class="Bound">ℓⱼ</a><a id="4506" class="Symbol">}</a> <a id="4508" class="Symbol">→</a> <a id="4510" class="Symbol">{</a><a id="4511" href="HLevelLemmas.html#4511" class="Bound">A</a> <a id="4513" class="Symbol">:</a> <a id="4515" href="Intro.html#1442" class="Function">Type</a> <a id="4520" href="HLevelLemmas.html#4501" class="Bound">ℓᵢ</a><a id="4522" class="Symbol">}</a> <a id="4524" class="Symbol">→</a> <a id="4526" class="Symbol">{</a><a id="4527" href="HLevelLemmas.html#4527" class="Bound">B</a> <a id="4529" class="Symbol">:</a> <a id="4531" href="Intro.html#1442" class="Function">Type</a> <a id="4536" href="HLevelLemmas.html#4504" class="Bound">ℓⱼ</a><a id="4538" class="Symbol">}</a>
@@ -763,9 +220,10 @@ given A and B sets, f is injective and surjective.</p>
   <a id="HLevelLemmas.prop×prop→prop"></a><a id="4740" href="HLevelLemmas.html#4740" class="Function">prop×prop→prop</a> <a id="4755" class="Symbol">=</a> <a id="4757" href="HLevelLemmas.html#4480" class="Function">isProp-prod</a>
 </pre>
 
-<p>Product of sets is a set.</p>
+Product of sets is a set.
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6" }
+<pre class="Agda">
   <a id="4848" class="Comment">-- Lemma.</a>
   <a id="HLevelLemmas.isSet-prod"></a><a id="4860" href="HLevelLemmas.html#4860" class="Function">isSet-prod</a>
     <a id="4875" class="Symbol">:</a> <a id="4877" class="Symbol">∀</a> <a id="4879" class="Symbol">{</a><a id="4880" href="HLevelLemmas.html#4880" class="Bound">ℓᵢ</a> <a id="4883" href="HLevelLemmas.html#4883" class="Bound">ℓⱼ</a><a id="4885" class="Symbol">}</a> <a id="4887" class="Symbol">{</a><a id="4888" href="HLevelLemmas.html#4888" class="Bound">A</a> <a id="4890" class="Symbol">:</a> <a id="4892" href="Intro.html#1442" class="Function">Type</a> <a id="4897" href="HLevelLemmas.html#4880" class="Bound">ℓᵢ</a><a id="4899" class="Symbol">}</a> <a id="4901" class="Symbol">→</a> <a id="4903" class="Symbol">{</a><a id="4904" href="HLevelLemmas.html#4904" class="Bound">B</a> <a id="4906" class="Symbol">:</a> <a id="4908" href="Intro.html#1442" class="Function">Type</a> <a id="4913" href="HLevelLemmas.html#4883" class="Bound">ℓⱼ</a><a id="4915" class="Symbol">}</a>
@@ -788,9 +246,10 @@ given A and B sets, f is injective and surjective.</p>
   <a id="HLevelLemmas.set×set→set"></a><a id="5349" href="HLevelLemmas.html#5349" class="Function">set×set→set</a>   <a id="5363" class="Symbol">=</a> <a id="5365" href="HLevelLemmas.html#4860" class="Function">isSet-prod</a>
 </pre>
 
-<p>H-levels actually are preserved by products, coproducts, pi-types and sigma-types.</p>
+H-levels actually are preserved by products, coproducts, pi-types and sigma-types.
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6" }
+<pre class="Agda">
   <a id="5512" class="Keyword">postulate</a> <a id="5522" class="Comment">-- Ex. 3.3</a>
     <a id="HLevelLemmas.isSet-Σ"></a><a id="5537" href="HLevelLemmas.html#5537" class="Postulate">isSet-Σ</a>
       <a id="5551" class="Symbol">:</a> <a id="5553" class="Symbol">∀</a> <a id="5555" class="Symbol">{</a><a id="5556" href="HLevelLemmas.html#5556" class="Bound">ℓᵢ</a> <a id="5559" href="HLevelLemmas.html#5559" class="Bound">ℓⱼ</a><a id="5561" class="Symbol">}</a> <a id="5563" class="Symbol">{</a><a id="5564" href="HLevelLemmas.html#5564" class="Bound">A</a> <a id="5566" class="Symbol">:</a> <a id="5568" href="Intro.html#1442" class="Function">Type</a> <a id="5573" href="HLevelLemmas.html#5556" class="Bound">ℓᵢ</a><a id="5575" class="Symbol">}</a> <a id="5577" class="Symbol">→</a> <a id="5579" class="Symbol">{</a><a id="5580" href="HLevelLemmas.html#5580" class="Bound">B</a> <a id="5582" class="Symbol">:</a> <a id="5584" href="HLevelLemmas.html#5564" class="Bound">A</a> <a id="5586" class="Symbol">→</a> <a id="5588" href="Intro.html#1442" class="Function">Type</a> <a id="5593" href="HLevelLemmas.html#5559" class="Bound">ℓⱼ</a><a id="5595" class="Symbol">}</a>
@@ -833,7 +292,8 @@ given A and B sets, f is injective and surjective.</p>
   <a id="6540" class="Comment">-- +-of-sets-is-set issetA issetB (inr x) (inr x₁) p q = {!   !}</a>
 </pre>
 
-<pre class="Agda foldable" until="5">
+{: .foldable until="5"}
+<pre class="Agda">
   <a id="6656" class="Comment">-- Lemma 3.11.3 in HoTT-Book.</a>
   <a id="HLevelLemmas.isContrIsProp"></a><a id="6688" href="HLevelLemmas.html#6688" class="Function">isContrIsProp</a>
     <a id="6706" class="Symbol">:</a> <a id="6708" class="Symbol">∀</a> <a id="6710" class="Symbol">{</a><a id="6711" href="HLevelLemmas.html#6711" class="Bound">ℓ</a><a id="6712" class="Symbol">}</a> <a id="6714" class="Symbol">{</a><a id="6715" href="HLevelLemmas.html#6715" class="Bound">A</a> <a id="6717" class="Symbol">:</a> <a id="6719" href="Intro.html#1442" class="Function">Type</a> <a id="6724" href="HLevelLemmas.html#6711" class="Bound">ℓ</a><a id="6725" class="Symbol">}</a>
@@ -848,8 +308,9 @@ given A and B sets, f is injective and surjective.</p>
 <a id="6964" class="Keyword">open</a> <a id="6969" href="HLevelLemmas.html#634" class="Module">HLevelLemmas</a> <a id="6982" class="Keyword">public</a>
 </pre>
 
-<p>Equivalence of two types is a proposition
-Moreover, equivalences preserve propositions.</p>
+
+Equivalence of two types is a proposition
+Moreover, equivalences preserve propositions.
 
 <pre class="Agda">
 
@@ -859,37 +320,38 @@ Moreover, equivalences preserve propositions.</p>
   <a id="EquivalenceProp.isContrMapIsProp"></a><a id="7213" href="HLevelLemmas.html#7213" class="Function">isContrMapIsProp</a> <a id="7230" class="Symbol">:</a> <a id="7232" class="Symbol">(</a><a id="7233" href="HLevelLemmas.html#7233" class="Bound">f</a> <a id="7235" class="Symbol">:</a> <a id="7237" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7239" class="Symbol">→</a> <a id="7241" href="HLevelLemmas.html#7151" class="Bound">B</a><a id="7242" class="Symbol">)</a> <a id="7244" class="Symbol">→</a> <a id="7246" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="7253" class="Symbol">(</a><a id="7254" href="ContractibleType.html#1049" class="Function">isContrMap</a> <a id="7265" href="HLevelLemmas.html#7233" class="Bound">f</a><a id="7266" class="Symbol">)</a>
   <a id="7270" href="HLevelLemmas.html#7213" class="Function">isContrMapIsProp</a> <a id="7287" href="HLevelLemmas.html#7287" class="Bound">f</a> <a id="7289" class="Symbol">=</a> <a id="7291" href="HLevelLemmas.html#3011" class="Function">isProp-pi</a> <a id="7301" class="Symbol">λ</a> <a id="7303" href="HLevelLemmas.html#7303" class="Bound">a</a> <a id="7305" class="Symbol">→</a> <a id="7307" href="HLevelLemmas.html#6688" class="Function">isContrIsProp</a>
 
-  <a id="EquivalenceProp.isEquivIsProp"></a><a id="7324" href="HLevelLemmas.html#7324" class="Function">isEquivIsProp</a> <a id="7338" class="Symbol">:</a> <a id="7340" class="Symbol">(</a><a id="7341" href="HLevelLemmas.html#7341" class="Bound">f</a> <a id="7343" class="Symbol">:</a> <a id="7345" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7347" class="Symbol">→</a> <a id="7349" href="HLevelLemmas.html#7151" class="Bound">B</a><a id="7350" class="Symbol">)</a> <a id="7352" class="Symbol">→</a> <a id="7354" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="7361" class="Symbol">(</a><a id="7362" href="EquivalenceType.html#622" class="Function">isEquiv</a> <a id="7370" href="HLevelLemmas.html#7341" class="Bound">f</a><a id="7371" class="Symbol">)</a>
+  <a id="EquivalenceProp.isEquivIsProp"></a><a id="7324" href="HLevelLemmas.html#7324" class="Function">isEquivIsProp</a> <a id="7338" class="Symbol">:</a> <a id="7340" class="Symbol">(</a><a id="7341" href="HLevelLemmas.html#7341" class="Bound">f</a> <a id="7343" class="Symbol">:</a> <a id="7345" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7347" class="Symbol">→</a> <a id="7349" href="HLevelLemmas.html#7151" class="Bound">B</a><a id="7350" class="Symbol">)</a> <a id="7352" class="Symbol">→</a> <a id="7354" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="7361" class="Symbol">(</a><a id="7362" href="EquivalenceType.html#608" class="Function">isEquiv</a> <a id="7370" href="HLevelLemmas.html#7341" class="Bound">f</a><a id="7371" class="Symbol">)</a>
   <a id="7375" href="HLevelLemmas.html#7324" class="Function">isEquivIsProp</a> <a id="7389" class="Symbol">=</a> <a id="7391" href="HLevelLemmas.html#7213" class="Function">isContrMapIsProp</a>
 
   <a id="7411" class="Comment">-- Equality of same-morphism equivalences</a>
-  <a id="EquivalenceProp.sameEqv"></a><a id="7455" href="HLevelLemmas.html#7455" class="Function">sameEqv</a> <a id="7463" class="Symbol">:</a> <a id="7465" class="Symbol">{</a><a id="7466" href="HLevelLemmas.html#7466" class="Bound">α</a> <a id="7468" href="HLevelLemmas.html#7468" class="Bound">β</a> <a id="7470" class="Symbol">:</a> <a id="7472" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7474" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="7476" href="HLevelLemmas.html#7151" class="Bound">B</a><a id="7477" class="Symbol">}</a> <a id="7479" class="Symbol">→</a> <a id="7481" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="7484" href="HLevelLemmas.html#7466" class="Bound">α</a> <a id="7486" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="7489" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="7492" href="HLevelLemmas.html#7468" class="Bound">β</a> <a id="7494" class="Symbol">→</a> <a id="7496" href="HLevelLemmas.html#7466" class="Bound">α</a> <a id="7498" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="7501" href="HLevelLemmas.html#7468" class="Bound">β</a>
+  <a id="EquivalenceProp.sameEqv"></a><a id="7455" href="HLevelLemmas.html#7455" class="Function">sameEqv</a> <a id="7463" class="Symbol">:</a> <a id="7465" class="Symbol">{</a><a id="7466" href="HLevelLemmas.html#7466" class="Bound">α</a> <a id="7468" href="HLevelLemmas.html#7468" class="Bound">β</a> <a id="7470" class="Symbol">:</a> <a id="7472" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7474" href="EquivalenceType.html#764" class="Function Operator">≃</a> <a id="7476" href="HLevelLemmas.html#7151" class="Bound">B</a><a id="7477" class="Symbol">}</a> <a id="7479" class="Symbol">→</a> <a id="7481" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="7484" href="HLevelLemmas.html#7466" class="Bound">α</a> <a id="7486" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="7489" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="7492" href="HLevelLemmas.html#7468" class="Bound">β</a> <a id="7494" class="Symbol">→</a> <a id="7496" href="HLevelLemmas.html#7466" class="Bound">α</a> <a id="7498" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="7501" href="HLevelLemmas.html#7468" class="Bound">β</a>
   <a id="7505" href="HLevelLemmas.html#7455" class="Function">sameEqv</a> <a id="7513" class="Symbol">{(</a><a id="7515" href="HLevelLemmas.html#7515" class="Bound">f</a> <a id="7517" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="7519" href="HLevelLemmas.html#7519" class="Bound">σ</a><a id="7520" class="Symbol">)}</a> <a id="7523" class="Symbol">{(</a><a id="7525" href="HLevelLemmas.html#7525" class="Bound">g</a> <a id="7527" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="7529" href="HLevelLemmas.html#7529" class="Bound">τ</a><a id="7530" class="Symbol">)}</a> <a id="7533" href="HLevelLemmas.html#7533" class="Bound">p</a> <a id="7535" class="Symbol">=</a> <a id="7537" href="TransportLemmas.html#8769" class="Function">Σ-bycomponents</a> <a id="7552" class="Symbol">(</a><a id="7553" href="HLevelLemmas.html#7533" class="Bound">p</a> <a id="7555" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="7557" class="Symbol">(</a><a id="7558" href="HLevelLemmas.html#7324" class="Function">isEquivIsProp</a> <a id="7572" href="HLevelLemmas.html#7525" class="Bound">g</a> <a id="7574" class="Symbol">_</a> <a id="7576" href="HLevelLemmas.html#7529" class="Bound">τ</a><a id="7577" class="Symbol">))</a>
 
   <a id="7583" class="Comment">-- Equivalences preserve propositions</a>
-  <a id="EquivalenceProp.isProp-≃"></a><a id="7623" href="HLevelLemmas.html#7623" class="Function">isProp-≃</a> <a id="7632" class="Symbol">:</a> <a id="7634" class="Symbol">(</a><a id="7635" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7637" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="7639" href="HLevelLemmas.html#7151" class="Bound">B</a><a id="7640" class="Symbol">)</a> <a id="7642" class="Symbol">→</a> <a id="7644" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="7651" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7653" class="Symbol">→</a> <a id="7655" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="7662" href="HLevelLemmas.html#7151" class="Bound">B</a>
+  <a id="EquivalenceProp.isProp-≃"></a><a id="7623" href="HLevelLemmas.html#7623" class="Function">isProp-≃</a> <a id="7632" class="Symbol">:</a> <a id="7634" class="Symbol">(</a><a id="7635" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7637" href="EquivalenceType.html#764" class="Function Operator">≃</a> <a id="7639" href="HLevelLemmas.html#7151" class="Bound">B</a><a id="7640" class="Symbol">)</a> <a id="7642" class="Symbol">→</a> <a id="7644" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="7651" href="HLevelLemmas.html#7137" class="Bound">A</a> <a id="7653" class="Symbol">→</a> <a id="7655" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="7662" href="HLevelLemmas.html#7151" class="Bound">B</a>
   <a id="7666" href="HLevelLemmas.html#7623" class="Function">isProp-≃</a> <a id="7675" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7678" href="HLevelLemmas.html#7678" class="Bound">prop</a> <a id="7683" href="HLevelLemmas.html#7683" class="Bound">x</a> <a id="7685" href="HLevelLemmas.html#7685" class="Bound">y</a> <a id="7687" class="Symbol">=</a>
     <a id="7693" href="EqualityType.html#4279" class="Function Operator">begin</a>
-      <a id="7705" href="HLevelLemmas.html#7683" class="Bound">x</a>                       <a id="7729" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="7733" href="EqualityType.html#2412" class="Function">inv</a> <a id="7737" class="Symbol">(</a><a id="7738" href="EquivalenceType.html#1382" class="Function">lrmap-inverse</a> <a id="7752" href="HLevelLemmas.html#7675" class="Bound">eq</a><a id="7754" class="Symbol">)</a> <a id="7756" href="EqualityType.html#4007" class="Function Operator">⟩</a>
-      <a id="7764" href="EquivalenceType.html#995" class="Function">lemap</a> <a id="7770" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7773" class="Symbol">((</a><a id="7775" href="EquivalenceType.html#1147" class="Function">remap</a> <a id="7781" href="HLevelLemmas.html#7675" class="Bound">eq</a><a id="7783" class="Symbol">)</a> <a id="7785" href="HLevelLemmas.html#7683" class="Bound">x</a><a id="7786" class="Symbol">)</a> <a id="7788" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="7792" href="AlgebraOnPaths.html#454" class="Function">ap</a> <a id="7795" class="Symbol">(λ</a> <a id="7798" href="HLevelLemmas.html#7798" class="Bound">u</a> <a id="7800" class="Symbol">→</a> <a id="7802" href="EquivalenceType.html#995" class="Function">lemap</a> <a id="7808" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7811" href="HLevelLemmas.html#7798" class="Bound">u</a><a id="7812" class="Symbol">)</a> <a id="7814" class="Symbol">(</a><a id="7815" href="HLevelLemmas.html#7678" class="Bound">prop</a> <a id="7820" class="Symbol">_</a> <a id="7822" class="Symbol">_)</a> <a id="7825" href="EqualityType.html#4007" class="Function Operator">⟩</a>
-      <a id="7833" href="EquivalenceType.html#995" class="Function">lemap</a> <a id="7839" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7842" class="Symbol">((</a><a id="7844" href="EquivalenceType.html#1147" class="Function">remap</a> <a id="7850" href="HLevelLemmas.html#7675" class="Bound">eq</a><a id="7852" class="Symbol">)</a> <a id="7854" href="HLevelLemmas.html#7685" class="Bound">y</a><a id="7855" class="Symbol">)</a> <a id="7857" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="7861" href="EquivalenceType.html#1382" class="Function">lrmap-inverse</a> <a id="7875" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7878" href="EqualityType.html#4007" class="Function Operator">⟩</a>
+      <a id="7705" href="HLevelLemmas.html#7683" class="Bound">x</a>                       <a id="7729" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="7733" href="EqualityType.html#2412" class="Function">inv</a> <a id="7737" class="Symbol">(</a><a id="7738" href="EquivalenceType.html#1368" class="Function">lrmap-inverse</a> <a id="7752" href="HLevelLemmas.html#7675" class="Bound">eq</a><a id="7754" class="Symbol">)</a> <a id="7756" href="EqualityType.html#4007" class="Function Operator">⟩</a>
+      <a id="7764" href="EquivalenceType.html#981" class="Function">lemap</a> <a id="7770" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7773" class="Symbol">((</a><a id="7775" href="EquivalenceType.html#1133" class="Function">remap</a> <a id="7781" href="HLevelLemmas.html#7675" class="Bound">eq</a><a id="7783" class="Symbol">)</a> <a id="7785" href="HLevelLemmas.html#7683" class="Bound">x</a><a id="7786" class="Symbol">)</a> <a id="7788" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="7792" href="AlgebraOnPaths.html#454" class="Function">ap</a> <a id="7795" class="Symbol">(λ</a> <a id="7798" href="HLevelLemmas.html#7798" class="Bound">u</a> <a id="7800" class="Symbol">→</a> <a id="7802" href="EquivalenceType.html#981" class="Function">lemap</a> <a id="7808" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7811" href="HLevelLemmas.html#7798" class="Bound">u</a><a id="7812" class="Symbol">)</a> <a id="7814" class="Symbol">(</a><a id="7815" href="HLevelLemmas.html#7678" class="Bound">prop</a> <a id="7820" class="Symbol">_</a> <a id="7822" class="Symbol">_)</a> <a id="7825" href="EqualityType.html#4007" class="Function Operator">⟩</a>
+      <a id="7833" href="EquivalenceType.html#981" class="Function">lemap</a> <a id="7839" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7842" class="Symbol">((</a><a id="7844" href="EquivalenceType.html#1133" class="Function">remap</a> <a id="7850" href="HLevelLemmas.html#7675" class="Bound">eq</a><a id="7852" class="Symbol">)</a> <a id="7854" href="HLevelLemmas.html#7685" class="Bound">y</a><a id="7855" class="Symbol">)</a> <a id="7857" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="7861" href="EquivalenceType.html#1368" class="Function">lrmap-inverse</a> <a id="7875" href="HLevelLemmas.html#7675" class="Bound">eq</a> <a id="7878" href="EqualityType.html#4007" class="Function Operator">⟩</a>
       <a id="7886" href="HLevelLemmas.html#7685" class="Bound">y</a>
     <a id="7892" href="EqualityType.html#4176" class="Function Operator">∎</a>
 <a id="7894" class="Keyword">open</a> <a id="7899" href="HLevelLemmas.html#7112" class="Module">EquivalenceProp</a> <a id="7915" class="Keyword">public</a>
 </pre>
 
-<pre class="Agda foldable" until="6">
+{: .foldable until="6"}
+<pre class="Agda">
 <a id="7971" class="Comment">-- Lemma.</a>
 <a id="≃-trans-inv"></a><a id="7981" href="HLevelLemmas.html#7981" class="Function">≃-trans-inv</a>
   <a id="7995" class="Symbol">:</a> <a id="7997" class="Symbol">∀</a> <a id="7999" class="Symbol">{</a><a id="8000" href="HLevelLemmas.html#8000" class="Bound">ℓ</a><a id="8001" class="Symbol">}</a> <a id="8003" class="Symbol">{</a><a id="8004" href="HLevelLemmas.html#8004" class="Bound">A</a> <a id="8006" href="HLevelLemmas.html#8006" class="Bound">B</a> <a id="8008" class="Symbol">:</a> <a id="8010" href="Intro.html#1442" class="Function">Type</a> <a id="8015" href="HLevelLemmas.html#8000" class="Bound">ℓ</a><a id="8016" class="Symbol">}</a>
-  <a id="8020" class="Symbol">→</a> <a id="8022" class="Symbol">(</a><a id="8023" href="HLevelLemmas.html#8023" class="Bound">α</a> <a id="8025" class="Symbol">:</a> <a id="8027" href="HLevelLemmas.html#8004" class="Bound">A</a> <a id="8029" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="8031" href="HLevelLemmas.html#8006" class="Bound">B</a><a id="8032" class="Symbol">)</a>
+  <a id="8020" class="Symbol">→</a> <a id="8022" class="Symbol">(</a><a id="8023" href="HLevelLemmas.html#8023" class="Bound">α</a> <a id="8025" class="Symbol">:</a> <a id="8027" href="HLevelLemmas.html#8004" class="Bound">A</a> <a id="8029" href="EquivalenceType.html#764" class="Function Operator">≃</a> <a id="8031" href="HLevelLemmas.html#8006" class="Bound">B</a><a id="8032" class="Symbol">)</a>
   <a id="8036" class="Comment">-----------------------------</a>
   <a id="8068" class="Symbol">→</a> <a id="8070" href="QuasiinverseLemmas.html#1653" class="Function">≃-trans</a> <a id="8078" href="HLevelLemmas.html#8023" class="Bound">α</a> <a id="8080" class="Symbol">(</a><a id="8081" href="QuasiinverseLemmas.html#2262" class="Function">≃-flip</a> <a id="8088" href="HLevelLemmas.html#8023" class="Bound">α</a><a id="8089" class="Symbol">)</a> <a id="8091" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="8094" href="QuasiinverseLemmas.html#1575" class="Function">A≃A</a>
 
 <a id="8099" href="HLevelLemmas.html#7981" class="Function">≃-trans-inv</a> <a id="8111" href="HLevelLemmas.html#8111" class="Bound">α</a> <a id="8113" class="Symbol">=</a> <a id="8115" href="HLevelLemmas.html#7455" class="Function">sameEqv</a> <a id="8123" class="Symbol">(</a>
  <a id="8126" href="EqualityType.html#4279" class="Function Operator">begin</a>
    <a id="8135" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="8138" class="Symbol">(</a><a id="8139" href="QuasiinverseLemmas.html#1653" class="Function">≃-trans</a> <a id="8147" href="HLevelLemmas.html#8111" class="Bound">α</a> <a id="8149" class="Symbol">(</a><a id="8150" href="QuasiinverseLemmas.html#2010" class="Function">≃-sym</a> <a id="8156" href="HLevelLemmas.html#8111" class="Bound">α</a><a id="8157" class="Symbol">))</a> <a id="8160" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="8164" href="EqualityType.html#1111" class="Function">refl</a> <a id="8169" class="Symbol">_</a> <a id="8171" href="EqualityType.html#4007" class="Function Operator">⟩</a>
-   <a id="8176" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="8179" class="Symbol">(</a><a id="8180" href="QuasiinverseLemmas.html#2010" class="Function">≃-sym</a> <a id="8186" href="HLevelLemmas.html#8111" class="Bound">α</a><a id="8187" class="Symbol">)</a> <a id="8189" href="BasicFunctions.html#910" class="Function Operator">∘</a> <a id="8191" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="8194" href="HLevelLemmas.html#8111" class="Bound">α</a>     <a id="8200" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="8204" href="FunExtAxiom.html#929" class="Function">funext</a> <a id="8211" class="Symbol">(</a><a id="8212" href="EquivalenceType.html#2079" class="Function">rlmap-inverse-h</a> <a id="8228" href="HLevelLemmas.html#8111" class="Bound">α</a><a id="8229" class="Symbol">)</a> <a id="8231" href="EqualityType.html#4007" class="Function Operator">⟩</a>
+   <a id="8176" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="8179" class="Symbol">(</a><a id="8180" href="QuasiinverseLemmas.html#2010" class="Function">≃-sym</a> <a id="8186" href="HLevelLemmas.html#8111" class="Bound">α</a><a id="8187" class="Symbol">)</a> <a id="8189" href="BasicFunctions.html#910" class="Function Operator">∘</a> <a id="8191" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="8194" href="HLevelLemmas.html#8111" class="Bound">α</a>     <a id="8200" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="8204" href="FunExtAxiom.html#929" class="Function">funext</a> <a id="8211" class="Symbol">(</a><a id="8212" href="EquivalenceType.html#2065" class="Function">rlmap-inverse-h</a> <a id="8228" href="HLevelLemmas.html#8111" class="Bound">α</a><a id="8229" class="Symbol">)</a> <a id="8231" href="EqualityType.html#4007" class="Function Operator">⟩</a>
    <a id="8236" href="BasicFunctions.html#364" class="Function">id</a>
  <a id="8240" href="EqualityType.html#4176" class="Function Operator">∎</a><a id="8241" class="Symbol">)</a>
 </pre>
@@ -899,14 +361,14 @@ Moreover, equivalences preserve propositions.</p>
 <a id="twoprops-to-equiv-≃-⇔"></a><a id="8276" href="HLevelLemmas.html#8276" class="Function">twoprops-to-equiv-≃-⇔</a>
   <a id="8300" class="Symbol">:</a> <a id="8302" class="Symbol">∀</a> <a id="8304" class="Symbol">{</a><a id="8305" href="HLevelLemmas.html#8305" class="Bound">ℓ₁</a> <a id="8308" href="HLevelLemmas.html#8308" class="Bound">ℓ₂</a><a id="8310" class="Symbol">}</a> <a id="8312" class="Symbol">{</a><a id="8313" href="HLevelLemmas.html#8313" class="Bound">A</a> <a id="8315" class="Symbol">:</a> <a id="8317" href="Intro.html#1442" class="Function">Type</a> <a id="8322" href="HLevelLemmas.html#8305" class="Bound">ℓ₁</a><a id="8324" class="Symbol">}</a> <a id="8326" class="Symbol">{</a><a id="8327" href="HLevelLemmas.html#8327" class="Bound">B</a> <a id="8329" class="Symbol">:</a> <a id="8331" href="Intro.html#1442" class="Function">Type</a> <a id="8336" href="HLevelLemmas.html#8308" class="Bound">ℓ₂</a><a id="8338" class="Symbol">}</a>
   <a id="8342" class="Symbol">→</a> <a id="8344" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="8351" href="HLevelLemmas.html#8313" class="Bound">A</a> <a id="8353" class="Symbol">→</a> <a id="8355" href="HLevelTypes.html#811" class="Function">isProp</a> <a id="8362" href="HLevelLemmas.html#8327" class="Bound">B</a>
-  <a id="8366" class="Symbol">→</a> <a id="8368" class="Symbol">(</a><a id="8369" href="HLevelLemmas.html#8313" class="Bound">A</a> <a id="8371" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="8373" href="HLevelLemmas.html#8327" class="Bound">B</a><a id="8374" class="Symbol">)</a> <a id="8376" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="8378" class="Symbol">(</a><a id="8379" href="HLevelLemmas.html#8313" class="Bound">A</a> <a id="8381" href="BasicTypes.html#2724" class="Function Operator">⇔</a> <a id="8383" href="HLevelLemmas.html#8327" class="Bound">B</a><a id="8384" class="Symbol">)</a>
+  <a id="8366" class="Symbol">→</a> <a id="8368" class="Symbol">(</a><a id="8369" href="HLevelLemmas.html#8313" class="Bound">A</a> <a id="8371" href="EquivalenceType.html#764" class="Function Operator">≃</a> <a id="8373" href="HLevelLemmas.html#8327" class="Bound">B</a><a id="8374" class="Symbol">)</a> <a id="8376" href="EquivalenceType.html#764" class="Function Operator">≃</a> <a id="8378" class="Symbol">(</a><a id="8379" href="HLevelLemmas.html#8313" class="Bound">A</a> <a id="8381" href="BasicTypes.html#2724" class="Function Operator">⇔</a> <a id="8383" href="HLevelLemmas.html#8327" class="Bound">B</a><a id="8384" class="Symbol">)</a>
 
 <a id="8387" href="HLevelLemmas.html#8276" class="Function">twoprops-to-equiv-≃-⇔</a> <a id="8409" class="Symbol">{</a><a id="8410" class="Argument">A</a> <a id="8412" class="Symbol">=</a> <a id="8414" href="HLevelLemmas.html#8414" class="Bound">A</a><a id="8415" class="Symbol">}</a> <a id="8417" class="Symbol">{</a><a id="8418" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8419" class="Symbol">}</a> <a id="8421" href="HLevelLemmas.html#8421" class="Bound">ispropA</a> <a id="8429" href="HLevelLemmas.html#8429" class="Bound">ispropB</a>  <a id="8438" class="Symbol">=</a> <a id="8440" href="QuasiinverseType.html#3135" class="Function">qinv-≃</a> <a id="8447" href="HLevelLemmas.html#8475" class="Function">f</a> <a id="8449" class="Symbol">(</a><a id="8450" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8452" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8454" href="HLevelLemmas.html#8648" class="Function">H₁</a> <a id="8457" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8459" href="HLevelLemmas.html#8692" class="Function">H₂</a><a id="8461" class="Symbol">)</a>
   <a id="8465" class="Keyword">where</a>
-    <a id="8475" href="HLevelLemmas.html#8475" class="Function">f</a> <a id="8477" class="Symbol">:</a> <a id="8479" class="Symbol">(</a><a id="8480" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8482" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="8484" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8485" class="Symbol">)</a> <a id="8487" class="Symbol">→</a> <a id="8489" class="Symbol">(</a><a id="8490" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8492" href="BasicTypes.html#2724" class="Function Operator">⇔</a> <a id="8494" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8495" class="Symbol">)</a>
-    <a id="8501" href="HLevelLemmas.html#8475" class="Function">f</a> <a id="8503" href="HLevelLemmas.html#8503" class="Bound">e</a> <a id="8505" class="Symbol">=</a> <a id="8507" href="HLevelLemmas.html#8503" class="Bound">e</a> <a id="8509" href="EquivalenceType.html#1130" class="Function Operator">∙→</a> <a id="8512" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8514" href="HLevelLemmas.html#8503" class="Bound">e</a> <a id="8516" href="EquivalenceType.html#1280" class="Function Operator">∙←</a>
+    <a id="8475" href="HLevelLemmas.html#8475" class="Function">f</a> <a id="8477" class="Symbol">:</a> <a id="8479" class="Symbol">(</a><a id="8480" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8482" href="EquivalenceType.html#764" class="Function Operator">≃</a> <a id="8484" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8485" class="Symbol">)</a> <a id="8487" class="Symbol">→</a> <a id="8489" class="Symbol">(</a><a id="8490" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8492" href="BasicTypes.html#2724" class="Function Operator">⇔</a> <a id="8494" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8495" class="Symbol">)</a>
+    <a id="8501" href="HLevelLemmas.html#8475" class="Function">f</a> <a id="8503" href="HLevelLemmas.html#8503" class="Bound">e</a> <a id="8505" class="Symbol">=</a> <a id="8507" href="HLevelLemmas.html#8503" class="Bound">e</a> <a id="8509" href="EquivalenceType.html#1116" class="Function Operator">∙→</a> <a id="8512" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8514" href="HLevelLemmas.html#8503" class="Bound">e</a> <a id="8516" href="EquivalenceType.html#1266" class="Function Operator">∙←</a>
 
-    <a id="8524" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8526" class="Symbol">:</a> <a id="8528" class="Symbol">(</a><a id="8529" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8531" href="BasicTypes.html#2724" class="Function Operator">⇔</a> <a id="8533" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8534" class="Symbol">)</a> <a id="8536" class="Symbol">→</a> <a id="8538" class="Symbol">(</a><a id="8539" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8541" href="EquivalenceType.html#778" class="Function Operator">≃</a> <a id="8543" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8544" class="Symbol">)</a>
+    <a id="8524" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8526" class="Symbol">:</a> <a id="8528" class="Symbol">(</a><a id="8529" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8531" href="BasicTypes.html#2724" class="Function Operator">⇔</a> <a id="8533" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8534" class="Symbol">)</a> <a id="8536" class="Symbol">→</a> <a id="8538" class="Symbol">(</a><a id="8539" href="HLevelLemmas.html#8414" class="Bound">A</a> <a id="8541" href="EquivalenceType.html#764" class="Function Operator">≃</a> <a id="8543" href="HLevelLemmas.html#8418" class="Bound">B</a><a id="8544" class="Symbol">)</a>
     <a id="8550" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8552" class="Symbol">(</a><a id="8553" href="HLevelLemmas.html#8553" class="Bound">h→</a> <a id="8556" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8558" href="HLevelLemmas.html#8558" class="Bound">h←</a><a id="8560" class="Symbol">)</a> <a id="8562" class="Symbol">=</a> <a id="8564" href="QuasiinverseType.html#3135" class="Function">qinv-≃</a> <a id="8571" href="HLevelLemmas.html#8553" class="Bound">h→</a> <a id="8574" class="Symbol">(</a><a id="8575" href="HLevelLemmas.html#8558" class="Bound">h←</a> <a id="8578" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8580" class="Symbol">(λ</a> <a id="8583" href="HLevelLemmas.html#8583" class="Bound">b</a> <a id="8585" class="Symbol">→</a> <a id="8587" href="HLevelLemmas.html#8429" class="Bound">ispropB</a> <a id="8595" class="Symbol">(</a><a id="8596" href="HLevelLemmas.html#8553" class="Bound">h→</a> <a id="8599" class="Symbol">(</a><a id="8600" href="HLevelLemmas.html#8558" class="Bound">h←</a> <a id="8603" href="HLevelLemmas.html#8583" class="Bound">b</a><a id="8604" class="Symbol">))</a> <a id="8607" href="HLevelLemmas.html#8583" class="Bound">b</a><a id="8608" class="Symbol">)</a> <a id="8610" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8612" class="Symbol">(λ</a> <a id="8615" href="HLevelLemmas.html#8615" class="Bound">a</a> <a id="8617" class="Symbol">→</a> <a id="8619" href="HLevelLemmas.html#8421" class="Bound">ispropA</a> <a id="8627" class="Symbol">(</a><a id="8628" href="HLevelLemmas.html#8558" class="Bound">h←</a> <a id="8631" class="Symbol">(</a><a id="8632" href="HLevelLemmas.html#8553" class="Bound">h→</a> <a id="8635" href="HLevelLemmas.html#8615" class="Bound">a</a><a id="8636" class="Symbol">))</a> <a id="8639" href="HLevelLemmas.html#8615" class="Bound">a</a><a id="8640" class="Symbol">))</a>
 
     <a id="8648" href="HLevelLemmas.html#8648" class="Function">H₁</a> <a id="8651" class="Symbol">:</a> <a id="8653" href="HLevelLemmas.html#8475" class="Function">f</a> <a id="8655" href="BasicFunctions.html#910" class="Function Operator">∘</a> <a id="8657" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8659" href="HomotopyType.html#987" class="Function Operator">∼</a> <a id="8661" href="BasicFunctions.html#364" class="Function">id</a>
@@ -915,402 +377,10 @@ Moreover, equivalences preserve propositions.</p>
     <a id="8692" href="HLevelLemmas.html#8692" class="Function">H₂</a> <a id="8695" class="Symbol">:</a> <a id="8697" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8699" href="BasicFunctions.html#910" class="Function Operator">∘</a> <a id="8701" href="HLevelLemmas.html#8475" class="Function">f</a> <a id="8703" href="HomotopyType.html#987" class="Function Operator">∼</a> <a id="8705" href="BasicFunctions.html#364" class="Function">id</a>
     <a id="8712" href="HLevelLemmas.html#8692" class="Function">H₂</a> <a id="8715" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8717" class="Symbol">=</a>
       <a id="8725" href="EqualityType.html#4279" class="Function Operator">begin</a>
-        <a id="8739" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8741" class="Symbol">(</a><a id="8742" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8744" href="EquivalenceType.html#1130" class="Function Operator">∙→</a> <a id="8747" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8749" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8751" href="EquivalenceType.html#1280" class="Function Operator">∙←</a><a id="8753" class="Symbol">)</a>
+        <a id="8739" href="HLevelLemmas.html#8524" class="Function">g</a> <a id="8741" class="Symbol">(</a><a id="8742" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8744" href="EquivalenceType.html#1116" class="Function Operator">∙→</a> <a id="8747" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8749" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8751" href="EquivalenceType.html#1266" class="Function Operator">∙←</a><a id="8753" class="Symbol">)</a>
           <a id="8765" href="EqualityType.html#3816" class="Function Operator">==⟨⟩</a>
-        <a id="8778" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8780" href="EquivalenceType.html#1130" class="Function Operator">∙→</a> <a id="8783" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8785" class="Symbol">_</a>
-          <a id="8797" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="8801" href="TransportLemmas.html#8769" class="Function">Σ-bycomponents</a> <a id="8816" class="Symbol">(</a><a id="8817" href="EqualityType.html#985" class="InductiveConstructor">idp</a> <a id="8821" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8823" href="HLevelLemmas.html#7324" class="Function">isEquivIsProp</a> <a id="8837" class="Symbol">(</a><a id="8838" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8840" href="EquivalenceType.html#1130" class="Function Operator">∙→</a><a id="8842" class="Symbol">)</a> <a id="8844" class="Symbol">_</a> <a id="8846" class="Symbol">_)</a> <a id="8849" href="EqualityType.html#4007" class="Function Operator">⟩</a>
+        <a id="8778" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8780" href="EquivalenceType.html#1116" class="Function Operator">∙→</a> <a id="8783" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8785" class="Symbol">_</a>
+          <a id="8797" href="EqualityType.html#4007" class="Function Operator">==⟨</a> <a id="8801" href="TransportLemmas.html#8769" class="Function">Σ-bycomponents</a> <a id="8816" class="Symbol">(</a><a id="8817" href="EqualityType.html#985" class="InductiveConstructor">idp</a> <a id="8821" href="BasicTypes.html#1479" class="InductiveConstructor Operator">,</a> <a id="8823" href="HLevelLemmas.html#7324" class="Function">isEquivIsProp</a> <a id="8837" class="Symbol">(</a><a id="8838" href="HLevelLemmas.html#8715" class="Bound">e</a> <a id="8840" href="EquivalenceType.html#1116" class="Function Operator">∙→</a><a id="8842" class="Symbol">)</a> <a id="8844" class="Symbol">_</a> <a id="8846" class="Symbol">_)</a> <a id="8849" href="EqualityType.html#4007" class="Function Operator">⟩</a>
         <a id="8859" href="HLevelLemmas.html#8715" class="Bound">e</a>
       <a id="8867" href="EqualityType.html#4176" class="Function Operator">∎</a>
 </pre>
-
-
-  <div class="cited-references" markdown="1">
-  <ol class="bibliography"></ol>
-  </div>
-
-
-  
-  <div id="citation">
-  <h2> Citation </h2>
-  If you want to cite the content of this post,
-  we suggest to use the following latex bibtex entry.
-  This is generated automatically.
-
-  <br/>
-  <br/>
-  <pre class="bibtex"
-       data-bibtextag =""
-       data-bibtexauthors =""
-       data-year =""
-       data-lastchecked ="2019-05-08"
-       data-originalyear =""
-       data-title ="H-Levels Lemmas"
-       data-url ="http://jonaprieto.github.io/mini-hott/HLevelLemmas.html"
-  ></pre>
-  </div>
-  
-
-  <div id="github-links">
-    <div class="view-source">
-      
-        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/HLevelLemmas.agda" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
-        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/HLevelLemmas.lagda" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
-      
-      <a href="https://github.com/jonaprieto/mini-hott/blob/master/HLevelLemmas.lagda" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
-      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/HLevelLemmas.lagda" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
-      <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/HLevelLemmas.lagda" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
-      <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
-      <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
-      </a>
-
-      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]H-Levels Lemmas - Commit 45a20e6" target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
-
-    </div>
-  </div>
-
-</div>
-
-<!-- https://octicons.github.com/ -->
-
-
-
-
-
-<script type="text/x-mathjax-config">
-  MathJax.Hub.Config({
-    jax: ["input/TeX", "output/HTML-CSS"],
-    tex2jax: {
-      inlineMath: [['$', '$']],
-      displayMath: [['$$', '$$'],['\\[','\\]']],
-      processEscapes: true,
-      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
-    },
-    messageStyle: "none",
-    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
-    TeX: {
-      equationNumbers: { autoNumber: "AMS" },
-      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
-      TagSide: "left",
-      Macros: {
-        field: ['\\mathbb{#1}', 1],
-        C: ['\\field{C}'],
-        F: ['\\field{F}'],
-        N: ['\\field{N}'],
-        Q: ['\\field{Q}'],
-        R: ['\\field{R}'],
-        Z: ['\\field{Z}'],
-
-        U: ['\\mathcal{U}'],
-        to: ['\\rightarrow'],
-        zero: ['\\field{0}'],
-        one: ['\\field{1}'],
-        two: ['\\field{2}'],
-        id: ['\\mathsf{Id}'],
-
-        fun: ['\\mathsf{fun}{#1}', 1],
-
-        true: ['\\mathsf{true}'],
-        false: ['\\mathsf{false}'],
-
-        proj: ['\\mathsf{proj}'],
-
-        trans: ['\\mathsf{trans}'],
-        refl: ['\\mathsf{refl}'],
-        sym: ['\\mathsf{sym}'],
-
-        Fin:['\\mathsf{Fin}\\,'],
-        ind: ['\\mathsf{ind}'],
-        rec:['\\mathsf{rec}'],
-
-        zeros: ['\\mathbf{0}'],
-        ud: ['\\,\\mathrm{d}'],
-
-        vect:['\\boldsymbol{\\mathbf{#1}}',1],
-        abs: ['\\lvert#1\\rvert', 1],
-        abslr:['\\left\\lvert#1\\right\\rvert', 1],
-        norm: ['\\lVert#1\\rVert', 1],
-        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
-
-        lcm: ['\\mathop{\\mathrm{lcm}}'],
-        interior: ['\\mathop{\\mathrm{int}}'],
-        exterior: ['\\mathop{\\mathrm{ext}}'],
-        volume: ['\\mathop{\\mathrm{vol}}'],
-
-        E: ['{\\rm I\\kern-.3em E}'],
-        Var: ['\\mathop{\\mathrm{Var}}'],
-        Cov: ['\\mathop{\\mathrm{Cov}}'],
-        Binom: ['\\mathop{\\mathrm{Binom}}'],
-        Exp: ['\\mathop{\\mathrm{Exp}}'],
-        Poi: ['\\mathop{\\mathrm{Poi}}'],
-
-        GL: ['\\mathrm{GL}'],
-        SL: ['\\mathrm{SL}'],
-        Aut: ['\\mathrm{Aut}'],
-        ker: ['\\mathrm{ker}'],
-
-        Re: ['\\mathop{\\mathrm{Re}}'],
-        Im: ['\\mathop{\\mathrm{Im}}'],
-        Res: ['\\mathop{\\mathrm{Res}}'],
-
-        Type : ['\\mathsf{Type}\\,'],
-        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
-        Graph : ['\\mathsf{Graph}\\,'],
-        Face : ['\\mathsf{Face}\\,'],
-        Node : ['\\mathsf{Node}\\,'],
-        Edge : ['\\mathsf{Edge}\\,'],
-        Path : ['\\mathsf{Path}\\,'],
-        Walk : ['\\mathsf{Walk}\\,'],
-
-        isContr:['\\mathsf{isContr{#1}}',1],
-        isProp:['\\mathsf{isProp{#1}}',1],
-        isSet:['\\mathsf{isSet{#1}}',1],
-
-        minimize : ['\\mathsf{minimize}'],
-        maximize : ['\\mathsf{maximize}'],
-        st : ['\\mathsf{st}'],
-        and : ['\\,\\wedge\\, '],
-        or : ['\\,\\vee\\,']
-
-
-
-      }
-    }
-  });
-</script>
-<script
-  type="text/javascript"
-  charset="utf-8"
-  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
->
-</script>
-
-
-
-<script>
-  // When the user scrolls the page, execute myFunction
-function stickyToogle(obj, sticky) {
-  if (window.pageYOffset > sticky) {
-    obj.classList.add("sticky");
-  } else {
-    obj.classList.remove("sticky");
-  }
-};
-
-// Get the header
-function stickyThing(idObj){
-  var obj = document.getElementById(idObj);
-  if (obj){
-    // Get the offset position of the navbar
-    stickyToogle(obj, obj.offsetTop);
-    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
-  }
-};
-
-window.onscroll = function() {
-  stickyThing("stickyTitle");
-};
-
-
-</script>
-
-
-
-      </div>
-      
-      </div>
-    </div>
-    
-    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
-    
-    
-<script src="/assets/jquery.min.js"></script>
-
-
-<script src="/assets/linkify.min.js"></script>
-<script src="/assets/linkify-jquery.min.js"></script>
-
-<script type="text/javascript">
-$('.references').linkify();
-$('.bibliography').linkify();
-$('.links').linkify();
-</script>
-
-
-<script type="text/javascript">
-WebFontConfig = {
- google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
-};
-(function(d) {
-      var wf = d.createElement('script'), s = d.scripts[0];
-      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
-      wf.async = true;
-      s.parentNode.insertBefore(wf, s);
-   })(document);
-</script>
-
-
-<!-- FOLDABLE  -->
-<script type="text/javascript">
- $('pre.foldable').each(function(){
-     var lineHeight = parseFloat($(this).css('line-height'));
-     var plus    = $('<div><svg height="12" class="octicon octicon-fold" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg></div>');
-     var horLine = $("<div></div>");
-     var verLine = $("<div></div>");
-     $(this).prepend(plus);
-     plus.css({
-         'position'         : 'relative',
-         'float'            : 'right',
-         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
-         'width'            : lineHeight,
-         'height'           : lineHeight
-       });
-
-     var until = parseFloat($(this).attr('until'));
-     if ( isNaN(until) ) { until= 1; }
-     if ( until <= 0 ){
-       $(this).hide();
-     }
-     else{
-       var newHeight = ((1.2 * until) + 0.7) + "rem";
-       //                               ^^^----------- for the padding
-       //                ^^-- line-height
-
-       // console.log('afuera-until: ', until);
-       // console.log('afuera-newheight: ', newHeight );
-       $(this).css("padding", "0.5rem 1rem");
-       $(this).css("overflow", "hidden");
-       $(this).css("height", newHeight);
-       $(this).attr("original", "false");
-
-       $(this).click(function(){
-
-         // console.log('dentro-original: ', $(this).attr('original') );
-         // console.log('dentro-newheight: ', newHeight );
-
-         if ( $(this).attr('original') == "true" ) {
-           $(this).css("overflow", "hidden");
-           $(this).css("height", newHeight);
-           $(this).attr("original", "false");
-           $(this).css("padding", "0.5rem 1rem");
-           // plus.show();
-         }
-         else {
-           $(this).height('auto');
-           $(this).attr("original", "true");
-           // plus.hide();
-         }
-       });
-     }
- });
-</script>
-
-
-
-
-
-
-<script type="text/javascript">
-  if ( $('div').hasClass('cited-references') ){
-    $('.cited-references').append( $('.references').html() );
-    $('.references').hide();
-    $(".cited-references").prepend("<h2 id='refs'>References</h2>");
-    $(".toc nav>ul").append("<li><a href='#refs'>References</a></li>");
-  }
-</script>
-
-
-
-<script type="text/javascript">
-var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
-
-$('#citation').hide();
-$('#citation pre').each(function(){
-
-    var pre           = $(this);
-    var title         = $(this).data('title');
-    var title         = $(this).data('title');
-    var id            = $(this).data('url');
-    var year          = $(this).data('year');
-    var lastchecked   = $(this).data('lastchecked');
-    var originalyear  = $(this).data('originalyear');
-    var url           = $(this).data('url');
-
-    var bibtextag     = $(this).data('bibtextag');
-    var bibtexauthors = $(this).data('bibtexauthors');
-
-    if (bibtexauthors == ""){
-      bibtexauthors = "Prieto-Cubides, Jonathan";
-    }
-
-    if (bibtextag == "")
-    {
-      bibtextag = "Prieto-Cubides:" + lastchecked
-    }
-
-    pre.append(
-    "@online{ " + bibtextag + ",\n" +
-    "  author  = { " + bibtexauthors +" },\n" +
-    "  title   = { " + title + " },\n" +
-    "  url     = { \\url{" + url   + "} }\n" +
-    "  year    = { " + year  + " }\n" +
-    "  lastchecked  = { " + lastchecked  + " }\n" +
-    "  originalyear = { " + originalyear  + " }\n" +
-    "}\n"
-    );
-  });
-
-$('#citation').show();
-</script>
-
-
-
-
-    <!-- <script>
-      (function(document) {
-        var toggle   = document.querySelector('.sidebar-toggle');
-        var sidebar  = document.querySelector('#sidebar');
-        var checkbox = document.querySelector('#sidebar-checkbox');
-
-        document.addEventListener('click', function(e) {
-          var target = e.target;
-
-          // if(!checkbox.checked ||
-          //    sidebar.contains(target) ||
-          //    (target === checkbox || target === toggle)) return;
-          //
-          if(target === toggle)
-          checkbox.checked = false;
-        }, false);
-      })(document);
-    </script> -->
-
-    
-    <script src="/assets/galleryjs/lightgallery.js"></script>
-    <script src="/assets/galleryjs/lg-thumbnail.min.js"></script>
-    <script src="/assets/galleryjs/lg-fullscreen.min.js"></script>
-
-    <script  type="text/javascript">
-      $(document).ready(function() {
-        $('.post img').wrap(function(){
-          return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
-        });
-
-        lightGallery(document.querySelector('.post'),
-          { selector     : ".gallery"
-          // , mode         : 'slide'
-          , thumbnail    : true
-          , animateThumb: false
-          , closable     : true
-          , counter      : true
-          , enableTouch  : true
-          , enableDrag   : true
-          , showThumbByDefault   : false
-          , thumbWidth           : 90
-          , thumbMargin          : 5,
-          });
-      });
-      $('p:contains("layout")').remove();
-    </script>
-    
-  </body>
-</html>

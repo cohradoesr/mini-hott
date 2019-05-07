@@ -61,7 +61,6 @@
 
     {% if page.gallery %}
     <script src="{{site.baseurl}}/assets/galleryjs/lightgallery.js"></script>
-
     <script src="{{site.baseurl}}/assets/galleryjs/lg-thumbnail.min.js"></script>
     <script src="{{site.baseurl}}/assets/galleryjs/lg-fullscreen.min.js"></script>
 
@@ -85,6 +84,7 @@
           , thumbMargin          : 5,
           });
       });
+      $('p:contains("layout")').remove();
     </script>
     {% endif %}
   </body>

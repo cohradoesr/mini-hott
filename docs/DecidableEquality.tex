@@ -23,7 +23,7 @@
 <meta property="og:url" content="http://jonaprieto.github.io/mini-hott/DecidableEquality.tex" />
 <meta property="og:site_name" content="Mini-HoTT" />
 <script type="application/ld+json">
-{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/DecidableEquality.tex","headline":"Decidable Equality","dateModified":"2019-04-30T12:24:41+02:00","@context":"https://schema.org"}</script>
+{"description":"Jonathan Prieto-Cubides","author":{"@type":"Person","name":"Jonathan Prieto-Cubides"},"@type":"WebPage","url":"http://jonaprieto.github.io/mini-hott/DecidableEquality.tex","headline":"Decidable Equality","dateModified":"2019-05-01T02:28:12+02:00","@context":"https://schema.org"}</script>
 <!-- End Jekyll SEO tag -->
 <meta name="description" content="Jonathan Prieto-Cubides">
 
@@ -537,12 +537,12 @@
       <div class="main-title-prefix">Latest change:</div>
       <div class="main-commit-message">
             <a href="https://github.com/jonaprieto/mini-hott/blob/master/DecidableEquality.tex">
-              Added some lemmas about propositions</a>
+              Added more lemmas to be proved later</a>
       </div>
     </div>
 
     <div class="main-last-date">
-      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/DecidableEquality.tex">bddced8 </a> on  01 May 2019
+      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/DecidableEquality.tex">45a20e6 </a> on  08 May 2019
     </div>
   </div>
   
@@ -584,7 +584,7 @@ assume Excluded Middle.
 <a id="594" class="Keyword">module</a> <a id="601" href="DecidableEquality.html" class="Module">DecidableEquality</a> <a id="619" class="Symbol">{</a><a id="620" href="DecidableEquality.html#620" class="Bound">ℓ</a><a id="621" class="Symbol">}</a> <a id="623" class="Keyword">where</a>
 
   <a id="632" class="Comment">-- A type has decidable equality if we can prove that any two of its</a>
-  <a id="703" class="Comment">-- elements are equal or different.</a>
+  <a id="703" class="Comment">-- elements are</a><a id="718" class="Comment"> </a><a id="719" class="Comment">e</a><a id="720" class="Comment">q</a><a id="721" class="Comment">ual</a><a id="724" class="Comment"> </a><a id="725" class="Comment">o</a><a id="726" class="Comment">r diffe</a><a id="733" class="Comment">r</a><a id="734" class="Comment">e</a><a id="735" class="Comment">nt.</a>
   <a id="decEq"></a><a id="741" href="DecidableEquality.html#741" class="Function">decEq</a> <a id="747" class="Symbol">:</a> <a id="749" class="Symbol">(</a><a id="750" href="DecidableEquality.html#750" class="Bound">A</a> <a id="752" class="Symbol">:</a> <a id="754" href="Intro.html#1442" class="Function">Type</a> <a id="759" href="DecidableEquality.html#620" class="Bound">ℓ</a><a id="760" class="Symbol">)</a> <a id="762" class="Symbol">→</a> <a id="764" href="Intro.html#1442" class="Function">Type</a> <a id="769" href="DecidableEquality.html#620" class="Bound">ℓ</a>
   <a id="773" href="DecidableEquality.html#741" class="Function">decEq</a> <a id="779" href="DecidableEquality.html#779" class="Bound">A</a> <a id="781" class="Symbol">=</a> <a id="783" class="Symbol">(</a><a id="784" href="DecidableEquality.html#784" class="Bound">a</a> <a id="786" href="DecidableEquality.html#786" class="Bound">b</a> <a id="788" class="Symbol">:</a> <a id="790" href="DecidableEquality.html#779" class="Bound">A</a><a id="791" class="Symbol">)</a> <a id="793" class="Symbol">→</a> <a id="795" class="Symbol">(</a><a id="796" href="DecidableEquality.html#784" class="Bound">a</a> <a id="798" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="801" href="DecidableEquality.html#786" class="Bound">b</a><a id="802" class="Symbol">)</a> <a id="804" href="BasicTypes.html#2173" class="Datatype Operator">+</a> <a id="806" href="BasicTypes.html#806" class="Function">¬</a> <a id="808" class="Symbol">(</a><a id="809" href="DecidableEquality.html#784" class="Bound">a</a> <a id="811" href="EqualityType.html#931" class="Datatype Operator">==</a> <a id="814" href="DecidableEquality.html#786" class="Bound">b</a><a id="815" class="Symbol">)</a>
 
@@ -621,7 +621,7 @@ assume Excluded Middle.
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-05-01"
+       data-lastchecked ="2019-05-08"
        data-originalyear =""
        data-title ="Decidable Equality"
        data-url ="http://jonaprieto.github.io/mini-hott/DecidableEquality.tex"
@@ -642,7 +642,7 @@ assume Excluded Middle.
       <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
       </a>
 
-      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Decidable Equality - Commit bddced8" target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Decidable Equality - Commit 45a20e6" target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
 
     </div>
   </div>
@@ -788,6 +788,7 @@ function stickyThing(idObj){
 window.onscroll = function() {
   stickyThing("stickyTitle");
 };
+
 
 </script>
 
@@ -964,7 +965,6 @@ $('#citation').show();
 
     
     <script src="/assets/galleryjs/lightgallery.js"></script>
-
     <script src="/assets/galleryjs/lg-thumbnail.min.js"></script>
     <script src="/assets/galleryjs/lg-fullscreen.min.js"></script>
 
@@ -988,6 +988,7 @@ $('#citation').show();
           , thumbMargin          : 5,
           });
       });
+      $('p:contains("layout")').remove();
     </script>
     
   </body>

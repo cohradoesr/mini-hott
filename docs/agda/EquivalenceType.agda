@@ -7,8 +7,6 @@ open import HomotopyType
 module EquivalenceType where
 
   module DefinitionOfEquivalence  {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
-    -- There exists an equivalence between two types if there exists a
-    -- contractible function between them.
     isEquiv : (f : A → B) → Type (ℓᵢ ⊔ ℓⱼ)
     isEquiv = isContrMap
   open DefinitionOfEquivalence public
