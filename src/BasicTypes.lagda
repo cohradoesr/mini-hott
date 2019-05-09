@@ -130,6 +130,7 @@ Shorter notation for Π-types.
 Product type as a particular case of the Sigma type.
 
 \begin{code}
+-- infixl  50 _×_
 _×_
   : ∀ {ℓᵢ ℓⱼ}
   → (A : Type ℓᵢ) (B : Type ℓⱼ)
