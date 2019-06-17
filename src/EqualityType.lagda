@@ -32,7 +32,7 @@ Variables:
 
 \begin{code}
 variable
-  ℓ ℓᵢ ℓⱼ : Level
+  ℓ ℓᵢ ℓⱼ ℓₖ : Level
 \end{code}
 
 ### Homogeneous equality

@@ -27,7 +27,7 @@ open import AlgebraOnPaths public
 {: .foldable until="6" }
 \begin{code}
 transport
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ}
+  : ∀ {A : Type ℓᵢ}
   → (C : A → Type ℓⱼ) {a₁ a₂ : A}
   → (p : a₁ == a₂)
   -------------------------------
@@ -47,18 +47,18 @@ Star notation for transport
 {: .foldable until="5" }
 \begin{code}
 _✶
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {C : A → Type ℓⱼ} {a₁ a₂ : A}
+  : ∀ {A : Type ℓᵢ} {C : A → Type ℓⱼ} {a₁ a₂ : A}
   → (p : a₁ == a₂)
   ----------------
   → (C a₁ → C a₂)
 
-_✶ {ℓᵢ}{ℓⱼ}{C = C} = transport {ℓᵢ = ℓᵢ} {ℓⱼ = ℓⱼ} C
+_✶ {C = C} = transport C
 \end{code}
 
 {: .foldable until="5" }
 \begin{code}
 coe
-  : ∀ {ℓ} {A B : Type ℓ}
+  : ∀ {A B : Type ℓ}
   → A == B
   ---------
   → (A → B)
@@ -69,12 +69,11 @@ coe p a = transport (λ X → X) p a
 {: .foldable until="11"}
 \begin{code}
 tr₂
-  : {i j k : Level}
-  → (A : Type i)
-  → (B : A → Type j)
-  → (C : (x : A) → (b : B x) → Type k)
+  : (A : Type ℓᵢ)
+  → (B : A → Type ℓⱼ)
+  → (C : (x : A) → (b : B x) → Type ℓₖ)
   → ∀ {a₁ a₂ : A}{b₁ : B a₁}{b₂ : B a₂}
-  → (p : a₁ == a₂)
+  → (p :        a₁ == a₂)
   → (q : tr B p b₁ == b₂)
   → C a₁ b₁
   -----------------------
@@ -96,7 +95,7 @@ also denoted by `PathOver C α c₁ c₂`.
 
 \begin{code}
 PathOver
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ}
+  : ∀ {A : Type ℓᵢ}
   → (C : A → Type ℓⱼ) {a₁ a₂ : A}
   → (α : a₁ == a₂)
   → (c₁ : C a₁) → (c₂ : C a₂)
