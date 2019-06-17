@@ -28,27 +28,44 @@ open import BasicFunctions public
 \end{code}
 </div>
 
+Variables:
+
+\begin{code}
+variable
+  ℓ ℓᵢ ℓⱼ : Level
+\end{code}
+
 ### Homogeneous equality
 
 The Identity type is defined as an inductive type. Its induction principle is
-the J-eliminator.
+the J-eliminator. Its constructor is called `idp` to stand for *identity proof*.
 
 \begin{code}
-data _==_ {ℓᵢ} {A : Type ℓᵢ} (a : A) : A → Type ℓᵢ where
+data
+  _==_ {A : Type ℓᵢ} (a : A)
+    : A → Type ℓᵢ
+  where
   idp : a == a
+\end{code}
 
-infix 30 _==_
-{-# BUILTIN EQUALITY _==_ #-}
-
--- synonyms for identity type
+\begin{code}
+-- synonyms for the identity type
+Eq   = _==_
+Id   = _==_ 
 Path = _==_
+_⇝_  = _==_
+_≡_  = _==_ 
+
+infix 30 _==_ _⇝_ _≡_
+
+{-# BUILTIN EQUALITY _==_  #-}
 \end{code}
 
 \begin{code}
 refl
-  : ∀ {ℓᵢ} {A : Type ℓᵢ}
+  : ∀ {A : Type ℓᵢ}
   → (a : A)
-  ---------
+  ----------------------
   → a == a
 
 refl {ℓᵢ}{A} a = idp {ℓᵢ = ℓᵢ}{A = A}
@@ -58,22 +75,23 @@ refl {ℓᵢ}{A} a = idp {ℓᵢ = ℓᵢ}{A = A}
 Symmetry property
 
 \begin{code}
-sym : ∀ {ℓ}{A : Type ℓ}{x y : A} → x == y → y == x
+sym
+  : ∀ {A : Type ℓ}{x y : A}
+  → x == y
+  ---------------------------- 
+  → y == x
+
 sym idp = idp
 \end{code}
 
 #### J eliminator
-
-The elimination principle for the identity type is the path induction. It allows
-us to define an outgoing function from the identity type to a dependent type ‌‌
-as we see in the `J` definition below.
 
 *Paulin-Mohring J rule*
 
 {: .foldable until="6" }
 \begin{code}
 J
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {a : A}
+  : ∀ {A : Type ℓᵢ} {a : A}
   → (B : (a' : A) (p : a == a') → Type ℓⱼ)
   → (d : B a idp)
   ----------------------------------------
@@ -85,7 +103,7 @@ J {a = a} B d idp = d
 {: .foldable until="6" }
 \begin{code}
 J'
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {a : A}
+  : ∀ {A : Type ℓᵢ} {a : A}
   → (B : (a' : A) (p : a' == a) → Type ℓⱼ)
   → (d : B a idp)
   ----------------------------------------
@@ -99,7 +117,7 @@ J' {a = a} B d idp = d
 {: .foldable until="6" }
 \begin{code}
 _·_
-  : ∀ {ℓ} {A : Type ℓ} {x y z : A}
+  : ∀ {A : Type ℓ} {x y z : A}
   → (p : x == y)
   → (q : y == z)
   --------------
@@ -122,13 +140,14 @@ inv
   → b == a
 
 inv idp = idp
+\end{code}
 
+\begin{code}
 -- synonyms for inverse path
-infixl 60 _⁻¹
 _⁻¹ = inv
-
-infixr 60 !_
 !_  = inv
+
+infixl 60 _⁻¹ !_
 \end{code}
 
 #### Associativity of composition
@@ -162,10 +181,12 @@ infixr 60 !_
 ### Heterogeneous equality
 
 \begin{code}
-data HEq {ℓ} (A : Type ℓ)
-           : (B : Type ℓ)
-           → (α : A == B) (a : A) (b : B)
-           → Type (lsuc ℓ) where
+data
+  HEq {ℓ} (A : Type ℓ)
+    : (B : Type ℓ)
+    → (α : A == B) (a : A) (b : B)
+    → Type (lsuc ℓ)
+  where
   idp : ∀ {a : A} → HEq A A idp a a
 \end{code}
 
@@ -187,7 +208,10 @@ Equational reasoning is a way to write readable chains of equalities.
 where `p` is a path from `a` to `b`, `q` is a path from `b` to `c`, and so on.
 
 \begin{code}
-module EquationalReasoning {ℓᵢ} {A : Type ℓᵢ} where
+module
+  EquationalReasoning
+  {A : Type ℓᵢ}
+  where
 \end{code}
 
 Definitional equals:
@@ -203,8 +227,9 @@ Definitional equals:
   -- synonyms for _==⟨⟩
   _==⟨idp⟩_  = _==⟨⟩_
   _==⟨refl⟩_ = _==⟨⟩_
+  _≡⟨⟩_      = _==⟨⟩_
 
-  infixr 2 _==⟨⟩_
+  infixr 2 _==⟨⟩_ _==⟨idp⟩_ _==⟨refl⟩_ _≡⟨⟩_
 \end{code}
 
 \begin{code}
@@ -217,7 +242,8 @@ Definitional equals:
 
   _ ==⟨ thm ⟩ q = thm · q
 
-  infixr 2 _==⟨_⟩_
+  _≡⟨_⟩_ = _==⟨_⟩_ 
+  infixr 2 _==⟨_⟩_ _≡⟨_⟩_
 \end{code}
 
 \begin{code}

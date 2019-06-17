@@ -12,13 +12,26 @@ home: true
 ---
 
 This is a basic overview of homotopy type theory (HoTT) formalized in `Agda` and
-developed at [UiB](https://www.uib.no/). This library is just one file and it's
-type-checked by `Agda 2.5.4`.  No other libraries are required, zero
-dependencies. Our intention is to be practical and helpful to learning HoTT. The
-majority of lemmas or functions comes with synonyms to make much easier its
-adoption. Still working in progress with more reviews to come. We base this
-development on others at the beginning of this project, so we encourage to see
-their works as well, see the references.
+developed at [UiB](https://www.uib.no/). No other libraries are required to
+type-check this one. The majority of types, lemmas and functions come with
+synonyms to make much easier its adoption. We based the initial of this
+development on others, so we encourage you to check these works as well, see the
+references at the end of this document.
+
+Take in mind, the presentation of the syntax may seem not standard. The key
+point is readability and maintenance. For performance and completeness, please
+use another library like `HoTT-Agda`.
+
+# Get started
+
+- Install Agda (v2.6.0+) (and optional, may you want to install
+  [`agda-pkg`](http://github.com/agda/agda-pkg) to install other packages.
+
+- Clone this repository
+  [http://github.com/jonaprieto/mini-hott](http://github.com/jonaprieto/mini-hott)
+  or use `apkg install mini-hott`
+
+- Open an issue for any bug/request/problem.
 
 ## Proof relevant
 
@@ -31,7 +44,7 @@ for type-checking by using the option `without-K`.
 {-# OPTIONS --without-K #-}
 \end{code}
 
-Without Axiom K, `Agda`'s `Set` is not a good name for universes in HoTT and we
+Without Axiom K, `Agda`'s `Set` is not a good name for universes in HoTT. So, we
 rename `Set` to `Type`. Our type judgments then will include the universe level
 as one explicit argument.
 
@@ -43,19 +56,28 @@ Note that `l ⊔ q` is the maximum of two hierarchy levels `l` and `q` and we
 use this later on to define types in full generality.
 
 \begin{code}
-Type : (ℓ : Level) → Set (lsuc ℓ)
+Type
+  : (ℓ : Level)
+  → Set (lsuc ℓ)
+
 Type ℓ = Set ℓ
 \end{code}
 
 \begin{code}
-Type₀ : Type (lsuc lzero)
+Type₀
+  : Type (lsuc lzero)
+
 Type₀ = Type lzero
 \end{code}
 
 \begin{code}
-record ↑ {a} ℓ (A : Type a) : Type (a ⊔ ℓ) where
+record
+  ↑ {a : Level} ℓ (A : Type a)
+  : Type (a ⊔ ℓ)
+  where
   constructor Lift
-  field lower : A
+  field
+    lower : A
 
 open ↑ public
 \end{code}

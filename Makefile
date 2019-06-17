@@ -21,7 +21,7 @@ agda: $(rawagda)
 
 
 statics: $(md) $(rawagda) $(iimgpng)
-	- @echo "Serve the website: \n\t$$ make docs-serve"  
+	- @echo "Serve the website: \n\t$$ make docs-serve"
 
 latex:
 	- @make mini-hott.tex
@@ -33,15 +33,14 @@ mini-hott.tex: $(latex)
 			echo "\input{\\MiniHoTTPath/$$filename}" >> mini-hott.tex;\
 		done
 
-# I'm planning to use Agda definitions on my articles from this library, so\
-# this folder 'latex/*' will contain these latex (agda) definitions.
+# This is to use in latex documents as a package of definitions.
 latex/%.tex : src/%.lagda
 	- @agda --latex --without-K --allow-unsolved-metas $<
 
 
 .PHONY: clean
 clean:
-	-@rm -rf docs/* blog/_site 
+	-@rm -rf docs/* blog/_site
 
 # ------------------------------------------------------------------------------
 # ------< The following is related with the website of this library. >----------
@@ -49,7 +48,7 @@ clean:
 
 # At the moment, --html is ouput .tex files from lagda (this is a bug I must report)
 # when the option is --html-highlight=code
-blog/%.tex : src/%.lagda 
+blog/%.tex : src/%.lagda
 	- @mkdir -p docs/agda
 	- @agda --html --html-dir=blog --html-highlight=code --without-K --allow-unsolved-metas $<
 
@@ -62,7 +61,7 @@ docs/agda/%.agda : src/%.lagda
 
 docs/assets/ipe-images/%.png : images/%.ipe
 	- @mkdir -p docs/assets/ipe-images
-	- iperender -png -resolution 400 $< $@ 
+	- iperender -png -resolution 400 $< $@
 
 docs-install:
 	@npm install .
@@ -70,7 +69,7 @@ docs-install:
 	@cd blog && npm install .
 	@echo " [!] run $$ make docs-build"
 
-docs-build: 
+docs-build:
 	- jekyll build \
 	  --incremental\
 	  --source blog\
@@ -102,5 +101,3 @@ blog/_bibliography/reb.bib : blog/_bibliography/library.bib
 			-O=blog/_bibliography/library-temp.bib blog/_bibliography/library-temp.bib
 	- mv blog/_bibliography/library-temp.bib blog/_bibliography/ref.bib
 	- rm -f blog/_bibliography/library-temp.*
-
-

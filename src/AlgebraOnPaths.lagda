@@ -302,7 +302,7 @@ so let's define some handy functions for that.
     q · refl b
       ==⟨ ! (·-runit q) ⟩
     q
-    ∎
+    ∎  
 \end{code}
 
 {: .foldable until="5" }
