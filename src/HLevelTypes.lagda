@@ -17,30 +17,55 @@ home: true
 {-# OPTIONS --without-K #-}
 module _ where
 
-open import TransportLemmas
-open import EquivalenceType
-
-open import HomotopyType
-open import HomotopyLemmas
-
-open import HalfAdjointType
-open import QuasiinverseType
-open import QuasiinverseLemmas
+open import BasicTypes
+open import BasicFunctions
 \end{code}
 </div>
 
 
-## Hlevels
+## Hlevel types
 
-Higher levels of the homotopical structure, where the
-first levels are:
+Higher levels of the homotopical structure:
 
 - Contractible types ($-2$)
 - Propositions ($-1$)
 - Sets ($0$)
+- Groupoids ($1$)
+
+### Contractible types
+
+A *contractible* type is a type such that **every**
+element is equal to a point, the *center* of contraction.
+
+\begin{code}
+  -- Def.
+isContr
+  : (A : Type ℓ)
+  --------------
+  → Type ℓ
+
+isContr A = Σ A (λ a → ((x : A) → a == x))
+\end{code}
+
+Synonym:
+
+\begin{code}
+Contractible = isContr
+is-singleton = isContr
+\end{code}
+
+If a type is contractible, any of its points is a center of contraction:
+
+\begin{code}
+allAreCenter
+  : ∀ {ℓ} {A : Type ℓ}
+  → (c₁ : A) → (f : (x : A) → c₁ == x)
+  → (∀ (c₂ : A) → (∀ (x : A) → c₂ == x))
+
+allAreCenter c₁ f c₂ x = sym (f c₂) · (f x)
+\end{code}
 
 ### Propositions
-
 
 A type is a *mere proposition* if any two inhabitants of the type are equal.
 
@@ -49,15 +74,21 @@ A type is a *mere proposition* if any two inhabitants of the type are equal.
 -- Def.
 isProp
   : ∀ {ℓ} (A : Type ℓ) → Type ℓ
+
 isProp A = ((x y : A) → x == y)
 \end{code}
 
 \begin{code}
--- The type of mere propositions
-hProp : ∀ {ℓ} → Type (lsuc ℓ)
-hProp {ℓ} = ∑ (Type ℓ) isProp
+is-subsingleton = isProp
 \end{code}
 
+\begin{code}
+-- The type of mere propositions
+hProp
+  : ∀ {ℓ} → Type (lsuc ℓ)
+
+hProp {ℓ} = ∑ (Type ℓ) isProp
+\end{code}
 
 ### Sets
 
@@ -66,25 +97,31 @@ are types without any higher *dimensional structure*,  all parallel paths are
 homotopic and the homotopy is given by a continuous function on the two paths.
 
 \begin{code}
-isSet : Type ℓ → Type ℓ
+isSet
+  : Type ℓ → Type ℓ
 isSet A = (x y : A) → isProp (x == y)
 \end{code}
 
 The type of sets
 
 \begin{code}
-hSet : Type (lsuc ℓ)
+hSet
+  : Type (lsuc ℓ)
+
 hSet {ℓ} = ∑ (Type ℓ) isSet
 \end{code}
 
 ### Groupoid
 
 \begin{code}
-isGroupoid : Type ℓ → Type ℓ
+isGroupoid
+  : Type ℓ → Type ℓ
+
 isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
 \end{code}
 
 \begin{code}
-Groupoid : Type (lsuc ℓ)
+Groupoid
+  : Type (lsuc ℓ)
 Groupoid {ℓ} = ∑ (Type ℓ) isGroupoid
 \end{code}

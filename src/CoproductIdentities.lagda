@@ -24,12 +24,10 @@ open import TransportLemmas
 
 ### Coproduct identities
 
-{: .foldable until="2"}
 \begin{code}
 module
   CoproductIdentities
   where
-
 \end{code}
 
 \begin{code}
@@ -45,15 +43,59 @@ module
 \end{code}
 
 \begin{code}
-π₁-≡ : ∀ {i j} {A : Type i} (B : A → Type j)
-    → {ab ab' : ∑ A B}
-    → ab ≡ ab'
-    → π₁ ab ≡ π₁ ab'
+π₁-≡
+  : ∀ {A : Type ℓᵢ} (B : A → Type ℓⱼ)
+  → {ab ab' : ∑ A B}
+  → ab ≡ ab'
+  ----------------
+  → π₁ ab ≡ π₁ ab'
 π₁-≡ B idp = idp
 \end{code}
 
+\begin{code}
+π₂-≡
+  : ∀ {A : Type ℓᵢ} (B : A → Type ℓⱼ)
+  → {ab ab' : ∑ A B}
+  → (p : ab ≡ ab')
+  ---------------------------------------
+  → (π₂ ab) ≡ (π₂ ab') [ B / (π₁-≡ B p) ]
+π₂-≡ B idp = idp
+\end{code}
 
-Our context:
+\begin{code}
+∑-map
+  : {A : Type ℓᵢ}  {B : A → Type ℓⱼ} {A' : Type ℓₖ} {B' : A' → Type ℓ}
+  → (f : A → A')
+  → ((a : A) → B a → B' (f a))
+  ----------------------------
+  → ∑ A B → ∑ A' B'
+
+∑-map f g p = (f (π₁ p) , g (π₁ p) (π₂ p))
+\end{code}
+
+\begin{code}
+∑-map-compose
+  : ∀ {i₀ j₀ i₁ j₁ i₂ j₂}
+  → {A₀ : Type i₀} {B₀ : A₀ → Type j₀}
+  → {A₁ : Type i₁} {B₁ : A₁ → Type j₁}
+  → {A₂ : Type i₂} {B₂ : A₂ → Type j₂}
+  → (f₀ : A₀ → A₁) → (f₁ : (a : A₀) → B₀ a → B₁ (f₀ a))
+  → (g₀ : A₁ → A₂) → (g₁ : (a : A₁) → B₁ a → B₂ (g₀ a))
+  → (x : ∑ A₀ B₀)
+  -------------------------------------------------------
+  → ∑-map (g₀ ∘ f₀) (λ a b → g₁ (f₀ a) (f₁ a b)) x
+  ≡ (∑-map {B' = B₂} g₀ g₁ (∑-map {B' = B₁} f₀ f₁ x))
+
+∑-map-compose _ _ _ _ (a , b) = idp
+\end{code}
+
+\begin{code}
+∑-lift : ∀ {i j k} {A : Type i} {B : A → Type j} {C : A → Type k}
+     → (∀ a → B a → C a) → ∑ A B → ∑ A C
+∑-lift f = ∑-map id f
+\end{code}
+
+In the following identities are more customized version of the ones above.
 
 \begin{code}
 module Sigma {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
@@ -78,7 +120,7 @@ Two dependent pairs are equal if they are componentwise equal.
   -- Lemma.
   Σ-bycomponents
     : ∀ {v w : Σ A P}
-    → Σ (π₁ v == π₁ w) (λ p → tr P p (π₂ v) == π₂ w)
+    → Σ (π₁ v == π₁ w) (λ p → (π₂ v) == (π₂ w) [ P ↓ p ] )
     -----------------------------------------------
     → v == w
 
@@ -90,9 +132,7 @@ Two dependent pairs are equal if they are componentwise equal.
 
 A trivial consequence is the following identification:
 
-{: .foldable until="6"}
 \begin{code}
--- Lemma.
   lift-pair=
     : ∀ {x y : A} {u : P x}
     → (p : x == y)
@@ -102,24 +142,25 @@ A trivial consequence is the following identification:
   lift-pair= idp = idp
 \end{code}
 
+Uniqueness principle property for products
 \begin{code}
--- Uniqueness principle property for products
   uppt : (x : Σ A P) → (π₁ x , π₂ x) == x
   uppt (a , b) = idp
 \end{code}
 
-{: .foldable until="7"}
+{: .foldable until="6"}
 \begin{code}
--- Lemma.
   Σ-ap-π₁
     : {a₁ a₂ : A} {b₁ : P a₁} {b₂ : P a₂}
     → (α : a₁ == a₂)
-    → (γ : transport P α b₁ == b₂)
+    → (γ : b₁ == b₂ [ P ↓ α ])
     ------------------------------
     → ap π₁ (pair= (α , γ)) == α
 
   Σ-ap-π₁ idp idp = idp
+\end{code}
 
+\begin{code}
   -- synonym for this lemma
   ap-π₁-pair= = Σ-ap-π₁
 \end{code}

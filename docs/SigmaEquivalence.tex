@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+      
+        Sigma Equivalence |
+      
+        Mini-HoTT
+    
+  </title>
+  <meta name="description" content="Jonathan Prieto-Cubides">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="preload" as="script" href="/assets/main.js" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114360791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114360791-1');
+  </script>
+
+  
+</head>
+
+
+
+
+  <body>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item" >
+    <p style="text-decoration:left">Sigma Equivalence</p>
+  </div>
+  <nav class="sidebar-nav">
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+</ul>
+
+
+    <!--  -->
+    <!-- 
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.tex">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.tex">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.html">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.html">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.tex">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.html">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.tex">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ContractibleType.html">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ContractibleType.tex">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.html">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.tex">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.html">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.tex">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.html">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.tex">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalencesForSets.tex">Equivalences for Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalencesForSets.html">Equivalences for Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FiberType.tex">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FiberType.html">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.tex">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.html">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.tex">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.html">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.tex">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.html">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.tex">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.html">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.tex">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.html">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.tex">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.html">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.tex">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.html">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.html">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.tex">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.html">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.tex">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.tex">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EqualityType.tex">Identity type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EqualityType.html">Identity type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.tex">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.tex">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.html">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/NaturalType.html">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/NaturalType.tex">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.tex">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.html">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.tex">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.tex">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.tex">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.html">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.tex">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.tex">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.tex">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/SigmaEquivalence.tex">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaEquivalence.html">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ProductIdentities.tex">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ProductIdentities.html">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CoproductIdentities.html">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CoproductIdentities.tex">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.tex">Sigma lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.html">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.tex">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.html">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.tex">Univalence Lemmas</a>
+        
+      
+     -->
+
+    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
+    <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
+    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
+    <!-- <span class="sidebar-nav-item">Currently v</span> -->
+  </nav>
+</div>
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
+            <a href="/" title="Home">Mini-HoTT</a>
+            <small style="text-decoration:left"></small>
+          </h3>
+        </div>
+      
+      <div class="container content">
+        
+
+
+
+
+
+
+
+<div class="post">
+
+  <div class="print-version">
+    <center>
+      <h1>Sigma Equivalence</h1><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                
+                  Jonathan Prieto-Cubides
+                
+              </div>
+              <div class="print-author-affiliation">
+                
+                  University of Bergen
+                
+                </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="print-date"></div>
+        
+        
+    </center>
+  </div>
+
+  
+  No git information available.
+  
+  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Sigma Equivalence
+  </h1>
+
+  <!-- 
+  <div class="toc">
+    <nav>
+    <h2 class="table-of-contents"> Table of Contents </h2>
+      
+
+    </nav>
+  </div>
+   -->
+
+  <noscript>
+  <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
+  </noscript>
+
+  <div class="hide" >
+<pre class="Agda">
+<a id="227" class="Symbol">{-#</a> <a id="231" class="Keyword">OPTIONS</a> <a id="239" class="Pragma">--without-K</a> <a id="251" class="Symbol">#-}</a>
+<a id="255" class="Keyword">open</a> <a id="260" class="Keyword">import</a> <a id="267" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="283" class="Keyword">open</a> <a id="288" class="Keyword">import</a> <a id="295" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+
+<a id="312" class="Keyword">open</a> <a id="317" class="Keyword">import</a> <a id="324" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="337" class="Keyword">open</a> <a id="342" class="Keyword">import</a> <a id="349" href="QuasiinverseType.html" class="Module">QuasiinverseType</a>
+
+<a id="367" class="Keyword">open</a> <a id="372" class="Keyword">import</a> <a id="379" href="CoproductIdentities.html" class="Module">CoproductIdentities</a>
+</pre>
+</div>
+
+
+<pre class="Agda">
+<a id="432" class="Keyword">module</a> <a id="439" href="SigmaEquivalence.html" class="Module">SigmaEquivalence</a> <a id="456" class="Symbol">{</a><a id="457" href="SigmaEquivalence.html#457" class="Bound">ℓᵢ</a> <a id="460" href="SigmaEquivalence.html#460" class="Bound">ℓⱼ</a><a id="462" class="Symbol">}</a> <a id="464" class="Symbol">{</a><a id="465" href="SigmaEquivalence.html#465" class="Bound">A</a> <a id="467" class="Symbol">:</a> <a id="469" href="Intro.html#1720" class="Function">Type</a> <a id="474" href="SigmaEquivalence.html#457" class="Bound">ℓᵢ</a><a id="476" class="Symbol">}</a> <a id="478" class="Symbol">{</a><a id="479" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="481" class="Symbol">:</a> <a id="483" href="SigmaEquivalence.html#465" class="Bound">A</a> <a id="485" class="Symbol">→</a> <a id="487" href="Intro.html#1720" class="Function">Type</a> <a id="492" href="SigmaEquivalence.html#460" class="Bound">ℓⱼ</a><a id="494" class="Symbol">}</a> <a id="496" class="Keyword">where</a>
+</pre>
+
+{: .foldable until="4"}
+<pre class="Agda">
+  <a id="553" class="Comment">-- Lemma.</a>
+  <a id="pair=Equiv"></a><a id="565" href="SigmaEquivalence.html#565" class="Function">pair=Equiv</a>
+    <a id="580" class="Symbol">:</a> <a id="582" class="Symbol">{</a><a id="583" href="SigmaEquivalence.html#583" class="Bound">v</a> <a id="585" href="SigmaEquivalence.html#585" class="Bound">w</a> <a id="587" class="Symbol">:</a> <a id="589" href="BasicTypes.html#1690" class="Function">Σ</a> <a id="591" href="SigmaEquivalence.html#465" class="Bound">A</a> <a id="593" href="SigmaEquivalence.html#479" class="Bound">P</a><a id="594" class="Symbol">}</a>
+    <a id="600" class="Symbol">→</a> <a id="602" href="BasicTypes.html#1690" class="Function">Σ</a> <a id="604" class="Symbol">(</a><a id="605" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="608" href="SigmaEquivalence.html#583" class="Bound">v</a> <a id="610" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="613" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="616" href="SigmaEquivalence.html#585" class="Bound">w</a><a id="617" class="Symbol">)</a> <a id="619" class="Symbol">(λ</a> <a id="622" href="SigmaEquivalence.html#622" class="Bound">p</a> <a id="624" class="Symbol">→</a> <a id="626" href="Transport.html#673" class="Function">tr</a> <a id="629" class="Symbol">(λ</a> <a id="632" href="SigmaEquivalence.html#632" class="Bound">a</a> <a id="634" class="Symbol">→</a> <a id="636" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="638" href="SigmaEquivalence.html#632" class="Bound">a</a><a id="639" class="Symbol">)</a> <a id="641" href="SigmaEquivalence.html#622" class="Bound">p</a> <a id="643" class="Symbol">(</a><a id="644" href="BasicTypes.html#1609" class="Field">π₂</a> <a id="647" href="SigmaEquivalence.html#583" class="Bound">v</a><a id="648" class="Symbol">)</a> <a id="650" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="653" href="BasicTypes.html#1609" class="Field">π₂</a> <a id="656" href="SigmaEquivalence.html#585" class="Bound">w</a><a id="657" class="Symbol">)</a> <a id="659" href="EquivalenceType.html#1095" class="Function Operator">≃</a> <a id="661" href="SigmaEquivalence.html#583" class="Bound">v</a> <a id="663" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="666" href="SigmaEquivalence.html#585" class="Bound">w</a>
+
+  <a id="671" href="SigmaEquivalence.html#565" class="Function">pair=Equiv</a> <a id="682" class="Symbol">=</a> <a id="684" href="QuasiinverseType.html#3107" class="Function">qinv-≃</a> <a id="691" href="CoproductIdentities.html#2477" class="Function">Σ-bycomponents</a> <a id="706" class="Symbol">(</a><a id="707" href="CoproductIdentities.html#2221" class="Function">Σ-componentwise</a> <a id="723" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="725" href="SigmaEquivalence.html#752" class="Function">HΣ₁</a> <a id="729" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="731" href="SigmaEquivalence.html#823" class="Function">HΣ₂</a><a id="734" class="Symbol">)</a>
+    <a id="740" class="Keyword">where</a>
+      <a id="752" href="SigmaEquivalence.html#752" class="Function">HΣ₁</a> <a id="756" class="Symbol">:</a> <a id="758" href="CoproductIdentities.html#2477" class="Function">Σ-bycomponents</a> <a id="773" href="BasicFunctions.html#1026" class="Function Operator">∘</a> <a id="775" href="CoproductIdentities.html#2221" class="Function">Σ-componentwise</a> <a id="791" href="HomotopyType.html#987" class="Function Operator">∼</a> <a id="793" href="BasicFunctions.html#386" class="Function">id</a>
+      <a id="802" href="SigmaEquivalence.html#752" class="Function">HΣ₁</a> <a id="806" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a> <a id="810" class="Symbol">=</a> <a id="812" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a>
+
+      <a id="823" href="SigmaEquivalence.html#823" class="Function">HΣ₂</a> <a id="827" class="Symbol">:</a> <a id="829" href="CoproductIdentities.html#2221" class="Function">Σ-componentwise</a> <a id="845" href="BasicFunctions.html#1026" class="Function Operator">∘</a> <a id="847" href="CoproductIdentities.html#2477" class="Function">Σ-bycomponents</a> <a id="862" href="HomotopyType.html#987" class="Function Operator">∼</a> <a id="864" href="BasicFunctions.html#386" class="Function">id</a>
+      <a id="873" href="SigmaEquivalence.html#823" class="Function">HΣ₂</a> <a id="877" class="Symbol">(</a><a id="878" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a> <a id="882" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="884" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="887" class="Symbol">)</a> <a id="889" class="Symbol">=</a> <a id="891" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a>
+
+  <a id="898" class="Keyword">private</a>
+    <a id="f"></a><a id="910" href="SigmaEquivalence.html#910" class="Function">f</a> <a id="912" class="Symbol">:</a> <a id="914" class="Symbol">{</a><a id="915" href="SigmaEquivalence.html#915" class="Bound">a₁</a> <a id="918" href="SigmaEquivalence.html#918" class="Bound">a₂</a> <a id="921" class="Symbol">:</a> <a id="923" href="SigmaEquivalence.html#465" class="Bound">A</a><a id="924" class="Symbol">}</a> <a id="926" class="Symbol">{</a><a id="927" href="SigmaEquivalence.html#927" class="Bound">α</a> <a id="929" class="Symbol">:</a> <a id="931" href="SigmaEquivalence.html#915" class="Bound">a₁</a> <a id="934" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="937" href="SigmaEquivalence.html#918" class="Bound">a₂</a><a id="939" class="Symbol">}{</a><a id="941" href="SigmaEquivalence.html#941" class="Bound">c₁</a> <a id="944" class="Symbol">:</a> <a id="946" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="948" href="SigmaEquivalence.html#915" class="Bound">a₁</a><a id="950" class="Symbol">}</a> <a id="952" class="Symbol">{</a><a id="953" href="SigmaEquivalence.html#953" class="Bound">c₂</a> <a id="956" class="Symbol">:</a> <a id="958" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="960" href="SigmaEquivalence.html#918" class="Bound">a₂</a><a id="962" class="Symbol">}</a>
+      <a id="970" class="Symbol">→</a> <a id="972" class="Symbol">{</a><a id="973" href="SigmaEquivalence.html#973" class="Bound">β</a> <a id="975" class="Symbol">:</a> <a id="977" href="SigmaEquivalence.html#915" class="Bound">a₁</a> <a id="980" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="983" href="SigmaEquivalence.html#918" class="Bound">a₂</a><a id="985" class="Symbol">}</a>
+      <a id="993" class="Symbol">→</a> <a id="995" class="Symbol">{</a><a id="996" href="SigmaEquivalence.html#996" class="Bound">γ</a> <a id="998" class="Symbol">:</a> <a id="1000" href="Transport.html#472" class="Function">transport</a> <a id="1010" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1012" href="SigmaEquivalence.html#973" class="Bound">β</a> <a id="1014" href="SigmaEquivalence.html#941" class="Bound">c₁</a> <a id="1017" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1020" href="SigmaEquivalence.html#953" class="Bound">c₂</a><a id="1022" class="Symbol">}</a>
+      <a id="1030" class="Symbol">→</a> <a id="1032" href="AlgebraOnPaths.html#395" class="Function">ap</a> <a id="1035" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1038" class="Symbol">(</a><a id="1039" href="CoproductIdentities.html#2708" class="Function">pair=</a> <a id="1045" class="Symbol">(</a><a id="1046" href="SigmaEquivalence.html#973" class="Bound">β</a> <a id="1048" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="1050" href="SigmaEquivalence.html#996" class="Bound">γ</a><a id="1051" class="Symbol">))</a> <a id="1054" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1057" href="SigmaEquivalence.html#927" class="Bound">α</a> <a id="1059" class="Symbol">→</a> <a id="1061" href="SigmaEquivalence.html#973" class="Bound">β</a> <a id="1063" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1066" href="SigmaEquivalence.html#927" class="Bound">α</a>
+    <a id="1072" href="SigmaEquivalence.html#910" class="Function">f</a> <a id="1074" class="Symbol">{</a><a id="1075" class="Argument">β</a> <a id="1077" class="Symbol">=</a> <a id="1079" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1082" class="Symbol">}</a> <a id="1084" class="Symbol">{</a><a id="1085" class="Argument">γ</a> <a id="1087" class="Symbol">=</a> <a id="1089" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1092" class="Symbol">}</a> <a id="1094" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a> <a id="1098" class="Symbol">=</a> <a id="1100" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a>
+
+    <a id="g"></a><a id="1109" href="SigmaEquivalence.html#1109" class="Function">g</a> <a id="1111" class="Symbol">:</a> <a id="1113" class="Symbol">{</a><a id="1114" href="SigmaEquivalence.html#1114" class="Bound">a₁</a> <a id="1117" href="SigmaEquivalence.html#1117" class="Bound">a₂</a> <a id="1120" class="Symbol">:</a> <a id="1122" href="SigmaEquivalence.html#465" class="Bound">A</a><a id="1123" class="Symbol">}</a> <a id="1125" class="Symbol">{</a><a id="1126" href="SigmaEquivalence.html#1126" class="Bound">α</a> <a id="1128" class="Symbol">:</a> <a id="1130" href="SigmaEquivalence.html#1114" class="Bound">a₁</a> <a id="1133" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1136" href="SigmaEquivalence.html#1117" class="Bound">a₂</a><a id="1138" class="Symbol">}{</a><a id="1140" href="SigmaEquivalence.html#1140" class="Bound">c₁</a> <a id="1143" class="Symbol">:</a> <a id="1145" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1147" href="SigmaEquivalence.html#1114" class="Bound">a₁</a><a id="1149" class="Symbol">}</a> <a id="1151" class="Symbol">{</a><a id="1152" href="SigmaEquivalence.html#1152" class="Bound">c₂</a> <a id="1155" class="Symbol">:</a> <a id="1157" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1159" href="SigmaEquivalence.html#1117" class="Bound">a₂</a><a id="1161" class="Symbol">}</a>
+      <a id="1169" class="Symbol">→</a> <a id="1171" class="Symbol">{</a><a id="1172" href="SigmaEquivalence.html#1172" class="Bound">β</a> <a id="1174" class="Symbol">:</a> <a id="1176" href="SigmaEquivalence.html#1114" class="Bound">a₁</a> <a id="1179" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1182" href="SigmaEquivalence.html#1117" class="Bound">a₂</a><a id="1184" class="Symbol">}</a>
+      <a id="1192" class="Symbol">→</a> <a id="1194" class="Symbol">{</a><a id="1195" href="SigmaEquivalence.html#1195" class="Bound">γ</a> <a id="1197" class="Symbol">:</a> <a id="1199" href="Transport.html#472" class="Function">transport</a> <a id="1209" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1211" href="SigmaEquivalence.html#1172" class="Bound">β</a> <a id="1213" href="SigmaEquivalence.html#1140" class="Bound">c₁</a> <a id="1216" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1219" href="SigmaEquivalence.html#1152" class="Bound">c₂</a><a id="1221" class="Symbol">}</a>
+      <a id="1229" class="Symbol">→</a> <a id="1231" href="SigmaEquivalence.html#1172" class="Bound">β</a> <a id="1233" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1236" href="SigmaEquivalence.html#1126" class="Bound">α</a> <a id="1238" class="Symbol">→</a> <a id="1240" href="AlgebraOnPaths.html#395" class="Function">ap</a> <a id="1243" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1246" class="Symbol">(</a><a id="1247" href="CoproductIdentities.html#2708" class="Function">pair=</a> <a id="1253" class="Symbol">(</a><a id="1254" href="SigmaEquivalence.html#1172" class="Bound">β</a> <a id="1256" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="1258" href="SigmaEquivalence.html#1195" class="Bound">γ</a><a id="1259" class="Symbol">))</a> <a id="1262" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1265" href="SigmaEquivalence.html#1126" class="Bound">α</a>
+    <a id="1271" href="SigmaEquivalence.html#1109" class="Function">g</a> <a id="1273" class="Symbol">{</a><a id="1274" class="Argument">β</a> <a id="1276" class="Symbol">=</a> <a id="1278" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1281" class="Symbol">}</a> <a id="1283" class="Symbol">{</a><a id="1284" class="Argument">γ</a> <a id="1286" class="Symbol">=</a> <a id="1288" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1291" class="Symbol">}</a> <a id="1293" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a> <a id="1297" class="Symbol">=</a> <a id="1299" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a>
+
+    <a id="f-g"></a><a id="1308" href="SigmaEquivalence.html#1308" class="Function">f-g</a> <a id="1312" class="Symbol">:</a> <a id="1314" class="Symbol">{</a><a id="1315" href="SigmaEquivalence.html#1315" class="Bound">a₁</a> <a id="1318" href="SigmaEquivalence.html#1318" class="Bound">a₂</a> <a id="1321" class="Symbol">:</a> <a id="1323" href="SigmaEquivalence.html#465" class="Bound">A</a><a id="1324" class="Symbol">}</a> <a id="1326" class="Symbol">{</a><a id="1327" href="SigmaEquivalence.html#1327" class="Bound">α</a> <a id="1329" class="Symbol">:</a> <a id="1331" href="SigmaEquivalence.html#1315" class="Bound">a₁</a> <a id="1334" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1337" href="SigmaEquivalence.html#1318" class="Bound">a₂</a><a id="1339" class="Symbol">}{</a><a id="1341" href="SigmaEquivalence.html#1341" class="Bound">c₁</a> <a id="1344" class="Symbol">:</a> <a id="1346" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1348" href="SigmaEquivalence.html#1315" class="Bound">a₁</a><a id="1350" class="Symbol">}</a> <a id="1352" class="Symbol">{</a><a id="1353" href="SigmaEquivalence.html#1353" class="Bound">c₂</a> <a id="1356" class="Symbol">:</a> <a id="1358" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1360" href="SigmaEquivalence.html#1318" class="Bound">a₂</a><a id="1362" class="Symbol">}</a>
+      <a id="1370" class="Symbol">→</a> <a id="1372" class="Symbol">{</a><a id="1373" href="SigmaEquivalence.html#1373" class="Bound">β</a> <a id="1375" class="Symbol">:</a> <a id="1377" href="SigmaEquivalence.html#1315" class="Bound">a₁</a> <a id="1380" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1383" href="SigmaEquivalence.html#1318" class="Bound">a₂</a><a id="1385" class="Symbol">}</a>
+      <a id="1393" class="Symbol">→</a> <a id="1395" class="Symbol">{</a><a id="1396" href="SigmaEquivalence.html#1396" class="Bound">γ</a> <a id="1398" class="Symbol">:</a> <a id="1400" href="Transport.html#472" class="Function">transport</a> <a id="1410" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1412" href="SigmaEquivalence.html#1373" class="Bound">β</a> <a id="1414" href="SigmaEquivalence.html#1341" class="Bound">c₁</a> <a id="1417" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1420" href="SigmaEquivalence.html#1353" class="Bound">c₂</a><a id="1422" class="Symbol">}</a>
+      <a id="1430" class="Symbol">→</a> <a id="1432" href="SigmaEquivalence.html#910" class="Function">f</a> <a id="1434" class="Symbol">{</a><a id="1435" class="Argument">α</a> <a id="1437" class="Symbol">=</a> <a id="1439" href="SigmaEquivalence.html#1327" class="Bound">α</a><a id="1440" class="Symbol">}{</a><a id="1442" class="Argument">β</a> <a id="1444" class="Symbol">=</a> <a id="1446" href="SigmaEquivalence.html#1373" class="Bound">β</a><a id="1447" class="Symbol">}{</a><a id="1449" href="SigmaEquivalence.html#1396" class="Bound">γ</a><a id="1450" class="Symbol">}</a> <a id="1452" href="BasicFunctions.html#1026" class="Function Operator">∘</a> <a id="1454" href="SigmaEquivalence.html#1109" class="Function">g</a> <a id="1456" class="Symbol">{</a><a id="1457" class="Argument">α</a> <a id="1459" class="Symbol">=</a> <a id="1461" href="SigmaEquivalence.html#1327" class="Bound">α</a><a id="1462" class="Symbol">}{</a><a id="1464" class="Argument">β</a> <a id="1466" class="Symbol">=</a> <a id="1468" href="SigmaEquivalence.html#1373" class="Bound">β</a><a id="1469" class="Symbol">}</a> <a id="1471" href="HomotopyType.html#987" class="Function Operator">∼</a> <a id="1473" href="BasicFunctions.html#386" class="Function">id</a>
+    <a id="1480" href="SigmaEquivalence.html#1308" class="Function">f-g</a> <a id="1484" class="Symbol">{</a><a id="1485" class="Argument">β</a> <a id="1487" class="Symbol">=</a> <a id="1489" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1492" class="Symbol">}</a> <a id="1494" class="Symbol">{</a><a id="1495" class="Argument">γ</a> <a id="1497" class="Symbol">=</a> <a id="1499" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1502" class="Symbol">}</a> <a id="1504" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a> <a id="1508" class="Symbol">=</a> <a id="1510" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a>
+
+    <a id="g-f"></a><a id="1519" href="SigmaEquivalence.html#1519" class="Function">g-f</a> <a id="1523" class="Symbol">:</a> <a id="1525" class="Symbol">{</a><a id="1526" href="SigmaEquivalence.html#1526" class="Bound">a₁</a> <a id="1529" href="SigmaEquivalence.html#1529" class="Bound">a₂</a> <a id="1532" class="Symbol">:</a> <a id="1534" href="SigmaEquivalence.html#465" class="Bound">A</a><a id="1535" class="Symbol">}</a> <a id="1537" class="Symbol">{</a><a id="1538" href="SigmaEquivalence.html#1538" class="Bound">α</a> <a id="1540" class="Symbol">:</a> <a id="1542" href="SigmaEquivalence.html#1526" class="Bound">a₁</a> <a id="1545" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1548" href="SigmaEquivalence.html#1529" class="Bound">a₂</a><a id="1550" class="Symbol">}{</a><a id="1552" href="SigmaEquivalence.html#1552" class="Bound">c₁</a> <a id="1555" class="Symbol">:</a> <a id="1557" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1559" href="SigmaEquivalence.html#1526" class="Bound">a₁</a><a id="1561" class="Symbol">}</a> <a id="1563" class="Symbol">{</a><a id="1564" href="SigmaEquivalence.html#1564" class="Bound">c₂</a> <a id="1567" class="Symbol">:</a> <a id="1569" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1571" href="SigmaEquivalence.html#1529" class="Bound">a₂</a><a id="1573" class="Symbol">}</a>
+      <a id="1581" class="Symbol">→</a> <a id="1583" class="Symbol">{</a><a id="1584" href="SigmaEquivalence.html#1584" class="Bound">β</a> <a id="1586" class="Symbol">:</a> <a id="1588" href="SigmaEquivalence.html#1526" class="Bound">a₁</a> <a id="1591" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1594" href="SigmaEquivalence.html#1529" class="Bound">a₂</a><a id="1596" class="Symbol">}</a>
+      <a id="1604" class="Symbol">→</a> <a id="1606" class="Symbol">{</a><a id="1607" href="SigmaEquivalence.html#1607" class="Bound">γ</a> <a id="1609" class="Symbol">:</a> <a id="1611" href="Transport.html#472" class="Function">transport</a> <a id="1621" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1623" href="SigmaEquivalence.html#1584" class="Bound">β</a> <a id="1625" href="SigmaEquivalence.html#1552" class="Bound">c₁</a> <a id="1628" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1631" href="SigmaEquivalence.html#1564" class="Bound">c₂</a><a id="1633" class="Symbol">}</a>
+      <a id="1641" class="Symbol">→</a> <a id="1643" href="SigmaEquivalence.html#1109" class="Function">g</a> <a id="1645" class="Symbol">{</a><a id="1646" class="Argument">α</a> <a id="1648" class="Symbol">=</a> <a id="1650" href="SigmaEquivalence.html#1538" class="Bound">α</a><a id="1651" class="Symbol">}{</a><a id="1653" class="Argument">β</a> <a id="1655" class="Symbol">=</a> <a id="1657" href="SigmaEquivalence.html#1584" class="Bound">β</a><a id="1658" class="Symbol">}{</a><a id="1660" href="SigmaEquivalence.html#1607" class="Bound">γ</a><a id="1661" class="Symbol">}</a> <a id="1663" href="BasicFunctions.html#1026" class="Function Operator">∘</a> <a id="1665" href="SigmaEquivalence.html#910" class="Function">f</a> <a id="1667" class="Symbol">{</a><a id="1668" class="Argument">α</a> <a id="1670" class="Symbol">=</a> <a id="1672" href="SigmaEquivalence.html#1538" class="Bound">α</a><a id="1673" class="Symbol">}{</a><a id="1675" class="Argument">β</a> <a id="1677" class="Symbol">=</a> <a id="1679" href="SigmaEquivalence.html#1584" class="Bound">β</a><a id="1680" class="Symbol">}{</a><a id="1682" href="SigmaEquivalence.html#1607" class="Bound">γ</a><a id="1683" class="Symbol">}</a> <a id="1685" href="HomotopyType.html#987" class="Function Operator">∼</a> <a id="1687" href="BasicFunctions.html#386" class="Function">id</a>
+    <a id="1694" href="SigmaEquivalence.html#1519" class="Function">g-f</a> <a id="1698" class="Symbol">{</a><a id="1699" class="Argument">β</a> <a id="1701" class="Symbol">=</a> <a id="1703" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1706" class="Symbol">}</a> <a id="1708" class="Symbol">{</a><a id="1709" class="Argument">γ</a> <a id="1711" class="Symbol">=</a> <a id="1713" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a><a id="1716" class="Symbol">}</a> <a id="1718" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a> <a id="1722" class="Symbol">=</a> <a id="1724" href="BasicTypes.html#4336" class="InductiveConstructor">idp</a>
+</pre>
+
+{: .foldable until="6"}
+<pre class="Agda">
+  <a id="1779" class="Comment">-- Lemma</a>
+  <a id="ap-π₁-pair=Equiv"></a><a id="1790" href="SigmaEquivalence.html#1790" class="Function">ap-π₁-pair=Equiv</a>
+    <a id="1811" class="Symbol">:</a> <a id="1813" class="Symbol">{</a><a id="1814" href="SigmaEquivalence.html#1814" class="Bound">a₁</a> <a id="1817" href="SigmaEquivalence.html#1817" class="Bound">a₂</a> <a id="1820" class="Symbol">:</a> <a id="1822" href="SigmaEquivalence.html#465" class="Bound">A</a><a id="1823" class="Symbol">}</a> <a id="1825" class="Symbol">{</a><a id="1826" href="SigmaEquivalence.html#1826" class="Bound">c₁</a> <a id="1829" class="Symbol">:</a> <a id="1831" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1833" href="SigmaEquivalence.html#1814" class="Bound">a₁</a><a id="1835" class="Symbol">}</a> <a id="1837" class="Symbol">{</a><a id="1838" href="SigmaEquivalence.html#1838" class="Bound">c₂</a> <a id="1841" class="Symbol">:</a> <a id="1843" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1845" href="SigmaEquivalence.html#1817" class="Bound">a₂</a><a id="1847" class="Symbol">}</a>
+    <a id="1853" class="Symbol">→</a> <a id="1855" class="Symbol">(</a><a id="1856" href="SigmaEquivalence.html#1856" class="Bound">α</a> <a id="1858" class="Symbol">:</a> <a id="1860" href="SigmaEquivalence.html#1814" class="Bound">a₁</a> <a id="1863" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1866" href="SigmaEquivalence.html#1817" class="Bound">a₂</a><a id="1868" class="Symbol">)</a>
+    <a id="1874" class="Symbol">→</a> <a id="1876" class="Symbol">(</a><a id="1877" href="SigmaEquivalence.html#1877" class="Bound">γ</a> <a id="1879" class="Symbol">:</a> <a id="1881" href="BasicTypes.html#1690" class="Function">Σ</a> <a id="1883" class="Symbol">(</a><a id="1884" href="SigmaEquivalence.html#1814" class="Bound">a₁</a> <a id="1887" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1890" href="SigmaEquivalence.html#1817" class="Bound">a₂</a><a id="1892" class="Symbol">)</a> <a id="1894" class="Symbol">(λ</a> <a id="1897" href="SigmaEquivalence.html#1897" class="Bound">α&#39;</a> <a id="1900" class="Symbol">→</a> <a id="1902" href="Transport.html#472" class="Function">transport</a> <a id="1912" href="SigmaEquivalence.html#479" class="Bound">P</a> <a id="1914" href="SigmaEquivalence.html#1897" class="Bound">α&#39;</a> <a id="1917" href="SigmaEquivalence.html#1826" class="Bound">c₁</a> <a id="1920" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1923" href="SigmaEquivalence.html#1838" class="Bound">c₂</a><a id="1925" class="Symbol">))</a>
+    <a id="1932" class="Symbol">→</a> <a id="1934" class="Symbol">(</a><a id="1935" href="AlgebraOnPaths.html#395" class="Function">ap</a> <a id="1938" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1941" class="Symbol">(</a><a id="1942" href="CoproductIdentities.html#2708" class="Function">pair=</a> <a id="1948" href="SigmaEquivalence.html#1877" class="Bound">γ</a><a id="1949" class="Symbol">)</a> <a id="1951" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1954" href="SigmaEquivalence.html#1856" class="Bound">α</a><a id="1955" class="Symbol">)</a> <a id="1957" href="EquivalenceType.html#1095" class="Function Operator">≃</a> <a id="1959" class="Symbol">(</a><a id="1960" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1963" href="SigmaEquivalence.html#1877" class="Bound">γ</a> <a id="1965" href="BasicTypes.html#4281" class="Datatype Operator">==</a> <a id="1968" href="SigmaEquivalence.html#1856" class="Bound">α</a><a id="1969" class="Symbol">)</a>
+
+  <a id="1974" href="SigmaEquivalence.html#1790" class="Function">ap-π₁-pair=Equiv</a> <a id="1991" class="Symbol">{</a><a id="1992" class="Argument">a₁</a> <a id="1995" class="Symbol">=</a> <a id="1997" href="SigmaEquivalence.html#1997" class="Bound">a₁</a><a id="1999" class="Symbol">}</a> <a id="2001" href="SigmaEquivalence.html#2001" class="Bound">α</a> <a id="2003" class="Symbol">(</a><a id="2004" href="SigmaEquivalence.html#2004" class="Bound">β</a> <a id="2006" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="2008" href="SigmaEquivalence.html#2008" class="Bound">γ</a><a id="2009" class="Symbol">)</a> <a id="2011" class="Symbol">=</a> <a id="2013" href="QuasiinverseType.html#3107" class="Function">qinv-≃</a> <a id="2020" href="SigmaEquivalence.html#910" class="Function">f</a> <a id="2022" class="Symbol">(</a><a id="2023" href="SigmaEquivalence.html#1109" class="Function">g</a> <a id="2025" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="2027" href="SigmaEquivalence.html#1308" class="Function">f-g</a> <a id="2031" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="2033" href="SigmaEquivalence.html#1519" class="Function">g-f</a><a id="2036" class="Symbol">)</a>
+</pre>
+
+
+  <div class="cited-references" markdown="1">
+  <ol class="bibliography"></ol>
+  </div>
+
+
+  
+  <div id="citation">
+  <h2> Citation </h2>
+  If you want to cite the content of this post,
+  we suggest to use the following latex bibtex entry.
+  This is generated automatically.
+
+  <br/>
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag =""
+       data-bibtexauthors =""
+       data-year =""
+       data-lastchecked ="2019-06-20"
+       data-originalyear =""
+       data-title ="Sigma Equivalence"
+       data-url ="http://jonaprieto.github.io/mini-hott/SigmaEquivalence.tex"
+  ></pre>
+  </div>
+  
+
+  <div id="github-links">
+    <div class="view-source">
+      
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/SigmaEquivalence.tex" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/SigmaEquivalence.tex" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
+      
+      <a href="https://github.com/jonaprieto/mini-hott/blob/master/SigmaEquivalence.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/SigmaEquivalence.tex" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/SigmaEquivalence.tex" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
+      <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
+      </a>
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Sigma Equivalence - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- https://octicons.github.com/ -->
+
+
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$'],['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
+      TagSide: "left",
+      Macros: {
+        field: ['\\mathbb{#1}', 1],
+        C: ['\\field{C}'],
+        F: ['\\field{F}'],
+        N: ['\\field{N}'],
+        Q: ['\\field{Q}'],
+        R: ['\\field{R}'],
+        Z: ['\\field{Z}'],
+
+        U: ['\\mathcal{U}'],
+        to: ['\\rightarrow'],
+        zero: ['\\field{0}'],
+        one: ['\\field{1}'],
+        two: ['\\field{2}'],
+        id: ['\\mathsf{Id}'],
+
+        fun: ['\\mathsf{fun}{#1}', 1],
+
+        true: ['\\mathsf{true}'],
+        false: ['\\mathsf{false}'],
+
+        proj: ['\\mathsf{proj}'],
+
+        trans: ['\\mathsf{trans}'],
+        refl: ['\\mathsf{refl}'],
+        sym: ['\\mathsf{sym}'],
+
+        Fin:['\\mathsf{Fin}\\,'],
+        ind: ['\\mathsf{ind}'],
+        rec:['\\mathsf{rec}'],
+
+        zeros: ['\\mathbf{0}'],
+        ud: ['\\,\\mathrm{d}'],
+
+        vect:['\\boldsymbol{\\mathbf{#1}}',1],
+        abs: ['\\lvert#1\\rvert', 1],
+        abslr:['\\left\\lvert#1\\right\\rvert', 1],
+        norm: ['\\lVert#1\\rVert', 1],
+        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
+
+        lcm: ['\\mathop{\\mathrm{lcm}}'],
+        interior: ['\\mathop{\\mathrm{int}}'],
+        exterior: ['\\mathop{\\mathrm{ext}}'],
+        volume: ['\\mathop{\\mathrm{vol}}'],
+
+        E: ['{\\rm I\\kern-.3em E}'],
+        Var: ['\\mathop{\\mathrm{Var}}'],
+        Cov: ['\\mathop{\\mathrm{Cov}}'],
+        Binom: ['\\mathop{\\mathrm{Binom}}'],
+        Exp: ['\\mathop{\\mathrm{Exp}}'],
+        Poi: ['\\mathop{\\mathrm{Poi}}'],
+
+        GL: ['\\mathrm{GL}'],
+        SL: ['\\mathrm{SL}'],
+        Aut: ['\\mathrm{Aut}'],
+        ker: ['\\mathrm{ker}'],
+
+        Re: ['\\mathop{\\mathrm{Re}}'],
+        Im: ['\\mathop{\\mathrm{Im}}'],
+        Res: ['\\mathop{\\mathrm{Res}}'],
+
+        Type : ['\\mathsf{Type}\\,'],
+        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
+        Graph : ['\\mathsf{Graph}\\,'],
+        Face : ['\\mathsf{Face}\\,'],
+        Node : ['\\mathsf{Node}\\,'],
+        Edge : ['\\mathsf{Edge}\\,'],
+        Path : ['\\mathsf{Path}\\,'],
+        Walk : ['\\mathsf{Walk}\\,'],
+
+        isContr:['\\mathsf{isContr{#1}}',1],
+        isProp:['\\mathsf{isProp{#1}}',1],
+        isSet:['\\mathsf{isSet{#1}}',1],
+
+        minimize : ['\\mathsf{minimize}'],
+        maximize : ['\\mathsf{maximize}'],
+        st : ['\\mathsf{st}'],
+        and : ['\\,\\wedge\\, '],
+        or : ['\\,\\vee\\,']
+
+
+
+      }
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+
+
+
+<script>
+  // When the user scrolls the page, execute myFunction
+function stickyToogle(obj, sticky) {
+  if (window.pageYOffset > sticky) {
+    obj.classList.add("sticky");
+  } else {
+    obj.classList.remove("sticky");
+  }
+};
+
+// Get the header
+function stickyThing(idObj){
+  var obj = document.getElementById(idObj);
+  if (obj){
+    // Get the offset position of the navbar
+    stickyToogle(obj, obj.offsetTop);
+    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  }
+};
+
+window.onscroll = function() {
+  stickyThing("stickyTitle");
+};
+
+
+</script>
+
+
+
+      </div>
+      
+      </div>
+    </div>
+    
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+<script src="/assets/jquery.min.js"></script>
+
+
+<script src="/assets/linkify.min.js"></script>
+<script src="/assets/linkify-jquery.min.js"></script>
+
+<script type="text/javascript">
+$('.references').linkify();
+$('.bibliography').linkify();
+$('.links').linkify();
+</script>
+
+
+<script type="text/javascript">
+WebFontConfig = {
+ google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
+};
+(function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+
+<!-- FOLDABLE  -->
+<script type="text/javascript">
+ $('pre.foldable').each(function(){
+     var lineHeight = parseFloat($(this).css('line-height'));
+     var plus    = $('<div><svg height="12" class="octicon octicon-fold" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg></div>');
+     var horLine = $("<div></div>");
+     var verLine = $("<div></div>");
+     $(this).prepend(plus);
+     plus.css({
+         'position'         : 'relative',
+         'float'            : 'right',
+         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
+         'width'            : lineHeight,
+         'height'           : lineHeight
+       });
+
+     var until = parseFloat($(this).attr('until'));
+     if ( isNaN(until) ) { until= 1; }
+     if ( until <= 0 ){
+       $(this).hide();
+     }
+     else{
+       var newHeight = ((1.2 * until) + 0.7) + "rem";
+       //                               ^^^----------- for the padding
+       //                ^^-- line-height
+
+       // console.log('afuera-until: ', until);
+       // console.log('afuera-newheight: ', newHeight );
+       $(this).css("padding", "0.5rem 1rem");
+       $(this).css("overflow", "hidden");
+       $(this).css("height", newHeight);
+       $(this).attr("original", "false");
+
+       $(this).click(function(){
+
+         // console.log('dentro-original: ', $(this).attr('original') );
+         // console.log('dentro-newheight: ', newHeight );
+
+         if ( $(this).attr('original') == "true" ) {
+           $(this).css("overflow", "hidden");
+           $(this).css("height", newHeight);
+           $(this).attr("original", "false");
+           $(this).css("padding", "0.5rem 1rem");
+           // plus.show();
+         }
+         else {
+           $(this).height('auto');
+           $(this).attr("original", "true");
+           // plus.hide();
+         }
+       });
+     }
+ });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  if ( $('div').hasClass('cited-references') ){
+    $('.cited-references').append( $('.references').html() );
+    $('.references').hide();
+    $(".cited-references").prepend("<h2 id='refs'>References</h2>");
+    $(".toc nav>ul").append("<li><a href='#refs'>References</a></li>");
+  }
+</script>
+
+
+
+<script type="text/javascript">
+var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
+
+$('#citation').hide();
+$('#citation pre').each(function(){
+
+    var pre           = $(this);
+    var title         = $(this).data('title');
+    var title         = $(this).data('title');
+    var id            = $(this).data('url');
+    var year          = $(this).data('year');
+    var lastchecked   = $(this).data('lastchecked');
+    var originalyear  = $(this).data('originalyear');
+    var url           = $(this).data('url');
+
+    var bibtextag     = $(this).data('bibtextag');
+    var bibtexauthors = $(this).data('bibtexauthors');
+
+    if (bibtexauthors == ""){
+      bibtexauthors = "Prieto-Cubides, Jonathan";
+    }
+
+    if (bibtextag == "")
+    {
+      bibtextag = "Prieto-Cubides:" + lastchecked
+    }
+
+    pre.append(
+    "@online{ " + bibtextag + ",\n" +
+    "  author  = { " + bibtexauthors +" },\n" +
+    "  title   = { " + title + " },\n" +
+    "  url     = { \\url{" + url   + "} }\n" +
+    "  year    = { " + year  + " }\n" +
+    "  lastchecked  = { " + lastchecked  + " }\n" +
+    "  originalyear = { " + originalyear  + " }\n" +
+    "}\n"
+    );
+  });
+
+$('#citation').show();
+</script>
+
+
+
+
+    <!-- <script>
+      (function(document) {
+        var toggle   = document.querySelector('.sidebar-toggle');
+        var sidebar  = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          // if(!checkbox.checked ||
+          //    sidebar.contains(target) ||
+          //    (target === checkbox || target === toggle)) return;
+          //
+          if(target === toggle)
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script> -->
+
+    
+    <script src="/assets/galleryjs/lightgallery.js"></script>
+    <script src="/assets/galleryjs/lg-thumbnail.min.js"></script>
+    <script src="/assets/galleryjs/lg-fullscreen.min.js"></script>
+
+    <script  type="text/javascript">
+      $(document).ready(function() {
+        $('.post img').wrap(function(){
+          return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
+        });
+
+        lightGallery(document.querySelector('.post'),
+          { selector     : ".gallery"
+          // , mode         : 'slide'
+          , thumbnail    : true
+          , animateThumb: false
+          , closable     : true
+          , counter      : true
+          , enableTouch  : true
+          , enableDrag   : true
+          , showThumbByDefault   : false
+          , thumbWidth           : 90
+          , thumbMargin          : 5,
+          });
+      });
+      $('p:contains("layout")').remove();
+    </script>
+    
+  </body>
+</html>

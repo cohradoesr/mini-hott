@@ -20,6 +20,8 @@ module MiniHoTT where
   open import Intro public
 
   open import BasicTypes public
+  open import HLevelTypes public
+  
   open import BasicFunctions public
 
 
@@ -32,7 +34,7 @@ module MiniHoTT where
   open import ProductIdentities public
   open import CoproductIdentities public
 
-  open import ContractibleType public
+   public
   open import FiberType public
 
   open import EquivalenceType public
@@ -59,7 +61,6 @@ module MiniHoTT where
 
   open import UnivalenceAxiom public
 
-  open import HLevelTypes public
   open import HLevelLemmas public
 
   open import HedbergLemmas public

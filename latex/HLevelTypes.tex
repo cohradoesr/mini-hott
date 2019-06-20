@@ -27,50 +27,144 @@ home: true
 \\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{TransportLemmas}\<%
+\AgdaModule{BasicTypes}\<%
 \\
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{EquivalenceType}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-\>[0]\AgdaKeyword{open}\AgdaSpace{}%
-\AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{HomotopyType}\<%
-\\
-\>[0]\AgdaKeyword{open}\AgdaSpace{}%
-\AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{HomotopyLemmas}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-\>[0]\AgdaKeyword{open}\AgdaSpace{}%
-\AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{HalfAdjointType}\<%
-\\
-\>[0]\AgdaKeyword{open}\AgdaSpace{}%
-\AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{QuasiinverseType}\<%
-\\
-\>[0]\AgdaKeyword{open}\AgdaSpace{}%
-\AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{QuasiinverseLemmas}\<%
+\AgdaModule{BasicFunctions}\<%
 \end{code}
 </div>
 
 
-## Hlevels
+## Hlevel types
 
-Higher levels of the homotopical structure, where the
-first levels are:
+Higher levels of the homotopical structure:
 
 - Contractible types ($-2$)
 - Propositions ($-1$)
 - Sets ($0$)
+- Groupoids ($1$)
+
+### Contractible types
+
+A *contractible* type is a type such that **every**
+element is equal to a point, the *center* of contraction.
+
+\begin{code}%
+\>[0][@{}l@{\AgdaIndent{1}}]%
+\>[2]\AgdaComment{-- Def.}\<%
+\\
+\>[0]\AgdaFunction{isContr}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{)}\<%
+\\
+%
+\>[2]\AgdaComment{--------------}\<%
+\\
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaFunction{isContr}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{Σ}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{(λ}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{((}\AgdaBound{x}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{))}\<%
+\end{code}
+
+Synonym:
+
+\begin{code}%
+\>[0]\AgdaFunction{Contractible}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isContr}\<%
+\\
+\>[0]\AgdaFunction{is-singleton}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isContr}\<%
+\end{code}
+
+If a type is contractible, any of its points is a center of contraction:
+
+\begin{code}%
+\>[0]\AgdaFunction{allAreCenter}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{c₁}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{c₁}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{)}\<%
+\\
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(∀}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{c₂}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(∀}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{c₂}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{))}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaFunction{allAreCenter}\AgdaSpace{}%
+\AgdaBound{c₁}\AgdaSpace{}%
+\AgdaBound{f}\AgdaSpace{}%
+\AgdaBound{c₂}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{sym}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\AgdaBound{c₂}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{)}\<%
+\end{code}
 
 ### Propositions
-
 
 A type is a *mere proposition* if any two inhabitants of the type are equal.
 
@@ -92,6 +186,8 @@ A type is a *mere proposition* if any two inhabitants of the type are equal.
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaBound{ℓ}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{isProp}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -106,10 +202,18 @@ A type is a *mere proposition* if any two inhabitants of the type are equal.
 \end{code}
 
 \begin{code}%
+\>[0]\AgdaFunction{is-subsingleton}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isProp}\<%
+\end{code}
+
+\begin{code}%
 \>[0]\AgdaComment{-- The type of mere propositions}\<%
 \\
-\>[0]\AgdaFunction{hProp}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[0]\AgdaFunction{hProp}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{∀}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
@@ -117,6 +221,8 @@ A type is a *mere proposition* if any two inhabitants of the type are equal.
 \AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
 \AgdaBound{ℓ}\AgdaSymbol{)}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{hProp}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -126,7 +232,6 @@ A type is a *mere proposition* if any two inhabitants of the type are equal.
 \AgdaFunction{isProp}\<%
 \end{code}
 
-
 ### Sets
 
 A type is a *set& by definition if any two equalities on the type are equal Sets
@@ -134,8 +239,10 @@ are types without any higher *dimensional structure*,  all parallel paths are
 homotopic and the homotopy is given by a continuous function on the two paths.
 
 \begin{code}%
-\>[0]\AgdaFunction{isSet}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[0]\AgdaFunction{isSet}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓ}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
@@ -159,12 +266,16 @@ homotopic and the homotopy is given by a continuous function on the two paths.
 The type of sets
 
 \begin{code}%
-\>[0]\AgdaFunction{hSet}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[0]\AgdaFunction{hSet}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
 \AgdaGeneralizable{ℓ}\AgdaSymbol{)}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{hSet}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -177,14 +288,18 @@ The type of sets
 ### Groupoid
 
 \begin{code}%
-\>[0]\AgdaFunction{isGroupoid}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[0]\AgdaFunction{isGroupoid}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓ}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓ}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{isGroupoid}\AgdaSpace{}%
 \AgdaBound{A}%
 \>[14]\AgdaSymbol{=}\AgdaSpace{}%
@@ -200,8 +315,10 @@ The type of sets
 \end{code}
 
 \begin{code}%
-\>[0]\AgdaFunction{Groupoid}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[0]\AgdaFunction{Groupoid}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
 \AgdaGeneralizable{ℓ}\AgdaSymbol{)}\<%

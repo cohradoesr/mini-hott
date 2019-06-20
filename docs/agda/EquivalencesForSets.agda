@@ -31,7 +31,7 @@ module EquivalencesForSets where
 
   IsBijection f iA iB = IsSetEmbedding f iA iB × IsSurjection f
 
-  open import ContractibleType
+  
 
   postulate
     Bijection

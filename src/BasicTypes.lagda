@@ -62,7 +62,8 @@ Empty-elim = exfalso
 𝟘-elim     = exfalso
 \end{code}
 
-The negation function:
+The negation symbol is a shortcut of an implication for the falsehood.
+
 \begin{code}
 ¬ : Type ℓ → Type ℓ
 ¬ A = (A → ⊥ {lzero})
@@ -94,8 +95,10 @@ pattern ∗    = ★
 
 ### ∑-types
 
+The dependent product is called Sigma types. It's the the type for pairs where
+the second term in the pair may depend on the first term.
+
 \begin{code}
-infixr 60 _,_
 record
   ∑ (A : Type ℓᵢ)(B : A → Type ℓⱼ)
    : Type (ℓᵢ ⊔ ℓⱼ)
@@ -105,6 +108,7 @@ record
     π₁ : A
     π₂ : B π₁
 
+infixr 60 _,_
 open ∑ public
 \end{code}
 
@@ -125,6 +129,8 @@ pr₂   = π₂
 
 fst   = π₁
 snd   = π₂
+
+#     =  π₁
 \end{code}
 
 ### Π-types
@@ -148,14 +154,14 @@ Synonyms
 Product type as a particular case of the Sigma type.
 
 \begin{code}
-infixl  39 _×_
-
 _×_
   : (A : Type ℓᵢ) (B : Type ℓⱼ)
   ----------------------------
   → Type (ℓᵢ ⊔ ℓⱼ)
 
 A × B = ∑ A (λ _ → B)
+
+infixl  39 _×_
 \end{code}
 
 ### Coproducts
@@ -163,14 +169,14 @@ A × B = ∑ A (λ _ → B)
 Sum types as inductive types
 
 \begin{code}
-infixr 31 _+_
-
 data
   _+_ (A : Type ℓᵢ) (B : Type ℓⱼ)
     : Type (ℓᵢ ⊔ ℓⱼ)
   where
   inl : A → A + B
   inr : B → A + B
+
+infixr 31 _+_
 \end{code}
 
 Constructors synonyms:
@@ -190,7 +196,6 @@ The elimination principle:
   → (A + B) → C
 +-elim A→C B→C (inl x) = A→C x
 +-elim A→C B→C (inr x) = B→C x
-
 \end{code}
 
 Synonyms:
@@ -204,7 +209,6 @@ syntax cases f g = ⟨ f + g ⟩
 ### Implications
 
 \begin{code}
--- Implication.
 data
   _⇒_ (A B : Type ℓ)
     : Type ℓ
@@ -258,13 +262,7 @@ pattern ff = false
 pattern tt = true
 \end{code}
 
-*Booleans can be also defined using the Coproduct.*
-
 ### Natural numbers
-
-Natural numbers are the initial algebra for a constant and a
-successor function. The `BUILTIN` declaration allows us to use
-natural numbers in Arabic notation.
 
 \begin{code}
 data
@@ -274,7 +272,6 @@ data
   zero : ℕ
   succ : ℕ → ℕ
 \end{code}
-
 
 Synonyms for natural numbers
 
@@ -330,14 +327,13 @@ refl
 refl {ℓᵢ}{A} a = idp
 \end{code}
 
-
 Symmetry property for the identity types.
 
 \begin{code}
 sym
   : ∀ {A : Type ℓ}{x y : A}
   → x == y
-  ----------------------------
+  --------
   → y == x
 
 sym idp = idp
@@ -345,7 +341,8 @@ sym idp = idp
 syntax sym p = − p
 \end{code}
 
-To work with identity types, we have its induction principle as the J-eliminator.
+To work with identity types, we have its induction principle as the
+J-eliminator.
 
 *Paulin-Mohring J rule*
 

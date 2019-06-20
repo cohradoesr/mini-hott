@@ -20,7 +20,7 @@ module _ where
 open import TransportLemmas
 open import EquivalenceType
 
-open import ContractibleType
+
 
 open import ProductIdentities
 open import CoproductIdentities
@@ -39,7 +39,6 @@ open import HLevelTypes
 </div>
 
 
-
 ### Proposition and Set lemmas
 
 \begin{code}
@@ -49,11 +48,11 @@ module HLevelLemmas where
 For any type, $A : \Type$,
 
 {: .equation }
-  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A}.$$
+  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \isGroupoid{A}.$$
 
-{: .foldable until="6"}
+Contractible types are Propositions:
+{: .foldable until="5"}
 \begin{code}
-  -- Contractible types are Propositions.
   contrIsProp
     : ∀ {A : Type ℓ}
     → isContr A
@@ -68,9 +67,20 @@ For any type, $A : \Type$,
 
 To be contractible is itself a proposition.
 
-{: .foldable until="6"}
 \begin{code}
-  -- Lemma. Propositions are Sets.
+  contractible-from-inhabited-prop
+    : ∀ {i} {A : Type i}
+    → A
+    → isProp A
+    ----------------
+    → Contractible A
+
+  contractible-from-inhabited-prop a p = (a , p a )
+\end{code}
+
+Propositions are Sets:
+{: .foldable until="5"}
+\begin{code}
   propIsSet
     : ∀ {A : Type ℓ}
     → isProp A
@@ -90,12 +100,27 @@ To be contractible is itself a proposition.
           ! (f a y) · (f a y · p) ==⟨ ap (! (f a y) ·_) triang ⟩
           ! (f a y) · (f a w)
         ∎
+\end{code}
 
-
-  -- Synonyms
+Synonyms:
+\begin{code}
   prop-is-set  = propIsSet
   prop→set     = propIsSet
   isProp-isSet = propIsSet
+  Prop-is-Set  = propIsSet
+\end{code}
+
+
+Propositions are Sets:
+{: .foldable until="5"}
+\begin{code}
+  Set-is-Groupoid
+    : ∀ {A : Type ℓ}
+    → isSet A
+    ----------
+    → isGroupoid A
+
+  Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y) 
 \end{code}
 
 Examples of propositions:
@@ -189,6 +214,8 @@ given A and B sets, f is injective and surjective.
   -- propEqvIsprop {ℓ} {A} {B} x x₁ x₂ y = {!   !}
 \end{code}
 
+
+
 {: .foldable until="4"}
 \begin{code}
   -- Lemma.
@@ -248,6 +275,16 @@ Product of sets is a set.
   isSetA×B      = isSet-prod
   ×-isSet       = isSet-prod
   set×set→set   = isSet-prod
+\end{code}
+
+\begin{code}
+  Prop-/-≡
+    : ∀  {A : Type ℓᵢ}
+    → (P : A → hProp {ℓᵢ})
+    → ∀ {a₀ a₁} p₀ p₁ {α : a₀ ≡ a₁}
+    → p₀ ≡ p₁ [ (# ∘ P) / α ]
+    
+  Prop-/-≡ P {a₀} p₀ p₁ {α = idp} = proj₂ (P a₀) p₀ p₁
 \end{code}
 
 H-levels actually are preserved by products, coproducts, pi-types and sigma-types.

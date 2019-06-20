@@ -1,11 +1,20 @@
 {-# OPTIONS --without-K #-}
 open import BasicTypes
+open import HLevelTypes
 open import FiberType
-open import ContractibleType
+
 open import Transport
 open import HomotopyType
+
 module EquivalenceType where
 
+-- Def.
+  isContrMap
+    : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+
+  isContrMap {B = B} f = (b : B) → isContr (fib f b)
   module DefinitionOfEquivalence  {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
     isEquiv : (f : A → B) → Type (ℓᵢ ⊔ ℓⱼ)
     isEquiv = isContrMap

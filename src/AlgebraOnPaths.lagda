@@ -22,9 +22,6 @@ open import BasicFunctions public
 
 ## Path algebra
 
-Functions are functors to equalities.  In other words, functions
-preserve equalities.
-
 {: .foldable until="6" }
 \begin{code}
 ap
@@ -42,6 +39,7 @@ Synonyms:
 \begin{code}
 cong  = ap
 app-≡ = ap
+
 syntax app-≡ f p = f [[ p ]]
 \end{code}
 
@@ -56,15 +54,15 @@ syntax ap f p = p |in-ctx f
 Let's suppose we have a lemma:
 {% raw %}
 ```agda
-  lemma : a == b
+  lemma : a ≡ b
   lemma = _
 ```
 {% endraw %}
 used in an equational reasoning like:
 {% raw %}
 ```agda
-  t : a == e
-  t = f a =⟨ ap f lemma ⟩
+  t : a ≡ e
+  t = f a ≡⟨ ap f lemma ⟩
       f b
       ∎
 ```
@@ -85,10 +83,9 @@ Lastly, we can also define actions on two paths:
 {: .foldable until="7" }
 \begin{code}
 ap₂
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}  {b₁ b₂ : B}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a₁ a₂ : A} {b₁ b₂ : B}
   → (f : A → B → C)
-  → {a₁ a₂ : A} → (a₁ == a₂)
-  → {b₁ b₂ : B} → (b₁ == b₂)
+  → (a₁ == a₂) → (b₁ == b₂)
   --------------------------
   → f a₁ b₁  == f a₂ b₂
 
@@ -229,7 +226,7 @@ involution {p = idp} = idp
 ·-assoc idp q r = idp
 \end{code}
 
-{: .foldable until="6" }
+{: .foldable until="5" }
 \begin{code}
 ·-cancellation
   : ∀ {A : Type ℓ} {a : A}

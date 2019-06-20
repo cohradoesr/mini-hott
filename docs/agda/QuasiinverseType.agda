@@ -5,7 +5,7 @@ open import EquivalenceType
 open import HomotopyType
 open import HomotopyLemmas
 
-open import ContractibleType
+
 open import HalfAdjointType
 module QuasiinverseType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
 

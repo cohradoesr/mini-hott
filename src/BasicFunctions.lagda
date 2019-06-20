@@ -27,6 +27,7 @@ The identity function with implicit type.
 \begin{code}
 id
   : ∀ {A : Type ℓ}
+  ----------------
   → A → A
 
 id = λ x → x
@@ -103,6 +104,35 @@ f :> g = g ∘ f
 infixr 90 _:>_
 \end{code}
 
+#### Associativity of composition
+
+- Left associativity
+
+{: .foldable until="5" }
+\begin{code}
+∘-lassoc
+  : ∀ {ℓ} {A B C D : Type ℓ}
+  → (h : C → D) → (g : B → C) → (f : A → B)
+  -----------------------------------------
+  → (h ∘ (g ∘ f)) == ((h ∘ g) ∘ f)
+
+∘-lassoc h g f = idp {a = (λ x → h (g (f x)))}
+\end{code}
+
+- Right associativity
+
+{: .foldable until="5" }
+\begin{code}
+∘-rassoc
+  : ∀ {ℓ} {A B C D : Type ℓ}
+  → (h : C → D) → (g : B → C) → (f : A → B)
+  -----------------------------------------
+  → ((h ∘ g) ∘ f) == (h ∘ (g ∘ f))
+
+∘-rassoc h g f = sym (∘-lassoc h g f)
+\end{code}
+
+
 ### Application
 
 \begin{code}
@@ -116,6 +146,8 @@ f $ x = f x
 
 infixr 0 _$_
 \end{code}
+
+### Coproduct manipulation
 
 Functions handy to manipulate coproducts:
 
@@ -144,7 +176,6 @@ parallell f g a = (f a , g a)
 syntax parallell f g = 〈 f × g 〉
 \end{code}
 
-
 ### Curryfication
 
 \begin{code}
@@ -160,6 +191,16 @@ curry f x y = f (x , y)
 ### Uncurryfication
 
 \begin{code}
+unCurry
+  : {A : Type ℓᵢ}{B : A → Type ℓⱼ}{C : Type ℓₖ}
+  → (D : (a : A) → B a → C)
+  ------------------------
+  → (p : ∑ A B) → C
+
+unCurry D p = D (proj₁ p) (proj₂ p)
+\end{code}
+
+\begin{code}
 uncurry
   : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
   → (f : (a : A) (b : B a) → C a b)
@@ -167,34 +208,6 @@ uncurry
   → (p : ∑ A B) → C (π₁ p) (π₂ p)
 
 uncurry f (x , y) = f x y
-\end{code}
-
-### Associativity of composition
-
-- Left associativity
-
-{: .foldable until="5" }
-\begin{code}
-∘-lassoc
-  : ∀ {ℓ} {A B C D : Type ℓ}
-  → (h : C → D) → (g : B → C) → (f : A → B)
-  -----------------------------------------
-  → (h ∘ (g ∘ f)) == ((h ∘ g) ∘ f)
-
-∘-lassoc h g f = idp {a = (λ x → h (g (f x)))}
-\end{code}
-
-- Right associativity
-
-{: .foldable until="5" }
-\begin{code}
-∘-rassoc
-  : ∀ {ℓ} {A B C D : Type ℓ}
-  → (h : C → D) → (g : B → C) → (f : A → B)
-  -----------------------------------------
-  → ((h ∘ g) ∘ f) == (h ∘ (g ∘ f))
-
-∘-rassoc h g f = sym (∘-lassoc h g f)
 \end{code}
 
 ### Heterogeneous equality
@@ -251,16 +264,20 @@ infixl 60 _⁻¹ !_
 
 ### Equational reasoning
 
-Equational reasoning is a way to write readable chains of equalities.
+Equational reasoning is a way to write readable chains of equalities like
+in the following proof.
 
 {% raw %}
 ```agda
-  t : a == e
-  t = a =⟨ p ⟩
-      b =⟨ q ⟩
-      c =⟨ r ⟩
-      d =⟨ s ⟩
-      e ∎
+  t : a ≡ e
+  t =
+    begin
+      a ≡⟨ p ⟩
+      b ≡⟨ q ⟩
+      c ≡⟨ r ⟩
+      d ≡⟨ s ⟩
+      e
+    ∎
 ```
 {% endraw %}
 
@@ -276,14 +293,16 @@ module
 Definitional equals:
 
 \begin{code}
-  -- Reasoning.
   _==⟨⟩_
     : ∀ (x {y} : A)
     → x == y → x == y
 
   _ ==⟨⟩ p = p
+\end{code}
 
-  -- synonyms for _==⟨⟩
+Synonyms for _==⟨⟩:
+
+\begin{code}
   _==⟨idp⟩_  = _==⟨⟩_
   _==⟨refl⟩_ = _==⟨⟩_
   _≡⟨⟩_      = _==⟨⟩_
@@ -302,17 +321,19 @@ Definitional equals:
   _ ==⟨ thm ⟩ q = thm · q
 
   _≡⟨_⟩_ = _==⟨_⟩_
+
   infixr 2 _==⟨_⟩_ _≡⟨_⟩_
 \end{code}
 
 \begin{code}
   -- Q.E.D
-  infix 3 _∎
   _∎
     : (x : A)
     → x == x
 
   _∎ = λ x → idp
+
+  infix 3 _∎
 \end{code}
 
 \begin{code}

@@ -12,25 +12,28 @@ home: true
 ---
 
 This is a library for Univalent Type Theory in `Agda` developed at [University
-of Bergen](https://www.uib.no/).
-
-No other libraries are required to type-check it. To ease its adoption, we have
-included synonyms and syntax sugar for types, lemmas, and theorems. Regarding
-performance, we recommend you check out the library `HoTT-Agda`. Last but not
-least, this development was based on others in its initial stage, so please see
-the references at the end.
+of Bergen](https://www.uib.no/). No other libraries are required to type-check
+it. To ease its adoption, we have included synonyms and syntax sugar for types,
+lemmas, and theorems. Regarding performance, we recommend to see the library
+`HoTT-Agda`. This development was based on others in its initial stage, so
+please see the references at the end.
 
 # Installation
 
-- Install [Agda (v2.6.0)](http://github.com/agda/agda)
+- Install [Agda (v2.6.0+)](http://github.com/agda/agda)
 
 - Clone this repository [http://github.com/jonaprieto/mini-hott](http://github.com/jonaprieto/mini-hott)
 
-Alternative way to install Agda libraries:
+  - `git clone http://github.com/jonaprieto/mini-hott`
 
-- `pip install agda-pkg`
-- `apkg install mini-hott`
+- Install the library or use [agda-pkg](http://github.com/agda/agda-pkg)
 
+  - `pip install agda-pkg`
+  - `apkg install mini-hott`
+
+- Use the library by including the import:
+
+    - `open import MiniHoTT`
 
 # Code
 

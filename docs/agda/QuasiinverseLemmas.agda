@@ -5,7 +5,7 @@ open import EquivalenceType
 open import HomotopyType
 open import HomotopyLemmas
 
-open import ContractibleType
+
 open import QuasiinverseType
 module QuasiinverseLemmas where
   -- Composition of quasiinverses

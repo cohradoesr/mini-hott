@@ -2,6 +2,7 @@
 open import BasicTypes public
 id
   : ∀ {A : Type ℓ}
+  ----------------
   → A → A
 
 id = λ x → x
@@ -44,6 +45,20 @@ _:>_
 f :> g = g ∘ f
 
 infixr 90 _:>_
+∘-lassoc
+  : ∀ {ℓ} {A B C D : Type ℓ}
+  → (h : C → D) → (g : B → C) → (f : A → B)
+  -----------------------------------------
+  → (h ∘ (g ∘ f)) == ((h ∘ g) ∘ f)
+
+∘-lassoc h g f = idp {a = (λ x → h (g (f x)))}
+∘-rassoc
+  : ∀ {ℓ} {A B C D : Type ℓ}
+  → (h : C → D) → (g : B → C) → (f : A → B)
+  -----------------------------------------
+  → ((h ∘ g) ∘ f) == (h ∘ (g ∘ f))
+
+∘-rassoc h g f = sym (∘-lassoc h g f)
 _$_
   : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ}
   → (∀ x → B x)
@@ -79,6 +94,13 @@ curry
   → ((x : A)(y : B x) → C (x , y))
 
 curry f x y = f (x , y)
+unCurry
+  : {A : Type ℓᵢ}{B : A → Type ℓⱼ}{C : Type ℓₖ}
+  → (D : (a : A) → B a → C)
+  ------------------------
+  → (p : ∑ A B) → C
+
+unCurry D p = D (proj₁ p) (proj₂ p)
 uncurry
   : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
   → (f : (a : A) (b : B a) → C a b)
@@ -86,20 +108,6 @@ uncurry
   → (p : ∑ A B) → C (π₁ p) (π₂ p)
 
 uncurry f (x , y) = f x y
-∘-lassoc
-  : ∀ {ℓ} {A B C D : Type ℓ}
-  → (h : C → D) → (g : B → C) → (f : A → B)
-  -----------------------------------------
-  → (h ∘ (g ∘ f)) == ((h ∘ g) ∘ f)
-
-∘-lassoc h g f = idp {a = (λ x → h (g (f x)))}
-∘-rassoc
-  : ∀ {ℓ} {A B C D : Type ℓ}
-  → (h : C → D) → (g : B → C) → (f : A → B)
-  -----------------------------------------
-  → ((h ∘ g) ∘ f) == (h ∘ (g ∘ f))
-
-∘-rassoc h g f = sym (∘-lassoc h g f)
 data
   HEq {ℓ} (A : Type ℓ)
     : (B : Type ℓ)
@@ -133,14 +141,11 @@ module
   EquationalReasoning
   {A : Type ℓᵢ}
   where
-  -- Reasoning.
   _==⟨⟩_
     : ∀ (x {y} : A)
     → x == y → x == y
 
   _ ==⟨⟩ p = p
-
-  -- synonyms for _==⟨⟩
   _==⟨idp⟩_  = _==⟨⟩_
   _==⟨refl⟩_ = _==⟨⟩_
   _≡⟨⟩_      = _==⟨⟩_
@@ -156,14 +161,16 @@ module
   _ ==⟨ thm ⟩ q = thm · q
 
   _≡⟨_⟩_ = _==⟨_⟩_
+
   infixr 2 _==⟨_⟩_ _≡⟨_⟩_
   -- Q.E.D
-  infix 3 _∎
   _∎
     : (x : A)
     → x == x
 
   _∎ = λ x → idp
+
+  infix 3 _∎
   -- Begin
   infix 1 begin_
   begin_

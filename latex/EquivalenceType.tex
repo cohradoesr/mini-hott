@@ -24,12 +24,14 @@ home: true
 \\
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{FiberType}\<%
+\AgdaModule{HLevelTypes}\<%
 \\
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{ContractibleType}\<%
+\AgdaModule{FiberType}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
 \AgdaModule{Transport}\<%
@@ -37,6 +39,8 @@ home: true
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
 \AgdaModule{HomotopyType}\<%
+\\
+\>[0]\<%
 \end{code}
 </div>
 
@@ -45,9 +49,70 @@ home: true
 \AgdaModule{EquivalenceType}\AgdaSpace{}%
 \AgdaKeyword{where}\<%
 \\
+\>[0]\<%
+\end{code}
+
+## Contractible maps
+
+A map is *contractible* if the fiber in any point is contractible, that is, each
+element has a unique preimagen.
+
+\begin{code}%
+\>[0]\AgdaComment{-- Def.}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaFunction{isContrMap}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{)}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaGeneralizable{ℓᵢ}\AgdaSpace{}%
+\AgdaOperator{\AgdaPrimitive{⊔}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{)}\<%
+\\
 %
 \\[\AgdaEmptyExtraSkip]%
-\>[0][@{}l@{\AgdaIndent{0}}]%
+%
+\>[2]\AgdaFunction{isContrMap}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaArgument{B}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaBound{f}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{b}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isContr}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{fib}\AgdaSpace{}%
+\AgdaBound{f}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSymbol{)}\<%
+\end{code}
+
+There exists an equivalence between two types if there exists a
+contractible function between them.
+\begin{code}%
+%
 \>[2]\AgdaKeyword{module}\AgdaSpace{}%
 \AgdaModule{DefinitionOfEquivalence}%
 \>[34]\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
@@ -63,8 +128,6 @@ home: true
 \AgdaKeyword{where}\<%
 \end{code}
 
-There exists an equivalence between two types if there exists a
-contractible function between them.
 \begin{code}%
 \>[2][@{}l@{\AgdaIndent{1}}]%
 \>[4]\AgdaFunction{isEquiv}\AgdaSpace{}%

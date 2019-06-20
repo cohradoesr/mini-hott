@@ -15,21 +15,41 @@ home: true
 \begin{code}
 {-# OPTIONS --without-K #-}
 open import BasicTypes
+open import HLevelTypes
 open import FiberType
-open import ContractibleType
+
 open import Transport
 open import HomotopyType
+
 \end{code}
 </div>
 
 \begin{code}
 module EquivalenceType where
 
-  module DefinitionOfEquivalence  {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
+\end{code}
+
+## Contractible maps
+
+A map is *contractible* if the fiber in any point is contractible, that is, each
+element has a unique preimagen.
+
+\begin{code}
+-- Def.
+  isContrMap
+    : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+
+  isContrMap {B = B} f = (b : B) → isContr (fib f b)
 \end{code}
 
 There exists an equivalence between two types if there exists a
 contractible function between them.
+\begin{code}
+  module DefinitionOfEquivalence  {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
+\end{code}
+
 \begin{code}
     isEquiv : (f : A → B) → Type (ℓᵢ ⊔ ℓⱼ)
     isEquiv = isContrMap

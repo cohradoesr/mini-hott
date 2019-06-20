@@ -4,7 +4,7 @@ module _ where
 open import TransportLemmas
 open import EquivalenceType
 
-open import ContractibleType
+
 
 open import ProductIdentities
 open import CoproductIdentities
@@ -20,7 +20,6 @@ open import FunExtAxiom
 open import UnivalenceAxiom
 open import HLevelTypes
 module HLevelLemmas where
-  -- Contractible types are Propositions.
   contrIsProp
     : ∀ {A : Type ℓ}
     → isContr A
@@ -31,7 +30,14 @@ module HLevelLemmas where
 
   -- Synonyms
   isContr→isProp = contrIsProp
-  -- Lemma. Propositions are Sets.
+  contractible-from-inhabited-prop
+    : ∀ {i} {A : Type i}
+    → A
+    → isProp A
+    ----------------
+    → Contractible A
+
+  contractible-from-inhabited-prop a p = (a , p a )
   propIsSet
     : ∀ {A : Type ℓ}
     → isProp A
@@ -51,12 +57,17 @@ module HLevelLemmas where
           ! (f a y) · (f a y · p) ==⟨ ap (! (f a y) ·_) triang ⟩
           ! (f a y) · (f a w)
         ∎
-
-
-  -- Synonyms
   prop-is-set  = propIsSet
   prop→set     = propIsSet
   isProp-isSet = propIsSet
+  Prop-is-Set  = propIsSet
+  Set-is-Groupoid
+    : ∀ {A : Type ℓ}
+    → isSet A
+    ----------
+    → isGroupoid A
+
+  Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y) 
   ⊥-is-prop : isProp {lzero} ⊥
   ⊥-is-prop x ()
   is-prop-A+B : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -159,6 +170,13 @@ module HLevelLemmas where
   isSetA×B      = isSet-prod
   ×-isSet       = isSet-prod
   set×set→set   = isSet-prod
+  Prop-/-≡
+    : ∀  {A : Type ℓᵢ}
+    → (P : A → hProp {ℓᵢ})
+    → ∀ {a₀ a₁} p₀ p₁ {α : a₀ ≡ a₁}
+    → p₀ ≡ p₁ [ (# ∘ P) / α ]
+    
+  Prop-/-≡ P {a₀} p₀ p₁ {α = idp} = proj₂ (P a₀) p₀ p₁
   postulate -- Ex. 3.3
     isSet-Σ
       : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} → {B : A → Type ℓⱼ}

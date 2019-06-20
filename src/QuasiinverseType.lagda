@@ -24,7 +24,7 @@ open import EquivalenceType
 open import HomotopyType
 open import HomotopyLemmas
 
-open import ContractibleType
+
 open import HalfAdjointType
 \end{code}
 </div>

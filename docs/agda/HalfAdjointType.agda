@@ -11,7 +11,7 @@ open import HomotopyType
 open import HomotopyLemmas
 
 open import FiberType
-open import ContractibleType
+
 module HalfAdjointType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
 
   -- Half adjoint equivalence.

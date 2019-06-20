@@ -146,7 +146,7 @@ transport-comp-h {P = P} idp q x = refl (transport P q x)
 \begin{code}
 transport-eq-fun-l
   : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {b : B} (f : A → B) {x y : A}
-  → (p : x == y)
+  → (p :   x == y)
   → (q : f x == b)
   -------------------------------------------
   → tr (λ z → f z == b) p q == ! (ap f p) · q
@@ -182,19 +182,19 @@ transport-eq-fun-r {b = b} g p q =
 {: .foldable until="6" }
 \begin{code}
 transport-inv
-  : ∀ {X : Type ℓᵢ}{A : X → Type ℓⱼ}{x y : X}
-  → (p : x == y)
-  → {a : A y}
+  : ∀ {A : Type ℓᵢ}{P : A → Type ℓⱼ}{a a' : A}
+  → (p : a == a')
+  → {a : P a'}
   --------------------------------------
-  → tr (λ v → A v) p (tr A (! p) a) == a
+  → tr (λ x → P x) p (tr P (! p) a) == a
 
-transport-inv {A = A}  idp {a = a} =
+transport-inv {P = P}  idp {a = a} =
   begin
-    tr (λ v → A v) idp (tr A (! idp) a)
+    tr (λ v → P v) idp (tr P (! idp) a)
       ==⟨ idp ⟩
-    tr A (! idp · idp) a
+    tr P (! idp · idp) a
       ==⟨⟩
-    tr A idp a
+    tr P idp a
       ==⟨ idp ⟩
     a
   ∎
@@ -249,15 +249,31 @@ transport-family-id
 transport-family-id idp u = idp
 \end{code}
 
-{: .foldable until="7" }
+{: .foldable until="8" }
+\begin{code}
+transport-fun-coe
+  : ∀ {A : Type ℓᵢ} {B : Type ℓᵢ} 
+  → (α : A ≡ B)
+  → (f : A → A)
+  → (g : B → B) 
+  →     f == g [ (λ X → (X → X)) ↓ α ]
+  -------------------------------------
+  →  f :> coe α == (coe α) :> g
+
+transport-fun-coe idp _ _ idp = idp
+\end{code}
+
+
+{: .foldable until="8" }
 \begin{code}
 transport-fun
   : ∀ {X : Type ℓᵢ} {x y : X}
   → {A : X → Type ℓⱼ} {B : X → Type ℓₖ}
   → (p : x == y)
   → (f : A x → B x)
-  -----------------------------------------------------------------
-  → tr (λ x → (A x → B x)) p f == (λ x → tr B p (f (tr A (! p) x)))
+  ------------------------------------------
+  → f ≡  ((λ a → tr B p (f (tr A (! p) a))))
+      [ (λ x → A x → B x) / p ]
 
 transport-fun idp f = idp
 \end{code}
@@ -333,18 +349,6 @@ dependent-back-and-forth = transport-fun-dependent
 
 When using pathovers, we may need one of these identities:
 
-\begin{code}
-fibre-app-≡
-  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ}
-  → (f : (a : A) → B a)
-  → {a₁ a₂ : A}  → (α : a₁ == a₂)
-  -------------------------------
-  → f a₁ ≡ f a₂ [ B / α ]
-
-fibre-app-≡ f idp = idp
-\end{code}
-
-
 {: .foldable until="9"}
 \begin{code}
 apOver
@@ -366,10 +370,17 @@ apOver f g idp q = ap g q
 {: .foldable until="5"}
 \begin{code}
 apd
-  : ∀ {A : Type ℓᵢ}  {P : A → Type ℓⱼ} {a b : A}
-  → (f : (a : A) → P a) → (p : a == b)
-  ------------------------------------
-  → transport P p (f a) == f b
+  : ∀ {A : Type ℓᵢ}  {P : A → Type ℓⱼ} {a a' : A}
+  → (f : (a : A) → P a)
+  → (p : a == a')
+  ---------------------
+  → (f a) == (f a') [ P ↓ p ]
 
 apd f idp = idp
+\end{code}
+
+Synonyms:
+
+\begin{code}
+fibre-app-≡ = apd
 \end{code}

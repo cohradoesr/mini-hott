@@ -11,14 +11,14 @@ ap
 ap f idp = idp
 cong  = ap
 app-≡ = ap
+
 syntax app-≡ f p = f [[ p ]]
 infixl 40 ap
 syntax ap f p = p |in-ctx f
 ap₂
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}  {b₁ b₂ : B}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a₁ a₂ : A} {b₁ b₂ : B}
   → (f : A → B → C)
-  → {a₁ a₂ : A} → (a₁ == a₂)
-  → {b₁ b₂ : B} → (b₁ == b₂)
+  → (a₁ == a₂) → (b₁ == b₂)
   --------------------------
   → f a₁ b₁  == f a₂ b₂
 

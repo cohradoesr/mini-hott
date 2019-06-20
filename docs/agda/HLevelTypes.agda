@@ -1,27 +1,45 @@
 {-# OPTIONS --without-K #-}
 module _ where
 
-open import TransportLemmas
-open import EquivalenceType
+open import BasicTypes
+open import BasicFunctions
+  -- Def.
+isContr
+  : (A : Type ℓ)
+  --------------
+  → Type ℓ
 
-open import HomotopyType
-open import HomotopyLemmas
+isContr A = Σ A (λ a → ((x : A) → a == x))
+Contractible = isContr
+is-singleton = isContr
+allAreCenter
+  : ∀ {ℓ} {A : Type ℓ}
+  → (c₁ : A) → (f : (x : A) → c₁ == x)
+  → (∀ (c₂ : A) → (∀ (x : A) → c₂ == x))
 
-open import HalfAdjointType
-open import QuasiinverseType
-open import QuasiinverseLemmas
+allAreCenter c₁ f c₂ x = sym (f c₂) · (f x)
 -- Def.
 isProp
   : ∀ {ℓ} (A : Type ℓ) → Type ℓ
+
 isProp A = ((x y : A) → x == y)
+is-subsingleton = isProp
 -- The type of mere propositions
-hProp : ∀ {ℓ} → Type (lsuc ℓ)
+hProp
+  : ∀ {ℓ} → Type (lsuc ℓ)
+
 hProp {ℓ} = ∑ (Type ℓ) isProp
-isSet : Type ℓ → Type ℓ
+isSet
+  : Type ℓ → Type ℓ
 isSet A = (x y : A) → isProp (x == y)
-hSet : Type (lsuc ℓ)
+hSet
+  : Type (lsuc ℓ)
+
 hSet {ℓ} = ∑ (Type ℓ) isSet
-isGroupoid : Type ℓ → Type ℓ
+isGroupoid
+  : Type ℓ → Type ℓ
+
 isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
-Groupoid : Type (lsuc ℓ)
+Groupoid
+  : Type (lsuc ℓ)
 Groupoid {ℓ} = ∑ (Type ℓ) isGroupoid

@@ -112,7 +112,8 @@ Synonyms of `exfalso` rule:
 \AgdaFunction{exfalso}\<%
 \end{code}
 
-The negation function:
+The negation symbol is a shortcut of an implication for the falsehood.
+
 \begin{code}%
 \>[0]\AgdaFunction{¬}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -183,11 +184,10 @@ Synonyms for the data constructor:
 
 ### ∑-types
 
+The dependent product is called Sigma types. It's the the type for pairs where
+the second term in the pair may depend on the first term.
+
 \begin{code}%
-\>[0]\AgdaKeyword{infixr}\AgdaSpace{}%
-\AgdaNumber{60}\AgdaSpace{}%
-\AgdaOperator{\AgdaInductiveConstructor{\AgdaUnderscore{},\AgdaUnderscore{}}}\<%
-\\
 \>[0]\AgdaKeyword{record}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
@@ -232,6 +232,10 @@ Synonyms for the data constructor:
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{infixr}\AgdaSpace{}%
+\AgdaNumber{60}\AgdaSpace{}%
+\AgdaOperator{\AgdaInductiveConstructor{\AgdaUnderscore{},\AgdaUnderscore{}}}\<%
+\\
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaModule{∑}\AgdaSpace{}%
 \AgdaKeyword{public}\<%
@@ -276,6 +280,12 @@ Constructor synonyms:
 \>[0]\AgdaFunction{snd}%
 \>[6]\AgdaSymbol{=}\AgdaSpace{}%
 \AgdaField{π₂}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaFunction{\#}%
+\>[6]\AgdaSymbol{=}%
+\>[9]\AgdaField{π₁}\<%
 \end{code}
 
 ### Π-types
@@ -333,12 +343,6 @@ Synonyms
 Product type as a particular case of the Sigma type.
 
 \begin{code}%
-\>[0]\AgdaKeyword{infixl}%
-\>[8]\AgdaNumber{39}\AgdaSpace{}%
-\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}×\AgdaUnderscore{}}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}×\AgdaUnderscore{}}}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
@@ -374,6 +378,12 @@ Product type as a particular case of the Sigma type.
 \AgdaBound{\AgdaUnderscore{}}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSymbol{)}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{infixl}%
+\>[8]\AgdaNumber{39}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}×\AgdaUnderscore{}}}\<%
 \end{code}
 
 ### Coproducts
@@ -381,12 +391,6 @@ Product type as a particular case of the Sigma type.
 Sum types as inductive types
 
 \begin{code}%
-\>[0]\AgdaKeyword{infixr}\AgdaSpace{}%
-\AgdaNumber{31}\AgdaSpace{}%
-\AgdaOperator{\AgdaDatatype{\AgdaUnderscore{}+\AgdaUnderscore{}}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaKeyword{data}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
@@ -427,6 +431,12 @@ Sum types as inductive types
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{+}}\AgdaSpace{}%
 \AgdaBound{B}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{infixr}\AgdaSpace{}%
+\AgdaNumber{31}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{\AgdaUnderscore{}+\AgdaUnderscore{}}}\<%
 \end{code}
 
 Constructors synonyms:
@@ -499,8 +509,6 @@ The elimination principle:
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{B→C}\AgdaSpace{}%
 \AgdaBound{x}\<%
-\\
-\>[0]\<%
 \end{code}
 
 Synonyms:
@@ -527,8 +535,6 @@ Synonyms:
 ### Implications
 
 \begin{code}%
-\>[0]\AgdaComment{-- Implication.}\<%
-\\
 \>[0]\AgdaKeyword{data}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
@@ -677,13 +683,7 @@ Constructors synonyms:
 \AgdaInductiveConstructor{true}\<%
 \end{code}
 
-*Booleans can be also defined using the Coproduct.*
-
 ### Natural numbers
-
-Natural numbers are the initial algebra for a constant and a
-successor function. The `BUILTIN` declaration allows us to use
-natural numbers in Arabic notation.
 
 \begin{code}%
 \>[0]\AgdaKeyword{data}\<%
@@ -710,7 +710,6 @@ natural numbers in Arabic notation.
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaDatatype{ℕ}\<%
 \end{code}
-
 
 Synonyms for natural numbers
 
@@ -860,7 +859,6 @@ term `a : A`, to have the identity type `a == a`, also denoted by `Id(a,a)` or
 \AgdaInductiveConstructor{idp}\<%
 \end{code}
 
-
 Symmetry property for the identity types.
 
 \begin{code}%
@@ -884,7 +882,7 @@ Symmetry property for the identity types.
 \AgdaBound{y}\<%
 \\
 %
-\>[2]\AgdaComment{----------------------------}\<%
+\>[2]\AgdaComment{--------}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -909,7 +907,8 @@ Symmetry property for the identity types.
 \AgdaBound{p}\<%
 \end{code}
 
-To work with identity types, we have its induction principle as the J-eliminator.
+To work with identity types, we have its induction principle as the
+J-eliminator.
 
 *Paulin-Mohring J rule*
 

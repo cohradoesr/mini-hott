@@ -31,7 +31,7 @@ open import HomotopyType
 open import HomotopyLemmas
 
 open import FiberType
-open import ContractibleType
+
 \end{code}
 </div>
 

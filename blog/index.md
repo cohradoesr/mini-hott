@@ -43,11 +43,15 @@ home: true
 {% endcapture %}
 {{ TransportLemmas | markdownify }}
 
-
-{% capture ContractibleType %}
-{% include_relative ContractibleType.md %}
+{% capture CoproductIdentities %}
+{% include_relative CoproductIdentities.md %}
 {% endcapture %}
-{{ ContractibleType | markdownify }}
+{{ CoproductIdentities | markdownify }}
+
+{% capture ProductIdentities %}
+{% include_relative ProductIdentities.md %}
+{% endcapture %}
+{{ ProductIdentities | markdownify }}
 
 {% capture FiberType %}
 {% include_relative FiberType.md %}

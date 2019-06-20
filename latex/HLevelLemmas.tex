@@ -35,10 +35,8 @@ home: true
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
-\>[0]\AgdaKeyword{open}\AgdaSpace{}%
-\AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{ContractibleType}\<%
-\\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
@@ -90,7 +88,6 @@ home: true
 </div>
 
 
-
 ### Proposition and Set lemmas
 
 \begin{code}%
@@ -102,14 +99,12 @@ home: true
 For any type, $A : \Type$,
 
 {: .equation }
-  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A}.$$
+  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \isGroupoid{A}.$$
 
-{: .foldable until="6"}
+Contractible types are Propositions:
+{: .foldable until="5"}
 \begin{code}%
 \>[0][@{}l@{\AgdaIndent{1}}]%
-\>[2]\AgdaComment{-- Contractible types are Propositions.}\<%
-\\
-%
 \>[2]\AgdaFunction{contrIsProp}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
@@ -163,11 +158,53 @@ For any type, $A : \Type$,
 
 To be contractible is itself a proposition.
 
-{: .foldable until="6"}
 \begin{code}%
 %
-\>[2]\AgdaComment{-- Lemma. Propositions are Sets.}\<%
+\>[2]\AgdaFunction{contractible-from-inhabited-prop}\<%
 \\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{i}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{i}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isProp}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\>[4]\AgdaComment{----------------}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Contractible}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[2]\AgdaFunction{contractible-from-inhabited-prop}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSpace{}%
+\AgdaBound{p}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{a}\AgdaSpace{}%
+\AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
+\AgdaBound{p}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSpace{}%
+\AgdaSymbol{)}\<%
+\end{code}
+
+Propositions are Sets:
+{: .foldable until="5"}
+\begin{code}%
 %
 \>[2]\AgdaFunction{propIsSet}\<%
 \\
@@ -356,14 +393,10 @@ To be contractible is itself a proposition.
 \\
 %
 \>[8]\AgdaOperator{\AgdaFunction{∎}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaComment{-- Synonyms}\<%
-\\
+\end{code}
+
+Synonyms:
+\begin{code}%
 %
 \>[2]\AgdaFunction{prop-is-set}%
 \>[15]\AgdaSymbol{=}\AgdaSpace{}%
@@ -378,6 +411,56 @@ To be contractible is itself a proposition.
 \>[2]\AgdaFunction{isProp-isSet}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{propIsSet}\<%
+\\
+%
+\>[2]\AgdaFunction{Prop-is-Set}%
+\>[15]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{propIsSet}\<%
+\end{code}
+
+
+Propositions are Sets:
+{: .foldable until="5"}
+\begin{code}%
+%
+\>[2]\AgdaFunction{Set-is-Groupoid}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\>[4]\AgdaComment{----------}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isGroupoid}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[2]\AgdaFunction{Set-is-Groupoid}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaBound{A-is-set}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaSymbol{λ}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{prop-is-set}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A-is-set}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSymbol{)}\<%
 \end{code}
 
 Examples of propositions:
@@ -538,12 +621,12 @@ Examples of propositions:
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
 \AgdaSymbol{→}%
-\>[288I]\AgdaFunction{funext}\AgdaSpace{}%
+\>[326I]\AgdaFunction{funext}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaSymbol{→}\<%
 \\
-\>[288I][@{}l@{\AgdaIndent{0}}]%
+\>[326I][@{}l@{\AgdaIndent{0}}]%
 \>[14]\AgdaFunction{funext}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{b}\<%
@@ -786,6 +869,8 @@ given A and B sets, f is injective and surjective.
 %
 \>[2]\AgdaComment{-- propEqvIsprop \{ℓ\} \{A\} \{B\} x x₁ x₂ y = \{!   !\}}\<%
 \end{code}
+
+
 
 {: .foldable until="4"}
 \begin{code}%
@@ -1079,6 +1164,72 @@ Product of sets is a set.
 \>[2]\AgdaFunction{set×set→set}%
 \>[16]\AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{isSet-prod}\<%
+\end{code}
+
+\begin{code}%
+%
+\>[2]\AgdaFunction{Prop-/-≡}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}%
+\>[9]\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{P}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{hProp}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\})}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{a₀}\AgdaSpace{}%
+\AgdaBound{a₁}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaBound{p₀}\AgdaSpace{}%
+\AgdaBound{p₁}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{α}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{a₀}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
+\AgdaBound{a₁}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{p₀}\AgdaSpace{}%
+\AgdaFunction{≡}\AgdaSpace{}%
+\AgdaBound{p₁}\AgdaSpace{}%
+\AgdaFunction{[}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{\#}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∘}}\AgdaSpace{}%
+\AgdaBound{P}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaFunction{/}\AgdaSpace{}%
+\AgdaBound{α}\AgdaSpace{}%
+\AgdaFunction{]}\<%
+\\
+\>[0]\<%
+\\
+%
+\>[2]\AgdaFunction{Prop-/-≡}\AgdaSpace{}%
+\AgdaBound{P}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{a₀}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaBound{p₀}\AgdaSpace{}%
+\AgdaBound{p₁}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaArgument{α}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaInductiveConstructor{idp}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{proj₂}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{P}\AgdaSpace{}%
+\AgdaBound{a₀}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaBound{p₀}\AgdaSpace{}%
+\AgdaBound{p₁}\<%
 \end{code}
 
 H-levels actually are preserved by products, coproducts, pi-types and sigma-types.
@@ -1748,22 +1899,22 @@ Moreover, equivalences preserve propositions.
 \\
 \>[6][@{}l@{\AgdaIndent{0}}]%
 \>[8]\AgdaFunction{g}%
-\>[892I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
+\>[973I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙←}}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[892I]%
+\>[.][@{}l@{}]\<[973I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨⟩}}\<%
 \\
 %
 \>[8]\AgdaBound{e}%
-\>[897I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
+\>[978I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{}}\<%
 \\
-\>[.][@{}l@{}]\<[897I]%
+\>[.][@{}l@{}]\<[978I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{Σ-bycomponents}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaInductiveConstructor{idp}\AgdaSpace{}%
