@@ -94,7 +94,7 @@ gulp.task('browser-sync', ['sass', 'scripts', 'jekyll-dev'], function() {
 
 gulp.task('jekyll-prod', function (done) {
   browserSync.notify(messages.jekyllProd);
-  return child.spawn('jekyll', ['build'], {stdio: 'inherit'})
+  return child.spawn('bundle', ['exec', 'jekyll', 'build'], {stdio: 'inherit'})
               .on('close', done);
 });
 

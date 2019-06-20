@@ -1,0 +1,1162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+      
+        Axiom of Univalence |
+      
+        Mini-HoTT
+    
+  </title>
+  <meta name="description" content="Jonathan Prieto-Cubides">
+
+  <link rel="stylesheet" href="/assets/main.css">
+  <link rel="preload" as="script" href="/assets/main.js" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/assets/favicon/favicon-16x16.png">
+
+  <link rel="manifest" href="/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114360791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114360791-1');
+  </script>
+
+  
+</head>
+
+
+
+
+  <body>
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item" >
+    <p style="text-decoration:left">Axiom of Univalence</p>
+  </div>
+  <nav class="sidebar-nav">
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+</ul>
+
+
+    <!--  -->
+    <!-- 
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/all/">All</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/UnivalenceAxiom.tex">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.tex">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.html">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.tex">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.html">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.html">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.tex">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ContractibleType.html">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ContractibleType.tex">Contractible Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.html">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.html">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.tex">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.tex">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.html">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalencesForSets.html">Equivalences for Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalencesForSets.tex">Equivalences for Sets</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FiberType.tex">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FiberType.html">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.tex">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.html">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.tex">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.html">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.html">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.tex">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.tex">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.html">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.tex">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.html">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.tex">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.html">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.tex">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.html">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.html">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.tex">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.tex">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.html">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.tex">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EqualityType.html">Identity type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EqualityType.tex">Identity type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.tex">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.tex">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.html">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/NaturalType.tex">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/NaturalType.html">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.tex">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.html">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.tex">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.tex">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.html">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.tex">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.tex">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.tex">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.tex">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaEquivalence.tex">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaEquivalence.html">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CoproductIdentities.html">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ProductIdentities.tex">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ProductIdentities.html">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.tex">Sigma lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.html">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.tex">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.html">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.tex">Univalence Lemmas</a>
+        
+      
+     -->
+
+    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
+    <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
+    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
+    <!-- <span class="sidebar-nav-item">Currently v</span> -->
+  </nav>
+</div>
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
+            <a href="/" title="Home">Mini-HoTT</a>
+            <small style="text-decoration:left"></small>
+          </h3>
+        </div>
+      
+      <div class="container content">
+        
+
+
+
+
+
+
+
+<div class="post">
+
+  <div class="print-version">
+    <center>
+      <h1>Axiom of Univalence</h1><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                
+                  Jonathan Prieto-Cubides
+                
+              </div>
+              <div class="print-author-affiliation">
+                
+                  University of Bergen
+                
+                </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="print-date"></div>
+        
+        
+    </center>
+  </div>
+
+  
+  No git information available.
+  
+  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Axiom of Univalence
+  </h1>
+
+  <!-- 
+  <div class="toc">
+    <nav>
+    <h2 class="table-of-contents"> Table of Contents </h2>
+      
+
+    </nav>
+  </div>
+   -->
+
+  <noscript>
+  <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
+  </noscript>
+
+  <div class="hide" >
+<pre class="Agda">
+<a id="229" class="Symbol">{-#</a> <a id="233" class="Keyword">OPTIONS</a> <a id="241" class="Pragma">--without-K</a> <a id="253" class="Symbol">#-}</a>
+<a id="257" class="Keyword">open</a> <a id="262" class="Keyword">import</a> <a id="269" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="285" class="Keyword">open</a> <a id="290" class="Keyword">import</a> <a id="297" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+
+<a id="314" class="Keyword">open</a> <a id="319" class="Keyword">import</a> <a id="326" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="339" class="Keyword">open</a> <a id="344" class="Keyword">import</a> <a id="351" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
+<a id="363" class="Keyword">open</a> <a id="368" class="Keyword">import</a> <a id="375" href="QuasiinverseType.html" class="Module">QuasiinverseType</a>
+</pre>
+</div>
+
+## Voevodsky's Univalence Axiom
+
+Voevodsky's Univalence axiom is postulated. It induces an equality between any
+two equivalent types. Some $β$ and $η$ rules are provided.
+
+<pre class="Agda">
+<a id="596" class="Keyword">module</a> <a id="603" href="UnivalenceAxiom.html" class="Module">UnivalenceAxiom</a> <a id="619" class="Symbol">{</a><a id="620" href="UnivalenceAxiom.html#620" class="Bound">ℓ</a><a id="621" class="Symbol">}</a> <a id="623" class="Symbol">{</a><a id="624" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="626" href="UnivalenceAxiom.html#626" class="Bound">B</a> <a id="628" class="Symbol">:</a> <a id="630" href="Intro.html#1621" class="Function">Type</a> <a id="635" href="UnivalenceAxiom.html#620" class="Bound">ℓ</a><a id="636" class="Symbol">}</a> <a id="638" class="Keyword">where</a>
+</pre>
+
+{: .foldable until="5"}
+<pre class="Agda">
+  <a id="695" class="Comment">-- Fun.</a>
+  <a id="idtoeqv"></a><a id="705" href="UnivalenceAxiom.html#705" class="Function">idtoeqv</a>
+    <a id="717" class="Symbol">:</a> <a id="719" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="721" href="BasicTypes.html#4472" class="Datatype Operator">==</a> <a id="724" href="UnivalenceAxiom.html#626" class="Bound">B</a>
+    <a id="730" class="Comment">--------</a>
+    <a id="743" class="Symbol">→</a> <a id="745" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="747" href="EquivalenceType.html#762" class="Function Operator">≃</a> <a id="749" href="UnivalenceAxiom.html#626" class="Bound">B</a>
+
+  <a id="754" href="UnivalenceAxiom.html#705" class="Function">idtoeqv</a> <a id="762" href="UnivalenceAxiom.html#762" class="Bound">p</a> <a id="764" class="Symbol">=</a> <a id="766" href="QuasiinverseType.html#3135" class="Function">qinv-≃</a>
+    <a id="777" class="Symbol">(</a><a id="778" href="Transport.html#472" class="Function">transport</a> <a id="788" class="Symbol">(λ</a> <a id="791" href="UnivalenceAxiom.html#791" class="Bound">X</a> <a id="793" class="Symbol">→</a> <a id="795" href="UnivalenceAxiom.html#791" class="Bound">X</a><a id="796" class="Symbol">)</a> <a id="798" href="UnivalenceAxiom.html#762" class="Bound">p</a><a id="799" class="Symbol">)</a>
+    <a id="805" class="Symbol">(</a><a id="806" href="Transport.html#472" class="Function">transport</a> <a id="816" class="Symbol">(λ</a> <a id="819" href="UnivalenceAxiom.html#819" class="Bound">X</a> <a id="821" class="Symbol">→</a> <a id="823" href="UnivalenceAxiom.html#819" class="Bound">X</a><a id="824" class="Symbol">)</a> <a id="826" class="Symbol">(</a><a id="827" href="BasicFunctions.html#3113" class="Function">inv</a> <a id="831" href="UnivalenceAxiom.html#762" class="Bound">p</a><a id="832" class="Symbol">)</a> <a id="834" href="BasicTypes.html#1409" class="InductiveConstructor Operator">,</a> <a id="836" class="Symbol">(</a><a id="837" href="TransportLemmas.html#4500" class="Function">coe-inv-l</a> <a id="847" href="UnivalenceAxiom.html#762" class="Bound">p</a> <a id="849" href="BasicTypes.html#1409" class="InductiveConstructor Operator">,</a> <a id="851" href="TransportLemmas.html#4727" class="Function">coe-inv-r</a> <a id="861" href="UnivalenceAxiom.html#762" class="Bound">p</a><a id="862" class="Symbol">))</a>
+</pre>
+<pre class="Agda">
+  <a id="891" class="Comment">-- Synonyms:</a>
+  <a id="==-to-≃"></a><a id="906" href="UnivalenceAxiom.html#906" class="Function">==-to-≃</a> <a id="914" class="Symbol">=</a> <a id="916" href="UnivalenceAxiom.html#705" class="Function">idtoeqv</a>
+</pre>
+
+The **Univalence axiom** induces an equivalence between equalities
+and equivalences.
+
+<pre class="Agda">
+  <a id="1037" class="Comment">-- Axiom.</a>
+  <a id="1049" class="Keyword">postulate</a>
+    <a id="axiomUnivalence"></a><a id="1063" href="UnivalenceAxiom.html#1063" class="Postulate">axiomUnivalence</a> <a id="1079" class="Symbol">:</a> <a id="1081" href="EquivalenceType.html#606" class="Function">isEquiv</a> <a id="1089" href="UnivalenceAxiom.html#705" class="Function">idtoeqv</a>
+</pre>
+
+{: .foldable until="3" }
+<pre class="Agda">
+  <a id="1149" class="Comment">-- Lema.</a>
+  <a id="eqvUnivalence"></a><a id="1160" href="UnivalenceAxiom.html#1160" class="Function">eqvUnivalence</a>
+    <a id="1178" class="Symbol">:</a> <a id="1180" class="Symbol">(</a><a id="1181" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="1183" href="BasicTypes.html#4472" class="Datatype Operator">==</a> <a id="1186" href="UnivalenceAxiom.html#626" class="Bound">B</a><a id="1187" class="Symbol">)</a> <a id="1189" href="EquivalenceType.html#762" class="Function Operator">≃</a> <a id="1191" class="Symbol">(</a><a id="1192" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="1194" href="EquivalenceType.html#762" class="Function Operator">≃</a> <a id="1196" href="UnivalenceAxiom.html#626" class="Bound">B</a><a id="1197" class="Symbol">)</a>
+
+  <a id="1202" href="UnivalenceAxiom.html#1160" class="Function">eqvUnivalence</a> <a id="1216" class="Symbol">=</a> <a id="1218" href="UnivalenceAxiom.html#705" class="Function">idtoeqv</a> <a id="1226" href="BasicTypes.html#1409" class="InductiveConstructor Operator">,</a> <a id="1228" href="UnivalenceAxiom.html#1063" class="Postulate">axiomUnivalence</a>
+
+  <a id="1247" class="Comment">-- Synonyms</a>
+  <a id="==-equiv-≃"></a><a id="1261" href="UnivalenceAxiom.html#1261" class="Function">==-equiv-≃</a> <a id="1272" class="Symbol">=</a> <a id="1274" href="UnivalenceAxiom.html#1160" class="Function">eqvUnivalence</a>
+  <a id="==-≃-≃"></a><a id="1290" href="UnivalenceAxiom.html#1290" class="Function">==-≃-≃</a>     <a id="1301" class="Symbol">=</a> <a id="1303" href="UnivalenceAxiom.html#1160" class="Function">eqvUnivalence</a>
+</pre>
+
+Introduction rule for equalities:
+
+<pre class="Agda">
+  <a id="1379" class="Comment">-- Fun.</a>
+  <a id="ua"></a><a id="1389" href="UnivalenceAxiom.html#1389" class="Function">ua</a> <a id="1392" class="Symbol">:</a> <a id="1394" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="1396" href="EquivalenceType.html#762" class="Function Operator">≃</a> <a id="1398" href="UnivalenceAxiom.html#626" class="Bound">B</a> <a id="1400" class="Symbol">→</a> <a id="1402" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="1404" href="BasicTypes.html#4472" class="Datatype Operator">==</a> <a id="1407" href="UnivalenceAxiom.html#626" class="Bound">B</a>
+  <a id="1411" href="UnivalenceAxiom.html#1389" class="Function">ua</a> <a id="1414" class="Symbol">=</a> <a id="1416" href="EquivalenceType.html#1131" class="Function">remap</a> <a id="1422" href="UnivalenceAxiom.html#1160" class="Function">eqvUnivalence</a>
+
+  <a id="1439" class="Comment">-- Synonyms</a>
+  <a id="≃-to-=="></a><a id="1453" href="UnivalenceAxiom.html#1453" class="Function">≃-to-==</a> <a id="1461" class="Symbol">=</a> <a id="1463" href="UnivalenceAxiom.html#1389" class="Function">ua</a>
+</pre>
+
+
+
+
+Computation rules
+
+{: .foldable until="5"}
+<pre class="Agda">
+  <a id="1539" class="Comment">-- Beta rule.</a>
+  <a id="ua-β"></a><a id="1555" href="UnivalenceAxiom.html#1555" class="Function">ua-β</a>
+    <a id="1564" class="Symbol">:</a> <a id="1566" class="Symbol">(</a><a id="1567" href="UnivalenceAxiom.html#1567" class="Bound">α</a> <a id="1569" class="Symbol">:</a> <a id="1571" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="1573" href="EquivalenceType.html#762" class="Function Operator">≃</a> <a id="1575" href="UnivalenceAxiom.html#626" class="Bound">B</a><a id="1576" class="Symbol">)</a>
+    <a id="1582" class="Comment">----------------------</a>
+    <a id="1609" class="Symbol">→</a> <a id="1611" href="UnivalenceAxiom.html#705" class="Function">idtoeqv</a> <a id="1619" class="Symbol">(</a><a id="1620" href="UnivalenceAxiom.html#1389" class="Function">ua</a> <a id="1623" href="UnivalenceAxiom.html#1567" class="Bound">α</a><a id="1624" class="Symbol">)</a> <a id="1626" href="BasicTypes.html#4472" class="Datatype Operator">==</a> <a id="1629" href="UnivalenceAxiom.html#1567" class="Bound">α</a>
+
+  <a id="1634" href="UnivalenceAxiom.html#1555" class="Function">ua-β</a> <a id="1639" href="UnivalenceAxiom.html#1639" class="Bound">eqv</a> <a id="1643" class="Symbol">=</a> <a id="1645" href="EquivalenceType.html#1366" class="Function">lrmap-inverse</a> <a id="1659" href="UnivalenceAxiom.html#1160" class="Function">eqvUnivalence</a>
+</pre>
+
+{: .foldable until="5"}
+<pre class="Agda">
+  <a id="1724" class="Comment">-- Eta rule.</a>
+  <a id="ua-η"></a><a id="1739" href="UnivalenceAxiom.html#1739" class="Function">ua-η</a>
+    <a id="1748" class="Symbol">:</a> <a id="1750" class="Symbol">(</a><a id="1751" href="UnivalenceAxiom.html#1751" class="Bound">p</a> <a id="1753" class="Symbol">:</a> <a id="1755" href="UnivalenceAxiom.html#624" class="Bound">A</a> <a id="1757" href="BasicTypes.html#4472" class="Datatype Operator">==</a> <a id="1760" href="UnivalenceAxiom.html#626" class="Bound">B</a><a id="1761" class="Symbol">)</a>
+    <a id="1767" class="Comment">---------------------</a>
+    <a id="1793" class="Symbol">→</a> <a id="1795" href="UnivalenceAxiom.html#1389" class="Function">ua</a> <a id="1798" class="Symbol">(</a><a id="1799" href="UnivalenceAxiom.html#705" class="Function">idtoeqv</a> <a id="1807" href="UnivalenceAxiom.html#1751" class="Bound">p</a><a id="1808" class="Symbol">)</a> <a id="1810" href="BasicTypes.html#4472" class="Datatype Operator">==</a> <a id="1813" href="UnivalenceAxiom.html#1751" class="Bound">p</a>
+
+  <a id="1818" href="UnivalenceAxiom.html#1739" class="Function">ua-η</a> <a id="1823" href="UnivalenceAxiom.html#1823" class="Bound">p</a> <a id="1825" class="Symbol">=</a> <a id="1827" href="EquivalenceType.html#1593" class="Function">rlmap-inverse</a> <a id="1841" href="UnivalenceAxiom.html#1160" class="Function">eqvUnivalence</a>
+</pre>
+
+
+  <div class="cited-references" markdown="1">
+  <ol class="bibliography"></ol>
+  </div>
+
+
+  
+  <div id="citation">
+  <h2> Citation </h2>
+  If you want to cite the content of this post,
+  we suggest to use the following latex bibtex entry.
+  This is generated automatically.
+
+  <br/>
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag =""
+       data-bibtexauthors =""
+       data-year =""
+       data-lastchecked ="2019-06-20"
+       data-originalyear =""
+       data-title ="Axiom of Univalence"
+       data-url ="http://jonaprieto.github.io/mini-hott/UnivalenceAxiom.tex"
+  ></pre>
+  </div>
+  
+
+  <div id="github-links">
+    <div class="view-source">
+      
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/UnivalenceAxiom.tex" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> Raw + Agda</a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/UnivalenceAxiom.tex" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> Agda </a>
+      
+      <a href="https://github.com/jonaprieto/mini-hott/blob/master/UnivalenceAxiom.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/UnivalenceAxiom.tex" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/UnivalenceAxiom.tex" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
+      <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
+      </a>
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Axiom of Univalence - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+
+    </div>
+  </div>
+
+</div>
+
+<!-- https://octicons.github.com/ -->
+
+
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$'],['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
+      TagSide: "left",
+      Macros: {
+        field: ['\\mathbb{#1}', 1],
+        C: ['\\field{C}'],
+        F: ['\\field{F}'],
+        N: ['\\field{N}'],
+        Q: ['\\field{Q}'],
+        R: ['\\field{R}'],
+        Z: ['\\field{Z}'],
+
+        U: ['\\mathcal{U}'],
+        to: ['\\rightarrow'],
+        zero: ['\\field{0}'],
+        one: ['\\field{1}'],
+        two: ['\\field{2}'],
+        id: ['\\mathsf{Id}'],
+
+        fun: ['\\mathsf{fun}{#1}', 1],
+
+        true: ['\\mathsf{true}'],
+        false: ['\\mathsf{false}'],
+
+        proj: ['\\mathsf{proj}'],
+
+        trans: ['\\mathsf{trans}'],
+        refl: ['\\mathsf{refl}'],
+        sym: ['\\mathsf{sym}'],
+
+        Fin:['\\mathsf{Fin}\\,'],
+        ind: ['\\mathsf{ind}'],
+        rec:['\\mathsf{rec}'],
+
+        zeros: ['\\mathbf{0}'],
+        ud: ['\\,\\mathrm{d}'],
+
+        vect:['\\boldsymbol{\\mathbf{#1}}',1],
+        abs: ['\\lvert#1\\rvert', 1],
+        abslr:['\\left\\lvert#1\\right\\rvert', 1],
+        norm: ['\\lVert#1\\rVert', 1],
+        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
+
+        lcm: ['\\mathop{\\mathrm{lcm}}'],
+        interior: ['\\mathop{\\mathrm{int}}'],
+        exterior: ['\\mathop{\\mathrm{ext}}'],
+        volume: ['\\mathop{\\mathrm{vol}}'],
+
+        E: ['{\\rm I\\kern-.3em E}'],
+        Var: ['\\mathop{\\mathrm{Var}}'],
+        Cov: ['\\mathop{\\mathrm{Cov}}'],
+        Binom: ['\\mathop{\\mathrm{Binom}}'],
+        Exp: ['\\mathop{\\mathrm{Exp}}'],
+        Poi: ['\\mathop{\\mathrm{Poi}}'],
+
+        GL: ['\\mathrm{GL}'],
+        SL: ['\\mathrm{SL}'],
+        Aut: ['\\mathrm{Aut}'],
+        ker: ['\\mathrm{ker}'],
+
+        Re: ['\\mathop{\\mathrm{Re}}'],
+        Im: ['\\mathop{\\mathrm{Im}}'],
+        Res: ['\\mathop{\\mathrm{Res}}'],
+
+        Type : ['\\mathsf{Type}\\,'],
+        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
+        Graph : ['\\mathsf{Graph}\\,'],
+        Face : ['\\mathsf{Face}\\,'],
+        Node : ['\\mathsf{Node}\\,'],
+        Edge : ['\\mathsf{Edge}\\,'],
+        Path : ['\\mathsf{Path}\\,'],
+        Walk : ['\\mathsf{Walk}\\,'],
+
+        isContr:['\\mathsf{isContr{#1}}',1],
+        isProp:['\\mathsf{isProp{#1}}',1],
+        isSet:['\\mathsf{isSet{#1}}',1],
+
+        minimize : ['\\mathsf{minimize}'],
+        maximize : ['\\mathsf{maximize}'],
+        st : ['\\mathsf{st}'],
+        and : ['\\,\\wedge\\, '],
+        or : ['\\,\\vee\\,']
+
+
+
+      }
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+
+
+
+<script>
+  // When the user scrolls the page, execute myFunction
+function stickyToogle(obj, sticky) {
+  if (window.pageYOffset > sticky) {
+    obj.classList.add("sticky");
+  } else {
+    obj.classList.remove("sticky");
+  }
+};
+
+// Get the header
+function stickyThing(idObj){
+  var obj = document.getElementById(idObj);
+  if (obj){
+    // Get the offset position of the navbar
+    stickyToogle(obj, obj.offsetTop);
+    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  }
+};
+
+window.onscroll = function() {
+  stickyThing("stickyTitle");
+};
+
+
+</script>
+
+
+
+      </div>
+      
+      </div>
+    </div>
+    
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+<script src="/assets/jquery.min.js"></script>
+
+
+<script src="/assets/linkify.min.js"></script>
+<script src="/assets/linkify-jquery.min.js"></script>
+
+<script type="text/javascript">
+$('.references').linkify();
+$('.bibliography').linkify();
+$('.links').linkify();
+</script>
+
+
+<script type="text/javascript">
+WebFontConfig = {
+ google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
+};
+(function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+
+<!-- FOLDABLE  -->
+<script type="text/javascript">
+ $('pre.foldable').each(function(){
+     var lineHeight = parseFloat($(this).css('line-height'));
+     var plus    = $('<div><svg height="12" class="octicon octicon-fold" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg></div>');
+     var horLine = $("<div></div>");
+     var verLine = $("<div></div>");
+     $(this).prepend(plus);
+     plus.css({
+         'position'         : 'relative',
+         'float'            : 'right',
+         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
+         'width'            : lineHeight,
+         'height'           : lineHeight
+       });
+
+     var until = parseFloat($(this).attr('until'));
+     if ( isNaN(until) ) { until= 1; }
+     if ( until <= 0 ){
+       $(this).hide();
+     }
+     else{
+       var newHeight = ((1.2 * until) + 0.7) + "rem";
+       //                               ^^^----------- for the padding
+       //                ^^-- line-height
+
+       // console.log('afuera-until: ', until);
+       // console.log('afuera-newheight: ', newHeight );
+       $(this).css("padding", "0.5rem 1rem");
+       $(this).css("overflow", "hidden");
+       $(this).css("height", newHeight);
+       $(this).attr("original", "false");
+
+       $(this).click(function(){
+
+         // console.log('dentro-original: ', $(this).attr('original') );
+         // console.log('dentro-newheight: ', newHeight );
+
+         if ( $(this).attr('original') == "true" ) {
+           $(this).css("overflow", "hidden");
+           $(this).css("height", newHeight);
+           $(this).attr("original", "false");
+           $(this).css("padding", "0.5rem 1rem");
+           // plus.show();
+         }
+         else {
+           $(this).height('auto');
+           $(this).attr("original", "true");
+           // plus.hide();
+         }
+       });
+     }
+ });
+</script>
+
+
+
+
+
+
+<script type="text/javascript">
+  if ( $('div').hasClass('cited-references') ){
+    $('.cited-references').append( $('.references').html() );
+    $('.references').hide();
+    $(".cited-references").prepend("<h2 id='refs'>References</h2>");
+    $(".toc nav>ul").append("<li><a href='#refs'>References</a></li>");
+  }
+</script>
+
+
+
+<script type="text/javascript">
+var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
+
+$('#citation').hide();
+$('#citation pre').each(function(){
+
+    var pre           = $(this);
+    var title         = $(this).data('title');
+    var title         = $(this).data('title');
+    var id            = $(this).data('url');
+    var year          = $(this).data('year');
+    var lastchecked   = $(this).data('lastchecked');
+    var originalyear  = $(this).data('originalyear');
+    var url           = $(this).data('url');
+
+    var bibtextag     = $(this).data('bibtextag');
+    var bibtexauthors = $(this).data('bibtexauthors');
+
+    if (bibtexauthors == ""){
+      bibtexauthors = "Prieto-Cubides, Jonathan";
+    }
+
+    if (bibtextag == "")
+    {
+      bibtextag = "Prieto-Cubides:" + lastchecked
+    }
+
+    pre.append(
+    "@online{ " + bibtextag + ",\n" +
+    "  author  = { " + bibtexauthors +" },\n" +
+    "  title   = { " + title + " },\n" +
+    "  url     = { \\url{" + url   + "} }\n" +
+    "  year    = { " + year  + " }\n" +
+    "  lastchecked  = { " + lastchecked  + " }\n" +
+    "  originalyear = { " + originalyear  + " }\n" +
+    "}\n"
+    );
+  });
+
+$('#citation').show();
+</script>
+
+
+
+
+    <!-- <script>
+      (function(document) {
+        var toggle   = document.querySelector('.sidebar-toggle');
+        var sidebar  = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          // if(!checkbox.checked ||
+          //    sidebar.contains(target) ||
+          //    (target === checkbox || target === toggle)) return;
+          //
+          if(target === toggle)
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script> -->
+
+    
+    <script src="/assets/galleryjs/lightgallery.js"></script>
+    <script src="/assets/galleryjs/lg-thumbnail.min.js"></script>
+    <script src="/assets/galleryjs/lg-fullscreen.min.js"></script>
+
+    <script  type="text/javascript">
+      $(document).ready(function() {
+        $('.post img').wrap(function(){
+          return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
+        });
+
+        lightGallery(document.querySelector('.post'),
+          { selector     : ".gallery"
+          // , mode         : 'slide'
+          , thumbnail    : true
+          , animateThumb: false
+          , closable     : true
+          , counter      : true
+          , enableTouch  : true
+          , enableDrag   : true
+          , showThumbByDefault   : false
+          , thumbWidth           : 90
+          , thumbMargin          : 5,
+          });
+      });
+      $('p:contains("layout")').remove();
+    </script>
+    
+  </body>
+</html>

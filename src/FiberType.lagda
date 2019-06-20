@@ -14,12 +14,14 @@ home: true
 <div class="hide" >
 \begin{code}
 {-# OPTIONS --without-K #-}
-open import EqualityType
+open import BasicTypes
 \end{code}
 </div>
 
 \begin{code}
-module FiberType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ}  where
+module
+  FiberType {A : Type ℓᵢ} {B : Type ℓⱼ}
+    where
 \end{code}
 
 
@@ -27,13 +29,20 @@ The *fiber* type of a map over a point is given by a Sigma type.
 
 \begin{code}
   -- Fiber
-  fib
+  fibre
     : (f : A → B)
     → (b : B)
     ---------------
     → Type (ℓᵢ ⊔ ℓⱼ)
 
-  fib f b = Σ A (λ a → f a == b)
+  fibre f b = Σ A (λ a → f a == b)
+\end{code}
+
+Synomyms and syntax sugar:
+
+\begin{code}
+  fib = fibre
+  syntax fibre f b = f // b
 \end{code}
 
 A function applied over the fiber returns the original point
@@ -44,7 +53,7 @@ A function applied over the fiber returns the original point
     : ∀ {f : A → B} {b : B}
     → (h : fib f b)
     ---------------
-    → f (π₁ h) == b
+    → f (proj₁ h) == b
 
   fib-eq (a , α) = α
 \end{code}

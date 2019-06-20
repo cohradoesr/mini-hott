@@ -1,6 +1,5 @@
 agda    := $(wildcard src/*.lagda)
 latex   := $(subst src,latex,$(subst .lagda,.tex,$(agda)))
-html    := $(subst src,blog,$(subst .lagda,.html,$(agda)))
 md      := $(subst src,blog,$(subst .lagda,.md,$(agda)))
 rawagda := $(subst src,docs/agda,$(subst .lagda,.agda,$(agda)))
 iimages := $(wildcard images/*.ipe)
@@ -19,8 +18,7 @@ all:
 
 agda: $(rawagda)
 
-
-statics: $(md) $(rawagda) $(iimgpng)
+statics: $(latex) $(md) $(rawagda) $(iimgpng)
 	- @echo "Serve the website: \n\t$$ make docs-serve"
 
 latex:
@@ -48,12 +46,12 @@ clean:
 
 # At the moment, --html is ouput .tex files from lagda (this is a bug I must report)
 # when the option is --html-highlight=code
-blog/%.tex : src/%.lagda
+blog/%.md : src/%.lagda
 	- @mkdir -p docs/agda
 	- @agda --html --html-dir=blog --html-highlight=code --without-K --allow-unsolved-metas $<
-
-blog/%.md : blog/%.tex
-	- @cp $< $@
+	- @mv $(addsuffix .tex, $(basename $@)) $@
+	- @echo $(addsuffix .tex, $(basename $@))
+	- @echo "==================="
 
 docs/agda/%.agda : src/%.lagda
 	- @mkdir -p docs/agda
@@ -70,15 +68,15 @@ docs-install:
 	@echo " [!] run $$ make docs-build"
 
 docs-build:
-	- jekyll build \
+	- bundle exec jekyll build \
 	  --incremental\
 	  --source blog\
 	  --destination docs\
 	  --config blog/_config.yml\
 	  --layouts blog/_layouts\
 	  --plugins blog/_plugins
+	- make statics
 	@echo " [!] run $$ make docs-serve"
-	- @make statics
 
 docs-serve:
 	cd docs && gulp default

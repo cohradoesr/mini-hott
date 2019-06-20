@@ -19,25 +19,23 @@ open import Transport public
 \end{code}
 </div>
 
-
 Some lemmas on the transport operation
 
 {: .foldable until="6" }
 \begin{code}
 lift
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {a₁ a₂ : A} {ℓⱼ} {C : A → Type ℓⱼ}
-  → (u : C a₁)
+  : ∀ {A : Type ℓᵢ} {a₁ a₂ : A} {C : A → Type ℓⱼ}
   → (α : a₁ == a₂)
+  → (u : C a₁)
   -----------------------------
   → (a₁ , u) == (a₂ , tr C α u)
 
-lift {a₁ = a₁} u idp = refl (a₁ , u)
+lift {a₁ = a₁} idp u = refl (a₁ , u)
 \end{code}
 
-{: .foldable until="6" }
 \begin{code}
 transport-const
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {a₁  a₂ : A} {ℓⱼ} {B : Type ℓⱼ}
+  : ∀ {A : Type ℓᵢ} {a₁  a₂ : A} {B : Type ℓⱼ}
   → (p : a₁ == a₂)
   → (b : B)
   -----------------------
@@ -46,10 +44,9 @@ transport-const
 transport-const idp b = refl b
 \end{code}
 
-{: .foldable until="6" }
 \begin{code}
 transport-inv-l
-  : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁} {P : A → Type ℓ₂}  {a a' : A}
+  : ∀ {A : Type ℓᵢ} {P : A → Type ℓⱼ}  {a a' : A}
   → (p : a == a')
   → (b : P a')
   --------------------------------------------
@@ -58,26 +55,27 @@ transport-inv-l
 transport-inv-l idp b = idp
 \end{code}
 
-{: .foldable until="6" }
 \begin{code}
 transport-inv-r
-  : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁} {P : A → Type ℓ₂}  {a a' : A}
-  → {p : a == a'}
-  → {b : P a}
+  : ∀ {A : Type ℓᵢ} {P : A → Type ℓⱼ}  {a a' : A}
+  → (p : a == a')
+  → (b : P a)
   --------------------------------------------
   → tr P (! p) (tr P p b) == b
 
-transport-inv-r {p = idp} {b} = idp
+transport-inv-r idp _ = idp
+
+-- synonyms
+tr-inverse = transport-inv-r
 \end{code}
 
-{: .foldable until="6" }
 \begin{code}
 transport-concat-r
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {a : A} {x y : A}
+  : ∀ {A : Type ℓᵢ} {a : A} {x y : A}
   → (p : x == y)
   → (q : a == x)
   ---------------------------------
-  →  tr (λ x → a == x) p q == q · p
+  → tr (λ x → a == x) p q == q · p
 
 transport-concat-r idp q = ·-runit q
 \end{code}
@@ -85,7 +83,7 @@ transport-concat-r idp q = ·-runit q
 {: .foldable until="6" }
 \begin{code}
 transport-concat-l
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {a : A} {x y : A}
+  : ∀ {A : Type ℓᵢ} {a : A} {x y : A}
   → (p : x == y)
   → (q : x == a)
   ----------------------------------
@@ -97,7 +95,7 @@ transport-concat-l idp q = idp
 {: .foldable until="6" }
 \begin{code}
 transport-concat
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {x y : A}
+  : ∀ {A : Type ℓᵢ} {x y : A}
   → (p : x == y)
   → (q : x == x)
   ---------------------------------------
@@ -109,7 +107,7 @@ transport-concat idp q = ·-runit q
 {: .foldable until="7" }
 \begin{code}
 transport-eq-fun
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {ℓⱼ} {B : Type ℓⱼ}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (f g : A → B) {x y : A}
   → (p : x == y)
   → (q : f x == g x)
@@ -122,7 +120,7 @@ transport-eq-fun f g idp q = ·-runit q
 {: .foldable until="6" }
 \begin{code}
 transport-comp
-  : ∀ {ℓᵢ} {A : Type ℓᵢ}{ℓⱼ} {a b c : A} {P : A → Type ℓⱼ}
+  : ∀ {A : Type ℓᵢ} {a b c : A} {P : A → Type ℓⱼ}
   → (p : a == b)
   → (q : b == c)
   ---------------------------------------
@@ -134,7 +132,7 @@ transport-comp {P = P} idp q = refl (transport P q)
 {: .foldable until="7" }
 \begin{code}
 transport-comp-h
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {ℓⱼ} {a b c : A} {P : A → Type ℓⱼ}
+  : ∀ {A : Type ℓᵢ} {a b c : A} {P : A → Type ℓⱼ}
   → (p : a == b)
   → (q : b == c)
   → (x : P a)
@@ -147,7 +145,7 @@ transport-comp-h {P = P} idp q x = refl (transport P q x)
 {: .foldable until="6" }
 \begin{code}
 transport-eq-fun-l
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} {b : B} (f : A → B) {x y : A}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {b : B} (f : A → B) {x y : A}
   → (p : x == y)
   → (q : f x == b)
   -------------------------------------------
@@ -165,7 +163,7 @@ transport-eq-fun-l {b = b} f p q =
 {: .foldable until="7" }
 \begin{code}
 transport-eq-fun-r
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} {b : B}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {b : B}
   → (g : A → B) {x y : A}
   → (p : x == y)
   → (q : b == g x)
@@ -184,7 +182,7 @@ transport-eq-fun-r {b = b} g p q =
 {: .foldable until="6" }
 \begin{code}
 transport-inv
-  : ∀ {ℓᵢ ℓⱼ} {X : Type ℓᵢ}{A : X → Type ℓⱼ}{x y : X}
+  : ∀ {X : Type ℓᵢ}{A : X → Type ℓⱼ}{x y : X}
   → (p : x == y)
   → {a : A y}
   --------------------------------------
@@ -205,7 +203,7 @@ transport-inv {A = A}  idp {a = a} =
 {: .foldable until="6" }
 \begin{code}
 coe-inv-l
-  : ∀ {ℓ} {A B : Type ℓ}
+  : ∀ {A B : Type ℓ}
   → (p : A == B)
   → (b : B)
   --------------------------------------------
@@ -217,7 +215,7 @@ coe-inv-l idp b = idp
 {: .foldable until="6" }
 \begin{code}
 coe-inv-r
-  : ∀ {ℓ} {A B : Type ℓ}
+  : ∀ {A B : Type ℓ}
   → (p : A == B)
   → (a : A)
   ---------------------------------------------
@@ -229,7 +227,7 @@ coe-inv-r idp b = idp
 {: .foldable until="7" }
 \begin{code}
 transport-family
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {A : Type ℓᵢ} {B : Type ℓⱼ} {P : B → Type ℓₖ}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {P : B → Type ℓₖ}
   → {f : A → B} → {x y : A}
   → (p : x == y)
   → (u : P (f x))
@@ -242,7 +240,7 @@ transport-family idp u = idp
 {: .foldable until="6" }
 \begin{code}
 transport-family-id
-  : ∀ {ℓᵢ ℓₖ} {A : Type ℓᵢ} {P : A → Type ℓₖ} → {x y : A}
+  : ∀ {A : Type ℓᵢ} {P : A → Type ℓₖ} → {x y : A}
   → (p : x == y)
   → (u : P x)
   ----------------------------------------------
@@ -254,7 +252,7 @@ transport-family-id idp u = idp
 {: .foldable until="7" }
 \begin{code}
 transport-fun
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {X : Type ℓᵢ} {x y : X}
+  : ∀ {X : Type ℓᵢ} {x y : X}
   → {A : X → Type ℓⱼ} {B : X → Type ℓₖ}
   → (p : x == y)
   → (f : A x → B x)
@@ -274,7 +272,7 @@ back-and-forth = transport-fun
 {: .foldable until="7" }
 \begin{code}
 transport-fun-h
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {X : Type ℓᵢ} {A : X → Type ℓⱼ} {B : X → Type ℓₖ}
+  : ∀ {X : Type ℓᵢ} {A : X → Type ℓⱼ} {B : X → Type ℓₖ}
   → {x y : X}
   → (p : x == y) → (f : A x → B x)
   → (b : A y)
@@ -296,14 +294,14 @@ Now, when we transport dependent functions this is what we got:
 {: .foldable until="9" }
 \begin{code}
 transport-fun-dependent-h
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {X : Type ℓᵢ} {A : X → Type ℓⱼ}
+  : ∀ {X : Type ℓᵢ} {A : X → Type ℓⱼ}
   → {B : (x : X) → (a : A x) → Type ℓₖ} {x y : X}
   → (p : x == y)
   → (f : (a : A x) → B x a)
   ---------------------------------------------------------------------
   → (a' : A y)
   → (tr (λ x → (a : A x) → B x a) p f) a'
-    == tr (λ w → B (π₁ w) (π₂ w)) (! lift a' (! p)) (f (tr A (! p) a'))
+    == tr (λ w → B (π₁ w) (π₂ w)) (! lift (! p) a' ) (f (tr A (! p) a'))
 
 transport-fun-dependent-h idp f a' = idp
 \end{code}
@@ -316,14 +314,14 @@ dependent-back-and-forth-h = transport-fun-dependent-h
 {: .foldable until="9" }
 \begin{code}
 transport-fun-dependent
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {X : Type ℓᵢ} {A : X → Type ℓⱼ}
+  : ∀ {X : Type ℓᵢ} {A : X → Type ℓⱼ}
   → {B : (x : X) → (a : A x) → Type ℓₖ} {x y : X}
   → (p : x == y)
   → (f : (a : A x) → B x a)
   ---------------------------------------------------------------------
   → (tr (λ x → (a : A x) → B x a) p f)
     == λ (a' : A y)
-      → tr (λ w → B (π₁ w) (π₂ w)) (! lift a' (! p)) (f (tr A (! p) a'))
+      → tr (λ w → B (π₁ w) (π₂ w)) (! lift (! p) a' ) (f (tr A (! p) a'))
 
 transport-fun-dependent idp f = idp
 \end{code}
@@ -333,183 +331,42 @@ transport-fun-dependent idp f = idp
 dependent-back-and-forth = transport-fun-dependent
 \end{code}
 
-Action on PathOvers, this was suggested by Fredrik Nordvall:
+When using pathovers, we may need one of these identities:
+
+\begin{code}
+fibre-app-≡
+  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ}
+  → (f : (a : A) → B a)
+  → {a₁ a₂ : A}  → (α : a₁ == a₂)
+  -------------------------------
+  → f a₁ ≡ f a₂ [ B / α ]
+
+fibre-app-≡ f idp = idp
+\end{code}
+
 
 {: .foldable until="9"}
 \begin{code}
 apOver
-  : {A A' : Type₀} {C : A → Type₀} {C' : A' → Type₀}  -- types
-  → {a a' : A} {b : C a} {b' : C a'}                  -- points
+  : ∀ {A A' : Type ℓᵢ} {C : A → Type ℓⱼ} {C' : A' → Type ℓₖ}  -- types
+  → {a a' : A} {b : C a} {b' : C a'}                         -- points
   → (f : A → A')
   → (g : {x : A} → C x → C' (f x))
   → (p : a == a')
-  → b == b' [ C ↓ p ]
+  →      b == b' [ C ↓ p ]
   --------------------------------
-  → g b == g b' [ C' ↓ ap f p ]
+  →    g b == g b' [ C' ↓ ap f p ]
 
 apOver f g idp q = ap g q
 \end{code}
 
-## Basic type lemmas
-
-### Sigma type
-
-Our context:
-
-\begin{code}
-module Sigma {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
-\end{code}
-
-Two dependent pairs are equal if they are componentwise equal.
-
-{: .foldable until="6"}
-\begin{code}
-  -- Lemma.
-  Σ-componentwise
-    : ∀ {v w : Σ A P}
-    → v == w
-    ----------------------------------------------
-    → Σ (π₁ v == π₁ w) (λ p → (p ✶) (π₂ v) == π₂ w)
-
-  Σ-componentwise  idp = (idp , idp)
-\end{code}
-
-{: .foldable until="6"}
-\begin{code}
-  -- Lemma.
-  Σ-bycomponents
-    : ∀ {v w : Σ A P}
-    → Σ (π₁ v == π₁ w) (λ p → (p ✶) (π₂ v) == π₂ w)
-    -----------------------------------------------
-    → v == w
-
-  Σ-bycomponents (idp , idp) = idp
-
-  -- synonym of Σ-bycomponents
-  pair= = Σ-bycomponents
-\end{code}
-
-A trivial consequence is the following identification:
-
-{: .foldable until="6"}
-\begin{code}
--- Lemma.
-  lift-pair=
-    : ∀ {x y : A} {u : P x}
-    → (p : x == y)
-    --------------------------------------------------------
-    → lift {A = A}{C = P} u p == pair= (p , refl (tr P p u))
-
-  lift-pair= idp = idp
-\end{code}
-
-\begin{code}
--- Uniqueness principle property for products
-  uppt : (x : Σ A P) → (π₁ x , π₂ x) == x
-  uppt (a , b) = idp
-\end{code}
-
-{: .foldable until="7"}
-\begin{code}
--- Lemma.
-  Σ-ap-π₁
-    : {a₁ a₂ : A} {b₁ : P a₁} {b₂ : P a₂}
-    → (α : a₁ == a₂)
-    → (γ : transport P α b₁ == b₂)
-    ------------------------------
-    → ap π₁ (pair= (α , γ)) == α
-
-  Σ-ap-π₁ idp idp = idp
-
-  -- synonym for this lemma
-  ap-π₁-pair= = Σ-ap-π₁
-\end{code}
-
-\begin{code}
-open Sigma public
-\end{code}
-
-{: .foldable until="10"}
-\begin{code}
-transport-fun-dependent-bezem
-  : ∀ {ℓᵢ ℓⱼ} {X : Type ℓᵢ} {A : X → Type ℓⱼ}
-      {B : (x : X) → (a : A x) → Type ℓⱼ} {x y : X}
-  → (p : x == y)
-  → (f : (a : A x) → B x a)
-  → (a' : A y)
-  ----------------------------------------------------------
-  → (tr (λ x → (a : A x) → B x a) p f) a'
-    == tr (λ w → B (π₁ w) (π₂ w))
-          (pair= (p , transport-inv p )) (f (tr A (! p) a'))
-
-transport-fun-dependent-bezem idp f a' = idp
-\end{code}
-
-
-### Cartesian product
-
-\begin{code}
-module CartesianProduct {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
-\end{code}
-
-{: .foldable until="6"}
-\begin{code}
-  -- Lemma.
-  prodComponentwise
-    : {x y : A × B}
-    → (x == y)
-    ---------------------------------
-    → (π₁ x == π₁ y) × (π₂ x == π₂ y)
-
-  prodComponentwise {x = x} idp = refl (π₁ x) , refl (π₂ x)
-\end{code}
-
-{: .foldable until="6"}
-\begin{code}
-  -- Lemma.
-  prodByComponents
-    : {x y : A × B}
-    → (π₁ x == π₁ y) × (π₂ x == π₂ y)
-    ---------------------------------
-    → (x == y)
-
-  prodByComponents {x = a , b} (idp , idp) = refl (a , b)
-\end{code}
-
-{: .foldable until="6"}
-\begin{code}
-  -- Lemma.
-  prodCompInverse
-    : {x y : A × B}
-    → (b : (π₁ x == π₁ y) × (π₂ x == π₂ y))
-    ---------------------------------------------
-    → prodComponentwise (prodByComponents b) == b
-
-  prodCompInverse {x} (idp , idp) = refl (refl (π₁ x) , refl (π₂ x))
-\end{code}
-
-{: .foldable until="6"}
-\begin{code}
-  -- Lemma.
-  prodByCompInverse
-    : {x y : A × B}
-    → (b : x == y)
-    ---------------------------------------------
-    → prodByComponents (prodComponentwise b) == b
-
-  prodByCompInverse {x = x} idp = refl (refl x)
-\end{code}
-
-\begin{code}
-open CartesianProduct public
-\end{code}
 
 ## Action on dependent paths
 
 {: .foldable until="5"}
 \begin{code}
 apd
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ}  {P : A → Type ℓⱼ} {a b : A}
+  : ∀ {A : Type ℓᵢ}  {P : A → Type ℓⱼ} {a b : A}
   → (f : (a : A) → P a) → (p : a == b)
   ------------------------------------
   → transport P p (f a) == f b

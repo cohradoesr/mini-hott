@@ -41,29 +41,23 @@ first levels are:
 
 ### Propositions
 
-\begin{code}
-module Propositions where
-\end{code}
 
 A type is a *mere proposition* if any two inhabitants of the type are equal.
 
 {: .foldable until="5"}
 \begin{code}
-  -- Def.
-  isProp
-    : ∀ {ℓ} (A : Type ℓ) → Type ℓ
-  isProp A = ((x y : A) → x == y)
+-- Def.
+isProp
+  : ∀ {ℓ} (A : Type ℓ) → Type ℓ
+isProp A = ((x y : A) → x == y)
 \end{code}
 
 \begin{code}
-  -- The type of mere propositions
-  hProp : ∀ {ℓ} → Type (lsuc ℓ)
-  hProp {ℓ} = Σ (Type ℓ) isProp
+-- The type of mere propositions
+hProp : ∀ {ℓ} → Type (lsuc ℓ)
+hProp {ℓ} = ∑ (Type ℓ) isProp
 \end{code}
 
-\begin{code}
-open Propositions public
-\end{code}
 
 ### Sets
 
@@ -72,18 +66,25 @@ are types without any higher *dimensional structure*,  all parallel paths are
 homotopic and the homotopy is given by a continuous function on the two paths.
 
 \begin{code}
-module Sets where
+isSet : Type ℓ → Type ℓ
+isSet A = (x y : A) → isProp (x == y)
+\end{code}
 
-  isSet : ∀ {ℓ}  (A : Type ℓ) → Type ℓ
-  isSet A = (x y : A) → isProp (x == y)
+The type of sets
 
-  -- The type of sets.
-  hSet : ∀ {ℓ} → Type (lsuc ℓ)
-  hSet {ℓ} = Σ (Type ℓ) isSet
+\begin{code}
+hSet : Type (lsuc ℓ)
+hSet {ℓ} = ∑ (Type ℓ) isSet
+\end{code}
 
-open Sets public
+### Groupoid
+
+\begin{code}
+isGroupoid : Type ℓ → Type ℓ
+isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
 \end{code}
 
 \begin{code}
--- TODO: define hlevels by the recursive definition
+Groupoid : Type (lsuc ℓ)
+Groupoid {ℓ} = ∑ (Type ℓ) isGroupoid
 \end{code}

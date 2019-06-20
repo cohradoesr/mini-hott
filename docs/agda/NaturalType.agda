@@ -2,6 +2,9 @@
 open import TransportLemmas
 open import EquivalenceType
 
+open import ProductIdentities
+open import CoproductIdentities
+
 open import HomotopyType
 open import FunExtAxiom
 open import QuasiinverseType

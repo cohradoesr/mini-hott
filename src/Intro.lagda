@@ -11,33 +11,34 @@ showcitation: true
 home: true
 ---
 
-This is a basic overview of homotopy type theory (HoTT) formalized in `Agda` and
-developed at [UiB](https://www.uib.no/). No other libraries are required to
-type-check this one. The majority of types, lemmas and functions come with
-synonyms to make much easier its adoption. We based the initial of this
-development on others, so we encourage you to check these works as well, see the
-references at the end of this document.
+This is a library for Univalent Type Theory in `Agda` developed at [University
+of Bergen](https://www.uib.no/).
 
-Take in mind, the presentation of the syntax may seem not standard. The key
-point is readability and maintenance. For performance and completeness, please
-use another library like `HoTT-Agda`.
+No other libraries are required to type-check it. To ease its adoption, we have
+included synonyms and syntax sugar for types, lemmas, and theorems. Regarding
+performance, we recommend you check out the library `HoTT-Agda`. Last but not
+least, this development was based on others in its initial stage, so please see
+the references at the end.
 
-# Get started
+# Installation
 
-- Install Agda (v2.6.0+) (and optional, may you want to install
-  [`agda-pkg`](http://github.com/agda/agda-pkg) to install other packages.
+- Install [Agda (v2.6.0)](http://github.com/agda/agda)
 
-- Clone this repository
-  [http://github.com/jonaprieto/mini-hott](http://github.com/jonaprieto/mini-hott)
-  or use `apkg install mini-hott`
+- Clone this repository [http://github.com/jonaprieto/mini-hott](http://github.com/jonaprieto/mini-hott)
 
-- Open an issue for any bug/request/problem.
+Alternative way to install Agda libraries:
 
-## Proof relevant
+- `pip install agda-pkg`
+- `apkg install mini-hott`
 
-![path](/assets/png-images/mini-hott.jpeg){: width="220px" align="right" }
 
-To be consistent with homotopy type theory, we tell `Agda` to not use *Axiom K*
+# Code
+
+## Proof relevancy
+
+![path](/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
+
+To be consistent with univalent type theory, we tell `Agda` to not use *Axiom K*
 for type-checking by using the option `without-K`.
 
 \begin{code}
@@ -73,11 +74,19 @@ Type₀ = Type lzero
 \begin{code}
 record
   ↑ {a : Level} ℓ (A : Type a)
-  : Type (a ⊔ ℓ)
+    : Type (a ⊔ ℓ)
   where
   constructor Lift
   field
     lower : A
 
 open ↑ public
+\end{code}
+
+We use the following variables along to simplify the typing. Be aware these
+variables are implicit variables hidden in the types.
+
+\begin{code}
+variable
+  ℓ ℓᵢ ℓⱼ ℓₖ : Level
 \end{code}

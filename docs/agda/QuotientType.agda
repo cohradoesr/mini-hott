@@ -68,4 +68,4 @@ module QuotientType where
   Qrel-prod : ∀ {ℓᵢ}{A : Type ℓᵢ} (r : QRel A) → QRel (A × A)
   Qrel-prod r = record { R = λ { (a , b) (c , d) → (R {{r}} a c) × (R {{r}} b d) }
                        ; Aset = isSet-prod (Aset {{r}}) (Aset {{r}})
-                       ; Rprop = λ { (x , y) (z , w) → isProp-prod (Rprop {{r}} x z) (Rprop {{r}} y w)} }
+                       ; Rprop = λ { (x , y) (q , w) → isProp-prod (Rprop {{r}} x q) (Rprop {{r}} y w)} }

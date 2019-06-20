@@ -1,20 +1,24 @@
 {-# OPTIONS --without-K #-}
-open import EqualityType
-module FiberType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ}  where
+open import BasicTypes
+module
+  FiberType {A : Type ℓᵢ} {B : Type ℓⱼ}
+    where
   -- Fiber
-  fib
+  fibre
     : (f : A → B)
     → (b : B)
     ---------------
     → Type (ℓᵢ ⊔ ℓⱼ)
 
-  fib f b = Σ A (λ a → f a == b)
+  fibre f b = Σ A (λ a → f a == b)
+  fib = fibre
+  syntax fibre f b = f // b
   -- Lemma.
   fib-eq
     : ∀ {f : A → B} {b : B}
     → (h : fib f b)
     ---------------
-    → f (π₁ h) == b
+    → f (proj₁ h) == b
 
   fib-eq (a , α) = α
   -- Lemma.

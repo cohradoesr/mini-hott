@@ -19,44 +19,53 @@ home: true
 </pre>
 </div>
 
+# Type theory
+
+## Types
+
 ### Empty type
 
 A datatype without *constructors* is the *empty type*. This represents  the *falsehood*.
 
 <pre class="Agda">
-<a id="392" class="Keyword">data</a> <a id="⊥"></a><a id="397" href="BasicTypes.html#397" class="Datatype">⊥</a> <a id="399" class="Symbol">{</a><a id="400" href="BasicTypes.html#400" class="Bound">ℓᵢ</a><a id="402" class="Symbol">}</a> <a id="404" class="Symbol">:</a> <a id="406" href="Intro.html#1442" class="Function">Type</a> <a id="411" href="BasicTypes.html#400" class="Bound">ℓᵢ</a> <a id="414" class="Keyword">where</a>
+<a id="417" class="Keyword">data</a>
+  <a id="⊥"></a><a id="424" href="BasicTypes.html#424" class="Datatype">⊥</a> <a id="426" class="Symbol">{</a><a id="427" href="BasicTypes.html#427" class="Bound">ℓᵢ</a><a id="429" class="Symbol">}</a>
+    <a id="435" class="Symbol">:</a> <a id="437" href="Intro.html#1621" class="Function">Type</a> <a id="442" href="BasicTypes.html#427" class="Bound">ℓᵢ</a>
+  <a id="447" class="Keyword">where</a>
+  <a id="455" class="Comment">-- Nothing</a>
 </pre>
 
 Synonyms of ⊥:
+
 <pre class="Agda">
-<a id="Empty"></a><a id="460" href="BasicTypes.html#460" class="Function">Empty</a> <a id="466" class="Symbol">=</a> <a id="468" href="BasicTypes.html#397" class="Datatype">⊥</a>
-<a id="𝟘"></a><a id="470" href="BasicTypes.html#470" class="Function">𝟘</a>     <a id="476" class="Symbol">=</a> <a id="478" href="BasicTypes.html#397" class="Datatype">⊥</a>
+<a id="Empty"></a><a id="507" href="BasicTypes.html#507" class="Function">Empty</a> <a id="513" class="Symbol">=</a> <a id="515" href="BasicTypes.html#424" class="Datatype">⊥</a>
+<a id="𝟘"></a><a id="517" href="BasicTypes.html#517" class="Function">𝟘</a>     <a id="523" class="Symbol">=</a> <a id="525" href="BasicTypes.html#424" class="Datatype">⊥</a>
 </pre>
 
 Its *eliminator* principle also called *Ex falso quodlibet*:
 
 <pre class="Agda">
-<a id="exfalso"></a><a id="567" href="BasicTypes.html#567" class="Function">exfalso</a>
-  <a id="577" class="Symbol">:</a> <a id="579" class="Symbol">∀</a> <a id="581" class="Symbol">{</a><a id="582" href="BasicTypes.html#582" class="Bound">ℓ</a> <a id="584" href="BasicTypes.html#584" class="Bound">ℓᵢ</a><a id="586" class="Symbol">}</a> <a id="588" class="Symbol">{</a><a id="589" href="BasicTypes.html#589" class="Bound">A</a> <a id="591" class="Symbol">:</a> <a id="593" href="Intro.html#1442" class="Function">Type</a> <a id="598" href="BasicTypes.html#582" class="Bound">ℓ</a><a id="599" class="Symbol">}</a>
-  <a id="603" class="Symbol">→</a> <a id="605" href="BasicTypes.html#397" class="Datatype">⊥</a> <a id="607" class="Symbol">{</a><a id="608" href="BasicTypes.html#584" class="Bound">ℓᵢ</a><a id="610" class="Symbol">}</a>
-  <a id="614" class="Comment">--------</a>
-  <a id="625" class="Symbol">→</a> <a id="627" href="BasicTypes.html#589" class="Bound">A</a>
+<a id="exfalso"></a><a id="614" href="BasicTypes.html#614" class="Function">exfalso</a>
+  <a id="624" class="Symbol">:</a> <a id="626" class="Symbol">∀</a> <a id="628" class="Symbol">{</a><a id="629" href="BasicTypes.html#629" class="Bound">A</a> <a id="631" class="Symbol">:</a> <a id="633" href="Intro.html#1621" class="Function">Type</a> <a id="638" href="Intro.html#2061" class="Generalizable">ℓ</a><a id="639" class="Symbol">}</a>
+  <a id="643" class="Symbol">→</a> <a id="645" href="BasicTypes.html#424" class="Datatype">⊥</a> <a id="647" class="Symbol">{</a><a id="648" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="650" class="Symbol">}</a>
+  <a id="654" class="Comment">--------</a>
+  <a id="665" class="Symbol">→</a> <a id="667" href="BasicTypes.html#629" class="Bound">A</a>
 
-<a id="630" href="BasicTypes.html#567" class="Function">exfalso</a> <a id="638" class="Symbol">()</a>
+<a id="670" href="BasicTypes.html#614" class="Function">exfalso</a> <a id="678" class="Symbol">()</a>
 </pre>
 
 Synonyms of `exfalso` rule:
 
 <pre class="Agda">
-<a id="Empty-elim"></a><a id="695" href="BasicTypes.html#695" class="Function">Empty-elim</a> <a id="706" class="Symbol">=</a> <a id="708" href="BasicTypes.html#567" class="Function">exfalso</a>
-<a id="⊥-elim"></a><a id="716" href="BasicTypes.html#716" class="Function">⊥-elim</a>     <a id="727" class="Symbol">=</a> <a id="729" href="BasicTypes.html#567" class="Function">exfalso</a>
-<a id="𝟘-elim"></a><a id="737" href="BasicTypes.html#737" class="Function">𝟘-elim</a>     <a id="748" class="Symbol">=</a> <a id="750" href="BasicTypes.html#567" class="Function">exfalso</a>
+<a id="Empty-elim"></a><a id="735" href="BasicTypes.html#735" class="Function">Empty-elim</a> <a id="746" class="Symbol">=</a> <a id="748" href="BasicTypes.html#614" class="Function">exfalso</a>
+<a id="⊥-elim"></a><a id="756" href="BasicTypes.html#756" class="Function">⊥-elim</a>     <a id="767" class="Symbol">=</a> <a id="769" href="BasicTypes.html#614" class="Function">exfalso</a>
+<a id="𝟘-elim"></a><a id="777" href="BasicTypes.html#777" class="Function">𝟘-elim</a>     <a id="788" class="Symbol">=</a> <a id="790" href="BasicTypes.html#614" class="Function">exfalso</a>
 </pre>
 
 The negation function:
 <pre class="Agda">
-<a id="¬"></a><a id="806" href="BasicTypes.html#806" class="Function">¬</a> <a id="808" class="Symbol">:</a> <a id="810" class="Symbol">∀</a> <a id="812" class="Symbol">{</a><a id="813" href="BasicTypes.html#813" class="Bound">ℓ</a><a id="814" class="Symbol">}</a> <a id="816" class="Symbol">→</a> <a id="818" href="Intro.html#1442" class="Function">Type</a> <a id="823" href="BasicTypes.html#813" class="Bound">ℓ</a> <a id="825" class="Symbol">→</a> <a id="827" href="Intro.html#1442" class="Function">Type</a> <a id="832" href="BasicTypes.html#813" class="Bound">ℓ</a>
-<a id="834" href="BasicTypes.html#806" class="Function">¬</a> <a id="836" href="BasicTypes.html#836" class="Bound">A</a> <a id="838" class="Symbol">=</a> <a id="840" class="Symbol">(</a><a id="841" href="BasicTypes.html#836" class="Bound">A</a> <a id="843" class="Symbol">→</a> <a id="845" href="BasicTypes.html#397" class="Datatype">⊥</a> <a id="847" class="Symbol">{</a><a id="848" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="853" class="Symbol">})</a>
+<a id="¬"></a><a id="846" href="BasicTypes.html#846" class="Function">¬</a> <a id="848" class="Symbol">:</a> <a id="850" href="Intro.html#1621" class="Function">Type</a> <a id="855" href="Intro.html#2061" class="Generalizable">ℓ</a> <a id="857" class="Symbol">→</a> <a id="859" href="Intro.html#1621" class="Function">Type</a> <a id="864" href="Intro.html#2061" class="Generalizable">ℓ</a>
+<a id="866" href="BasicTypes.html#846" class="Function">¬</a> <a id="868" href="BasicTypes.html#868" class="Bound">A</a> <a id="870" class="Symbol">=</a> <a id="872" class="Symbol">(</a><a id="873" href="BasicTypes.html#868" class="Bound">A</a> <a id="875" class="Symbol">→</a> <a id="877" href="BasicTypes.html#424" class="Datatype">⊥</a> <a id="879" class="Symbol">{</a><a id="880" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="885" class="Symbol">})</a>
 </pre>
 
 ### Unit type
@@ -65,160 +74,301 @@ The *unit type* is defined as a record to get also the $η$-rule
 definitionally. This type has no elimination rule.
 
 <pre class="Agda">
-<a id="1012" class="Keyword">record</a> <a id="⊤"></a><a id="1019" href="BasicTypes.html#1019" class="Record">⊤</a> <a id="1021" class="Symbol">{</a><a id="1022" href="BasicTypes.html#1022" class="Bound">ℓ</a><a id="1023" class="Symbol">}</a> <a id="1025" class="Symbol">:</a> <a id="1027" href="Intro.html#1442" class="Function">Type</a> <a id="1032" href="BasicTypes.html#1022" class="Bound">ℓ</a> <a id="1034" class="Keyword">where</a>
-  <a id="1042" class="Keyword">constructor</a> <a id="⊤.★"></a><a id="1054" href="BasicTypes.html#1054" class="InductiveConstructor">★</a>
+<a id="1044" class="Keyword">record</a> <a id="⊤"></a><a id="1051" href="BasicTypes.html#1051" class="Record">⊤</a> <a id="1053" class="Symbol">:</a> <a id="1055" href="Intro.html#1621" class="Function">Type</a> <a id="1060" href="Intro.html#2061" class="Generalizable">ℓ</a> <a id="1062" class="Keyword">where</a>
+  <a id="1070" class="Keyword">constructor</a> <a id="⊤.★"></a><a id="1082" href="BasicTypes.html#1082" class="InductiveConstructor">★</a>
 
-<a id="1057" class="Symbol">{-#</a> <a id="1061" class="Keyword">BUILTIN</a> <a id="1069" class="Pragma">UNIT</a> <a id="1074" href="BasicTypes.html#1019" class="Record">⊤</a> <a id="1076" class="Symbol">#-}</a>
+<a id="1085" class="Symbol">{-#</a> <a id="1089" class="Keyword">BUILTIN</a> <a id="1097" class="Pragma">UNIT</a> <a id="1102" href="BasicTypes.html#1051" class="Record">⊤</a> <a id="1104" class="Symbol">#-}</a>
 </pre>
 
 Synonyms for the Unit type:
 <pre class="Agda">
-<a id="Unit"></a><a id="1133" href="BasicTypes.html#1133" class="Function">Unit</a> <a id="1138" class="Symbol">=</a> <a id="1140" href="BasicTypes.html#1019" class="Record">⊤</a>
-<a id="𝟙"></a><a id="1142" href="BasicTypes.html#1142" class="Function">𝟙</a>    <a id="1147" class="Symbol">=</a> <a id="1149" href="BasicTypes.html#1019" class="Record">⊤</a>
+<a id="Unit"></a><a id="1161" href="BasicTypes.html#1161" class="Function">Unit</a> <a id="1166" class="Symbol">=</a> <a id="1168" href="BasicTypes.html#1051" class="Record">⊤</a>
+<a id="𝟙"></a><a id="1170" href="BasicTypes.html#1170" class="Function">𝟙</a>    <a id="1175" class="Symbol">=</a> <a id="1177" href="BasicTypes.html#1051" class="Record">⊤</a>
 </pre>
 
 Synonyms for the data constructor:
 <pre class="Agda">
-<a id="unit"></a><a id="1211" href="BasicTypes.html#1211" class="Function">unit</a> <a id="1216" class="Symbol">:</a> <a id="1218" class="Symbol">∀</a> <a id="1220" class="Symbol">{</a><a id="1221" href="BasicTypes.html#1221" class="Bound">ℓ</a><a id="1222" class="Symbol">}</a> <a id="1224" class="Symbol">→</a> <a id="1226" href="BasicTypes.html#1019" class="Record">⊤</a> <a id="1228" class="Symbol">{</a><a id="1229" href="BasicTypes.html#1221" class="Bound">ℓ</a><a id="1230" class="Symbol">}</a>
-<a id="1232" href="BasicTypes.html#1211" class="Function">unit</a> <a id="1237" class="Symbol">=</a> <a id="1239" href="BasicTypes.html#1054" class="InductiveConstructor">★</a>
+<a id="1239" class="Keyword">pattern</a> <a id="unit"></a><a id="1247" href="BasicTypes.html#1247" class="InductiveConstructor">unit</a> <a id="1252" class="Symbol">=</a> <a id="1254" href="BasicTypes.html#1082" class="InductiveConstructor">★</a>
+<a id="1256" class="Keyword">pattern</a> <a id="∗"></a><a id="1264" href="BasicTypes.html#1264" class="InductiveConstructor">∗</a>    <a id="1269" class="Symbol">=</a> <a id="1271" href="BasicTypes.html#1082" class="InductiveConstructor">★</a>
 </pre>
 
-### Σ-type
-
-We define Sigma types as a particular case of records in [`Agda`.](https://tinyurl.com/agda-records)
+### ∑-types
 
 <pre class="Agda">
-<a id="1380" class="Keyword">infixr</a> <a id="1387" class="Number">60</a> <a id="1390" href="BasicTypes.html#1479" class="InductiveConstructor Operator">_,_</a>
-<a id="1394" class="Keyword">record</a> <a id="Σ"></a><a id="1401" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="1403" class="Symbol">{</a><a id="1404" href="BasicTypes.html#1404" class="Bound">ℓᵢ</a> <a id="1407" href="BasicTypes.html#1407" class="Bound">ℓⱼ</a><a id="1409" class="Symbol">}</a> <a id="1411" class="Symbol">(</a><a id="1412" href="BasicTypes.html#1412" class="Bound">A</a> <a id="1414" class="Symbol">:</a> <a id="1416" href="Intro.html#1442" class="Function">Type</a> <a id="1421" href="BasicTypes.html#1404" class="Bound">ℓᵢ</a><a id="1423" class="Symbol">)(</a><a id="1425" href="BasicTypes.html#1425" class="Bound">C</a> <a id="1427" class="Symbol">:</a> <a id="1429" href="BasicTypes.html#1412" class="Bound">A</a> <a id="1431" class="Symbol">→</a> <a id="1433" href="Intro.html#1442" class="Function">Type</a> <a id="1438" href="BasicTypes.html#1407" class="Bound">ℓⱼ</a><a id="1440" class="Symbol">)</a> <a id="1442" class="Symbol">:</a> <a id="1444" href="Intro.html#1442" class="Function">Type</a> <a id="1449" class="Symbol">(</a><a id="1450" href="BasicTypes.html#1404" class="Bound">ℓᵢ</a> <a id="1453" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1455" href="BasicTypes.html#1407" class="Bound">ℓⱼ</a><a id="1457" class="Symbol">)</a> <a id="1459" class="Keyword">where</a>
-  <a id="1467" class="Keyword">constructor</a> <a id="Σ._,_"></a><a id="1479" href="BasicTypes.html#1479" class="InductiveConstructor Operator">_,_</a>
-  <a id="1485" class="Keyword">field</a>
-    <a id="Σ.π₁"></a><a id="1495" href="BasicTypes.html#1495" class="Field">π₁</a> <a id="1498" class="Symbol">:</a> <a id="1500" href="BasicTypes.html#1412" class="Bound">A</a>
-    <a id="Σ.π₂"></a><a id="1506" href="BasicTypes.html#1506" class="Field">π₂</a> <a id="1509" class="Symbol">:</a> <a id="1511" href="BasicTypes.html#1425" class="Bound">C</a> <a id="1513" href="BasicTypes.html#1495" class="Field">π₁</a>
+<a id="1311" class="Keyword">infixr</a> <a id="1318" class="Number">60</a> <a id="1321" href="BasicTypes.html#1409" class="InductiveConstructor Operator">_,_</a>
+<a id="1325" class="Keyword">record</a>
+  <a id="∑"></a><a id="1334" href="BasicTypes.html#1334" class="Record">∑</a> <a id="1336" class="Symbol">(</a><a id="1337" href="BasicTypes.html#1337" class="Bound">A</a> <a id="1339" class="Symbol">:</a> <a id="1341" href="Intro.html#1621" class="Function">Type</a> <a id="1346" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="1348" class="Symbol">)(</a><a id="1350" href="BasicTypes.html#1350" class="Bound">B</a> <a id="1352" class="Symbol">:</a> <a id="1354" href="BasicTypes.html#1337" class="Bound">A</a> <a id="1356" class="Symbol">→</a> <a id="1358" href="Intro.html#1621" class="Function">Type</a> <a id="1363" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="1365" class="Symbol">)</a>
+   <a id="1370" class="Symbol">:</a> <a id="1372" href="Intro.html#1621" class="Function">Type</a> <a id="1377" class="Symbol">(</a><a id="1378" href="BasicTypes.html#1346" class="Bound">ℓᵢ</a> <a id="1381" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1383" href="BasicTypes.html#1363" class="Bound">ℓⱼ</a><a id="1385" class="Symbol">)</a>
+  <a id="1389" class="Keyword">where</a>
+  <a id="1397" class="Keyword">constructor</a> <a id="∑._,_"></a><a id="1409" href="BasicTypes.html#1409" class="InductiveConstructor Operator">_,_</a>
+  <a id="1415" class="Keyword">field</a>
+    <a id="∑.π₁"></a><a id="1425" href="BasicTypes.html#1425" class="Field">π₁</a> <a id="1428" class="Symbol">:</a> <a id="1430" href="BasicTypes.html#1337" class="Bound">A</a>
+    <a id="∑.π₂"></a><a id="1436" href="BasicTypes.html#1436" class="Field">π₂</a> <a id="1439" class="Symbol">:</a> <a id="1441" href="BasicTypes.html#1350" class="Bound">B</a> <a id="1443" href="BasicTypes.html#1425" class="Field">π₁</a>
 
-<a id="1517" class="Keyword">open</a> <a id="1522" href="BasicTypes.html#1401" class="Module">Σ</a> <a id="1524" class="Keyword">public</a>
+<a id="1447" class="Keyword">open</a> <a id="1452" href="BasicTypes.html#1334" class="Module">∑</a> <a id="1454" class="Keyword">public</a>
 </pre>
 
-Synonyms for its data constructors:
+Symbol synonym:
 
 <pre class="Agda">
-<a id="proj₁"></a><a id="1593" href="BasicTypes.html#1593" class="Function">proj₁</a> <a id="1599" class="Symbol">=</a> <a id="1601" href="BasicTypes.html#1495" class="Field">π₁</a>
-<a id="proj₂"></a><a id="1604" href="BasicTypes.html#1604" class="Function">proj₂</a> <a id="1610" class="Symbol">=</a> <a id="1612" href="BasicTypes.html#1506" class="Field">π₂</a>
+<a id="Σ"></a><a id="1503" href="BasicTypes.html#1503" class="Function">Σ</a> <a id="1505" class="Symbol">=</a> <a id="1507" href="BasicTypes.html#1334" class="Record">∑</a>  <a id="1510" class="Comment">-- \Sigma and \sum</a>
+</pre>
 
-<a id="pr₁"></a><a id="1616" href="BasicTypes.html#1616" class="Function">pr₁</a>   <a id="1622" class="Symbol">=</a> <a id="1624" href="BasicTypes.html#1495" class="Field">π₁</a>
-<a id="pr₂"></a><a id="1627" href="BasicTypes.html#1627" class="Function">pr₂</a>   <a id="1633" class="Symbol">=</a> <a id="1635" href="BasicTypes.html#1506" class="Field">π₂</a>
+Constructor synonyms:
 
-<a id="fst"></a><a id="1639" href="BasicTypes.html#1639" class="Function">fst</a>   <a id="1645" class="Symbol">=</a> <a id="1647" href="BasicTypes.html#1495" class="Field">π₁</a>
-<a id="snd"></a><a id="1650" href="BasicTypes.html#1650" class="Function">snd</a>   <a id="1656" class="Symbol">=</a> <a id="1658" href="BasicTypes.html#1506" class="Field">π₂</a>
+<pre class="Agda">
+<a id="proj₁"></a><a id="1577" href="BasicTypes.html#1577" class="Function">proj₁</a> <a id="1583" class="Symbol">=</a> <a id="1585" href="BasicTypes.html#1425" class="Field">π₁</a>
+<a id="proj₂"></a><a id="1588" href="BasicTypes.html#1588" class="Function">proj₂</a> <a id="1594" class="Symbol">=</a> <a id="1596" href="BasicTypes.html#1436" class="Field">π₂</a>
+
+<a id="pr₁"></a><a id="1600" href="BasicTypes.html#1600" class="Function">pr₁</a>   <a id="1606" class="Symbol">=</a> <a id="1608" href="BasicTypes.html#1425" class="Field">π₁</a>
+<a id="pr₂"></a><a id="1611" href="BasicTypes.html#1611" class="Function">pr₂</a>   <a id="1617" class="Symbol">=</a> <a id="1619" href="BasicTypes.html#1436" class="Field">π₂</a>
+
+<a id="fst"></a><a id="1623" href="BasicTypes.html#1623" class="Function">fst</a>   <a id="1629" class="Symbol">=</a> <a id="1631" href="BasicTypes.html#1425" class="Field">π₁</a>
+<a id="snd"></a><a id="1634" href="BasicTypes.html#1634" class="Function">snd</a>   <a id="1640" class="Symbol">=</a> <a id="1642" href="BasicTypes.html#1436" class="Field">π₂</a>
 </pre>
 
 ### Π-types
 
-Shorter notation for Π-types.
-
 <pre class="Agda">
-<a id="Π"></a><a id="1730" href="BasicTypes.html#1730" class="Function">Π</a>
-  <a id="1734" class="Symbol">:</a> <a id="1736" class="Symbol">∀</a> <a id="1738" class="Symbol">{</a><a id="1739" href="BasicTypes.html#1739" class="Bound">ℓᵢ</a> <a id="1742" href="BasicTypes.html#1742" class="Bound">ℓⱼ</a><a id="1744" class="Symbol">}</a>
-  <a id="1748" class="Symbol">→</a> <a id="1750" class="Symbol">(</a><a id="1751" href="BasicTypes.html#1751" class="Bound">A</a> <a id="1753" class="Symbol">:</a> <a id="1755" href="Intro.html#1442" class="Function">Type</a> <a id="1760" href="BasicTypes.html#1739" class="Bound">ℓᵢ</a><a id="1762" class="Symbol">)</a> <a id="1764" class="Symbol">(</a><a id="1765" href="BasicTypes.html#1765" class="Bound">P</a> <a id="1767" class="Symbol">:</a> <a id="1769" href="BasicTypes.html#1751" class="Bound">A</a> <a id="1771" class="Symbol">→</a> <a id="1773" href="Intro.html#1442" class="Function">Type</a> <a id="1778" href="BasicTypes.html#1742" class="Bound">ℓⱼ</a><a id="1780" class="Symbol">)</a>
-  <a id="1784" class="Comment">--------------------------------</a>
-  <a id="1819" class="Symbol">→</a> <a id="1821" href="Intro.html#1442" class="Function">Type</a> <a id="1826" class="Symbol">(</a><a id="1827" href="BasicTypes.html#1739" class="Bound">ℓᵢ</a> <a id="1830" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1832" href="BasicTypes.html#1742" class="Bound">ℓⱼ</a><a id="1834" class="Symbol">)</a>
+<a id="Π"></a><a id="1683" href="BasicTypes.html#1683" class="Function">Π</a>
+  <a id="1687" class="Symbol">:</a> <a id="1689" class="Symbol">(</a><a id="1690" href="BasicTypes.html#1690" class="Bound">A</a> <a id="1692" class="Symbol">:</a> <a id="1694" href="Intro.html#1621" class="Function">Type</a> <a id="1699" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="1701" class="Symbol">)</a> <a id="1703" class="Symbol">(</a><a id="1704" href="BasicTypes.html#1704" class="Bound">P</a> <a id="1706" class="Symbol">:</a> <a id="1708" href="BasicTypes.html#1690" class="Bound">A</a> <a id="1710" class="Symbol">→</a> <a id="1712" href="Intro.html#1621" class="Function">Type</a> <a id="1717" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="1719" class="Symbol">)</a>
+  <a id="1723" class="Comment">--------------------------------</a>
+  <a id="1758" class="Symbol">→</a> <a id="1760" href="Intro.html#1621" class="Function">Type</a> <a id="1765" class="Symbol">(</a><a id="1766" href="Intro.html#2063" class="Generalizable">ℓᵢ</a> <a id="1769" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1771" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="1773" class="Symbol">)</a>
 
-<a id="1837" href="BasicTypes.html#1730" class="Function">Π</a> <a id="1839" href="BasicTypes.html#1839" class="Bound">A</a> <a id="1841" href="BasicTypes.html#1841" class="Bound">P</a> <a id="1843" class="Symbol">=</a> <a id="1845" class="Symbol">(</a><a id="1846" href="BasicTypes.html#1846" class="Bound">x</a> <a id="1848" class="Symbol">:</a> <a id="1850" href="BasicTypes.html#1839" class="Bound">A</a><a id="1851" class="Symbol">)</a> <a id="1853" class="Symbol">→</a> <a id="1855" href="BasicTypes.html#1841" class="Bound">P</a> <a id="1857" href="BasicTypes.html#1846" class="Bound">x</a>
+<a id="1776" href="BasicTypes.html#1683" class="Function">Π</a> <a id="1778" href="BasicTypes.html#1778" class="Bound">A</a> <a id="1780" href="BasicTypes.html#1780" class="Bound">P</a> <a id="1782" class="Symbol">=</a> <a id="1784" class="Symbol">(</a><a id="1785" href="BasicTypes.html#1785" class="Bound">x</a> <a id="1787" class="Symbol">:</a> <a id="1789" href="BasicTypes.html#1778" class="Bound">A</a><a id="1790" class="Symbol">)</a> <a id="1792" class="Symbol">→</a> <a id="1794" href="BasicTypes.html#1780" class="Bound">P</a> <a id="1796" href="BasicTypes.html#1785" class="Bound">x</a>
 </pre>
 
-### Product type
+Synonyms
+<pre class="Agda">
+<a id="∏"></a><a id="1832" href="BasicTypes.html#1832" class="Function">∏</a> <a id="1834" class="Symbol">=</a> <a id="1836" href="BasicTypes.html#1683" class="Function">Π</a>   <a id="1840" class="Comment">-- \prod vs \Pi</a>
+</pre>
+
+### Products
 
 Product type as a particular case of the Sigma type.
 
 <pre class="Agda">
-<a id="_×_"></a><a id="1956" href="BasicTypes.html#1956" class="Function Operator">_×_</a>
-  <a id="1962" class="Symbol">:</a> <a id="1964" class="Symbol">∀</a> <a id="1966" class="Symbol">{</a><a id="1967" href="BasicTypes.html#1967" class="Bound">ℓᵢ</a> <a id="1970" href="BasicTypes.html#1970" class="Bound">ℓⱼ</a><a id="1972" class="Symbol">}</a>
-  <a id="1976" class="Symbol">→</a> <a id="1978" class="Symbol">(</a><a id="1979" href="BasicTypes.html#1979" class="Bound">A</a> <a id="1981" class="Symbol">:</a> <a id="1983" href="Intro.html#1442" class="Function">Type</a> <a id="1988" href="BasicTypes.html#1967" class="Bound">ℓᵢ</a><a id="1990" class="Symbol">)</a> <a id="1992" class="Symbol">(</a><a id="1993" href="BasicTypes.html#1993" class="Bound">B</a> <a id="1995" class="Symbol">:</a> <a id="1997" href="Intro.html#1442" class="Function">Type</a> <a id="2002" href="BasicTypes.html#1970" class="Bound">ℓⱼ</a><a id="2004" class="Symbol">)</a>
-  <a id="2008" class="Comment">----------------------------</a>
-  <a id="2039" class="Symbol">→</a> <a id="2041" href="Intro.html#1442" class="Function">Type</a> <a id="2046" class="Symbol">(</a><a id="2047" href="BasicTypes.html#1967" class="Bound">ℓᵢ</a> <a id="2050" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="2052" href="BasicTypes.html#1970" class="Bound">ℓⱼ</a><a id="2054" class="Symbol">)</a>
+<a id="1949" class="Keyword">infixl</a>  <a id="1957" class="Number">39</a> <a id="1960" href="BasicTypes.html#1965" class="Function Operator">_×_</a>
 
-<a id="2057" href="BasicTypes.html#2057" class="Bound">A</a> <a id="2059" href="BasicTypes.html#1956" class="Function Operator">×</a> <a id="2061" href="BasicTypes.html#2061" class="Bound">B</a> <a id="2063" class="Symbol">=</a> <a id="2065" href="BasicTypes.html#1401" class="Record">Σ</a> <a id="2067" href="BasicTypes.html#2057" class="Bound">A</a> <a id="2069" class="Symbol">(λ</a> <a id="2072" href="BasicTypes.html#2072" class="Bound">_</a> <a id="2074" class="Symbol">→</a> <a id="2076" href="BasicTypes.html#2061" class="Bound">B</a><a id="2077" class="Symbol">)</a>
+<a id="_×_"></a><a id="1965" href="BasicTypes.html#1965" class="Function Operator">_×_</a>
+  <a id="1971" class="Symbol">:</a> <a id="1973" class="Symbol">(</a><a id="1974" href="BasicTypes.html#1974" class="Bound">A</a> <a id="1976" class="Symbol">:</a> <a id="1978" href="Intro.html#1621" class="Function">Type</a> <a id="1983" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="1985" class="Symbol">)</a> <a id="1987" class="Symbol">(</a><a id="1988" href="BasicTypes.html#1988" class="Bound">B</a> <a id="1990" class="Symbol">:</a> <a id="1992" href="Intro.html#1621" class="Function">Type</a> <a id="1997" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="1999" class="Symbol">)</a>
+  <a id="2003" class="Comment">----------------------------</a>
+  <a id="2034" class="Symbol">→</a> <a id="2036" href="Intro.html#1621" class="Function">Type</a> <a id="2041" class="Symbol">(</a><a id="2042" href="Intro.html#2063" class="Generalizable">ℓᵢ</a> <a id="2045" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="2047" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="2049" class="Symbol">)</a>
+
+<a id="2052" href="BasicTypes.html#2052" class="Bound">A</a> <a id="2054" href="BasicTypes.html#1965" class="Function Operator">×</a> <a id="2056" href="BasicTypes.html#2056" class="Bound">B</a> <a id="2058" class="Symbol">=</a> <a id="2060" href="BasicTypes.html#1334" class="Record">∑</a> <a id="2062" href="BasicTypes.html#2052" class="Bound">A</a> <a id="2064" class="Symbol">(λ</a> <a id="2067" href="BasicTypes.html#2067" class="Bound">_</a> <a id="2069" class="Symbol">→</a> <a id="2071" href="BasicTypes.html#2056" class="Bound">B</a><a id="2072" class="Symbol">)</a>
 </pre>
 
-### Coproduct type
+### Coproducts
 
 Sum types as inductive types
 
 <pre class="Agda">
-<a id="2154" class="Keyword">infixr</a> <a id="2161" class="Number">80</a> <a id="2164" href="BasicTypes.html#2173" class="Datatype Operator">_+_</a>
-<a id="2168" class="Keyword">data</a> <a id="_+_"></a><a id="2173" href="BasicTypes.html#2173" class="Datatype Operator">_+_</a> <a id="2177" class="Symbol">{</a><a id="2178" href="BasicTypes.html#2178" class="Bound">ℓᵢ</a> <a id="2181" href="BasicTypes.html#2181" class="Bound">ℓⱼ</a><a id="2183" class="Symbol">}</a> <a id="2185" class="Symbol">(</a><a id="2186" href="BasicTypes.html#2186" class="Bound">A</a> <a id="2188" class="Symbol">:</a> <a id="2190" href="Intro.html#1442" class="Function">Type</a> <a id="2195" href="BasicTypes.html#2178" class="Bound">ℓᵢ</a><a id="2197" class="Symbol">)</a> <a id="2199" class="Symbol">(</a><a id="2200" href="BasicTypes.html#2200" class="Bound">B</a> <a id="2202" class="Symbol">:</a> <a id="2204" href="Intro.html#1442" class="Function">Type</a> <a id="2209" href="BasicTypes.html#2181" class="Bound">ℓⱼ</a><a id="2211" class="Symbol">)</a> <a id="2213" class="Symbol">:</a> <a id="2215" href="Intro.html#1442" class="Function">Type</a> <a id="2220" class="Symbol">(</a><a id="2221" href="BasicTypes.html#2178" class="Bound">ℓᵢ</a> <a id="2224" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="2226" href="BasicTypes.html#2181" class="Bound">ℓⱼ</a><a id="2228" class="Symbol">)</a> <a id="2230" class="Keyword">where</a>
-  <a id="_+_.inl"></a><a id="2238" href="BasicTypes.html#2238" class="InductiveConstructor">inl</a> <a id="2242" class="Symbol">:</a> <a id="2244" href="BasicTypes.html#2186" class="Bound">A</a> <a id="2246" class="Symbol">→</a> <a id="2248" href="BasicTypes.html#2186" class="Bound">A</a> <a id="2250" href="BasicTypes.html#2173" class="Datatype Operator">+</a> <a id="2252" href="BasicTypes.html#2200" class="Bound">B</a>
-  <a id="_+_.inr"></a><a id="2256" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2260" class="Symbol">:</a> <a id="2262" href="BasicTypes.html#2200" class="Bound">B</a> <a id="2264" class="Symbol">→</a> <a id="2266" href="BasicTypes.html#2186" class="Bound">A</a> <a id="2268" href="BasicTypes.html#2173" class="Datatype Operator">+</a> <a id="2270" href="BasicTypes.html#2200" class="Bound">B</a>
+<a id="2145" class="Keyword">infixr</a> <a id="2152" class="Number">31</a> <a id="2155" href="BasicTypes.html#2167" class="Datatype Operator">_+_</a>
+
+<a id="2160" class="Keyword">data</a>
+  <a id="_+_"></a><a id="2167" href="BasicTypes.html#2167" class="Datatype Operator">_+_</a> <a id="2171" class="Symbol">(</a><a id="2172" href="BasicTypes.html#2172" class="Bound">A</a> <a id="2174" class="Symbol">:</a> <a id="2176" href="Intro.html#1621" class="Function">Type</a> <a id="2181" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="2183" class="Symbol">)</a> <a id="2185" class="Symbol">(</a><a id="2186" href="BasicTypes.html#2186" class="Bound">B</a> <a id="2188" class="Symbol">:</a> <a id="2190" href="Intro.html#1621" class="Function">Type</a> <a id="2195" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="2197" class="Symbol">)</a>
+    <a id="2203" class="Symbol">:</a> <a id="2205" href="Intro.html#1621" class="Function">Type</a> <a id="2210" class="Symbol">(</a><a id="2211" href="BasicTypes.html#2181" class="Bound">ℓᵢ</a> <a id="2214" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="2216" href="BasicTypes.html#2195" class="Bound">ℓⱼ</a><a id="2218" class="Symbol">)</a>
+  <a id="2222" class="Keyword">where</a>
+  <a id="_+_.inl"></a><a id="2230" href="BasicTypes.html#2230" class="InductiveConstructor">inl</a> <a id="2234" class="Symbol">:</a> <a id="2236" href="BasicTypes.html#2172" class="Bound">A</a> <a id="2238" class="Symbol">→</a> <a id="2240" href="BasicTypes.html#2172" class="Bound">A</a> <a id="2242" href="BasicTypes.html#2167" class="Datatype Operator">+</a> <a id="2244" href="BasicTypes.html#2186" class="Bound">B</a>
+  <a id="_+_.inr"></a><a id="2248" href="BasicTypes.html#2248" class="InductiveConstructor">inr</a> <a id="2252" class="Symbol">:</a> <a id="2254" href="BasicTypes.html#2186" class="Bound">B</a> <a id="2256" class="Symbol">→</a> <a id="2258" href="BasicTypes.html#2172" class="Bound">A</a> <a id="2260" href="BasicTypes.html#2167" class="Datatype Operator">+</a> <a id="2262" href="BasicTypes.html#2186" class="Bound">B</a>
 </pre>
 
-Its elimination principle also called "cases":
+Constructors synonyms:
 
 <pre class="Agda">
-
-<a id="+-elim"></a><a id="2346" href="BasicTypes.html#2346" class="Function">+-elim</a> <a id="2353" class="Symbol">:</a> <a id="2355" class="Symbol">∀{</a><a id="2357" href="BasicTypes.html#2357" class="Bound">ℓ₁</a> <a id="2360" href="BasicTypes.html#2360" class="Bound">ℓ₂</a> <a id="2363" href="BasicTypes.html#2363" class="Bound">ℓ₃</a><a id="2365" class="Symbol">}{</a><a id="2367" href="BasicTypes.html#2367" class="Bound">A</a> <a id="2369" class="Symbol">:</a> <a id="2371" href="Intro.html#1442" class="Function">Type</a> <a id="2376" href="BasicTypes.html#2357" class="Bound">ℓ₁</a><a id="2378" class="Symbol">}{</a><a id="2380" href="BasicTypes.html#2380" class="Bound">B</a> <a id="2382" class="Symbol">:</a> <a id="2384" href="Intro.html#1442" class="Function">Type</a> <a id="2389" href="BasicTypes.html#2360" class="Bound">ℓ₂</a><a id="2391" class="Symbol">}{</a><a id="2393" href="BasicTypes.html#2393" class="Bound">C</a> <a id="2395" class="Symbol">:</a> <a id="2397" href="Intro.html#1442" class="Function">Type</a> <a id="2402" href="BasicTypes.html#2363" class="Bound">ℓ₃</a><a id="2404" class="Symbol">}</a>
-  <a id="2408" class="Symbol">→</a> <a id="2410" class="Symbol">(</a><a id="2411" href="BasicTypes.html#2367" class="Bound">A</a> <a id="2413" class="Symbol">→</a> <a id="2415" href="BasicTypes.html#2393" class="Bound">C</a><a id="2416" class="Symbol">)</a> <a id="2418" class="Symbol">→</a> <a id="2420" class="Symbol">(</a><a id="2421" href="BasicTypes.html#2380" class="Bound">B</a> <a id="2423" class="Symbol">→</a> <a id="2425" href="BasicTypes.html#2393" class="Bound">C</a><a id="2426" class="Symbol">)</a>
-  <a id="2430" class="Comment">-------------------</a>
-  <a id="2452" class="Symbol">→</a> <a id="2454" class="Symbol">(</a><a id="2455" href="BasicTypes.html#2367" class="Bound">A</a> <a id="2457" href="BasicTypes.html#2173" class="Datatype Operator">+</a> <a id="2459" href="BasicTypes.html#2380" class="Bound">B</a><a id="2460" class="Symbol">)</a> <a id="2462" class="Symbol">→</a> <a id="2464" href="BasicTypes.html#2393" class="Bound">C</a>
-<a id="2466" href="BasicTypes.html#2346" class="Function">+-elim</a> <a id="2473" href="BasicTypes.html#2473" class="Bound">A→C</a> <a id="2477" href="BasicTypes.html#2477" class="Bound">B→C</a> <a id="2481" class="Symbol">(</a><a id="2482" href="BasicTypes.html#2238" class="InductiveConstructor">inl</a> <a id="2486" href="BasicTypes.html#2486" class="Bound">x</a><a id="2487" class="Symbol">)</a> <a id="2489" class="Symbol">=</a> <a id="2491" href="BasicTypes.html#2473" class="Bound">A→C</a> <a id="2495" href="BasicTypes.html#2486" class="Bound">x</a>
-<a id="2497" href="BasicTypes.html#2346" class="Function">+-elim</a> <a id="2504" href="BasicTypes.html#2504" class="Bound">A→C</a> <a id="2508" href="BasicTypes.html#2508" class="Bound">B→C</a> <a id="2512" class="Symbol">(</a><a id="2513" href="BasicTypes.html#2256" class="InductiveConstructor">inr</a> <a id="2517" href="BasicTypes.html#2517" class="Bound">x</a><a id="2518" class="Symbol">)</a> <a id="2520" class="Symbol">=</a> <a id="2522" href="BasicTypes.html#2508" class="Bound">B→C</a> <a id="2526" href="BasicTypes.html#2517" class="Bound">x</a>
+<a id="2313" class="Keyword">pattern</a> <a id="left"></a><a id="2321" href="BasicTypes.html#2321" class="InductiveConstructor">left</a>  <a id="2327" class="Symbol">=</a> <a id="2329" href="BasicTypes.html#2230" class="InductiveConstructor">inl</a>
+<a id="2333" class="Keyword">pattern</a> <a id="right"></a><a id="2341" href="BasicTypes.html#2341" class="InductiveConstructor">right</a> <a id="2347" class="Symbol">=</a> <a id="2349" href="BasicTypes.html#2248" class="InductiveConstructor">inr</a>
 </pre>
 
-### Implication type
+The elimination principle:
 
 <pre class="Agda">
-<a id="2575" class="Comment">-- Implication.</a>
-<a id="2591" class="Keyword">data</a> <a id="_⇒_"></a><a id="2596" href="BasicTypes.html#2596" class="Datatype Operator">_⇒_</a> <a id="2600" class="Symbol">{</a><a id="2601" href="BasicTypes.html#2601" class="Bound">ℓ</a><a id="2602" class="Symbol">}(</a><a id="2604" href="BasicTypes.html#2604" class="Bound">A</a> <a id="2606" href="BasicTypes.html#2606" class="Bound">B</a> <a id="2608" class="Symbol">:</a> <a id="2610" href="Intro.html#1442" class="Function">Type</a> <a id="2615" href="BasicTypes.html#2601" class="Bound">ℓ</a><a id="2616" class="Symbol">)</a> <a id="2618" class="Symbol">:</a> <a id="2620" href="Intro.html#1442" class="Function">Type</a> <a id="2625" href="BasicTypes.html#2601" class="Bound">ℓ</a> <a id="2627" class="Keyword">where</a>
-  <a id="_⇒_.fun"></a><a id="2635" href="BasicTypes.html#2635" class="InductiveConstructor">fun</a> <a id="2639" class="Symbol">:</a> <a id="2641" class="Symbol">(</a><a id="2642" href="BasicTypes.html#2604" class="Bound">A</a> <a id="2644" class="Symbol">→</a> <a id="2646" href="BasicTypes.html#2606" class="Bound">B</a><a id="2647" class="Symbol">)</a> <a id="2649" class="Symbol">→</a> <a id="2651" href="BasicTypes.html#2604" class="Bound">A</a> <a id="2653" href="BasicTypes.html#2596" class="Datatype Operator">⇒</a> <a id="2655" href="BasicTypes.html#2606" class="Bound">B</a>
-</pre>
+<a id="+-elim"></a><a id="2406" href="BasicTypes.html#2406" class="Function">+-elim</a>
+  <a id="2415" class="Symbol">:</a> <a id="2417" class="Symbol">{</a><a id="2418" href="BasicTypes.html#2418" class="Bound">A</a> <a id="2420" class="Symbol">:</a> <a id="2422" href="Intro.html#1621" class="Function">Type</a> <a id="2427" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="2429" class="Symbol">}{</a><a id="2431" href="BasicTypes.html#2431" class="Bound">B</a> <a id="2433" class="Symbol">:</a> <a id="2435" href="Intro.html#1621" class="Function">Type</a> <a id="2440" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="2442" class="Symbol">}{</a><a id="2444" href="BasicTypes.html#2444" class="Bound">C</a> <a id="2446" class="Symbol">:</a> <a id="2448" href="Intro.html#1621" class="Function">Type</a> <a id="2453" href="Intro.html#2069" class="Generalizable">ℓₖ</a><a id="2455" class="Symbol">}</a>
+  <a id="2459" class="Symbol">→</a> <a id="2461" class="Symbol">(</a><a id="2462" href="BasicTypes.html#2418" class="Bound">A</a> <a id="2464" class="Symbol">→</a> <a id="2466" href="BasicTypes.html#2444" class="Bound">C</a><a id="2467" class="Symbol">)</a> <a id="2469" class="Symbol">→</a> <a id="2471" class="Symbol">(</a><a id="2472" href="BasicTypes.html#2431" class="Bound">B</a> <a id="2474" class="Symbol">→</a> <a id="2476" href="BasicTypes.html#2444" class="Bound">C</a><a id="2477" class="Symbol">)</a>
+  <a id="2481" class="Comment">-------------------</a>
+  <a id="2503" class="Symbol">→</a> <a id="2505" class="Symbol">(</a><a id="2506" href="BasicTypes.html#2418" class="Bound">A</a> <a id="2508" href="BasicTypes.html#2167" class="Datatype Operator">+</a> <a id="2510" href="BasicTypes.html#2431" class="Bound">B</a><a id="2511" class="Symbol">)</a> <a id="2513" class="Symbol">→</a> <a id="2515" href="BasicTypes.html#2444" class="Bound">C</a>
+<a id="2517" href="BasicTypes.html#2406" class="Function">+-elim</a> <a id="2524" href="BasicTypes.html#2524" class="Bound">A→C</a> <a id="2528" href="BasicTypes.html#2528" class="Bound">B→C</a> <a id="2532" class="Symbol">(</a><a id="2533" href="BasicTypes.html#2230" class="InductiveConstructor">inl</a> <a id="2537" href="BasicTypes.html#2537" class="Bound">x</a><a id="2538" class="Symbol">)</a> <a id="2540" class="Symbol">=</a> <a id="2542" href="BasicTypes.html#2524" class="Bound">A→C</a> <a id="2546" href="BasicTypes.html#2537" class="Bound">x</a>
+<a id="2548" href="BasicTypes.html#2406" class="Function">+-elim</a> <a id="2555" href="BasicTypes.html#2555" class="Bound">A→C</a> <a id="2559" href="BasicTypes.html#2559" class="Bound">B→C</a> <a id="2563" class="Symbol">(</a><a id="2564" href="BasicTypes.html#2248" class="InductiveConstructor">inr</a> <a id="2568" href="BasicTypes.html#2568" class="Bound">x</a><a id="2569" class="Symbol">)</a> <a id="2571" class="Symbol">=</a> <a id="2573" href="BasicTypes.html#2559" class="Bound">B→C</a> <a id="2577" href="BasicTypes.html#2568" class="Bound">x</a>
 
-### Biconditional type
-
-<pre class="Agda">
-<a id="2706" class="Comment">-- Biconditional.</a>
-<a id="_⇔_"></a><a id="2724" href="BasicTypes.html#2724" class="Function Operator">_⇔_</a> <a id="2728" class="Symbol">:</a> <a id="2730" class="Symbol">∀</a> <a id="2732" class="Symbol">{</a><a id="2733" href="BasicTypes.html#2733" class="Bound">ℓ₁</a> <a id="2736" href="BasicTypes.html#2736" class="Bound">ℓ₂</a><a id="2738" class="Symbol">}</a> <a id="2740" class="Symbol">→</a> <a id="2742" href="Intro.html#1442" class="Function">Type</a> <a id="2747" href="BasicTypes.html#2733" class="Bound">ℓ₁</a> <a id="2750" class="Symbol">→</a> <a id="2752" href="Intro.html#1442" class="Function">Type</a> <a id="2757" href="BasicTypes.html#2736" class="Bound">ℓ₂</a> <a id="2760" class="Symbol">→</a> <a id="2762" href="Intro.html#1442" class="Function">Type</a> <a id="2767" class="Symbol">(</a><a id="2768" href="BasicTypes.html#2733" class="Bound">ℓ₁</a> <a id="2771" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="2773" href="BasicTypes.html#2736" class="Bound">ℓ₂</a><a id="2775" class="Symbol">)</a>
-<a id="2777" href="BasicTypes.html#2777" class="Bound">A</a> <a id="2779" href="BasicTypes.html#2724" class="Function Operator">⇔</a> <a id="2781" href="BasicTypes.html#2781" class="Bound">B</a> <a id="2783" class="Symbol">=</a> <a id="2785" class="Symbol">(</a><a id="2786" href="BasicTypes.html#2777" class="Bound">A</a> <a id="2788" class="Symbol">→</a> <a id="2790" href="BasicTypes.html#2781" class="Bound">B</a><a id="2791" class="Symbol">)</a> <a id="2793" href="BasicTypes.html#1956" class="Function Operator">×</a> <a id="2795" class="Symbol">(</a><a id="2796" href="BasicTypes.html#2781" class="Bound">B</a> <a id="2798" class="Symbol">→</a> <a id="2800" href="BasicTypes.html#2777" class="Bound">A</a><a id="2801" class="Symbol">)</a>
-</pre>
-
-### Boolean type
-
-Boolean type, two constants true and false
-
-<pre class="Agda">
-<a id="2890" class="Keyword">data</a> <a id="Bool"></a><a id="2895" href="BasicTypes.html#2895" class="Datatype">Bool</a> <a id="2900" class="Symbol">:</a> <a id="2902" href="Intro.html#1516" class="Function">Type₀</a> <a id="2908" class="Keyword">where</a>
-  <a id="Bool.true"></a><a id="2916" href="BasicTypes.html#2916" class="InductiveConstructor">true</a>  <a id="2922" class="Symbol">:</a> <a id="2924" href="BasicTypes.html#2895" class="Datatype">Bool</a>
-  <a id="Bool.false"></a><a id="2931" href="BasicTypes.html#2931" class="InductiveConstructor">false</a> <a id="2937" class="Symbol">:</a> <a id="2939" href="BasicTypes.html#2895" class="Datatype">Bool</a>
 </pre>
 
 Synonyms:
+
 <pre class="Agda">
-<a id="𝟚"></a><a id="2979" href="BasicTypes.html#2979" class="Function">𝟚</a>  <a id="2982" class="Symbol">=</a> <a id="2984" href="BasicTypes.html#2895" class="Datatype">Bool</a>
-<a id="𝟘₂"></a><a id="2989" href="BasicTypes.html#2989" class="Function">𝟘₂</a> <a id="2992" class="Symbol">=</a> <a id="2994" href="BasicTypes.html#2931" class="InductiveConstructor">false</a>
-<a id="𝟙₂"></a><a id="3000" href="BasicTypes.html#3000" class="Function">𝟙₂</a> <a id="3003" class="Symbol">=</a> <a id="3005" href="BasicTypes.html#2916" class="InductiveConstructor">true</a>
+<a id="cases"></a><a id="2616" href="BasicTypes.html#2616" class="Function">cases</a> <a id="2622" class="Symbol">=</a> <a id="2624" href="BasicTypes.html#2406" class="Function">+-elim</a>
+
+<a id="2632" class="Keyword">syntax</a> <a id="2639" href="BasicTypes.html#2616" class="Function">cases</a> <a id="2645" class="Bound">f</a> <a id="2647" class="Bound">g</a> <a id="2649" class="Symbol">=</a> <a id="2651" class="Function">⟨</a> <a id="2653" class="Bound">f</a> <a id="2655" class="Function">+</a> <a id="2657" class="Bound">g</a> <a id="2659" class="Function">⟩</a>
 </pre>
 
-We find many times writing the negation function, then let's
-make it available:
+### Implications
 
 <pre class="Agda">
-<a id="neg¬"></a><a id="3116" href="BasicTypes.html#3116" class="Function">neg¬</a> <a id="3121" class="Symbol">:</a> <a id="3123" href="BasicTypes.html#2895" class="Datatype">Bool</a> <a id="3128" class="Symbol">→</a> <a id="3130" href="BasicTypes.html#2895" class="Datatype">Bool</a>
-<a id="3135" href="BasicTypes.html#3116" class="Function">neg¬</a> <a id="3140" href="BasicTypes.html#2916" class="InductiveConstructor">true</a>  <a id="3146" class="Symbol">=</a> <a id="3148" href="BasicTypes.html#2931" class="InductiveConstructor">false</a>
-<a id="3154" href="BasicTypes.html#3116" class="Function">neg¬</a> <a id="3159" href="BasicTypes.html#2931" class="InductiveConstructor">false</a> <a id="3165" class="Symbol">=</a> <a id="3167" href="BasicTypes.html#2916" class="InductiveConstructor">true</a>
+<a id="2704" class="Comment">-- Implication.</a>
+<a id="2720" class="Keyword">data</a>
+  <a id="_⇒_"></a><a id="2727" href="BasicTypes.html#2727" class="Datatype Operator">_⇒_</a> <a id="2731" class="Symbol">(</a><a id="2732" href="BasicTypes.html#2732" class="Bound">A</a> <a id="2734" href="BasicTypes.html#2734" class="Bound">B</a> <a id="2736" class="Symbol">:</a> <a id="2738" href="Intro.html#1621" class="Function">Type</a> <a id="2743" href="Intro.html#2061" class="Generalizable">ℓ</a><a id="2744" class="Symbol">)</a>
+    <a id="2750" class="Symbol">:</a> <a id="2752" href="Intro.html#1621" class="Function">Type</a> <a id="2757" href="BasicTypes.html#2743" class="Bound">ℓ</a>
+  <a id="2761" class="Keyword">where</a>
+  <a id="_⇒_.fun"></a><a id="2769" href="BasicTypes.html#2769" class="InductiveConstructor">fun</a> <a id="2773" class="Symbol">:</a> <a id="2775" class="Symbol">(</a><a id="2776" href="BasicTypes.html#2732" class="Bound">A</a> <a id="2778" class="Symbol">→</a> <a id="2780" href="BasicTypes.html#2734" class="Bound">B</a><a id="2781" class="Symbol">)</a> <a id="2783" class="Symbol">→</a> <a id="2785" href="BasicTypes.html#2732" class="Bound">A</a> <a id="2787" href="BasicTypes.html#2727" class="Datatype Operator">⇒</a> <a id="2789" href="BasicTypes.html#2734" class="Bound">B</a>
+</pre>
+
+### Bi-implications
+
+<pre class="Agda">
+<a id="_⇔_"></a><a id="2837" href="BasicTypes.html#2837" class="Function Operator">_⇔_</a>
+  <a id="2843" class="Symbol">:</a> <a id="2845" class="Symbol">∀</a> <a id="2847" class="Symbol">{</a><a id="2848" href="BasicTypes.html#2848" class="Bound">ℓ₁</a> <a id="2851" href="BasicTypes.html#2851" class="Bound">ℓ₂</a><a id="2853" class="Symbol">}</a>
+  <a id="2857" class="Symbol">→</a> <a id="2859" href="Intro.html#1621" class="Function">Type</a> <a id="2864" href="BasicTypes.html#2848" class="Bound">ℓ₁</a> <a id="2867" class="Symbol">→</a> <a id="2869" href="Intro.html#1621" class="Function">Type</a> <a id="2874" href="BasicTypes.html#2851" class="Bound">ℓ₂</a>
+  <a id="2879" class="Comment">-------------------</a>
+  <a id="2901" class="Symbol">→</a> <a id="2903" href="Intro.html#1621" class="Function">Type</a> <a id="2908" class="Symbol">(</a><a id="2909" href="BasicTypes.html#2848" class="Bound">ℓ₁</a> <a id="2912" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="2914" href="BasicTypes.html#2851" class="Bound">ℓ₂</a><a id="2916" class="Symbol">)</a>
+
+<a id="2919" href="BasicTypes.html#2919" class="Bound">A</a> <a id="2921" href="BasicTypes.html#2837" class="Function Operator">⇔</a> <a id="2923" href="BasicTypes.html#2923" class="Bound">B</a> <a id="2925" class="Symbol">=</a> <a id="2927" class="Symbol">(</a><a id="2928" href="BasicTypes.html#2919" class="Bound">A</a> <a id="2930" class="Symbol">→</a> <a id="2932" href="BasicTypes.html#2923" class="Bound">B</a><a id="2933" class="Symbol">)</a> <a id="2935" href="BasicTypes.html#1965" class="Function Operator">×</a> <a id="2937" class="Symbol">(</a><a id="2938" href="BasicTypes.html#2923" class="Bound">B</a> <a id="2940" class="Symbol">→</a> <a id="2942" href="BasicTypes.html#2919" class="Bound">A</a><a id="2943" class="Symbol">)</a>
+</pre>
+
+Synonyms:
+
+<pre class="Agda">
+<a id="_↔_"></a><a id="2981" href="BasicTypes.html#2981" class="Function Operator">_↔_</a> <a id="2985" class="Symbol">=</a> <a id="2987" href="BasicTypes.html#2837" class="Function Operator">_⇔_</a>
+
+<a id="2992" class="Keyword">infix</a> <a id="2998" class="Number">30</a> <a id="3001" href="BasicTypes.html#2981" class="Function Operator">_↔_</a> <a id="3005" href="BasicTypes.html#2837" class="Function Operator">_⇔_</a>
+</pre>
+
+### Booleans
+
+<pre class="Agda">
+<a id="3048" class="Keyword">data</a>
+  <a id="Bool"></a><a id="3055" href="BasicTypes.html#3055" class="Datatype">Bool</a>
+    <a id="3064" class="Symbol">:</a> <a id="3066" href="Intro.html#1700" class="Function">Type₀</a>
+  <a id="3074" class="Keyword">where</a>
+  <a id="Bool.true"></a><a id="3082" href="BasicTypes.html#3082" class="InductiveConstructor">true</a>  <a id="3088" class="Symbol">:</a> <a id="3090" href="BasicTypes.html#3055" class="Datatype">Bool</a>
+  <a id="Bool.false"></a><a id="3097" href="BasicTypes.html#3097" class="InductiveConstructor">false</a> <a id="3103" class="Symbol">:</a> <a id="3105" href="BasicTypes.html#3055" class="Datatype">Bool</a>
+</pre>
+
+Synonyms:
+
+<pre class="Agda">
+<a id="𝟚"></a><a id="3146" href="BasicTypes.html#3146" class="Function">𝟚</a>  <a id="3149" class="Symbol">=</a> <a id="3151" href="BasicTypes.html#3055" class="Datatype">Bool</a>
+</pre>
+
+Constructors synonyms:
+<pre class="Agda">
+<a id="3204" class="Keyword">pattern</a> <a id="𝟘₂"></a><a id="3212" href="BasicTypes.html#3212" class="InductiveConstructor">𝟘₂</a> <a id="3215" class="Symbol">=</a> <a id="3217" href="BasicTypes.html#3097" class="InductiveConstructor">false</a>
+<a id="3223" class="Keyword">pattern</a> <a id="𝟙₂"></a><a id="3231" href="BasicTypes.html#3231" class="InductiveConstructor">𝟙₂</a> <a id="3234" class="Symbol">=</a> <a id="3236" href="BasicTypes.html#3082" class="InductiveConstructor">true</a>
+
+<a id="3242" class="Keyword">pattern</a> <a id="ff"></a><a id="3250" href="BasicTypes.html#3250" class="InductiveConstructor">ff</a> <a id="3253" class="Symbol">=</a> <a id="3255" href="BasicTypes.html#3097" class="InductiveConstructor">false</a>
+<a id="3261" class="Keyword">pattern</a> <a id="tt"></a><a id="3269" href="BasicTypes.html#3269" class="InductiveConstructor">tt</a> <a id="3272" class="Symbol">=</a> <a id="3274" href="BasicTypes.html#3082" class="InductiveConstructor">true</a>
 </pre>
 
 *Booleans can be also defined using the Coproduct.*
 
-### Natural numbers type
+### Natural numbers
 
 Natural numbers are the initial algebra for a constant and a
 successor function. The `BUILTIN` declaration allows us to use
 natural numbers in Arabic notation.
 
 <pre class="Agda">
-<a id="3437" class="Keyword">data</a> <a id="ℕ"></a><a id="3442" href="BasicTypes.html#3442" class="Datatype">ℕ</a> <a id="3444" class="Symbol">:</a> <a id="3446" href="Intro.html#1516" class="Function">Type₀</a> <a id="3452" class="Keyword">where</a>
-  <a id="ℕ.zero"></a><a id="3460" href="BasicTypes.html#3460" class="InductiveConstructor">zero</a> <a id="3465" class="Symbol">:</a> <a id="3467" href="BasicTypes.html#3442" class="Datatype">ℕ</a>
-  <a id="ℕ.succ"></a><a id="3471" href="BasicTypes.html#3471" class="InductiveConstructor">succ</a> <a id="3476" class="Symbol">:</a> <a id="3478" href="BasicTypes.html#3442" class="Datatype">ℕ</a> <a id="3480" class="Symbol">→</a> <a id="3482" href="BasicTypes.html#3442" class="Datatype">ℕ</a>
+<a id="3539" class="Keyword">data</a>
+  <a id="ℕ"></a><a id="3546" href="BasicTypes.html#3546" class="Datatype">ℕ</a>
+    <a id="3552" class="Symbol">:</a> <a id="3554" href="Intro.html#1700" class="Function">Type₀</a>
+  <a id="3562" class="Keyword">where</a>
+  <a id="ℕ.zero"></a><a id="3570" href="BasicTypes.html#3570" class="InductiveConstructor">zero</a> <a id="3575" class="Symbol">:</a> <a id="3577" href="BasicTypes.html#3546" class="Datatype">ℕ</a>
+  <a id="ℕ.succ"></a><a id="3581" href="BasicTypes.html#3581" class="InductiveConstructor">succ</a> <a id="3586" class="Symbol">:</a> <a id="3588" href="BasicTypes.html#3546" class="Datatype">ℕ</a> <a id="3590" class="Symbol">→</a> <a id="3592" href="BasicTypes.html#3546" class="Datatype">ℕ</a>
+</pre>
 
-<a id="3485" class="Symbol">{-#</a> <a id="3489" class="Keyword">BUILTIN</a> <a id="3497" class="Pragma">NATURAL</a> <a id="3505" href="BasicTypes.html#3442" class="Datatype">ℕ</a> <a id="3507" class="Symbol">#-}</a>
 
-<a id="3512" class="Comment">-- synonyms for natural numbers</a>
-<a id="Nat"></a><a id="3544" href="BasicTypes.html#3544" class="Function">Nat</a> <a id="3548" class="Symbol">=</a> <a id="3550" href="BasicTypes.html#3442" class="Datatype">ℕ</a>
+Synonyms for natural numbers
+
+<pre class="Agda">
+<a id="Nat"></a><a id="3650" href="BasicTypes.html#3650" class="Function">Nat</a> <a id="3654" class="Symbol">=</a> <a id="3656" href="BasicTypes.html#3546" class="Datatype">ℕ</a>
+
+<a id="3659" class="Keyword">pattern</a> <a id="z"></a><a id="3667" href="BasicTypes.html#3667" class="InductiveConstructor">z</a>  <a id="3670" class="Symbol">=</a> <a id="3672" href="BasicTypes.html#3570" class="InductiveConstructor">zero</a>
+<a id="3677" class="Keyword">pattern</a> <a id="sc"></a><a id="3685" href="BasicTypes.html#3685" class="InductiveConstructor">sc</a> <a id="3688" class="Symbol">=</a> <a id="3690" href="BasicTypes.html#3581" class="InductiveConstructor">succ</a>
+
+<a id="3696" class="Symbol">{-#</a> <a id="3700" class="Keyword">BUILTIN</a> <a id="3708" class="Pragma">NATURAL</a> <a id="3716" href="BasicTypes.html#3546" class="Datatype">ℕ</a> <a id="3718" class="Symbol">#-}</a>
+</pre>
+
+### Equalities
+
+In HoTT, we have a different interpretation of type theory in which the
+set-theoretical notion of *sets* for *types* is replaced by the topological
+notion of *spaces*.
+
+The (homogeneous) equality type also called identity type is considered a primary type
+(included in the theory by default). To form this type, we fix a type `A` and a
+term `a : A`, to have the identity type `a == a`, also denoted by `Id(a,a)` or
+`a⇝a`. We only have one constructor of these types called `idp` or sometimes
+`refl`. To use identity types, we have below the J-eliminator.
+
+<pre class="Agda">
+<a id="4319" class="Keyword">data</a>
+  <a id="_==_"></a><a id="4326" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a> <a id="4331" class="Symbol">{</a><a id="4332" href="BasicTypes.html#4332" class="Bound">A</a> <a id="4334" class="Symbol">:</a> <a id="4336" href="Intro.html#1621" class="Function">Type</a> <a id="4341" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="4343" class="Symbol">}</a> <a id="4345" class="Symbol">(</a><a id="4346" href="BasicTypes.html#4346" class="Bound">a</a> <a id="4348" class="Symbol">:</a> <a id="4350" href="BasicTypes.html#4332" class="Bound">A</a><a id="4351" class="Symbol">)</a>
+    <a id="4357" class="Symbol">:</a> <a id="4359" href="BasicTypes.html#4332" class="Bound">A</a> <a id="4361" class="Symbol">→</a> <a id="4363" href="Intro.html#1621" class="Function">Type</a> <a id="4368" href="BasicTypes.html#4341" class="Bound">ℓᵢ</a>
+  <a id="4373" class="Keyword">where</a>
+  <a id="_==_.idp"></a><a id="4381" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a> <a id="4385" class="Symbol">:</a> <a id="4387" href="BasicTypes.html#4346" class="Bound">a</a> <a id="4389" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="4392" href="BasicTypes.html#4346" class="Bound">a</a>
+</pre>
+
+<pre class="Agda">
+<a id="4419" class="Comment">-- synonyms for the identity type</a>
+<a id="Eq"></a><a id="4453" href="BasicTypes.html#4453" class="Function">Eq</a>   <a id="4458" class="Symbol">=</a> <a id="4460" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a>
+<a id="Id"></a><a id="4465" href="BasicTypes.html#4465" class="Function">Id</a>   <a id="4470" class="Symbol">=</a> <a id="4472" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a>
+<a id="Path"></a><a id="4477" href="BasicTypes.html#4477" class="Function">Path</a> <a id="4482" class="Symbol">=</a> <a id="4484" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a>
+<a id="_⇝_"></a><a id="4489" href="BasicTypes.html#4489" class="Function Operator">_⇝_</a>  <a id="4494" class="Symbol">=</a> <a id="4496" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a>   <a id="4503" class="Comment">-- &#39;\r~&#39;</a>
+<a id="_≡_"></a><a id="4512" href="BasicTypes.html#4512" class="Function Operator">_≡_</a>  <a id="4517" class="Symbol">=</a> <a id="4519" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a>   <a id="4526" class="Comment">-- &#39;\equiv&#39;</a>
+
+<a id="4539" class="Keyword">infix</a> <a id="4545" class="Number">30</a> <a id="4548" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a> <a id="4553" href="BasicTypes.html#4489" class="Function Operator">_⇝_</a> <a id="4557" href="BasicTypes.html#4512" class="Function Operator">_≡_</a>
+
+<a id="4562" class="Symbol">{-#</a> <a id="4566" class="Keyword">BUILTIN</a> <a id="4574" class="Pragma">EQUALITY</a> <a id="4583" href="BasicTypes.html#4326" class="Datatype Operator">_==_</a>  <a id="4589" class="Symbol">#-}</a>
+</pre>
+
+<pre class="Agda">
+<a id="refl"></a><a id="4618" href="BasicTypes.html#4618" class="Function">refl</a>
+  <a id="4625" class="Symbol">:</a> <a id="4627" class="Symbol">∀</a> <a id="4629" class="Symbol">{</a><a id="4630" href="BasicTypes.html#4630" class="Bound">A</a> <a id="4632" class="Symbol">:</a> <a id="4634" href="Intro.html#1621" class="Function">Type</a> <a id="4639" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="4641" class="Symbol">}</a>
+  <a id="4645" class="Symbol">→</a> <a id="4647" class="Symbol">(</a><a id="4648" href="BasicTypes.html#4648" class="Bound">a</a> <a id="4650" class="Symbol">:</a> <a id="4652" href="BasicTypes.html#4630" class="Bound">A</a><a id="4653" class="Symbol">)</a>
+  <a id="4657" class="Comment">-----------------</a>
+  <a id="4677" class="Symbol">→</a> <a id="4679" href="BasicTypes.html#4648" class="Bound">a</a> <a id="4681" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="4684" href="BasicTypes.html#4648" class="Bound">a</a>
+
+<a id="4687" href="BasicTypes.html#4618" class="Function">refl</a> <a id="4692" class="Symbol">{</a><a id="4693" href="BasicTypes.html#4693" class="Bound">ℓᵢ</a><a id="4695" class="Symbol">}{</a><a id="4697" href="BasicTypes.html#4697" class="Bound">A</a><a id="4698" class="Symbol">}</a> <a id="4700" href="BasicTypes.html#4700" class="Bound">a</a> <a id="4702" class="Symbol">=</a> <a id="4704" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a>
+</pre>
+
+
+Symmetry property for the identity types.
+
+<pre class="Agda">
+<a id="sym"></a><a id="4777" href="BasicTypes.html#4777" class="Function">sym</a>
+  <a id="4783" class="Symbol">:</a> <a id="4785" class="Symbol">∀</a> <a id="4787" class="Symbol">{</a><a id="4788" href="BasicTypes.html#4788" class="Bound">A</a> <a id="4790" class="Symbol">:</a> <a id="4792" href="Intro.html#1621" class="Function">Type</a> <a id="4797" href="Intro.html#2061" class="Generalizable">ℓ</a><a id="4798" class="Symbol">}{</a><a id="4800" href="BasicTypes.html#4800" class="Bound">x</a> <a id="4802" href="BasicTypes.html#4802" class="Bound">y</a> <a id="4804" class="Symbol">:</a> <a id="4806" href="BasicTypes.html#4788" class="Bound">A</a><a id="4807" class="Symbol">}</a>
+  <a id="4811" class="Symbol">→</a> <a id="4813" href="BasicTypes.html#4800" class="Bound">x</a> <a id="4815" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="4818" href="BasicTypes.html#4802" class="Bound">y</a>
+  <a id="4822" class="Comment">----------------------------</a>
+  <a id="4853" class="Symbol">→</a> <a id="4855" href="BasicTypes.html#4802" class="Bound">y</a> <a id="4857" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="4860" href="BasicTypes.html#4800" class="Bound">x</a>
+
+<a id="4863" href="BasicTypes.html#4777" class="Function">sym</a> <a id="4867" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a> <a id="4871" class="Symbol">=</a> <a id="4873" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a>
+
+<a id="4878" class="Keyword">syntax</a> <a id="4885" href="BasicTypes.html#4777" class="Function">sym</a> <a id="4889" class="Bound">p</a> <a id="4891" class="Symbol">=</a> <a id="4893" class="Function">−</a> <a id="4895" class="Bound">p</a>
+</pre>
+
+To work with identity types, we have its induction principle as the J-eliminator.
+
+*Paulin-Mohring J rule*
+
+{: .foldable until="6" }
+<pre class="Agda">
+<a id="J"></a><a id="5055" href="BasicTypes.html#5055" class="Function">J</a>
+  <a id="5059" class="Symbol">:</a> <a id="5061" class="Symbol">∀</a> <a id="5063" class="Symbol">{</a><a id="5064" href="BasicTypes.html#5064" class="Bound">A</a> <a id="5066" class="Symbol">:</a> <a id="5068" href="Intro.html#1621" class="Function">Type</a> <a id="5073" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="5075" class="Symbol">}</a> <a id="5077" class="Symbol">{</a><a id="5078" href="BasicTypes.html#5078" class="Bound">a</a> <a id="5080" class="Symbol">:</a> <a id="5082" href="BasicTypes.html#5064" class="Bound">A</a><a id="5083" class="Symbol">}</a>
+  <a id="5087" class="Symbol">→</a> <a id="5089" class="Symbol">(</a><a id="5090" href="BasicTypes.html#5090" class="Bound">B</a> <a id="5092" class="Symbol">:</a> <a id="5094" class="Symbol">(</a><a id="5095" href="BasicTypes.html#5095" class="Bound">a&#39;</a> <a id="5098" class="Symbol">:</a> <a id="5100" href="BasicTypes.html#5064" class="Bound">A</a><a id="5101" class="Symbol">)</a> <a id="5103" class="Symbol">(</a><a id="5104" href="BasicTypes.html#5104" class="Bound">p</a> <a id="5106" class="Symbol">:</a> <a id="5108" href="BasicTypes.html#5078" class="Bound">a</a> <a id="5110" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="5113" href="BasicTypes.html#5095" class="Bound">a&#39;</a><a id="5115" class="Symbol">)</a> <a id="5117" class="Symbol">→</a> <a id="5119" href="Intro.html#1621" class="Function">Type</a> <a id="5124" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="5126" class="Symbol">)</a>
+  <a id="5130" class="Symbol">→</a> <a id="5132" class="Symbol">(</a><a id="5133" href="BasicTypes.html#5133" class="Bound">d</a> <a id="5135" class="Symbol">:</a> <a id="5137" href="BasicTypes.html#5090" class="Bound">B</a> <a id="5139" href="BasicTypes.html#5078" class="Bound">a</a> <a id="5141" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a><a id="5144" class="Symbol">)</a>
+  <a id="5148" class="Comment">----------------------------------------</a>
+  <a id="5191" class="Symbol">→</a> <a id="5193" class="Symbol">{</a><a id="5194" href="BasicTypes.html#5194" class="Bound">a&#39;</a> <a id="5197" class="Symbol">:</a> <a id="5199" href="BasicTypes.html#5064" class="Bound">A</a><a id="5200" class="Symbol">}</a> <a id="5202" class="Symbol">(</a><a id="5203" href="BasicTypes.html#5203" class="Bound">p</a> <a id="5205" class="Symbol">:</a> <a id="5207" href="BasicTypes.html#5078" class="Bound">a</a> <a id="5209" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="5212" href="BasicTypes.html#5194" class="Bound">a&#39;</a><a id="5214" class="Symbol">)</a> <a id="5216" class="Symbol">→</a> <a id="5218" href="BasicTypes.html#5090" class="Bound">B</a> <a id="5220" href="BasicTypes.html#5194" class="Bound">a&#39;</a> <a id="5223" href="BasicTypes.html#5203" class="Bound">p</a>
+
+<a id="5226" href="BasicTypes.html#5055" class="Function">J</a> <a id="5228" class="Symbol">{</a><a id="5229" class="Argument">a</a> <a id="5231" class="Symbol">=</a> <a id="5233" href="BasicTypes.html#5233" class="Bound">a</a><a id="5234" class="Symbol">}</a> <a id="5236" href="BasicTypes.html#5236" class="Bound">B</a> <a id="5238" href="BasicTypes.html#5238" class="Bound">d</a> <a id="5240" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a> <a id="5244" class="Symbol">=</a> <a id="5246" href="BasicTypes.html#5238" class="Bound">d</a>
+</pre>
+
+{: .foldable until="6" }
+<pre class="Agda">
+<a id="J&#39;"></a><a id="5298" href="BasicTypes.html#5298" class="Function">J&#39;</a>
+  <a id="5303" class="Symbol">:</a> <a id="5305" class="Symbol">∀</a> <a id="5307" class="Symbol">{</a><a id="5308" href="BasicTypes.html#5308" class="Bound">A</a> <a id="5310" class="Symbol">:</a> <a id="5312" href="Intro.html#1621" class="Function">Type</a> <a id="5317" href="Intro.html#2063" class="Generalizable">ℓᵢ</a><a id="5319" class="Symbol">}</a> <a id="5321" class="Symbol">{</a><a id="5322" href="BasicTypes.html#5322" class="Bound">a</a> <a id="5324" class="Symbol">:</a> <a id="5326" href="BasicTypes.html#5308" class="Bound">A</a><a id="5327" class="Symbol">}</a>
+  <a id="5331" class="Symbol">→</a> <a id="5333" class="Symbol">(</a><a id="5334" href="BasicTypes.html#5334" class="Bound">B</a> <a id="5336" class="Symbol">:</a> <a id="5338" class="Symbol">(</a><a id="5339" href="BasicTypes.html#5339" class="Bound">a&#39;</a> <a id="5342" class="Symbol">:</a> <a id="5344" href="BasicTypes.html#5308" class="Bound">A</a><a id="5345" class="Symbol">)</a> <a id="5347" class="Symbol">(</a><a id="5348" href="BasicTypes.html#5348" class="Bound">p</a> <a id="5350" class="Symbol">:</a> <a id="5352" href="BasicTypes.html#5339" class="Bound">a&#39;</a> <a id="5355" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="5358" href="BasicTypes.html#5322" class="Bound">a</a><a id="5359" class="Symbol">)</a> <a id="5361" class="Symbol">→</a> <a id="5363" href="Intro.html#1621" class="Function">Type</a> <a id="5368" href="Intro.html#2066" class="Generalizable">ℓⱼ</a><a id="5370" class="Symbol">)</a>
+  <a id="5374" class="Symbol">→</a> <a id="5376" class="Symbol">(</a><a id="5377" href="BasicTypes.html#5377" class="Bound">d</a> <a id="5379" class="Symbol">:</a> <a id="5381" href="BasicTypes.html#5334" class="Bound">B</a> <a id="5383" href="BasicTypes.html#5322" class="Bound">a</a> <a id="5385" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a><a id="5388" class="Symbol">)</a>
+  <a id="5392" class="Comment">----------------------------------------</a>
+  <a id="5435" class="Symbol">→</a> <a id="5437" class="Symbol">{</a><a id="5438" href="BasicTypes.html#5438" class="Bound">a&#39;</a> <a id="5441" class="Symbol">:</a> <a id="5443" href="BasicTypes.html#5308" class="Bound">A</a><a id="5444" class="Symbol">}</a> <a id="5446" class="Symbol">(</a><a id="5447" href="BasicTypes.html#5447" class="Bound">p</a> <a id="5449" class="Symbol">:</a> <a id="5451" href="BasicTypes.html#5438" class="Bound">a&#39;</a> <a id="5454" href="BasicTypes.html#4326" class="Datatype Operator">==</a> <a id="5457" href="BasicTypes.html#5322" class="Bound">a</a><a id="5458" class="Symbol">)</a> <a id="5460" class="Symbol">→</a> <a id="5462" href="BasicTypes.html#5334" class="Bound">B</a> <a id="5464" href="BasicTypes.html#5438" class="Bound">a&#39;</a> <a id="5467" href="BasicTypes.html#5447" class="Bound">p</a>
+
+<a id="5470" href="BasicTypes.html#5298" class="Function">J&#39;</a> <a id="5473" class="Symbol">{</a><a id="5474" class="Argument">a</a> <a id="5476" class="Symbol">=</a> <a id="5478" href="BasicTypes.html#5478" class="Bound">a</a><a id="5479" class="Symbol">}</a> <a id="5481" href="BasicTypes.html#5481" class="Bound">B</a> <a id="5483" href="BasicTypes.html#5483" class="Bound">d</a> <a id="5485" href="BasicTypes.html#4381" class="InductiveConstructor">idp</a> <a id="5489" class="Symbol">=</a> <a id="5491" href="BasicTypes.html#5483" class="Bound">d</a>
 </pre>

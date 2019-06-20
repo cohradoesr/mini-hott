@@ -19,15 +19,24 @@ open import Intro public
 \end{code}
 </div>
 
+# Type theory
+
+## Types
+
 ### Empty type
 
 A datatype without *constructors* is the *empty type*. This represents  the *falsehood*.
 
 \begin{code}
-data ⊥ {ℓᵢ} : Type ℓᵢ where
+data
+  ⊥ {ℓᵢ}
+    : Type ℓᵢ
+  where
+  -- Nothing
 \end{code}
 
 Synonyms of ⊥:
+
 \begin{code}
 Empty = ⊥
 𝟘     = ⊥
@@ -37,7 +46,7 @@ Its *eliminator* principle also called *Ex falso quodlibet*:
 
 \begin{code}
 exfalso
-  : ∀ {ℓ ℓᵢ} {A : Type ℓ}
+  : ∀ {A : Type ℓ}
   → ⊥ {ℓᵢ}
   --------
   → A
@@ -55,7 +64,7 @@ Empty-elim = exfalso
 
 The negation function:
 \begin{code}
-¬ : ∀ {ℓ} → Type ℓ → Type ℓ
+¬ : Type ℓ → Type ℓ
 ¬ A = (A → ⊥ {lzero})
 \end{code}
 
@@ -65,7 +74,7 @@ The *unit type* is defined as a record to get also the $η$-rule
 definitionally. This type has no elimination rule.
 
 \begin{code}
-record ⊤ {ℓ} : Type ℓ where
+record ⊤ : Type ℓ where
   constructor ★
 
 {-# BUILTIN UNIT ⊤ #-}
@@ -79,26 +88,33 @@ Unit = ⊤
 
 Synonyms for the data constructor:
 \begin{code}
-unit : ∀ {ℓ} → ⊤ {ℓ}
-unit = ★
+pattern unit = ★
+pattern ∗    = ★
 \end{code}
 
-### Σ-type
-
-We define Sigma types as a particular case of records in [`Agda`.](https://tinyurl.com/agda-records)
+### ∑-types
 
 \begin{code}
 infixr 60 _,_
-record Σ {ℓᵢ ℓⱼ} (A : Type ℓᵢ)(C : A → Type ℓⱼ) : Type (ℓᵢ ⊔ ℓⱼ) where
+record
+  ∑ (A : Type ℓᵢ)(B : A → Type ℓⱼ)
+   : Type (ℓᵢ ⊔ ℓⱼ)
+  where
   constructor _,_
   field
     π₁ : A
-    π₂ : C π₁
+    π₂ : B π₁
 
-open Σ public
+open ∑ public
 \end{code}
 
-Synonyms for its data constructors:
+Symbol synonym:
+
+\begin{code}
+Σ = ∑  -- \Sigma and \sum
+\end{code}
+
+Constructor synonyms:
 
 \begin{code}
 proj₁ = π₁
@@ -113,113 +129,246 @@ snd   = π₂
 
 ### Π-types
 
-Shorter notation for Π-types.
-
 \begin{code}
 Π
-  : ∀ {ℓᵢ ℓⱼ}
-  → (A : Type ℓᵢ) (P : A → Type ℓⱼ)
+  : (A : Type ℓᵢ) (P : A → Type ℓⱼ)
   --------------------------------
   → Type (ℓᵢ ⊔ ℓⱼ)
 
 Π A P = (x : A) → P x
 \end{code}
 
-### Product type
+Synonyms
+\begin{code}
+∏ = Π   -- \prod vs \Pi
+\end{code}
+
+### Products
 
 Product type as a particular case of the Sigma type.
 
 \begin{code}
--- infixl  50 _×_
+infixl  39 _×_
+
 _×_
-  : ∀ {ℓᵢ ℓⱼ}
-  → (A : Type ℓᵢ) (B : Type ℓⱼ)
+  : (A : Type ℓᵢ) (B : Type ℓⱼ)
   ----------------------------
   → Type (ℓᵢ ⊔ ℓⱼ)
 
-A × B = Σ A (λ _ → B)
+A × B = ∑ A (λ _ → B)
 \end{code}
 
-### Coproduct type
+### Coproducts
 
 Sum types as inductive types
 
 \begin{code}
-infixr 80 _+_
-data _+_ {ℓᵢ ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ) : Type (ℓᵢ ⊔ ℓⱼ) where
+infixr 31 _+_
+
+data
+  _+_ (A : Type ℓᵢ) (B : Type ℓⱼ)
+    : Type (ℓᵢ ⊔ ℓⱼ)
+  where
   inl : A → A + B
   inr : B → A + B
 \end{code}
 
-Its elimination principle also called "cases":
+Constructors synonyms:
 
 \begin{code}
+pattern left  = inl
+pattern right = inr
+\end{code}
 
-+-elim : ∀{ℓ₁ ℓ₂ ℓ₃}{A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+The elimination principle:
+
+\begin{code}
++-elim
+  : {A : Type ℓᵢ}{B : Type ℓⱼ}{C : Type ℓₖ}
   → (A → C) → (B → C)
   -------------------
   → (A + B) → C
 +-elim A→C B→C (inl x) = A→C x
 +-elim A→C B→C (inr x) = B→C x
+
 \end{code}
 
-### Implication type
+Synonyms:
+
+\begin{code}
+cases = +-elim
+
+syntax cases f g = ⟨ f + g ⟩
+\end{code}
+
+### Implications
 
 \begin{code}
 -- Implication.
-data _⇒_ {ℓ}(A B : Type ℓ) : Type ℓ where
+data
+  _⇒_ (A B : Type ℓ)
+    : Type ℓ
+  where
   fun : (A → B) → A ⇒ B
 \end{code}
 
-### Biconditional type
+### Bi-implications
 
 \begin{code}
--- Biconditional.
-_⇔_ : ∀ {ℓ₁ ℓ₂} → Type ℓ₁ → Type ℓ₂ → Type (ℓ₁ ⊔ ℓ₂)
+_⇔_
+  : ∀ {ℓ₁ ℓ₂}
+  → Type ℓ₁ → Type ℓ₂
+  -------------------
+  → Type (ℓ₁ ⊔ ℓ₂)
+
 A ⇔ B = (A → B) × (B → A)
 \end{code}
 
-### Boolean type
-
-Boolean type, two constants true and false
+Synonyms:
 
 \begin{code}
-data Bool : Type₀ where
+_↔_ = _⇔_
+
+infix 30 _↔_ _⇔_
+\end{code}
+
+### Booleans
+
+\begin{code}
+data
+  Bool
+    : Type₀
+  where
   true  : Bool
   false : Bool
 \end{code}
 
 Synonyms:
+
 \begin{code}
 𝟚  = Bool
-𝟘₂ = false
-𝟙₂ = true
 \end{code}
 
-We find many times writing the negation function, then let's
-make it available:
-
+Constructors synonyms:
 \begin{code}
-neg¬ : Bool → Bool
-neg¬ true  = false
-neg¬ false = true
+pattern 𝟘₂ = false
+pattern 𝟙₂ = true
+
+pattern ff = false
+pattern tt = true
 \end{code}
 
 *Booleans can be also defined using the Coproduct.*
 
-### Natural numbers type
+### Natural numbers
 
 Natural numbers are the initial algebra for a constant and a
 successor function. The `BUILTIN` declaration allows us to use
 natural numbers in Arabic notation.
 
 \begin{code}
-data ℕ : Type₀ where
+data
+  ℕ
+    : Type₀
+  where
   zero : ℕ
   succ : ℕ → ℕ
+\end{code}
+
+
+Synonyms for natural numbers
+
+\begin{code}
+Nat = ℕ
+
+pattern z  = zero
+pattern sc = succ
 
 {-# BUILTIN NATURAL ℕ #-}
+\end{code}
 
--- synonyms for natural numbers
-Nat = ℕ
+### Equalities
+
+In HoTT, we have a different interpretation of type theory in which the
+set-theoretical notion of *sets* for *types* is replaced by the topological
+notion of *spaces*.
+
+The (homogeneous) equality type also called identity type is considered a primary type
+(included in the theory by default). To form this type, we fix a type `A` and a
+term `a : A`, to have the identity type `a == a`, also denoted by `Id(a,a)` or
+`a⇝a`. We only have one constructor of these types called `idp` or sometimes
+`refl`. To use identity types, we have below the J-eliminator.
+
+\begin{code}
+data
+  _==_ {A : Type ℓᵢ} (a : A)
+    : A → Type ℓᵢ
+  where
+  idp : a == a
+\end{code}
+
+\begin{code}
+-- synonyms for the identity type
+Eq   = _==_
+Id   = _==_
+Path = _==_
+_⇝_  = _==_   -- '\r~'
+_≡_  = _==_   -- '\equiv'
+
+infix 30 _==_ _⇝_ _≡_
+
+{-# BUILTIN EQUALITY _==_  #-}
+\end{code}
+
+\begin{code}
+refl
+  : ∀ {A : Type ℓᵢ}
+  → (a : A)
+  -----------------
+  → a == a
+
+refl {ℓᵢ}{A} a = idp
+\end{code}
+
+
+Symmetry property for the identity types.
+
+\begin{code}
+sym
+  : ∀ {A : Type ℓ}{x y : A}
+  → x == y
+  ----------------------------
+  → y == x
+
+sym idp = idp
+
+syntax sym p = − p
+\end{code}
+
+To work with identity types, we have its induction principle as the J-eliminator.
+
+*Paulin-Mohring J rule*
+
+{: .foldable until="6" }
+\begin{code}
+J
+  : ∀ {A : Type ℓᵢ} {a : A}
+  → (B : (a' : A) (p : a == a') → Type ℓⱼ)
+  → (d : B a idp)
+  ----------------------------------------
+  → {a' : A} (p : a == a') → B a' p
+
+J {a = a} B d idp = d
+\end{code}
+
+{: .foldable until="6" }
+\begin{code}
+J'
+  : ∀ {A : Type ℓᵢ} {a : A}
+  → (B : (a' : A) (p : a' == a) → Type ℓⱼ)
+  → (d : B a idp)
+  ----------------------------------------
+  → {a' : A} (p : a' == a) → B a' p
+
+J' {a = a} B d idp = d
 \end{code}

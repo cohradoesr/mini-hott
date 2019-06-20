@@ -1,1 +1,147 @@
-% This file is generated automatically. 
+---
+layout: page
+title: "Relation Type"
+toc: true
+agda: true
+gallery: true
+latex: true
+references: true
+linkify: true
+showcitation: true
+home: true
+---
+
+<div class="hide" >
+\begin{code}%
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{OPTIONS}\AgdaSpace{}%
+\AgdaPragma{--without-K}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{TransportLemmas}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{EquivalenceType}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HomotopyType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{FunExtAxiom}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HLevelTypes}\<%
+\end{code}
+</div>
+
+\begin{code}%
+\>[0]\AgdaKeyword{module}\AgdaSpace{}%
+\AgdaModule{MonoidType}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaKeyword{where}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaKeyword{record}\AgdaSpace{}%
+\AgdaRecord{Monoid}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaKeyword{where}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaKeyword{field}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaComment{-- Operations of a monoid}\<%
+\\
+%
+\>[6]\AgdaField{G}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\<%
+\\
+%
+\>[6]\AgdaField{GisSet}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaField{G}\<%
+\\
+%
+\>[6]\AgdaOperator{\AgdaField{\AgdaUnderscore{}<>\AgdaUnderscore{}}}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaField{G}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaField{G}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaField{G}%
+\>[24]\AgdaComment{-- Multiplication function}\<%
+\\
+%
+\>[6]\AgdaField{e}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaField{G}%
+\>[24]\AgdaComment{-- Unit element}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[6]\AgdaComment{-- Axioms of a monoid}\<%
+\\
+%
+\>[6]\AgdaField{lunit}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaField{G}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaField{e}\AgdaSpace{}%
+\AgdaOperator{\AgdaField{<>}}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{x}\<%
+\\
+%
+\>[6]\AgdaField{runit}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaField{G}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaOperator{\AgdaField{<>}}\AgdaSpace{}%
+\AgdaField{e}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{x}\<%
+\\
+%
+\>[6]\AgdaField{assoc}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSpace{}%
+\AgdaBound{z}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaField{G}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaOperator{\AgdaField{<>}}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{y}\AgdaSpace{}%
+\AgdaOperator{\AgdaField{<>}}\AgdaSpace{}%
+\AgdaBound{z}\AgdaSymbol{))}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaSymbol{((}\AgdaBound{x}\AgdaSpace{}%
+\AgdaOperator{\AgdaField{<>}}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaField{<>}}\AgdaSpace{}%
+\AgdaBound{z}\AgdaSymbol{)}\<%
+\end{code}

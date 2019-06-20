@@ -1,5 +1,6 @@
 {-# OPTIONS --without-K #-}
 open import TransportLemmas
+open import ProductIdentities
 open import EquivalenceType
 open import HomotopyType
 module DecidableEquality {ℓ} where

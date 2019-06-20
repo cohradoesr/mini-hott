@@ -15,11 +15,12 @@ home: true
 <div class="hide" >
 \begin{code} %latex:prop
 {-# OPTIONS --without-K #-}
-open import EqualityType public
+open import BasicTypes public
+open import BasicFunctions public
 \end{code}
 </div>
 
-## Actions on paths
+## Path algebra
 
 Functions are functors to equalities.  In other words, functions
 preserve equalities.
@@ -27,13 +28,21 @@ preserve equalities.
 {: .foldable until="6" }
 \begin{code}
 ap
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (f : A → B) {a₁ a₂ : A}
   → a₁ == a₂
   --------------
   → f a₁ == f a₂
 
 ap f idp = idp
+\end{code}
+
+Synonyms:
+
+\begin{code}
+cong  = ap
+app-≡ = ap
+syntax app-≡ f p = f [[ p ]]
 \end{code}
 
 Now, we can define a convenient syntax sugar for `ap` in
@@ -76,7 +85,7 @@ Lastly, we can also define actions on two paths:
 {: .foldable until="7" }
 \begin{code}
 ap₂
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}  {b₁ b₂ : B}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}  {b₁ b₂ : B}
   → (f : A → B → C)
   → {a₁ a₂ : A} → (a₁ == a₂)
   → {b₁ b₂ : B} → (b₁ == b₂)
@@ -86,12 +95,10 @@ ap₂
 ap₂ f idp idp = idp
 \end{code}
 
-### Lemmas
-
 {: .foldable until="5" }
 \begin{code}
 ap-·
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} {a b c : A}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {a b c : A}
   → (f : A → B) → (p : a == b) → (q : b == c)
   -------------------------------------------
   → ap f (p · q) == ap f p · ap f q
@@ -102,7 +109,7 @@ ap-· f idp q = refl (ap f q)
 {: .foldable until="5" }
 \begin{code}
 ap-inv
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} {a b : A}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {a b : A}
   → (f : A → B) → (p : a == b)
   ----------------------------
   → ap f (p ⁻¹) == (ap f p) ⁻¹
@@ -116,7 +123,7 @@ ap-! = ap-inv
 {: .foldable until="7" }
 \begin{code}
 ap-comp
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a b : A}
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a b : A}
   → (f : A → B)
   → (g : B → C)
   → (p : a == b)
@@ -129,7 +136,7 @@ ap-comp f g idp = idp
 {: .foldable until="5" }
 \begin{code}
 ap-id
-  : ∀ {ℓᵢ} {A : Type ℓᵢ} {a b : A}
+  : ∀ {A : Type ℓᵢ} {a b : A}
   → (p : a == b)
   --------------
   → ap id p == p
@@ -140,7 +147,7 @@ ap-id idp = idp
 {: .foldable until="5" }
 \begin{code}
 ap-const
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {C : Type ℓⱼ} {a b : A} {c : C}
+  : ∀ {A : Type ℓᵢ} {C : Type ℓⱼ} {a b : A} {c : C}
   → (p : a == b)
   -----------------------
   → ap (λ _ → c) p == idp
@@ -155,7 +162,7 @@ Some properties on the groupoid structure of equalities
 {: .foldable until="5" }
 \begin{code}
 ·-runit
-  : ∀ {ℓ} {A : Type ℓ} {a b : A}
+  : ∀ {A : Type ℓ} {a b : A}
   → (p : a == b)
   --------------
   → p == p · idp
@@ -166,7 +173,7 @@ Some properties on the groupoid structure of equalities
 {: .foldable until="5" }
 \begin{code}
 ·-lunit
-  : ∀ {ℓ} {A : Type ℓ} {a b : A}
+  : ∀ {A : Type ℓ} {a b : A}
   → (p : a == b)
   --------------
   → p == idp · p
@@ -177,29 +184,33 @@ Some properties on the groupoid structure of equalities
 {: .foldable until="5" }
 \begin{code}
 ·-linv
-  : ∀ {ℓ} {A : Type ℓ} {a b : A}
+  : ∀ {A : Type ℓ} {a b : A}
   → (p : a == b)
   ----------------
   → ! p · p == idp
 
 ·-linv idp = idp
+
+≡-inverse-left = ·-linv
 \end{code}
 
 {: .foldable until="5" }
 \begin{code}
 ·-rinv
-  : ∀ {ℓ} {A : Type ℓ} {a b : A}
+  : ∀ {A : Type ℓ} {a b : A}
   → (p : a == b)
   ----------------
   → p · ! p == idp
 
 ·-rinv idp = idp
+
+≡-inverse-right  = ·-rinv
 \end{code}
 
 {: .foldable until="5" }
 \begin{code}
 involution
-  : ∀ {ℓ} {A : Type ℓ} {a b : A}
+  : ∀ {A : Type ℓ} {a b : A}
   → {p : a == b}
   ---------------
   → ! (! p) == p
@@ -210,7 +221,7 @@ involution {p = idp} = idp
 {: .foldable until="5" }
 \begin{code}
 ·-assoc
-  : ∀ {ℓ} {A : Type ℓ} {a b c d : A}
+  : ∀ {A : Type ℓ} {a b c d : A}
   → (p : a == b) → (q : b == c) → (r : c == d)
   --------------------------------------------
   → p · q · r == p · (q · r)
@@ -221,7 +232,7 @@ involution {p = idp} = idp
 {: .foldable until="6" }
 \begin{code}
 ·-cancellation
-  : ∀ {ℓ} {A : Type ℓ} {a : A}
+  : ∀ {A : Type ℓ} {a : A}
   → (p : a == a) → (q : a == a) → p · q == p
   -----------------------------------------
   → q == refl a
@@ -242,7 +253,7 @@ so let's define some handy functions for that.
 {: .foldable until="5" }
 \begin{code}
 ·-left-to-right-l
-  : ∀ {ℓ} {A : Type ℓ} {a b c : A} {p : a == b} {q : b == c} {r : a == c}
+  : ∀ {A : Type ℓ} {a b c : A} {p : a == b} {q : b == c} {r : a == c}
   → p · q == r
   ------------------
   →     q == ! p · r
@@ -264,7 +275,7 @@ so let's define some handy functions for that.
 {: .foldable until="5" }
 \begin{code}
 ·-left-to-right-r
-  : ∀ {ℓ} {A : Type ℓ} {a b c : A} {p : a == b} {q : b == c} {r : a == c}
+  : ∀ {A : Type ℓ} {a b c : A} {p : a == b} {q : b == c} {r : a == c}
   → p · q == r
   -------------------
   →      p == r · ! q
@@ -286,7 +297,7 @@ so let's define some handy functions for that.
 {: .foldable until="5" }
 \begin{code}
 ·-right-to-left-r
-  : ∀ {ℓ} {A : Type ℓ} {a b c : A} {p : a == c} {q : a == b} {r : b == c}
+  : ∀ {A : Type ℓ} {a b c : A} {p : a == c} {q : a == b} {r : b == c}
   →       p == q · r
   -------------------
   → p · ! r == q
@@ -302,13 +313,13 @@ so let's define some handy functions for that.
     q · refl b
       ==⟨ ! (·-runit q) ⟩
     q
-    ∎  
+    ∎
 \end{code}
 
 {: .foldable until="5" }
 \begin{code}
 ·-right-to-left-l
-  : ∀ {ℓ} {A : Type ℓ} {a b c : A} {p : a == c} {q : a == b} {r : b == c}
+  : ∀ {A : Type ℓ} {a b c : A} {p : a == c} {q : a == b} {r : b == c}
   →       p == q · r
   ------------------
   → ! q · p == r
@@ -332,7 +343,7 @@ Finally, when we invert a path composition this is what we got.
 {: .foldable until="6" }
 \begin{code}
 !-·
-  : ∀ {ℓ} {A : Type ℓ} {a b : A}
+  : ∀ {A : Type ℓ} {a b : A}
   → (p : a == b)
   → (q : b == a)
   --------------------------

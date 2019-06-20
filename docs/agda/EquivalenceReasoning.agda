@@ -16,6 +16,10 @@ module EquivalenceReasoning where
   _≃⟨⟩_ : ∀ {ℓ} (A {B} : Type ℓ) → A ≃ B → A ≃ B
   _ ≃⟨⟩ e = e
 
+  infixr 2 _≃⟨by-def⟩_
+  _≃⟨by-def⟩_ : ∀ {ℓ} (A {B} : Type ℓ) → A ≃ B → A ≃ B
+  _ ≃⟨by-def⟩ e = e
+
   infixr 2 _≃⟨_⟩_
   _≃⟨_⟩_
     : ∀ {ℓ₁ ℓ₂ ℓ₃} (A : Type ℓ₁) {B : Type ℓ₂}{C : Type ℓ₃}

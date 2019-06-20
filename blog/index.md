@@ -21,17 +21,11 @@ home: true
 {% endcapture %}
 {{ BasicTypes | markdownify }}
 
-
 {% capture BasicFunctions %}
 {% include_relative BasicFunctions.md %}
 {% endcapture %}
 {{ BasicFunctions | markdownify }}
 
-
-{% capture EqualityType %}
-{% include_relative EqualityType.md %}
-{% endcapture %}
-{{ EqualityType | markdownify }}
 
 {% capture AlgebraOnPaths %}
 {% include_relative AlgebraOnPaths.md %}
@@ -206,8 +200,6 @@ home: true
 {% endcapture %}
 {{ IntegerType | markdownify }}
 
-
-
 {% capture QuotientType %}
 {% include_relative QuotientType.md %}
 {% endcapture %}
@@ -241,5 +233,7 @@ We based on the following Agda libraries.
 
 {: .links}
 
+  - Introduction to Univalent Foundations of Mathematics with Agda:  https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/
   - Agda-HoTT: https://mroman42.github.io/ctlc/agda-hott/Total.html
-  - Hott-Agda: https://github.com/dlicata335/hott-agda/
+  - HoTT-Agda: https://github.com/dlicata335/hott-agda/
+  - Agda-premises: https://hub.darcs.net/gylterud/agda-premises

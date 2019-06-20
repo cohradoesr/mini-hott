@@ -20,6 +20,8 @@ open import EquivalenceType
 
 open import HomotopyType
 open import QuasiinverseType
+
+open import CoproductIdentities
 \end{code}
 </div>
 

@@ -37,6 +37,9 @@ module FunExtAxiom {ℓᵢ ℓⱼ} {A : Type ℓᵢ}
     → ((x : A) → f x == g x)
 
   happly idp x = refl (f x)
+
+  -- synonyms:
+  ≡-app = happly
 \end{code}
 
 \begin{code}

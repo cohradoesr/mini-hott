@@ -4,6 +4,8 @@ open import EquivalenceType
 
 open import HomotopyType
 open import QuasiinverseType
+
+open import CoproductIdentities
 module SigmaEquivalence {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
   -- Lemma.
   pair=Equiv

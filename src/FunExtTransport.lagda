@@ -24,15 +24,17 @@ open import FunExtAxiom
 Function extensionality in the transport case
 
 \begin{code}
-module FunExtTransport
-  {ℓᵢ ℓⱼ} {X : Type ℓᵢ} {A B : X → Type ℓⱼ} {x y : X} where
+module
+  FunExtTransport {X : Type ℓᵢ} {A B : X → Type ℓⱼ} {x y : X}
+    where
 \end{code}
 
 \begin{code}
   funext-transport
     : (p : x == y) → (f : A x → B x) → (g : A y → B y)
     ------------------------------------------------------------
-    → ((p ✶) f == g) ≃ ((a : A(x)) → (p ✶) (f a) == g ((p ✶) a))
+    → (tr (λ z₁ → (x : A z₁) → B z₁) p f == g)
+    ≃ ((a : A(x)) → tr B p (f a) == g (tr A p a))
 
   funext-transport idp f g = eqFunExt
 \end{code}
@@ -42,9 +44,9 @@ module FunExtTransport
     : (p : x == y)
     → (f : A x → B x)
     → (g : A y → B y)
-    → ((p ✶) f == g)
+    → ((tr (λ z₁ → (x : A z₁) → B z₁) p f == g)
     -------------------------------------------
-    → ((a : A(x)) → (p ✶) (f a) == g ((p ✶) a))
+    → ((a : A(x)) → tr B p (f a) == g (tr A p a)))
 
   funext-transport-l p f g = lemap (funext-transport p _ _)
 \end{code}
@@ -54,9 +56,9 @@ module FunExtTransport
     : (p : x == y)
     → (f : A x → B x)
     → (g : A y → B y)
-    → ((a : A(x)) → (p ✶) (f a) == g ((p ✶) a))
+    → ((a : A(x)) → tr B p (f a) == g (tr A p a))
     -------------------------------------------
-    → ((p ✶) f == g)
+    → (tr (λ z₁ → (x : A z₁) → B z₁) p f == g)
 
   funext-transport-r p f g = remap (funext-transport p _ _)
 \end{code}

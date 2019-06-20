@@ -1,0 +1,79 @@
+{-# OPTIONS --without-K #-}
+open import BasicTypes
+open import BasicFunctions
+open import Transport
+open import TransportLemmas
+module
+  CoproductIdentities
+  where
+
+∑-≡
+  : ∀ {A : Type ℓᵢ}
+  → (B : A → Type ℓⱼ)
+  → {ab ab' : ∑ A B}
+  → (p : π₁ ab ≡ π₁ ab')
+  → π₂ ab ≡ π₂ ab' [ B / p ]
+  --------------------------
+  → ab ≡ ab'
+∑-≡ B idp idp = idp
+π₁-≡ : ∀ {i j} {A : Type i} (B : A → Type j)
+    → {ab ab' : ∑ A B}
+    → ab ≡ ab'
+    → π₁ ab ≡ π₁ ab'
+π₁-≡ B idp = idp
+module Sigma {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
+  -- Lemma.
+  Σ-componentwise
+    : ∀ {v w : Σ A P}
+    → v == w
+    ----------------------------------------------
+    → Σ (π₁ v == π₁ w) (λ p → tr P p (π₂ v) == π₂ w)
+
+  Σ-componentwise  idp = (idp , idp)
+  -- Lemma.
+  Σ-bycomponents
+    : ∀ {v w : Σ A P}
+    → Σ (π₁ v == π₁ w) (λ p → tr P p (π₂ v) == π₂ w)
+    -----------------------------------------------
+    → v == w
+
+  Σ-bycomponents (idp , idp) = idp
+
+  -- synonym of Σ-bycomponents
+  pair= = Σ-bycomponents
+-- Lemma.
+  lift-pair=
+    : ∀ {x y : A} {u : P x}
+    → (p : x == y)
+    --------------------------------------------------------
+    → lift {A = A}{C = P} p  u == pair= (p , refl (tr P p u))
+
+  lift-pair= idp = idp
+-- Uniqueness principle property for products
+  uppt : (x : Σ A P) → (π₁ x , π₂ x) == x
+  uppt (a , b) = idp
+-- Lemma.
+  Σ-ap-π₁
+    : {a₁ a₂ : A} {b₁ : P a₁} {b₂ : P a₂}
+    → (α : a₁ == a₂)
+    → (γ : transport P α b₁ == b₂)
+    ------------------------------
+    → ap π₁ (pair= (α , γ)) == α
+
+  Σ-ap-π₁ idp idp = idp
+
+  -- synonym for this lemma
+  ap-π₁-pair= = Σ-ap-π₁
+open Sigma public
+transport-fun-dependent-bezem
+  : ∀ {ℓᵢ ℓⱼ} {X : Type ℓᵢ} {A : X → Type ℓⱼ}
+      {B : (x : X) → (a : A x) → Type ℓⱼ} {x y : X}
+  → (p : x == y)
+  → (f : (a : A x) → B x a)
+  → (a' : A y)
+  ----------------------------------------------------------
+  → (tr (λ x → (a : A x) → B x a) p f) a'
+    == tr (λ w → B (π₁ w) (π₂ w))
+          (pair= (p , transport-inv p )) (f (tr A (! p) a'))
+
+transport-fun-dependent-bezem idp f a' = idp

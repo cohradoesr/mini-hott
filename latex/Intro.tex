@@ -1,1 +1,170 @@
-% This file is generated automatically. 
+---
+layout: page
+title: "Introduction"
+toc: true
+agda: true
+gallery: true
+latex: true
+references: true
+linkify: true
+showcitation: true
+home: true
+---
+
+This is a library for Univalent Type Theory in `Agda` developed at [University
+of Bergen](https://www.uib.no/).
+
+No other libraries are required to type-check it. To ease its adoption, we have
+included synonyms and syntax sugar for types, lemmas, and theorems. Regarding
+performance, we recommend you check out the library `HoTT-Agda`. Last but not
+least, this development was based on others in its initial stage, so please see
+the references at the end.
+
+# Installation
+
+- Install [Agda (v2.6.0)](http://github.com/agda/agda)
+
+- Clone this repository [http://github.com/jonaprieto/mini-hott](http://github.com/jonaprieto/mini-hott)
+
+Alternative way to install Agda libraries:
+
+- `pip install agda-pkg`
+- `apkg install mini-hott`
+
+
+# Code
+
+## Proof relevancy
+
+![path](/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
+
+To be consistent with univalent type theory, we tell `Agda` to not use *Axiom K*
+for type-checking by using the option `without-K`.
+
+\begin{code}%
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{OPTIONS}\AgdaSpace{}%
+\AgdaPragma{--without-K}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\end{code}
+
+Without Axiom K, `Agda`'s `Set` is not a good name for universes in HoTT. So, we
+rename `Set` to `Type`. Our type judgments then will include the universe level
+as one explicit argument.
+
+\begin{code}%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{Agda.Primitive}\AgdaSpace{}%
+\AgdaKeyword{using}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaSpace{}%
+\AgdaPostulate{Level}\AgdaSpace{}%
+\AgdaSymbol{;}\AgdaSpace{}%
+\AgdaPrimitive{lsuc}\AgdaSymbol{;}\AgdaSpace{}%
+\AgdaPrimitive{lzero}\AgdaSymbol{;}\AgdaSpace{}%
+\AgdaOperator{\AgdaPrimitive{\AgdaUnderscore{}⊔\AgdaUnderscore{}}}\AgdaSpace{}%
+\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaKeyword{public}\<%
+\end{code}
+
+Note that `l ⊔ q` is the maximum of two hierarchy levels `l` and `q` and we
+use this later on to define types in full generality.
+
+\begin{code}%
+\>[0]\AgdaFunction{Type}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{ℓ}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{Level}\AgdaSymbol{)}\<%
+\\
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaPrimitiveType{Set}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaPrimitiveType{Set}\AgdaSpace{}%
+\AgdaBound{ℓ}\<%
+\end{code}
+
+\begin{code}%
+\>[0]\AgdaFunction{Type₀}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaPrimitive{lzero}\AgdaSymbol{)}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaFunction{Type₀}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaPrimitive{lzero}\<%
+\end{code}
+
+\begin{code}%
+\>[0]\AgdaKeyword{record}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaRecord{↑}%
+\>[30I]\AgdaSymbol{\{}\AgdaBound{a}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{Level}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSymbol{)}\<%
+\\
+\>[.][@{}l@{}]\<[30I]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{a}\AgdaSpace{}%
+\AgdaOperator{\AgdaPrimitive{⊔}}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\<%
+\\
+%
+\>[2]\AgdaKeyword{where}\<%
+\\
+%
+\>[2]\AgdaKeyword{constructor}\AgdaSpace{}%
+\AgdaInductiveConstructor{Lift}\<%
+\\
+%
+\>[2]\AgdaKeyword{field}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaField{lower}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaModule{↑}\AgdaSpace{}%
+\AgdaKeyword{public}\<%
+\end{code}
+
+We use the following variables along to simplify the typing. Be aware these
+variables are implicit variables hidden in the types.
+
+\begin{code}%
+\>[0]\AgdaKeyword{variable}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaGeneralizable{ℓ}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSpace{}%
+\AgdaGeneralizable{ℓₖ}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaPostulate{Level}\<%
+\end{code}

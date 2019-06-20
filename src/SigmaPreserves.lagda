@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Sigma preserves"
+title: "Sigma lemmas"
 category: lemmas functions homotopy
 toc: true
 agda: true
@@ -18,6 +18,9 @@ home: true
 module _ where
 
 open import TransportLemmas
+open import ProductIdentities
+open import CoproductIdentities
+
 open import EquivalenceType
 
 open import HomotopyType
@@ -31,9 +34,10 @@ open import QuasiinverseLemmas
 
 {: .foldable until="2"}
 \begin{code}
-module SigmaPreserves {ℓ₁ ℓ₂ ℓ₃}
-    {A : Type ℓ₁}{C : A → Type ℓ₂}{D : A → Type ℓ₃}
-    (e : (a : A) → C a ≃ D a) where
+module
+  SigmaPreserves {A : Type ℓᵢ}{C : A → Type ℓⱼ}{D : A → Type ℓₖ}
+    (e : (a : A) → C a ≃ D a)
+  where
 
   private
     f : (a : A) → C a → D a

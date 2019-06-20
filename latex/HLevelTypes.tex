@@ -1,1 +1,216 @@
-% This file is generated automatically. 
+---
+layout: page
+title: "H-Levels Types"
+category: types
+toc: true
+agda: true
+gallery: true
+latex: true
+references: true
+linkify: true
+showcitation: true
+home: true
+---
+
+<div class="hide" >
+\begin{code}%
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{OPTIONS}\AgdaSpace{}%
+\AgdaPragma{--without-K}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\\
+\>[0]\AgdaKeyword{module}\AgdaSpace{}%
+\AgdaModule{\AgdaUnderscore{}}\AgdaSpace{}%
+\AgdaKeyword{where}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{TransportLemmas}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{EquivalenceType}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HomotopyType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HomotopyLemmas}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HalfAdjointType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{QuasiinverseType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{QuasiinverseLemmas}\<%
+\end{code}
+</div>
+
+
+## Hlevels
+
+Higher levels of the homotopical structure, where the
+first levels are:
+
+- Contractible types ($-2$)
+- Propositions ($-1$)
+- Sets ($0$)
+
+### Propositions
+
+
+A type is a *mere proposition* if any two inhabitants of the type are equal.
+
+{: .foldable until="5"}
+\begin{code}%
+\>[0]\AgdaComment{-- Def.}\<%
+\\
+\>[0]\AgdaFunction{isProp}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\<%
+\\
+\>[0]\AgdaFunction{isProp}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaSymbol{((}\AgdaBound{x}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSymbol{)}\<%
+\end{code}
+
+\begin{code}%
+\>[0]\AgdaComment{-- The type of mere propositions}\<%
+\\
+\>[0]\AgdaFunction{hProp}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\<%
+\\
+\>[0]\AgdaFunction{hProp}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaRecord{∑}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaFunction{isProp}\<%
+\end{code}
+
+
+### Sets
+
+A type is a *set& by definition if any two equalities on the type are equal Sets
+are types without any higher *dimensional structure*,  all parallel paths are
+homotopic and the homotopy is given by a continuous function on the two paths.
+
+\begin{code}%
+\>[0]\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\<%
+\\
+\>[0]\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isProp}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSymbol{)}\<%
+\end{code}
+
+The type of sets
+
+\begin{code}%
+\>[0]\AgdaFunction{hSet}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{)}\<%
+\\
+\>[0]\AgdaFunction{hSet}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaRecord{∑}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaFunction{isSet}\<%
+\end{code}
+
+### Groupoid
+
+\begin{code}%
+\>[0]\AgdaFunction{isGroupoid}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\<%
+\\
+\>[0]\AgdaFunction{isGroupoid}\AgdaSpace{}%
+\AgdaBound{A}%
+\>[14]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{a₀}\AgdaSpace{}%
+\AgdaBound{a₁}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{a₀}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
+\AgdaBound{a₁}\AgdaSymbol{)}\<%
+\end{code}
+
+\begin{code}%
+\>[0]\AgdaFunction{Groupoid}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{)}\<%
+\\
+\>[0]\AgdaFunction{Groupoid}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaRecord{∑}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaFunction{isGroupoid}\<%
+\end{code}

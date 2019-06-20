@@ -1,0 +1,6 @@
+Debugger entered--Lisp error: (void-variable agda2-mode)
+  eval(agda2-mode nil)
+  eval-expression(agda2-mode nil nil 127)
+  funcall-interactively(eval-expression agda2-mode nil nil 127)
+  call-interactively(eval-expression nil nil)
+  command-execute(eval-expression)

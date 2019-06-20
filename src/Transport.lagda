@@ -1,3 +1,4 @@
+
 ---
 layout: page
 title: "Transport"
@@ -15,7 +16,7 @@ home: true
 <div class="hide" >
 \begin{code}
 {-# OPTIONS --without-K #-}
-open import EqualityType public
+open import BasicTypes public
 open import AlgebraOnPaths public
 \end{code}
 </div>
@@ -39,20 +40,8 @@ transport C idp = (λ x → x)
 \begin{code}
 -- synonyms
 tr     = transport
+tr₁    = transport
 transp = transport
-\end{code}
-
-Star notation for transport
-
-{: .foldable until="5" }
-\begin{code}
-_✶
-  : ∀ {A : Type ℓᵢ} {C : A → Type ℓⱼ} {a₁ a₂ : A}
-  → (p : a₁ == a₂)
-  ----------------
-  → (C a₁ → C a₂)
-
-_✶ {C = C} = transport C
 \end{code}
 
 {: .foldable until="5" }
@@ -69,17 +58,28 @@ coe p a = transport (λ X → X) p a
 {: .foldable until="11"}
 \begin{code}
 tr₂
-  : (A : Type ℓᵢ)
-  → (B : A → Type ℓⱼ)
+  : {A : Type ℓᵢ}
+  → {B : A → Type ℓⱼ}
   → (C : (x : A) → (b : B x) → Type ℓₖ)
-  → ∀ {a₁ a₂ : A}{b₁ : B a₁}{b₂ : B a₂}
+  → {a₁ a₂ : A}{b₁ : B a₁}{b₂ : B a₂}
   → (p :        a₁ == a₂)
   → (q : tr B p b₁ == b₂)
   → C a₁ b₁
   -----------------------
   → C a₂ b₂
 
-tr₂ A B C idp idp = id
+tr₂ C idp idp = id
+\end{code}
+
+\begin{code}
+tr₂-commute
+  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ}
+    → (C : (a : A) → (B a) → Type ℓₖ)
+    → (D : (a : A) → (B a) → Type ℓ)
+    → (f : ∀ a b → C a b → D a b)
+    → ∀ {a a' b b'} (p : a ≡ a') → (q : tr₁ B p b ≡ b')
+    → ∀ c → tr₂ D p q (f a b c) ≡ f a' b' (tr₂ C p q c)
+tr₂-commute C D f idp idp c = idp
 \end{code}
 
 ### Pathover
@@ -89,23 +89,48 @@ Using the same notation from {% cite hottbook %}, one of the definitions for the
 Pathover type is as the shorthand for the path between the transport along a
 path `α : a₁ = a₂` of the point `c₁ : C a₁` and the point `c₂` in the fiber `C
 a₂`. That is, a pathover is a term that inhabit the type `transport C α c₁ = c₂`
-also denoted by `PathOver C α c₁ c₂`.
+also denoted by `PathOver C c₁ α c₂`.
 
 ![path](/assets/ipe-images/pathover-3-minihott.png){: width="45%" align="right" }
 
 \begin{code}
 PathOver
   : ∀ {A : Type ℓᵢ}
-  → (C : A → Type ℓⱼ) {a₁ a₂ : A}
-  → (α : a₁ == a₂)
-  → (c₁ : C a₁) → (c₂ : C a₂)
-  ------------------------------
+  → (B : A → Type ℓⱼ) {a₁ a₂ : A}
+  → (b₁ : B a₁) → (α : a₁ == a₂) → (b₂ : B a₂)
+  --------------------------------------------
   → Type ℓⱼ
 
-PathOver C α c₁ c₂ = tr C α c₁ == c₂
+PathOver B b₁ α b₂ = tr B α b₁ == b₂
 \end{code}
 
 \begin{code}
 infix 30 PathOver
-syntax PathOver B p u v = u == v [ B ↓ p ]
+
+syntax PathOver B b₁ α b₂  = b₁ == b₂ [ B ↓ α ]
+\end{code}
+
+Another notation:
+
+\begin{code}
+≡Over = PathOver
+\end{code}
+
+\begin{code}
+infix 30 ≡Over
+syntax ≡Over B b α b' = b ≡ b' [ B / α ]
+\end{code}
+
+Transport and composition:
+
+\begin{code}
+tr₁-≡ : ∀ {A : Type ℓ} {a₀ a₁ a₂ : A}
+  → (α : a₁ ≡ a₂)
+  → (ε : a₀ ≡ a₁)
+  → (δ : a₀ ≡ a₂)
+  → (ε ≡ δ [ (λ a' → a₀ ≡ a') / α ])
+  ----------------------------------
+  → α ≡ ! ε · δ
+
+tr₁-≡ idp .idp idp idp = idp
 \end{code}

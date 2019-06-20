@@ -1,6 +1,10 @@
 {-# OPTIONS --without-K #-}
 open import Transport
 open import TransportLemmas
+
+open import ProductIdentities
+open import CoproductIdentities
+
 open import EquivalenceType
 
 open import HomotopyType

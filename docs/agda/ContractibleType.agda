@@ -1,5 +1,6 @@
 {-# OPTIONS --without-K #-}
-open import EqualityType
+open import BasicTypes
+open import BasicFunctions
 open import FiberType
 module ContractibleType where
   -- Def.

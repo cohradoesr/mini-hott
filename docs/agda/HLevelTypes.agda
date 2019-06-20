@@ -10,23 +10,18 @@ open import HomotopyLemmas
 open import HalfAdjointType
 open import QuasiinverseType
 open import QuasiinverseLemmas
-module Propositions where
-  -- Def.
-  isProp
-    : ∀ {ℓ} (A : Type ℓ) → Type ℓ
-  isProp A = ((x y : A) → x == y)
-  -- The type of mere propositions
-  hProp : ∀ {ℓ} → Type (lsuc ℓ)
-  hProp {ℓ} = Σ (Type ℓ) isProp
-open Propositions public
-module Sets where
-
-  isSet : ∀ {ℓ}  (A : Type ℓ) → Type ℓ
-  isSet A = (x y : A) → isProp (x == y)
-
-  -- The type of sets.
-  hSet : ∀ {ℓ} → Type (lsuc ℓ)
-  hSet {ℓ} = Σ (Type ℓ) isSet
-
-open Sets public
--- TODO: define hlevels by the recursive definition
+-- Def.
+isProp
+  : ∀ {ℓ} (A : Type ℓ) → Type ℓ
+isProp A = ((x y : A) → x == y)
+-- The type of mere propositions
+hProp : ∀ {ℓ} → Type (lsuc ℓ)
+hProp {ℓ} = ∑ (Type ℓ) isProp
+isSet : Type ℓ → Type ℓ
+isSet A = (x y : A) → isProp (x == y)
+hSet : Type (lsuc ℓ)
+hSet {ℓ} = ∑ (Type ℓ) isSet
+isGroupoid : Type ℓ → Type ℓ
+isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
+Groupoid : Type (lsuc ℓ)
+Groupoid {ℓ} = ∑ (Type ℓ) isGroupoid

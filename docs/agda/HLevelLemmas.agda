@@ -6,6 +6,9 @@ open import EquivalenceType
 
 open import ContractibleType
 
+open import ProductIdentities
+open import CoproductIdentities
+
 open import HomotopyType
 open import HomotopyLemmas
 
@@ -19,7 +22,7 @@ open import HLevelTypes
 module HLevelLemmas where
   -- Contractible types are Propositions.
   contrIsProp
-    : ∀ {ℓ}  {A : Type ℓ}
+    : ∀ {A : Type ℓ}
     → isContr A
     -----------
     → isProp A
@@ -30,7 +33,7 @@ module HLevelLemmas where
   isContr→isProp = contrIsProp
   -- Lemma. Propositions are Sets.
   propIsSet
-    : ∀ {ℓ} {A : Type ℓ}
+    : ∀ {A : Type ℓ}
     → isProp A
     ----------
     → isSet A
@@ -41,13 +44,14 @@ module HLevelLemmas where
       triang {y}{p = idp} = inv (·-runit (f a y))
 
       lemma : {y z : A} (p : y == z) → p == ! (f a y) · (f a z)
-      lemma {y} {z} p =
+      lemma {y = y}{w} p =
         begin
           p                       ==⟨ ap (_· p) (inv (·-linv (f a y))) ⟩
           ! (f a y) · f a y · p   ==⟨ ·-assoc (! (f a y)) (f a y) p ⟩
           ! (f a y) · (f a y · p) ==⟨ ap (! (f a y) ·_) triang ⟩
-          ! (f a y) · (f a z)
+          ! (f a y) · (f a w)
         ∎
+
 
   -- Synonyms
   prop-is-set  = propIsSet

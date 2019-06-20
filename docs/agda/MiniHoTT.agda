@@ -8,11 +8,15 @@ module MiniHoTT where
   open import BasicTypes public
   open import BasicFunctions public
 
-  open import EqualityType public
+
   open import AlgebraOnPaths public
 
   open import Transport public
   open import TransportLemmas public
+
+
+  open import ProductIdentities public
+  open import CoproductIdentities public
 
   open import ContractibleType public
   open import FiberType public

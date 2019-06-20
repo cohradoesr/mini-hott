@@ -14,7 +14,8 @@ home: true
 <div class="hide" >
 \begin{code}
 {-# OPTIONS --without-K #-}
-open import EqualityType
+open import BasicTypes
+open import BasicFunctions
 open import FiberType
 \end{code}
 </div>

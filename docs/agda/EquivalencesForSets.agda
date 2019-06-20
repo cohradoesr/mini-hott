@@ -18,7 +18,7 @@ module EquivalencesForSets where
     → (f : A → B) → Type (ℓ₁ ⊔ ℓ₂)
   IsSurjection {B = B} f = (b : B) → ∥ fib f b ∥
 
-  IsSetEmbedding
+  IsSetEmbedding -- a.k.a Injective
     : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B) → isSet A → isSet B
     → Type (ℓ₁ ⊔ ℓ₂)
