@@ -29,8 +29,8 @@ open import GroupType
 ## Fundamental group
 
 Definition of the fundamental group of a type.
-Let a:A be one point of the type. The fundamental group on a is the
-group given by proofs of the equality (a=a).
+Let `a:A` be one point of the type. The fundamental group on a is the
+group given by proofs of the equality (`a=a`).
 
 \begin{code}
 module FundamentalGroupType where

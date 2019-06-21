@@ -18,14 +18,13 @@ open import BasicTypes
 \end{code}
 </div>
 
+## Fibre type
+
 \begin{code}
 module
-  FiberType {A : Type ℓᵢ} {B : Type ℓⱼ}
+  FibreType {A : Type ℓᵢ} {B : Type ℓⱼ}
     where
 \end{code}
-
-
-The *fiber* type of a map over a point is given by a Sigma type.
 
 \begin{code}
   -- Fiber

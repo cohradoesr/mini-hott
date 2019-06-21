@@ -16,7 +16,7 @@ home: true
 {-# OPTIONS --without-K #-}
 open import BasicTypes
 open import HLevelTypes
-open import FiberType
+open import FibreType
 
 open import Transport
 open import HomotopyType
@@ -29,110 +29,127 @@ module EquivalenceType where
 
 \end{code}
 
-## Contractible maps
+## Equivalences
+
+### Contractible maps
 
 A map is *contractible* if the fiber in any point is contractible, that is, each
 element has a unique preimagen.
 
 \begin{code}
 -- Def.
-  isContrMap
-    : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
-    → (f : A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
+isContrMap
+  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
+  → (f : A → B)
+  → Type (ℓᵢ ⊔ ℓⱼ)
 
-  isContrMap {B = B} f = (b : B) → isContr (fib f b)
+isContrMap {B = B} f = (b : B) → isContr (fib f b)
 \end{code}
 
 There exists an equivalence between two types if there exists a
 contractible function between them.
+
+
 \begin{code}
-  module DefinitionOfEquivalence  {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
+isEquiv
+  : {A : Type ℓᵢ} {B : Type ℓⱼ}
+  →  (f : A → B)
+  → Type (ℓᵢ ⊔ ℓⱼ)
+
+isEquiv f = isContrMap f
+\end{code}
+
+
+### Equivalence Type
+
+\begin{code}
+_≃_
+  : (A : Type ℓᵢ) (B : Type ℓⱼ)
+  → Type (ℓᵢ ⊔ ℓⱼ)
+
+A ≃ B = Σ (A → B) isEquiv
 \end{code}
 
 \begin{code}
-    isEquiv : (f : A → B) → Type (ℓᵢ ⊔ ℓⱼ)
-    isEquiv = isContrMap
-  open DefinitionOfEquivalence public
+module EquivalenceMaps {A : Type ℓᵢ} {B : Type ℓⱼ} where
 \end{code}
 
 \begin{code}
-  -- Equivalence of types.
-  _≃_ : ∀ {ℓᵢ ℓⱼ}  (A : Type ℓᵢ) (B : Type ℓⱼ) → Type (ℓᵢ ⊔ ℓⱼ)
-  A ≃ B = Σ (A → B) isEquiv
+  lemap
+    : A ≃ B → (A → B)
+
+  lemap = π₁
+\end{code}
+
+Synonyms:
+
+\begin{code}
+  ≃-to-→ = lemap
+  fun≃   = lemap
+  _∙     = lemap
+  _∙→    = lemap
+  apply  = lemap
+
+  infixl 70 _∙ _∙→
 \end{code}
 
 \begin{code}
-  module EquivalenceMaps {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
-
-    -- Maps of an equivalence
-    lemap : A ≃ B → (A → B)
-    lemap = π₁
-
-    ≃-to-→ = lemap
-    fun≃   = lemap
-
-
-    infixl 70 _∙
-    _∙ = lemap
-
-    infixl 70 _∙→
-    _∙→ = lemap
-
-    remap : A ≃ B → (B → A)
-    remap (f , contrf) b = π₁ (π₁ (contrf b))
-
-    ≃-to-← = remap
-    invfun≃ = remap
-
-    infixl 70 _∙←
-    _∙← = remap
+  remap : A ≃ B → (B → A)
+  remap (f , contrf) b = π₁ (π₁ (contrf b))
 \end{code}
 
 \begin{code}
-    -- The maps of an equivalence are inverses in particular
-    lrmap-inverse
-      : (e : A ≃ B) → {b : B}
-      -----------------------
-      → (e ∙→) ((e ∙←) b) == b
-    lrmap-inverse (f , eqf) {b} = fib-eq (π₁ (eqf b))
+  ≃-to-←  = remap
+  invfun≃ = remap
+  _∙←     = remap
 
-    ∙→∘∙← = lrmap-inverse
+  infixl 70 _∙←
 \end{code}
 
 \begin{code}
-    -- Lem.
-    rlmap-inverse
-      : (e : A ≃ B) → {a : A}
-      ------------------------
-      → (e ∙←) ((e ∙→) a) == a
+  -- The maps of an equivalence are inverses in particular
+  lrmap-inverse
+    : (e : A ≃ B) → {b : B}
+    -----------------------
+    → (e ∙→) ((e ∙←) b) == b
+  lrmap-inverse (f , eqf) {b} = fib-eq (π₁ (eqf b))
 
-    rlmap-inverse (f , eqf) {a} = ap π₁ ((π₂ (eqf (f a))) fib-image)
-
-    ∙←∘∙→ = rlmap-inverse
+  ∙→∘∙← = lrmap-inverse
 \end{code}
 
 \begin{code}
-    -- Lem.
-    lrmap-inverse-h
-      : (e : A ≃ B)
-      ------------------------------
-      → ((e ∙→) ∘ (e ∙←)) ∼ id
-    lrmap-inverse-h e = λ x → lrmap-inverse e {x}
+  -- Lem.
+  rlmap-inverse
+    : (e : A ≃ B) → {a : A}
+    ------------------------
+    → (e ∙←) ((e ∙→) a) == a
 
-    ∙→∘∙←-h = lrmap-inverse-h
+  rlmap-inverse (f , eqf) {a} = ap π₁ ((π₂ (eqf (f a))) fib-image)
+
+  ∙←∘∙→ = rlmap-inverse
 \end{code}
 
 \begin{code}
-    -- Lem.
-    rlmap-inverse-h
-      : (e : A ≃ B)
-      ------------------------
-      → ((e ∙←) ∘ (e ∙→)) ∼ id
+  -- Lem.
+  lrmap-inverse-h
+    : (e : A ≃ B)
+    ------------------------------
+    → ((e ∙→) ∘ (e ∙←)) ∼ id
+  lrmap-inverse-h e = λ x → lrmap-inverse e {x}
 
-    rlmap-inverse-h e = λ x → rlmap-inverse e {x}
+  ∙→∘∙←-h = lrmap-inverse-h
+\end{code}
 
-    ∙←∘∙→-h = rlmap-inverse-h
+\begin{code}
+  -- Lem.
+  rlmap-inverse-h
+    : (e : A ≃ B)
+    ------------------------
+    → ((e ∙←) ∘ (e ∙→)) ∼ id
 
-  open EquivalenceMaps public
+  rlmap-inverse-h e = λ x → rlmap-inverse e {x}
+
+  ∙←∘∙→-h = rlmap-inverse-h
+
+open EquivalenceMaps public
 \end{code}

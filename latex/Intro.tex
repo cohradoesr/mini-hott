@@ -26,12 +26,12 @@ please see the references at the end.
 
   - `git clone http://github.com/jonaprieto/mini-hott`
 
-- Install the library or use [agda-pkg](http://github.com/agda/agda-pkg)
+- Install the library in `~/.agda` or use [agda-pkg](http://github.com/agda/agda-pkg) as follows:
 
   - `pip install agda-pkg`
   - `apkg install mini-hott`
 
-- Use the library by including the import:
+- Use the library by including the import at the top of your source code:
 
     - `open import MiniHoTT`
 

@@ -30,7 +30,7 @@ open import EquivalenceType
 open import HomotopyType
 open import HomotopyLemmas
 
-open import FiberType
+open import FibreType
 
 \end{code}
 </div>

@@ -20,7 +20,7 @@ open import BasicFunctions public
 \end{code}
 </div>
 
-## Path algebra
+## Algebra of paths
 
 {: .foldable until="6" }
 \begin{code}

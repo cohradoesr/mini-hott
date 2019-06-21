@@ -69,21 +69,21 @@ allAreCenter c₁ f c₂ x = sym (f c₂) · (f x)
 
 A type is a *mere proposition* if any two inhabitants of the type are equal.
 
-{: .foldable until="5"}
 \begin{code}
--- Def.
 isProp
   : ∀ {ℓ} (A : Type ℓ) → Type ℓ
 
 isProp A = ((x y : A) → x == y)
 \end{code}
 
+Synonyms:
+
 \begin{code}
 is-subsingleton = isProp
+is-prop         = isProp
 \end{code}
 
 \begin{code}
--- The type of mere propositions
 hProp
   : ∀ {ℓ} → Type (lsuc ℓ)
 
@@ -102,6 +102,12 @@ isSet
 isSet A = (x y : A) → isProp (x == y)
 \end{code}
 
+Synonyms:
+
+\begin{code}
+is-set = isSet
+\end{code}
+
 The type of sets
 
 \begin{code}
@@ -111,13 +117,19 @@ hSet
 hSet {ℓ} = ∑ (Type ℓ) isSet
 \end{code}
 
-### Groupoid
+### Groupoids
 
 \begin{code}
 isGroupoid
   : Type ℓ → Type ℓ
 
 isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
+\end{code}
+
+Synonyms:
+
+\begin{code}
+is-groupoid = isGroupoid
 \end{code}
 
 \begin{code}

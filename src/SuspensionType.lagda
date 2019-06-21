@@ -28,6 +28,7 @@ open import HedbergLemmas
 \end{code}
 </div>
 
+### Suspensions
 
 \begin{code}
 module SuspensionType where

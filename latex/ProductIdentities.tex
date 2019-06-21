@@ -49,31 +49,21 @@ home: true
 \end{code}
 
 
+{: .foldable until="6"}
 \begin{code}%
-\>[0]\AgdaKeyword{module}\AgdaSpace{}%
-\AgdaModule{CartesianProduct}\AgdaSpace{}%
+\>[0]\AgdaComment{-- Lemma.}\<%
+\\
+\>[0]\AgdaFunction{prodComponentwise}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaKeyword{where}\<%
-\end{code}
-
-{: .foldable until="6"}
-\begin{code}%
-\>[0][@{}l@{\AgdaIndent{1}}]%
-\>[2]\AgdaComment{-- Lemma.}\<%
-\\
-%
-\>[2]\AgdaFunction{prodComponentwise}\<%
-\\
-\>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{x}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}\{}\AgdaBound{x}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
@@ -81,16 +71,16 @@ home: true
 \AgdaBound{B}\AgdaSymbol{\}}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSymbol{)}\<%
 \\
 %
-\>[4]\AgdaComment{---------------------------------}\<%
+\>[2]\AgdaComment{---------------------------------}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaField{π₁}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
@@ -105,8 +95,7 @@ home: true
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaFunction{prodComponentwise}\AgdaSpace{}%
+\>[0]\AgdaFunction{prodComponentwise}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaArgument{x}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{\}}\AgdaSpace{}%
@@ -123,14 +112,19 @@ home: true
 
 {: .foldable until="6"}
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Lemma.}\<%
+\>[0]\AgdaComment{-- Lemma.}\<%
 \\
-%
-\>[2]\AgdaFunction{prodByComponents}\<%
+\>[0]\AgdaFunction{prodByComponents}\<%
 \\
-\>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}\{}\AgdaBound{B}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{x}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -139,7 +133,7 @@ home: true
 \AgdaBound{B}\AgdaSymbol{\}}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaField{π₁}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
@@ -153,18 +147,17 @@ home: true
 \AgdaBound{y}\AgdaSymbol{)}\<%
 \\
 %
-\>[4]\AgdaComment{---------------------------------}\<%
+\>[2]\AgdaComment{---------------------------------}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSymbol{)}\<%
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaFunction{prodByComponents}\AgdaSpace{}%
+\>[0]\AgdaFunction{prodByComponents}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaArgument{x}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
@@ -182,14 +175,19 @@ home: true
 
 {: .foldable until="6"}
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Lemma.}\<%
+\>[0]\AgdaComment{-- Lemma.}\<%
 \\
-%
-\>[2]\AgdaFunction{prodCompInverse}\<%
+\>[0]\AgdaFunction{prodCompInverse}\<%
 \\
-\>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}\{}\AgdaBound{B}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{x}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -198,7 +196,7 @@ home: true
 \AgdaBound{B}\AgdaSymbol{\}}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{b}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaField{π₁}\AgdaSpace{}%
@@ -214,10 +212,10 @@ home: true
 \AgdaBound{y}\AgdaSymbol{))}\<%
 \\
 %
-\>[4]\AgdaComment{---------------------------------------------}\<%
+\>[2]\AgdaComment{---------------------------------------------}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{prodComponentwise}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{prodByComponents}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSymbol{)}\AgdaSpace{}%
@@ -226,9 +224,10 @@ home: true
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaFunction{prodCompInverse}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{x}\AgdaSymbol{\}}\AgdaSpace{}%
+\>[0]\AgdaFunction{prodCompInverse}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaArgument{x}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaInductiveConstructor{idp}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaInductiveConstructor{idp}\AgdaSymbol{)}\AgdaSpace{}%
@@ -245,14 +244,19 @@ home: true
 
 {: .foldable until="6"}
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Lemma.}\<%
+\>[0]\AgdaComment{-- Lemma.}\<%
 \\
-%
-\>[2]\AgdaFunction{prodByCompInverse}\<%
+\>[0]\AgdaFunction{prodByCompInverse}\<%
 \\
-\>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}\{}\AgdaBound{B}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{x}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -261,7 +265,7 @@ home: true
 \AgdaBound{B}\AgdaSymbol{\}}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{b}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
@@ -269,10 +273,10 @@ home: true
 \AgdaBound{y}\AgdaSymbol{)}\<%
 \\
 %
-\>[4]\AgdaComment{---------------------------------------------}\<%
+\>[2]\AgdaComment{---------------------------------------------}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{prodByComponents}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{prodComponentwise}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSymbol{)}\AgdaSpace{}%
@@ -281,8 +285,7 @@ home: true
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaFunction{prodByCompInverse}\AgdaSpace{}%
+\>[0]\AgdaFunction{prodByCompInverse}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaArgument{x}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{\}}\AgdaSpace{}%
@@ -294,28 +297,20 @@ home: true
 \end{code}
 
 \begin{code}%
-\>[0]\AgdaKeyword{open}\AgdaSpace{}%
-\AgdaModule{CartesianProduct}\AgdaSpace{}%
-\AgdaKeyword{public}\<%
-\end{code}
-
-\begin{code}%
-\>[0]\AgdaFunction{×-≡}%
-\>[147I]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{i}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSymbol{\}}\AgdaSpace{}%
+\>[0]\AgdaFunction{×-≡}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{i}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\<%
 \\
-\>[.][@{}l@{}]\<[147I]%
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{ab}\AgdaSpace{}%
 \AgdaBound{ab'}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -324,7 +319,7 @@ home: true
 \AgdaBound{B}\AgdaSymbol{\}}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{p}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaField{π₁}\AgdaSpace{}%
@@ -340,11 +335,13 @@ home: true
 \AgdaBound{ab'}\<%
 \\
 %
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{ab}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
 \AgdaBound{ab'}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{×-≡}\AgdaSpace{}%
 \AgdaInductiveConstructor{idp}\AgdaSpace{}%
 \AgdaInductiveConstructor{idp}\AgdaSpace{}%

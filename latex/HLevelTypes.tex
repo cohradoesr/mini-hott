@@ -168,10 +168,7 @@ If a type is contractible, any of its points is a center of contraction:
 
 A type is a *mere proposition* if any two inhabitants of the type are equal.
 
-{: .foldable until="5"}
 \begin{code}%
-\>[0]\AgdaComment{-- Def.}\<%
-\\
 \>[0]\AgdaFunction{isProp}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
@@ -201,15 +198,19 @@ A type is a *mere proposition* if any two inhabitants of the type are equal.
 \AgdaBound{y}\AgdaSymbol{)}\<%
 \end{code}
 
+Synonyms:
+
 \begin{code}%
 \>[0]\AgdaFunction{is-subsingleton}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{isProp}\<%
+\\
+\>[0]\AgdaFunction{is-prop}%
+\>[16]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isProp}\<%
 \end{code}
 
 \begin{code}%
-\>[0]\AgdaComment{-- The type of mere propositions}\<%
-\\
 \>[0]\AgdaFunction{hProp}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
@@ -263,6 +264,14 @@ homotopic and the homotopy is given by a continuous function on the two paths.
 \AgdaBound{y}\AgdaSymbol{)}\<%
 \end{code}
 
+Synonyms:
+
+\begin{code}%
+\>[0]\AgdaFunction{is-set}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isSet}\<%
+\end{code}
+
 The type of sets
 
 \begin{code}%
@@ -285,7 +294,7 @@ The type of sets
 \AgdaFunction{isSet}\<%
 \end{code}
 
-### Groupoid
+### Groupoids
 
 \begin{code}%
 \>[0]\AgdaFunction{isGroupoid}\<%
@@ -312,6 +321,14 @@ The type of sets
 \AgdaSymbol{(}\AgdaBound{a₀}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
 \AgdaBound{a₁}\AgdaSymbol{)}\<%
+\end{code}
+
+Synonyms:
+
+\begin{code}%
+\>[0]\AgdaFunction{is-groupoid}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isGroupoid}\<%
 \end{code}
 
 \begin{code}%

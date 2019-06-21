@@ -19,6 +19,8 @@ open import TransportLemmas
 \end{code}
 </div>
 
+## Homotopies
+
 > In a type-theoretical sense, a homotopy between two
 > functions is a family of equalities between their applications.
 
@@ -33,6 +35,9 @@ is a dependent function of type
 
 {: .equation }
   $$ (f \sim g) :\equiv \prod\limits_{x : A} (f(x) = g(x)). $$
+
+
+### Homotopy types
 
 {: .foldable until="5"}
 \begin{code}
@@ -53,7 +58,7 @@ is a dependent function of type
 
 
 
-## Homotopy is an equivalence relation
+### Homotopy is an equivalence relation
 
 
 {: .foldable until="5"}

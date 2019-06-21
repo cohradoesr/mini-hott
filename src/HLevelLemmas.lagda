@@ -38,6 +38,7 @@ open import HLevelTypes
 \end{code}
 </div>
 
+## HLevel Lemmas
 
 ### Proposition and Set lemmas
 
@@ -120,7 +121,7 @@ Propositions are Sets:
     ----------
     → isGroupoid A
 
-  Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y) 
+  Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y)
 \end{code}
 
 Examples of propositions:
@@ -283,7 +284,7 @@ Product of sets is a set.
     → (P : A → hProp {ℓᵢ})
     → ∀ {a₀ a₁} p₀ p₁ {α : a₀ ≡ a₁}
     → p₀ ≡ p₁ [ (# ∘ P) / α ]
-    
+
   Prop-/-≡ P {a₀} p₀ p₁ {α = idp} = proj₂ (P a₀) p₀ p₁
 \end{code}
 

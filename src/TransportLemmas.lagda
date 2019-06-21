@@ -252,10 +252,10 @@ transport-family-id idp u = idp
 {: .foldable until="8" }
 \begin{code}
 transport-fun-coe
-  : ∀ {A : Type ℓᵢ} {B : Type ℓᵢ} 
+  : ∀ {A : Type ℓᵢ} {B : Type ℓᵢ}
   → (α : A ≡ B)
   → (f : A → A)
-  → (g : B → B) 
+  → (g : B → B)
   →     f == g [ (λ X → (X → X)) ↓ α ]
   -------------------------------------
   →  f :> coe α == (coe α) :> g
@@ -365,7 +365,7 @@ apOver f g idp q = ap g q
 \end{code}
 
 
-## Action on dependent paths
+### Action on dependent paths
 
 {: .foldable until="5"}
 \begin{code}
@@ -383,4 +383,41 @@ Synonyms:
 
 \begin{code}
 fibre-app-≡ = apd
+\end{code}
+
+\begin{code}
+ap2d
+  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Type ℓₖ}
+  → (F : ∀ a → B a → C)
+  → {a a' : A} {b : B a} {b' : B a'}
+  → (p : a == a')
+  → (q : b == b' [ B ↓ p ])
+  -------------------------
+  →  F a b == F a' b'
+
+ap2d F idp idp = idp
+\end{code}
+
+\begin{code}
+ap-idp
+  : ∀ {i j} {A : Type i} {B : Type j}
+   → (f : A → B)
+   → {a a' : A}
+   → (p : a == a')
+   → ap f p == idp [ (λ x → f x == f a') ↓ p ]
+
+ap-idp f idp = idp
+\end{code}
+
+\begin{code}
+postulate
+ ap-idp'
+  : ∀ {i j} {A : Type i} {B : Type j}
+  → (f r : A → B)
+  → (σ : ∀ a → f a == r a)
+  → {a a' : A}
+  → (p : a' == a)
+  → (! (σ a') · ap f p) · (σ a) == idp [ (\v → r v == r a) ↓ p ]
+
+-- ap-idp' f r σ {a = a} idp = {!!}
 \end{code}

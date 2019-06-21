@@ -43,6 +43,8 @@ home: true
 {% endcapture %}
 {{ TransportLemmas | markdownify }}
 
+## ∑ and ∏ algebra
+
 {% capture CoproductIdentities %}
 {% include_relative CoproductIdentities.md %}
 {% endcapture %}
@@ -53,10 +55,15 @@ home: true
 {% endcapture %}
 {{ ProductIdentities | markdownify }}
 
-{% capture FiberType %}
-{% include_relative FiberType.md %}
+{% capture DependentAlgebra %}
+{% include_relative DependentAlgebra.md %}
 {% endcapture %}
-{{ FiberType | markdownify }}
+{{ DependentAlgebra | markdownify }}
+
+{% capture FibreType %}
+{% include_relative FibreType.md %}
+{% endcapture %}
+{{ FibreType | markdownify }}
 
 
 {% capture EquivalenceType %}
@@ -168,6 +175,8 @@ home: true
 {{ UnivalenceTransport | markdownify }}
 
 
+## Higher inductive types
+
 {% capture CircleType %}
 {% include_relative CircleType.md %}
 {% endcapture %}
@@ -237,7 +246,7 @@ We based on the following Agda libraries.
 
 {: .links}
 
-  - Introduction to Univalent Foundations of Mathematics with Agda:  https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/
-  - Agda-HoTT: https://mroman42.github.io/ctlc/agda-hott/Total.html
-  - HoTT-Agda: https://github.com/dlicata335/hott-agda/
-  - Agda-premises: https://hub.darcs.net/gylterud/agda-premises
+  - Mini-HoTT is a fork of [Agda-HoTT](https://mroman42.github.io/ctlc/agda-hott/Total.html)
+  - [Agda-premises](https://hub.darcs.net/gylterud/agda-premises)
+  - [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/)
+  - [HoTT-Agda](https://github.com/dlicata335/hott-agda/)

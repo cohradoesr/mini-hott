@@ -7,9 +7,8 @@ module MiniHoTT where
 
   open import BasicTypes public
   open import HLevelTypes public
-  
-  open import BasicFunctions public
 
+  open import BasicFunctions public
 
   open import AlgebraOnPaths public
 
@@ -20,10 +19,11 @@ module MiniHoTT where
   open import ProductIdentities public
   open import CoproductIdentities public
 
-   public
-  open import FiberType public
+  open import FibreType public
 
   open import EquivalenceType public
+
+  open import DependentAlgebra public
 
   open import HomotopyType public
   open import HomotopyLemmas public

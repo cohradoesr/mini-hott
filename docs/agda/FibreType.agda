@@ -1,7 +1,7 @@
 {-# OPTIONS --without-K #-}
 open import BasicTypes
 module
-  FiberType {A : Type ℓᵢ} {B : Type ℓⱼ}
+  FibreType {A : Type ℓᵢ} {B : Type ℓⱼ}
     where
   -- Fiber
   fibre

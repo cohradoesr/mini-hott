@@ -23,6 +23,8 @@ open import HLevelTypes
 \end{code}
 </div>
 
+### Circles
+
 The circle type is constructed by postulating a type with
 a single element (base) and a nontrivial path (loop).
 

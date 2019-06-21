@@ -11,7 +11,7 @@ open import HLevelTypes
 open import HLevelLemmas
 open import HedbergLemmas
 open import TruncationType
-open import FiberType
+open import FibreType
 module EquivalencesForSets where
   IsSurjection
     : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}

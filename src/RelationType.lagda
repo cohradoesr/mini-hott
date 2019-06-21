@@ -21,7 +21,7 @@ open import HLevelTypes
 \end{code}
 </div>
 
-## Relation
+### Relation
 
 \begin{code}
 module RelationType where

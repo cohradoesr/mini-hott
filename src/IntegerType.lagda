@@ -28,7 +28,7 @@ open import HedbergLemmas
 </div>
 
 
-#### Integers
+### Integers
 
 \begin{code}
 module IntegerType where

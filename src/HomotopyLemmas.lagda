@@ -20,13 +20,13 @@ open import HomotopyType
 \end{code}
 </div>
 
-## Composition with homotopies
 
-{: .foldable until="8"}
+### Composition with homotopies
+
+{: .foldable until="7"}
 \begin{code}
--- Lemma.
 hl-comp
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
   → {f g : A → B}
   → {j k : B → C}
   → f ∼ g
@@ -38,11 +38,10 @@ hl-comp {g = g}{j = j} f-g j-k = λ x → ap j (f-g x) · j-k (g x)
 \end{code}
 
 
-{: .foldable until="8"}
+{: .foldable until="7"}
 \begin{code}
--- Lemma.
 rcomp-∼
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
   → (f : A → B)
   → {j k : B → C}
   → j ∼ k
@@ -52,11 +51,10 @@ rcomp-∼
 rcomp-∼ f j-k = hl-comp (h-refl f) j-k
 \end{code}
 
-{: .foldable until="8"}
+{: .foldable until="7"}
 \begin{code}
--- Lemma.
 lcomp-∼
-  : ∀ {ℓᵢ ℓⱼ ℓₖ} {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
   → {f g : A → B}
   → (j : B → C)
   → f ∼ g
@@ -72,13 +70,12 @@ lcomp-∼ j α = hl-comp α (h-refl j)
 Homotopy is natural, meaning that it satisfies the following
 square commutative diagram.
 
-![path](/assets/ipe-images/h-naturality.png){: width="40%" }
+![path](/assets/ipe-images/h-naturality.png){: width="30%"  align="right" }
 
-{: .foldable until="7"}
+{: .foldable until="5"}
 \begin{code}
--- Lemma.
 h-naturality
-  : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ}
   → {f g : A → B} → {x y : A}
   → (H : f ∼ g)
   → (p : x == y)
@@ -91,11 +88,10 @@ h-naturality {x = x} H idp = ! (·-runit (H x))
 
 A particular case of naturality on the identity function.
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
--- Lemma.
 h-naturality-id
-  : ∀ {ℓ} {A : Type ℓ} {f : A → A} → {x : A}
+  : {A : Type ℓ} {f : A → A} → {x : A}
   → (H : f ∼ id)
   -----------------------
   → H (f x) == ap f (H x)

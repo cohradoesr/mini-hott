@@ -23,7 +23,7 @@ open import HLevelTypes
 \end{code}
 </div>
 
-### Interval
+### Intervals
 
 Interval. An interval is defined by taking two points (two elements) and a path
 between them (an element of the equality type). The path is nontrivial.

@@ -26,7 +26,7 @@ open import UnivalenceAxiom
 \end{code}
 </div>
 
-### Transport and Univalence
+## Transport and Univalence
 
 \begin{code}
 module UnivalenceTransport where

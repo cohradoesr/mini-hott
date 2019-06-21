@@ -67,7 +67,7 @@ module HLevelLemmas where
     ----------
     → isGroupoid A
 
-  Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y) 
+  Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y)
   ⊥-is-prop : isProp {lzero} ⊥
   ⊥-is-prop x ()
   is-prop-A+B : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -175,7 +175,7 @@ module HLevelLemmas where
     → (P : A → hProp {ℓᵢ})
     → ∀ {a₀ a₁} p₀ p₁ {α : a₀ ≡ a₁}
     → p₀ ≡ p₁ [ (# ∘ P) / α ]
-    
+
   Prop-/-≡ P {a₀} p₀ p₁ {α = idp} = proj₂ (P a₀) p₀ p₁
   postulate -- Ex. 3.3
     isSet-Σ

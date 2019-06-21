@@ -54,7 +54,8 @@ module
 
 \begin{code}
 π₂-≡
-  : ∀ {A : Type ℓᵢ} (B : A → Type ℓⱼ)
+  : {A : Type ℓᵢ}
+  → (B : A → Type ℓⱼ)
   → {ab ab' : ∑ A B}
   → (p : ab ≡ ab')
   ---------------------------------------
@@ -90,12 +91,16 @@ module
 \end{code}
 
 \begin{code}
-∑-lift : ∀ {i j k} {A : Type i} {B : A → Type j} {C : A → Type k}
-     → (∀ a → B a → C a) → ∑ A B → ∑ A C
+∑-lift
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : A → Type ℓₖ}
+  → (∀ a → B a → C a)
+  --------------------
+  → ∑ A B → ∑ A C
+
 ∑-lift f = ∑-map id f
 \end{code}
 
-In the following identities are more customized version of the ones above.
+Some of the following identities are a customized version of the lemmas above.
 
 \begin{code}
 module Sigma {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where

@@ -29,28 +29,50 @@ open import HedbergLemmas
 </div>
 
 
-## Truncation
+### Propositional truncation
+
+See at the moment:
+https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda
+
 
 \begin{code}
-module TruncationType where
+module
+  TruncationType
+  where
+\end{code}
 
+\begin{code}
   private
     -- Higher inductive type, defined with equalities between any two
     -- members.
-    data !∥_∥ {ℓ} (A : Type ℓ) : Type ℓ where
-      !∣_∣ : A → !∥ A ∥
+    data
+      !∥_∥ {ℓ} (A : Type ℓ)
+        : Type ℓ
+        where
+        !∣_∣ : A → !∥ A ∥
+\end{code}
 
-  ∥_∥ : ∀ {ℓ} (A : Type ℓ) → Type ℓ
+\begin{code}
+  ∥_∥
+    :  (A : Type ℓ)
+    → Type ℓ
+
   ∥ A ∥ = !∥ A ∥
+\end{code}
 
+\begin{code}
   ∣_∣ : ∀ {ℓ} {X : Type ℓ} → X → ∥ X ∥
   ∣ x ∣ = !∣ x ∣
+\end{code}
 
-  -- Any two elements of the truncated type are equal
+Any two elements of the truncated type are equal
+\begin{code}
   postulate
     trunc : ∀ {ℓ} {A : Type ℓ} → isProp ∥ A ∥
+\end{code}
 
-  -- Recursion principle
+Recursion principle
+\begin{code}
   trunc-rec : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : Type ℓⱼ}
             → isProp P
             → (A → P)

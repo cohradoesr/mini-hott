@@ -172,11 +172,13 @@ home: true
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
@@ -435,14 +437,15 @@ home: true
 \AgdaBound{B₂}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaBound{g₀}\AgdaSpace{}%
 \AgdaBound{g₁}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaBound{∑}\AgdaFunction{-}\AgdaBound{ma}\AgdaFunction{p}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaArgument{B}\AgdaBound{' }\AgdaSymbol{=}\AgdaSpace{}%
-\AgdaFunction{B}\AgdaBound{₁}\AgdaBound{\} }\AgdaBound{f}\AgdaFunction{₀}\AgdaSpace{}%
-\AgdaBound{f₁}\AgdaSpace{}%
-\AgdaBound{x}\AgdaBound{)}\AgdaSymbol{)}\<%
+\AgdaSymbol{(}\AgdaBound{∑-}\AgdaFunction{map}\AgdaSpace{}%
+\AgdaBound{\{B}\AgdaArgument{'}\AgdaFunction{ =}\AgdaSpace{}%
+\AgdaBound{B₁}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaBound{f₀}\AgdaSpace{}%
+\AgdaFunction{f}\AgdaBound{₁}\AgdaSpace{}%
+\AgdaBound{x}\AgdaFunction{)}\AgdaSymbol{)}\<%
 \\
-\>[0]\<%
-\\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{∑-map-compose}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{}}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{}}\AgdaSpace{}%
@@ -456,34 +459,30 @@ home: true
 \end{code}
 
 \begin{code}%
-\>[0]\AgdaFunction{∑-lift}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{i}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSpace{}%
-\AgdaBound{k}\AgdaSymbol{\}}\AgdaSpace{}%
+\>[0]\AgdaFunction{∑-lift}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{i}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{C}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{k}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓₖ}\AgdaSymbol{\}}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
-\>[1]\AgdaSpace{}%
-%
-\>[4]\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
+\>[1]%
+\>[302I]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaSymbol{∀}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
@@ -491,8 +490,13 @@ home: true
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{C}\AgdaSpace{}%
-\AgdaBound{a}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSymbol{)}\<%
+\\
+\>[.][@{}l@{}]\<[302I]%
+\>[2]\AgdaComment{--------------------}\<%
+\\
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaRecord{∑}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSpace{}%
@@ -501,6 +505,8 @@ home: true
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaBound{C}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{∑-lift}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -509,7 +515,7 @@ home: true
 \AgdaBound{f}\<%
 \end{code}
 
-In the following identities are more customized version of the ones above.
+Some of the following identities are a customized version of the lemmas above.
 
 \begin{code}%
 \>[0]\AgdaKeyword{module}\AgdaSpace{}%
@@ -835,7 +841,7 @@ Uniqueness principle property for products
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{∀}%
-\>[508I]\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
+\>[501I]\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
 \AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{X}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -848,7 +854,7 @@ Uniqueness principle property for products
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaBound{ℓⱼ}\AgdaSymbol{\}}\<%
 \\
-\>[.][@{}l@{}]\<[508I]%
+\>[.][@{}l@{}]\<[501I]%
 \>[6]\AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
@@ -900,7 +906,7 @@ Uniqueness principle property for products
 \\
 %
 \>[2]\AgdaSymbol{→}%
-\>[555I]\AgdaSymbol{(}\AgdaFunction{tr}\AgdaSpace{}%
+\>[548I]\AgdaSymbol{(}\AgdaFunction{tr}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
@@ -916,10 +922,10 @@ Uniqueness principle property for products
 \AgdaBound{f}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaBound{a'}\<%
 \\
-\>[.][@{}l@{}]\<[555I]%
+\>[.][@{}l@{}]\<[548I]%
 \>[4]\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaFunction{tr}%
-\>[571I]\AgdaSymbol{(λ}\AgdaSpace{}%
+\>[564I]\AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{w}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSpace{}%
@@ -928,7 +934,7 @@ Uniqueness principle property for products
 \AgdaSymbol{(}\AgdaField{π₂}\AgdaSpace{}%
 \AgdaBound{w}\AgdaSymbol{))}\<%
 \\
-\>[.][@{}l@{}]\<[571I]%
+\>[.][@{}l@{}]\<[564I]%
 \>[10]\AgdaSymbol{(}\AgdaFunction{pair=}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{p}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%

@@ -29,32 +29,27 @@ home: true
 \end{code}
 </div>
 
-## Composition with homotopies
 
-{: .foldable until="8"}
+### Composition with homotopies
+
+{: .foldable until="7"}
 \begin{code}%
-\>[0]\AgdaComment{-- Lemma.}\<%
-\\
 \>[0]\AgdaFunction{hl-comp}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSpace{}%
-\AgdaBound{ℓₖ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{C}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓₖ}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓₖ}\AgdaSymbol{\}}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -124,30 +119,24 @@ home: true
 \end{code}
 
 
-{: .foldable until="8"}
+{: .foldable until="7"}
 \begin{code}%
-\>[0]\AgdaComment{-- Lemma.}\<%
-\\
 \>[0]\AgdaFunction{rcomp-∼}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSpace{}%
-\AgdaBound{ℓₖ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{C}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓₖ}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓₖ}\AgdaSymbol{\}}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -197,30 +186,24 @@ home: true
 \AgdaBound{j-k}\<%
 \end{code}
 
-{: .foldable until="8"}
+{: .foldable until="7"}
 \begin{code}%
-\>[0]\AgdaComment{-- Lemma.}\<%
-\\
 \>[0]\AgdaFunction{lcomp-∼}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSpace{}%
-\AgdaBound{ℓₖ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{C}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓₖ}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓₖ}\AgdaSymbol{\}}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -276,27 +259,22 @@ home: true
 Homotopy is natural, meaning that it satisfies the following
 square commutative diagram.
 
-![path](/assets/ipe-images/h-naturality.png){: width="40%" }
+![path](/assets/ipe-images/h-naturality.png){: width="30%"  align="right" }
 
-{: .foldable until="7"}
+{: .foldable until="5"}
 \begin{code}%
-\>[0]\AgdaComment{-- Lemma.}\<%
-\\
 \>[0]\AgdaFunction{h-naturality}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -365,20 +343,16 @@ square commutative diagram.
 
 A particular case of naturality on the identity function.
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}%
-\>[0]\AgdaComment{-- Lemma.}\<%
-\\
 \>[0]\AgdaFunction{h-naturality-id}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{f}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
@@ -428,10 +402,10 @@ A particular case of naturality on the identity function.
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
 \>[4]\AgdaBound{H}%
-\>[246I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\>[229I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[246I]%
+\>[.][@{}l@{}]\<[229I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{·-runit}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{H}\AgdaSpace{}%
@@ -441,14 +415,14 @@ A particular case of naturality on the identity function.
 \\
 %
 \>[4]\AgdaBound{H}%
-\>[253I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\>[236I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaFunction{refl}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[253I]%
+\>[.][@{}l@{}]\<[236I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{H}\AgdaSpace{}%
@@ -463,7 +437,7 @@ A particular case of naturality on the identity function.
 \\
 %
 \>[4]\AgdaBound{H}%
-\>[269I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\>[252I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaSymbol{((}\AgdaBound{H}\AgdaSpace{}%
@@ -473,7 +447,7 @@ A particular case of naturality on the identity function.
 \AgdaSymbol{(}\AgdaBound{H}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{)))}\<%
 \\
-\>[.][@{}l@{}]\<[269I]%
+\>[.][@{}l@{}]\<[252I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{H}\AgdaSpace{}%
@@ -493,7 +467,7 @@ A particular case of naturality on the identity function.
 \\
 %
 \>[4]\AgdaBound{H}%
-\>[293I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
+\>[276I]\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{ap}\AgdaSpace{}%
@@ -505,7 +479,7 @@ A particular case of naturality on the identity function.
 \AgdaSymbol{(}\AgdaBound{H}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSymbol{))}\<%
 \\
-\>[.][@{}l@{}]\<[293I]%
+\>[.][@{}l@{}]\<[276I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{·-assoc}\AgdaSpace{}%

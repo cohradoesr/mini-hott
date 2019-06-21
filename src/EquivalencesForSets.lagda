@@ -26,7 +26,7 @@ open import HLevelTypes
 open import HLevelLemmas
 open import HedbergLemmas
 open import TruncationType
-open import FiberType
+open import FibreType
 \end{code}
 </div>
 

@@ -18,13 +18,12 @@ allAreCenter
   → (∀ (c₂ : A) → (∀ (x : A) → c₂ == x))
 
 allAreCenter c₁ f c₂ x = sym (f c₂) · (f x)
--- Def.
 isProp
   : ∀ {ℓ} (A : Type ℓ) → Type ℓ
 
 isProp A = ((x y : A) → x == y)
 is-subsingleton = isProp
--- The type of mere propositions
+is-prop         = isProp
 hProp
   : ∀ {ℓ} → Type (lsuc ℓ)
 
@@ -32,6 +31,7 @@ hProp {ℓ} = ∑ (Type ℓ) isProp
 isSet
   : Type ℓ → Type ℓ
 isSet A = (x y : A) → isProp (x == y)
+is-set = isSet
 hSet
   : Type (lsuc ℓ)
 
@@ -40,6 +40,7 @@ isGroupoid
   : Type ℓ → Type ℓ
 
 isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
+is-groupoid = isGroupoid
 Groupoid
   : Type (lsuc ℓ)
 Groupoid {ℓ} = ∑ (Type ℓ) isGroupoid

@@ -28,6 +28,8 @@ open import HedbergLemmas
 \end{code}
 </div>
 
+### Set truncations
+
 An analogous form of truncation for Sets instead of
 Propositions. It truncates any higher-dimensional homothopical
 structure.

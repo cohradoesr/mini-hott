@@ -63,16 +63,24 @@ home: true
 </div>
 
 
-## Truncation
+### Propositional truncation
+
+See at the moment:
+https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda
+
 
 \begin{code}%
-\>[0]\AgdaKeyword{module}\AgdaSpace{}%
-\AgdaModule{TruncationType}\AgdaSpace{}%
-\AgdaKeyword{where}\<%
+\>[0]\AgdaKeyword{module}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaModule{TruncationType}\<%
 \\
 %
-\\[\AgdaEmptyExtraSkip]%
-\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaKeyword{where}\<%
+\end{code}
+
+\begin{code}%
+%
 \>[2]\AgdaKeyword{private}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
@@ -82,42 +90,52 @@ home: true
 \>[4]\AgdaComment{-- members.}\<%
 \\
 %
-\>[4]\AgdaKeyword{data}\AgdaSpace{}%
-\AgdaOperator{\AgdaDatatype{!∥\AgdaUnderscore{}∥}}\AgdaSpace{}%
+\>[4]\AgdaKeyword{data}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaOperator{\AgdaDatatype{!∥\AgdaUnderscore{}∥}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSpace{}%
-\AgdaKeyword{where}\<%
+\AgdaBound{ℓ}\AgdaSymbol{)}\<%
 \\
-\>[4][@{}l@{\AgdaIndent{0}}]%
-\>[6]\AgdaOperator{\AgdaInductiveConstructor{!∣\AgdaUnderscore{}∣}}\AgdaSpace{}%
+\>[6][@{}l@{\AgdaIndent{0}}]%
+\>[8]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\<%
+\\
+%
+\>[8]\AgdaKeyword{where}\<%
+\\
+%
+\>[8]\AgdaOperator{\AgdaInductiveConstructor{!∣\AgdaUnderscore{}∣}}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{!∥}}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{∥}}\<%
+\end{code}
+
+\begin{code}%
+%
+\>[2]\AgdaOperator{\AgdaFunction{∥\AgdaUnderscore{}∥}}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}%
+\>[7]\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{)}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\<%
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaOperator{\AgdaFunction{∥\AgdaUnderscore{}∥}}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
-\AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\<%
-\\
 %
 \>[2]\AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
@@ -126,9 +144,9 @@ home: true
 \AgdaOperator{\AgdaDatatype{!∥}}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{∥}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaOperator{\AgdaFunction{∣\AgdaUnderscore{}∣}}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -153,12 +171,10 @@ home: true
 \AgdaOperator{\AgdaInductiveConstructor{!∣}}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{∣}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaComment{-- Any two elements of the truncated type are equal}\<%
-\\
+\end{code}
+
+Any two elements of the truncated type are equal
+\begin{code}%
 %
 \>[2]\AgdaKeyword{postulate}\<%
 \\
@@ -176,15 +192,13 @@ home: true
 \AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∥}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaComment{-- Recursion principle}\<%
-\\
+\end{code}
+
+Recursion principle
+\begin{code}%
 %
 \>[2]\AgdaFunction{trunc-rec}%
-\>[88I]\AgdaSymbol{:}\AgdaSpace{}%
+\>[78I]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{∀}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
 \AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
@@ -197,7 +211,7 @@ home: true
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaBound{ℓⱼ}\AgdaSymbol{\}}\<%
 \\
-\>[.][@{}l@{}]\<[88I]%
+\>[.][@{}l@{}]\<[78I]%
 \>[12]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{isProp}\AgdaSpace{}%
 \AgdaBound{P}\<%
