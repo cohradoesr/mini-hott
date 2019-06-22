@@ -8,7 +8,7 @@ layout: default
 {% else %}
   {% assign filepath = page.path %}
 {% endif %}
-{% assign viewsource = site.github.repository_url | append: "/blob/master/" | append: filepath %}
+{% assign viewsource = site.github.repository_url | append: "/blob/master/src" | append: filepath %}
 {% assign latestcommit = page.git.last_commit.short_sha %}
 {% assign editsource = site.github.repository_url | append: "/edit/master/src/" | append: filepath %}
 {% assign history = site.github.repository_url | append: "/commits/" | append: "master" | append: "/src/" | append: filepath %}
@@ -16,7 +16,6 @@ layout: default
 {% assign agdaCode = "https://raw.githubusercontent.com/" | append: site.repository | append: "/master/src/" | append: filepath %}
 
 <div class="post">
-
   <div class="print-version">
     <center>
       <h1>{{ page.title }}</h1><br/>
@@ -83,7 +82,8 @@ layout: default
   {% else %}
   No git information available.
   {% endif %}
-  <h1 class="post-title" id="stickyTitle">{% octicon bookmark height:22 %} {{ page.title }}
+
+  <h1 class="post-title" id="stickyTitle">{% octicon bookmark height:22 %} {{ page.title }} <small style="float:right">({{filepath}})</small>
   </h1>
 
   <!-- {% if page.toc %}
@@ -130,10 +130,10 @@ layout: default
   <div id="github-links">
     <div class="view-source">
       {% if page.agda %}
-        <a href="{{raw}}" download target="_blank">{% octicon file height:12 class:"right left" %} Raw + Agda</a>
-        <a href="{{agdaCode}}" download target="_blank">{% octicon file-code height:12 class:"right left" %} Agda </a>
+        <a href="{{agdaCode}}" download target="_blank">{% octicon file height:12 class:"right left" %} .lagda </a>
+        <a href="{{raw}}" download target="_blank">{% octicon file-code height:12 class:"right left" %} .agda</a>
       {% else %}
-        <a href="{{raw}}" download target="_blank">{% octicon file height:12 class:"right left" %} Raw</a>
+        <a href="{{raw}}" download target="_blank">{% octicon file height:12 class:"right left" %} .agda</a>
       {% endif %}
       <a href="{{viewsource}}" target="_blank">{% octicon mark-github height:12 class:"right left" %} Github</a>
       <a href="{{editsource}}" target="_blank">{% octicon pencil height:12 class:"right left" %} Edit</a>
@@ -148,9 +148,6 @@ layout: default
   </div>
 
 </div>
-
-<!-- https://octicons.github.com/ -->
-
 
 {% if page.related_posts %}
 <div class="related">

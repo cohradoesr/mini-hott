@@ -1,3 +1,14 @@
+.filename
+{
+  float: right;
+  background: black;
+  padding: 4px;
+
+  a {
+    color: white;
+  }
+}
+
 @import "Agda";
 @import "poole";
 @import "lanyon";

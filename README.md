@@ -12,14 +12,28 @@ end, the section References.
 ### Agda style
 
 Definitions are presented in the following way using always unicode as much as
-possible for readability.
+possible for readability. Very often, we presented them as rules using before the
+main conclusion (or output) a line forms with hyphens.
 
 ```
+\begin{code}
 termName
-  :  {...} type1  
-  → type2
+  :  {...} {t1 : type1}
+  → (t2 : type2)
   → ...
-  → typen
+  ---------------------
+  → ... (t1 t2)
+
+termName = definition
+
+-- infix precedence
+infix X termName
+\end{code}
+
+\begin{code}
+Synonyms:
+...
+\end{code}
 ```
 
 Any further comment is very welcomed.

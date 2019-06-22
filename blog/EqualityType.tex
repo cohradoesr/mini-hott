@@ -6,10 +6,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 In HoTT, we have a different interpretation of type theory in which the

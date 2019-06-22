@@ -6,10 +6,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -23,13 +22,13 @@ open import Transport
 
 ### Product identities
 
-{: .foldable until="2"}
+<div class="hide" >
 \begin{code}
 module
   ProductIdentities
   where
-
 \end{code}
+</div>
 
 
 {: .foldable until="6"}

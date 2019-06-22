@@ -6,10 +6,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 Two functions are quasi-inverses if we can construct a function providing
@@ -30,19 +29,28 @@ open import HalfAdjointType
 </div>
 
 \begin{code}
-module QuasiinverseType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
+module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
+\end{code}
 
-  -- Definitions for quasi-inverses, left-inverses, right-inverses and
-  -- biinverses.
-  qinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
+\begin{code}
+  qinv
+    : (A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+
   qinv f = Σ (B → A) (λ g → ((f ∘ g) ∼ id) × ((g ∘ f) ∼ id))
+\end{code}
 
+\begin{code}
   linv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   linv f = Σ (B → A) (λ g → (g ∘ f) ∼ id)
+\end{code}
 
+\begin{code}
   rinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   rinv f = Σ (B → A) λ g → (f ∘ g) ∼ id
+\end{code}
 
+\begin{code}
   biinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   biinv f = linv f × rinv f
 

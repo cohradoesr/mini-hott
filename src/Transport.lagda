@@ -7,10 +7,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >

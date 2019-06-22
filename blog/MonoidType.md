@@ -5,10 +5,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -23,19 +22,34 @@ home: true
 </pre>
 </div>
 
+### Monoids
+
 <pre class="Agda">
-<a id="377" class="Keyword">module</a> <a id="384" href="MonoidType.html" class="Module">MonoidType</a> <a id="395" class="Symbol">{</a><a id="396" href="MonoidType.html#396" class="Bound">ℓ</a><a id="397" class="Symbol">}</a> <a id="399" class="Keyword">where</a>
+<a id="390" class="Keyword">module</a>
+  <a id="399" href="MonoidType.html" class="Module">MonoidType</a>
+    <a id="414" class="Keyword">where</a>
+</pre>
 
-  <a id="408" class="Keyword">record</a> <a id="Monoid"></a><a id="415" href="MonoidType.html#415" class="Record">Monoid</a> <a id="422" class="Symbol">:</a> <a id="424" href="Intro.html#1593" class="Function">Type</a> <a id="429" class="Symbol">(</a><a id="430" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="435" href="MonoidType.html#396" class="Bound">ℓ</a><a id="436" class="Symbol">)</a> <a id="438" class="Keyword">where</a>
-    <a id="448" class="Keyword">field</a>
-      <a id="460" class="Comment">-- Operations of a monoid</a>
-      <a id="Monoid.G"></a><a id="492" href="MonoidType.html#492" class="Field">G</a> <a id="494" class="Symbol">:</a> <a id="496" href="Intro.html#1593" class="Function">Type</a> <a id="501" href="MonoidType.html#396" class="Bound">ℓ</a>
-      <a id="Monoid.GisSet"></a><a id="509" href="MonoidType.html#509" class="Field">GisSet</a> <a id="516" class="Symbol">:</a> <a id="518" href="HLevelTypes.html#1221" class="Function">isSet</a> <a id="524" href="MonoidType.html#492" class="Field">G</a>
-      <a id="Monoid._&lt;&gt;_"></a><a id="532" href="MonoidType.html#532" class="Field Operator">_&lt;&gt;_</a> <a id="537" class="Symbol">:</a> <a id="539" href="MonoidType.html#492" class="Field">G</a> <a id="541" class="Symbol">→</a> <a id="543" href="MonoidType.html#492" class="Field">G</a> <a id="545" class="Symbol">→</a> <a id="547" href="MonoidType.html#492" class="Field">G</a>  <a id="550" class="Comment">-- Multiplication function</a>
-      <a id="Monoid.e"></a><a id="583" href="MonoidType.html#583" class="Field">e</a> <a id="585" class="Symbol">:</a> <a id="587" href="MonoidType.html#492" class="Field">G</a>             <a id="601" class="Comment">-- Unit element</a>
+<pre class="Agda">
+  <a id="447" class="Keyword">record</a>
+    <a id="Monoid"></a><a id="458" href="MonoidType.html#458" class="Record">Monoid</a>
+      <a id="471" class="Symbol">:</a> <a id="473" href="Intro.html#1813" class="Function">Type</a> <a id="478" class="Symbol">(</a><a id="479" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="484" href="MonoidType.html#484" class="Bound">ℓ</a><a id="485" class="Symbol">)</a>
+      <a id="493" class="Keyword">where</a>
+    <a id="503" class="Keyword">constructor</a> <a id="Monoid.monoid"></a><a id="515" href="MonoidType.html#515" class="InductiveConstructor">monoid</a>
+    <a id="526" class="Keyword">field</a>
+      <a id="Monoid.G"></a><a id="538" href="MonoidType.html#538" class="Field">G</a>    <a id="543" class="Symbol">:</a> <a id="545" href="Intro.html#1813" class="Function">Type</a> <a id="550" href="MonoidType.html#484" class="Bound">ℓ</a>     <a id="556" class="Comment">-- Carrier set</a>
+      <a id="Monoid.e"></a><a id="577" href="MonoidType.html#577" class="Field">e</a>    <a id="582" class="Symbol">:</a> <a id="584" href="MonoidType.html#538" class="Field">G</a>          <a id="595" class="Comment">-- Unit element (at least one element, this one)</a>
+      <a id="Monoid._&lt;&gt;_"></a><a id="650" href="MonoidType.html#650" class="Field Operator">_&lt;&gt;_</a> <a id="655" class="Symbol">:</a> <a id="657" href="MonoidType.html#538" class="Field">G</a> <a id="659" class="Symbol">→</a> <a id="661" href="MonoidType.html#538" class="Field">G</a> <a id="663" class="Symbol">→</a> <a id="665" href="MonoidType.html#538" class="Field">G</a>  <a id="668" class="Comment">-- Operation</a>
 
-      <a id="624" class="Comment">-- Axioms of a monoid</a>
-      <a id="Monoid.lunit"></a><a id="652" href="MonoidType.html#652" class="Field">lunit</a> <a id="658" class="Symbol">:</a> <a id="660" class="Symbol">(</a><a id="661" href="MonoidType.html#661" class="Bound">x</a> <a id="663" class="Symbol">:</a> <a id="665" href="MonoidType.html#492" class="Field">G</a><a id="666" class="Symbol">)</a> <a id="668" class="Symbol">→</a> <a id="670" class="Symbol">(</a><a id="671" href="MonoidType.html#583" class="Field">e</a> <a id="673" href="MonoidType.html#532" class="Field Operator">&lt;&gt;</a> <a id="676" href="MonoidType.html#661" class="Bound">x</a><a id="677" class="Symbol">)</a> <a id="679" href="EqualityType.html#1038" class="Datatype Operator">==</a> <a id="682" href="MonoidType.html#661" class="Bound">x</a>
-      <a id="Monoid.runit"></a><a id="690" href="MonoidType.html#690" class="Field">runit</a> <a id="696" class="Symbol">:</a> <a id="698" class="Symbol">(</a><a id="699" href="MonoidType.html#699" class="Bound">x</a> <a id="701" class="Symbol">:</a> <a id="703" href="MonoidType.html#492" class="Field">G</a><a id="704" class="Symbol">)</a> <a id="706" class="Symbol">→</a> <a id="708" class="Symbol">(</a><a id="709" href="MonoidType.html#699" class="Bound">x</a> <a id="711" href="MonoidType.html#532" class="Field Operator">&lt;&gt;</a> <a id="714" href="MonoidType.html#583" class="Field">e</a><a id="715" class="Symbol">)</a> <a id="717" href="EqualityType.html#1038" class="Datatype Operator">==</a> <a id="720" href="MonoidType.html#699" class="Bound">x</a>
-      <a id="Monoid.assoc"></a><a id="728" href="MonoidType.html#728" class="Field">assoc</a> <a id="734" class="Symbol">:</a> <a id="736" class="Symbol">(</a><a id="737" href="MonoidType.html#737" class="Bound">x</a> <a id="739" href="MonoidType.html#739" class="Bound">y</a> <a id="741" href="MonoidType.html#741" class="Bound">z</a> <a id="743" class="Symbol">:</a> <a id="745" href="MonoidType.html#492" class="Field">G</a><a id="746" class="Symbol">)</a> <a id="748" class="Symbol">→</a> <a id="750" class="Symbol">(</a><a id="751" href="MonoidType.html#737" class="Bound">x</a> <a id="753" href="MonoidType.html#532" class="Field Operator">&lt;&gt;</a> <a id="756" class="Symbol">(</a><a id="757" href="MonoidType.html#739" class="Bound">y</a> <a id="759" href="MonoidType.html#532" class="Field Operator">&lt;&gt;</a> <a id="762" href="MonoidType.html#741" class="Bound">z</a><a id="763" class="Symbol">))</a> <a id="766" href="EqualityType.html#1038" class="Datatype Operator">==</a> <a id="769" class="Symbol">((</a><a id="771" href="MonoidType.html#737" class="Bound">x</a> <a id="773" href="MonoidType.html#532" class="Field Operator">&lt;&gt;</a> <a id="776" href="MonoidType.html#739" class="Bound">y</a><a id="777" class="Symbol">)</a> <a id="779" href="MonoidType.html#532" class="Field Operator">&lt;&gt;</a> <a id="782" href="MonoidType.html#741" class="Bound">z</a><a id="783" class="Symbol">)</a>
+      <a id="688" class="Comment">-- property</a>
+      <a id="Monoid.GisSet"></a><a id="706" href="MonoidType.html#706" class="Field">GisSet</a> <a id="713" class="Symbol">:</a> <a id="715" href="HLevelTypes.html#1699" class="Function">isSet</a> <a id="721" href="MonoidType.html#538" class="Field">G</a>  <a id="724" class="Comment">-- the carrier is a hSet</a>
+
+      <a id="756" class="Comment">-- Axioms of a monoid</a>
+      <a id="Monoid.lunit"></a><a id="784" href="MonoidType.html#784" class="Field">lunit</a> <a id="790" class="Symbol">:</a> <a id="792" class="Symbol">(</a><a id="793" href="MonoidType.html#793" class="Bound">x</a> <a id="795" class="Symbol">:</a> <a id="797" href="MonoidType.html#538" class="Field">G</a><a id="798" class="Symbol">)</a> <a id="800" class="Symbol">→</a> <a id="802" class="Symbol">(</a><a id="803" href="MonoidType.html#577" class="Field">e</a> <a id="805" href="MonoidType.html#650" class="Field Operator">&lt;&gt;</a> <a id="808" href="MonoidType.html#793" class="Bound">x</a><a id="809" class="Symbol">)</a> <a id="811" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="814" href="MonoidType.html#793" class="Bound">x</a>
+      <a id="Monoid.runit"></a><a id="822" href="MonoidType.html#822" class="Field">runit</a> <a id="828" class="Symbol">:</a> <a id="830" class="Symbol">(</a><a id="831" href="MonoidType.html#831" class="Bound">x</a> <a id="833" class="Symbol">:</a> <a id="835" href="MonoidType.html#538" class="Field">G</a><a id="836" class="Symbol">)</a> <a id="838" class="Symbol">→</a> <a id="840" class="Symbol">(</a><a id="841" href="MonoidType.html#831" class="Bound">x</a> <a id="843" href="MonoidType.html#650" class="Field Operator">&lt;&gt;</a> <a id="846" href="MonoidType.html#577" class="Field">e</a><a id="847" class="Symbol">)</a> <a id="849" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="852" href="MonoidType.html#831" class="Bound">x</a>
+      <a id="Monoid.assoc"></a><a id="860" href="MonoidType.html#860" class="Field">assoc</a> <a id="866" class="Symbol">:</a> <a id="868" class="Symbol">(</a><a id="869" href="MonoidType.html#869" class="Bound">x</a> <a id="871" href="MonoidType.html#871" class="Bound">y</a> <a id="873" href="MonoidType.html#873" class="Bound">z</a> <a id="875" class="Symbol">:</a> <a id="877" href="MonoidType.html#538" class="Field">G</a><a id="878" class="Symbol">)</a> <a id="880" class="Symbol">→</a> <a id="882" class="Symbol">(</a><a id="883" href="MonoidType.html#869" class="Bound">x</a> <a id="885" href="MonoidType.html#650" class="Field Operator">&lt;&gt;</a> <a id="888" class="Symbol">(</a><a id="889" href="MonoidType.html#871" class="Bound">y</a> <a id="891" href="MonoidType.html#650" class="Field Operator">&lt;&gt;</a> <a id="894" href="MonoidType.html#873" class="Bound">z</a><a id="895" class="Symbol">))</a> <a id="898" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="901" class="Symbol">((</a><a id="903" href="MonoidType.html#869" class="Bound">x</a> <a id="905" href="MonoidType.html#650" class="Field Operator">&lt;&gt;</a> <a id="908" href="MonoidType.html#871" class="Bound">y</a><a id="909" class="Symbol">)</a> <a id="911" href="MonoidType.html#650" class="Field Operator">&lt;&gt;</a> <a id="914" href="MonoidType.html#873" class="Bound">z</a><a id="915" class="Symbol">)</a>
+</pre>
+
+<pre class="Agda">
+  <a id="944" class="Keyword">open</a> <a id="949" href="MonoidType.html#458" class="Module">Monoid</a> <a id="956" class="Keyword">public</a>
 </pre>

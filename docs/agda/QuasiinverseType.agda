@@ -7,19 +7,16 @@ open import HomotopyLemmas
 
 
 open import HalfAdjointType
-module QuasiinverseType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
+module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
+  qinv
+    : (A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
 
-  -- Definitions for quasi-inverses, left-inverses, right-inverses and
-  -- biinverses.
-  qinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   qinv f = Σ (B → A) (λ g → ((f ∘ g) ∼ id) × ((g ∘ f) ∼ id))
-
   linv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   linv f = Σ (B → A) (λ g → (g ∘ f) ∼ id)
-
   rinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   rinv f = Σ (B → A) λ g → (f ∘ g) ∼ id
-
   biinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   biinv f = linv f × rinv f
 

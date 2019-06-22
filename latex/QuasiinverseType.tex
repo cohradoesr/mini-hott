@@ -6,10 +6,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 Two functions are quasi-inverses if we can construct a function providing
@@ -53,38 +52,36 @@ Two functions are quasi-inverses if we can construct a function providing
 \begin{code}%
 \>[0]\AgdaKeyword{module}\AgdaSpace{}%
 \AgdaModule{QuasiinverseType}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaKeyword{where}\<%
+\end{code}
+
+\begin{code}%
+\>[0][@{}l@{\AgdaIndent{1}}]%
+\>[2]\AgdaFunction{qinv}\<%
 \\
-%
-\\[\AgdaEmptyExtraSkip]%
-\>[0][@{}l@{\AgdaIndent{0}}]%
-\>[2]\AgdaComment{-- Definitions for quasi-inverses, left-inverses, right-inverses and}\<%
-\\
-%
-\>[2]\AgdaComment{-- biinverses.}\<%
-\\
-%
-\>[2]\AgdaFunction{qinv}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
-\AgdaBound{B}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{)}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{ℓᵢ}\AgdaSpace{}%
 \AgdaOperator{\AgdaPrimitive{⊔}}\AgdaSpace{}%
 \AgdaBound{ℓⱼ}\AgdaSymbol{)}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{qinv}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
@@ -107,13 +104,12 @@ Two functions are quasi-inverses if we can construct a function providing
 \AgdaBound{f}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∼}}\AgdaSpace{}%
 \AgdaFunction{id}\AgdaSymbol{))}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaFunction{linv}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\end{code}
+
+\begin{code}%
+\>[0][@{}l@{\AgdaIndent{2}}]%
+\>[1]%
+\>[50I]\AgdaFunction{linv}\AgdaFunction{ : (}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
@@ -122,7 +118,7 @@ Two functions are quasi-inverses if we can construct a function providing
 \AgdaOperator{\AgdaPrimitive{⊔}}\AgdaSpace{}%
 \AgdaBound{ℓⱼ}\AgdaSymbol{)}\<%
 \\
-%
+\>[.][@{}l@{}]\<[50I]%
 \>[2]\AgdaFunction{linv}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -138,9 +134,9 @@ Two functions are quasi-inverses if we can construct a function providing
 \AgdaBound{f}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∼}}\AgdaSpace{}%
 \AgdaFunction{id}\AgdaSymbol{)}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaFunction{rinv}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -169,9 +165,9 @@ Two functions are quasi-inverses if we can construct a function providing
 \AgdaBound{g}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∼}}\AgdaSpace{}%
 \AgdaFunction{id}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaFunction{biinv}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -655,10 +651,10 @@ Two functions are quasi-inverses if we can construct a function providing
 \\
 %
 \>[6]\AgdaFunction{τ}%
-\>[439I]\AgdaBound{a}\AgdaSpace{}%
+\>[434I]\AgdaBound{a}\AgdaSpace{}%
 \AgdaSymbol{=}\<%
 \\
-\>[.][@{}l@{}]\<[439I]%
+\>[.][@{}l@{}]\<[434I]%
 \>[8]\AgdaOperator{\AgdaFunction{begin}}\<%
 \\
 \>[8][@{}l@{\AgdaIndent{0}}]%

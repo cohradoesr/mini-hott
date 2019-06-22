@@ -1,15 +1,14 @@
 ---
 layout: page
-title: "Sigma identities"
+title: "Coproduct identities"
 category: lemmas functions homotopy
 toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -39,6 +38,7 @@ home: true
 
 ### Coproduct identities
 
+<div class="hide" >
 \begin{code}%
 \>[0]\AgdaKeyword{module}\<%
 \\
@@ -48,6 +48,7 @@ home: true
 %
 \>[2]\AgdaKeyword{where}\<%
 \end{code}
+</div>
 
 \begin{code}%
 \>[0]\AgdaFunction{∑-≡}\<%
@@ -131,25 +132,24 @@ home: true
 \AgdaSymbol{(}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
-\AgdaFunction{Type}\AgdaSpace{}%
-\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{)}\<%
-\\
-%
-\>[2]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{→}\AgdaSpace{}%
+\AgdaFunction{Ty}\AgdaBound{p}\AgdaFunction{e}\AgdaSpace{}%
+\AgdaFunction{ℓⱼ}\AgdaFunction{)
+  }\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{ab}\AgdaSpace{}%
 \AgdaBound{ab'}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
-\AgdaBound{∑}\AgdaSpace{}%
+\AgdaRecord{∑}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSymbol{\}}\<%
 \\
-\>[0][@{}l@{\AgdaIndent{0}}]%
-\>[1]\AgdaFunction{ → }\AgdaFunction{ab}\AgdaSpace{}%
-\AgdaFunction{≡}\AgdaSpace{}%
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{ab}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
 \AgdaBound{ab'}\<%
 \\
-\>[1][@{}l@{\AgdaIndent{0}}]%
+%
 \>[2]\AgdaComment{----------------}\<%
 \\
 %
@@ -426,23 +426,23 @@ home: true
 \AgdaBound{a}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f₁}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
-\AgdaBound{b}\AgdaSymbol{))}\AgdaSpace{}%
+\AgdaBound{b}\AgdaBound{)}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaBound{x}\<%
 \\
 %
-\>[2]\AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaFunction{∑-map}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaArgument{B'}\AgdaSpace{}%
+\>[2]\AgdaOperator{\AgdaFunction{≡}}\AgdaBound{ (}\AgdaFunction{∑-ma}\AgdaBound{p}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaFunction{B}\AgdaArgument{'}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{B₂}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaBound{g₀}\AgdaSpace{}%
 \AgdaBound{g₁}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaBound{∑-}\AgdaFunction{map}\AgdaSpace{}%
-\AgdaBound{\{B}\AgdaArgument{'}\AgdaFunction{ =}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{∑-map}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaArgument{B'}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{B₁}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaBound{f₀}\AgdaSpace{}%
-\AgdaFunction{f}\AgdaBound{₁}\AgdaSpace{}%
-\AgdaBound{x}\AgdaFunction{)}\AgdaSymbol{)}\<%
+\AgdaBound{f₁}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{))}\<%
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
@@ -480,10 +480,9 @@ home: true
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓₖ}\AgdaSymbol{\}}\<%
 \\
-\>[0][@{}l@{\AgdaIndent{0}}]%
-\>[1]%
-\>[302I]\AgdaSymbol{→}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaSymbol{∀}\AgdaSpace{}%
+%
+\>[2]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(∀}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSpace{}%
@@ -492,7 +491,7 @@ home: true
 \AgdaBound{C}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[302I]%
+%
 \>[2]\AgdaComment{--------------------}\<%
 \\
 %

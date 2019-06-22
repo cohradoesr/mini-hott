@@ -6,10 +6,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -77,7 +76,7 @@ module SigmaEquivalence {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ
   ap-π₁-pair=Equiv
     : {a₁ a₂ : A} {c₁ : P a₁} {c₂ : P a₂}
     → (α : a₁ == a₂)
-    → (γ : Σ (a₁ == a₂) (λ α' → transport P α' c₁ == c₂))
+    → (γ : Σ (a₁ == a₂) (λ p → c₁ == c₂ [ P ↓ p ]))
     → (ap π₁ (pair= γ) == α) ≃ (π₁ γ == α)
 
   ap-π₁-pair=Equiv {a₁ = a₁} α (β , γ) = qinv-≃ f (g , f-g , g-f)

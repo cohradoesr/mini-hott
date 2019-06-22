@@ -6,10 +6,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -33,30 +32,57 @@ open import QuasiinverseLemmas
 
 \begin{code}
 module EquivalenceReasoning where
+\end{code}
 
-  infixr 2 _≃⟨⟩_
-  _≃⟨⟩_ : ∀ {ℓ} (A {B} : Type ℓ) → A ≃ B → A ≃ B
+\begin{code}
+  _≃⟨⟩_
+    : (A {B} : Type ℓ)
+    → A ≃ B
+    -------
+    → A ≃ B
+
   _ ≃⟨⟩ e = e
+  infixr 2 _≃⟨⟩_
+\end{code}
 
-  infixr 2 _≃⟨by-def⟩_
-  _≃⟨by-def⟩_ : ∀ {ℓ} (A {B} : Type ℓ) → A ≃ B → A ≃ B
+\begin{code}
+  _≃⟨by-def⟩_
+    : (A {B} : Type ℓ)
+    → A ≃ B
+    -------
+    → A ≃ B
+
   _ ≃⟨by-def⟩ e = e
+  infixr 2 _≃⟨by-def⟩_
+\end{code}
 
-  infixr 2 _≃⟨_⟩_
+\begin{code}
   _≃⟨_⟩_
-    : ∀ {ℓ₁ ℓ₂ ℓ₃} (A : Type ℓ₁) {B : Type ℓ₂}{C : Type ℓ₃}
+    : (A : Type ℓᵢ) {B : Type ℓⱼ}{C : Type ℓₖ}
     → A ≃ B → B ≃ C
     ---------------
     → A ≃ C
 
   _ ≃⟨ e₁ ⟩ e₂ = ≃-trans e₁ e₂
+  infixr 2 _≃⟨_⟩_
+\end{code}
 
+\begin{code}
+  _≃∎
+    : (A : Type ℓ)
+    → A ≃ A
 
-  infix  3 _≃∎
-  _≃∎ :  ∀ {ℓ} (A : Type ℓ) → A ≃ A
   _≃∎ = λ A → idEqv {A = A}
+  infix  3 _≃∎
+\end{code}
 
-  infix  1 begin≃_
-  begin≃_ : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂} → A ≃ B → A ≃ B
+\begin{code}
+  begin≃_
+    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    → A ≃ B
+    -------
+    → A ≃ B
+
   begin≃_ e = e
+  infix  1 begin≃_
 \end{code}

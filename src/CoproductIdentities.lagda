@@ -1,15 +1,14 @@
 ---
 layout: page
-title: "Sigma identities"
+title: "Coproduct identities"
 category: lemmas functions homotopy
 toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -24,11 +23,13 @@ open import TransportLemmas
 
 ### Coproduct identities
 
+<div class="hide" >
 \begin{code}
 module
   CoproductIdentities
   where
 \end{code}
+</div>
 
 \begin{code}
 ∑-≡

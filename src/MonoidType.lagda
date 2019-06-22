@@ -5,10 +5,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -23,19 +22,34 @@ open import HLevelTypes
 \end{code}
 </div>
 
-\begin{code}
-module MonoidType {ℓ} where
+### Monoids
 
-  record Monoid : Type (lsuc ℓ) where
+\begin{code}
+module
+  MonoidType
+    where
+\end{code}
+
+\begin{code}
+  record
+    Monoid
+      : Type (lsuc ℓ)
+      where
+    constructor monoid
     field
-      -- Operations of a monoid
-      G : Type ℓ
-      GisSet : isSet G
-      _<>_ : G → G → G  -- Multiplication function
-      e : G             -- Unit element
+      G    : Type ℓ     -- Carrier set
+      e    : G          -- Unit element (at least one element, this one)
+      _<>_ : G → G → G  -- Operation
+
+      -- property
+      GisSet : isSet G  -- the carrier is a hSet
 
       -- Axioms of a monoid
       lunit : (x : G) → (e <> x) == x
       runit : (x : G) → (x <> e) == x
       assoc : (x y z : G) → (x <> (y <> z)) == ((x <> y) <> z)
+\end{code}
+
+\begin{code}
+  open Monoid public
 \end{code}

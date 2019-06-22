@@ -5,10 +5,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -42,40 +41,53 @@ home: true
 \end{code}
 </div>
 
+### Monoids
+
 \begin{code}%
-\>[0]\AgdaKeyword{module}\AgdaSpace{}%
-\AgdaModule{MonoidType}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaKeyword{where}\<%
+\>[0]\AgdaKeyword{module}\<%
 \\
-%
-\\[\AgdaEmptyExtraSkip]%
 \>[0][@{}l@{\AgdaIndent{0}}]%
-\>[2]\AgdaKeyword{record}\AgdaSpace{}%
-\AgdaRecord{Monoid}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaFunction{Type}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaKeyword{where}\<%
+\>[2]\AgdaModule{MonoidType}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaKeyword{where}\<%
+\end{code}
+
+\begin{code}%
+%
+\>[2]\AgdaKeyword{record}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaRecord{Monoid}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\<%
+\\
+%
+\>[6]\AgdaKeyword{where}\<%
+\\
+%
+\>[4]\AgdaKeyword{constructor}\AgdaSpace{}%
+\AgdaInductiveConstructor{monoid}\<%
+\\
+%
 \>[4]\AgdaKeyword{field}\<%
 \\
 \>[4][@{}l@{\AgdaIndent{0}}]%
-\>[6]\AgdaComment{-- Operations of a monoid}\<%
-\\
-%
-\>[6]\AgdaField{G}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[6]\AgdaField{G}%
+\>[11]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\<%
+\AgdaBound{ℓ}%
+\>[24]\AgdaComment{-- Carrier set}\<%
 \\
 %
-\>[6]\AgdaField{GisSet}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaFunction{isSet}\AgdaSpace{}%
-\AgdaField{G}\<%
+\>[6]\AgdaField{e}%
+\>[11]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaField{G}%
+\>[24]\AgdaComment{-- Unit element (at least one element, this one)}\<%
 \\
 %
 \>[6]\AgdaOperator{\AgdaField{\AgdaUnderscore{}<>\AgdaUnderscore{}}}\AgdaSpace{}%
@@ -85,13 +97,19 @@ home: true
 \AgdaField{G}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaField{G}%
-\>[24]\AgdaComment{-- Multiplication function}\<%
+\>[24]\AgdaComment{-- Operation}\<%
 \\
 %
-\>[6]\AgdaField{e}\AgdaSpace{}%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[6]\AgdaComment{-- property}\<%
+\\
+%
+\>[6]\AgdaField{GisSet}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
 \AgdaField{G}%
-\>[24]\AgdaComment{-- Unit element}\<%
+\>[24]\AgdaComment{-- the carrier is a hSet}\<%
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
@@ -144,4 +162,11 @@ home: true
 \AgdaBound{y}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaField{<>}}\AgdaSpace{}%
 \AgdaBound{z}\AgdaSymbol{)}\<%
+\end{code}
+
+\begin{code}%
+%
+\>[2]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaModule{Monoid}\AgdaSpace{}%
+\AgdaKeyword{public}\<%
 \end{code}

@@ -238,13 +238,13 @@ apd
   : ∀ {A : Type ℓᵢ}  {P : A → Type ℓⱼ} {a a' : A}
   → (f : (a : A) → P a)
   → (p : a == a')
-  ---------------------
+  --------------------------
   → (f a) == (f a') [ P ↓ p ]
 
 apd f idp = idp
 fibre-app-≡ = apd
 ap2d
-  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Type ℓₖ}
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Type ℓₖ}
   → (F : ∀ a → B a → C)
   → {a a' : A} {b : B a} {b' : B a'}
   → (p : a == a')
@@ -254,20 +254,22 @@ ap2d
 
 ap2d F idp idp = idp
 ap-idp
-  : ∀ {i j} {A : Type i} {B : Type j}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ}
    → (f : A → B)
    → {a a' : A}
    → (p : a == a')
+   ------------------------------------------
    → ap f p == idp [ (λ x → f x == f a') ↓ p ]
 
 ap-idp f idp = idp
 postulate
  ap-idp'
-  : ∀ {i j} {A : Type i} {B : Type j}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ} 
   → (f r : A → B)
   → (σ : ∀ a → f a == r a)
   → {a a' : A}
   → (p : a' == a)
+  --------------------------------------------------------------
   → (! (σ a') · ap f p) · (σ a) == idp [ (\v → r v == r a) ↓ p ]
 
 -- ap-idp' f r σ {a = a} idp = {!!}

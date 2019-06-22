@@ -6,10 +6,9 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
 <div class="hide" >
@@ -138,15 +137,15 @@ Some lemmas on the transport operation
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{\AgdaUnderscore{}}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
-\AgdaBound{B}\AgdaBound{)}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaBound{p}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSpace{}%
 \AgdaBound{=}\AgdaOperator{\AgdaDatatype{=}}\AgdaSpace{}%
-\AgdaFunction{b}\<%
+\AgdaBound{b}\<%
 \\
-%
-\\[\AgdaEmptyExtraSkip]%
-\>[0]\AgdaFunction{tran}\AgdaBound{s}\AgdaFunction{port-const}\AgdaSpace{}%
+\>[0]\<%
+\\
+\>[0]\AgdaFunction{transpor}\AgdaBound{t}\AgdaFunction{-const}\AgdaSpace{}%
 \AgdaInductiveConstructor{idp}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -2100,7 +2099,7 @@ When using pathovers, we may need one of these identities:
 
 ### Action on dependent paths
 
-{: .foldable until="5"}
+{: .foldable until="6"}
 \begin{code}%
 \>[0]\AgdaFunction{apd}\<%
 \\
@@ -2142,7 +2141,7 @@ When using pathovers, we may need one of these identities:
 \AgdaBound{a'}\AgdaSymbol{)}\<%
 \\
 %
-\>[2]\AgdaComment{---------------------}\<%
+\>[2]\AgdaComment{--------------------------}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -2179,7 +2178,6 @@ Synonyms:
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
@@ -2271,17 +2269,14 @@ Synonyms:
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{i}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{i}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
 \>[3]\AgdaSymbol{→}\AgdaSpace{}%
@@ -2305,6 +2300,9 @@ Synonyms:
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaBound{a'}\AgdaSymbol{)}\<%
+\\
+%
+\>[3]\AgdaComment{------------------------------------------}\<%
 \\
 %
 \>[3]\AgdaSymbol{→}\AgdaSpace{}%
@@ -2343,17 +2341,14 @@ Synonyms:
 \\
 \>[1][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{i}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{i}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{j}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -2391,6 +2386,9 @@ Synonyms:
 \AgdaBound{a'}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSymbol{)}\<%
+\\
+%
+\>[2]\AgdaComment{--------------------------------------------------------------}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%

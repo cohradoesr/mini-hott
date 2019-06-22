@@ -1,6 +1,20 @@
+---
+layout: page
+title: "Dependent Algebra"
+category: lemmas functions homotopy
+toc: true
+agda: true
+gallery: true
+latex: true
+references: false
+linkify: true
+showcitation: true
+---
 
 ### When ∑ and ∏ commute
 
+
+<div class="hide" >
 \begin{code}
 {-# OPTIONS --without-K #-}
 
@@ -10,6 +24,7 @@ open import BasicFunctions
 open import EquivalenceType
 open import QuasiinverseType
 \end{code}
+</div>
 
 {: .foldable until="6"}
 \begin{code}

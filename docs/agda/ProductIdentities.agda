@@ -5,7 +5,6 @@ open import Transport
 module
   ProductIdentities
   where
-
 -- Lemma.
 prodComponentwise
   : {A : Type ℓᵢ}{B : Type ℓⱼ}{x y : A × B}

@@ -4,241 +4,241 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: true
+references: false
 linkify: true
 showcitation: true
-home: true
 ---
 
-{% capture Intro %}
-{% include_relative Intro.md %}
-{% endcapture %}
-{{ Intro | markdownify }}
+# MiniHoTT Library
+
+[Intro.lagda]({% link Intro.md %})
+{% include_relative Intro.md  %}
 
 
-{% capture BasicTypes %}
+
+
+[BasicTypes.lagda]({% link BasicTypes.md %})
 {% include_relative BasicTypes.md %}
-{% endcapture %}
-{{ BasicTypes | markdownify }}
 
-{% capture BasicFunctions %}
+
+
+[BasicFunctions.lagda]({% link BasicFunctions.md %})
 {% include_relative BasicFunctions.md %}
-{% endcapture %}
-{{ BasicFunctions | markdownify }}
 
 
-{% capture AlgebraOnPaths %}
+
+
+[AlgebraOnPaths.lagda]({% link AlgebraOnPaths.md %})
 {% include_relative AlgebraOnPaths.md %}
-{% endcapture %}
-{{ AlgebraOnPaths | markdownify }}
 
 
-{% capture Transport %}
+
+
+[Transport.lagda]({% link Transport.md %})
 {% include_relative Transport.md %}
-{% endcapture %}
-{{ Transport | markdownify }}
 
-{% capture TransportLemmas %}
+
+
+[TransportLemmas.lagda]({% link TransportLemmas.md %})
 {% include_relative TransportLemmas.md %}
-{% endcapture %}
-{{ TransportLemmas | markdownify }}
+
 
 ## ∑ and ∏ algebra
 
-{% capture CoproductIdentities %}
+
+[CoproductIdentities.lagda]({% link CoproductIdentities.md %})
 {% include_relative CoproductIdentities.md %}
-{% endcapture %}
-{{ CoproductIdentities | markdownify }}
 
-{% capture ProductIdentities %}
+
+
+[ProductIdentities.lagda]({% link ProductIdentities.md %})
 {% include_relative ProductIdentities.md %}
-{% endcapture %}
-{{ ProductIdentities | markdownify }}
 
-{% capture DependentAlgebra %}
+
+
+[DependentAlgebra.lagda]({% link DependentAlgebra.md %})
 {% include_relative DependentAlgebra.md %}
-{% endcapture %}
-{{ DependentAlgebra | markdownify }}
 
-{% capture FibreType %}
+
+
+[FibreType.lagda]({% link FibreType.md %})
 {% include_relative FibreType.md %}
-{% endcapture %}
-{{ FibreType | markdownify }}
 
 
-{% capture EquivalenceType %}
+
+
+[EquivalenceType.lagda]({% link EquivalenceType.md %})
 {% include_relative EquivalenceType.md %}
-{% endcapture %}
-{{ EquivalenceType | markdownify }}
 
 
-{% capture HomotopyType %}
+
+
+[HomotopyType.lagda]({% link HomotopyType.md %})
 {% include_relative HomotopyType.md %}
-{% endcapture %}
-{{ HomotopyType | markdownify }}
 
-{% capture HomotopyLemmas %}
+
+
+[HomotopyLemmas.lagda]({% link HomotopyLemmas.md %})
 {% include_relative HomotopyLemmas.md %}
-{% endcapture %}
-{{ HomotopyLemmas | markdownify }}
 
 
-{% capture FunExtAxiom %}
+
+
+[FunExtAxiom.lagda]({% link FunExtAxiom.md %})
 {% include_relative FunExtAxiom.md %}
-{% endcapture %}
-{{ FunExtAxiom | markdownify }}
 
-{% capture FunExtTransport %}
+
+
+[FunExtTransport.lagda]({% link FunExtTransport.md %})
 {% include_relative FunExtTransport.md %}
-{% endcapture %}
-{{ FunExtTransport | markdownify }}
 
-{% capture FunExtTransportDependent %}
+
+
+[FunExtTransportDependent.lagda]({% link FunExtTransportDependent.md %})
 {% include_relative FunExtTransportDependent.md %}
-{% endcapture %}
-{{ FunExtTransportDependent | markdownify }}
 
 
-{% capture DecidableEquality %}
+
+
+[DecidableEquality.lagda]({% link DecidableEquality.md %})
 {% include_relative DecidableEquality.md %}
-{% endcapture %}
-{{ DecidableEquality | markdownify }}
 
 
-{% capture HalfAdjointType %}
+
+
+[HalfAdjointType.lagda]({% link HalfAdjointType.md %})
 {% include_relative HalfAdjointType.md %}
-{% endcapture %}
-{{ HalfAdjointType | markdownify }}
 
 
-{% capture QuasiinverseType %}
+
+
+[QuasiinverseType.lagda]({% link QuasiinverseType.md %})
 {% include_relative QuasiinverseType.md %}
-{% endcapture %}
-{{ QuasiinverseType | markdownify }}
 
-{% capture QuasiinverseLemmas %}
+
+
+[QuasiinverseLemmas.lagda]({% link QuasiinverseLemmas.md %})
 {% include_relative QuasiinverseLemmas.md %}
-{% endcapture %}
-{{ QuasiinverseLemmas | markdownify }}
 
 
 
-{% capture SigmaEquivalence %}
+
+
+[SigmaEquivalence.lagda]({% link SigmaEquivalence.md %})
 {% include_relative SigmaEquivalence.md %}
-{% endcapture %}
-{{ SigmaEquivalence | markdownify }}
 
-{% capture SigmaPreserves %}
+
+
+[SigmaPreserves.lagda]({% link SigmaPreserves.md %})
 {% include_relative SigmaPreserves.md %}
-{% endcapture %}
-{{ SigmaPreserves | markdownify }}
 
 
-{% capture PiPreserves %}
+
+
+[PiPreserves.lagda]({% link PiPreserves.md %})
 {% include_relative PiPreserves.md %}
-{% endcapture %}
-{{ PiPreserves | markdownify }}
 
 
-{% capture UnivalenceAxiom %}
+
+
+[UnivalenceAxiom.lagda]({% link UnivalenceAxiom.md %})
 {% include_relative UnivalenceAxiom.md %}
-{% endcapture %}
-{{ UnivalenceAxiom | markdownify }}
 
 
-{% capture HLevelTypes %}
+
+
+[HLevelTypes.lagda]({% link HLevelTypes.md %})
 {% include_relative HLevelTypes.md %}
-{% endcapture %}
-{{ HLevelTypes | markdownify }}
 
-{% capture HLevelLemmas %}
+
+
+[HLevelLemmas.lagda]({% link HLevelLemmas.md %})
 {% include_relative HLevelLemmas.md %}
-{% endcapture %}
-{{ HLevelLemmas | markdownify }}
 
 
-{% capture HedbergLemmas %}
+
+
+[HedbergLemmas.lagda]({% link HedbergLemmas.md %})
 {% include_relative HedbergLemmas.md %}
-{% endcapture %}
-{{ HedbergLemmas | markdownify }}
 
 
 
-{% capture EquivalenceReasoning %}
+
+
+[EquivalenceReasoning.lagda]({% link EquivalenceReasoning.md %})
 {% include_relative EquivalenceReasoning.md %}
-{% endcapture %}
-{{ EquivalenceReasoning | markdownify }}
 
-{% capture UnivalenceTransport %}
+
+
+[UnivalenceTransport.lagda]({% link UnivalenceTransport.md %})
 {% include_relative UnivalenceTransport.md %}
-{% endcapture %}
-{{ UnivalenceTransport | markdownify }}
+
 
 
 ## Higher inductive types
 
-{% capture CircleType %}
+
+[CircleType.lagda]({% link CircleType.md %})
 {% include_relative CircleType.md %}
-{% endcapture %}
-{{ CircleType | markdownify }}
 
-{% capture IntervalType %}
+
+
+[IntervalType.lagda]({% link IntervalType.md %})
 {% include_relative IntervalType.md %}
-{% endcapture %}
-{{ IntervalType | markdownify }}
 
-{% capture SuspensionType %}
+
+
+[SuspensionType.lagda]({% link SuspensionType.md %})
 {% include_relative SuspensionType.md %}
-{% endcapture %}
-{{ SuspensionType | markdownify }}
 
-{% capture TruncationType %}
+
+
+[TruncationType.lagda]({% link TruncationType.md %})
 {% include_relative TruncationType.md %}
-{% endcapture %}
-{{ TruncationType | markdownify }}
 
-{% capture SetTruncationType %}
+
+
+[SetTruncationType.lagda]({% link SetTruncationType.md %})
 {% include_relative SetTruncationType.md %}
-{% endcapture %}
-{{ SetTruncationType | markdownify }}
 
 
-{% capture NaturalType %}
+
+
+[NaturalType.lagda]({% link NaturalType.md %})
 {% include_relative NaturalType.md %}
-{% endcapture %}
-{{ NaturalType | markdownify }}
 
-{% capture IntegerType %}
+
+
+[IntegerType.lagda]({% link IntegerType.md %})
 {% include_relative IntegerType.md %}
-{% endcapture %}
-{{ IntegerType | markdownify }}
 
-{% capture QuotientType %}
+
+
+[QuotientType.lagda]({% link QuotientType.md %})
 {% include_relative QuotientType.md %}
-{% endcapture %}
-{{ QuotientType | markdownify }}
 
-{% capture RelationType %}
+
+
+[RelationType.lagda]({% link RelationType.md %})
 {% include_relative RelationType.md %}
-{% endcapture %}
-{{ RelationType | markdownify }}
 
 
-{% capture MonoidType %}
+
+
+[MonoidType.lagda]({% link MonoidType.md %})
 {% include_relative MonoidType.md %}
-{% endcapture %}
-{{ MonoidType | markdownify }}
 
-{% capture GroupType %}
+
+
+[GroupType.lagda]({% link GroupType.md %})
 {% include_relative GroupType.md %}
-{% endcapture %}
-{{ GroupType | markdownify }}
 
 
-{% capture FundamentalGroupType %}
+
+
+[FundamentalGroupType.lagda]({% link FundamentalGroupType.md %})
 {% include_relative FundamentalGroupType.md %}
-{% endcapture %}
-{{ FundamentalGroupType | markdownify }}
+
 
 ## References
 
