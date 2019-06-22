@@ -1,4 +1,4 @@
----
+--
 layout: page
 title: "Homotopy Lemmas"
 category: lemmas functions homotopy
@@ -9,7 +9,7 @@ latex: true
 references: false
 linkify: true
 showcitation: true
----
+--
 
 <div class="hide" >
 \begin{code}
@@ -22,7 +22,7 @@ open import HomotopyType
 
 ### Composition with homotopies
 
-{: .foldable until="7"}
+{: .foldable until="8"}
 \begin{code}
 hl-comp
   : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
@@ -69,7 +69,7 @@ lcomp-∼ j α = hl-comp α (h-refl j)
 Homotopy is natural, meaning that it satisfies the following
 square commutative diagram.
 
-![path](/assets/ipe-images/h-naturality.png){: width="30%"  align="right" }
+![path](/assets/ipe-images/h-naturality.png){: width="30%"  align="right" style="padding:5px" }
 
 {: .foldable until="5"}
 \begin{code}
@@ -83,7 +83,6 @@ h-naturality
 
 h-naturality {x = x} H idp = ! (·-runit (H x))
 \end{code}
-
 
 A particular case of naturality on the identity function.
 
