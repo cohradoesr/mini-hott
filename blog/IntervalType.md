@@ -12,59 +12,65 @@ showcitation: true
 
 <div class="hide" >
 <pre class="Agda">
-<a id="187" class="Symbol">{-#</a> <a id="191" class="Keyword">OPTIONS</a> <a id="199" class="Pragma">--without-K</a> <a id="211" class="Symbol">#-}</a>
-<a id="215" class="Keyword">open</a> <a id="220" class="Keyword">import</a> <a id="227" href="TransportLemmas.html" class="Module">TransportLemmas</a>
-<a id="243" class="Keyword">open</a> <a id="248" class="Keyword">import</a> <a id="255" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+<a id="177" class="Symbol">{-#</a> <a id="181" class="Keyword">OPTIONS</a> <a id="189" class="Pragma">--without-K</a> <a id="201" class="Symbol">#-}</a>
+<a id="205" class="Keyword">open</a> <a id="210" class="Keyword">import</a> <a id="217" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="233" class="Keyword">open</a> <a id="238" class="Keyword">import</a> <a id="245" href="EquivalenceType.html" class="Module">EquivalenceType</a>
 
-<a id="272" class="Keyword">open</a> <a id="277" class="Keyword">import</a> <a id="284" href="HomotopyType.html" class="Module">HomotopyType</a>
-<a id="297" class="Keyword">open</a> <a id="302" class="Keyword">import</a> <a id="309" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
-<a id="321" class="Keyword">open</a> <a id="326" class="Keyword">import</a> <a id="333" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="262" class="Keyword">open</a> <a id="267" class="Keyword">import</a> <a id="274" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="287" class="Keyword">open</a> <a id="292" class="Keyword">import</a> <a id="299" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
+<a id="311" class="Keyword">open</a> <a id="316" class="Keyword">import</a> <a id="323" href="HLevelTypes.html" class="Module">HLevelTypes</a>
 </pre>
 </div>
 
 ### Intervals
 
 Interval. An interval is defined by taking two points (two elements) and a path
-between them (an element of the equality type). The path is nontrivial.
+between them (an element of the equality type). This path is nontrivial.
 
 <pre class="Agda">
-<a id="545" class="Keyword">module</a> <a id="552" href="IntervalType.html" class="Module">IntervalType</a> <a id="565" class="Keyword">where</a>
+<a id="536" class="Keyword">module</a> <a id="543" href="IntervalType.html" class="Module">IntervalType</a> <a id="556" class="Keyword">where</a>
 
-  <a id="574" class="Keyword">private</a>
-    <a id="586" class="Comment">-- The interval is defined as a type with a nontrivial equality</a>
-    <a id="654" class="Comment">-- between its two elements.</a>
-    <a id="687" class="Keyword">data</a> <a id="!I"></a><a id="692" href="IntervalType.html#692" class="Datatype">!I</a> <a id="695" class="Symbol">:</a> <a id="697" href="Intro.html#1892" class="Function">Type₀</a> <a id="703" class="Keyword">where</a>
-      <a id="!I.!Izero"></a><a id="715" href="IntervalType.html#715" class="InductiveConstructor">!Izero</a> <a id="722" class="Symbol">:</a> <a id="724" href="IntervalType.html#692" class="Datatype">!I</a>
-      <a id="!I.!Ione"></a><a id="733" href="IntervalType.html#733" class="InductiveConstructor">!Ione</a> <a id="739" class="Symbol">:</a> <a id="741" href="IntervalType.html#692" class="Datatype">!I</a>
+  <a id="565" class="Keyword">private</a>
 
-  <a id="I"></a><a id="747" href="IntervalType.html#747" class="Function">I</a> <a id="749" class="Symbol">:</a> <a id="751" href="Intro.html#1892" class="Function">Type₀</a>
-  <a id="759" href="IntervalType.html#747" class="Function">I</a> <a id="761" class="Symbol">=</a> <a id="763" href="IntervalType.html#692" class="Datatype">!I</a>
+    <a id="578" class="Keyword">data</a> <a id="!I"></a><a id="583" href="IntervalType.html#583" class="Datatype">!I</a> <a id="586" class="Symbol">:</a> <a id="588" href="Intro.html#1882" class="Function">Type₀</a> <a id="594" class="Keyword">where</a>
+      <a id="!I.!Izero"></a><a id="606" href="IntervalType.html#606" class="InductiveConstructor">!Izero</a> <a id="613" class="Symbol">:</a> <a id="615" href="IntervalType.html#583" class="Datatype">!I</a>
+      <a id="!I.!Ione"></a><a id="624" href="IntervalType.html#624" class="InductiveConstructor">!Ione</a> <a id="630" class="Symbol">:</a> <a id="632" href="IntervalType.html#583" class="Datatype">!I</a>
 
-  <a id="Izero"></a><a id="769" href="IntervalType.html#769" class="Function">Izero</a> <a id="775" class="Symbol">:</a> <a id="777" href="IntervalType.html#747" class="Function">I</a>
-  <a id="781" href="IntervalType.html#769" class="Function">Izero</a> <a id="787" class="Symbol">=</a> <a id="789" href="IntervalType.html#715" class="InductiveConstructor">!Izero</a>
+  <a id="I"></a><a id="638" href="IntervalType.html#638" class="Function">I</a> <a id="640" class="Symbol">:</a> <a id="642" href="Intro.html#1882" class="Function">Type₀</a>
+  <a id="650" href="IntervalType.html#638" class="Function">I</a> <a id="652" class="Symbol">=</a> <a id="654" href="IntervalType.html#583" class="Datatype">!I</a>
 
-  <a id="Ione"></a><a id="799" href="IntervalType.html#799" class="Function">Ione</a> <a id="804" class="Symbol">:</a> <a id="806" href="IntervalType.html#747" class="Function">I</a>
-  <a id="810" href="IntervalType.html#799" class="Function">Ione</a> <a id="815" class="Symbol">=</a> <a id="817" href="IntervalType.html#733" class="InductiveConstructor">!Ione</a>
+  <a id="Izero"></a><a id="660" href="IntervalType.html#660" class="Function">Izero</a> <a id="666" class="Symbol">:</a> <a id="668" href="IntervalType.html#638" class="Function">I</a>
+  <a id="672" href="IntervalType.html#660" class="Function">Izero</a> <a id="678" class="Symbol">=</a> <a id="680" href="IntervalType.html#606" class="InductiveConstructor">!Izero</a>
 
-  <a id="826" class="Keyword">postulate</a>
-    <a id="seg"></a><a id="840" href="IntervalType.html#840" class="Postulate">seg</a> <a id="844" class="Symbol">:</a> <a id="846" href="IntervalType.html#769" class="Function">Izero</a> <a id="852" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="855" href="IntervalType.html#799" class="Function">Ione</a>
+  <a id="Ione"></a><a id="690" href="IntervalType.html#690" class="Function">Ione</a> <a id="695" class="Symbol">:</a> <a id="697" href="IntervalType.html#638" class="Function">I</a>
+  <a id="701" href="IntervalType.html#690" class="Function">Ione</a> <a id="706" class="Symbol">=</a> <a id="708" href="IntervalType.html#624" class="InductiveConstructor">!Ione</a>
 
-  <a id="863" class="Comment">-- Recursion principle on points.</a>
-  <a id="I-rec"></a><a id="899" href="IntervalType.html#899" class="Function">I-rec</a> <a id="905" class="Symbol">:</a> <a id="907" class="Symbol">∀</a> <a id="909" class="Symbol">{</a><a id="910" href="IntervalType.html#910" class="Bound">ℓ</a><a id="911" class="Symbol">}</a> <a id="913" class="Symbol">{</a><a id="914" href="IntervalType.html#914" class="Bound">A</a> <a id="916" class="Symbol">:</a> <a id="918" href="Intro.html#1813" class="Function">Type</a> <a id="923" href="IntervalType.html#910" class="Bound">ℓ</a><a id="924" class="Symbol">}</a>
-        <a id="934" class="Symbol">→</a> <a id="936" class="Symbol">(</a><a id="937" href="IntervalType.html#937" class="Bound">a</a> <a id="939" href="IntervalType.html#939" class="Bound">b</a> <a id="941" class="Symbol">:</a> <a id="943" href="IntervalType.html#914" class="Bound">A</a><a id="944" class="Symbol">)</a>
-        <a id="954" class="Symbol">→</a> <a id="956" class="Symbol">(</a><a id="957" href="IntervalType.html#957" class="Bound">p</a> <a id="959" class="Symbol">:</a> <a id="961" href="IntervalType.html#937" class="Bound">a</a> <a id="963" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="966" href="IntervalType.html#939" class="Bound">b</a><a id="967" class="Symbol">)</a>
-        <a id="977" class="Comment">--------------</a>
-        <a id="1000" class="Symbol">→</a> <a id="1002" class="Symbol">(</a><a id="1003" href="IntervalType.html#747" class="Function">I</a> <a id="1005" class="Symbol">→</a> <a id="1007" href="IntervalType.html#914" class="Bound">A</a><a id="1008" class="Symbol">)</a>
-  <a id="1012" href="IntervalType.html#899" class="Function">I-rec</a> <a id="1018" href="IntervalType.html#1018" class="Bound">a</a> <a id="1020" class="Symbol">_</a> <a id="1022" class="Symbol">_</a> <a id="1024" href="IntervalType.html#715" class="InductiveConstructor">!Izero</a> <a id="1031" class="Symbol">=</a> <a id="1033" href="IntervalType.html#1018" class="Bound">a</a>
-  <a id="1037" href="IntervalType.html#899" class="Function">I-rec</a> <a id="1043" class="Symbol">_</a> <a id="1045" href="IntervalType.html#1045" class="Bound">b</a> <a id="1047" class="Symbol">_</a> <a id="1049" href="IntervalType.html#733" class="InductiveConstructor">!Ione</a>  <a id="1056" class="Symbol">=</a> <a id="1058" href="IntervalType.html#1045" class="Bound">b</a>
+  <a id="717" class="Keyword">postulate</a>
+    <a id="seg"></a><a id="731" href="IntervalType.html#731" class="Postulate">seg</a> <a id="735" class="Symbol">:</a> <a id="737" href="IntervalType.html#660" class="Function">Izero</a> <a id="743" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="746" href="IntervalType.html#690" class="Function">Ione</a>
+</pre>
 
-  <a id="1063" class="Comment">-- Recursion principle on paths.</a>
-  <a id="1098" class="Keyword">postulate</a>
-    <a id="I-βrec"></a><a id="1112" href="IntervalType.html#1112" class="Postulate">I-βrec</a> <a id="1119" class="Symbol">:</a> <a id="1121" class="Symbol">∀</a> <a id="1123" class="Symbol">{</a><a id="1124" href="IntervalType.html#1124" class="Bound">ℓ</a><a id="1125" class="Symbol">}</a>
-      <a id="1133" class="Symbol">→</a> <a id="1135" class="Symbol">(</a><a id="1136" href="IntervalType.html#1136" class="Bound">A</a> <a id="1138" class="Symbol">:</a> <a id="1140" href="Intro.html#1813" class="Function">Type</a> <a id="1145" href="IntervalType.html#1124" class="Bound">ℓ</a><a id="1146" class="Symbol">)</a>
-      <a id="1154" class="Symbol">→</a> <a id="1156" class="Symbol">(</a><a id="1157" href="IntervalType.html#1157" class="Bound">a</a> <a id="1159" href="IntervalType.html#1159" class="Bound">b</a> <a id="1161" class="Symbol">:</a> <a id="1163" href="IntervalType.html#1136" class="Bound">A</a><a id="1164" class="Symbol">)</a>
-      <a id="1172" class="Symbol">→</a> <a id="1174" class="Symbol">(</a><a id="1175" href="IntervalType.html#1175" class="Bound">p</a> <a id="1177" class="Symbol">:</a> <a id="1179" href="IntervalType.html#1157" class="Bound">a</a> <a id="1181" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="1184" href="IntervalType.html#1159" class="Bound">b</a><a id="1185" class="Symbol">)</a>
-      <a id="1193" class="Comment">---------------------------</a>
-      <a id="1227" class="Symbol">→</a> <a id="1229" href="AlgebraOnPaths.html#395" class="Function">ap</a> <a id="1232" class="Symbol">(</a><a id="1233" href="IntervalType.html#899" class="Function">I-rec</a> <a id="1239" href="IntervalType.html#1157" class="Bound">a</a> <a id="1241" href="IntervalType.html#1159" class="Bound">b</a> <a id="1243" href="IntervalType.html#1175" class="Bound">p</a><a id="1244" class="Symbol">)</a> <a id="1246" href="IntervalType.html#840" class="Postulate">seg</a> <a id="1250" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="1253" href="IntervalType.html#1175" class="Bound">p</a>
+Recursion principle on points.
+{: .foldable until="6" }
+<pre class="Agda">
+  <a id="I-rec"></a><a id="834" href="IntervalType.html#834" class="Function">I-rec</a>
+    <a id="844" class="Symbol">:</a> <a id="846" class="Symbol">{</a><a id="847" href="IntervalType.html#847" class="Bound">A</a> <a id="849" class="Symbol">:</a> <a id="851" href="Intro.html#1803" class="Function">Type</a> <a id="856" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="857" class="Symbol">}</a>
+    <a id="863" class="Symbol">→</a> <a id="865" class="Symbol">(</a><a id="866" href="IntervalType.html#866" class="Bound">a</a> <a id="868" href="IntervalType.html#868" class="Bound">b</a> <a id="870" class="Symbol">:</a> <a id="872" href="IntervalType.html#847" class="Bound">A</a><a id="873" class="Symbol">)</a>
+    <a id="879" class="Symbol">→</a> <a id="881" class="Symbol">(</a><a id="882" href="IntervalType.html#882" class="Bound">p</a> <a id="884" class="Symbol">:</a> <a id="886" href="IntervalType.html#866" class="Bound">a</a> <a id="888" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="891" href="IntervalType.html#868" class="Bound">b</a><a id="892" class="Symbol">)</a>
+    <a id="898" class="Comment">--------------</a>
+    <a id="917" class="Symbol">→</a> <a id="919" class="Symbol">(</a><a id="920" href="IntervalType.html#638" class="Function">I</a> <a id="922" class="Symbol">→</a> <a id="924" href="IntervalType.html#847" class="Bound">A</a><a id="925" class="Symbol">)</a>
 
+  <a id="930" href="IntervalType.html#834" class="Function">I-rec</a> <a id="936" href="IntervalType.html#936" class="Bound">a</a> <a id="938" class="Symbol">_</a> <a id="940" class="Symbol">_</a> <a id="942" href="IntervalType.html#606" class="InductiveConstructor">!Izero</a> <a id="949" class="Symbol">=</a> <a id="951" href="IntervalType.html#936" class="Bound">a</a>
+  <a id="955" href="IntervalType.html#834" class="Function">I-rec</a> <a id="961" class="Symbol">_</a> <a id="963" href="IntervalType.html#963" class="Bound">b</a> <a id="965" class="Symbol">_</a> <a id="967" href="IntervalType.html#624" class="InductiveConstructor">!Ione</a>  <a id="974" class="Symbol">=</a> <a id="976" href="IntervalType.html#963" class="Bound">b</a>
+</pre>
+
+Recursion principle on paths.
+{: .foldable until="6" }
+<pre class="Agda">
+  <a id="1060" class="Keyword">postulate</a>
+    <a id="I-βrec"></a><a id="1074" href="IntervalType.html#1074" class="Postulate">I-βrec</a>
+      <a id="1087" class="Symbol">:</a> <a id="1089" class="Symbol">(</a><a id="1090" href="IntervalType.html#1090" class="Bound">A</a> <a id="1092" class="Symbol">:</a> <a id="1094" href="Intro.html#1803" class="Function">Type</a> <a id="1099" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="1100" class="Symbol">)</a>
+      <a id="1108" class="Symbol">→</a> <a id="1110" class="Symbol">(</a><a id="1111" href="IntervalType.html#1111" class="Bound">a</a> <a id="1113" href="IntervalType.html#1113" class="Bound">b</a> <a id="1115" class="Symbol">:</a> <a id="1117" href="IntervalType.html#1090" class="Bound">A</a><a id="1118" class="Symbol">)</a>
+      <a id="1126" class="Symbol">→</a> <a id="1128" class="Symbol">(</a><a id="1129" href="IntervalType.html#1129" class="Bound">p</a> <a id="1131" class="Symbol">:</a> <a id="1133" href="IntervalType.html#1111" class="Bound">a</a> <a id="1135" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1138" href="IntervalType.html#1113" class="Bound">b</a><a id="1139" class="Symbol">)</a>
+      <a id="1147" class="Comment">---------------------------</a>
+      <a id="1181" class="Symbol">→</a> <a id="1183" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1186" class="Symbol">(</a><a id="1187" href="IntervalType.html#834" class="Function">I-rec</a> <a id="1193" href="IntervalType.html#1111" class="Bound">a</a> <a id="1195" href="IntervalType.html#1113" class="Bound">b</a> <a id="1197" href="IntervalType.html#1129" class="Bound">p</a><a id="1198" class="Symbol">)</a> <a id="1200" href="IntervalType.html#731" class="Postulate">seg</a> <a id="1204" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1207" href="IntervalType.html#1129" class="Bound">p</a>
 </pre>

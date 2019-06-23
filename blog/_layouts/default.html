@@ -66,11 +66,12 @@
 
     <script  type="text/javascript">
       $(document).ready(function() {
-        $('.post img').wrap(function(){
+
+        $('.post img, .home img').wrap(function(){
           return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
         });
 
-        lightGallery(document.querySelector('.post'),
+        lightGallery(document.querySelector('.post, .home'),
           { selector     : ".gallery"
           // , mode         : 'slide'
           , thumbnail    : true

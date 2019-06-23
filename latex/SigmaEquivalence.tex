@@ -48,27 +48,22 @@ showcitation: true
 \begin{code}%
 \>[0]\AgdaKeyword{module}\AgdaSpace{}%
 \AgdaModule{SigmaEquivalence}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{P}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaKeyword{where}\<%
 \end{code}
 
-{: .foldable until="4"}
+{: .foldable until="3"}
 \begin{code}%
 \>[0][@{}l@{\AgdaIndent{1}}]%
-\>[2]\AgdaComment{-- Lemma.}\<%
-\\
-%
 \>[2]\AgdaFunction{pair=Equiv}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
@@ -79,6 +74,9 @@ showcitation: true
 \AgdaFunction{Σ}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaBound{P}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaComment{--------------------------------------------------------------------}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
@@ -104,9 +102,9 @@ showcitation: true
 \AgdaField{π₂}\AgdaSpace{}%
 \AgdaBound{w}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{≃}}\AgdaSpace{}%
-\AgdaBound{v}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{v}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
-\AgdaBound{w}\<%
+\AgdaBound{w}\AgdaSymbol{)}\<%
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
@@ -165,7 +163,7 @@ showcitation: true
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
 \>[4]\AgdaFunction{f}%
-\>[86I]\AgdaSymbol{:}\AgdaSpace{}%
+\>[84I]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{a₁}\AgdaSpace{}%
 \AgdaBound{a₂}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -183,7 +181,7 @@ showcitation: true
 \AgdaBound{P}\AgdaSpace{}%
 \AgdaBound{a₂}\AgdaSymbol{\}}\<%
 \\
-\>[.][@{}l@{}]\<[86I]%
+\>[.][@{}l@{}]\<[84I]%
 \>[6]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{β}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -233,7 +231,7 @@ showcitation: true
 \\[\AgdaEmptyExtraSkip]%
 %
 \>[4]\AgdaFunction{g}%
-\>[137I]\AgdaSymbol{:}\AgdaSpace{}%
+\>[135I]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{a₁}\AgdaSpace{}%
 \AgdaBound{a₂}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -251,7 +249,7 @@ showcitation: true
 \AgdaBound{P}\AgdaSpace{}%
 \AgdaBound{a₂}\AgdaSymbol{\}}\<%
 \\
-\>[.][@{}l@{}]\<[137I]%
+\>[.][@{}l@{}]\<[135I]%
 \>[6]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{β}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -413,15 +411,13 @@ showcitation: true
 \>[6]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{g}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaArgument{α}\AgdaSpace{}%
-\AgdaSymbol{=}\AgdaSpace{}%
-\AgdaBound{α}\AgdaSymbol{\}\{}\AgdaArgument{β}\AgdaSpace{}%
-\AgdaSymbol{=}\AgdaSpace{}%
-\AgdaBound{β}\AgdaSymbol{\}\{}\AgdaBound{γ}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaOperator{\AgdaFunction{∘}}\AgdaSpace{}%
+\AgdaBound{=}\AgdaSpace{}%
+\AgdaBound{α}\AgdaBound{\}}\AgdaSymbol{\{}\AgdaBound{β}\AgdaSpace{}%
+\AgdaBound{= }\AgdaBound{β}\AgdaSymbol{\}\{}\AgdaBound{γ}\AgdaBound{\} }\AgdaOperator{\AgdaFunction{∘}}\AgdaSpace{}%
 \AgdaFunction{f}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaArgument{α}\AgdaSpace{}%
-\AgdaSymbol{=}\AgdaSpace{}%
-\AgdaBound{α}\AgdaSymbol{\}\{}\AgdaArgument{β}\AgdaSpace{}%
+\AgdaBound{\{α}\AgdaSpace{}%
+\AgdaFunction{=}\AgdaSpace{}%
+\AgdaBound{α}\AgdaSymbol{\}}\AgdaFunction{\{}\AgdaArgument{β}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{β}\AgdaSymbol{\}\{}\AgdaBound{γ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∼}}\AgdaSpace{}%
@@ -440,11 +436,8 @@ showcitation: true
 \AgdaInductiveConstructor{idp}\<%
 \end{code}
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Lemma}\<%
-\\
 %
 \>[2]\AgdaFunction{ap-π₁-pair=Equiv}\<%
 \\
@@ -490,6 +483,9 @@ showcitation: true
 \AgdaFunction{↓}\AgdaSpace{}%
 \AgdaBound{p}\AgdaSpace{}%
 \AgdaFunction{]}\AgdaSymbol{))}\<%
+\\
+%
+\>[4]\AgdaComment{-----------------------------------------------}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%

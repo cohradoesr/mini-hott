@@ -25,14 +25,13 @@ open import HLevelTypes
 ### Intervals
 
 Interval. An interval is defined by taking two points (two elements) and a path
-between them (an element of the equality type). The path is nontrivial.
+between them (an element of the equality type). This path is nontrivial.
 
 \begin{code}
 module IntervalType where
 
   private
-    -- The interval is defined as a type with a nontrivial equality
-    -- between its two elements.
+
     data !I : Type₀ where
       !Izero : !I
       !Ione : !I
@@ -48,23 +47,30 @@ module IntervalType where
 
   postulate
     seg : Izero == Ione
+\end{code}
 
-  -- Recursion principle on points.
-  I-rec : ∀ {ℓ} {A : Type ℓ}
-        → (a b : A)
-        → (p : a == b)
-        --------------
-        → (I → A)
+Recursion principle on points.
+{: .foldable until="6" }
+\begin{code}
+  I-rec
+    : {A : Type ℓ}
+    → (a b : A)
+    → (p : a == b)
+    --------------
+    → (I → A)
+
   I-rec a _ _ !Izero = a
   I-rec _ b _ !Ione  = b
+\end{code}
 
-  -- Recursion principle on paths.
+Recursion principle on paths.
+{: .foldable until="6" }
+\begin{code}
   postulate
-    I-βrec : ∀ {ℓ}
-      → (A : Type ℓ)
+    I-βrec
+      : (A : Type ℓ)
       → (a b : A)
       → (p : a == b)
       ---------------------------
       → ap (I-rec a b p) seg == p
-
 \end{code}

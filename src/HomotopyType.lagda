@@ -32,15 +32,14 @@ Let $$f , g : \prod\limits_{(x:A)} P(x)$$ be two sections of a
 type family $$P : A \to \mathcal{U}$$. A **homotopy** from $$f$$ to $$g$$
 is a dependent function of type
 
-{: .equation }
-  $$ (f \sim g) :\equiv \prod\limits_{x : A} (f(x) = g(x)). $$
+$$ (f \sim g) :\equiv \prod\limits_{x : A} (f(x) = g(x)). $$
 
 
 ### Homotopy types
 
 {: .foldable until="5"}
 \begin{code}
-  -- Def.
+  
   homotopy
     : (f g : Π A P)
     ---------------
@@ -73,7 +72,7 @@ is a dependent function of type
 
 {: .foldable until="6"}
 \begin{code}
-  -- Lemma.
+  
   h-sym
     : (f g : Π A P)
     → f ∼ g
@@ -85,7 +84,7 @@ is a dependent function of type
 
 {: .foldable until="7"}
 \begin{code}
-  -- Lemma.
+  
   h-comp
     : {f g h : Π A P}
     → f ∼ g

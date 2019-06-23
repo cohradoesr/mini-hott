@@ -17,21 +17,36 @@ module SetTruncationType where
     data !∥_∥₀ {ℓ} (A : Type ℓ) : Type ℓ where
       !∣_∣₀ : A → !∥ A ∥₀
 
-  ∥_∥₀ : ∀ {ℓ} (A : Type ℓ) → Type ℓ
+  ∥_∥₀
+    : (A : Type ℓ)
+    → Type ℓ
+
   ∥ A ∥₀ = !∥ A ∥₀
 
-  ∣_∣₀ : ∀ {ℓ} {X : Type ℓ} → X → ∥ X ∥₀
+  ∣_∣₀
+    : {X : Type ℓ}
+    → X
+    → ∥ X ∥₀
+
   ∣ x ∣₀ = !∣ x ∣₀
 
-  -- Any two equalities on the truncated type are equal
   postulate
-    strunc : ∀ {ℓ} {A : Type ℓ} → isSet ∥ A ∥₀
+    strunc
+      : {A : Type ℓ}
+      → isSet ∥ A ∥₀
+  strunc-rec
+    : {A : Type ℓᵢ} {P : Type ℓⱼ}
+    → isSet P
+    → (A → P)
+    ------------
+    → ∥ A ∥₀ → P
 
-  -- Recursion principle
-  strunc-rec : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : Type ℓⱼ} → isSet P → (A → P) → ∥ A ∥₀ → P
   strunc-rec _ f !∣ x ∣₀ = f x
+  strunc-ind
+    : {A : Type ℓᵢ} {B : ∥ A ∥₀ → Type ℓⱼ}
+    → ((a : ∥ A ∥₀) → isSet (B a))
+    → (g : (a : A) → B ∣ a ∣₀)
+    ------------------------------
+    → (a : ∥ A ∥₀) → B a
 
-  -- Induction principle
-  strunc-ind : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : ∥ A ∥₀ → Type ℓⱼ} → ((a : ∥ A ∥₀) → isSet (B a))
-             → (g : (a : A) → B ∣ a ∣₀) → (a : ∥ A ∥₀) → B a
   strunc-ind _ g !∣ x ∣₀ = g x

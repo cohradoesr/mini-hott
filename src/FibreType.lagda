@@ -46,7 +46,7 @@ Synomyms and syntax sugar:
 A function applied over the fiber returns the original point
 
 \begin{code}
-  -- Lemma.
+  
   fib-eq
     : ∀ {f : A → B} {b : B}
     → (h : fib f b)
@@ -60,7 +60,7 @@ Each point is on the fiber of its image.
 
 {: .foldable until="4"}
 \begin{code}
-  -- Lemma.
+  
   fib-image
     :  ∀ {f : A → B} → {a : A}
     → fib f (f a)

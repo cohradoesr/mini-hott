@@ -53,7 +53,7 @@ The equivalence types are indeed equivalence
 
 {: .foldable until="6" }
 <pre class="Agda">
-  <a id="1108" class="Comment">-- Lemma.</a>
+  <a id="1108" class="Comment"></a>
   <a id="qinv-inv"></a><a id="1120" href="QuasiinverseLemmas.html#1120" class="Function">qinv-inv</a>
     <a id="1133" class="Symbol">:</a> <a id="1135" class="Symbol">∀</a> <a id="1137" class="Symbol">{</a><a id="1138" href="QuasiinverseLemmas.html#1138" class="Bound">ℓ₁</a> <a id="1141" href="QuasiinverseLemmas.html#1141" class="Bound">ℓ₂</a><a id="1143" class="Symbol">}</a> <a id="1145" class="Symbol">{</a><a id="1146" href="QuasiinverseLemmas.html#1146" class="Bound">A</a> <a id="1148" class="Symbol">:</a> <a id="1150" href="Intro.html#1720" class="Function">Type</a> <a id="1155" href="QuasiinverseLemmas.html#1138" class="Bound">ℓ₁</a><a id="1157" class="Symbol">}{</a><a id="1159" href="QuasiinverseLemmas.html#1159" class="Bound">B</a> <a id="1161" class="Symbol">:</a> <a id="1163" href="Intro.html#1720" class="Function">Type</a> <a id="1168" href="QuasiinverseLemmas.html#1141" class="Bound">ℓ₂</a><a id="1170" class="Symbol">}</a>
     <a id="1176" class="Symbol">→</a> <a id="1178" href="BasicTypes.html#1690" class="Function">Σ</a> <a id="1180" class="Symbol">(</a><a id="1181" href="QuasiinverseLemmas.html#1146" class="Bound">A</a> <a id="1183" class="Symbol">→</a> <a id="1185" href="QuasiinverseLemmas.html#1159" class="Bound">B</a><a id="1186" class="Symbol">)</a> <a id="1188" href="QuasiinverseType.html#704" class="Function">qinv</a>
@@ -81,7 +81,7 @@ Equivalence types are equivalence relations.
 
 {: .foldable until="7"}
 <pre class="Agda">
-  <a id="1613" class="Comment">-- Lemma.</a>
+  <a id="1613" class="Comment"></a>
   <a id="≃-trans"></a><a id="1625" href="QuasiinverseLemmas.html#1625" class="Function">≃-trans</a>
     <a id="1637" class="Symbol">:</a> <a id="1639" class="Symbol">∀</a> <a id="1641" class="Symbol">{</a><a id="1642" href="QuasiinverseLemmas.html#1642" class="Bound">ℓ₁</a> <a id="1645" href="QuasiinverseLemmas.html#1645" class="Bound">ℓ₂</a> <a id="1648" href="QuasiinverseLemmas.html#1648" class="Bound">ℓ₃</a><a id="1650" class="Symbol">}</a> <a id="1652" class="Symbol">{</a><a id="1653" href="QuasiinverseLemmas.html#1653" class="Bound">A</a> <a id="1655" class="Symbol">:</a> <a id="1657" href="Intro.html#1720" class="Function">Type</a> <a id="1662" href="QuasiinverseLemmas.html#1642" class="Bound">ℓ₁</a><a id="1664" class="Symbol">}{</a><a id="1666" href="QuasiinverseLemmas.html#1666" class="Bound">B</a> <a id="1668" class="Symbol">:</a> <a id="1670" href="Intro.html#1720" class="Function">Type</a> <a id="1675" href="QuasiinverseLemmas.html#1645" class="Bound">ℓ₂</a><a id="1677" class="Symbol">}{</a><a id="1679" href="QuasiinverseLemmas.html#1679" class="Bound">C</a> <a id="1681" class="Symbol">:</a> <a id="1683" href="Intro.html#1720" class="Function">Type</a> <a id="1688" href="QuasiinverseLemmas.html#1648" class="Bound">ℓ₃</a><a id="1690" class="Symbol">}</a>
     <a id="1696" class="Symbol">→</a> <a id="1698" href="QuasiinverseLemmas.html#1653" class="Bound">A</a> <a id="1700" href="EquivalenceType.html#1095" class="Function Operator">≃</a> <a id="1702" href="QuasiinverseLemmas.html#1666" class="Bound">B</a>

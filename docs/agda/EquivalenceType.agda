@@ -8,7 +8,7 @@ open import HomotopyType
 
 module EquivalenceType where
 
--- Def.
+
 isContrMap
   : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (f : A → B)

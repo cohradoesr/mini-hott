@@ -14,8 +14,6 @@ module
   TruncationType
   where
   private
-    -- Higher inductive type, defined with equalities between any two
-    -- members.
     data
       !∥_∥ {ℓ} (A : Type ℓ)
         : Type ℓ
@@ -26,13 +24,21 @@ module
     → Type ℓ
 
   ∥ A ∥ = !∥ A ∥
-  ∣_∣ : ∀ {ℓ} {X : Type ℓ} → X → ∥ X ∥
+  ∣_∣
+    : {X : Type ℓ}
+    → X
+    → ∥ X ∥
+
   ∣ x ∣ = !∣ x ∣
   postulate
-    trunc : ∀ {ℓ} {A : Type ℓ} → isProp ∥ A ∥
-  trunc-rec : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : Type ℓⱼ}
-            → isProp P
-            → (A → P)
-            ---------
-            → ∥ A ∥ → P
+    trunc
+      : {A : Type ℓ}
+      → isProp ∥ A ∥
+  trunc-rec
+    : {A : Type ℓᵢ} {P : Type ℓⱼ}
+    → isProp P
+    → (A → P)
+    ---------
+    → ∥ A ∥ → P
+
   trunc-rec _ f !∣ x ∣ = f x

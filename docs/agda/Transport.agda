@@ -55,7 +55,7 @@ tr₂
   → C a₂ b₂
 
 tr₂ C idp idp = id
--- Gylterud's tr₂-commute 
+-- Gylterud's tr₂-commute
 tr₂-commute
   : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
   → (C : (a : A) → (B a) → Type ℓₖ)

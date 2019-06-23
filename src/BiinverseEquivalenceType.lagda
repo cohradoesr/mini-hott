@@ -1,18 +1,38 @@
+---
+layout: page
+title: "Biinverse Equivalence Type"
+category: homotopy
+toc: true
+agda: true
+gallery: true
+latex: true
+references: false
+linkify: true
+showcitation: true
+---
+
+### Biinverses
+
+Two functions are quasi-inverses if we can construct a function providing
+`(g ∘ f) x = x` and `(f ∘ g) y = y` for any given `x` and `y`.
+
+<div class="hide" >
+\begin{code}
 {-# OPTIONS --without-K #-}
 open import TransportLemmas
-open import EquivalenceType
+\end{code}
+</div>
 
-open import HomotopyType
-open import HomotopyLemmas
-
-
-open import HalfAdjointType
+\begin{code}
 module
-  BiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ}
+  BiinverseEquivalenceType {A : Type ℓᵢ} {B : Type ℓⱼ}
    where
+\end{code}
+
+\begin{code}
   record
-    Equivalence {i j} {A : Type i} {B : Type j} (f : A → B)
-    : Type (i ⊔  j)
+    Equivalence {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} (f : A → B)
+    : Type (ℓᵢ ⊔  ℓⱼ)
     where
     constructor equivalence
     field
@@ -22,6 +42,9 @@ module
       right-identity : ∀ b → f (right-inverse b) ≡ b
 
   infix 10 _≃2_
+\end{code}
+
+\begin{code}
   record
     _≃2_ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ)
     : Type (ℓᵢ ⊔ ℓⱼ)
@@ -30,11 +53,17 @@ module
     field
       apply-eq : A → B
       biinverse : Equivalence apply-eq
+\end{code}
+
+\begin{code}
   ide
     : ∀ {ℓᵢ} {A : Type ℓᵢ}
     → A ≃2 A
 
   ide = eq id (equivalence id id (λ a → idp) (λ a → idp))
+\end{code}
+
+\begin{code}
   ≃2-from-≡
     : {A : Type ℓᵢ}
     → (F : A → Type ℓⱼ)
@@ -42,3 +71,4 @@ module
     → a ≡ b → F a ≃2 F b
 
   ≃2-from-≡ F a b p = tr₁ (_≃2_ _ ∘ F) p ide
+\end{code}

@@ -52,7 +52,7 @@ open SigmaPreserves
 module SigmaPreserves-≃ {ℓ₁ ℓ₂ ℓ₃}
   {A : Type ℓ₁} {B : Type ℓ₂} (e : B ≃ A) {C : A → Type ℓ₃} where
 
-  -- Def.
+  
   private
     f : B → A
     f = lemap e

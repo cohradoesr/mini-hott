@@ -36,7 +36,7 @@ A map is *contractible* if the fiber in any point is contractible, that is, each
 element has a unique preimagen.
 
 <pre class="Agda">
-<a id="577" class="Comment">-- Def.</a>
+<a id="577" class="Comment"></a>
 <a id="isContrMap"></a><a id="585" href="EquivalenceType.html#585" class="Function">isContrMap</a>
   <a id="598" class="Symbol">:</a> <a id="600" class="Symbol">∀</a> <a id="602" class="Symbol">{</a><a id="603" href="EquivalenceType.html#603" class="Bound">A</a> <a id="605" class="Symbol">:</a> <a id="607" href="Intro.html#1813" class="Function">Type</a> <a id="612" href="Intro.html#2255" class="Generalizable">ℓᵢ</a><a id="614" class="Symbol">}</a> <a id="616" class="Symbol">{</a><a id="617" href="EquivalenceType.html#617" class="Bound">B</a> <a id="619" class="Symbol">:</a> <a id="621" href="Intro.html#1813" class="Function">Type</a> <a id="626" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="628" class="Symbol">}</a>
   <a id="632" class="Symbol">→</a> <a id="634" class="Symbol">(</a><a id="635" href="EquivalenceType.html#635" class="Bound">f</a> <a id="637" class="Symbol">:</a> <a id="639" href="EquivalenceType.html#603" class="Bound">A</a> <a id="641" class="Symbol">→</a> <a id="643" href="EquivalenceType.html#617" class="Bound">B</a><a id="644" class="Symbol">)</a>

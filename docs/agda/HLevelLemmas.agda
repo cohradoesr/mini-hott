@@ -78,7 +78,6 @@ module HLevelLemmas where
   is-prop-A+B ispropA ispropB ¬A×B (inl x) (inr x₁) = ⊥-elim (¬A×B ( x , x₁))
   is-prop-A+B ispropA ispropB ¬A×B (inr x) (inl x₁) = ⊥-elim (¬A×B (x₁ , x))
   is-prop-A+B ispropA ispropB ¬A×B (inr x) (inr x₁) = ap inr (ispropB x x₁)
-  -- Lemma. Propositions are propositions.
   propIsProp
     :  ∀ {ℓ}{A : Type ℓ}
     --------------------
@@ -93,7 +92,7 @@ module HLevelLemmas where
   prop-is-prop        = propIsProp
   prop→prop           = propIsProp
   isProp-isProp       = propIsProp
-  -- Lemma.
+  
   isProp-pi
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
     → ((a : A) → isProp (B a))
@@ -105,7 +104,7 @@ module HLevelLemmas where
   pi-is-prop = isProp-pi
   Π-isProp   = isProp-pi
   piIsProp   = isProp-pi
-  -- Lemma.
+  
   ispropA-B
     : ∀ {ℓ} {A B : Type ℓ}
     →  isProp A → isProp B → (A ⇔ B)
@@ -117,7 +116,7 @@ module HLevelLemmas where
 
   -- Synonyms
   props-⇔-to-== = ispropA-B
-  -- Lemma.
+  
   -- propEqvIsprop
   --   : ∀ {ℓ} {A B : Type ℓ}
   --   → isProp A → isProp B
@@ -125,7 +124,7 @@ module HLevelLemmas where
   --   → isProp (A == B)
   --
   -- propEqvIsprop {ℓ} {A} {B} x x₁ x₂ y = {!   !}
-  -- Lemma.
+  
   setIsProp
     : ∀ {ℓ} {A : Type ℓ}
     → isProp (isSet A)
@@ -138,7 +137,7 @@ module HLevelLemmas where
 
   set→prop           = setIsProp
   set-is-prop-always = setIsProp
-  -- Lemma.
+  
   isProp-prod
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isProp A → isProp B
@@ -150,7 +149,7 @@ module HLevelLemmas where
   ispropA×B      = isProp-prod
   ×-isProp       = isProp-prod
   prop×prop→prop = isProp-prod
-  -- Lemma.
+  
   isSet-prod
     : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isSet A → isSet B
@@ -214,7 +213,6 @@ module HLevelLemmas where
 
 
   -- +-of-sets-is-set issetA issetB (inr x) (inr x₁) p q = {!   !}
-  -- Lemma 3.11.3 in HoTT-Book.
   isContrIsProp
     : ∀ {ℓ} {A : Type ℓ}
     --------------------
@@ -250,7 +248,7 @@ module EquivalenceProp {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
       y
     ∎
 open EquivalenceProp public
--- Lemma.
+
 ≃-trans-inv
   : ∀ {ℓ} {A B : Type ℓ}
   → (α : A ≃ B)

@@ -61,12 +61,10 @@ showcitation: true
 \end{code}
 </div>
 
-
 ### Propositional truncation
 
-See at the moment:
+Seeing at the moment:
 https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda
-
 
 \begin{code}%
 \>[0]\AgdaKeyword{module}\<%
@@ -83,12 +81,6 @@ https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda
 \>[2]\AgdaKeyword{private}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaComment{-- Higher inductive type, defined with equalities between any two}\<%
-\\
-%
-\>[4]\AgdaComment{-- members.}\<%
-\\
-%
 \>[4]\AgdaKeyword{data}\<%
 \\
 \>[4][@{}l@{\AgdaIndent{0}}]%
@@ -147,21 +139,27 @@ https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda
 
 \begin{code}%
 %
-\>[2]\AgdaOperator{\AgdaFunction{∣\AgdaUnderscore{}∣}}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\>[2]\AgdaOperator{\AgdaFunction{∣\AgdaUnderscore{}∣}}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{X}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
-\AgdaBound{X}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{X}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
 \AgdaBound{X}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∥}}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaOperator{\AgdaFunction{∣}}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
@@ -173,20 +171,23 @@ https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda
 \end{code}
 
 Any two elements of the truncated type are equal
+
 \begin{code}%
 %
 \>[2]\AgdaKeyword{postulate}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaPostulate{trunc}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\>[4]\AgdaPostulate{trunc}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{isProp}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
@@ -196,42 +197,43 @@ Any two elements of the truncated type are equal
 Recursion principle
 \begin{code}%
 %
-\>[2]\AgdaFunction{trunc-rec}%
-\>[78I]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓᵢ}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\AgdaSpace{}%
+\>[2]\AgdaFunction{trunc-rec}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{P}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓⱼ}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\<%
 \\
-\>[.][@{}l@{}]\<[78I]%
-\>[12]\AgdaSymbol{→}\AgdaSpace{}%
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{isProp}\AgdaSpace{}%
 \AgdaBound{P}\<%
 \\
 %
-\>[12]\AgdaSymbol{→}\AgdaSpace{}%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{P}\AgdaSymbol{)}\<%
 \\
 %
-\>[12]\AgdaComment{---------}\<%
+\>[4]\AgdaComment{---------}\<%
 \\
 %
-\>[12]\AgdaSymbol{→}\AgdaSpace{}%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{P}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{trunc-rec}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{}}\AgdaSpace{}%

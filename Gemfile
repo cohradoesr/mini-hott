@@ -1,7 +1,10 @@
 source 'https://rubygems.org'
+
 gem "minima", "~> 2.4.0"
+gem "liquid-c"
 
 group :jekyll_plugins do
+   gem "jekyll-commonmark"
    gem "jekyll-feed", "~> 0.6"
    gem 'hawkins'
    gem 'jekyll-seo-tag'

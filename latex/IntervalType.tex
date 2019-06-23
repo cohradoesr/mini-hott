@@ -44,7 +44,7 @@ showcitation: true
 ### Intervals
 
 Interval. An interval is defined by taking two points (two elements) and a path
-between them (an element of the equality type). The path is nontrivial.
+between them (an element of the equality type). This path is nontrivial.
 
 \begin{code}%
 \>[0]\AgdaKeyword{module}\AgdaSpace{}%
@@ -56,13 +56,9 @@ between them (an element of the equality type). The path is nontrivial.
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaKeyword{private}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaComment{-- The interval is defined as a type with a nontrivial equality}\<%
-\\
-%
-\>[4]\AgdaComment{-- between its two elements.}\<%
-\\
-%
 \>[4]\AgdaKeyword{data}\AgdaSpace{}%
 \AgdaDatatype{!I}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
@@ -126,31 +122,30 @@ between them (an element of the equality type). The path is nontrivial.
 \AgdaFunction{Izero}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaFunction{Ione}\<%
+\end{code}
+
+Recursion principle on points.
+{: .foldable until="6" }
+\begin{code}%
+%
+\>[2]\AgdaFunction{I-rec}\<%
 \\
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaComment{-- Recursion principle on points.}\<%
-\\
-%
-\>[2]\AgdaFunction{I-rec}%
-\>[39I]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{\}}\<%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
 \\
-\>[.][@{}l@{}]\<[39I]%
-\>[8]\AgdaSymbol{→}\AgdaSpace{}%
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{a}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSymbol{)}\<%
 \\
 %
-\>[8]\AgdaSymbol{→}\AgdaSpace{}%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{p}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
@@ -158,14 +153,16 @@ between them (an element of the equality type). The path is nontrivial.
 \AgdaBound{b}\AgdaSymbol{)}\<%
 \\
 %
-\>[8]\AgdaComment{--------------}\<%
+\>[4]\AgdaComment{--------------}\<%
 \\
 %
-\>[8]\AgdaSymbol{→}\AgdaSpace{}%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{I}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSymbol{)}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{I-rec}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
@@ -183,27 +180,23 @@ between them (an element of the equality type). The path is nontrivial.
 \AgdaInductiveConstructor{!Ione}%
 \>[21]\AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{b}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\>[2]\AgdaComment{-- Recursion principle on paths.}\<%
-\\
+\end{code}
+
+Recursion principle on paths.
+{: .foldable until="6" }
+\begin{code}%
 %
 \>[2]\AgdaKeyword{postulate}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaPostulate{I-βrec}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
-\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\<%
+\>[4]\AgdaPostulate{I-βrec}\<%
 \\
 \>[4][@{}l@{\AgdaIndent{0}}]%
-\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\>[6]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{)}\<%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{)}\<%
 \\
 %
 \>[6]\AgdaSymbol{→}\AgdaSpace{}%
@@ -233,6 +226,4 @@ between them (an element of the equality type). The path is nontrivial.
 \AgdaPostulate{seg}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaBound{p}\<%
-\\
-\>[0]\<%
 \end{code}

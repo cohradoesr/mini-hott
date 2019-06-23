@@ -23,7 +23,7 @@ module NaturalType where
   _+ₙ_ : ℕ → ℕ → ℕ
   _+ₙ_ = plus
 
-  -- Lemmas about addition
+  --- s about addition
   plus-lunit : (n : ℕ) → zero +ₙ n == n
   plus-lunit n = refl n
 

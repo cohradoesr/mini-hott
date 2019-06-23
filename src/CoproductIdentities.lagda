@@ -111,7 +111,7 @@ Two dependent pairs are equal if they are componentwise equal.
 
 {: .foldable until="6"}
 \begin{code}
-  -- Lemma.
+  
   Σ-componentwise
     : ∀ {v w : Σ A P}
     → v == w
@@ -123,7 +123,7 @@ Two dependent pairs are equal if they are componentwise equal.
 
 {: .foldable until="6"}
 \begin{code}
-  -- Lemma.
+  
   Σ-bycomponents
     : ∀ {v w : Σ A P}
     → Σ (π₁ v == π₁ w) (λ p → (π₂ v) == (π₂ w) [ P ↓ p ] )

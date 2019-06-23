@@ -36,7 +36,7 @@ A map is *contractible* if the fiber in any point is contractible, that is, each
 element has a unique preimagen.
 
 \begin{code}
--- Def.
+
 isContrMap
   : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (f : A → B)

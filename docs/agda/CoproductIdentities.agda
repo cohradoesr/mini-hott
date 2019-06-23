@@ -59,7 +59,7 @@ module
 
 ∑-lift f = ∑-map id f
 module Sigma {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
-  -- Lemma.
+  
   Σ-componentwise
     : ∀ {v w : Σ A P}
     → v == w
@@ -67,7 +67,7 @@ module Sigma {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
     → Σ (π₁ v == π₁ w) (λ p → tr P p (π₂ v) == π₂ w)
 
   Σ-componentwise  idp = (idp , idp)
-  -- Lemma.
+  
   Σ-bycomponents
     : ∀ {v w : Σ A P}
     → Σ (π₁ v == π₁ w) (λ p → (π₂ v) == (π₂ w) [ P ↓ p ] )

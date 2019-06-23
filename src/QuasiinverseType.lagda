@@ -11,6 +11,8 @@ linkify: true
 showcitation: true
 ---
 
+### Quasiinverses
+
 Two functions are quasi-inverses if we can construct a function providing
 `(g ∘ f) x = x` and `(f ∘ g) y = y` for any given `x` and `y`.
 

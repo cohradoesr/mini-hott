@@ -29,6 +29,7 @@ open import HedbergLemmas
 
 ### Integers
 
+{: .foldable until="6" }
 \begin{code}
 module IntegerType where
 
@@ -106,7 +107,7 @@ module IntegerType where
   neg zero +ᶻ m = zpred m
   neg (succ x) +ᶻ m = zpred (neg x +ᶻ m)
 
-  -- Lemmas on addition
+  -- s on addition
   +ᶻ-lunit : (n : ℤ) → n == n +ᶻ zer
   +ᶻ-lunit zer            = refl _
   +ᶻ-lunit (pos zero)     = refl _

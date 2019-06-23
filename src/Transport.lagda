@@ -65,7 +65,7 @@ path `α : a₁ = a₂` of the point `c₁ : C a₁` and the point `c₂` in the
 a₂`. That is, a pathover is a term that inhabit the type `transport C α c₁ = c₂`
 also denoted by `PathOver C c₁ α c₂`.
 
-![path](/assets/ipe-images/pathover-3-minihott.png){: width="45%" align="right" }
+![path](/assets/ipe-images/pathover-3.png){: width="45%" align="right" }
 
 \begin{code}
 PathOver
@@ -129,7 +129,7 @@ tr₂ C idp idp = id
 \end{code}
 
 \begin{code}
--- Gylterud's tr₂-commute 
+-- Gylterud's tr₂-commute
 tr₂-commute
   : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
   → (C : (a : A) → (B a) → Type ℓₖ)

@@ -3,7 +3,7 @@ module _ where
 
 open import BasicTypes
 open import BasicFunctions
-  -- Def.
+  
 isContr
   : (A : Type ℓ)
   --------------

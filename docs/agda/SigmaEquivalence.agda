@@ -6,11 +6,11 @@ open import HomotopyType
 open import QuasiinverseType
 
 open import CoproductIdentities
-module SigmaEquivalence {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
-  -- Lemma.
+module SigmaEquivalence {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
   pair=Equiv
     : {v w : Σ A P}
-    → Σ (π₁ v == π₁ w) (λ p → tr (λ a → P a) p (π₂ v) == π₂ w) ≃ v == w
+    --------------------------------------------------------------------
+    → Σ (π₁ v == π₁ w) (λ p → tr (λ a → P a) p (π₂ v) == π₂ w) ≃ (v == w)
 
   pair=Equiv = qinv-≃ Σ-bycomponents (Σ-componentwise , HΣ₁ , HΣ₂)
     where
@@ -44,11 +44,11 @@ module SigmaEquivalence {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ
       → {γ : transport P β c₁ == c₂}
       → g {α = α}{β = β}{γ} ∘ f {α = α}{β = β}{γ} ∼ id
     g-f {β = idp} {γ = idp} idp = idp
-  -- Lemma
   ap-π₁-pair=Equiv
     : {a₁ a₂ : A} {c₁ : P a₁} {c₂ : P a₂}
     → (α : a₁ == a₂)
     → (γ : Σ (a₁ == a₂) (λ p → c₁ == c₂ [ P ↓ p ]))
+    -----------------------------------------------
     → (ap π₁ (pair= γ) == α) ≃ (π₁ γ == α)
 
   ap-π₁-pair=Equiv {a₁ = a₁} α (β , γ) = qinv-≃ f (g , f-g , g-f)

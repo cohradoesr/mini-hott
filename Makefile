@@ -18,6 +18,8 @@ all:
 
 agda: $(rawagda)
 
+# $(iimgpng)
+
 statics: $(latex) $(md) $(rawagda) $(iimgpng)
 	- @echo "Serve the website: \n\t$$ make docs-serve"
 

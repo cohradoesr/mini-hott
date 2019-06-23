@@ -16,7 +16,7 @@ syntax app-≡ f p = f [[ p ]]
 infixl 40 ap
 syntax ap f p = p |in-ctx f
 ap₂
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a₁ a₂ : A} {b₁ b₂ : B}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a₁ a₂ : A} {b₁ b₂ : B}
   → (f : A → B → C)
   → (a₁ == a₂) → (b₁ == b₂)
   --------------------------
@@ -37,8 +37,6 @@ ap-inv
   → ap f (p ⁻¹) == (ap f p) ⁻¹
 
 ap-inv f idp = idp
-
--- synonyms
 ap-! = ap-inv
 ap-comp
   : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a b : A}

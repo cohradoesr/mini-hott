@@ -33,7 +33,7 @@ module
 
 {: .foldable until="6"}
 \begin{code}
--- Lemma.
+
 prodComponentwise
   : {A : Type ℓᵢ}{B : Type ℓⱼ}{x y : A × B}
   → (x == y)
@@ -45,7 +45,7 @@ prodComponentwise {x = x} idp = refl (π₁ x) , refl (π₂ x)
 
 {: .foldable until="6"}
 \begin{code}
--- Lemma.
+
 prodByComponents
   : {A : Type ℓᵢ}{B : Type ℓⱼ} {x y : A × B}
   → (π₁ x == π₁ y) × (π₂ x == π₂ y)
@@ -57,7 +57,7 @@ prodByComponents {x = a , b} (idp , idp) = refl (a , b)
 
 {: .foldable until="6"}
 \begin{code}
--- Lemma.
+
 prodCompInverse
   : {A : Type ℓᵢ}{B : Type ℓⱼ} {x y : A × B}
   → (b : (π₁ x == π₁ y) × (π₂ x == π₂ y))
@@ -69,7 +69,7 @@ prodCompInverse {x = x} (idp , idp) = refl (refl (π₁ x) , refl (π₂ x))
 
 {: .foldable until="6"}
 \begin{code}
--- Lemma.
+
 prodByCompInverse
   : {A : Type ℓᵢ}{B : Type ℓⱼ} {x y : A × B}
   → (b : x == y)

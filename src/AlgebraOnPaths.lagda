@@ -79,10 +79,10 @@ Then, we can now put the lemma in front:
 
 Lastly, we can also define actions on two paths:
 
-{: .foldable until="7" }
+{: .foldable until="6" }
 \begin{code}
 ap₂
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a₁ a₂ : A} {b₁ b₂ : B}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ} {a₁ a₂ : A} {b₁ b₂ : B}
   → (f : A → B → C)
   → (a₁ == a₂) → (b₁ == b₂)
   --------------------------
@@ -111,8 +111,10 @@ ap-inv
   → ap f (p ⁻¹) == (ap f p) ⁻¹
 
 ap-inv f idp = idp
+\end{code}
 
--- synonyms
+Synonyms:
+\begin{code}
 ap-! = ap-inv
 \end{code}
 

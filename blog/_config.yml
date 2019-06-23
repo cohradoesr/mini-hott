@@ -14,12 +14,15 @@ affiliation: 'University of Bergen'
 email:  'jonathan.cubides@uib.no'
 
 highlighter: pygments
+
 gist:
   noscript: false
 
 markdown: kramdown
-# kramdown:
-  # parse_block_html: true
+
+kramdown:
+  parse_block_html: true
+
 excerpt_separator: "\n\n"
 
 # permalink: pretty
@@ -36,7 +39,7 @@ scholar:
   use_raw_bibtex_entry: true
 
 
-destination: ./../docs  
+destination: ./../docs
 
 exclude:
   - _src
@@ -49,6 +52,12 @@ exclude:
   - package-lock.json
   - gulpfile.js
   - node_modules
+  - "*.agdai"
+  - "*.lagda"
+  - "*.agda"
+  - "*.hs"
+  - "*.hi"
+  - "*.o"
 
 include:
   - .nojekyll

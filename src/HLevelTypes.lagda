@@ -37,7 +37,7 @@ A *contractible* type is a type such that **every**
 element is equal to a point, the *center* of contraction.
 
 \begin{code}
-  -- Def.
+  
 isContr
   : (A : Type ℓ)
   --------------

@@ -8,8 +8,7 @@ open import HLevelTypes
 module IntervalType where
 
   private
-    -- The interval is defined as a type with a nontrivial equality
-    -- between its two elements.
+
     data !I : Type₀ where
       !Izero : !I
       !Ione : !I
@@ -25,22 +24,19 @@ module IntervalType where
 
   postulate
     seg : Izero == Ione
+  I-rec
+    : {A : Type ℓ}
+    → (a b : A)
+    → (p : a == b)
+    --------------
+    → (I → A)
 
-  -- Recursion principle on points.
-  I-rec : ∀ {ℓ} {A : Type ℓ}
-        → (a b : A)
-        → (p : a == b)
-        --------------
-        → (I → A)
   I-rec a _ _ !Izero = a
   I-rec _ b _ !Ione  = b
-
-  -- Recursion principle on paths.
   postulate
-    I-βrec : ∀ {ℓ}
-      → (A : Type ℓ)
+    I-βrec
+      : (A : Type ℓ)
       → (a b : A)
       → (p : a == b)
       ---------------------------
       → ap (I-rec a b p) seg == p
-

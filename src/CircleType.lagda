@@ -29,7 +29,9 @@ a single element (base) and a nontrivial path (loop).
 
 \begin{code}
 module CircleType where
+\end{code}
 
+\begin{code}
   private
     data !S¹ : Type₀ where
       !base : !S¹
@@ -40,41 +42,56 @@ module CircleType where
   base : S¹
   base = !base
 
-  -- Nontrivial path on the circle.
   postulate
     loop : base == base
+\end{code}
 
-  -- Recursion principle on points
-  S¹-rec : ∀ {ℓ}
-         → (A : Type ℓ)
-         → (a : A)
-         → (p : a == a)
-         --------------
-         → (S¹ → A)
+Recursion principle on points
+{: .foldable until="6" }
+\begin{code}
+  S¹-rec
+    : (A : Type ℓ)
+    → (a : A)
+    → (p : a == a)
+    --------------
+    → (S¹ → A)
+
   S¹-rec A a p !base = a
+\end{code}
 
-  -- Recursion principle on paths
+Recursion principle on paths
+{: .foldable until="7" }
+\begin{code}
   postulate
-    S¹-βrec : ∀ {ℓ} (A : Type ℓ)
-            → (a : A)
-            → (p : a == a)
-            ------------------------------
-            → ap (S¹-rec A a p) loop == p
+    S¹-βrec
+      : (A : Type ℓ)
+      → (a : A)
+      → (p : a == a)
+      ------------------------------
+      → ap (S¹-rec A a p) loop == p
+\end{code}
 
-  -- Induction principle on points
-  S¹-ind : ∀ {ℓ} (P : S¹ → Type ℓ)
-         → (x : P base)
-         → (x == x [ P ↓ loop ])
-         --------------------------
-         → ((t : S¹) → P t)
+Induction principle on points
+{: .foldable until="6" }
+\begin{code}
+  S¹-ind
+    : (P : S¹ → Type ℓ)
+    → (x : P base)
+    → (x == x [ P ↓ loop ])
+    --------------------------
+    → ((t : S¹) → P t)
+
   S¹-ind P x p !base = x
+\end{code}
 
-  -- Induction principle on paths
+Induction principle on paths
+{: .foldable until="7" }
+\begin{code}
   postulate
-    S¹-βind : ∀ {ℓ} (P : S¹ → Type ℓ)
-            → (x : P base)
-            → (p : x == x [ P ↓ loop ])
-            -------------------------------
-            → apd (S¹-ind P x p) loop == p
-
+    S¹-βind
+      : (P : S¹ → Type ℓ)
+      → (x : P base)
+      → (p : x == x [ P ↓ loop ])
+      -------------------------------
+      → apd (S¹-ind P x p) loop == p
 \end{code}

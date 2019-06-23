@@ -57,40 +57,54 @@ module SuspensionType where
           → A
           → Path {ℓ}{Susp A} North South
 
-  -- Recursion principle on points
-  Susp-rec : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ}{C : Type ℓⱼ}
-           → (cₙ cₛ  : C)
-           → (merid' : A → cₙ == cₛ)
-           ------------------------
-           → (Susp A → C)
+\end{code}
+
+Recursion principle on points
+\begin{code}
+  Susp-rec
+    : {A : Type ℓᵢ}{C : Type ℓⱼ}
+    → (cₙ cₛ  : C)
+    → (merid' : A → cₙ == cₛ)
+    ------------------------
+    → (Susp A → C)
+
   Susp-rec cₙ _ _ (mkSusp Nₚ _) = cₙ
   Susp-rec _ cₛ _ (mkSusp Sₚ _) = cₛ
+\end{code}
 
-  -- Recursion principle on paths
+Recursion principle on paths
+\begin{code}
   postulate
-    Susp-βrec : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ}{C : Type ℓⱼ}
-              → {cₙ cₛ : C} {mer : A → cₙ == cₛ}
-              → {a : A}
-              -------------------------------------------
-              → ap (Susp-rec cₙ cₛ mer) (merid a) == mer a
+    Susp-βrec
+      : {A : Type ℓᵢ}{C : Type ℓⱼ}
+      → {cₙ cₛ : C} {mer : A → cₙ == cₛ}
+      → {a : A}
+      -------------------------------------------
+      → ap (Susp-rec cₙ cₛ mer) (merid a) == mer a
+\end{code}
 
-  -- Induction principle on points
-  Susp-ind : ∀ {ℓ} {A : Type ℓ} (C : Susp A → Type ℓ)
-              → (N' : C North)
-              → (S' : C South)
-              → (merid' : (x : A) → N' == S' [ C ↓ (merid x) ])
-              --------------------------------------------------
-              → ((x : Susp A) → C x)
+Induction principle on points
+\begin{code}
+  Susp-ind
+    : ∀ {ℓ} {A : Type ℓ} (C : Susp A → Type ℓ)
+    → (N' : C North)
+    → (S' : C South)
+    → (merid' : (x : A) → N' == S' [ C ↓ (merid x) ])
+    --------------------------------------------------
+    → ((x : Susp A) → C x)
 
   Susp-ind _ N' S' _ (mkSusp Nₚ _) = N'
   Susp-ind _ N' S' _ (mkSusp Sₚ _) = S'
+\end{code}
 
-  -- Induction principle on paths
+Induction principle on paths
+\begin{code}
   postulate
-    Susp-βind : ∀ {ℓ} {A : Type ℓ} (C : Susp A → Type ℓ)
-              → (N' : C North)
-              → (S' : C South)
-              → (merid' : (x : A) → N' == S' [ C ↓ (merid x)]) {x : A}
-              --------------------------------------------------------
-              → apd (Susp-ind C N' S' merid') (merid x) == merid' x
+    Susp-βind
+      : ∀ {ℓ} {A : Type ℓ} (C : Susp A → Type ℓ)
+      → (N' : C North)
+      → (S' : C South)
+      → (merid' : (x : A) → N' == S' [ C ↓ (merid x)]) {x : A}
+      --------------------------------------------------------
+      → apd (Susp-ind C N' S' merid') (merid x) == merid' x
 \end{code}

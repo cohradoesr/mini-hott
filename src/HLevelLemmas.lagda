@@ -141,10 +141,10 @@ Examples of propositions:
   is-prop-A+B ispropA ispropB ¬A×B (inr x) (inr x₁) = ap inr (ispropB x x₁)
 \end{code}
 
+Propositions are propositions.
 
-{: .foldable until="5"}
+{: .foldable until="4"}
 \begin{code}
-  -- Lemma. Propositions are propositions.
   propIsProp
     :  ∀ {ℓ}{A : Type ℓ}
     --------------------
@@ -166,7 +166,7 @@ proposition.
 
 {: .foldable until="6"}
 \begin{code}
-  -- Lemma.
+  
   isProp-pi
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
     → ((a : A) → isProp (B a))
@@ -182,7 +182,7 @@ proposition.
 
 {: .foldable until="6"}
 \begin{code}
-  -- Lemma.
+  
   ispropA-B
     : ∀ {ℓ} {A B : Type ℓ}
     →  isProp A → isProp B → (A ⇔ B)
@@ -204,7 +204,7 @@ given A and B sets, f is injective and surjective.
 
 {: .foldable until="6"}
 \begin{code}
-  -- Lemma.
+  
   -- propEqvIsprop
   --   : ∀ {ℓ} {A B : Type ℓ}
   --   → isProp A → isProp B
@@ -218,7 +218,7 @@ given A and B sets, f is injective and surjective.
 
 {: .foldable until="4"}
 \begin{code}
-  -- Lemma.
+  
   setIsProp
     : ∀ {ℓ} {A : Type ℓ}
     → isProp (isSet A)
@@ -237,7 +237,7 @@ The product of propositions is itself a proposition.
 
 {: .foldable until="6"}
 \begin{code}
-  -- Lemma.
+  
   isProp-prod
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isProp A → isProp B
@@ -255,7 +255,7 @@ Product of sets is a set.
 
 {: .foldable until="6" }
 \begin{code}
-  -- Lemma.
+  
   isSet-prod
     : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isSet A → isSet B
@@ -333,9 +333,9 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
   -- +-of-sets-is-set issetA issetB (inr x) (inr x₁) p q = {!   !}
 \end{code}
 
-{: .foldable until="5"}
+Lemma 3.11.3 in HoTT-Book.
+{: .foldable until="4"}
 \begin{code}
-  -- Lemma 3.11.3 in HoTT-Book.
   isContrIsProp
     : ∀ {ℓ} {A : Type ℓ}
     --------------------
@@ -382,7 +382,7 @@ open EquivalenceProp public
 
 {: .foldable until="6"}
 \begin{code}
--- Lemma.
+
 ≃-trans-inv
   : ∀ {ℓ} {A B : Type ℓ}
   → (α : A ≃ B)

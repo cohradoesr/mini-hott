@@ -37,7 +37,7 @@ A *contractible* type is a type such that **every**
 element is equal to a point, the *center* of contraction.
 
 <pre class="Agda">
-  <a id="612" class="Comment">-- Def.</a>
+  <a id="612" class="Comment"></a>
 <a id="isContr"></a><a id="620" href="HLevelTypes.html#620" class="Function">isContr</a>
   <a id="630" class="Symbol">:</a> <a id="632" class="Symbol">(</a><a id="633" href="HLevelTypes.html#633" class="Bound">A</a> <a id="635" class="Symbol">:</a> <a id="637" href="Intro.html#1813" class="Function">Type</a> <a id="642" href="Intro.html#2253" class="Generalizable">ℓ</a><a id="643" class="Symbol">)</a>
   <a id="647" class="Comment">--------------</a>

@@ -1,4 +1,4 @@
---
+---
 layout: page
 title: "Homotopy Lemmas"
 category: lemmas functions homotopy
@@ -9,7 +9,7 @@ latex: true
 references: false
 linkify: true
 showcitation: true
---
+---
 
 <div class="hide" >
 \begin{code}

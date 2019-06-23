@@ -28,7 +28,7 @@ A *contractible* type is a type such that **every**
 element is equal to a point, the *center* of contraction.
 
 <pre class="Agda">
-  <a id="492" class="Comment">-- Def.</a>
+  <a id="492" class="Comment"></a>
   <a id="isContr"></a><a id="502" href="ContractibleType.html#502" class="Function">isContr</a>
     <a id="514" class="Symbol">:</a> <a id="516" class="Symbol">∀</a> <a id="518" class="Symbol">{</a><a id="519" href="ContractibleType.html#519" class="Bound">ℓ</a><a id="520" class="Symbol">}</a>
     <a id="526" class="Symbol">→</a> <a id="528" class="Symbol">(</a><a id="529" href="ContractibleType.html#529" class="Bound">A</a> <a id="531" class="Symbol">:</a> <a id="533" href="Intro.html#1621" class="Function">Type</a> <a id="538" href="ContractibleType.html#519" class="Bound">ℓ</a><a id="539" class="Symbol">)</a>
@@ -57,7 +57,7 @@ A map is *contractible* if the fiber in any point is contractible, that is, each
 element has a unique preimagen.
 
 <pre class="Agda">
-  <a id="1064" class="Comment">-- Def.</a>
+  <a id="1064" class="Comment"></a>
   <a id="isContrMap"></a><a id="1074" href="ContractibleType.html#1074" class="Function">isContrMap</a>
     <a id="1089" class="Symbol">:</a> <a id="1091" class="Symbol">∀</a> <a id="1093" class="Symbol">{</a><a id="1094" href="ContractibleType.html#1094" class="Bound">ℓᵢ</a> <a id="1097" href="ContractibleType.html#1097" class="Bound">ℓⱼ</a><a id="1099" class="Symbol">}</a> <a id="1101" class="Symbol">{</a><a id="1102" href="ContractibleType.html#1102" class="Bound">A</a> <a id="1104" class="Symbol">:</a> <a id="1106" href="Intro.html#1621" class="Function">Type</a> <a id="1111" href="ContractibleType.html#1094" class="Bound">ℓᵢ</a><a id="1113" class="Symbol">}</a> <a id="1115" class="Symbol">{</a><a id="1116" href="ContractibleType.html#1116" class="Bound">B</a> <a id="1118" class="Symbol">:</a> <a id="1120" href="Intro.html#1621" class="Function">Type</a> <a id="1125" href="ContractibleType.html#1097" class="Bound">ℓⱼ</a><a id="1127" class="Symbol">}</a>
     <a id="1133" class="Symbol">→</a> <a id="1135" class="Symbol">(</a><a id="1136" href="ContractibleType.html#1136" class="Bound">f</a> <a id="1138" class="Symbol">:</a> <a id="1140" href="ContractibleType.html#1102" class="Bound">A</a> <a id="1142" class="Symbol">→</a> <a id="1144" href="ContractibleType.html#1116" class="Bound">B</a><a id="1145" class="Symbol">)</a>

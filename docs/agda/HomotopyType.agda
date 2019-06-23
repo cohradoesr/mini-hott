@@ -1,7 +1,7 @@
 {-# OPTIONS --without-K #-}
 open import TransportLemmas
 module HomotopyType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
-  -- Def.
+  
   homotopy
     : (f g : Π A P)
     ---------------
@@ -18,7 +18,7 @@ module HomotopyType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} wh
     → f ∼ f
 
   h-refl f x = idp
-  -- Lemma.
+  
   h-sym
     : (f g : Π A P)
     → f ∼ g
@@ -26,7 +26,7 @@ module HomotopyType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} wh
     → g ∼ f
 
   h-sym _ _ e x = ! (e x)
-  -- Lemma.
+  
   h-comp
     : {f g h : Π A P}
     → f ∼ g

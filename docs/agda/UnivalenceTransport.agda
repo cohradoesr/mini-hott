@@ -8,29 +8,28 @@ open import QuasiinverseType
 
 open import UnivalenceAxiom
 module UnivalenceTransport where
-
   transport-family-ap
-    : ∀ {ℓ} {A : Type ℓ}
+    : {A : Type ℓ}
     → (B : A → Type ℓ)
     → {x y : A}
     → (p : x == y)
     → (u : B x)
     ---------------------------------------------------
     → transport B p u == transport (λ X → X) (ap B p) u
-  transport-family-ap B idp u = idp
 
+  transport-family-ap B idp u = idp
   transport-family-idtoeqv
-    : ∀ {ℓ} {A : Type ℓ}
+    : {A : Type ℓ}
     → (B : A → Type ℓ)
     → {x y : A}
     → (p : x == y)
     → (u : B x)
-    ---------------------------------------------------
+    ----------------------------------------------
     → transport B p u == fun≃ (idtoeqv (ap B p)) u
-  transport-family-idtoeqv B idp u = idp
 
+  transport-family-idtoeqv B idp u = idp
   transport-ua
-    : ∀ {ℓ} {A : Type ℓ}
+    : {A : Type ℓ}
     → (B : A → Type ℓ)
     → {x y : A}
     → (p : x == y)
@@ -38,6 +37,7 @@ module UnivalenceTransport where
     → ap B p == ua e
     -----------------
     → (u : B x) → transport B p u == (fun≃ e) u
+
   transport-ua B idp e q u =
     begin
       transport B idp u
@@ -48,10 +48,8 @@ module UnivalenceTransport where
         ==⟨ ap (λ r → fun≃ r u) (ua-β e) ⟩
       fun≃ e u
     ∎
-
-
   funext-transport-ua
-    : ∀ {ℓ} {A : Type ℓ}
+    : {A : Type ℓ}
     → (B : A → Type ℓ)
     → {x y : A}
     → (p : x == y)
@@ -59,11 +57,11 @@ module UnivalenceTransport where
     → ap B p == ua e
     -----------------
     → transport B p == (fun≃ e)
-  funext-transport-ua B p e x₁ = funext (transport-ua B p e x₁)
 
+  funext-transport-ua B p e x₁ = funext (transport-ua B p e x₁)
   postulate
     ua-coe
-      : ∀ {ℓ} {A B : Type ℓ}
+      : {A B : Type ℓ}
       → (α : A ≃ B)
       → (∀ x → (coe (ua α) x) == ((α ∙) x))
   -- ua-coe α x =

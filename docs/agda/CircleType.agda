@@ -6,7 +6,6 @@ open import HomotopyType
 open import FunExtAxiom
 open import HLevelTypes
 module CircleType where
-
   private
     data !S¹ : Type₀ where
       !base : !S¹
@@ -17,40 +16,35 @@ module CircleType where
   base : S¹
   base = !base
 
-  -- Nontrivial path on the circle.
   postulate
     loop : base == base
+  S¹-rec
+    : (A : Type ℓ)
+    → (a : A)
+    → (p : a == a)
+    --------------
+    → (S¹ → A)
 
-  -- Recursion principle on points
-  S¹-rec : ∀ {ℓ}
-         → (A : Type ℓ)
-         → (a : A)
-         → (p : a == a)
-         --------------
-         → (S¹ → A)
   S¹-rec A a p !base = a
-
-  -- Recursion principle on paths
   postulate
-    S¹-βrec : ∀ {ℓ} (A : Type ℓ)
-            → (a : A)
-            → (p : a == a)
-            ------------------------------
-            → ap (S¹-rec A a p) loop == p
+    S¹-βrec
+      : (A : Type ℓ)
+      → (a : A)
+      → (p : a == a)
+      ------------------------------
+      → ap (S¹-rec A a p) loop == p
+  S¹-ind
+    : (P : S¹ → Type ℓ)
+    → (x : P base)
+    → (x == x [ P ↓ loop ])
+    --------------------------
+    → ((t : S¹) → P t)
 
-  -- Induction principle on points
-  S¹-ind : ∀ {ℓ} (P : S¹ → Type ℓ)
-         → (x : P base)
-         → (x == x [ P ↓ loop ])
-         --------------------------
-         → ((t : S¹) → P t)
   S¹-ind P x p !base = x
-
-  -- Induction principle on paths
   postulate
-    S¹-βind : ∀ {ℓ} (P : S¹ → Type ℓ)
-            → (x : P base)
-            → (p : x == x [ P ↓ loop ])
-            -------------------------------
-            → apd (S¹-ind P x p) loop == p
-
+    S¹-βind
+      : (P : S¹ → Type ℓ)
+      → (x : P base)
+      → (p : x == x [ P ↓ loop ])
+      -------------------------------
+      → apd (S¹-ind P x p) loop == p

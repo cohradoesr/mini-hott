@@ -157,13 +157,12 @@ Then, we can now put the lemma in front:
 
 Lastly, we can also define actions on two paths:
 
-{: .foldable until="7" }
+{: .foldable until="6" }
 \begin{code}%
 \>[0]\AgdaFunction{ap₂}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
@@ -357,11 +356,10 @@ Lastly, we can also define actions on two paths:
 \AgdaInductiveConstructor{idp}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaInductiveConstructor{idp}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-\>[0]\AgdaComment{-- synonyms}\<%
-\\
+\end{code}
+
+Synonyms:
+\begin{code}%
 \>[0]\AgdaFunction{ap-!}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{ap-inv}\<%
@@ -1079,13 +1077,13 @@ so let's define some handy functions for that.
 \\
 %
 \>[4]\AgdaOperator{\AgdaFunction{!}}%
-\>[608I]\AgdaBound{p}\AgdaSpace{}%
+\>[607I]\AgdaBound{p}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{p}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaBound{q}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[608I]%
+\>[.][@{}l@{}]\<[607I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
@@ -1186,11 +1184,11 @@ so let's define some handy functions for that.
 \\
 %
 \>[4]\AgdaBound{p}%
-\>[672I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
+\>[671I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaFunction{refl}\AgdaSpace{}%
 \AgdaBound{b}\<%
 \\
-\>[.][@{}l@{}]\<[672I]%
+\>[.][@{}l@{}]\<[671I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{p}\AgdaSpace{}%
@@ -1202,13 +1200,13 @@ so let's define some handy functions for that.
 \\
 %
 \>[4]\AgdaBound{p}%
-\>[682I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
+\>[681I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{q}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaBound{q}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[682I]%
+\>[.][@{}l@{}]\<[681I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{·-assoc}\AgdaSpace{}%
@@ -1318,11 +1316,11 @@ so let's define some handy functions for that.
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
 \>[4]\AgdaBound{p}%
-\>[755I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
+\>[754I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaBound{r}\<%
 \\
-\>[.][@{}l@{}]\<[755I]%
+\>[.][@{}l@{}]\<[754I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}·}}\AgdaSpace{}%
@@ -1350,13 +1348,13 @@ so let's define some handy functions for that.
 \\
 %
 \>[4]\AgdaBound{q}%
-\>[775I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
+\>[774I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{r}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaBound{r}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[775I]%
+\>[.][@{}l@{}]\<[774I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{q}\AgdaSpace{}%
@@ -1367,11 +1365,11 @@ so let's define some handy functions for that.
 \\
 %
 \>[4]\AgdaBound{q}%
-\>[786I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
+\>[785I]\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaFunction{refl}\AgdaSpace{}%
 \AgdaBound{b}\<%
 \\
-\>[.][@{}l@{}]\<[786I]%
+\>[.][@{}l@{}]\<[785I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{·-runit}\AgdaSpace{}%
@@ -1458,11 +1456,11 @@ so let's define some handy functions for that.
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
 \>[4]\AgdaOperator{\AgdaFunction{!}}%
-\>[840I]\AgdaBound{q}\AgdaSpace{}%
+\>[839I]\AgdaBound{q}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaBound{p}\<%
 \\
-\>[.][@{}l@{}]\<[840I]%
+\>[.][@{}l@{}]\<[839I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
@@ -1473,13 +1471,13 @@ so let's define some handy functions for that.
 \\
 %
 \>[4]\AgdaOperator{\AgdaFunction{!}}%
-\>[849I]\AgdaBound{q}\AgdaSpace{}%
+\>[848I]\AgdaBound{q}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{q}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaBound{r}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[849I]%
+\>[.][@{}l@{}]\<[848I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{·-assoc}\AgdaSpace{}%
@@ -1491,13 +1489,13 @@ so let's define some handy functions for that.
 \\
 %
 \>[4]\AgdaOperator{\AgdaFunction{!}}%
-\>[861I]\AgdaBound{q}\AgdaSpace{}%
+\>[860I]\AgdaBound{q}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaBound{q}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaBound{r}\<%
 \\
-\>[.][@{}l@{}]\<[861I]%
+\>[.][@{}l@{}]\<[860I]%
 \>[6]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}·}}\AgdaSpace{}%
