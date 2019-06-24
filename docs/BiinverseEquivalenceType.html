@@ -70,7 +70,7 @@
     <ul id="toc-id" class="toc-class">
   <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
     <ul>
-      <li class="sidebar-toc-item"><a href="#equivalence-by-biinverse" class="sidebar-nav-item">Equivalence by biinverse</a></li>
+      <li class="sidebar-toc-item"><a href="#biinverses" class="sidebar-nav-item">Biinverses</a></li>
     </ul>
   </li>
   <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
@@ -86,12 +86,6 @@
       
     
       
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
         
       
     
@@ -427,13 +421,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
+          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
+          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
         
       
     
@@ -464,12 +458,6 @@
       
         
           <a class="sidebar-nav-item" href="/PiPreserves.tex">Pi preserves equivalence</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/QuasiinverseType.tex">Quasiinverse Type</a>
         
       
     
@@ -643,7 +631,19 @@
   </div>
 
   
-  No git information available.
+  <div class="main-heading">
+    <div class="main-title">
+      <div class="main-title-prefix">Latest change:</div>
+      <div class="main-commit-message">
+            <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcBiinverseEquivalenceType.lagda">
+              w.i.p.</a>
+      </div>
+    </div>
+
+    <div class="main-last-date">
+      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcBiinverseEquivalenceType.lagda">9baad38 </a> on  24 Jun 2019
+    </div>
+  </div>
   
 
   <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Biinverse Equivalence Type <small style="float:right">(BiinverseEquivalenceType.lagda)</small>
@@ -654,7 +654,7 @@
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
       <ul>
-  <li><a href="#equivalence-by-biinverse">Equivalence by biinverse</a></li>
+  <li><a href="#biinverses">Biinverses</a></li>
 </ul>
 
     </nav>
@@ -665,66 +665,66 @@
   <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
   </noscript>
 
-  <h3 id="equivalence-by-biinverse">Equivalence by biinverse</h3>
+  <h3 id="biinverses">Biinverses</h3>
 
 <p>Two functions are quasi-inverses if we can construct a function providing
 <code>(g ∘ f) x = x</code> and <code>(f ∘ g) y = y</code> for any given <code>x</code> and <code>y</code>.</p>
 
 <div class="hide">
   <pre class="Agda">
-<a id="377" class="Symbol">{-#</a> <a id="381" class="Keyword">OPTIONS</a> <a id="389" class="Pragma">--without-K</a> <a id="401" class="Symbol">#-}</a>
-<a id="405" class="Keyword">open</a> <a id="410" class="Keyword">import</a> <a id="417" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="363" class="Symbol">{-#</a> <a id="367" class="Keyword">OPTIONS</a> <a id="375" class="Pragma">--without-K</a> <a id="387" class="Symbol">#-}</a>
+<a id="391" class="Keyword">open</a> <a id="396" class="Keyword">import</a> <a id="403" href="TransportLemmas.html" class="Module">TransportLemmas</a>
 </pre>
 </div>
 
 <pre class="Agda">
-<a id="465" class="Keyword">module</a>
-  <a id="474" href="BiinverseEquivalenceType.html" class="Module">BiinverseEquivalenceType</a> <a id="499" class="Symbol">{</a><a id="500" href="BiinverseEquivalenceType.html#500" class="Bound">A</a> <a id="502" class="Symbol">:</a> <a id="504" href="Intro.html#1803" class="Function">Type</a> <a id="509" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="511" class="Symbol">}</a> <a id="513" class="Symbol">{</a><a id="514" href="BiinverseEquivalenceType.html#514" class="Bound">B</a> <a id="516" class="Symbol">:</a> <a id="518" href="Intro.html#1803" class="Function">Type</a> <a id="523" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="525" class="Symbol">}</a>
-   <a id="530" class="Keyword">where</a>
+<a id="451" class="Keyword">module</a>
+  <a id="460" href="BiinverseEquivalenceType.html" class="Module">BiinverseEquivalenceType</a> <a id="485" class="Symbol">{</a><a id="486" href="BiinverseEquivalenceType.html#486" class="Bound">A</a> <a id="488" class="Symbol">:</a> <a id="490" href="Intro.html#1803" class="Function">Type</a> <a id="495" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="497" class="Symbol">}</a> <a id="499" class="Symbol">{</a><a id="500" href="BiinverseEquivalenceType.html#500" class="Bound">B</a> <a id="502" class="Symbol">:</a> <a id="504" href="Intro.html#1803" class="Function">Type</a> <a id="509" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="511" class="Symbol">}</a>
+   <a id="516" class="Keyword">where</a>
 </pre>
 
 <pre class="Agda">
-  <a id="563" class="Keyword">record</a>
-    <a id="Equivalence"></a><a id="574" href="BiinverseEquivalenceType.html#574" class="Record">Equivalence</a> <a id="586" class="Symbol">{</a><a id="587" href="BiinverseEquivalenceType.html#587" class="Bound">ℓᵢ</a> <a id="590" href="BiinverseEquivalenceType.html#590" class="Bound">ℓⱼ</a><a id="592" class="Symbol">}</a> <a id="594" class="Symbol">{</a><a id="595" href="BiinverseEquivalenceType.html#595" class="Bound">A</a> <a id="597" class="Symbol">:</a> <a id="599" href="Intro.html#1803" class="Function">Type</a> <a id="604" href="BiinverseEquivalenceType.html#587" class="Bound">ℓᵢ</a><a id="606" class="Symbol">}</a> <a id="608" class="Symbol">{</a><a id="609" href="BiinverseEquivalenceType.html#609" class="Bound">B</a> <a id="611" class="Symbol">:</a> <a id="613" href="Intro.html#1803" class="Function">Type</a> <a id="618" href="BiinverseEquivalenceType.html#590" class="Bound">ℓⱼ</a><a id="620" class="Symbol">}</a> <a id="622" class="Symbol">(</a><a id="623" href="BiinverseEquivalenceType.html#623" class="Bound">f</a> <a id="625" class="Symbol">:</a> <a id="627" href="BiinverseEquivalenceType.html#595" class="Bound">A</a> <a id="629" class="Symbol">→</a> <a id="631" href="BiinverseEquivalenceType.html#609" class="Bound">B</a><a id="632" class="Symbol">)</a>
-    <a id="638" class="Symbol">:</a> <a id="640" href="Intro.html#1803" class="Function">Type</a> <a id="645" class="Symbol">(</a><a id="646" href="BiinverseEquivalenceType.html#587" class="Bound">ℓᵢ</a> <a id="649" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a>  <a id="652" href="BiinverseEquivalenceType.html#590" class="Bound">ℓⱼ</a><a id="654" class="Symbol">)</a>
-    <a id="660" class="Keyword">where</a>
-    <a id="670" class="Keyword">constructor</a> <a id="Equivalence.equivalence"></a><a id="682" href="BiinverseEquivalenceType.html#682" class="InductiveConstructor">equivalence</a>
-    <a id="698" class="Keyword">field</a>
-      <a id="Equivalence.left-inverse"></a><a id="710" href="BiinverseEquivalenceType.html#710" class="Field">left-inverse</a>   <a id="725" class="Symbol">:</a> <a id="727" href="BiinverseEquivalenceType.html#609" class="Bound">B</a> <a id="729" class="Symbol">→</a> <a id="731" href="BiinverseEquivalenceType.html#595" class="Bound">A</a>
-      <a id="Equivalence.right-inverse"></a><a id="739" href="BiinverseEquivalenceType.html#739" class="Field">right-inverse</a>  <a id="754" class="Symbol">:</a> <a id="756" href="BiinverseEquivalenceType.html#609" class="Bound">B</a> <a id="758" class="Symbol">→</a> <a id="760" href="BiinverseEquivalenceType.html#595" class="Bound">A</a>
-      <a id="Equivalence.left-identity"></a><a id="768" href="BiinverseEquivalenceType.html#768" class="Field">left-identity</a>  <a id="783" class="Symbol">:</a> <a id="785" class="Symbol">∀</a> <a id="787" href="BiinverseEquivalenceType.html#787" class="Bound">a</a> <a id="789" class="Symbol">→</a>  <a id="792" href="BiinverseEquivalenceType.html#710" class="Field">left-inverse</a> <a id="805" class="Symbol">(</a><a id="806" href="BiinverseEquivalenceType.html#623" class="Bound">f</a> <a id="808" href="BiinverseEquivalenceType.html#787" class="Bound">a</a><a id="809" class="Symbol">)</a> <a id="811" href="BasicTypes.html#4470" class="Function Operator">≡</a> <a id="813" href="BiinverseEquivalenceType.html#787" class="Bound">a</a>
-      <a id="Equivalence.right-identity"></a><a id="821" href="BiinverseEquivalenceType.html#821" class="Field">right-identity</a> <a id="836" class="Symbol">:</a> <a id="838" class="Symbol">∀</a> <a id="840" href="BiinverseEquivalenceType.html#840" class="Bound">b</a> <a id="842" class="Symbol">→</a> <a id="844" href="BiinverseEquivalenceType.html#623" class="Bound">f</a> <a id="846" class="Symbol">(</a><a id="847" href="BiinverseEquivalenceType.html#739" class="Field">right-inverse</a> <a id="861" href="BiinverseEquivalenceType.html#840" class="Bound">b</a><a id="862" class="Symbol">)</a> <a id="864" href="BasicTypes.html#4470" class="Function Operator">≡</a> <a id="866" href="BiinverseEquivalenceType.html#840" class="Bound">b</a>
+  <a id="549" class="Keyword">record</a>
+    <a id="Equivalence"></a><a id="560" href="BiinverseEquivalenceType.html#560" class="Record">Equivalence</a> <a id="572" class="Symbol">{</a><a id="573" href="BiinverseEquivalenceType.html#573" class="Bound">ℓᵢ</a> <a id="576" href="BiinverseEquivalenceType.html#576" class="Bound">ℓⱼ</a><a id="578" class="Symbol">}</a> <a id="580" class="Symbol">{</a><a id="581" href="BiinverseEquivalenceType.html#581" class="Bound">A</a> <a id="583" class="Symbol">:</a> <a id="585" href="Intro.html#1803" class="Function">Type</a> <a id="590" href="BiinverseEquivalenceType.html#573" class="Bound">ℓᵢ</a><a id="592" class="Symbol">}</a> <a id="594" class="Symbol">{</a><a id="595" href="BiinverseEquivalenceType.html#595" class="Bound">B</a> <a id="597" class="Symbol">:</a> <a id="599" href="Intro.html#1803" class="Function">Type</a> <a id="604" href="BiinverseEquivalenceType.html#576" class="Bound">ℓⱼ</a><a id="606" class="Symbol">}</a> <a id="608" class="Symbol">(</a><a id="609" href="BiinverseEquivalenceType.html#609" class="Bound">f</a> <a id="611" class="Symbol">:</a> <a id="613" href="BiinverseEquivalenceType.html#581" class="Bound">A</a> <a id="615" class="Symbol">→</a> <a id="617" href="BiinverseEquivalenceType.html#595" class="Bound">B</a><a id="618" class="Symbol">)</a>
+    <a id="624" class="Symbol">:</a> <a id="626" href="Intro.html#1803" class="Function">Type</a> <a id="631" class="Symbol">(</a><a id="632" href="BiinverseEquivalenceType.html#573" class="Bound">ℓᵢ</a> <a id="635" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a>  <a id="638" href="BiinverseEquivalenceType.html#576" class="Bound">ℓⱼ</a><a id="640" class="Symbol">)</a>
+    <a id="646" class="Keyword">where</a>
+    <a id="656" class="Keyword">constructor</a> <a id="Equivalence.equivalence"></a><a id="668" href="BiinverseEquivalenceType.html#668" class="InductiveConstructor">equivalence</a>
+    <a id="684" class="Keyword">field</a>
+      <a id="Equivalence.left-inverse"></a><a id="696" href="BiinverseEquivalenceType.html#696" class="Field">left-inverse</a>   <a id="711" class="Symbol">:</a> <a id="713" href="BiinverseEquivalenceType.html#595" class="Bound">B</a> <a id="715" class="Symbol">→</a> <a id="717" href="BiinverseEquivalenceType.html#581" class="Bound">A</a>
+      <a id="Equivalence.right-inverse"></a><a id="725" href="BiinverseEquivalenceType.html#725" class="Field">right-inverse</a>  <a id="740" class="Symbol">:</a> <a id="742" href="BiinverseEquivalenceType.html#595" class="Bound">B</a> <a id="744" class="Symbol">→</a> <a id="746" href="BiinverseEquivalenceType.html#581" class="Bound">A</a>
+      <a id="Equivalence.left-identity"></a><a id="754" href="BiinverseEquivalenceType.html#754" class="Field">left-identity</a>  <a id="769" class="Symbol">:</a> <a id="771" class="Symbol">∀</a> <a id="773" href="BiinverseEquivalenceType.html#773" class="Bound">a</a> <a id="775" class="Symbol">→</a>  <a id="778" href="BiinverseEquivalenceType.html#696" class="Field">left-inverse</a> <a id="791" class="Symbol">(</a><a id="792" href="BiinverseEquivalenceType.html#609" class="Bound">f</a> <a id="794" href="BiinverseEquivalenceType.html#773" class="Bound">a</a><a id="795" class="Symbol">)</a> <a id="797" href="BasicTypes.html#4470" class="Function Operator">≡</a> <a id="799" href="BiinverseEquivalenceType.html#773" class="Bound">a</a>
+      <a id="Equivalence.right-identity"></a><a id="807" href="BiinverseEquivalenceType.html#807" class="Field">right-identity</a> <a id="822" class="Symbol">:</a> <a id="824" class="Symbol">∀</a> <a id="826" href="BiinverseEquivalenceType.html#826" class="Bound">b</a> <a id="828" class="Symbol">→</a> <a id="830" href="BiinverseEquivalenceType.html#609" class="Bound">f</a> <a id="832" class="Symbol">(</a><a id="833" href="BiinverseEquivalenceType.html#725" class="Field">right-inverse</a> <a id="847" href="BiinverseEquivalenceType.html#826" class="Bound">b</a><a id="848" class="Symbol">)</a> <a id="850" href="BasicTypes.html#4470" class="Function Operator">≡</a> <a id="852" href="BiinverseEquivalenceType.html#826" class="Bound">b</a>
 
-  <a id="871" class="Keyword">infix</a> <a id="877" class="Number">10</a> <a id="880" href="BiinverseEquivalenceType.html#923" class="Record Operator">_≃2_</a>
+  <a id="857" class="Keyword">infix</a> <a id="863" class="Number">10</a> <a id="866" href="BiinverseEquivalenceType.html#909" class="Record Operator">_≃2_</a>
 </pre>
 
 <pre class="Agda">
-  <a id="912" class="Keyword">record</a>
-    <a id="_≃2_"></a><a id="923" href="BiinverseEquivalenceType.html#923" class="Record Operator">_≃2_</a> <a id="928" class="Symbol">{</a><a id="929" href="BiinverseEquivalenceType.html#929" class="Bound">ℓᵢ</a><a id="931" class="Symbol">}{</a><a id="933" href="BiinverseEquivalenceType.html#933" class="Bound">ℓⱼ</a><a id="935" class="Symbol">}</a> <a id="937" class="Symbol">(</a><a id="938" href="BiinverseEquivalenceType.html#938" class="Bound">A</a> <a id="940" class="Symbol">:</a> <a id="942" href="Intro.html#1803" class="Function">Type</a> <a id="947" href="BiinverseEquivalenceType.html#929" class="Bound">ℓᵢ</a><a id="949" class="Symbol">)</a> <a id="951" class="Symbol">(</a><a id="952" href="BiinverseEquivalenceType.html#952" class="Bound">B</a> <a id="954" class="Symbol">:</a> <a id="956" href="Intro.html#1803" class="Function">Type</a> <a id="961" href="BiinverseEquivalenceType.html#933" class="Bound">ℓⱼ</a><a id="963" class="Symbol">)</a>
-    <a id="969" class="Symbol">:</a> <a id="971" href="Intro.html#1803" class="Function">Type</a> <a id="976" class="Symbol">(</a><a id="977" href="BiinverseEquivalenceType.html#929" class="Bound">ℓᵢ</a> <a id="980" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="982" href="BiinverseEquivalenceType.html#933" class="Bound">ℓⱼ</a><a id="984" class="Symbol">)</a>
-    <a id="990" class="Keyword">where</a>
-    <a id="1000" class="Keyword">constructor</a> <a id="_≃2_.eq"></a><a id="1012" href="BiinverseEquivalenceType.html#1012" class="InductiveConstructor">eq</a>
-    <a id="1019" class="Keyword">field</a>
-      <a id="_≃2_.apply-eq"></a><a id="1031" href="BiinverseEquivalenceType.html#1031" class="Field">apply-eq</a> <a id="1040" class="Symbol">:</a> <a id="1042" href="BiinverseEquivalenceType.html#938" class="Bound">A</a> <a id="1044" class="Symbol">→</a> <a id="1046" href="BiinverseEquivalenceType.html#952" class="Bound">B</a>
-      <a id="_≃2_.biinverse"></a><a id="1054" href="BiinverseEquivalenceType.html#1054" class="Field">biinverse</a> <a id="1064" class="Symbol">:</a> <a id="1066" href="BiinverseEquivalenceType.html#574" class="Record">Equivalence</a> <a id="1078" href="BiinverseEquivalenceType.html#1031" class="Field">apply-eq</a>
+  <a id="898" class="Keyword">record</a>
+    <a id="_≃2_"></a><a id="909" href="BiinverseEquivalenceType.html#909" class="Record Operator">_≃2_</a> <a id="914" class="Symbol">{</a><a id="915" href="BiinverseEquivalenceType.html#915" class="Bound">ℓᵢ</a><a id="917" class="Symbol">}{</a><a id="919" href="BiinverseEquivalenceType.html#919" class="Bound">ℓⱼ</a><a id="921" class="Symbol">}</a> <a id="923" class="Symbol">(</a><a id="924" href="BiinverseEquivalenceType.html#924" class="Bound">A</a> <a id="926" class="Symbol">:</a> <a id="928" href="Intro.html#1803" class="Function">Type</a> <a id="933" href="BiinverseEquivalenceType.html#915" class="Bound">ℓᵢ</a><a id="935" class="Symbol">)</a> <a id="937" class="Symbol">(</a><a id="938" href="BiinverseEquivalenceType.html#938" class="Bound">B</a> <a id="940" class="Symbol">:</a> <a id="942" href="Intro.html#1803" class="Function">Type</a> <a id="947" href="BiinverseEquivalenceType.html#919" class="Bound">ℓⱼ</a><a id="949" class="Symbol">)</a>
+    <a id="955" class="Symbol">:</a> <a id="957" href="Intro.html#1803" class="Function">Type</a> <a id="962" class="Symbol">(</a><a id="963" href="BiinverseEquivalenceType.html#915" class="Bound">ℓᵢ</a> <a id="966" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="968" href="BiinverseEquivalenceType.html#919" class="Bound">ℓⱼ</a><a id="970" class="Symbol">)</a>
+    <a id="976" class="Keyword">where</a>
+    <a id="986" class="Keyword">constructor</a> <a id="_≃2_.eq"></a><a id="998" href="BiinverseEquivalenceType.html#998" class="InductiveConstructor">eq</a>
+    <a id="1005" class="Keyword">field</a>
+      <a id="_≃2_.apply-eq"></a><a id="1017" href="BiinverseEquivalenceType.html#1017" class="Field">apply-eq</a> <a id="1026" class="Symbol">:</a> <a id="1028" href="BiinverseEquivalenceType.html#924" class="Bound">A</a> <a id="1030" class="Symbol">→</a> <a id="1032" href="BiinverseEquivalenceType.html#938" class="Bound">B</a>
+      <a id="_≃2_.biinverse"></a><a id="1040" href="BiinverseEquivalenceType.html#1040" class="Field">biinverse</a> <a id="1050" class="Symbol">:</a> <a id="1052" href="BiinverseEquivalenceType.html#560" class="Record">Equivalence</a> <a id="1064" href="BiinverseEquivalenceType.html#1017" class="Field">apply-eq</a>
 </pre>
 
 <pre class="Agda">
-  <a id="ide"></a><a id="1114" href="BiinverseEquivalenceType.html#1114" class="Function">ide</a>
-    <a id="1122" class="Symbol">:</a> <a id="1124" class="Symbol">∀</a> <a id="1126" class="Symbol">{</a><a id="1127" href="BiinverseEquivalenceType.html#1127" class="Bound">ℓᵢ</a><a id="1129" class="Symbol">}</a> <a id="1131" class="Symbol">{</a><a id="1132" href="BiinverseEquivalenceType.html#1132" class="Bound">A</a> <a id="1134" class="Symbol">:</a> <a id="1136" href="Intro.html#1803" class="Function">Type</a> <a id="1141" href="BiinverseEquivalenceType.html#1127" class="Bound">ℓᵢ</a><a id="1143" class="Symbol">}</a>
-    <a id="1149" class="Symbol">→</a> <a id="1151" href="BiinverseEquivalenceType.html#1132" class="Bound">A</a> <a id="1153" href="BiinverseEquivalenceType.html#923" class="Record Operator">≃2</a> <a id="1156" href="BiinverseEquivalenceType.html#1132" class="Bound">A</a>
+  <a id="ide"></a><a id="1100" href="BiinverseEquivalenceType.html#1100" class="Function">ide</a>
+    <a id="1108" class="Symbol">:</a> <a id="1110" class="Symbol">∀</a> <a id="1112" class="Symbol">{</a><a id="1113" href="BiinverseEquivalenceType.html#1113" class="Bound">ℓᵢ</a><a id="1115" class="Symbol">}</a> <a id="1117" class="Symbol">{</a><a id="1118" href="BiinverseEquivalenceType.html#1118" class="Bound">A</a> <a id="1120" class="Symbol">:</a> <a id="1122" href="Intro.html#1803" class="Function">Type</a> <a id="1127" href="BiinverseEquivalenceType.html#1113" class="Bound">ℓᵢ</a><a id="1129" class="Symbol">}</a>
+    <a id="1135" class="Symbol">→</a> <a id="1137" href="BiinverseEquivalenceType.html#1118" class="Bound">A</a> <a id="1139" href="BiinverseEquivalenceType.html#909" class="Record Operator">≃2</a> <a id="1142" href="BiinverseEquivalenceType.html#1118" class="Bound">A</a>
 
-  <a id="1161" href="BiinverseEquivalenceType.html#1114" class="Function">ide</a> <a id="1165" class="Symbol">=</a> <a id="1167" href="BiinverseEquivalenceType.html#1012" class="InductiveConstructor">eq</a> <a id="1170" href="BasicFunctions.html#376" class="Function">id</a> <a id="1173" class="Symbol">(</a><a id="1174" href="BiinverseEquivalenceType.html#682" class="InductiveConstructor">equivalence</a> <a id="1186" href="BasicFunctions.html#376" class="Function">id</a> <a id="1189" href="BasicFunctions.html#376" class="Function">id</a> <a id="1192" class="Symbol">(λ</a> <a id="1195" href="BiinverseEquivalenceType.html#1195" class="Bound">a</a> <a id="1197" class="Symbol">→</a> <a id="1199" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a><a id="1202" class="Symbol">)</a> <a id="1204" class="Symbol">(λ</a> <a id="1207" href="BiinverseEquivalenceType.html#1207" class="Bound">a</a> <a id="1209" class="Symbol">→</a> <a id="1211" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a><a id="1214" class="Symbol">))</a>
+  <a id="1147" href="BiinverseEquivalenceType.html#1100" class="Function">ide</a> <a id="1151" class="Symbol">=</a> <a id="1153" href="BiinverseEquivalenceType.html#998" class="InductiveConstructor">eq</a> <a id="1156" href="BasicFunctions.html#376" class="Function">id</a> <a id="1159" class="Symbol">(</a><a id="1160" href="BiinverseEquivalenceType.html#668" class="InductiveConstructor">equivalence</a> <a id="1172" href="BasicFunctions.html#376" class="Function">id</a> <a id="1175" href="BasicFunctions.html#376" class="Function">id</a> <a id="1178" class="Symbol">(λ</a> <a id="1181" href="BiinverseEquivalenceType.html#1181" class="Bound">a</a> <a id="1183" class="Symbol">→</a> <a id="1185" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a><a id="1188" class="Symbol">)</a> <a id="1190" class="Symbol">(λ</a> <a id="1193" href="BiinverseEquivalenceType.html#1193" class="Bound">a</a> <a id="1195" class="Symbol">→</a> <a id="1197" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a><a id="1200" class="Symbol">))</a>
 </pre>
 
 <pre class="Agda">
-  <a id="≃2-from-≡"></a><a id="1244" href="BiinverseEquivalenceType.html#1244" class="Function">≃2-from-≡</a>
-    <a id="1258" class="Symbol">:</a> <a id="1260" class="Symbol">{</a><a id="1261" href="BiinverseEquivalenceType.html#1261" class="Bound">A</a> <a id="1263" class="Symbol">:</a> <a id="1265" href="Intro.html#1803" class="Function">Type</a> <a id="1270" href="BiinverseEquivalenceType.html#509" class="Bound">ℓᵢ</a><a id="1272" class="Symbol">}</a>
-    <a id="1278" class="Symbol">→</a> <a id="1280" class="Symbol">(</a><a id="1281" href="BiinverseEquivalenceType.html#1281" class="Bound">F</a> <a id="1283" class="Symbol">:</a> <a id="1285" href="BiinverseEquivalenceType.html#1261" class="Bound">A</a> <a id="1287" class="Symbol">→</a> <a id="1289" href="Intro.html#1803" class="Function">Type</a> <a id="1294" href="BiinverseEquivalenceType.html#523" class="Bound">ℓⱼ</a><a id="1296" class="Symbol">)</a>
-    <a id="1302" class="Symbol">→</a> <a id="1304" class="Symbol">(</a><a id="1305" href="BiinverseEquivalenceType.html#1305" class="Bound">a</a> <a id="1307" href="BiinverseEquivalenceType.html#1307" class="Bound">b</a> <a id="1309" class="Symbol">:</a> <a id="1311" href="BiinverseEquivalenceType.html#1261" class="Bound">A</a><a id="1312" class="Symbol">)</a>
-    <a id="1318" class="Symbol">→</a> <a id="1320" href="BiinverseEquivalenceType.html#1305" class="Bound">a</a> <a id="1322" href="BasicTypes.html#4470" class="Function Operator">≡</a> <a id="1324" href="BiinverseEquivalenceType.html#1307" class="Bound">b</a> <a id="1326" class="Symbol">→</a> <a id="1328" href="BiinverseEquivalenceType.html#1281" class="Bound">F</a> <a id="1330" href="BiinverseEquivalenceType.html#1305" class="Bound">a</a> <a id="1332" href="BiinverseEquivalenceType.html#923" class="Record Operator">≃2</a> <a id="1335" href="BiinverseEquivalenceType.html#1281" class="Bound">F</a> <a id="1337" href="BiinverseEquivalenceType.html#1307" class="Bound">b</a>
+  <a id="≃2-from-≡"></a><a id="1230" href="BiinverseEquivalenceType.html#1230" class="Function">≃2-from-≡</a>
+    <a id="1244" class="Symbol">:</a> <a id="1246" class="Symbol">{</a><a id="1247" href="BiinverseEquivalenceType.html#1247" class="Bound">A</a> <a id="1249" class="Symbol">:</a> <a id="1251" href="Intro.html#1803" class="Function">Type</a> <a id="1256" href="BiinverseEquivalenceType.html#495" class="Bound">ℓᵢ</a><a id="1258" class="Symbol">}</a>
+    <a id="1264" class="Symbol">→</a> <a id="1266" class="Symbol">(</a><a id="1267" href="BiinverseEquivalenceType.html#1267" class="Bound">F</a> <a id="1269" class="Symbol">:</a> <a id="1271" href="BiinverseEquivalenceType.html#1247" class="Bound">A</a> <a id="1273" class="Symbol">→</a> <a id="1275" href="Intro.html#1803" class="Function">Type</a> <a id="1280" href="BiinverseEquivalenceType.html#509" class="Bound">ℓⱼ</a><a id="1282" class="Symbol">)</a>
+    <a id="1288" class="Symbol">→</a> <a id="1290" class="Symbol">(</a><a id="1291" href="BiinverseEquivalenceType.html#1291" class="Bound">a</a> <a id="1293" href="BiinverseEquivalenceType.html#1293" class="Bound">b</a> <a id="1295" class="Symbol">:</a> <a id="1297" href="BiinverseEquivalenceType.html#1247" class="Bound">A</a><a id="1298" class="Symbol">)</a>
+    <a id="1304" class="Symbol">→</a> <a id="1306" href="BiinverseEquivalenceType.html#1291" class="Bound">a</a> <a id="1308" href="BasicTypes.html#4470" class="Function Operator">≡</a> <a id="1310" href="BiinverseEquivalenceType.html#1293" class="Bound">b</a> <a id="1312" class="Symbol">→</a> <a id="1314" href="BiinverseEquivalenceType.html#1267" class="Bound">F</a> <a id="1316" href="BiinverseEquivalenceType.html#1291" class="Bound">a</a> <a id="1318" href="BiinverseEquivalenceType.html#909" class="Record Operator">≃2</a> <a id="1321" href="BiinverseEquivalenceType.html#1267" class="Bound">F</a> <a id="1323" href="BiinverseEquivalenceType.html#1293" class="Bound">b</a>
 
-  <a id="1342" href="BiinverseEquivalenceType.html#1244" class="Function">≃2-from-≡</a> <a id="1352" href="BiinverseEquivalenceType.html#1352" class="Bound">F</a> <a id="1354" href="BiinverseEquivalenceType.html#1354" class="Bound">a</a> <a id="1356" href="BiinverseEquivalenceType.html#1356" class="Bound">b</a> <a id="1358" href="BiinverseEquivalenceType.html#1358" class="Bound">p</a> <a id="1360" class="Symbol">=</a> <a id="1362" href="Transport.html#682" class="Function">tr₁</a> <a id="1366" class="Symbol">(</a><a id="1367" href="BiinverseEquivalenceType.html#923" class="Record Operator">_≃2_</a> <a id="1372" class="Symbol">_</a> <a id="1374" href="BasicFunctions.html#1016" class="Function Operator">∘</a> <a id="1376" href="BiinverseEquivalenceType.html#1352" class="Bound">F</a><a id="1377" class="Symbol">)</a> <a id="1379" href="BiinverseEquivalenceType.html#1358" class="Bound">p</a> <a id="1381" href="BiinverseEquivalenceType.html#1114" class="Function">ide</a>
+  <a id="1328" href="BiinverseEquivalenceType.html#1230" class="Function">≃2-from-≡</a> <a id="1338" href="BiinverseEquivalenceType.html#1338" class="Bound">F</a> <a id="1340" href="BiinverseEquivalenceType.html#1340" class="Bound">a</a> <a id="1342" href="BiinverseEquivalenceType.html#1342" class="Bound">b</a> <a id="1344" href="BiinverseEquivalenceType.html#1344" class="Bound">p</a> <a id="1346" class="Symbol">=</a> <a id="1348" href="Transport.html#682" class="Function">tr₁</a> <a id="1352" class="Symbol">(</a><a id="1353" href="BiinverseEquivalenceType.html#909" class="Record Operator">_≃2_</a> <a id="1358" class="Symbol">_</a> <a id="1360" href="BasicFunctions.html#1016" class="Function Operator">∘</a> <a id="1362" href="BiinverseEquivalenceType.html#1338" class="Bound">F</a><a id="1363" class="Symbol">)</a> <a id="1365" href="BiinverseEquivalenceType.html#1344" class="Bound">p</a> <a id="1367" href="BiinverseEquivalenceType.html#1100" class="Function">ide</a>
 </pre>
 
 
@@ -746,7 +746,7 @@
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-06-23"
+       data-lastchecked ="2019-06-24"
        data-originalyear =""
        data-title ="Biinverse Equivalence Type"
        data-url ="http://jonaprieto.github.io/mini-hott/BiinverseEquivalenceType.html"
@@ -767,7 +767,7 @@
       <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
       </a>
 
-      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Biinverse Equivalence Type - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Biinverse Equivalence Type - Commit 9baad38" target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
 
     </div>
   </div>

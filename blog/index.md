@@ -43,9 +43,6 @@ showcitation: true
 [FibreType.lagda]({% link FibreType.md %})
 {% include_relative FibreType.md %}
 
-[EquivalenceType.lagda]({% link EquivalenceType.md %})
-{% include_relative EquivalenceType.md %}
-
 [HomotopyType.lagda]({% link HomotopyType.md %})
 {% include_relative HomotopyType.md %}
 
@@ -65,6 +62,9 @@ showcitation: true
 {% include_relative DecidableEquality.md %}
 
 ## Equivalence Types
+
+[EquivalenceType.lagda]({% link EquivalenceType.md %})
+{% include_relative EquivalenceType.md %}
 
 [QuasiinverseType.lagda]({% link QuasiinverseType.md %})
 {% include_relative QuasiinverseType.md %}
@@ -143,8 +143,9 @@ We based on the following Agda libraries.
 
   - Mini-HoTT is a fork of [Agda-HoTT](https://mroman42.github.io/ctlc/agda-hott/Total.html)
   - [Agda-premises](https://hub.darcs.net/gylterud/agda-premises)
+  - [https://github.com/HoTT/HoTT-Agda](https://github.com/HoTT/HoTT-Agda)
   - [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/)
-  - [HoTT-Agda](https://github.com/dlicata335/hott-agda/)
+  - [https://github.com/dlicata335/hott-agda/](https://github.com/dlicata335/hott-agda/)
 
 
 {% include mathjax.html %}
