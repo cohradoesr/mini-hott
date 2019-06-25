@@ -41,12 +41,12 @@ module
       left-identity  : ∀ a →  left-inverse (f a) ≡ a
       right-identity : ∀ b → f (right-inverse b) ≡ b
 
-  infix 10 _≃2_
+  infix 10 _≃_
 \end{code}
 
 \begin{code}
   record
-    _≃2_ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ)
+    _≃_ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ)
     : Type (ℓᵢ ⊔ ℓⱼ)
     where
     constructor eq
@@ -58,17 +58,17 @@ module
 \begin{code}
   ide
     : ∀ {ℓᵢ} {A : Type ℓᵢ}
-    → A ≃2 A
+    → A ≃ A
 
   ide = eq id (equivalence id id (λ a → idp) (λ a → idp))
 \end{code}
 
 \begin{code}
-  ≃2-from-≡
+  ≃-from-≡
     : {A : Type ℓᵢ}
     → (F : A → Type ℓⱼ)
     → (a b : A)
-    → a ≡ b → F a ≃2 F b
+    → a ≡ b → F a ≃ F b
 
-  ≃2-from-≡ F a b p = tr₁ (_≃2_ _ ∘ F) p ide
+  ≃-from-≡ F a b p = tr₁ (_≃_ _ ∘ F) p ide
 \end{code}

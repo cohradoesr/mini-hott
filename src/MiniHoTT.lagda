@@ -47,10 +47,10 @@ module MiniHoTT where
 
   open import DecidableEquality public
 
-  open import HalfAdjointType public
+  -- open import HalfAdjointType public
 
-  open import QuasiinverseType public
-  open import QuasiinverseLemmas public
+  -- open import QuasiinverseType public
+  -- open import QuasiinverseLemmas public
 
 
   open import SigmaEquivalence public

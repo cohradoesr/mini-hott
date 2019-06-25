@@ -118,8 +118,8 @@ module NaturalType where
   -- Naturals form a monoid with addition
   ℕ-plus-monoid : Monoid
   ℕ-plus-monoid = record
-    { G = ℕ
-    ; GisSet = nat-isSet
+    { M = ℕ
+    ; M-is-set = nat-isSet
     ; _<>_ = plus
     ; e = zero
     ; lunit = plus-lunit

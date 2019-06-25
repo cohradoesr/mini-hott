@@ -14,15 +14,15 @@ module
       where
     constructor monoid
     field
-      G    : Type ℓ     -- Carrier set
-      e    : G          -- Unit element (at least one element, this one)
-      _<>_ : G → G → G  -- Operation
+      M    : Type ℓ       -- Carrier set
+      e    : M            -- Unit element (at least one element, this one)
+      _<>_ : M → M → M    -- Operation
 
       -- property
-      GisSet : isSet G  -- the carrier is a hSet
+      M-is-set : isSet M   -- the carrier is a hSet
 
       -- Axioms of a monoid
-      lunit : (x : G) → (e <> x) == x
-      runit : (x : G) → (x <> e) == x
-      assoc : (x y z : G) → (x <> (y <> z)) == ((x <> y) <> z)
+      lunit : (x : M) → (e <> x) == x
+      runit : (x : M) → (x <> e) == x
+      assoc : (x y z : M) → (x <> (y <> z)) == ((x <> y) <> z)
   open Monoid public
