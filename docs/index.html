@@ -134,7 +134,6 @@
   </li>
   <li class="sidebar-toc-item"><a href="#function-extensionality" class="sidebar-nav-item">Function extensionality</a></li>
   <li class="sidebar-toc-item"><a href="#decidable-equality" class="sidebar-nav-item">Decidable equality</a></li>
-  <li class="sidebar-toc-item"><a href="#equivalence-types" class="sidebar-nav-item">Equivalence Types</a></li>
   <li class="sidebar-toc-item"><a href="#equivalences" class="sidebar-nav-item">Equivalences</a>
     <ul>
       <li class="sidebar-toc-item"><a href="#contractible-maps" class="sidebar-nav-item">Contractible maps</a></li>
@@ -160,7 +159,8 @@
       <li class="sidebar-toc-item"><a href="#proposition-and-set-lemmas" class="sidebar-nav-item">Proposition and Set lemmas</a></li>
     </ul>
   </li>
-  <li class="sidebar-toc-item"><a href="#surjection-injections-and-bijections" class="sidebar-nav-item">Surjection, Injections and Bijections</a>
+  <li class="sidebar-toc-item"><a href="#surjections-and-embeddings" class="sidebar-nav-item">Surjections and Embeddings</a></li>
+  <li class="sidebar-toc-item"><a href="#surjections-and-embeddings-1" class="sidebar-nav-item">Surjections and Embeddings</a>
     <ul>
       <li class="sidebar-toc-item"><a href="#surjections" class="sidebar-nav-item">Surjections</a></li>
       <li class="sidebar-toc-item"><a href="#embeddings" class="sidebar-nav-item">Embeddings</a></li>
@@ -315,12 +315,6 @@
       
         
           <a class="sidebar-nav-item" href="/DependentAlgebra.html">Dependent Algebra</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/EquivalenceType.tex">Equivalence Type</a>
         
       
     
@@ -752,7 +746,7 @@
           <h3 class="masthead-title">
             <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
             <a href="/" title="Home">Mini-HoTT</a>
-            <small style="text-decoration:left"><span class="modifications">(<span class="additions">+348829</span>/<span class="substractions">-195943</span>)</span>
+            <small style="text-decoration:left"><span class="modifications">(<span class="additions">+366148</span>/<span class="substractions">-197544</span>)</span>
             </small>
           </h3>
         </div>
@@ -764,14 +758,14 @@
     <div class="main-title">
       <div class="main-title-prefix"> Latest change:</div>
       <div class="main-commit-message">
-        <a href="https://github.com/jonaprieto/mini-hott/commit/957a53aba524a13b9c61d5512227c69fddd099ec">
-          w.i.p
+        <a href="https://github.com/jonaprieto/mini-hott/commit/ee883ce64c6cabbaeaed326df0260d4956e0103e">
+          [ bijections ] added a proof.
         </a>
       </div>
     </div>
 
     <div class="main-last-date">
-      Latest commit <a href="https://github.com/jonaprieto/mini-hott/commit/957a53aba524a13b9c61d5512227c69fddd099ec">dd099ec </a> on  25 Jun 2019
+      Latest commit <a href="https://github.com/jonaprieto/mini-hott/commit/ee883ce64c6cabbaeaed326df0260d4956e0103e">6e0103e </a> on  26 Jun 2019
     </div>
   </div>
   
@@ -3451,8 +3445,6 @@ assume Excluded Middle.</p>
   <a id="1288" href="DecidableEquality.html#940" class="Function">decEqProd</a> <a id="1298" href="DecidableEquality.html#1298" class="Bound">da</a> <a id="1301" href="DecidableEquality.html#1301" class="Bound">db</a> <a id="1304" class="Symbol">(</a><a id="1305" href="DecidableEquality.html#1305" class="Bound">a1</a> <a id="1308" href="BasicTypes.html#1409" class="InductiveConstructor Operator">,</a> <a id="1310" href="DecidableEquality.html#1310" class="Bound">b1</a><a id="1312" class="Symbol">)</a> <a id="1314" class="Symbol">(</a><a id="1315" href="DecidableEquality.html#1315" class="Bound">a2</a> <a id="1318" href="BasicTypes.html#1409" class="InductiveConstructor Operator">,</a> <a id="1320" href="DecidableEquality.html#1320" class="Bound">b2</a><a id="1322" class="Symbol">)</a> <a id="1324" class="Symbol">|</a> <a id="1326" href="BasicTypes.html#2248" class="InductiveConstructor">inr</a> <a id="1330" href="DecidableEquality.html#1330" class="Bound">anq</a> <a id="1334" class="Symbol">|</a> <a id="1336" href="DecidableEquality.html#1336" class="Bound">u</a>       <a id="1344" class="Symbol">=</a> <a id="1346" href="BasicTypes.html#2248" class="InductiveConstructor">inr</a> <a id="1350" class="Symbol">λ</a> <a id="1352" href="DecidableEquality.html#1352" class="Bound">b</a> <a id="1354" class="Symbol">→</a> <a id="1356" href="DecidableEquality.html#1330" class="Bound">anq</a> <a id="1360" class="Symbol">(</a><a id="1361" href="AlgebraOnPaths.html#482" class="Function">ap</a> <a id="1364" href="BasicTypes.html#1425" class="Field">π₁</a> <a id="1367" href="DecidableEquality.html#1352" class="Bound">b</a><a id="1368" class="Symbol">)</a>
 </pre>
 
-<h2 id="equivalence-types">Equivalence Types</h2>
-
 <p><a href="/EquivalenceType.html">EquivalenceType.lagda</a></p>
 
 <hr />
@@ -3469,19 +3461,19 @@ showcitation: true
 
 <div class="hide">
   <pre class="Agda">
-<a id="190" class="Symbol">{-#</a> <a id="194" class="Keyword">OPTIONS</a> <a id="202" class="Pragma">--without-K</a> <a id="214" class="Symbol">#-}</a>
-<a id="218" class="Keyword">open</a> <a id="223" class="Keyword">import</a> <a id="230" href="BasicTypes.html" class="Module">BasicTypes</a>
-<a id="241" class="Keyword">open</a> <a id="246" class="Keyword">import</a> <a id="253" href="HLevelTypes.html" class="Module">HLevelTypes</a>
-<a id="265" class="Keyword">open</a> <a id="270" class="Keyword">import</a> <a id="277" href="FibreType.html" class="Module">FibreType</a>
+<a id="180" class="Symbol">{-#</a> <a id="184" class="Keyword">OPTIONS</a> <a id="192" class="Pragma">--without-K</a> <a id="204" class="Symbol">#-}</a>
+<a id="208" class="Keyword">open</a> <a id="213" class="Keyword">import</a> <a id="220" href="BasicTypes.html" class="Module">BasicTypes</a>
+<a id="231" class="Keyword">open</a> <a id="236" class="Keyword">import</a> <a id="243" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="255" class="Keyword">open</a> <a id="260" class="Keyword">import</a> <a id="267" href="FibreType.html" class="Module">FibreType</a>
 
-<a id="288" class="Keyword">open</a> <a id="293" class="Keyword">import</a> <a id="300" href="Transport.html" class="Module">Transport</a>
-<a id="310" class="Keyword">open</a> <a id="315" class="Keyword">import</a> <a id="322" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="278" class="Keyword">open</a> <a id="283" class="Keyword">import</a> <a id="290" href="Transport.html" class="Module">Transport</a>
+<a id="300" class="Keyword">open</a> <a id="305" class="Keyword">import</a> <a id="312" href="HomotopyType.html" class="Module">HomotopyType</a>
 
 </pre>
 </div>
 
 <pre class="Agda">
-<a id="368" class="Keyword">module</a> <a id="375" href="EquivalenceType.html" class="Module">EquivalenceType</a> <a id="391" class="Keyword">where</a>
+<a id="358" class="Keyword">module</a> <a id="365" href="EquivalenceType.html" class="Module">EquivalenceType</a> <a id="381" class="Keyword">where</a>
 
 </pre>
 
@@ -3493,119 +3485,119 @@ showcitation: true
 element has a unique preimagen.</p>
 
 <pre class="Agda">
-<a id="577" class="Comment"></a>
-<a id="isContrMap"></a><a id="585" href="EquivalenceType.html#585" class="Function">isContrMap</a>
-  <a id="598" class="Symbol">:</a> <a id="600" class="Symbol">∀</a> <a id="602" class="Symbol">{</a><a id="603" href="EquivalenceType.html#603" class="Bound">A</a> <a id="605" class="Symbol">:</a> <a id="607" href="Intro.html#1813" class="Function">Type</a> <a id="612" href="Intro.html#2255" class="Generalizable">ℓᵢ</a><a id="614" class="Symbol">}</a> <a id="616" class="Symbol">{</a><a id="617" href="EquivalenceType.html#617" class="Bound">B</a> <a id="619" class="Symbol">:</a> <a id="621" href="Intro.html#1813" class="Function">Type</a> <a id="626" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="628" class="Symbol">}</a>
-  <a id="632" class="Symbol">→</a> <a id="634" class="Symbol">(</a><a id="635" href="EquivalenceType.html#635" class="Bound">f</a> <a id="637" class="Symbol">:</a> <a id="639" href="EquivalenceType.html#603" class="Bound">A</a> <a id="641" class="Symbol">→</a> <a id="643" href="EquivalenceType.html#617" class="Bound">B</a><a id="644" class="Symbol">)</a>
-  <a id="648" class="Symbol">→</a> <a id="650" href="Intro.html#1813" class="Function">Type</a> <a id="655" class="Symbol">(</a><a id="656" href="Intro.html#2255" class="Generalizable">ℓᵢ</a> <a id="659" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="661" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="663" class="Symbol">)</a>
 
-<a id="666" href="EquivalenceType.html#585" class="Function">isContrMap</a> <a id="677" class="Symbol">{</a><a id="678" class="Argument">B</a> <a id="680" class="Symbol">=</a> <a id="682" href="EquivalenceType.html#682" class="Bound">B</a><a id="683" class="Symbol">}</a> <a id="685" href="EquivalenceType.html#685" class="Bound">f</a> <a id="687" class="Symbol">=</a> <a id="689" class="Symbol">(</a><a id="690" href="EquivalenceType.html#690" class="Bound">b</a> <a id="692" class="Symbol">:</a> <a id="694" href="EquivalenceType.html#682" class="Bound">B</a><a id="695" class="Symbol">)</a> <a id="697" class="Symbol">→</a> <a id="699" href="HLevelTypes.html#620" class="Function">isContr</a> <a id="707" class="Symbol">(</a><a id="708" href="FibreType.html#547" class="Function">fib</a> <a id="712" href="EquivalenceType.html#685" class="Bound">f</a> <a id="714" href="EquivalenceType.html#690" class="Bound">b</a><a id="715" class="Symbol">)</a>
+<a id="isContrMap"></a><a id="568" href="EquivalenceType.html#568" class="Function">isContrMap</a>
+  <a id="581" class="Symbol">:</a> <a id="583" class="Symbol">∀</a> <a id="585" class="Symbol">{</a><a id="586" href="EquivalenceType.html#586" class="Bound">A</a> <a id="588" class="Symbol">:</a> <a id="590" href="Intro.html#1803" class="Function">Type</a> <a id="595" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="597" class="Symbol">}</a> <a id="599" class="Symbol">{</a><a id="600" href="EquivalenceType.html#600" class="Bound">B</a> <a id="602" class="Symbol">:</a> <a id="604" href="Intro.html#1803" class="Function">Type</a> <a id="609" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="611" class="Symbol">}</a>
+  <a id="615" class="Symbol">→</a> <a id="617" class="Symbol">(</a><a id="618" href="EquivalenceType.html#618" class="Bound">f</a> <a id="620" class="Symbol">:</a> <a id="622" href="EquivalenceType.html#586" class="Bound">A</a> <a id="624" class="Symbol">→</a> <a id="626" href="EquivalenceType.html#600" class="Bound">B</a><a id="627" class="Symbol">)</a>
+  <a id="631" class="Symbol">→</a> <a id="633" href="Intro.html#1803" class="Function">Type</a> <a id="638" class="Symbol">(</a><a id="639" href="Intro.html#2245" class="Generalizable">ℓᵢ</a> <a id="642" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="644" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="646" class="Symbol">)</a>
+
+<a id="649" href="EquivalenceType.html#568" class="Function">isContrMap</a> <a id="660" class="Symbol">{</a><a id="661" class="Argument">B</a> <a id="663" class="Symbol">=</a> <a id="665" href="EquivalenceType.html#665" class="Bound">B</a><a id="666" class="Symbol">}</a> <a id="668" href="EquivalenceType.html#668" class="Bound">f</a> <a id="670" class="Symbol">=</a> <a id="672" class="Symbol">(</a><a id="673" href="EquivalenceType.html#673" class="Bound">b</a> <a id="675" class="Symbol">:</a> <a id="677" href="EquivalenceType.html#665" class="Bound">B</a><a id="678" class="Symbol">)</a> <a id="680" class="Symbol">→</a> <a id="682" href="HLevelTypes.html#603" class="Function">isContr</a> <a id="690" class="Symbol">(</a><a id="691" href="FibreType.html#537" class="Function">fib</a> <a id="695" href="EquivalenceType.html#668" class="Bound">f</a> <a id="697" href="EquivalenceType.html#673" class="Bound">b</a><a id="698" class="Symbol">)</a>
 </pre>
 
 <p>There exists an equivalence between two types if there exists a
 contractible function between them.</p>
 
 <pre class="Agda">
-<a id="isEquiv"></a><a id="844" href="EquivalenceType.html#844" class="Function">isEquiv</a>
-  <a id="854" class="Symbol">:</a> <a id="856" class="Symbol">{</a><a id="857" href="EquivalenceType.html#857" class="Bound">A</a> <a id="859" class="Symbol">:</a> <a id="861" href="Intro.html#1813" class="Function">Type</a> <a id="866" href="Intro.html#2255" class="Generalizable">ℓᵢ</a><a id="868" class="Symbol">}</a> <a id="870" class="Symbol">{</a><a id="871" href="EquivalenceType.html#871" class="Bound">B</a> <a id="873" class="Symbol">:</a> <a id="875" href="Intro.html#1813" class="Function">Type</a> <a id="880" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="882" class="Symbol">}</a>
-  <a id="886" class="Symbol">→</a>  <a id="889" class="Symbol">(</a><a id="890" href="EquivalenceType.html#890" class="Bound">f</a> <a id="892" class="Symbol">:</a> <a id="894" href="EquivalenceType.html#857" class="Bound">A</a> <a id="896" class="Symbol">→</a> <a id="898" href="EquivalenceType.html#871" class="Bound">B</a><a id="899" class="Symbol">)</a>
-  <a id="903" class="Symbol">→</a> <a id="905" href="Intro.html#1813" class="Function">Type</a> <a id="910" class="Symbol">(</a><a id="911" href="Intro.html#2255" class="Generalizable">ℓᵢ</a> <a id="914" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="916" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="918" class="Symbol">)</a>
+<a id="isEquiv"></a><a id="827" href="EquivalenceType.html#827" class="Function">isEquiv</a>
+  <a id="837" class="Symbol">:</a> <a id="839" class="Symbol">{</a><a id="840" href="EquivalenceType.html#840" class="Bound">A</a> <a id="842" class="Symbol">:</a> <a id="844" href="Intro.html#1803" class="Function">Type</a> <a id="849" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="851" class="Symbol">}</a> <a id="853" class="Symbol">{</a><a id="854" href="EquivalenceType.html#854" class="Bound">B</a> <a id="856" class="Symbol">:</a> <a id="858" href="Intro.html#1803" class="Function">Type</a> <a id="863" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="865" class="Symbol">}</a>
+  <a id="869" class="Symbol">→</a>  <a id="872" class="Symbol">(</a><a id="873" href="EquivalenceType.html#873" class="Bound">f</a> <a id="875" class="Symbol">:</a> <a id="877" href="EquivalenceType.html#840" class="Bound">A</a> <a id="879" class="Symbol">→</a> <a id="881" href="EquivalenceType.html#854" class="Bound">B</a><a id="882" class="Symbol">)</a>
+  <a id="886" class="Symbol">→</a> <a id="888" href="Intro.html#1803" class="Function">Type</a> <a id="893" class="Symbol">(</a><a id="894" href="Intro.html#2245" class="Generalizable">ℓᵢ</a> <a id="897" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="899" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="901" class="Symbol">)</a>
 
-<a id="921" href="EquivalenceType.html#844" class="Function">isEquiv</a> <a id="929" href="EquivalenceType.html#929" class="Bound">f</a> <a id="931" class="Symbol">=</a> <a id="933" href="EquivalenceType.html#585" class="Function">isContrMap</a> <a id="944" href="EquivalenceType.html#929" class="Bound">f</a>
+<a id="904" href="EquivalenceType.html#827" class="Function">isEquiv</a> <a id="912" href="EquivalenceType.html#912" class="Bound">f</a> <a id="914" class="Symbol">=</a> <a id="916" href="EquivalenceType.html#568" class="Function">isContrMap</a> <a id="927" href="EquivalenceType.html#912" class="Bound">f</a>
 </pre>
 
 <h3 id="equivalence-type">Equivalence Type</h3>
 
 <pre class="Agda">
-<a id="_≃_"></a><a id="994" href="EquivalenceType.html#994" class="Function Operator">_≃_</a>
-  <a id="1000" class="Symbol">:</a> <a id="1002" class="Symbol">(</a><a id="1003" href="EquivalenceType.html#1003" class="Bound">A</a> <a id="1005" class="Symbol">:</a> <a id="1007" href="Intro.html#1813" class="Function">Type</a> <a id="1012" href="Intro.html#2255" class="Generalizable">ℓᵢ</a><a id="1014" class="Symbol">)</a> <a id="1016" class="Symbol">(</a><a id="1017" href="EquivalenceType.html#1017" class="Bound">B</a> <a id="1019" class="Symbol">:</a> <a id="1021" href="Intro.html#1813" class="Function">Type</a> <a id="1026" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="1028" class="Symbol">)</a>
-  <a id="1032" class="Symbol">→</a> <a id="1034" href="Intro.html#1813" class="Function">Type</a> <a id="1039" class="Symbol">(</a><a id="1040" href="Intro.html#2255" class="Generalizable">ℓᵢ</a> <a id="1043" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1045" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="1047" class="Symbol">)</a>
+<a id="_≃_"></a><a id="977" href="EquivalenceType.html#977" class="Function Operator">_≃_</a>
+  <a id="983" class="Symbol">:</a> <a id="985" class="Symbol">(</a><a id="986" href="EquivalenceType.html#986" class="Bound">A</a> <a id="988" class="Symbol">:</a> <a id="990" href="Intro.html#1803" class="Function">Type</a> <a id="995" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="997" class="Symbol">)</a> <a id="999" class="Symbol">(</a><a id="1000" href="EquivalenceType.html#1000" class="Bound">B</a> <a id="1002" class="Symbol">:</a> <a id="1004" href="Intro.html#1803" class="Function">Type</a> <a id="1009" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1011" class="Symbol">)</a>
+  <a id="1015" class="Symbol">→</a> <a id="1017" href="Intro.html#1803" class="Function">Type</a> <a id="1022" class="Symbol">(</a><a id="1023" href="Intro.html#2245" class="Generalizable">ℓᵢ</a> <a id="1026" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1028" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1030" class="Symbol">)</a>
 
-<a id="1050" href="EquivalenceType.html#1050" class="Bound">A</a> <a id="1052" href="EquivalenceType.html#994" class="Function Operator">≃</a> <a id="1054" href="EquivalenceType.html#1054" class="Bound">B</a> <a id="1056" class="Symbol">=</a> <a id="1058" href="BasicTypes.html#1690" class="Function">Σ</a> <a id="1060" class="Symbol">(</a><a id="1061" href="EquivalenceType.html#1050" class="Bound">A</a> <a id="1063" class="Symbol">→</a> <a id="1065" href="EquivalenceType.html#1054" class="Bound">B</a><a id="1066" class="Symbol">)</a> <a id="1068" href="EquivalenceType.html#844" class="Function">isEquiv</a>
+<a id="1033" href="EquivalenceType.html#1033" class="Bound">A</a> <a id="1035" href="EquivalenceType.html#977" class="Function Operator">≃</a> <a id="1037" href="EquivalenceType.html#1037" class="Bound">B</a> <a id="1039" class="Symbol">=</a> <a id="1041" href="BasicTypes.html#1680" class="Function">Σ</a> <a id="1043" class="Symbol">(</a><a id="1044" href="EquivalenceType.html#1033" class="Bound">A</a> <a id="1046" class="Symbol">→</a> <a id="1048" href="EquivalenceType.html#1037" class="Bound">B</a><a id="1049" class="Symbol">)</a> <a id="1051" href="EquivalenceType.html#827" class="Function">isEquiv</a>
 </pre>
 
 <pre class="Agda">
-<a id="1101" class="Keyword">module</a> <a id="EquivalenceMaps"></a><a id="1108" href="EquivalenceType.html#1108" class="Module">EquivalenceMaps</a> <a id="1124" class="Symbol">{</a><a id="1125" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="1127" class="Symbol">:</a> <a id="1129" href="Intro.html#1813" class="Function">Type</a> <a id="1134" href="Intro.html#2255" class="Generalizable">ℓᵢ</a><a id="1136" class="Symbol">}</a> <a id="1138" class="Symbol">{</a><a id="1139" href="EquivalenceType.html#1139" class="Bound">B</a> <a id="1141" class="Symbol">:</a> <a id="1143" href="Intro.html#1813" class="Function">Type</a> <a id="1148" href="Intro.html#2258" class="Generalizable">ℓⱼ</a><a id="1150" class="Symbol">}</a> <a id="1152" class="Keyword">where</a>
+<a id="1084" class="Keyword">module</a> <a id="EquivalenceMaps"></a><a id="1091" href="EquivalenceType.html#1091" class="Module">EquivalenceMaps</a> <a id="1107" class="Symbol">{</a><a id="1108" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="1110" class="Symbol">:</a> <a id="1112" href="Intro.html#1803" class="Function">Type</a> <a id="1117" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="1119" class="Symbol">}</a> <a id="1121" class="Symbol">{</a><a id="1122" href="EquivalenceType.html#1122" class="Bound">B</a> <a id="1124" class="Symbol">:</a> <a id="1126" href="Intro.html#1803" class="Function">Type</a> <a id="1131" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1133" class="Symbol">}</a> <a id="1135" class="Keyword">where</a>
 </pre>
 
 <pre class="Agda">
-  <a id="EquivalenceMaps.lemap"></a><a id="1185" href="EquivalenceType.html#1185" class="Function">lemap</a>
-    <a id="1195" class="Symbol">:</a> <a id="1197" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="1199" href="EquivalenceType.html#994" class="Function Operator">≃</a> <a id="1201" href="EquivalenceType.html#1139" class="Bound">B</a> <a id="1203" class="Symbol">→</a> <a id="1205" class="Symbol">(</a><a id="1206" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="1208" class="Symbol">→</a> <a id="1210" href="EquivalenceType.html#1139" class="Bound">B</a><a id="1211" class="Symbol">)</a>
+  <a id="EquivalenceMaps.lemap"></a><a id="1168" href="EquivalenceType.html#1168" class="Function">lemap</a>
+    <a id="1178" class="Symbol">:</a> <a id="1180" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="1182" href="EquivalenceType.html#977" class="Function Operator">≃</a> <a id="1184" href="EquivalenceType.html#1122" class="Bound">B</a> <a id="1186" class="Symbol">→</a> <a id="1188" class="Symbol">(</a><a id="1189" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="1191" class="Symbol">→</a> <a id="1193" href="EquivalenceType.html#1122" class="Bound">B</a><a id="1194" class="Symbol">)</a>
 
-  <a id="1216" href="EquivalenceType.html#1185" class="Function">lemap</a> <a id="1222" class="Symbol">=</a> <a id="1224" href="BasicTypes.html#1598" class="Field">π₁</a>
+  <a id="1199" href="EquivalenceType.html#1168" class="Function">lemap</a> <a id="1205" class="Symbol">=</a> <a id="1207" href="BasicTypes.html#1588" class="Field">π₁</a>
 </pre>
 
 <p>Synonyms:</p>
 
 <pre class="Agda">
-  <a id="EquivalenceMaps.≃-to-→"></a><a id="1265" href="EquivalenceType.html#1265" class="Function">≃-to-→</a> <a id="1272" class="Symbol">=</a> <a id="1274" href="EquivalenceType.html#1185" class="Function">lemap</a>
-  <a id="EquivalenceMaps.fun≃"></a><a id="1282" href="EquivalenceType.html#1282" class="Function">fun≃</a>   <a id="1289" class="Symbol">=</a> <a id="1291" href="EquivalenceType.html#1185" class="Function">lemap</a>
-  <a id="EquivalenceMaps._∙"></a><a id="1299" href="EquivalenceType.html#1299" class="Function Operator">_∙</a>     <a id="1306" class="Symbol">=</a> <a id="1308" href="EquivalenceType.html#1185" class="Function">lemap</a>
-  <a id="EquivalenceMaps._∙→"></a><a id="1316" href="EquivalenceType.html#1316" class="Function Operator">_∙→</a>    <a id="1323" class="Symbol">=</a> <a id="1325" href="EquivalenceType.html#1185" class="Function">lemap</a>
-  <a id="EquivalenceMaps.apply"></a><a id="1333" href="EquivalenceType.html#1333" class="Function">apply</a>  <a id="1340" class="Symbol">=</a> <a id="1342" href="EquivalenceType.html#1185" class="Function">lemap</a>
+  <a id="EquivalenceMaps.≃-to-→"></a><a id="1248" href="EquivalenceType.html#1248" class="Function">≃-to-→</a> <a id="1255" class="Symbol">=</a> <a id="1257" href="EquivalenceType.html#1168" class="Function">lemap</a>
+  <a id="EquivalenceMaps.fun≃"></a><a id="1265" href="EquivalenceType.html#1265" class="Function">fun≃</a>   <a id="1272" class="Symbol">=</a> <a id="1274" href="EquivalenceType.html#1168" class="Function">lemap</a>
+  <a id="EquivalenceMaps._∙"></a><a id="1282" href="EquivalenceType.html#1282" class="Function Operator">_∙</a>     <a id="1289" class="Symbol">=</a> <a id="1291" href="EquivalenceType.html#1168" class="Function">lemap</a>
+  <a id="EquivalenceMaps._∙→"></a><a id="1299" href="EquivalenceType.html#1299" class="Function Operator">_∙→</a>    <a id="1306" class="Symbol">=</a> <a id="1308" href="EquivalenceType.html#1168" class="Function">lemap</a>
+  <a id="EquivalenceMaps.apply"></a><a id="1316" href="EquivalenceType.html#1316" class="Function">apply</a>  <a id="1323" class="Symbol">=</a> <a id="1325" href="EquivalenceType.html#1168" class="Function">lemap</a>
 
-  <a id="1351" class="Keyword">infixl</a> <a id="1358" class="Number">70</a> <a id="1361" href="EquivalenceType.html#1299" class="Function Operator">_∙</a> <a id="1364" href="EquivalenceType.html#1316" class="Function Operator">_∙→</a>
+  <a id="1334" class="Keyword">infixl</a> <a id="1341" class="Number">70</a> <a id="1344" href="EquivalenceType.html#1282" class="Function Operator">_∙</a> <a id="1347" href="EquivalenceType.html#1299" class="Function Operator">_∙→</a>
 </pre>
 
 <pre class="Agda">
-  <a id="EquivalenceMaps.remap"></a><a id="1395" href="EquivalenceType.html#1395" class="Function">remap</a> <a id="1401" class="Symbol">:</a> <a id="1403" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="1405" href="EquivalenceType.html#994" class="Function Operator">≃</a> <a id="1407" href="EquivalenceType.html#1139" class="Bound">B</a> <a id="1409" class="Symbol">→</a> <a id="1411" class="Symbol">(</a><a id="1412" href="EquivalenceType.html#1139" class="Bound">B</a> <a id="1414" class="Symbol">→</a> <a id="1416" href="EquivalenceType.html#1125" class="Bound">A</a><a id="1417" class="Symbol">)</a>
-  <a id="1421" href="EquivalenceType.html#1395" class="Function">remap</a> <a id="1427" class="Symbol">(</a><a id="1428" href="EquivalenceType.html#1428" class="Bound">f</a> <a id="1430" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="1432" href="EquivalenceType.html#1432" class="Bound">contrf</a><a id="1438" class="Symbol">)</a> <a id="1440" href="EquivalenceType.html#1440" class="Bound">b</a> <a id="1442" class="Symbol">=</a> <a id="1444" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1447" class="Symbol">(</a><a id="1448" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1451" class="Symbol">(</a><a id="1452" href="EquivalenceType.html#1432" class="Bound">contrf</a> <a id="1459" href="EquivalenceType.html#1440" class="Bound">b</a><a id="1460" class="Symbol">))</a>
+  <a id="EquivalenceMaps.remap"></a><a id="1378" href="EquivalenceType.html#1378" class="Function">remap</a> <a id="1384" class="Symbol">:</a> <a id="1386" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="1388" href="EquivalenceType.html#977" class="Function Operator">≃</a> <a id="1390" href="EquivalenceType.html#1122" class="Bound">B</a> <a id="1392" class="Symbol">→</a> <a id="1394" class="Symbol">(</a><a id="1395" href="EquivalenceType.html#1122" class="Bound">B</a> <a id="1397" class="Symbol">→</a> <a id="1399" href="EquivalenceType.html#1108" class="Bound">A</a><a id="1400" class="Symbol">)</a>
+  <a id="1404" href="EquivalenceType.html#1378" class="Function">remap</a> <a id="1410" class="Symbol">(</a><a id="1411" href="EquivalenceType.html#1411" class="Bound">f</a> <a id="1413" href="BasicTypes.html#1572" class="InductiveConstructor Operator">,</a> <a id="1415" href="EquivalenceType.html#1415" class="Bound">contrf</a><a id="1421" class="Symbol">)</a> <a id="1423" href="EquivalenceType.html#1423" class="Bound">b</a> <a id="1425" class="Symbol">=</a> <a id="1427" href="BasicTypes.html#1588" class="Field">π₁</a> <a id="1430" class="Symbol">(</a><a id="1431" href="BasicTypes.html#1588" class="Field">π₁</a> <a id="1434" class="Symbol">(</a><a id="1435" href="EquivalenceType.html#1415" class="Bound">contrf</a> <a id="1442" href="EquivalenceType.html#1423" class="Bound">b</a><a id="1443" class="Symbol">))</a>
 </pre>
 
 <pre class="Agda">
-  <a id="EquivalenceMaps.≃-to-←"></a><a id="1490" href="EquivalenceType.html#1490" class="Function">≃-to-←</a>  <a id="1498" class="Symbol">=</a> <a id="1500" href="EquivalenceType.html#1395" class="Function">remap</a>
-  <a id="EquivalenceMaps.invfun≃"></a><a id="1508" href="EquivalenceType.html#1508" class="Function">invfun≃</a> <a id="1516" class="Symbol">=</a> <a id="1518" href="EquivalenceType.html#1395" class="Function">remap</a>
-  <a id="EquivalenceMaps._∙←"></a><a id="1526" href="EquivalenceType.html#1526" class="Function Operator">_∙←</a>     <a id="1534" class="Symbol">=</a> <a id="1536" href="EquivalenceType.html#1395" class="Function">remap</a>
+  <a id="EquivalenceMaps.≃-to-←"></a><a id="1473" href="EquivalenceType.html#1473" class="Function">≃-to-←</a>  <a id="1481" class="Symbol">=</a> <a id="1483" href="EquivalenceType.html#1378" class="Function">remap</a>
+  <a id="EquivalenceMaps.invfun≃"></a><a id="1491" href="EquivalenceType.html#1491" class="Function">invfun≃</a> <a id="1499" class="Symbol">=</a> <a id="1501" href="EquivalenceType.html#1378" class="Function">remap</a>
+  <a id="EquivalenceMaps._∙←"></a><a id="1509" href="EquivalenceType.html#1509" class="Function Operator">_∙←</a>     <a id="1517" class="Symbol">=</a> <a id="1519" href="EquivalenceType.html#1378" class="Function">remap</a>
 
-  <a id="1545" class="Keyword">infixl</a> <a id="1552" class="Number">70</a> <a id="1555" href="EquivalenceType.html#1526" class="Function Operator">_∙←</a>
+  <a id="1528" class="Keyword">infixl</a> <a id="1535" class="Number">70</a> <a id="1538" href="EquivalenceType.html#1509" class="Function Operator">_∙←</a>
 </pre>
 
 <pre class="Agda">
-  <a id="1586" class="Comment">-- The maps of an equivalence are inverses in particular</a>
-  <a id="EquivalenceMaps.lrmap-inverse"></a><a id="1645" href="EquivalenceType.html#1645" class="Function">lrmap-inverse</a>
-    <a id="1663" class="Symbol">:</a> <a id="1665" class="Symbol">(</a><a id="1666" href="EquivalenceType.html#1666" class="Bound">e</a> <a id="1668" class="Symbol">:</a> <a id="1670" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="1672" href="EquivalenceType.html#994" class="Function Operator">≃</a> <a id="1674" href="EquivalenceType.html#1139" class="Bound">B</a><a id="1675" class="Symbol">)</a> <a id="1677" class="Symbol">→</a> <a id="1679" class="Symbol">{</a><a id="1680" href="EquivalenceType.html#1680" class="Bound">b</a> <a id="1682" class="Symbol">:</a> <a id="1684" href="EquivalenceType.html#1139" class="Bound">B</a><a id="1685" class="Symbol">}</a>
-    <a id="1691" class="Comment">-----------------------</a>
-    <a id="1719" class="Symbol">→</a> <a id="1721" class="Symbol">(</a><a id="1722" href="EquivalenceType.html#1666" class="Bound">e</a> <a id="1724" href="EquivalenceType.html#1316" class="Function Operator">∙→</a><a id="1726" class="Symbol">)</a> <a id="1728" class="Symbol">((</a><a id="1730" href="EquivalenceType.html#1666" class="Bound">e</a> <a id="1732" href="EquivalenceType.html#1526" class="Function Operator">∙←</a><a id="1734" class="Symbol">)</a> <a id="1736" href="EquivalenceType.html#1680" class="Bound">b</a><a id="1737" class="Symbol">)</a> <a id="1739" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="1742" href="EquivalenceType.html#1680" class="Bound">b</a>
-  <a id="1746" href="EquivalenceType.html#1645" class="Function">lrmap-inverse</a> <a id="1760" class="Symbol">(</a><a id="1761" href="EquivalenceType.html#1761" class="Bound">f</a> <a id="1763" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="1765" href="EquivalenceType.html#1765" class="Bound">eqf</a><a id="1768" class="Symbol">)</a> <a id="1770" class="Symbol">{</a><a id="1771" href="EquivalenceType.html#1771" class="Bound">b</a><a id="1772" class="Symbol">}</a> <a id="1774" class="Symbol">=</a> <a id="1776" href="FibreType.html#688" class="Function">fib-eq</a> <a id="1783" class="Symbol">(</a><a id="1784" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1787" class="Symbol">(</a><a id="1788" href="EquivalenceType.html#1765" class="Bound">eqf</a> <a id="1792" href="EquivalenceType.html#1771" class="Bound">b</a><a id="1793" class="Symbol">))</a>
+  <a id="1569" class="Comment">-- The maps of an equivalence are inverses in particular</a>
+  <a id="EquivalenceMaps.lrmap-inverse"></a><a id="1628" href="EquivalenceType.html#1628" class="Function">lrmap-inverse</a>
+    <a id="1646" class="Symbol">:</a> <a id="1648" class="Symbol">(</a><a id="1649" href="EquivalenceType.html#1649" class="Bound">e</a> <a id="1651" class="Symbol">:</a> <a id="1653" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="1655" href="EquivalenceType.html#977" class="Function Operator">≃</a> <a id="1657" href="EquivalenceType.html#1122" class="Bound">B</a><a id="1658" class="Symbol">)</a> <a id="1660" class="Symbol">→</a> <a id="1662" class="Symbol">{</a><a id="1663" href="EquivalenceType.html#1663" class="Bound">b</a> <a id="1665" class="Symbol">:</a> <a id="1667" href="EquivalenceType.html#1122" class="Bound">B</a><a id="1668" class="Symbol">}</a>
+    <a id="1674" class="Comment">-----------------------</a>
+    <a id="1702" class="Symbol">→</a> <a id="1704" class="Symbol">(</a><a id="1705" href="EquivalenceType.html#1649" class="Bound">e</a> <a id="1707" href="EquivalenceType.html#1299" class="Function Operator">∙→</a><a id="1709" class="Symbol">)</a> <a id="1711" class="Symbol">((</a><a id="1713" href="EquivalenceType.html#1649" class="Bound">e</a> <a id="1715" href="EquivalenceType.html#1509" class="Function Operator">∙←</a><a id="1717" class="Symbol">)</a> <a id="1719" href="EquivalenceType.html#1663" class="Bound">b</a><a id="1720" class="Symbol">)</a> <a id="1722" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1725" href="EquivalenceType.html#1663" class="Bound">b</a>
+  <a id="1729" href="EquivalenceType.html#1628" class="Function">lrmap-inverse</a> <a id="1743" class="Symbol">(</a><a id="1744" href="EquivalenceType.html#1744" class="Bound">f</a> <a id="1746" href="BasicTypes.html#1572" class="InductiveConstructor Operator">,</a> <a id="1748" href="EquivalenceType.html#1748" class="Bound">eqf</a><a id="1751" class="Symbol">)</a> <a id="1753" class="Symbol">{</a><a id="1754" href="EquivalenceType.html#1754" class="Bound">b</a><a id="1755" class="Symbol">}</a> <a id="1757" class="Symbol">=</a> <a id="1759" href="FibreType.html#669" class="Function">fib-eq</a> <a id="1766" class="Symbol">(</a><a id="1767" href="BasicTypes.html#1588" class="Field">π₁</a> <a id="1770" class="Symbol">(</a><a id="1771" href="EquivalenceType.html#1748" class="Bound">eqf</a> <a id="1775" href="EquivalenceType.html#1754" class="Bound">b</a><a id="1776" class="Symbol">))</a>
 
-  <a id="EquivalenceMaps.∙→∘∙←"></a><a id="1799" href="EquivalenceType.html#1799" class="Function">∙→∘∙←</a> <a id="1805" class="Symbol">=</a> <a id="1807" href="EquivalenceType.html#1645" class="Function">lrmap-inverse</a>
+  <a id="EquivalenceMaps.∙→∘∙←"></a><a id="1782" href="EquivalenceType.html#1782" class="Function">∙→∘∙←</a> <a id="1788" class="Symbol">=</a> <a id="1790" href="EquivalenceType.html#1628" class="Function">lrmap-inverse</a>
 </pre>
 
 <pre class="Agda">
-  <a id="1848" class="Comment">-- Lem.</a>
-  <a id="EquivalenceMaps.rlmap-inverse"></a><a id="1858" href="EquivalenceType.html#1858" class="Function">rlmap-inverse</a>
-    <a id="1876" class="Symbol">:</a> <a id="1878" class="Symbol">(</a><a id="1879" href="EquivalenceType.html#1879" class="Bound">e</a> <a id="1881" class="Symbol">:</a> <a id="1883" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="1885" href="EquivalenceType.html#994" class="Function Operator">≃</a> <a id="1887" href="EquivalenceType.html#1139" class="Bound">B</a><a id="1888" class="Symbol">)</a> <a id="1890" class="Symbol">→</a> <a id="1892" class="Symbol">{</a><a id="1893" href="EquivalenceType.html#1893" class="Bound">a</a> <a id="1895" class="Symbol">:</a> <a id="1897" href="EquivalenceType.html#1125" class="Bound">A</a><a id="1898" class="Symbol">}</a>
-    <a id="1904" class="Comment">------------------------</a>
-    <a id="1933" class="Symbol">→</a> <a id="1935" class="Symbol">(</a><a id="1936" href="EquivalenceType.html#1879" class="Bound">e</a> <a id="1938" href="EquivalenceType.html#1526" class="Function Operator">∙←</a><a id="1940" class="Symbol">)</a> <a id="1942" class="Symbol">((</a><a id="1944" href="EquivalenceType.html#1879" class="Bound">e</a> <a id="1946" href="EquivalenceType.html#1316" class="Function Operator">∙→</a><a id="1948" class="Symbol">)</a> <a id="1950" href="EquivalenceType.html#1893" class="Bound">a</a><a id="1951" class="Symbol">)</a> <a id="1953" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="1956" href="EquivalenceType.html#1893" class="Bound">a</a>
+  <a id="1831" class="Comment">-- Lem.</a>
+  <a id="EquivalenceMaps.rlmap-inverse"></a><a id="1841" href="EquivalenceType.html#1841" class="Function">rlmap-inverse</a>
+    <a id="1859" class="Symbol">:</a> <a id="1861" class="Symbol">(</a><a id="1862" href="EquivalenceType.html#1862" class="Bound">e</a> <a id="1864" class="Symbol">:</a> <a id="1866" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="1868" href="EquivalenceType.html#977" class="Function Operator">≃</a> <a id="1870" href="EquivalenceType.html#1122" class="Bound">B</a><a id="1871" class="Symbol">)</a> <a id="1873" class="Symbol">→</a> <a id="1875" class="Symbol">{</a><a id="1876" href="EquivalenceType.html#1876" class="Bound">a</a> <a id="1878" class="Symbol">:</a> <a id="1880" href="EquivalenceType.html#1108" class="Bound">A</a><a id="1881" class="Symbol">}</a>
+    <a id="1887" class="Comment">------------------------</a>
+    <a id="1916" class="Symbol">→</a> <a id="1918" class="Symbol">(</a><a id="1919" href="EquivalenceType.html#1862" class="Bound">e</a> <a id="1921" href="EquivalenceType.html#1509" class="Function Operator">∙←</a><a id="1923" class="Symbol">)</a> <a id="1925" class="Symbol">((</a><a id="1927" href="EquivalenceType.html#1862" class="Bound">e</a> <a id="1929" href="EquivalenceType.html#1299" class="Function Operator">∙→</a><a id="1931" class="Symbol">)</a> <a id="1933" href="EquivalenceType.html#1876" class="Bound">a</a><a id="1934" class="Symbol">)</a> <a id="1936" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1939" href="EquivalenceType.html#1876" class="Bound">a</a>
 
-  <a id="1961" href="EquivalenceType.html#1858" class="Function">rlmap-inverse</a> <a id="1975" class="Symbol">(</a><a id="1976" href="EquivalenceType.html#1976" class="Bound">f</a> <a id="1978" href="BasicTypes.html#1582" class="InductiveConstructor Operator">,</a> <a id="1980" href="EquivalenceType.html#1980" class="Bound">eqf</a><a id="1983" class="Symbol">)</a> <a id="1985" class="Symbol">{</a><a id="1986" href="EquivalenceType.html#1986" class="Bound">a</a><a id="1987" class="Symbol">}</a> <a id="1989" class="Symbol">=</a> <a id="1991" href="AlgebraOnPaths.html#399" class="Function">ap</a> <a id="1994" href="BasicTypes.html#1598" class="Field">π₁</a> <a id="1997" class="Symbol">((</a><a id="1999" href="BasicTypes.html#1609" class="Field">π₂</a> <a id="2002" class="Symbol">(</a><a id="2003" href="EquivalenceType.html#1980" class="Bound">eqf</a> <a id="2007" class="Symbol">(</a><a id="2008" href="EquivalenceType.html#1976" class="Bound">f</a> <a id="2010" href="EquivalenceType.html#1986" class="Bound">a</a><a id="2011" class="Symbol">)))</a> <a id="2015" href="FibreType.html#913" class="Function">fib-image</a><a id="2024" class="Symbol">)</a>
+  <a id="1944" href="EquivalenceType.html#1841" class="Function">rlmap-inverse</a> <a id="1958" class="Symbol">(</a><a id="1959" href="EquivalenceType.html#1959" class="Bound">f</a> <a id="1961" href="BasicTypes.html#1572" class="InductiveConstructor Operator">,</a> <a id="1963" href="EquivalenceType.html#1963" class="Bound">eqf</a><a id="1966" class="Symbol">)</a> <a id="1968" class="Symbol">{</a><a id="1969" href="EquivalenceType.html#1969" class="Bound">a</a><a id="1970" class="Symbol">}</a> <a id="1972" class="Symbol">=</a> <a id="1974" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1977" href="BasicTypes.html#1588" class="Field">π₁</a> <a id="1980" class="Symbol">((</a><a id="1982" href="BasicTypes.html#1599" class="Field">π₂</a> <a id="1985" class="Symbol">(</a><a id="1986" href="EquivalenceType.html#1963" class="Bound">eqf</a> <a id="1990" class="Symbol">(</a><a id="1991" href="EquivalenceType.html#1959" class="Bound">f</a> <a id="1993" href="EquivalenceType.html#1969" class="Bound">a</a><a id="1994" class="Symbol">)))</a> <a id="1998" href="FibreType.html#885" class="Function">fib-image</a><a id="2007" class="Symbol">)</a>
 
-  <a id="EquivalenceMaps.∙←∘∙→"></a><a id="2029" href="EquivalenceType.html#2029" class="Function">∙←∘∙→</a> <a id="2035" class="Symbol">=</a> <a id="2037" href="EquivalenceType.html#1858" class="Function">rlmap-inverse</a>
+  <a id="EquivalenceMaps.∙←∘∙→"></a><a id="2012" href="EquivalenceType.html#2012" class="Function">∙←∘∙→</a> <a id="2018" class="Symbol">=</a> <a id="2020" href="EquivalenceType.html#1841" class="Function">rlmap-inverse</a>
 </pre>
 
 <pre class="Agda">
-  <a id="2078" class="Comment">-- Lem.</a>
-  <a id="EquivalenceMaps.lrmap-inverse-h"></a><a id="2088" href="EquivalenceType.html#2088" class="Function">lrmap-inverse-h</a>
-    <a id="2108" class="Symbol">:</a> <a id="2110" class="Symbol">(</a><a id="2111" href="EquivalenceType.html#2111" class="Bound">e</a> <a id="2113" class="Symbol">:</a> <a id="2115" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="2117" href="EquivalenceType.html#994" class="Function Operator">≃</a> <a id="2119" href="EquivalenceType.html#1139" class="Bound">B</a><a id="2120" class="Symbol">)</a>
-    <a id="2126" class="Comment">------------------------------</a>
-    <a id="2161" class="Symbol">→</a> <a id="2163" class="Symbol">((</a><a id="2165" href="EquivalenceType.html#2111" class="Bound">e</a> <a id="2167" href="EquivalenceType.html#1316" class="Function Operator">∙→</a><a id="2169" class="Symbol">)</a> <a id="2171" href="BasicFunctions.html#1026" class="Function Operator">∘</a> <a id="2173" class="Symbol">(</a><a id="2174" href="EquivalenceType.html#2111" class="Bound">e</a> <a id="2176" href="EquivalenceType.html#1526" class="Function Operator">∙←</a><a id="2178" class="Symbol">))</a> <a id="2181" href="HomotopyType.html#1023" class="Function Operator">∼</a> <a id="2183" href="BasicFunctions.html#386" class="Function">id</a>
-  <a id="2188" href="EquivalenceType.html#2088" class="Function">lrmap-inverse-h</a> <a id="2204" href="EquivalenceType.html#2204" class="Bound">e</a> <a id="2206" class="Symbol">=</a> <a id="2208" class="Symbol">λ</a> <a id="2210" href="EquivalenceType.html#2210" class="Bound">x</a> <a id="2212" class="Symbol">→</a> <a id="2214" href="EquivalenceType.html#1645" class="Function">lrmap-inverse</a> <a id="2228" href="EquivalenceType.html#2204" class="Bound">e</a> <a id="2230" class="Symbol">{</a><a id="2231" href="EquivalenceType.html#2210" class="Bound">x</a><a id="2232" class="Symbol">}</a>
+  <a id="2061" class="Comment">-- Lem.</a>
+  <a id="EquivalenceMaps.lrmap-inverse-h"></a><a id="2071" href="EquivalenceType.html#2071" class="Function">lrmap-inverse-h</a>
+    <a id="2091" class="Symbol">:</a> <a id="2093" class="Symbol">(</a><a id="2094" href="EquivalenceType.html#2094" class="Bound">e</a> <a id="2096" class="Symbol">:</a> <a id="2098" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="2100" href="EquivalenceType.html#977" class="Function Operator">≃</a> <a id="2102" href="EquivalenceType.html#1122" class="Bound">B</a><a id="2103" class="Symbol">)</a>
+    <a id="2109" class="Comment">------------------------------</a>
+    <a id="2144" class="Symbol">→</a> <a id="2146" class="Symbol">((</a><a id="2148" href="EquivalenceType.html#2094" class="Bound">e</a> <a id="2150" href="EquivalenceType.html#1299" class="Function Operator">∙→</a><a id="2152" class="Symbol">)</a> <a id="2154" href="BasicFunctions.html#1016" class="Function Operator">∘</a> <a id="2156" class="Symbol">(</a><a id="2157" href="EquivalenceType.html#2094" class="Bound">e</a> <a id="2159" href="EquivalenceType.html#1509" class="Function Operator">∙←</a><a id="2161" class="Symbol">))</a> <a id="2164" href="HomotopyType.html#989" class="Function Operator">∼</a> <a id="2166" href="BasicFunctions.html#376" class="Function">id</a>
+  <a id="2171" href="EquivalenceType.html#2071" class="Function">lrmap-inverse-h</a> <a id="2187" href="EquivalenceType.html#2187" class="Bound">e</a> <a id="2189" class="Symbol">=</a> <a id="2191" class="Symbol">λ</a> <a id="2193" href="EquivalenceType.html#2193" class="Bound">x</a> <a id="2195" class="Symbol">→</a> <a id="2197" href="EquivalenceType.html#1628" class="Function">lrmap-inverse</a> <a id="2211" href="EquivalenceType.html#2187" class="Bound">e</a> <a id="2213" class="Symbol">{</a><a id="2214" href="EquivalenceType.html#2193" class="Bound">x</a><a id="2215" class="Symbol">}</a>
 
-  <a id="EquivalenceMaps.∙→∘∙←-h"></a><a id="2237" href="EquivalenceType.html#2237" class="Function">∙→∘∙←-h</a> <a id="2245" class="Symbol">=</a> <a id="2247" href="EquivalenceType.html#2088" class="Function">lrmap-inverse-h</a>
+  <a id="EquivalenceMaps.∙→∘∙←-h"></a><a id="2220" href="EquivalenceType.html#2220" class="Function">∙→∘∙←-h</a> <a id="2228" class="Symbol">=</a> <a id="2230" href="EquivalenceType.html#2071" class="Function">lrmap-inverse-h</a>
 </pre>
 
 <pre class="Agda">
-  <a id="2290" class="Comment">-- Lem.</a>
-  <a id="EquivalenceMaps.rlmap-inverse-h"></a><a id="2300" href="EquivalenceType.html#2300" class="Function">rlmap-inverse-h</a>
-    <a id="2320" class="Symbol">:</a> <a id="2322" class="Symbol">(</a><a id="2323" href="EquivalenceType.html#2323" class="Bound">e</a> <a id="2325" class="Symbol">:</a> <a id="2327" href="EquivalenceType.html#1125" class="Bound">A</a> <a id="2329" href="EquivalenceType.html#994" class="Function Operator">≃</a> <a id="2331" href="EquivalenceType.html#1139" class="Bound">B</a><a id="2332" class="Symbol">)</a>
-    <a id="2338" class="Comment">------------------------</a>
-    <a id="2367" class="Symbol">→</a> <a id="2369" class="Symbol">((</a><a id="2371" href="EquivalenceType.html#2323" class="Bound">e</a> <a id="2373" href="EquivalenceType.html#1526" class="Function Operator">∙←</a><a id="2375" class="Symbol">)</a> <a id="2377" href="BasicFunctions.html#1026" class="Function Operator">∘</a> <a id="2379" class="Symbol">(</a><a id="2380" href="EquivalenceType.html#2323" class="Bound">e</a> <a id="2382" href="EquivalenceType.html#1316" class="Function Operator">∙→</a><a id="2384" class="Symbol">))</a> <a id="2387" href="HomotopyType.html#1023" class="Function Operator">∼</a> <a id="2389" href="BasicFunctions.html#386" class="Function">id</a>
+  <a id="2273" class="Comment">-- Lem.</a>
+  <a id="EquivalenceMaps.rlmap-inverse-h"></a><a id="2283" href="EquivalenceType.html#2283" class="Function">rlmap-inverse-h</a>
+    <a id="2303" class="Symbol">:</a> <a id="2305" class="Symbol">(</a><a id="2306" href="EquivalenceType.html#2306" class="Bound">e</a> <a id="2308" class="Symbol">:</a> <a id="2310" href="EquivalenceType.html#1108" class="Bound">A</a> <a id="2312" href="EquivalenceType.html#977" class="Function Operator">≃</a> <a id="2314" href="EquivalenceType.html#1122" class="Bound">B</a><a id="2315" class="Symbol">)</a>
+    <a id="2321" class="Comment">------------------------</a>
+    <a id="2350" class="Symbol">→</a> <a id="2352" class="Symbol">((</a><a id="2354" href="EquivalenceType.html#2306" class="Bound">e</a> <a id="2356" href="EquivalenceType.html#1509" class="Function Operator">∙←</a><a id="2358" class="Symbol">)</a> <a id="2360" href="BasicFunctions.html#1016" class="Function Operator">∘</a> <a id="2362" class="Symbol">(</a><a id="2363" href="EquivalenceType.html#2306" class="Bound">e</a> <a id="2365" href="EquivalenceType.html#1299" class="Function Operator">∙→</a><a id="2367" class="Symbol">))</a> <a id="2370" href="HomotopyType.html#989" class="Function Operator">∼</a> <a id="2372" href="BasicFunctions.html#376" class="Function">id</a>
 
-  <a id="2395" href="EquivalenceType.html#2300" class="Function">rlmap-inverse-h</a> <a id="2411" href="EquivalenceType.html#2411" class="Bound">e</a> <a id="2413" class="Symbol">=</a> <a id="2415" class="Symbol">λ</a> <a id="2417" href="EquivalenceType.html#2417" class="Bound">x</a> <a id="2419" class="Symbol">→</a> <a id="2421" href="EquivalenceType.html#1858" class="Function">rlmap-inverse</a> <a id="2435" href="EquivalenceType.html#2411" class="Bound">e</a> <a id="2437" class="Symbol">{</a><a id="2438" href="EquivalenceType.html#2417" class="Bound">x</a><a id="2439" class="Symbol">}</a>
+  <a id="2378" href="EquivalenceType.html#2283" class="Function">rlmap-inverse-h</a> <a id="2394" href="EquivalenceType.html#2394" class="Bound">e</a> <a id="2396" class="Symbol">=</a> <a id="2398" class="Symbol">λ</a> <a id="2400" href="EquivalenceType.html#2400" class="Bound">x</a> <a id="2402" class="Symbol">→</a> <a id="2404" href="EquivalenceType.html#1841" class="Function">rlmap-inverse</a> <a id="2418" href="EquivalenceType.html#2394" class="Bound">e</a> <a id="2420" class="Symbol">{</a><a id="2421" href="EquivalenceType.html#2400" class="Bound">x</a><a id="2422" class="Symbol">}</a>
 
-  <a id="EquivalenceMaps.∙←∘∙→-h"></a><a id="2444" href="EquivalenceType.html#2444" class="Function">∙←∘∙→-h</a> <a id="2452" class="Symbol">=</a> <a id="2454" href="EquivalenceType.html#2300" class="Function">rlmap-inverse-h</a>
+  <a id="EquivalenceMaps.∙←∘∙→-h"></a><a id="2427" href="EquivalenceType.html#2427" class="Function">∙←∘∙→-h</a> <a id="2435" class="Symbol">=</a> <a id="2437" href="EquivalenceType.html#2283" class="Function">rlmap-inverse-h</a>
 
-<a id="2471" class="Keyword">open</a> <a id="2476" href="EquivalenceType.html#1108" class="Module">EquivalenceMaps</a> <a id="2492" class="Keyword">public</a>
+<a id="2454" class="Keyword">open</a> <a id="2459" href="EquivalenceType.html#1091" class="Module">EquivalenceMaps</a> <a id="2475" class="Keyword">public</a>
 </pre>
 
 <p><a href="/QuasiinverseType.html">QuasiinverseType.lagda</a></p>
@@ -5041,7 +5033,11 @@ Moreover, equivalences preserve propositions.</p>
       <a id="9511" href="BasicFunctions.html#5241" class="Function Operator">∎</a>
 </pre>
 
-<h2 id="surjection-injections-and-bijections">Surjection, Injections and Bijections</h2>
+<h2 id="surjections-and-embeddings">Surjections and Embeddings</h2>
+
+<script type="math/tex; mode=display">\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)}</script>
+
+<h2 id="surjections-and-embeddings-1">Surjections and Embeddings</h2>
 
 <p><a href="/EquivalencesForSets.html">EquivalencesForSets.lagda</a></p>
 
@@ -6229,7 +6225,9 @@ group given by proofs of the equality (<code>a=a</code>).</p>
 
 <h2 id="references">References</h2>
 
-<p>We based on the following Agda libraries.</p>
+<p>We follow very closely the HoTT-Book.</p>
+
+<p>For Agda matters:</p>
 
 <ul class="links">
   <li>Mini-HoTT is a fork of <a href="https://mroman42.github.io/ctlc/agda-hott/Total.html">Agda-HoTT</a></li>

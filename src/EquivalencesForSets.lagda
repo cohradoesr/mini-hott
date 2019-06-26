@@ -50,15 +50,14 @@ module EquivalencesForSets where
 ### Embeddings
 
 \begin{code}
-  isSetEmbedding
+  isEmbedding
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
     → (f : A → B)
-    → isSet A
-    → isSet B
     ---------------
     → Type (ℓᵢ ⊔ ℓⱼ)
 
-  isSetEmbedding {A = A} f iA iB = (x y : A) → (f x == f y → x == y)
+  isEmbedding {A = A} f =
+    ∀ {x y : A} → isEquiv (ap f {x}{y}) 
 \end{code}
 
 ### Injections

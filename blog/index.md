@@ -77,8 +77,6 @@ showcitation: true
 
 {% include_relative DecidableEquality.md %}
 
-## Equivalence Types
-
 [EquivalenceType.lagda]({% link EquivalenceType.md %})
 
 {% include_relative EquivalenceType.md %}
@@ -94,7 +92,6 @@ showcitation: true
 [HalfAdjointType.lagda]({% link HalfAdjointType.md %})
 
 {% include_relative HalfAdjointType.md %}
-
 
 [EquivalenceReasoning.lagda]({% link EquivalenceReasoning.md %})
 
@@ -124,7 +121,11 @@ showcitation: true
 
 {% include_relative HLevelLemmas.md %}
 
-## Surjection, Injections and Bijections
+## Surjections and Embeddings
+
+$$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
+
+## Surjections and Embeddings
 
 [EquivalencesForSets.lagda]({% link EquivalencesForSets.md %})
 
@@ -182,7 +183,9 @@ showcitation: true
 
 ## References
 
-We based on the following Agda libraries.
+We follow very closely the HoTT-Book.
+
+For Agda matters:
 
 {: .links}
 
