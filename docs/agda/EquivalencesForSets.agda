@@ -23,15 +23,27 @@ module EquivalencesForSets where
 
   isSurjective = isSurjection
   isOnto       = isSurjection
-  isSetEmbedding
+  isSplitSurjection
+    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+
+  isSplitSurjection {B = B} f = (b  : B) → fib f b
+  isRetraction
+    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+
+  isRetraction {A = A}{B} f =
+    ∑ (B → A) (λ g → (b : B) → f (g b) ≡ b)
+  isEmbedding
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
     → (f : A → B)
-    → isSet A
-    → isSet B
     ---------------
     → Type (ℓᵢ ⊔ ℓⱼ)
 
-  isSetEmbedding {A = A} f iA iB = (x y : A) → (f x == f y → x == y)
+  isEmbedding {A = A} f =
+    ∀ {x y : A} → isEquiv (ap f {x}{y})
   isInjective
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
     → (f : A → B)

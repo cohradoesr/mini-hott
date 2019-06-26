@@ -181,6 +181,12 @@ $$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
 
 {% include_relative FundamentalGroupType.md %}
 
+## Logic
+
+[TheAxiomOfChoice.lagda]({% link TheAxiomOfChoice.md %})
+
+{% include_relative TheAxiomOfChoice.md %}
+
 ## References
 
 We follow very closely the HoTT-Book.

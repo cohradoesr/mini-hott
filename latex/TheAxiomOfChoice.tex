@@ -1,0 +1,170 @@
+---
+layout: page
+title: "TheAxiomOfChoice"
+toc: true
+agda: true
+gallery: true
+latex: true
+references: false
+linkify: true
+showcitation: true
+---
+
+<div class="hide" >
+\begin{code}%
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{OPTIONS}\AgdaSpace{}%
+\AgdaPragma{--without-K}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{BasicTypes}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HLevelTypes}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{TruncationType}\<%
+\end{code}
+</div>
+
+### The Axiom Of Choice
+
+\begin{code}%
+\>[0]\AgdaKeyword{module}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaModule{TheAxiomOfChoice}\<%
+\\
+%
+\>[2]\AgdaKeyword{where}\<%
+\end{code}
+
+Let's write in type theory, the logic formal
+notion of the axiom of choice which is as follow:
+
+$$
+  (∀ (b : B) . ∃ (a : A b) . P(b,a))
+  ⇒ ∃ (g : (b : B) → A b) . ∀ (b : B) . P (b, g(b)) .
+$$
+
+\begin{code}%
+%
+\>[2]\AgdaKeyword{postulate}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaPostulate{Choice}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaSymbol{:}\<%
+\\
+%
+\>[6]\AgdaComment{-- Asummption 1: }\<%
+\\
+\>[6][@{}l@{\AgdaIndent{0}}]%
+\>[8]\AgdaSymbol{(}\AgdaBound{B}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{)}\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaBound{B}\<%
+\\
+%
+\>[6]\AgdaComment{-- Asummption 2: }\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓⱼ}\AgdaSymbol{)}\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{b}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSymbol{)}\<%
+\\
+%
+\>[6]\AgdaComment{-- Asummption 3:}\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{P}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{b}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓₖ}\AgdaSymbol{)}\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{b}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSymbol{)(}\AgdaBound{a}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isProp}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{P}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSymbol{)}\<%
+\\
+%
+\>[6]\AgdaComment{-----------------------------------}\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaSymbol{(∀}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
+\AgdaRecord{∑}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{(λ}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{P}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSpace{}%
+\AgdaBound{a}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∥}}\AgdaSymbol{)}\<%
+\\
+%
+\>[6]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
+\AgdaRecord{∑}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{∏}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{(λ}\AgdaSpace{}%
+\AgdaBound{g}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{P}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{g}\AgdaSpace{}%
+\AgdaBound{b}\AgdaSymbol{))}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∥}}\<%
+\end{code}

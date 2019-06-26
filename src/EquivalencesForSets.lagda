@@ -47,6 +47,36 @@ module EquivalencesForSets where
   isSurjective = isSurjection
   isOnto       = isSurjection
 \end{code}
+
+Do not confuse with the traditional logic notation
+for surjective functions which says $f$ is surjective if
+$∀ (b : B) ∃ (a : A) . f a ≡ b$. This is stronger than merely
+know exists an $(a : A)$ as it was stated above with `∥ fib f b ∥`.
+
+Therefore, we define the concept of *split-surjection*:
+
+\begin{code}
+  isSplitSurjection
+    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+
+  isSplitSurjection {B = B} f = (b  : B) → fib f b
+\end{code}
+
+Which is equivalent to say $f$ is a **retraction**:
+
+\begin{code}
+  isRetraction
+    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+
+  isRetraction {A = A}{B} f =
+    ∑ (B → A) (λ g → (b : B) → f (g b) ≡ b)
+\end{code}
+
+
 ### Embeddings
 
 \begin{code}
@@ -57,7 +87,7 @@ module EquivalencesForSets where
     → Type (ℓᵢ ⊔ ℓⱼ)
 
   isEmbedding {A = A} f =
-    ∀ {x y : A} → isEquiv (ap f {x}{y}) 
+    ∀ {x y : A} → isEquiv (ap f {x}{y})
 \end{code}
 
 ### Injections

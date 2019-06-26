@@ -2,9 +2,9 @@ agda    := $(wildcard src/*.lagda)
 latex   := $(subst src,latex,$(subst .lagda,.tex,$(agda)))
 md      := $(subst src,blog,$(subst .lagda,.md,$(agda)))
 rawagda := $(subst src,docs/agda,$(subst .lagda,.agda,$(agda)))
-iimages := $(wildcard images/*.ipe)
-iimgpng := $(subst images/,docs/assets/ipe-images/,$(subst .ipe,.png,$(iimages)))
-
+ipes    := $(wildcard images/*.ipe)
+pngs    := $(subst images/,images/png/,$(subst .ipe,.png,$(ipes)))
+pubpngs := $(subst images/,docs/assets/ipe-images/,$(subst .ipe,.png,$(ipes)))
 
 all:
 	- @echo "We have these options:"
@@ -18,9 +18,7 @@ all:
 
 agda: $(rawagda)
 
-# $(iimgpng)
-
-statics: $(latex) $(md) $(rawagda) $(iimgpng)
+statics: $(latex) $(md) $(rawagda) $(pngs) $(pubpngs)
 	- @echo "Serve the website: \n\t$$ make docs-serve"
 
 latex:
@@ -59,8 +57,12 @@ docs/agda/%.agda : src/%.lagda
 	- @mkdir -p docs/agda
 	- @gsed -n '/\\begin/,/\\end/ {/{code}/!p}' $< > $@
 
-docs/assets/ipe-images/%.png : images/%.ipe
-	- @mkdir -p docs/assets/ipe-images
+docs/assets/ipe-images/%.png : images/png/%.png
+	- @mkdir -p docs/assets/ipe-images/
+	- cp $< $@
+
+images/png/%.png : images/%.ipe
+	- @mkdir -p images/png
 	- iperender -png -resolution 400 $< $@
 
 docs-install:

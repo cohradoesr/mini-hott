@@ -399,19 +399,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/IntegerType.tex">Integer Type</a>
-        
-      
-    
-      
-        
           <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/IntervalType.tex">Interval Type</a>
+          <a class="sidebar-nav-item" href="/IntegerType.tex">Integer Type</a>
         
       
     
@@ -423,7 +417,7 @@
     
       
         
-          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
+          <a class="sidebar-nav-item" href="/IntervalType.tex">Interval Type</a>
         
       
     
@@ -435,13 +429,19 @@
     
       
         
-          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
+          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
         
       
     
       
         
           <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
         
       
     
@@ -483,6 +483,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/QuasiinverseLemmas.tex">Quasiinverse Type</a>
         
       
@@ -490,12 +496,6 @@
       
         
           <a class="sidebar-nav-item" href="/QuasiinverseLemmas.html">Quasiinverse Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
         
       
     
@@ -519,6 +519,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/RelationType.html">Relation Type</a>
         
       
@@ -531,19 +537,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
+          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
         
       
     
       
         
           <a class="sidebar-nav-item" href="/SetTruncationType.tex">Set Truncation Type</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
         
       
     
@@ -561,19 +561,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/ProductIdentities.tex">Sigma identities</a>
-        
-      
-    
-      
-        
           <a class="sidebar-nav-item" href="/ProductIdentities.html">Sigma identities</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma lemmas</a>
+          <a class="sidebar-nav-item" href="/ProductIdentities.tex">Sigma identities</a>
         
       
     
@@ -585,13 +579,25 @@
     
       
         
-          <a class="sidebar-nav-item" href="/SuspensionType.tex">Suspension Type</a>
+          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma lemmas</a>
         
       
     
       
         
           <a class="sidebar-nav-item" href="/SuspensionType.html">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.tex">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TheAxiomOfChoice.html">TheAxiomOfChoice</a>
         
       
     
@@ -609,7 +615,7 @@
     
       
         
-          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.tex">Univalence Lemmas</a>
         
       
     
@@ -621,7 +627,7 @@
     
       
         
-          <a class="sidebar-nav-item" href="/UnivalenceTransport.tex">Univalence Lemmas</a>
+          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
         
       
      -->
@@ -691,7 +697,7 @@
     </div>
 
     <div class="main-last-date">
-      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcDecidableEquality.tex">9baad38 </a> on  25 Jun 2019
+      Latest commit <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcDecidableEquality.tex">9baad38 </a> on  26 Jun 2019
     </div>
   </div>
   
@@ -735,7 +741,7 @@ assume Excluded Middle.
 <a id="614" class="Keyword">module</a> <a id="621" href="DecidableEquality.html" class="Module">DecidableEquality</a> <a id="639" class="Symbol">{</a><a id="640" href="DecidableEquality.html#640" class="Bound">ℓ</a><a id="641" class="Symbol">}</a> <a id="643" class="Keyword">where</a>
 
   <a id="652" class="Comment">-- A type has decidable equality if we can prove that any two of its</a>
-  <a id="723" class="Comment">-- elements are equal or different.</a>
+  <a id="723" class="Comment">-- element</a><a id="733" class="Comment">s</a><a id="734" class="Comment"> </a><a id="735" class="Comment">a</a><a id="736" class="Comment">re </a><a id="739" class="Comment">e</a><a id="740" class="Comment">q</a><a id="741" class="Comment">ual or </a><a id="748" class="Comment">d</a><a id="749" class="Comment">i</a><a id="750" class="Comment">fferent.</a>
   <a id="decEq"></a><a id="761" href="DecidableEquality.html#761" class="Function">decEq</a> <a id="767" class="Symbol">:</a> <a id="769" class="Symbol">(</a><a id="770" href="DecidableEquality.html#770" class="Bound">A</a> <a id="772" class="Symbol">:</a> <a id="774" href="Intro.html#1803" class="Function">Type</a> <a id="779" href="DecidableEquality.html#640" class="Bound">ℓ</a><a id="780" class="Symbol">)</a> <a id="782" class="Symbol">→</a> <a id="784" href="Intro.html#1803" class="Function">Type</a> <a id="789" href="DecidableEquality.html#640" class="Bound">ℓ</a>
   <a id="793" href="DecidableEquality.html#761" class="Function">decEq</a> <a id="799" href="DecidableEquality.html#799" class="Bound">A</a> <a id="801" class="Symbol">=</a> <a id="803" class="Symbol">(</a><a id="804" href="DecidableEquality.html#804" class="Bound">a</a> <a id="806" href="DecidableEquality.html#806" class="Bound">b</a> <a id="808" class="Symbol">:</a> <a id="810" href="DecidableEquality.html#799" class="Bound">A</a><a id="811" class="Symbol">)</a> <a id="813" class="Symbol">→</a> <a id="815" class="Symbol">(</a><a id="816" href="DecidableEquality.html#804" class="Bound">a</a> <a id="818" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="821" href="DecidableEquality.html#806" class="Bound">b</a><a id="822" class="Symbol">)</a> <a id="824" href="BasicTypes.html#2342" class="Datatype Operator">+</a> <a id="826" href="BasicTypes.html#885" class="Function">¬</a> <a id="828" class="Symbol">(</a><a id="829" href="DecidableEquality.html#804" class="Bound">a</a> <a id="831" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="834" href="DecidableEquality.html#806" class="Bound">b</a><a id="835" class="Symbol">)</a>
 
@@ -772,7 +778,7 @@ assume Excluded Middle.
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-06-25"
+       data-lastchecked ="2019-06-26"
        data-originalyear =""
        data-title ="Decidable Equality"
        data-url ="http://jonaprieto.github.io/mini-hott/DecidableEquality.tex"

@@ -420,3 +420,5 @@ package-lock.json
 # End of https://www.gitignore.io/api/osx,agda,ruby,latex,emacs,jekyll
 
 blog/*.tex
+
+images/png/*
