@@ -43,6 +43,14 @@ showcitation: true
 
 ### Monoids
 
+A **monoid** is a algebraic structure on a set with a featured object called the
+*unit* and an associative binary operation (also called the multiplication) that
+fulfills certain properties described below.
+
+Before monoids, we could define instead a much simpler structure, the magma. A
+**magma** is basically a set and an binary operation. Then, any monoid is also
+magma, but magmas are not so interesting as the monoids.
+
 \begin{code}%
 \>[0]\AgdaKeyword{module}\<%
 \\
@@ -81,7 +89,7 @@ showcitation: true
 \>[11]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaBound{ℓ}%
-\>[26]\AgdaComment{-- Carrier set}\<%
+\>[26]\AgdaComment{-- The carrier}\<%
 \\
 %
 \>[6]\AgdaField{e}%
@@ -102,19 +110,16 @@ showcitation: true
 %
 \\[\AgdaEmptyExtraSkip]%
 %
-\>[6]\AgdaComment{-- property}\<%
-\\
-%
 \>[6]\AgdaField{M-is-set}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{isSet}\AgdaSpace{}%
 \AgdaField{M}%
-\>[27]\AgdaComment{-- the carrier is a hSet}\<%
+\>[27]\AgdaComment{-- the carrier is a set}\<%
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
 %
-\>[6]\AgdaComment{-- Axioms of a monoid}\<%
+\>[6]\AgdaComment{-- axioms:}\<%
 \\
 %
 \>[6]\AgdaField{lunit}\AgdaSpace{}%

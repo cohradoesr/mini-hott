@@ -9,12 +9,14 @@ open import MonoidType
 module
   GroupType
     where
-  Group : ∀ {ℓ} → Type (lsuc ℓ)
+  Group
+    : ∀ {ℓ} → Type (lsuc ℓ)
+
   Group
     = ∑ (Monoid) (λ {(monoid G e _<>_ GisSet lunit runit assoc)
-      → ∑ (G → G) (λ iOp → -- A group has inverses
+      → ∑ (G → G) (λ inverse →
         ∏ G (λ x →
           -- properties:
-          ( (x <> iOp x) == e)
-          × ( (iOp x <> x) == e ))
+          (   (x <> inverse x) == e)
+          × ( (inverse x <> x) == e ))
           )})

@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Equivalences for Sets"
+title: "Types of Morphisms"
 toc: true
 agda: true
 gallery: true
@@ -30,8 +30,10 @@ open import CoproductIdentities
 \end{code}
 </div>
 
+## Types of Morphisms
+
 \begin{code}
-module EquivalencesForSets where
+module TypesofMorphisms where
 \end{code}
 
 ### Surjections

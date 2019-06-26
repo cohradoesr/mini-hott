@@ -48,7 +48,7 @@ module HLevelLemmas where
 For any type, $A : \Type$,
 
 {: .equation }
-  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \isGroupoid{A}.$$
+  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \mathsf{isGroupoid}{A}.$$
 
 Contractible types are Propositions:
 {: .foldable until="5"}
@@ -69,7 +69,7 @@ To be contractible is itself a proposition.
 
 \begin{code}
   contractible-from-inhabited-prop
-    : ∀ {i} {A : Type i}
+    : {A : Type ℓ}
     → A
     → isProp A
     ----------------
@@ -166,7 +166,7 @@ proposition.
 
 {: .foldable until="6"}
 \begin{code}
-  
+
   isProp-pi
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
     → ((a : A) → isProp (B a))
@@ -182,7 +182,7 @@ proposition.
 
 {: .foldable until="6"}
 \begin{code}
-  
+
   ispropA-B
     : ∀ {ℓ} {A B : Type ℓ}
     →  isProp A → isProp B → (A ⇔ B)
@@ -204,7 +204,7 @@ given A and B sets, f is injective and surjective.
 
 {: .foldable until="6"}
 \begin{code}
-  
+
   -- propEqvIsprop
   --   : ∀ {ℓ} {A B : Type ℓ}
   --   → isProp A → isProp B
@@ -218,7 +218,7 @@ given A and B sets, f is injective and surjective.
 
 {: .foldable until="4"}
 \begin{code}
-  
+
   setIsProp
     : ∀ {ℓ} {A : Type ℓ}
     → isProp (isSet A)
@@ -237,7 +237,7 @@ The product of propositions is itself a proposition.
 
 {: .foldable until="6"}
 \begin{code}
-  
+
   isProp-prod
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isProp A → isProp B
@@ -255,7 +255,7 @@ Product of sets is a set.
 
 {: .foldable until="6" }
 \begin{code}
-  
+
   isSet-prod
     : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isSet A → isSet B
@@ -423,5 +423,5 @@ twoprops-to-equiv-≃-⇔ {A = A} {B} ispropA ispropB  = qinv-≃ f (g , H₁ , 
         e ∙→ , _
           ==⟨ Σ-bycomponents (idp , isEquivIsProp (e ∙→) _ _) ⟩
         e
-      ∎
+      ∎k
 \end{code}

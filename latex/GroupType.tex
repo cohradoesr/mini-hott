@@ -1,1 +1,145 @@
-% This file is generated automatically. 
+---
+layout: page
+title: "Group Type"
+toc: true
+agda: true
+gallery: true
+latex: true
+references: false
+linkify: true
+showcitation: true
+---
+
+<div class="hide" >
+\begin{code}%
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{OPTIONS}\AgdaSpace{}%
+\AgdaPragma{--without-K}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{TransportLemmas}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{EquivalenceType}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HomotopyType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{FunExtAxiom}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HLevelTypes}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{MonoidType}\<%
+\end{code}
+</div>
+
+### Groups
+
+\begin{code}%
+\>[0]\AgdaKeyword{module}\<%
+\\
+\>[0][@{}l@{\AgdaIndent{0}}]%
+\>[2]\AgdaModule{GroupType}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaKeyword{where}\<%
+\end{code}
+
+A group is a monoid with something else, which is, the property of having an
+inverse of the operation. Thus, exists the function $\mathsf{inverse} : G → G}$
+such that:
+
+$$∀ (x : G) → \mathsf{inverse}(x) <> x ≡ e\text {  and  }x <>
+\mathsf{inverse}(x)  ≡ e,$$
+
+where $G$ is the group, $e$ the unit and $<>$ the operation from the underlined
+monoid. This is the following type for groups:
+
+
+\begin{code}%
+%
+\>[2]\AgdaFunction{Group}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[2]\AgdaFunction{Group}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{=}%
+\>[21I]\AgdaRecord{∑}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaRecord{Monoid}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{(λ}\AgdaSpace{}%
+\AgdaSymbol{\{(}\AgdaInductiveConstructor{monoid}\AgdaSpace{}%
+\AgdaBound{G}\AgdaSpace{}%
+\AgdaBound{e}\AgdaSpace{}%
+\AgdaOperator{\AgdaBound{\AgdaUnderscore{}<>\AgdaUnderscore{}}}\AgdaSpace{}%
+\AgdaBound{GisSet}\AgdaSpace{}%
+\AgdaBound{lunit}\AgdaSpace{}%
+\AgdaBound{runit}\AgdaSpace{}%
+\AgdaBound{assoc}\AgdaSymbol{)}\<%
+\\
+\>[.][@{}l@{}]\<[21I]%
+\>[6]\AgdaSymbol{→}%
+\>[32I]\AgdaRecord{∑}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{G}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{G}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{(λ}\AgdaSpace{}%
+\AgdaBound{inverse}\AgdaSpace{}%
+\AgdaSymbol{→}\<%
+\\
+\>[.][@{}l@{}]\<[32I]%
+\>[8]\AgdaFunction{∏}%
+\>[39I]\AgdaBound{G}\AgdaSpace{}%
+\AgdaSymbol{(λ}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSpace{}%
+\AgdaSymbol{→}\<%
+\\
+\>[.][@{}l@{}]\<[39I]%
+\>[10]\AgdaComment{-- properties:}\<%
+\\
+%
+\>[10]\AgdaSymbol{(}%
+\>[14]\AgdaSymbol{(}\AgdaBound{x}\AgdaSpace{}%
+\AgdaOperator{\AgdaBound{<>}}\AgdaSpace{}%
+\AgdaBound{inverse}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{e}\AgdaSymbol{)}\<%
+\\
+%
+\>[10]\AgdaOperator{\AgdaFunction{×}}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{inverse}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSpace{}%
+\AgdaOperator{\AgdaBound{<>}}\AgdaSpace{}%
+\AgdaBound{x}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
+\AgdaBound{e}\AgdaSpace{}%
+\AgdaSymbol{))}\<%
+\\
+%
+\>[10]\AgdaSymbol{)\})}\<%
+\end{code}

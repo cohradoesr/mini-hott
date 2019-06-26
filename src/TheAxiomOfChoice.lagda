@@ -28,8 +28,8 @@ module
   where
 \end{code}
 
-Let's write in type theory, the logic formal
-notion of the axiom of choice which is as follow:
+Let's write in type theory, the following logic formulation of
+of the axiom of choice:
 
 $$
   (∀ (b : B) . ∃ (a : A b) . P(b,a))

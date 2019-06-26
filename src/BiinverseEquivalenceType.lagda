@@ -44,6 +44,15 @@ module
   infix 10 _≃_
 \end{code}
 
+Synonym:
+\begin{code}
+  biinv
+    :  {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔  ℓⱼ)
+  biinv f = Equivalence f
+\end{code}
+
 \begin{code}
   record
     _≃_ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ)

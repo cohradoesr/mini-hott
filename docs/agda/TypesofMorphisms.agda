@@ -13,7 +13,7 @@ open import HedbergLemmas
 open import TruncationType
 open import FibreType
 open import CoproductIdentities
-module EquivalencesForSets where
+module TypesofMorphisms where
   isSurjection
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
     → (f : A → B)

@@ -30,6 +30,15 @@ module EquivalenceType where
 
 ## Equivalences
 
+There are three definitions to say a function is an
+equivalence. All these definitions
+are required to be mere propositions and to hold
+the bi-implication of begin *quasi-inverse*. We show
+this clearly in what follows. Nevertheless, we want to get
+the following fact:
+
+$$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
+
 ### Contractible maps
 
 A map is *contractible* if the fiber in any point is contractible, that is, each

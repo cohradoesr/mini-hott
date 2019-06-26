@@ -31,7 +31,7 @@ module HLevelLemmas where
   -- Synonyms
   isContr→isProp = contrIsProp
   contractible-from-inhabited-prop
-    : ∀ {i} {A : Type i}
+    : {A : Type ℓ}
     → A
     → isProp A
     ----------------
@@ -92,7 +92,7 @@ module HLevelLemmas where
   prop-is-prop        = propIsProp
   prop→prop           = propIsProp
   isProp-isProp       = propIsProp
-  
+
   isProp-pi
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
     → ((a : A) → isProp (B a))
@@ -104,7 +104,7 @@ module HLevelLemmas where
   pi-is-prop = isProp-pi
   Π-isProp   = isProp-pi
   piIsProp   = isProp-pi
-  
+
   ispropA-B
     : ∀ {ℓ} {A B : Type ℓ}
     →  isProp A → isProp B → (A ⇔ B)
@@ -116,7 +116,7 @@ module HLevelLemmas where
 
   -- Synonyms
   props-⇔-to-== = ispropA-B
-  
+
   -- propEqvIsprop
   --   : ∀ {ℓ} {A B : Type ℓ}
   --   → isProp A → isProp B
@@ -124,7 +124,7 @@ module HLevelLemmas where
   --   → isProp (A == B)
   --
   -- propEqvIsprop {ℓ} {A} {B} x x₁ x₂ y = {!   !}
-  
+
   setIsProp
     : ∀ {ℓ} {A : Type ℓ}
     → isProp (isSet A)
@@ -137,7 +137,7 @@ module HLevelLemmas where
 
   set→prop           = setIsProp
   set-is-prop-always = setIsProp
-  
+
   isProp-prod
     : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isProp A → isProp B
@@ -149,7 +149,7 @@ module HLevelLemmas where
   ispropA×B      = isProp-prod
   ×-isProp       = isProp-prod
   prop×prop→prop = isProp-prod
-  
+
   isSet-prod
     : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isSet A → isSet B
@@ -286,4 +286,4 @@ twoprops-to-equiv-≃-⇔ {A = A} {B} ispropA ispropB  = qinv-≃ f (g , H₁ , 
         e ∙→ , _
           ==⟨ Σ-bycomponents (idp , isEquivIsProp (e ∙→) _ _) ⟩
         e
-      ∎
+      ∎k

@@ -31,18 +31,27 @@ module
     where
 \end{code}
 
-A group is an algebraic structure which is a monoid but with additional structure.
-There is an operation that produces "the inverse" for an element. This name
-comes from the fact, the ouptut is the inverse for the operation in the monoid, both directions in the application.
+A group is a monoid with something else, which is, the property of having an
+inverse of the operation. Thus, exists the function $\mathsf{inverse} : G → G}$
+such that:
+
+$$∀ (x : G) → \mathsf{inverse}(x) <> x ≡ e\text {  and  }x <>
+\mathsf{inverse}(x)  ≡ e,$$
+
+where $G$ is the group, $e$ the unit and $<>$ the operation from the underlined
+monoid. This is the following type for groups:
+
 
 \begin{code}
-  Group : ∀ {ℓ} → Type (lsuc ℓ)
+  Group
+    : ∀ {ℓ} → Type (lsuc ℓ)
+
   Group
     = ∑ (Monoid) (λ {(monoid G e _<>_ GisSet lunit runit assoc)
-      → ∑ (G → G) (λ iOp → -- A group has inverses
+      → ∑ (G → G) (λ inverse →
         ∏ G (λ x →
           -- properties:
-          ( (x <> iOp x) == e)
-          × ( (iOp x <> x) == e ))
+          (   (x <> inverse x) == e)
+          × ( (inverse x <> x) == e ))
           )})
 \end{code}

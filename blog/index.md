@@ -121,15 +121,10 @@ showcitation: true
 
 {% include_relative HLevelLemmas.md %}
 
-## Surjections and Embeddings
 
-$$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
+[TypesofMorphisms.lagda]({% link TypesofMorphisms.md %})
 
-## Surjections and Embeddings
-
-[EquivalencesForSets.lagda]({% link EquivalencesForSets.md %})
-
-{% include_relative EquivalencesForSets.md %}
+{% include_relative TypesofMorphisms.md %}
 
 [HedbergLemmas.lagda]({% link HedbergLemmas.md %})
 
@@ -189,17 +184,17 @@ $$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
 
 ## References
 
-We follow very closely the HoTT-Book.
-
-For Agda matters:
-
 {: .links}
 
-  - Mini-HoTT is a fork of [Agda-HoTT](https://mroman42.github.io/ctlc/agda-hott/Total.html)
-  - [Agda-premises](https://hub.darcs.net/gylterud/agda-premises)
-  - [https://github.com/HoTT/HoTT-Agda](https://github.com/HoTT/HoTT-Agda)
-  - [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/)
-  - [https://github.com/dlicata335/hott-agda/](https://github.com/dlicata335/hott-agda/)
+- HoTT-Book.
+
+- For Agda matters:
+
+    - Mini-HoTT is a fork of [Agda-HoTT](https://mroman42.github.io/ctlc/agda-hott/Total.html)
+    - [Agda-premises](https://hub.darcs.net/gylterud/agda-premises)
+    - [https://github.com/HoTT/HoTT-Agda](https://github.com/HoTT/HoTT-Agda)
+    - [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/)
+    - [https://github.com/dlicata335/hott-agda/](https://github.com/dlicata335/hott-agda/)
 
 
 {% include mathjax.html %}

@@ -14,14 +14,13 @@ module
       where
     constructor monoid
     field
-      M    : Type ℓ       -- Carrier set
+      M    : Type ℓ       -- The carrier
       e    : M            -- Unit element (at least one element, this one)
       _<>_ : M → M → M    -- Operation
 
-      -- property
-      M-is-set : isSet M   -- the carrier is a hSet
+      M-is-set : isSet M   -- the carrier is a set
 
-      -- Axioms of a monoid
+      -- axioms:
       lunit : (x : M) → (e <> x) == x
       runit : (x : M) → (x <> e) == x
       assoc : (x y z : M) → (x <> (y <> z)) == ((x <> y) <> z)

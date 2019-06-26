@@ -24,6 +24,14 @@ open import HLevelTypes
 
 ### Monoids
 
+A **monoid** is a algebraic structure on a set with a featured object called the
+*unit* and an associative binary operation (also called the multiplication) that
+fulfills certain properties described below.
+
+Before monoids, we could define instead a much simpler structure, the magma. A
+**magma** is basically a set and an binary operation. Then, any monoid is also
+magma, but magmas are not so interesting as the monoids.
+
 \begin{code}
 module
   MonoidType
@@ -37,14 +45,13 @@ module
       where
     constructor monoid
     field
-      M    : Type ℓ       -- Carrier set
+      M    : Type ℓ       -- The carrier
       e    : M            -- Unit element (at least one element, this one)
       _<>_ : M → M → M    -- Operation
 
-      -- property
-      M-is-set : isSet M   -- the carrier is a hSet
+      M-is-set : isSet M   -- the carrier is a set
 
-      -- Axioms of a monoid
+      -- axioms:
       lunit : (x : M) → (e <> x) == x
       runit : (x : M) → (x <> e) == x
       assoc : (x y z : M) → (x <> (y <> z)) == ((x <> y) <> z)
