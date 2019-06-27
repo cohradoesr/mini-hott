@@ -18,14 +18,14 @@ open import BasicTypes public
 \end{code}
 </div>
 
-## Useful functions
+## Basic functions
 
 ### Identity functions
 
 The identity function with implicit type.
 \begin{code}
 id
-  : ∀ {A : Type ℓ}
+  : {A : Type ℓ}
   ----------------
   → A → A
 
@@ -50,7 +50,7 @@ Constant function at some point `b` is `cst b`
 
 \begin{code}
 cst
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (b : B)
   ---------
   → (A → B)
@@ -75,7 +75,7 @@ A more sophisticated composition function that can handle dependent functions.
 {: .foldable until="6" }
 \begin{code}
 _∘_
-  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → (B a → Type ℓₖ)}
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → (B a → Type ℓₖ)}
   → (g : {a : A} → ∏ (B a) (C a))
   → (f : ∏ A B)
   -------------------------------
@@ -91,8 +91,7 @@ Synonym for composition (diagrammatic version)
 {: .foldable until="7" }
 \begin{code}
 _:>_
-  : ∀ {ℓᵢ ℓⱼ ℓₖ}
-  → {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → (B a → Type ℓₖ)}
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → (B a → Type ℓₖ)}
   → (f : Π A B)
   → (g : {a : A} → Π (B a) (C a))
   -------------------------------
@@ -110,7 +109,7 @@ infixr 90 _:>_
 {: .foldable until="5" }
 \begin{code}
 ∘-lassoc
-  : ∀ {ℓ} {A B C D : Type ℓ}
+  : {A B C D : Type ℓ}
   → (h : C → D) → (g : B → C) → (f : A → B)
   -----------------------------------------
   → (h ∘ (g ∘ f)) == ((h ∘ g) ∘ f)
@@ -123,7 +122,7 @@ infixr 90 _:>_
 {: .foldable until="5" }
 \begin{code}
 ∘-rassoc
-  : ∀ {ℓ} {A B C D : Type ℓ}
+  : {A B C D : Type ℓ}
   → (h : C → D) → (g : B → C) → (f : A → B)
   -----------------------------------------
   → ((h ∘ g) ∘ f) == (h ∘ (g ∘ f))
@@ -136,7 +135,7 @@ infixr 90 _:>_
 
 \begin{code}
 _$_
-  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ}
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
   → (∀ x → B x)
   -------------
   → (∀ x → B x)
@@ -164,7 +163,7 @@ syntax +-map f g = 〈 f ⊕ g 〉  -- Obs: Note the space after the left bracke
 
 \begin{code}
 parallell
-  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
   → (f : (a : A) → B a)
   → ((a : A) → C a (f a))
   -------------------------
@@ -179,7 +178,7 @@ syntax parallell f g = 〈 f × g 〉
 
 \begin{code}
 curry
-  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Σ A B → Type ℓₖ}
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Σ A B → Type ℓₖ}
   → ((s : ∑ A B) → C s)
   ---------------------
   → ((x : A)(y : B x) → C (x , y))
@@ -201,7 +200,7 @@ unCurry D p = D (proj₁ p) (proj₂ p)
 
 \begin{code}
 uncurry
-  : ∀ {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
+  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
   → (f : (a : A) (b : B a) → C a b)
   ---------------------------------
   → (p : ∑ A B) → C (π₁ p) (π₂ p)
@@ -213,12 +212,12 @@ uncurry f (x , y) = f x y
 
 \begin{code}
 data
-  HEq {ℓ} (A : Type ℓ)
+  HEq (A : Type ℓ)
     : (B : Type ℓ)
     → (α : A == B) (a : A) (b : B)
     → Type (lsuc ℓ)
   where
-  idp : ∀ {a : A} → HEq A A idp a a
+  idp : {a : A} → HEq A A idp a a
 \end{code}
 
 ### Path functions
@@ -228,7 +227,7 @@ data
 {: .foldable until="6" }
 \begin{code}
 _·_
-  : ∀ {A : Type ℓ} {x y z : A}
+  : {A : Type ℓ} {x y z : A}
   → (p : x == y)
   → (q : y == z)
   --------------
@@ -245,7 +244,7 @@ infixl 50 _·_
 
 \begin{code}
 inv
-  : ∀ {ℓ} {A : Type ℓ} {a b : A}
+  : {A : Type ℓ} {a b : A}
   → a == b
   --------
   → b == a
@@ -285,7 +284,7 @@ where `p` is a path from `a` to `b`, `q` is a path from `b` to `c`, and so on.
 \begin{code}
 module
   EquationalReasoning
-  {A : Type ℓᵢ}
+  {A : Type ℓ}
   where
 \end{code}
 

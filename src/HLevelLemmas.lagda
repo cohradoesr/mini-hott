@@ -423,5 +423,5 @@ twoprops-to-equiv-≃-⇔ {A = A} {B} ispropA ispropB  = qinv-≃ f (g , H₁ , 
         e ∙→ , _
           ==⟨ Σ-bycomponents (idp , isEquivIsProp (e ∙→) _ _) ⟩
         e
-      ∎k
+      ∎
 \end{code}

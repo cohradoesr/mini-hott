@@ -72,14 +72,14 @@ docs-install:
 	@echo " [!] run $$ make docs-build"
 
 docs-build:
-	- bundle exec jekyll build \
-	  --incremental\
-	  --source blog\
-	  --destination docs\
-	  --config blog/_config.yml\
-	  --layouts blog/_layouts\
-	  --plugins blog/_plugins
 	- make statics
+	- bundle exec jekyll build \
+    --incremental\
+    --source blog\
+    --destination docs\
+    --config blog/_config.yml\
+    --layouts blog/_layouts\
+    --plugins blog/_plugins
 	@echo " [!] run $$ make docs-serve"
 
 docs-serve:
