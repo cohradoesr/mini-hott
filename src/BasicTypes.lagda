@@ -99,7 +99,7 @@ the second term in the pair may depend on the first term.
 
 \begin{code}
 record
-  ∑ (A : Type ℓᵢ)(B : A → Type ℓⱼ)
+  ∑ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ)(B : A → Type ℓⱼ)
    : Type (ℓᵢ ⊔ ℓⱼ)
   where
   constructor _,_
@@ -277,7 +277,7 @@ Synonyms for natural numbers
 \begin{code}
 Nat = ℕ
 
-pattern z  = zero
+pattern zr  = zero
 pattern sc = succ
 
 {-# BUILTIN NATURAL ℕ #-}

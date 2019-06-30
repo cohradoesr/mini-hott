@@ -192,6 +192,7 @@ showcitation: true
 
     - Mini-HoTT is a fork of [Agda-HoTT](https://mroman42.github.io/ctlc/agda-hott/Total.html)
     - [Agda-premises](https://hub.darcs.net/gylterud/agda-premises)
+    - [Agda-Base](https://github.com/pcapriotti/agda-base)
     - [https://github.com/HoTT/HoTT-Agda](https://github.com/HoTT/HoTT-Agda)
     - [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/)
     - [https://github.com/dlicata335/hott-agda/](https://github.com/dlicata335/hott-agda/)

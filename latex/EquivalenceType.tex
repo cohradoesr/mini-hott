@@ -74,7 +74,6 @@ element has a unique preimagen.
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
 \>[2]\AgdaSymbol{:}\AgdaSpace{}%
-\AgdaSymbol{∀}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
@@ -218,8 +217,13 @@ contractible function between them.
 \>[4]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{≃}}\AgdaSpace{}%
-\AgdaBound{B}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{B}\<%
+\\
+%
+\>[4]\AgdaComment{-------}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSymbol{)}\<%
@@ -271,16 +275,25 @@ Synonyms:
 
 \begin{code}%
 %
-\>[2]\AgdaFunction{remap}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[2]\AgdaFunction{remap}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{≃}}\AgdaSpace{}%
-\AgdaBound{B}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{B}\<%
+\\
+%
+\>[4]\AgdaComment{---------}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{B}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSymbol{)}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{remap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
@@ -318,10 +331,8 @@ Synonyms:
 \AgdaOperator{\AgdaFunction{\AgdaUnderscore{}∙←}}\<%
 \end{code}
 
+The maps of an equivalence are inverses in particular
 \begin{code}%
-%
-\>[2]\AgdaComment{-- The maps of an equivalence are inverses in particular}\<%
-\\
 %
 \>[2]\AgdaFunction{lrmap-inverse}\<%
 \\
@@ -351,6 +362,8 @@ Synonyms:
 \AgdaBound{b}\<%
 \\
 %
+\\[\AgdaEmptyExtraSkip]%
+%
 \>[2]\AgdaFunction{lrmap-inverse}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
@@ -371,9 +384,6 @@ Synonyms:
 \end{code}
 
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Lem.}\<%
-\\
 %
 \>[2]\AgdaFunction{rlmap-inverse}\<%
 \\
@@ -429,9 +439,6 @@ Synonyms:
 
 \begin{code}%
 %
-\>[2]\AgdaComment{-- Lem.}\<%
-\\
-%
 \>[2]\AgdaFunction{lrmap-inverse-h}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
@@ -443,7 +450,7 @@ Synonyms:
 \AgdaBound{B}\AgdaSymbol{)}\<%
 \\
 %
-\>[4]\AgdaComment{------------------------------}\<%
+\>[4]\AgdaComment{------------------------}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
@@ -455,6 +462,8 @@ Synonyms:
 \AgdaOperator{\AgdaFunction{∼}}\AgdaSpace{}%
 \AgdaFunction{id}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{lrmap-inverse-h}\AgdaSpace{}%
 \AgdaBound{e}\AgdaSpace{}%
@@ -475,9 +484,6 @@ Synonyms:
 \end{code}
 
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Lem.}\<%
-\\
 %
 \>[2]\AgdaFunction{rlmap-inverse-h}\<%
 \\

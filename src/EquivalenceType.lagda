@@ -47,7 +47,7 @@ element has a unique preimagen.
 \begin{code}
 
 isContrMap
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (f : A → B)
   → Type (ℓᵢ ⊔ ℓⱼ)
 
@@ -84,7 +84,9 @@ module EquivalenceMaps {A : Type ℓᵢ} {B : Type ℓⱼ} where
 
 \begin{code}
   lemap
-    : A ≃ B → (A → B)
+    : A ≃ B
+    -------
+    → (A → B)
 
   lemap = π₁
 \end{code}
@@ -102,7 +104,11 @@ Synonyms:
 \end{code}
 
 \begin{code}
-  remap : A ≃ B → (B → A)
+  remap
+    : A ≃ B
+    ---------
+    → (B → A)
+
   remap (f , contrf) b = π₁ (π₁ (contrf b))
 \end{code}
 
@@ -114,19 +120,19 @@ Synonyms:
   infixl 70 _∙←
 \end{code}
 
+The maps of an equivalence are inverses in particular
 \begin{code}
-  -- The maps of an equivalence are inverses in particular
   lrmap-inverse
     : (e : A ≃ B) → {b : B}
     -----------------------
     → (e ∙→) ((e ∙←) b) == b
+
   lrmap-inverse (f , eqf) {b} = fib-eq (π₁ (eqf b))
 
   ∙→∘∙← = lrmap-inverse
 \end{code}
 
 \begin{code}
-  -- Lem.
   rlmap-inverse
     : (e : A ≃ B) → {a : A}
     ------------------------
@@ -138,18 +144,17 @@ Synonyms:
 \end{code}
 
 \begin{code}
-  -- Lem.
   lrmap-inverse-h
     : (e : A ≃ B)
-    ------------------------------
+    ------------------------
     → ((e ∙→) ∘ (e ∙←)) ∼ id
+
   lrmap-inverse-h e = λ x → lrmap-inverse e {x}
 
   ∙→∘∙←-h = lrmap-inverse-h
 \end{code}
 
 \begin{code}
-  -- Lem.
   rlmap-inverse-h
     : (e : A ≃ B)
     ------------------------

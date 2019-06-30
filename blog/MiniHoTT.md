@@ -75,18 +75,18 @@ showcitation: true
   <a id="1437" class="Keyword">open</a> <a id="1442" class="Keyword">import</a> <a id="1449" href="TruncationType.html" class="Module">TruncationType</a> <a id="1464" class="Keyword">public</a>
   <a id="1473" class="Keyword">open</a> <a id="1478" class="Keyword">import</a> <a id="1485" href="SetTruncationType.html" class="Module">SetTruncationType</a> <a id="1503" class="Keyword">public</a>
 
-  <a id="1513" class="Keyword">open</a> <a id="1518" class="Keyword">import</a> <a id="1525" href="EquivalencesForSets.html" class="Module">EquivalencesForSets</a> <a id="1545" class="Keyword">public</a>
+  <a id="1513" class="Keyword">open</a> <a id="1518" class="Keyword">import</a> <a id="1525" href="TypesofMorphisms.html" class="Module">TypesofMorphisms</a> <a id="1542" class="Keyword">public</a>
 
-  <a id="1555" class="Keyword">open</a> <a id="1560" class="Keyword">import</a> <a id="1567" href="NaturalType.html" class="Module">NaturalType</a> <a id="1579" class="Keyword">public</a>
-  <a id="1588" class="Keyword">open</a> <a id="1593" class="Keyword">import</a> <a id="1600" href="IntegerType.html" class="Module">IntegerType</a> <a id="1612" class="Keyword">public</a>
+  <a id="1552" class="Keyword">open</a> <a id="1557" class="Keyword">import</a> <a id="1564" href="NaturalType.html" class="Module">NaturalType</a> <a id="1576" class="Keyword">public</a>
+  <a id="1585" class="Keyword">open</a> <a id="1590" class="Keyword">import</a> <a id="1597" href="IntegerType.html" class="Module">IntegerType</a> <a id="1609" class="Keyword">public</a>
 
 
-  <a id="1623" class="Keyword">open</a> <a id="1628" class="Keyword">import</a> <a id="1635" href="QuotientType.html" class="Module">QuotientType</a> <a id="1648" class="Keyword">public</a>
-  <a id="1657" class="Keyword">open</a> <a id="1662" class="Keyword">import</a> <a id="1669" href="RelationType.html" class="Module">RelationType</a> <a id="1682" class="Keyword">public</a>
+  <a id="1620" class="Keyword">open</a> <a id="1625" class="Keyword">import</a> <a id="1632" href="QuotientType.html" class="Module">QuotientType</a> <a id="1645" class="Keyword">public</a>
+  <a id="1654" class="Keyword">open</a> <a id="1659" class="Keyword">import</a> <a id="1666" href="RelationType.html" class="Module">RelationType</a> <a id="1679" class="Keyword">public</a>
 
-  <a id="1692" class="Keyword">open</a> <a id="1697" class="Keyword">import</a> <a id="1704" href="MonoidType.html" class="Module">MonoidType</a> <a id="1715" class="Keyword">public</a>
-  <a id="1724" class="Keyword">open</a> <a id="1729" class="Keyword">import</a> <a id="1736" href="GroupType.html" class="Module">GroupType</a> <a id="1746" class="Keyword">public</a>
+  <a id="1689" class="Keyword">open</a> <a id="1694" class="Keyword">import</a> <a id="1701" href="MonoidType.html" class="Module">MonoidType</a> <a id="1712" class="Keyword">public</a>
+  <a id="1721" class="Keyword">open</a> <a id="1726" class="Keyword">import</a> <a id="1733" href="GroupType.html" class="Module">GroupType</a> <a id="1743" class="Keyword">public</a>
 
-  <a id="1756" class="Comment">--   open import FundamentalGroupType public</a>
+  <a id="1753" class="Comment">--   open import FundamentalGroupType public</a>
 
 </pre>

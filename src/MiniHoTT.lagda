@@ -75,7 +75,7 @@ module MiniHoTT where
   open import TruncationType public
   open import SetTruncationType public
 
-  open import EquivalencesForSets public
+  open import TypesofMorphisms public
 
   open import NaturalType public
   open import IntegerType public
