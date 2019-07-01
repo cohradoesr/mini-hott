@@ -8,7 +8,7 @@
   <title>
     
       
-        Univalence Lemmas |
+        Equivalence Type |
       
         Mini-HoTT
     
@@ -64,7 +64,7 @@
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
   <div class="sidebar-item" >
-    <p style="text-decoration:left">Univalence Lemmas</p>
+    <p style="text-decoration:left">Equivalence Type</p>
   </div>
   <nav class="sidebar-nav">
     <ul id="toc-id" class="toc-class">
@@ -207,7 +207,7 @@
     
       
         
-          <a class="sidebar-nav-item" href="/EquivalenceType.tex">Equivalence Type</a>
+          <a class="sidebar-nav-item active" href="/EquivalenceType.tex">Equivalence Type</a>
         
       
     
@@ -621,7 +621,7 @@
     
       
         
-          <a class="sidebar-nav-item active" href="/UnivalenceTransport.tex">Univalence Lemmas</a>
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.tex">Univalence Lemmas</a>
         
       
     
@@ -667,7 +667,7 @@
 <div class="post">
   <div class="print-version">
     <center>
-      <h1>Univalence Lemmas</h1><br/>
+      <h1>Equivalence Type</h1><br/>
         <div class="print-authors">
           <div class="print-info">
             <div class="print-author">
@@ -696,7 +696,7 @@
   No git information available.
   
 
-  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Univalence Lemmas <small style="float:right">(UnivalenceTransport.tex)</small>
+  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Equivalence Type <small style="float:right">(EquivalenceType.tex)</small>
   </h1>
 
   <!-- 
@@ -715,107 +715,159 @@
 
   <div class="hide" >
 <pre class="Agda">
-<a id="217" class="Symbol">{-#</a> <a id="221" class="Keyword">OPTIONS</a> <a id="229" class="Pragma">--without-K</a> <a id="241" class="Symbol">#-}</a>
-<a id="245" class="Keyword">open</a> <a id="250" class="Keyword">import</a> <a id="257" href="TransportLemmas.html" class="Module">TransportLemmas</a>
-<a id="273" class="Keyword">open</a> <a id="278" class="Keyword">import</a> <a id="285" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+<a id="180" class="Symbol">{-#</a> <a id="184" class="Keyword">OPTIONS</a> <a id="192" class="Pragma">--without-K</a> <a id="204" class="Symbol">#-}</a>
+<a id="208" class="Keyword">open</a> <a id="213" class="Keyword">import</a> <a id="220" href="BasicTypes.html" class="Module">BasicTypes</a>
+<a id="231" class="Keyword">open</a> <a id="236" class="Keyword">import</a> <a id="243" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="255" class="Keyword">open</a> <a id="260" class="Keyword">import</a> <a id="267" href="FibreType.html" class="Module">FibreType</a>
 
-<a id="302" class="Keyword">open</a> <a id="307" class="Keyword">import</a> <a id="314" href="HomotopyType.html" class="Module">HomotopyType</a>
-<a id="327" class="Keyword">open</a> <a id="332" class="Keyword">import</a> <a id="339" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
-<a id="351" class="Keyword">open</a> <a id="356" class="Keyword">import</a> <a id="363" href="QuasiinverseType.html" class="Module">QuasiinverseType</a>
+<a id="278" class="Keyword">open</a> <a id="283" class="Keyword">import</a> <a id="290" href="Transport.html" class="Module">Transport</a>
+<a id="300" class="Keyword">open</a> <a id="305" class="Keyword">import</a> <a id="312" href="HomotopyType.html" class="Module">HomotopyType</a>
 
-<a id="381" class="Keyword">open</a> <a id="386" class="Keyword">import</a> <a id="393" href="UnivalenceAxiom.html" class="Module">UnivalenceAxiom</a>
 </pre>
 </div>
 
-## Transport and Univalence
-
 <pre class="Agda">
-<a id="470" class="Keyword">module</a> <a id="477" href="UnivalenceTransport.html" class="Module">UnivalenceTransport</a> <a id="497" class="Keyword">where</a>
+<a id="358" class="Keyword">module</a> <a id="365" href="EquivalenceType.html" class="Module">EquivalenceType</a> <a id="381" class="Keyword">where</a>
+
 </pre>
 
-{: .foldable until="8" }
-<pre class="Agda">
-  <a id="transport-family-ap"></a><a id="555" href="UnivalenceTransport.html#555" class="Function">transport-family-ap</a>
-    <a id="579" class="Symbol">:</a> <a id="581" class="Symbol">{</a><a id="582" href="UnivalenceTransport.html#582" class="Bound">A</a> <a id="584" class="Symbol">:</a> <a id="586" href="Intro.html#1803" class="Function">Type</a> <a id="591" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="592" class="Symbol">}</a>
-    <a id="598" class="Symbol">→</a> <a id="600" class="Symbol">(</a><a id="601" href="UnivalenceTransport.html#601" class="Bound">B</a> <a id="603" class="Symbol">:</a> <a id="605" href="UnivalenceTransport.html#582" class="Bound">A</a> <a id="607" class="Symbol">→</a> <a id="609" href="Intro.html#1803" class="Function">Type</a> <a id="614" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="615" class="Symbol">)</a>
-    <a id="621" class="Symbol">→</a> <a id="623" class="Symbol">{</a><a id="624" href="UnivalenceTransport.html#624" class="Bound">x</a> <a id="626" href="UnivalenceTransport.html#626" class="Bound">y</a> <a id="628" class="Symbol">:</a> <a id="630" href="UnivalenceTransport.html#582" class="Bound">A</a><a id="631" class="Symbol">}</a>
-    <a id="637" class="Symbol">→</a> <a id="639" class="Symbol">(</a><a id="640" href="UnivalenceTransport.html#640" class="Bound">p</a> <a id="642" class="Symbol">:</a> <a id="644" href="UnivalenceTransport.html#624" class="Bound">x</a> <a id="646" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="649" href="UnivalenceTransport.html#626" class="Bound">y</a><a id="650" class="Symbol">)</a>
-    <a id="656" class="Symbol">→</a> <a id="658" class="Symbol">(</a><a id="659" href="UnivalenceTransport.html#659" class="Bound">u</a> <a id="661" class="Symbol">:</a> <a id="663" href="UnivalenceTransport.html#601" class="Bound">B</a> <a id="665" href="UnivalenceTransport.html#624" class="Bound">x</a><a id="666" class="Symbol">)</a>
-    <a id="672" class="Comment">---------------------------------------------------</a>
-    <a id="728" class="Symbol">→</a> <a id="730" href="Transport.html#462" class="Function">tra</a><a id="733" href="Transport.html#462" class="Bound">n</a><a id="734" href="Transport.html#462" class="Function">s</a><a id="735" href="Transport.html#462" class="Bound">p</a><a id="736" href="Transport.html#462" class="Function">ort</a><a id="739" class="Bound"> </a><a id="740" href="UnivalenceTransport.html#601" class="Bound">B</a><a id="741" class="Function"> </a><a id="742" href="UnivalenceTransport.html#640" class="Function">p</a><a id="743" class="Function"> </a><a id="744" href="UnivalenceTransport.html#659" class="Function">u</a><a id="745" class="Function"> </a><a id="746" href="BasicTypes.html#4284" class="Function">==</a> <a id="749" href="Transport.html#462" class="Bound">t</a><a id="750" href="Transport.html#462" class="Function">ransport</a> <a id="759" class="Symbol">(λ</a> <a id="762" href="UnivalenceTransport.html#762" class="Bound">X</a> <a id="764" class="Symbol">→</a> <a id="766" href="UnivalenceTransport.html#762" class="Bound">X</a><a id="767" class="Symbol">)</a> <a id="769" class="Symbol">(</a><a id="770" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="773" href="UnivalenceTransport.html#601" class="Bound">B</a> <a id="775" href="UnivalenceTransport.html#640" class="Bound">p</a><a id="776" class="Symbol">)</a> <a id="778" href="UnivalenceTransport.html#659" class="Bound">u</a>
+## Equivalences
 
-  <a id="783" href="UnivalenceTransport.html#555" class="Function">transport-family-ap</a> <a id="803" href="UnivalenceTransport.html#803" class="Bound">B</a> <a id="805" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a> <a id="809" href="UnivalenceTransport.html#809" class="Bound">u</a> <a id="811" class="Symbol">=</a> <a id="813" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a>
+There are three definitions to say a function is an
+equivalence. All these definitions
+are required to be mere propositions and to hold
+the bi-implication of begin *quasi-inverse*. We show
+this clearly in what follows. Nevertheless, we want to get
+the following fact:
+
+$$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \<a id="733" class="Bound">c</a>o<a id="735" class="Bound">n</a>g \<a id="739" class="Bound">m</a>a<a id="741" class="Function">thsf{bi</a>i<a id="749" class="Bound">n</a>v(f)} $$
+
+### Contractible maps
+
+A map is *contractible* if the fiber in any point is contractible, that is, each
+element has a unique preimagen.
+
+<pre class="Agda">
+
+<a id="isContrMap"></a><a id="911" href="EquivalenceType.html#911" class="Function">isContrMap</a>
+  <a id="924" class="Symbol">:</a> <a id="926" class="Symbol">{</a><a id="927" href="EquivalenceType.html#927" class="Bound">A</a> <a id="929" class="Symbol">:</a> <a id="931" href="Intro.html#1803" class="Function">Type</a> <a id="936" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="938" class="Symbol">}</a> <a id="940" class="Symbol">{</a><a id="941" href="EquivalenceType.html#941" class="Bound">B</a> <a id="943" class="Symbol">:</a> <a id="945" href="Intro.html#1803" class="Function">Type</a> <a id="950" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="952" class="Symbol">}</a>
+  <a id="956" class="Symbol">→</a> <a id="958" class="Symbol">(</a><a id="959" href="EquivalenceType.html#959" class="Bound">f</a> <a id="961" class="Symbol">:</a> <a id="963" href="EquivalenceType.html#927" class="Bound">A</a> <a id="965" class="Symbol">→</a> <a id="967" href="EquivalenceType.html#941" class="Bound">B</a><a id="968" class="Symbol">)</a>
+  <a id="972" class="Symbol">→</a> <a id="974" href="Intro.html#1803" class="Function">Type</a> <a id="979" class="Symbol">(</a><a id="980" href="Intro.html#2245" class="Generalizable">ℓᵢ</a> <a id="983" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="985" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="987" class="Symbol">)</a>
+
+<a id="990" href="EquivalenceType.html#911" class="Function">isContrMap</a> <a id="1001" class="Symbol">{</a><a id="1002" class="Argument">B</a> <a id="1004" class="Symbol">=</a> <a id="1006" href="EquivalenceType.html#1006" class="Bound">B</a><a id="1007" class="Symbol">}</a> <a id="1009" href="EquivalenceType.html#1009" class="Bound">f</a> <a id="1011" class="Symbol">=</a> <a id="1013" class="Symbol">(</a><a id="1014" href="EquivalenceType.html#1014" class="Bound">b</a> <a id="1016" class="Symbol">:</a> <a id="1018" href="EquivalenceType.html#1006" class="Bound">B</a><a id="1019" class="Symbol">)</a> <a id="1021" class="Symbol">→</a> <a id="1023" href="HLevelTypes.html#603" class="Function">isContr</a> <a id="1031" class="Symbol">(</a><a id="1032" href="FibreType.html#537" class="Function">fib</a> <a id="1036" href="EquivalenceType.html#1009" class="Bound">f</a> <a id="1038" href="EquivalenceType.html#1014" class="Bound">b</a><a id="1039" class="Symbol">)</a>
 </pre>
 
-{: .foldable until="8" }
-<pre class="Agda">
-  <a id="transport-family-idtoeqv"></a><a id="869" href="UnivalenceTransport.html#869" class="Function">transport-family-idtoeqv</a>
-    <a id="898" class="Symbol">:</a> <a id="900" class="Symbol">{</a><a id="901" href="UnivalenceTransport.html#901" class="Bound">A</a> <a id="903" class="Symbol">:</a> <a id="905" href="Intro.html#1803" class="Function">Type</a> <a id="910" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="911" class="Symbol">}</a>
-    <a id="917" class="Symbol">→</a> <a id="919" class="Symbol">(</a><a id="920" href="UnivalenceTransport.html#920" class="Bound">B</a> <a id="922" class="Symbol">:</a> <a id="924" href="UnivalenceTransport.html#901" class="Bound">A</a> <a id="926" class="Symbol">→</a> <a id="928" href="Intro.html#1803" class="Function">Type</a> <a id="933" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="934" class="Symbol">)</a>
-    <a id="940" class="Symbol">→</a> <a id="942" class="Symbol">{</a><a id="943" href="UnivalenceTransport.html#943" class="Bound">x</a> <a id="945" href="UnivalenceTransport.html#945" class="Bound">y</a> <a id="947" class="Symbol">:</a> <a id="949" href="UnivalenceTransport.html#901" class="Bound">A</a><a id="950" class="Symbol">}</a>
-    <a id="956" class="Symbol">→</a> <a id="958" class="Symbol">(</a><a id="959" href="UnivalenceTransport.html#959" class="Bound">p</a> <a id="961" class="Symbol">:</a> <a id="963" href="UnivalenceTransport.html#943" class="Bound">x</a> <a id="965" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="968" href="UnivalenceTransport.html#945" class="Bound">y</a><a id="969" class="Symbol">)</a>
-    <a id="975" class="Symbol">→</a> <a id="977" class="Symbol">(</a><a id="978" href="UnivalenceTransport.html#978" class="Bound">u</a> <a id="980" class="Symbol">:</a> <a id="982" href="UnivalenceTransport.html#920" class="Bound">B</a> <a id="984" href="UnivalenceTransport.html#943" class="Bound">x</a><a id="985" class="Symbol">)</a>
-    <a id="991" class="Comment">----------------------------------------------</a>
-    <a id="1042" class="Symbol">→</a> <a id="1044" href="Transport.html#462" class="Function">transport</a> <a id="1054" href="UnivalenceTransport.html#920" class="Bound">B</a> <a id="1056" href="UnivalenceTransport.html#959" class="Bound">p</a> <a id="1058" href="UnivalenceTransport.html#978" class="Bound">u</a> <a id="1060" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1063" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1068" class="Symbol">(</a><a id="1069" href="UnivalenceAxiom.html#695" class="Function">idtoeqv</a> <a id="1077" class="Symbol">(</a><a id="1078" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1081" href="UnivalenceTransport.html#920" class="Bound">B</a> <a id="1083" href="UnivalenceTransport.html#959" class="Bound">p</a><a id="1084" class="Symbol">))</a> <a id="1087" href="UnivalenceTransport.html#978" class="Bound">u</a>
+There exists an equivalence between two types if there exists a
+contractible function between them.
 
-  <a id="1092" href="UnivalenceTransport.html#869" class="Function">transport-family-idtoeqv</a> <a id="1117" href="UnivalenceTransport.html#1117" class="Bound">B</a> <a id="1119" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a> <a id="1123" href="UnivalenceTransport.html#1123" class="Bound">u</a> <a id="1125" class="Symbol">=</a> <a id="1127" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a>
+
+<pre class="Agda">
+<a id="isEquiv"></a><a id="1168" href="EquivalenceType.html#1168" class="Function">isEquiv</a>
+  <a id="1178" class="Symbol">:</a> <a id="1180" class="Symbol">{</a><a id="1181" href="EquivalenceType.html#1181" class="Bound">A</a> <a id="1183" class="Symbol">:</a> <a id="1185" href="Intro.html#1803" class="Function">Type</a> <a id="1190" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="1192" class="Symbol">}</a> <a id="1194" class="Symbol">{</a><a id="1195" href="EquivalenceType.html#1195" class="Bound">B</a> <a id="1197" class="Symbol">:</a> <a id="1199" href="Intro.html#1803" class="Function">Type</a> <a id="1204" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1206" class="Symbol">}</a>
+  <a id="1210" class="Symbol">→</a>  <a id="1213" class="Symbol">(</a><a id="1214" href="EquivalenceType.html#1214" class="Bound">f</a> <a id="1216" class="Symbol">:</a> <a id="1218" href="EquivalenceType.html#1181" class="Bound">A</a> <a id="1220" class="Symbol">→</a> <a id="1222" href="EquivalenceType.html#1195" class="Bound">B</a><a id="1223" class="Symbol">)</a>
+  <a id="1227" class="Symbol">→</a> <a id="1229" href="Intro.html#1803" class="Function">Type</a> <a id="1234" class="Symbol">(</a><a id="1235" href="Intro.html#2245" class="Generalizable">ℓᵢ</a> <a id="1238" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1240" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1242" class="Symbol">)</a>
+
+<a id="1245" href="EquivalenceType.html#1168" class="Function">isEquiv</a> <a id="1253" href="EquivalenceType.html#1253" class="Bound">f</a> <a id="1255" class="Symbol">=</a> <a id="1257" href="EquivalenceType.html#911" class="Function">isContrMap</a> <a id="1268" href="EquivalenceType.html#1253" class="Bound">f</a>
 </pre>
 
-{: .foldable until="9" }
-<pre class="Agda">
-  <a id="transport-ua"></a><a id="1183" href="UnivalenceTransport.html#1183" class="Function">transport-ua</a>
-    <a id="1200" class="Symbol">:</a> <a id="1202" class="Symbol">{</a><a id="1203" href="UnivalenceTransport.html#1203" class="Bound">A</a> <a id="1205" class="Symbol">:</a> <a id="1207" href="Intro.html#1803" class="Function">Type</a> <a id="1212" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="1213" class="Symbol">}</a>
-    <a id="1219" class="Symbol">→</a> <a id="1221" class="Symbol">(</a><a id="1222" href="UnivalenceTransport.html#1222" class="Bound">B</a> <a id="1224" class="Symbol">:</a> <a id="1226" href="UnivalenceTransport.html#1203" class="Bound">A</a> <a id="1228" class="Symbol">→</a> <a id="1230" href="Intro.html#1803" class="Function">Type</a> <a id="1235" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="1236" class="Symbol">)</a>
-    <a id="1242" class="Symbol">→</a> <a id="1244" class="Symbol">{</a><a id="1245" href="UnivalenceTransport.html#1245" class="Bound">x</a> <a id="1247" href="UnivalenceTransport.html#1247" class="Bound">y</a> <a id="1249" class="Symbol">:</a> <a id="1251" href="UnivalenceTransport.html#1203" class="Bound">A</a><a id="1252" class="Symbol">}</a>
-    <a id="1258" class="Symbol">→</a> <a id="1260" class="Symbol">(</a><a id="1261" href="UnivalenceTransport.html#1261" class="Bound">p</a> <a id="1263" class="Symbol">:</a> <a id="1265" href="UnivalenceTransport.html#1245" class="Bound">x</a> <a id="1267" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1270" href="UnivalenceTransport.html#1247" class="Bound">y</a><a id="1271" class="Symbol">)</a>
-    <a id="1277" class="Symbol">→</a> <a id="1279" class="Symbol">(</a><a id="1280" href="UnivalenceTransport.html#1280" class="Bound">e</a> <a id="1282" class="Symbol">:</a> <a id="1284" href="UnivalenceTransport.html#1222" class="Bound">B</a> <a id="1286" href="UnivalenceTransport.html#1245" class="Bound">x</a> <a id="1288" href="EquivalenceType.html#1320" class="Function Operator">≃</a> <a id="1290" href="UnivalenceTransport.html#1222" class="Bound">B</a> <a id="1292" href="UnivalenceTransport.html#1247" class="Bound">y</a><a id="1293" class="Symbol">)</a>
-    <a id="1299" class="Symbol">→</a> <a id="1301" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1304" href="UnivalenceTransport.html#1222" class="Bound">B</a> <a id="1306" href="UnivalenceTransport.html#1261" class="Bound">p</a> <a id="1308" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1311" href="UnivalenceAxiom.html#1379" class="Function">ua</a> <a id="1314" href="UnivalenceTransport.html#1280" class="Bound">e</a>
-    <a id="1320" class="Comment">-----------------</a>
-    <a id="1342" class="Symbol">→</a> <a id="1344" class="Symbol">(</a><a id="1345" href="UnivalenceTransport.html#1345" class="Bound">u</a> <a id="1347" class="Symbol">:</a> <a id="1349" href="UnivalenceTransport.html#1222" class="Bound">B</a> <a id="1351" href="UnivalenceTransport.html#1245" class="Bound">x</a><a id="1352" class="Symbol">)</a> <a id="1354" class="Symbol">→</a> <a id="1356" href="Transport.html#462" class="Function">transport</a> <a id="1366" href="UnivalenceTransport.html#1222" class="Bound">B</a> <a id="1368" href="UnivalenceTransport.html#1261" class="Bound">p</a> <a id="1370" href="UnivalenceTransport.html#1345" class="Bound">u</a> <a id="1372" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1375" class="Symbol">(</a><a id="1376" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1381" href="UnivalenceTransport.html#1280" class="Bound">e</a><a id="1382" class="Symbol">)</a> <a id="1384" href="UnivalenceTransport.html#1345" class="Bound">u</a>
 
-  <a id="1389" href="UnivalenceTransport.html#1183" class="Function">transport-ua</a> <a id="1402" href="UnivalenceTransport.html#1402" class="Bound">B</a> <a id="1404" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a> <a id="1408" href="UnivalenceTransport.html#1408" class="Bound">e</a> <a id="1410" href="UnivalenceTransport.html#1410" class="Bound">q</a> <a id="1412" href="UnivalenceTransport.html#1412" class="Bound">u</a> <a id="1414" class="Symbol">=</a>
-    <a id="1420" href="BasicFunctions.html#5299" class="Function Operator">begin</a>
-      <a id="1432" href="Transport.html#462" class="Function">transport</a> <a id="1442" href="UnivalenceTransport.html#1402" class="Bound">B</a> <a id="1444" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a> <a id="1448" href="UnivalenceTransport.html#1412" class="Bound">u</a>
-        <a id="1458" href="BasicFunctions.html#4999" class="Function Operator">==⟨</a> <a id="1462" href="UnivalenceTransport.html#869" class="Function">transport-family-idtoeqv</a> <a id="1487" href="UnivalenceTransport.html#1402" class="Bound">B</a> <a id="1489" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a> <a id="1493" href="UnivalenceTransport.html#1412" class="Bound">u</a> <a id="1495" href="BasicFunctions.html#4999" class="Function Operator">⟩</a>
-      <a id="1503" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1508" class="Symbol">(</a><a id="1509" href="UnivalenceAxiom.html#695" class="Function">idtoeqv</a> <a id="1517" class="Symbol">(</a><a id="1518" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1521" href="UnivalenceTransport.html#1402" class="Bound">B</a> <a id="1523" href="BasicTypes.html#4339" class="InductiveConstructor">idp</a><a id="1526" class="Symbol">))</a> <a id="1529" href="UnivalenceTransport.html#1412" class="Bound">u</a>
-        <a id="1539" href="BasicFunctions.html#4999" class="Function Operator">==⟨</a> <a id="1543" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1546" class="Symbol">(λ</a> <a id="1549" href="UnivalenceTransport.html#1549" class="Bound">r</a> <a id="1551" class="Symbol">→</a> <a id="1553" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1558" class="Symbol">(</a><a id="1559" href="UnivalenceAxiom.html#695" class="Function">idtoeqv</a> <a id="1567" href="UnivalenceTransport.html#1549" class="Bound">r</a><a id="1568" class="Symbol">)</a> <a id="1570" href="UnivalenceTransport.html#1412" class="Bound">u</a><a id="1571" class="Symbol">)</a> <a id="1573" href="UnivalenceTransport.html#1410" class="Bound">q</a> <a id="1575" href="BasicFunctions.html#4999" class="Function Operator">⟩</a>
-      <a id="1583" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1588" class="Symbol">(</a><a id="1589" href="UnivalenceAxiom.html#695" class="Function">idtoeqv</a> <a id="1597" class="Symbol">(</a><a id="1598" href="UnivalenceAxiom.html#1379" class="Function">ua</a> <a id="1601" href="UnivalenceTransport.html#1408" class="Bound">e</a><a id="1602" class="Symbol">))</a> <a id="1605" href="UnivalenceTransport.html#1412" class="Bound">u</a>
-        <a id="1615" href="BasicFunctions.html#4999" class="Function Operator">==⟨</a> <a id="1619" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1622" class="Symbol">(λ</a> <a id="1625" href="UnivalenceTransport.html#1625" class="Bound">r</a> <a id="1627" class="Symbol">→</a> <a id="1629" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1634" href="UnivalenceTransport.html#1625" class="Bound">r</a> <a id="1636" href="UnivalenceTransport.html#1412" class="Bound">u</a><a id="1637" class="Symbol">)</a> <a id="1639" class="Symbol">(</a><a id="1640" href="UnivalenceAxiom.html#1545" class="Function">ua-β</a> <a id="1645" href="UnivalenceTransport.html#1408" class="Bound">e</a><a id="1646" class="Symbol">)</a> <a id="1648" href="BasicFunctions.html#4999" class="Function Operator">⟩</a>
-      <a id="1656" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1661" href="UnivalenceTransport.html#1408" class="Bound">e</a> <a id="1663" href="UnivalenceTransport.html#1412" class="Bound">u</a>
-    <a id="1669" href="BasicFunctions.html#5182" class="Function Operator">∎</a>
+### Equivalence Type
+
+<pre class="Agda">
+<a id="_≃_"></a><a id="1318" href="EquivalenceType.html#1318" class="Function Operator">_≃_</a>
+  <a id="1324" class="Symbol">:</a> <a id="1326" class="Symbol">(</a><a id="1327" href="EquivalenceType.html#1327" class="Bound">A</a> <a id="1329" class="Symbol">:</a> <a id="1331" href="Intro.html#1803" class="Function">Type</a> <a id="1336" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="1338" class="Symbol">)</a> <a id="1340" class="Symbol">(</a><a id="1341" href="EquivalenceType.html#1341" class="Bound">B</a> <a id="1343" class="Symbol">:</a> <a id="1345" href="Intro.html#1803" class="Function">Type</a> <a id="1350" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1352" class="Symbol">)</a>
+  <a id="1356" class="Symbol">→</a> <a id="1358" href="Intro.html#1803" class="Function">Type</a> <a id="1363" class="Symbol">(</a><a id="1364" href="Intro.html#2245" class="Generalizable">ℓᵢ</a> <a id="1367" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1369" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1371" class="Symbol">)</a>
+
+<a id="1374" href="EquivalenceType.html#1374" class="Bound">A</a> <a id="1376" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="1378" href="EquivalenceType.html#1378" class="Bound">B</a> <a id="1380" class="Symbol">=</a> <a id="1382" href="BasicTypes.html#1689" class="Function">Σ</a> <a id="1384" class="Symbol">(</a><a id="1385" href="EquivalenceType.html#1374" class="Bound">A</a> <a id="1387" class="Symbol">→</a> <a id="1389" href="EquivalenceType.html#1378" class="Bound">B</a><a id="1390" class="Symbol">)</a> <a id="1392" href="EquivalenceType.html#1168" class="Function">isEquiv</a>
 </pre>
 
-{: .foldable until="9" }
 <pre class="Agda">
-  <a id="funext-transport-ua"></a><a id="1723" href="UnivalenceTransport.html#1723" class="Function">funext-transport-ua</a>
-    <a id="1747" class="Symbol">:</a> <a id="1749" class="Symbol">{</a><a id="1750" href="UnivalenceTransport.html#1750" class="Bound">A</a> <a id="1752" class="Symbol">:</a> <a id="1754" href="Intro.html#1803" class="Function">Type</a> <a id="1759" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="1760" class="Symbol">}</a>
-    <a id="1766" class="Symbol">→</a> <a id="1768" class="Symbol">(</a><a id="1769" href="UnivalenceTransport.html#1769" class="Bound">B</a> <a id="1771" class="Symbol">:</a> <a id="1773" href="UnivalenceTransport.html#1750" class="Bound">A</a> <a id="1775" class="Symbol">→</a> <a id="1777" href="Intro.html#1803" class="Function">Type</a> <a id="1782" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="1783" class="Symbol">)</a>
-    <a id="1789" class="Symbol">→</a> <a id="1791" class="Symbol">{</a><a id="1792" href="UnivalenceTransport.html#1792" class="Bound">x</a> <a id="1794" href="UnivalenceTransport.html#1794" class="Bound">y</a> <a id="1796" class="Symbol">:</a> <a id="1798" href="UnivalenceTransport.html#1750" class="Bound">A</a><a id="1799" class="Symbol">}</a>
-    <a id="1805" class="Symbol">→</a> <a id="1807" class="Symbol">(</a><a id="1808" href="UnivalenceTransport.html#1808" class="Bound">p</a> <a id="1810" class="Symbol">:</a> <a id="1812" href="UnivalenceTransport.html#1792" class="Bound">x</a> <a id="1814" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1817" href="UnivalenceTransport.html#1794" class="Bound">y</a><a id="1818" class="Symbol">)</a>
-    <a id="1824" class="Symbol">→</a> <a id="1826" class="Symbol">(</a><a id="1827" href="UnivalenceTransport.html#1827" class="Bound">e</a> <a id="1829" class="Symbol">:</a> <a id="1831" href="UnivalenceTransport.html#1769" class="Bound">B</a> <a id="1833" href="UnivalenceTransport.html#1792" class="Bound">x</a> <a id="1835" href="EquivalenceType.html#1320" class="Function Operator">≃</a> <a id="1837" href="UnivalenceTransport.html#1769" class="Bound">B</a> <a id="1839" href="UnivalenceTransport.html#1794" class="Bound">y</a><a id="1840" class="Symbol">)</a>
-    <a id="1846" class="Symbol">→</a> <a id="1848" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="1851" href="UnivalenceTransport.html#1769" class="Bound">B</a> <a id="1853" href="UnivalenceTransport.html#1808" class="Bound">p</a> <a id="1855" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1858" href="UnivalenceAxiom.html#1379" class="Function">ua</a> <a id="1861" href="UnivalenceTransport.html#1827" class="Bound">e</a>
-    <a id="1867" class="Comment">-----------------</a>
-    <a id="1889" class="Symbol">→</a> <a id="1891" href="Transport.html#462" class="Function">transport</a> <a id="1901" href="UnivalenceTransport.html#1769" class="Bound">B</a> <a id="1903" href="UnivalenceTransport.html#1808" class="Bound">p</a> <a id="1905" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1908" class="Symbol">(</a><a id="1909" href="EquivalenceType.html#1608" class="Function">fun≃</a> <a id="1914" href="UnivalenceTransport.html#1827" class="Bound">e</a><a id="1915" class="Symbol">)</a>
-
-  <a id="1920" href="UnivalenceTransport.html#1723" class="Function">funext-transport-ua</a> <a id="1940" href="UnivalenceTransport.html#1940" class="Bound">B</a> <a id="1942" href="UnivalenceTransport.html#1942" class="Bound">p</a> <a id="1944" href="UnivalenceTransport.html#1944" class="Bound">e</a> <a id="1946" href="UnivalenceTransport.html#1946" class="Bound">x₁</a> <a id="1949" class="Symbol">=</a> <a id="1951" href="FunExtAxiom.html#952" class="Function">funext</a> <a id="1958" class="Symbol">(</a><a id="1959" href="UnivalenceTransport.html#1183" class="Function">transport-ua</a> <a id="1972" href="UnivalenceTransport.html#1940" class="Bound">B</a> <a id="1974" href="UnivalenceTransport.html#1942" class="Bound">p</a> <a id="1976" href="UnivalenceTransport.html#1944" class="Bound">e</a> <a id="1978" href="UnivalenceTransport.html#1946" class="Bound">x₁</a><a id="1980" class="Symbol">)</a>
+<a id="1425" class="Keyword">module</a> <a id="EquivalenceMaps"></a><a id="1432" href="EquivalenceType.html#1432" class="Module">EquivalenceMaps</a> <a id="1448" class="Symbol">{</a><a id="1449" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="1451" class="Symbol">:</a> <a id="1453" href="Intro.html#1803" class="Function">Type</a> <a id="1458" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="1460" class="Symbol">}</a> <a id="1462" class="Symbol">{</a><a id="1463" href="EquivalenceType.html#1463" class="Bound">B</a> <a id="1465" class="Symbol">:</a> <a id="1467" href="Intro.html#1803" class="Function">Type</a> <a id="1472" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="1474" class="Symbol">}</a> <a id="1476" class="Keyword">where</a>
 </pre>
 
-{: .foldable until="5" }
 <pre class="Agda">
-  <a id="2034" class="Keyword">postulate</a>
-    <a id="ua-coe"></a><a id="2048" href="UnivalenceTransport.html#2048" class="Postulate">ua-coe</a>
-      <a id="2061" class="Symbol">:</a> <a id="2063" class="Symbol">{</a><a id="2064" href="UnivalenceTransport.html#2064" class="Bound">A</a> <a id="2066" href="UnivalenceTransport.html#2066" class="Bound">B</a> <a id="2068" class="Symbol">:</a> <a id="2070" href="Intro.html#1803" class="Function">Type</a> <a id="2075" href="Intro.html#2243" class="Generalizable">ℓ</a><a id="2076" class="Symbol">}</a>
-      <a id="2084" class="Symbol">→</a> <a id="2086" class="Symbol">(</a><a id="2087" href="UnivalenceTransport.html#2087" class="Bound">α</a> <a id="2089" class="Symbol">:</a> <a id="2091" href="UnivalenceTransport.html#2064" class="Bound">A</a> <a id="2093" href="EquivalenceType.html#1320" class="Function Operator">≃</a> <a id="2095" href="UnivalenceTransport.html#2066" class="Bound">B</a><a id="2096" class="Symbol">)</a>
-      <a id="2104" class="Symbol">→</a> <a id="2106" class="Symbol">(∀</a> <a id="2109" href="UnivalenceTransport.html#2109" class="Bound">x</a> <a id="2111" class="Symbol">→</a> <a id="2113" class="Symbol">(</a><a id="2114" href="Transport.html#784" class="Function">coe</a> <a id="2118" class="Symbol">(</a><a id="2119" href="UnivalenceAxiom.html#1379" class="Function">ua</a> <a id="2122" href="UnivalenceTransport.html#2087" class="Bound">α</a><a id="2123" class="Symbol">)</a> <a id="2125" href="UnivalenceTransport.html#2109" class="Bound">x</a><a id="2126" class="Symbol">)</a> <a id="2128" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="2131" class="Symbol">((</a><a id="2133" href="UnivalenceTransport.html#2087" class="Bound">α</a> <a id="2135" href="EquivalenceType.html#1625" class="Function Operator">∙</a><a id="2136" class="Symbol">)</a> <a id="2138" href="UnivalenceTransport.html#2109" class="Bound">x</a><a id="2139" class="Symbol">))</a>
-  <a id="2144" class="Comment">-- ua-coe α x =</a>
-  <a id="2162" class="Comment">--   begin</a>
-  <a id="2175" class="Comment">--     (coe (ua α) x)</a>
-  <a id="2199" class="Comment">--       ==⟨ idp ⟩</a>
-  <a id="2220" class="Comment">--     transport (λ X → X) (ua α) x</a>
-  <a id="2258" class="Comment">--       ==⟨ {!   !} ⟩</a>
-  <a id="2283" class="Comment">--     {!   !}</a>
-  <a id="2300" class="Comment">--       ==⟨ {!   !} ⟩</a>
-  <a id="2325" class="Comment">--     {!   !}</a>
+  <a id="EquivalenceMaps.lemap"></a><a id="1509" href="EquivalenceType.html#1509" class="Function">lemap</a>
+    <a id="1519" class="Symbol">:</a> <a id="1521" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="1523" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="1525" href="EquivalenceType.html#1463" class="Bound">B</a>
+    <a id="1531" class="Comment">-------</a>
+    <a id="1543" class="Symbol">→</a> <a id="1545" class="Symbol">(</a><a id="1546" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="1548" class="Symbol">→</a> <a id="1550" href="EquivalenceType.html#1463" class="Bound">B</a><a id="1551" class="Symbol">)</a>
+
+  <a id="1556" href="EquivalenceType.html#1509" class="Function">lemap</a> <a id="1562" class="Symbol">=</a> <a id="1564" href="BasicTypes.html#1597" class="Field">π₁</a>
+</pre>
+
+Synonyms:
+
+<pre class="Agda">
+  <a id="EquivalenceMaps.≃-to-→"></a><a id="1605" href="EquivalenceType.html#1605" class="Function">≃-to-→</a> <a id="1612" class="Symbol">=</a> <a id="1614" href="EquivalenceType.html#1509" class="Function">lemap</a>
+  <a id="EquivalenceMaps.fun≃"></a><a id="1622" href="EquivalenceType.html#1622" class="Function">fun≃</a>   <a id="1629" class="Symbol">=</a> <a id="1631" href="EquivalenceType.html#1509" class="Function">lemap</a>
+  <a id="EquivalenceMaps._∙"></a><a id="1639" href="EquivalenceType.html#1639" class="Function Operator">_∙</a>     <a id="1646" class="Symbol">=</a> <a id="1648" href="EquivalenceType.html#1509" class="Function">lemap</a>
+  <a id="EquivalenceMaps._∙→"></a><a id="1656" href="EquivalenceType.html#1656" class="Function Operator">_∙→</a>    <a id="1663" class="Symbol">=</a> <a id="1665" href="EquivalenceType.html#1509" class="Function">lemap</a>
+  <a id="EquivalenceMaps.apply"></a><a id="1673" href="EquivalenceType.html#1673" class="Function">apply</a>  <a id="1680" class="Symbol">=</a> <a id="1682" href="EquivalenceType.html#1509" class="Function">lemap</a>
+
+  <a id="1691" class="Keyword">infixl</a> <a id="1698" class="Number">70</a> <a id="1701" href="EquivalenceType.html#1639" class="Function Operator">_∙</a> <a id="1704" href="EquivalenceType.html#1656" class="Function Operator">_∙→</a>
+</pre>
+
+<pre class="Agda">
+  <a id="EquivalenceMaps.remap"></a><a id="1735" href="EquivalenceType.html#1735" class="Function">remap</a>
+    <a id="1745" class="Symbol">:</a> <a id="1747" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="1749" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="1751" href="EquivalenceType.html#1463" class="Bound">B</a>
+    <a id="1757" class="Comment">---------</a>
+    <a id="1771" class="Symbol">→</a> <a id="1773" class="Symbol">(</a><a id="1774" href="EquivalenceType.html#1463" class="Bound">B</a> <a id="1776" class="Symbol">→</a> <a id="1778" href="EquivalenceType.html#1449" class="Bound">A</a><a id="1779" class="Symbol">)</a>
+
+  <a id="1784" href="EquivalenceType.html#1735" class="Function">remap</a> <a id="1790" class="Symbol">(</a><a id="1791" href="EquivalenceType.html#1791" class="Bound">f</a> <a id="1793" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="1795" href="EquivalenceType.html#1795" class="Bound">contrf</a><a id="1801" class="Symbol">)</a> <a id="1803" href="EquivalenceType.html#1803" class="Bound">b</a> <a id="1805" class="Symbol">=</a> <a id="1807" href="BasicTypes.html#1597" class="Field">π₁</a> <a id="1810" class="Symbol">(</a><a id="1811" href="BasicTypes.html#1597" class="Field">π₁</a> <a id="1814" class="Symbol">(</a><a id="1815" href="EquivalenceType.html#1795" class="Bound">contrf</a> <a id="1822" href="EquivalenceType.html#1803" class="Bound">b</a><a id="1823" class="Symbol">))</a>
+</pre>
+
+<pre class="Agda">
+  <a id="EquivalenceMaps.≃-to-←"></a><a id="1853" href="EquivalenceType.html#1853" class="Function">≃-to-←</a>  <a id="1861" class="Symbol">=</a> <a id="1863" href="EquivalenceType.html#1735" class="Function">remap</a>
+  <a id="EquivalenceMaps.invfun≃"></a><a id="1871" href="EquivalenceType.html#1871" class="Function">invfun≃</a> <a id="1879" class="Symbol">=</a> <a id="1881" href="EquivalenceType.html#1735" class="Function">remap</a>
+  <a id="EquivalenceMaps._∙←"></a><a id="1889" href="EquivalenceType.html#1889" class="Function Operator">_∙←</a>     <a id="1897" class="Symbol">=</a> <a id="1899" href="EquivalenceType.html#1735" class="Function">remap</a>
+
+  <a id="1908" class="Keyword">infixl</a> <a id="1915" class="Number">70</a> <a id="1918" href="EquivalenceType.html#1889" class="Function Operator">_∙←</a>
+</pre>
+
+The maps of an equivalence are inverses in particular
+<pre class="Agda">
+  <a id="EquivalenceMaps.lrmap-inverse"></a><a id="2003" href="EquivalenceType.html#2003" class="Function">lrmap-inverse</a>
+    <a id="2021" class="Symbol">:</a> <a id="2023" class="Symbol">(</a><a id="2024" href="EquivalenceType.html#2024" class="Bound">e</a> <a id="2026" class="Symbol">:</a> <a id="2028" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="2030" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="2032" href="EquivalenceType.html#1463" class="Bound">B</a><a id="2033" class="Symbol">)</a> <a id="2035" class="Symbol">→</a> <a id="2037" class="Symbol">{</a><a id="2038" href="EquivalenceType.html#2038" class="Bound">b</a> <a id="2040" class="Symbol">:</a> <a id="2042" href="EquivalenceType.html#1463" class="Bound">B</a><a id="2043" class="Symbol">}</a>
+    <a id="2049" class="Comment">-----------------------</a>
+    <a id="2077" class="Symbol">→</a> <a id="2079" class="Symbol">(</a><a id="2080" href="EquivalenceType.html#2024" class="Bound">e</a> <a id="2082" href="EquivalenceType.html#1656" class="Function Operator">∙→</a><a id="2084" class="Symbol">)</a> <a id="2086" class="Symbol">((</a><a id="2088" href="EquivalenceType.html#2024" class="Bound">e</a> <a id="2090" href="EquivalenceType.html#1889" class="Function Operator">∙←</a><a id="2092" class="Symbol">)</a> <a id="2094" href="EquivalenceType.html#2038" class="Bound">b</a><a id="2095" class="Symbol">)</a> <a id="2097" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="2100" href="EquivalenceType.html#2038" class="Bound">b</a>
+
+  <a id="2105" href="EquivalenceType.html#2003" class="Function">lrmap-inverse</a> <a id="2119" class="Symbol">(</a><a id="2120" href="EquivalenceType.html#2120" class="Bound">f</a> <a id="2122" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="2124" href="EquivalenceType.html#2124" class="Bound">eqf</a><a id="2127" class="Symbol">)</a> <a id="2129" class="Symbol">{</a><a id="2130" href="EquivalenceType.html#2130" class="Bound">b</a><a id="2131" class="Symbol">}</a> <a id="2133" class="Symbol">=</a> <a id="2135" href="FibreType.html#669" class="Function">fib-eq</a> <a id="2142" class="Symbol">(</a><a id="2143" href="BasicTypes.html#1597" class="Field">π₁</a> <a id="2146" class="Symbol">(</a><a id="2147" href="EquivalenceType.html#2124" class="Bound">eqf</a> <a id="2151" href="EquivalenceType.html#2130" class="Bound">b</a><a id="2152" class="Symbol">))</a>
+
+  <a id="EquivalenceMaps.∙→∘∙←"></a><a id="2158" href="EquivalenceType.html#2158" class="Function">∙→∘∙←</a> <a id="2164" class="Symbol">=</a> <a id="2166" href="EquivalenceType.html#2003" class="Function">lrmap-inverse</a>
+</pre>
+
+<pre class="Agda">
+  <a id="EquivalenceMaps.rlmap-inverse"></a><a id="2207" href="EquivalenceType.html#2207" class="Function">rlmap-inverse</a>
+    <a id="2225" class="Symbol">:</a> <a id="2227" class="Symbol">(</a><a id="2228" href="EquivalenceType.html#2228" class="Bound">e</a> <a id="2230" class="Symbol">:</a> <a id="2232" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="2234" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="2236" href="EquivalenceType.html#1463" class="Bound">B</a><a id="2237" class="Symbol">)</a> <a id="2239" class="Symbol">→</a> <a id="2241" class="Symbol">{</a><a id="2242" href="EquivalenceType.html#2242" class="Bound">a</a> <a id="2244" class="Symbol">:</a> <a id="2246" href="EquivalenceType.html#1449" class="Bound">A</a><a id="2247" class="Symbol">}</a>
+    <a id="2253" class="Comment">------------------------</a>
+    <a id="2282" class="Symbol">→</a> <a id="2284" class="Symbol">(</a><a id="2285" href="EquivalenceType.html#2228" class="Bound">e</a> <a id="2287" href="EquivalenceType.html#1889" class="Function Operator">∙←</a><a id="2289" class="Symbol">)</a> <a id="2291" class="Symbol">((</a><a id="2293" href="EquivalenceType.html#2228" class="Bound">e</a> <a id="2295" href="EquivalenceType.html#1656" class="Function Operator">∙→</a><a id="2297" class="Symbol">)</a> <a id="2299" href="EquivalenceType.html#2242" class="Bound">a</a><a id="2300" class="Symbol">)</a> <a id="2302" href="BasicTypes.html#4294" class="Datatype Operator">==</a> <a id="2305" href="EquivalenceType.html#2242" class="Bound">a</a>
+
+  <a id="2310" href="EquivalenceType.html#2207" class="Function">rlmap-inverse</a> <a id="2324" class="Symbol">(</a><a id="2325" href="EquivalenceType.html#2325" class="Bound">f</a> <a id="2327" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="2329" href="EquivalenceType.html#2329" class="Bound">eqf</a><a id="2332" class="Symbol">)</a> <a id="2334" class="Symbol">{</a><a id="2335" href="EquivalenceType.html#2335" class="Bound">a</a><a id="2336" class="Symbol">}</a> <a id="2338" class="Symbol">=</a> <a id="2340" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="2343" href="BasicTypes.html#1597" class="Field">π₁</a> <a id="2346" class="Symbol">((</a><a id="2348" href="BasicTypes.html#1608" class="Field">π₂</a> <a id="2351" class="Symbol">(</a><a id="2352" href="EquivalenceType.html#2329" class="Bound">eqf</a> <a id="2356" class="Symbol">(</a><a id="2357" href="EquivalenceType.html#2325" class="Bound">f</a> <a id="2359" href="EquivalenceType.html#2335" class="Bound">a</a><a id="2360" class="Symbol">)))</a> <a id="2364" href="FibreType.html#885" class="Function">fib-image</a><a id="2373" class="Symbol">)</a>
+
+  <a id="EquivalenceMaps.∙←∘∙→"></a><a id="2378" href="EquivalenceType.html#2378" class="Function">∙←∘∙→</a> <a id="2384" class="Symbol">=</a> <a id="2386" href="EquivalenceType.html#2207" class="Function">rlmap-inverse</a>
+</pre>
+
+<pre class="Agda">
+  <a id="EquivalenceMaps.lrmap-inverse-h"></a><a id="2427" href="EquivalenceType.html#2427" class="Function">lrmap-inverse-h</a>
+    <a id="2447" class="Symbol">:</a> <a id="2449" class="Symbol">(</a><a id="2450" href="EquivalenceType.html#2450" class="Bound">e</a> <a id="2452" class="Symbol">:</a> <a id="2454" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="2456" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="2458" href="EquivalenceType.html#1463" class="Bound">B</a><a id="2459" class="Symbol">)</a>
+    <a id="2465" class="Comment">------------------------</a>
+    <a id="2494" class="Symbol">→</a> <a id="2496" class="Symbol">((</a><a id="2498" href="EquivalenceType.html#2450" class="Bound">e</a> <a id="2500" href="EquivalenceType.html#1656" class="Function Operator">∙→</a><a id="2502" class="Symbol">)</a> <a id="2504" href="BasicFunctions.html#1011" class="Function Operator">∘</a> <a id="2506" class="Symbol">(</a><a id="2507" href="EquivalenceType.html#2450" class="Bound">e</a> <a id="2509" href="EquivalenceType.html#1889" class="Function Operator">∙←</a><a id="2511" class="Symbol">))</a> <a id="2514" href="HomotopyType.html#989" class="Function Operator">∼</a> <a id="2516" href="BasicFunctions.html#375" class="Function">id</a>
+
+  <a id="2522" href="EquivalenceType.html#2427" class="Function">lrmap-inverse-h</a> <a id="2538" href="EquivalenceType.html#2538" class="Bound">e</a> <a id="2540" class="Symbol">=</a> <a id="2542" class="Symbol">λ</a> <a id="2544" href="EquivalenceType.html#2544" class="Bound">x</a> <a id="2546" class="Symbol">→</a> <a id="2548" href="EquivalenceType.html#2003" class="Function">lrmap-inverse</a> <a id="2562" href="EquivalenceType.html#2538" class="Bound">e</a> <a id="2564" class="Symbol">{</a><a id="2565" href="EquivalenceType.html#2544" class="Bound">x</a><a id="2566" class="Symbol">}</a>
+
+  <a id="EquivalenceMaps.∙→∘∙←-h"></a><a id="2571" href="EquivalenceType.html#2571" class="Function">∙→∘∙←-h</a> <a id="2579" class="Symbol">=</a> <a id="2581" href="EquivalenceType.html#2427" class="Function">lrmap-inverse-h</a>
+</pre>
+
+<pre class="Agda">
+  <a id="EquivalenceMaps.rlmap-inverse-h"></a><a id="2624" href="EquivalenceType.html#2624" class="Function">rlmap-inverse-h</a>
+    <a id="2644" class="Symbol">:</a> <a id="2646" class="Symbol">(</a><a id="2647" href="EquivalenceType.html#2647" class="Bound">e</a> <a id="2649" class="Symbol">:</a> <a id="2651" href="EquivalenceType.html#1449" class="Bound">A</a> <a id="2653" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="2655" href="EquivalenceType.html#1463" class="Bound">B</a><a id="2656" class="Symbol">)</a>
+    <a id="2662" class="Comment">------------------------</a>
+    <a id="2691" class="Symbol">→</a> <a id="2693" class="Symbol">((</a><a id="2695" href="EquivalenceType.html#2647" class="Bound">e</a> <a id="2697" href="EquivalenceType.html#1889" class="Function Operator">∙←</a><a id="2699" class="Symbol">)</a> <a id="2701" href="BasicFunctions.html#1011" class="Function Operator">∘</a> <a id="2703" class="Symbol">(</a><a id="2704" href="EquivalenceType.html#2647" class="Bound">e</a> <a id="2706" href="EquivalenceType.html#1656" class="Function Operator">∙→</a><a id="2708" class="Symbol">))</a> <a id="2711" href="HomotopyType.html#989" class="Function Operator">∼</a> <a id="2713" href="BasicFunctions.html#375" class="Function">id</a>
+
+  <a id="2719" href="EquivalenceType.html#2624" class="Function">rlmap-inverse-h</a> <a id="2735" href="EquivalenceType.html#2735" class="Bound">e</a> <a id="2737" class="Symbol">=</a> <a id="2739" class="Symbol">λ</a> <a id="2741" href="EquivalenceType.html#2741" class="Bound">x</a> <a id="2743" class="Symbol">→</a> <a id="2745" href="EquivalenceType.html#2207" class="Function">rlmap-inverse</a> <a id="2759" href="EquivalenceType.html#2735" class="Bound">e</a> <a id="2761" class="Symbol">{</a><a id="2762" href="EquivalenceType.html#2741" class="Bound">x</a><a id="2763" class="Symbol">}</a>
+
+  <a id="EquivalenceMaps.∙←∘∙→-h"></a><a id="2768" href="EquivalenceType.html#2768" class="Function">∙←∘∙→-h</a> <a id="2776" class="Symbol">=</a> <a id="2778" href="EquivalenceType.html#2624" class="Function">rlmap-inverse-h</a>
+
+<a id="2795" class="Keyword">open</a> <a id="2800" href="EquivalenceType.html#1432" class="Module">EquivalenceMaps</a> <a id="2816" class="Keyword">public</a>
 </pre>
 
 
@@ -839,8 +891,8 @@
        data-year =""
        data-lastchecked ="2019-07-01"
        data-originalyear =""
-       data-title ="Univalence Lemmas"
-       data-url ="http://jonaprieto.github.io/mini-hott/UnivalenceTransport.tex"
+       data-title ="Equivalence Type"
+       data-url ="http://jonaprieto.github.io/mini-hott/EquivalenceType.tex"
   ></pre>
   </div>
   
@@ -848,17 +900,17 @@
   <div id="github-links">
     <div class="view-source">
       
-        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/UnivalenceTransport.tex" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> .lagda </a>
-        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/UnivalenceTransport.tex" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> .agda</a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/EquivalenceType.tex" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> .lagda </a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/EquivalenceType.tex" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> .agda</a>
       
-      <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcUnivalenceTransport.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
-      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/UnivalenceTransport.tex" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
-      <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/UnivalenceTransport.tex" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcEquivalenceType.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/EquivalenceType.tex" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/EquivalenceType.tex" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
       <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
       <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
       </a>
 
-      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Univalence Lemmas - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Equivalence Type - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
 
     </div>
   </div>

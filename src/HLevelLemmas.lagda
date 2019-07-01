@@ -207,28 +207,6 @@ proposition.
 \end{code}
 
 
-{: .foldable until="6"}
-\begin{code}
-  postulate 
-   equiv-iff-hprop
-    : {A B : Type  ℓᵢ}
-    → isProp A
-    → isProp B
-    -----------------
-    → isProp (A ≃ B)
-\end{code}
-
-
-{: .foldable until="6"}
-\begin{code}
-  postulate
-   propEqvIsprop
-    : {A B : Type  ℓᵢ}
-    → isProp A
-    → isProp B
-    -----------------
-    → isProp (A == B)
-\end{code}
 
 {: .foldable until="4"}
 \begin{code}
@@ -242,17 +220,16 @@ proposition.
         funext (λ p →
           funext (λ q → propIsSet (p₂ x y) p q (p₁ x y p q) (p₂ x y p q)))))
 
-  set→prop           = setIsProp
-  set-is-prop-always = setIsProp
+  set→prop    = setIsProp
+  set-is-prop = setIsProp
 \end{code}
 
 The product of propositions is itself a proposition.
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
-
   isProp-prod
-    : ∀ {ℓᵢ ℓⱼ} → {A : Type ℓᵢ} → {B : Type ℓⱼ}
+    : {A : Type ℓᵢ} {B : Type ℓⱼ}
     → isProp A → isProp B
     ---------------------
     → isProp (A × B)
@@ -264,13 +241,10 @@ The product of propositions is itself a proposition.
   prop×prop→prop = isProp-prod
 \end{code}
 
-Product of sets is a set.
-
-{: .foldable until="6" }
+{: .foldable until="5" }
 \begin{code}
-
   isSet-prod
-    : ∀ {ℓᵢ ℓⱼ} {A : Type ℓᵢ} → {B : Type ℓⱼ}
+    : {A : Type ℓᵢ} → {B : Type ℓⱼ}
     → isSet A → isSet B
     -------------------
     → isSet (A × B)
@@ -372,6 +346,8 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
   -- But it's nice to spell it out fully.
 \end{code}
 
+Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
+
 {: .foldable until="4"}
 \begin{code}
   isContrIsProp
@@ -385,8 +361,10 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
         AisSet : isSet A
         AisSet = propIsSet (contrIsProp (a , p))
 
+  BookLemma3113 = isContrIsProp
 \end{code}
-  
+
+Lemma 3.3.3 (HoTT-Book):
 \begin{code}
   lemma333
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
@@ -405,9 +383,11 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 
       gf : (g :> f) ∼ id
       gf b = iB ((g :> f) b) b
+
+  BookLemma333 = lemma333
 \end{code}
 
-
+Lemma 3.3.2 (HoTT-Book):
 \begin{code}
   prop-inhabited-≃𝟙
     : {A : Type ℓ}
@@ -415,17 +395,19 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
     → (a : A)
     ---------
     → A ≃ (𝟙 {ℓ})
-  prop-inhabited-≃𝟙 iA a  = lemma333 iA 𝟙-is-prop (λ _ → unit) (λ _ → a)
+  prop-inhabited-≃𝟙 iA a =
+    lemma333 iA 𝟙-is-prop (λ _ → unit) (λ _ → a)
+
+  BookLemma332 = prop-inhabited-≃𝟙
 \end{code}  
 
-
-From 3.5 (HoTT-Book exercise):
+From Exercise 3.5 (HoTT-Book):
 \begin{code}
-  isProp-is-isContr
+  isProp-≃-isContr
     : {A : Type ℓ}
     → isProp A ≃ (A → isContr A)
 
-  isProp-is-isContr {A = A} =
+  isProp-≃-isContr {A = A} =
     lemma333 isProp-isProp (pi-is-prop (λ a → isContrIsProp)) go back
     where
       private
@@ -440,19 +422,14 @@ From 3.5 (HoTT-Book exercise):
 Equivalence of two types is a proposition
 Moreover, equivalences preserve propositions.
 
-\begin{code}
-open HLevelLemmas public
-\end{code}
 
-\begin{code}
-module EquivalenceProp {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} where
-\end{code}
 
 Contractible maps are propositions:
 
 \begin{code}
   isContrMapIsProp
-    : (f : A → B)
+    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
     -------------
     → isProp (isContrMap f)
 
@@ -461,7 +438,8 @@ Contractible maps are propositions:
 
 \begin{code}
   isEquivIsProp
-    : (f : A → B)
+    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    → (f : A → B)
     → isProp (isEquiv f)
 
   isEquivIsProp = isContrMapIsProp
@@ -471,20 +449,63 @@ Equality of same-morphism equivalences
 {: .foldable until="6"}
 \begin{code}
   sameEqv
-    : {α β : A ≃ B}
+    : {A : Type ℓᵢ}{B : Type ℓⱼ} 
+    → {α β : A ≃ B}
     → π₁ α == π₁ β
     →    α == β
 
-  sameEqv {(f , σ)} {(g , τ)} p = Σ-bycomponents (p , (isEquivIsProp g _ τ))
+  sameEqv {α = (f , σ)} {(g , τ)} p = Σ-bycomponents (p , (isEquivIsProp g _ τ))
 \end{code}
+
+{: .foldable until="6"}
+\begin{code}
+  equiv-iff-hprop
+    : {A B : Type  ℓᵢ}
+    → isProp A
+    → isProp B
+    -----------------
+    → isProp (A ≃ B)
+
+  equiv-iff-hprop {A = A}{B} iA iB ef eg
+    = sameEqv f≡g
+    where
+    private
+      f≡g : (π₁ ef) ≡ (π₁ eg)
+      f≡g = pi-is-prop (λ _ → iB) (π₁ ef) (π₁ eg)
+\end{code}
+
+
+{: .foldable until="6"}
+\begin{code}
+  propEqvIsprop
+    : {A B : Type  ℓᵢ}
+    → isProp A
+    → isProp B
+    -----------------
+    → isProp (A == B)
+    
+  propEqvIsprop iA iB p q =
+    begin
+      p
+        ≡⟨ ! (ua-η p) ⟩ 
+      ua (idtoeqv p)
+        ≡⟨ ap ua (equiv-iff-hprop iA iB (idtoeqv p) (idtoeqv q)) ⟩
+      ua (idtoeqv q)
+        ≡⟨ ua-η q ⟩
+      q
+     ∎
+\end{code}
+
 
 Equivalences preserve propositions
 
 {: .foldable until="6"}
 \begin{code}
   isProp-≃
-    : (A ≃ B)
+    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    → (A ≃ B)
     → isProp A
+    ----------
     → isProp B
 
   isProp-≃ eq prop x y =
@@ -494,24 +515,22 @@ Equivalences preserve propositions
       lemap eq ((remap eq) y) ==⟨ lrmap-inverse eq ⟩
       y
     ∎
-open EquivalenceProp public
 \end{code}
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
+  ≃-trans-inv
+    : ∀ {ℓ} {A B : Type ℓ}
+    → (α : A ≃ B)
+    -----------------------------
+    → ≃-trans α (≃-flip α) == A≃A
 
-≃-trans-inv
-  : ∀ {ℓ} {A B : Type ℓ}
-  → (α : A ≃ B)
-  -----------------------------
-  → ≃-trans α (≃-flip α) == A≃A
-
-≃-trans-inv α = sameEqv (
- begin
-   π₁ (≃-trans α (≃-sym α)) ==⟨ refl _ ⟩
-   π₁ (≃-sym α) ∘ π₁ α     ==⟨ funext (rlmap-inverse-h α) ⟩
-   id
- ∎)
+  ≃-trans-inv α = sameEqv (
+    begin
+      π₁ (≃-trans α (≃-sym α)) ==⟨ refl _ ⟩
+      π₁ (≃-sym α) ∘ π₁ α     ==⟨ funext (rlmap-inverse-h α) ⟩
+      id
+    ∎)
 \end{code}
 
 The following lemma is telling us, something we should probably knew already:
@@ -519,15 +538,15 @@ Equivalence of propositions is the same logical equivalence.
 
 {: .foldable until="6"}
 \begin{code}
-twoprops-to-equiv-≃-⇔
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
-  → isProp A
-  → isProp B
-  -------------------
-  → (A ≃ B) ≃ (A ⇔ B)
+  twoprops-to-equiv-≃-⇔
+    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → isProp A
+    → isProp B
+    -------------------
+    → (A ≃ B) ≃ (A ⇔ B)
 
-twoprops-to-equiv-≃-⇔ {A = A} {B} ispropA ispropB  = qinv-≃ f (g , H₁ , H₂)
-  where
+  twoprops-to-equiv-≃-⇔ {A = A} {B} ispropA ispropB  = qinv-≃ f (g , H₁ , H₂)
+   where
     f : (A ≃ B) → (A ⇔ B)
     f e = e ∙→ , e ∙←
 
@@ -546,4 +565,9 @@ twoprops-to-equiv-≃-⇔ {A = A} {B} ispropA ispropB  = qinv-≃ f (g , H₁ , 
           ==⟨ Σ-bycomponents (idp , isEquivIsProp (e ∙→) _ _) ⟩
         e
       ∎
+\end{code}
+
+
+\begin{code}
+open HLevelLemmas public
 \end{code}
