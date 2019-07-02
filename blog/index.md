@@ -85,6 +85,10 @@ showcitation: true
 
 {% include_relative QuasiinverseType.md %}
 
+[QuasiinverseLemmas.lagda]({% link QuasiinverseLemmas.md %})
+
+{% include_relative QuasiinverseLemmas.md %}
+
 [BiinverseEquivalenceType.lagda]({% link BiinverseEquivalenceType.md %})
 
 {% include_relative BiinverseEquivalenceType.md %}

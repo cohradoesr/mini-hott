@@ -53,6 +53,8 @@ module
     → Type ℓ
 
   ∥ A ∥ = !∥ A ∥
+
+  prop-trunc = ∥_∥ 
 \end{code}
 
 \begin{code}
@@ -84,3 +86,23 @@ Recursion principle
 
   trunc-rec _ f !∣ x ∣ = f x
 \end{code}
+
+#### Truncation Lemmas
+
+\begin{code}
+  truncated-is-prop
+    : {A : Type ℓ}
+    → isProp (∥ A ∥)
+  truncated-is-prop = trunc
+\end{code}
+
+\begin{code}
+  prop-≃-truncated
+    : { A : Type ℓ}
+    → isProp A
+    → ∥ A ∥ ≃ A
+
+  prop-≃-truncated pA = lemma333 trunc pA (trunc-rec pA id) ∣_∣
+
+  trunc-≃ = prop-≃-truncated 
+\end{code}  

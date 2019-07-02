@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Quasiinverse Type"
+title: "Quasiinverse Lemmas"
 category: homotopy
 toc: true
 agda: true
@@ -10,6 +10,8 @@ references: false
 linkify: true
 showcitation: true
 ---
+
+### Quasiinverse Lemmas
 
 Two functions are quasi-inverses if we can construct a function providing
 `(g ∘ f) x = x` and `(f ∘ g) y = y` for any given `x` and `y`.

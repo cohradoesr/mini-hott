@@ -174,7 +174,7 @@ Propositions are propositions.
 The dependent function type to proposition types is itself a
 proposition.
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
   isProp-pi
     : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
@@ -201,17 +201,17 @@ proposition.
 
   ispropA-B propA propB (f , g) =
     ua (qinv-≃ f (g , (λ x → propB _ _) , (λ x → propA _ _)))
-
+\end{code}
+\begin{code}
   -- Synonyms
   props-⇔-to-== = ispropA-B
 \end{code}
-
-
 
 {: .foldable until="4"}
 \begin{code}
   setIsProp
     : {A : Type ℓ}
+    -----------------
     → isProp (isSet A)
 
   setIsProp {ℓ} {A} p₁ p₂ =
@@ -219,23 +219,28 @@ proposition.
       funext (λ y →
         funext (λ p →
           funext (λ q → propIsSet (p₂ x y) p q (p₁ x y p q) (p₂ x y p q)))))
-
-  set→prop    = setIsProp
+\end{code}
+\begin{code}
   set-is-prop = setIsProp
+  set→prop    = setIsProp
 \end{code}
 
 The product of propositions is itself a proposition.
 
-{: .foldable until="5"}
+{: .foldable until="6"}
 \begin{code}
   isProp-prod
     : {A : Type ℓᵢ} {B : Type ℓⱼ}
-    → isProp A → isProp B
+    → isProp A
+    → isProp B
     ---------------------
     → isProp (A × B)
 
   isProp-prod p q x y = prodByComponents ((p _ _) , (q _ _))
+\end{code}
 
+\begin{code}
+  ×-is-prop      = isProp-prod
   ispropA×B      = isProp-prod
   ×-isProp       = isProp-prod
   prop×prop→prop = isProp-prod
@@ -258,7 +263,11 @@ The product of propositions is itself a proposition.
       ==⟨ prodByCompInverse q ⟩
      q
     ∎
+\end{code}
+Synomys:
 
+\begin{code}
+  ×-is-set      = isSet-prod
   isSetA×B      = isSet-prod
   ×-isSet       = isSet-prod
   set×set→set   = isSet-prod
@@ -266,9 +275,10 @@ The product of propositions is itself a proposition.
 
 \begin{code}
   Prop-/-≡
-    : ∀  {A : Type ℓᵢ}
+    : {A : Type ℓᵢ}
     → (P : A → hProp {ℓᵢ})
     → ∀ {a₀ a₁} p₀ p₁ {α : a₀ ≡ a₁}
+    ------------------------------
     → p₀ ≡ p₁ [ (# ∘ P) / α ]
 
   Prop-/-≡ P {a₀} p₀ p₁ {α = idp} = proj₂ (P a₀) p₀ p₁
@@ -418,11 +428,8 @@ From Exercise 3.5 (HoTT-Book):
         back f = λ a a' → (! π₂ (f a) a) · (π₂ (f a) a')
 \end{code}
 
-
 Equivalence of two types is a proposition
 Moreover, equivalences preserve propositions.
-
-
 
 Contractible maps are propositions:
 
@@ -566,6 +573,56 @@ Equivalence of propositions is the same logical equivalence.
         e
       ∎
 \end{code}
+
+FIXME : Put this somewhere else
+
+{: .foldable until="6"}
+\begin{code}
+  ∑-prop
+    : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
+    → isProp A
+    → ((a : A) → isProp (B a))
+    ------------------------
+    → isProp (∑ A B)
+
+  ∑-prop {B = B} iA λ-iB u v = pair= (α , β)
+    where
+      α : π₁ u ≡ π₁ v
+      α = iA (π₁ u) (π₁ v)
+
+      β : (π₂ u) ≡ (π₂ v) [ B / α ]
+      β = λ-iB (π₁ v) (tr B α (π₂ u)) (π₂ v)
+\end{code}  
+
+\begin{code}
+  postulate
+   ∏-set
+    : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
+    → (iA : isSet A)
+    → ((a : A) → isSet (B a))
+    → isSet (∏ A B)
+\end{code}
+
+The following was a custom version useful to deal with functions
+with implicit parameters.
+
+{: .foldable until="5" }
+\begin{code}
+  pi-is-prop-implicit
+     : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
+     → ((a : A) → isProp (B a))
+     --------------------------
+     → isProp ({a : A} → B a)
+     
+  pi-is-prop-implicit {A = A} {B} f = isProp-≃ explicit-≃-implicit (pi-is-prop f)
+    where
+     explicit-≃-implicit
+       : ((a : A) → B a) ≃ ({a : A} → B a)
+     explicit-≃-implicit = qinv-≃ go ((λ x x₁ → x) , (λ x → idp) , (λ x → idp))
+       where
+         go : ((a : A) → B a) → ({a : A} → B a)
+         go f {a} = f a
+\end{code}  
 
 
 \begin{code}
