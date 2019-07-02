@@ -181,7 +181,7 @@ infixr 31 _+_
 Constructors synonyms:
 
 \begin{code}
-pattern left  = inl
+pattern left  = inl  -- TODO: This is not working as I expected
 pattern right = inr
 \end{code}
 

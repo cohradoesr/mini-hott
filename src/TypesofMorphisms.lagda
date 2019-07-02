@@ -215,6 +215,7 @@ a function $g : B → A$ by the recursion principle of truncation.
   ≃-to-bijection iA iB e =
     (λ {x y} p  → ! (∙←∘∙→ e) · (ap (e ∙←) p)  · (∙←∘∙→ e) )  -- is injective
     , λ b → ∣ (e ∙←) b , ∙→∘∙← e ∣                            -- is surjective
+    where open import EquivalenceType
  \end{code}
 
 Bijection and being equivalent are equivalent notions:
@@ -255,3 +256,21 @@ Bijection and being equivalent are equivalent notions:
   bijIsProp iA iB f  = isProp-≃ (≃-sym (bij-≃-≃ iA iB f)) (isEquivIsProp f)
   bijection-is-prop = bijIsProp
 \end{code}
+
+For some reasons, we might need to have the inverse, the actual function, of a bijection.
+One way I see now is to recover such a function from the equivalence, using `remap`. Let's see this:
+
+\begin{code}
+  inverse-of-bijection
+    : {A : Type ℓᵢ}{B : Type ℓᵢ}
+    → {iA : isSet A}{iB : isSet B}
+    → (f : A → B)
+    → isBijection f iA iB
+    ------------------------------
+    → B → A
+  inverse-of-bijection {iA = iA}{iB} f isBij = remap (Bijection {iA = iA}{iB}f isBij)
+
+  inv-of-bij = inverse-of-bijection
+\end{code}
+
+
