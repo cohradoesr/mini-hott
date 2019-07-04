@@ -201,5 +201,8 @@ showcitation: true
     - [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/)
     - [https://github.com/dlicata335/hott-agda/](https://github.com/dlicata335/hott-agda/)
 
+Some talks:
+
+     - [Logic in univalent type theory](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf).
 
 {% include mathjax.html %}

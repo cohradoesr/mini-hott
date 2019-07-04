@@ -64,7 +64,7 @@ showcitation: true
 ### Propositional truncation
 
 Propositional truncation (or reflection) is the universal
-solution to the problem of mapping $X$ to a proposition:
+solution to the problem of mapping $X$ to a proposition $P$:
 
 ```
 X  → ∥ X ∥
@@ -73,6 +73,7 @@ X  → ∥ X ∥
 ```
 
 Notes:
+
  - It's possible to extend MLTT to get truncations for all types.
  (Such as resizing + funext, or higher inductive types.)
 
@@ -338,3 +339,32 @@ Recursion principle
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{prop-≃-truncated}\<%
 \end{code}  
+
+A relation between double implication and the truncation of a type:
+
+\begin{code}%
+%
+\>[2]\AgdaKeyword{postulate}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[3]\AgdaPostulate{trunc-⇔-¬¬}\<%
+\\
+\>[3][@{}l@{\AgdaIndent{0}}]%
+\>[5]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{∀}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{ℓ}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{X}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[5]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
+\AgdaBound{X}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∥}}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{⇔}}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{¬}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{¬}\AgdaSpace{}%
+\AgdaBound{X}\AgdaSymbol{))}\<%
+\end{code}

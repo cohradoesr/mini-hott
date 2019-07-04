@@ -641,3 +641,20 @@ with implicit parameters.
 \begin{code}
 open HLevelLemmas public
 \end{code}
+
+\begin{code}
+postulate
+ univalent-lem
+  : ∀ {ℓ} {P : Type ℓ}
+  → isProp P
+  ------------
+  → P + (¬ P)
+\end{code}
+
+\begin{code}
+ univalent-double-implication
+   : ∀ {ℓ} {P : Type ℓ}
+   → isProp P
+   -----------
+   → (¬ (¬ P)) → P
+\end{code}

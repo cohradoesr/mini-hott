@@ -30,7 +30,7 @@ open import HedbergLemmas
 ### Propositional truncation
 
 Propositional truncation (or reflection) is the universal
-solution to the problem of mapping $X$ to a proposition:
+solution to the problem of mapping $X$ to a proposition $P$:
 
 ```
 X  → ∥ X ∥
@@ -39,6 +39,7 @@ X  → ∥ X ∥
 ```
 
 Notes:
+
  - It's possible to extend MLTT to get truncations for all types.
  (Such as resizing + funext, or higher inductive types.)
 
@@ -119,3 +120,12 @@ Recursion principle
 
   trunc-≃ = prop-≃-truncated 
 \end{code}  
+
+A relation between double implication and the truncation of a type:
+
+\begin{code}
+  postulate
+   trunc-⇔-¬¬
+     : ∀ {ℓ} {X : Type ℓ}
+     → ∥ X ∥ ⇔ (¬ (¬ X))
+\end{code}
