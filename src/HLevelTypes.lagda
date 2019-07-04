@@ -79,8 +79,20 @@ Synonyms:
 
 \begin{code}
 is-subsingleton = isProp
+isSubsingleton  = isProp
 is-prop         = isProp
 \end{code}
+
+Let's stop a bit. So, these propositios, also named "mere" propositions
+tell us: in a  proposition, its elements are connected with each other.
+Subsinglenton (which is, subset of a singlenton (a unit point set)) is
+empty or it has the element. Propositions can be seen as equivalent to 𝟘 or 𝟙.
+
+  - Contractible types ≃ 𝟙
+  - Propositions ≃ (𝟘 if it's not inhabited or 𝟙 if it's inhabited)
+
+Therefore, we will find a theorem later that says "if A is a proposition,
+and it's inhabited then it's contractible", and it makes sense perfectly.
 
 \begin{code}
 hProp

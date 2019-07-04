@@ -45,13 +45,15 @@ A map is *contractible* if the fiber in any point is contractible, that is, each
 element has a unique preimagen.
 
 \begin{code}
-
 isContrMap
   : {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (f : A → B)
   → Type (ℓᵢ ⊔ ℓⱼ)
 
 isContrMap {B = B} f = (b : B) → isContr (fib f b)
+
+
+map-contractible = isContrMap
 \end{code}
 
 There exists an equivalence between two types if there exists a
@@ -67,6 +69,12 @@ isEquiv
 isEquiv f = isContrMap f
 \end{code}
 
+Synomyms:
+
+\begin{code}
+isEquivalence  = isEquiv
+is-equivalence = isEquiv 
+\end{code}
 
 ### Equivalence Type
 
@@ -82,6 +90,7 @@ A ≃ B = Σ (A → B) isEquiv
 module EquivalenceMaps {A : Type ℓᵢ} {B : Type ℓⱼ} where
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}
   lemap
     : A ≃ B
@@ -103,6 +112,7 @@ Synonyms:
   infixl 70 _∙ _∙→
 \end{code}
 
+{: .foldable until="4"}
 \begin{code}
   remap
     : A ≃ B
@@ -121,6 +131,8 @@ Synonyms:
 \end{code}
 
 The maps of an equivalence are inverses in particular
+
+{: .foldable until="4" }
 \begin{code}
   lrmap-inverse
     : (e : A ≃ B) → {b : B}
@@ -128,10 +140,13 @@ The maps of an equivalence are inverses in particular
     → (e ∙→) ((e ∙←) b) == b
 
   lrmap-inverse (f , eqf) {b} = fib-eq (π₁ (eqf b))
+\end{code}
 
+\begin{code}
   ∙→∘∙← = lrmap-inverse
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}
   rlmap-inverse
     : (e : A ≃ B) → {a : A}
@@ -139,10 +154,12 @@ The maps of an equivalence are inverses in particular
     → (e ∙←) ((e ∙→) a) == a
 
   rlmap-inverse (f , eqf) {a} = ap π₁ ((π₂ (eqf (f a))) fib-image)
-
+\end{code}
+\begin{code}
   ∙←∘∙→ = rlmap-inverse
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}
   lrmap-inverse-h
     : (e : A ≃ B)
@@ -150,10 +167,13 @@ The maps of an equivalence are inverses in particular
     → ((e ∙→) ∘ (e ∙←)) ∼ id
 
   lrmap-inverse-h e = λ x → lrmap-inverse e {x}
+\end{code}
 
+\begin{code}
   ∙→∘∙←-h = lrmap-inverse-h
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}
   rlmap-inverse-h
     : (e : A ≃ B)
@@ -161,8 +181,12 @@ The maps of an equivalence are inverses in particular
     → ((e ∙←) ∘ (e ∙→)) ∼ id
 
   rlmap-inverse-h e = λ x → rlmap-inverse e {x}
+\end{code}
 
+\begin{code}
   ∙←∘∙→-h = rlmap-inverse-h
+\end{code}
 
+\begin{code}
 open EquivalenceMaps public
 \end{code}

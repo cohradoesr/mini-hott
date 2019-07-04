@@ -29,8 +29,21 @@ open import HedbergLemmas
 
 ### Propositional truncation
 
-Seeing at the moment:
-https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda
+Propositional truncation (or reflection) is the universal
+solution to the problem of mapping $X$ to a proposition:
+
+```
+X  → ∥ X ∥
+ ↘    ⇣ (!∃ h)
+    ↘ P 
+```
+
+Notes:
+ - It's possible to extend MLTT to get truncations for all types.
+ (Such as resizing + funext, or higher inductive types.)
+
+For a different way of formalising trucation see:
+[agd-premises](https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda).
 
 \begin{code}
 module

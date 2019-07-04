@@ -68,8 +68,6 @@ A map is *contractible* if the fiber in any point is contractible, that is, each
 element has a unique preimagen.
 
 \begin{code}%
-\>[0]\<%
-\\
 \>[0]\AgdaFunction{isContrMap}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
@@ -114,6 +112,14 @@ element has a unique preimagen.
 \AgdaSymbol{(}\AgdaFunction{fib}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSymbol{)}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaFunction{map-contractible}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isContrMap}\<%
 \end{code}
 
 There exists an equivalence between two types if there exists a
@@ -158,6 +164,17 @@ contractible function between them.
 \AgdaBound{f}\<%
 \end{code}
 
+Synomyms:
+
+\begin{code}%
+\>[0]\AgdaFunction{isEquivalence}%
+\>[15]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isEquiv}\<%
+\\
+\>[0]\AgdaFunction{is-equivalence}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{isEquiv}\<%
+\end{code}
 
 ### Equivalence Type
 
@@ -209,6 +226,7 @@ contractible function between them.
 \AgdaKeyword{where}\<%
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}%
 \>[0][@{}l@{\AgdaIndent{1}}]%
 \>[2]\AgdaFunction{lemap}\<%
@@ -273,6 +291,7 @@ Synonyms:
 \AgdaOperator{\AgdaFunction{\AgdaUnderscore{}∙→}}\<%
 \end{code}
 
+{: .foldable until="4"}
 \begin{code}%
 %
 \>[2]\AgdaFunction{remap}\<%
@@ -332,6 +351,8 @@ Synonyms:
 \end{code}
 
 The maps of an equivalence are inverses in particular
+
+{: .foldable until="4" }
 \begin{code}%
 %
 \>[2]\AgdaFunction{lrmap-inverse}\<%
@@ -374,15 +395,16 @@ The maps of an equivalence are inverses in particular
 \AgdaSymbol{(}\AgdaField{π₁}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{eqf}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSymbol{))}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaFunction{∙→∘∙←}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{lrmap-inverse}\<%
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}%
 %
 \>[2]\AgdaFunction{rlmap-inverse}\<%
@@ -428,15 +450,15 @@ The maps of an equivalence are inverses in particular
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSymbol{)))}\AgdaSpace{}%
 \AgdaFunction{fib-image}\AgdaSymbol{)}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+\begin{code}%
 %
 \>[2]\AgdaFunction{∙←∘∙→}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{rlmap-inverse}\<%
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}%
 %
 \>[2]\AgdaFunction{lrmap-inverse-h}\<%
@@ -474,15 +496,16 @@ The maps of an equivalence are inverses in particular
 \AgdaFunction{lrmap-inverse}\AgdaSpace{}%
 \AgdaBound{e}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{x}\AgdaSymbol{\}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaFunction{∙→∘∙←-h}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{lrmap-inverse-h}\<%
 \end{code}
 
+{: .foldable until="4" }
 \begin{code}%
 %
 \>[2]\AgdaFunction{rlmap-inverse-h}\<%
@@ -520,16 +543,16 @@ The maps of an equivalence are inverses in particular
 \AgdaFunction{rlmap-inverse}\AgdaSpace{}%
 \AgdaBound{e}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{x}\AgdaSymbol{\}}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaFunction{∙←∘∙→-h}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{rlmap-inverse-h}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaModule{EquivalenceMaps}\AgdaSpace{}%
 \AgdaKeyword{public}\<%

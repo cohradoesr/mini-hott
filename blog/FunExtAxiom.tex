@@ -43,12 +43,12 @@ showcitation: true
 
 <pre class="Agda">
   <a id="702" class="Keyword">postulate</a>
-    <a id="axiomFunExt"></a><a id="716" href="FunExtAxiom.html#716" class="Postulate">axiomFunExt</a> <a id="728" class="Symbol">:</a> <a id="730" href="EquivalenceType.html#1168" class="Function">isEquiv</a> <a id="738" href="FunExtAxiom.html#535" class="Function">happly</a>
+    <a id="axiomFunExt"></a><a id="716" href="FunExtAxiom.html#716" class="Postulate">axiomFunExt</a> <a id="728" class="Symbol">:</a> <a id="730" href="EquivalenceType.html#1199" class="Function">isEquiv</a> <a id="738" href="FunExtAxiom.html#535" class="Function">happly</a>
 </pre>
 
 <pre class="Agda">
   <a id="eqFunExt"></a><a id="772" href="FunExtAxiom.html#772" class="Function">eqFunExt</a>
-    <a id="785" class="Symbol">:</a> <a id="787" class="Symbol">(</a><a id="788" href="FunExtAxiom.html#449" class="Bound">f</a> <a id="790" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="793" href="FunExtAxiom.html#451" class="Bound">g</a><a id="794" class="Symbol">)</a> <a id="796" href="EquivalenceType.html#1318" class="Function Operator">≃</a> <a id="798" class="Symbol">((</a><a id="800" href="FunExtAxiom.html#800" class="Bound">x</a> <a id="802" class="Symbol">:</a> <a id="804" href="FunExtAxiom.html#415" class="Bound">A</a><a id="805" class="Symbol">)</a> <a id="807" class="Symbol">→</a> <a id="809" href="FunExtAxiom.html#449" class="Bound">f</a> <a id="811" href="FunExtAxiom.html#800" class="Bound">x</a> <a id="813" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="816" href="FunExtAxiom.html#451" class="Bound">g</a> <a id="818" href="FunExtAxiom.html#800" class="Bound">x</a><a id="819" class="Symbol">)</a>
+    <a id="785" class="Symbol">:</a> <a id="787" class="Symbol">(</a><a id="788" href="FunExtAxiom.html#449" class="Bound">f</a> <a id="790" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="793" href="FunExtAxiom.html#451" class="Bound">g</a><a id="794" class="Symbol">)</a> <a id="796" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="798" class="Symbol">((</a><a id="800" href="FunExtAxiom.html#800" class="Bound">x</a> <a id="802" class="Symbol">:</a> <a id="804" href="FunExtAxiom.html#415" class="Bound">A</a><a id="805" class="Symbol">)</a> <a id="807" class="Symbol">→</a> <a id="809" href="FunExtAxiom.html#449" class="Bound">f</a> <a id="811" href="FunExtAxiom.html#800" class="Bound">x</a> <a id="813" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="816" href="FunExtAxiom.html#451" class="Bound">g</a> <a id="818" href="FunExtAxiom.html#800" class="Bound">x</a><a id="819" class="Symbol">)</a>
 
   <a id="824" href="FunExtAxiom.html#772" class="Function">eqFunExt</a> <a id="833" class="Symbol">=</a> <a id="835" href="FunExtAxiom.html#535" class="Function">happly</a> <a id="842" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="844" href="FunExtAxiom.html#716" class="Postulate">axiomFunExt</a>
 </pre>
@@ -60,7 +60,7 @@ showcitation: true
     <a id="992" class="Comment">------------------------</a>
     <a id="1021" class="Symbol">→</a> <a id="1023" href="FunExtAxiom.html#449" class="Bound">f</a> <a id="1025" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="1028" href="FunExtAxiom.html#451" class="Bound">g</a>
 
-  <a id="1033" href="FunExtAxiom.html#952" class="Function">funext</a> <a id="1040" class="Symbol">=</a> <a id="1042" href="EquivalenceType.html#1735" class="Function">remap</a> <a id="1048" href="FunExtAxiom.html#772" class="Function">eqFunExt</a>
+  <a id="1033" href="FunExtAxiom.html#952" class="Function">funext</a> <a id="1040" class="Symbol">=</a> <a id="1042" href="EquivalenceType.html#1901" class="Function">remap</a> <a id="1048" href="FunExtAxiom.html#772" class="Function">eqFunExt</a>
 </pre>
 
 <pre class="Agda">
@@ -70,7 +70,7 @@ showcitation: true
     <a id="1184" class="Comment">------------------------------</a>
     <a id="1219" class="Symbol">→</a> <a id="1221" href="FunExtAxiom.html#535" class="Function">happly</a> <a id="1228" class="Symbol">(</a><a id="1229" href="FunExtAxiom.html#952" class="Function">funext</a> <a id="1236" href="FunExtAxiom.html#1152" class="Bound">h</a><a id="1237" class="Symbol">)</a> <a id="1239" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="1242" href="FunExtAxiom.html#1152" class="Bound">h</a>
 
-  <a id="1247" href="FunExtAxiom.html#1136" class="Function">funext-β</a> <a id="1256" href="FunExtAxiom.html#1256" class="Bound">h</a> <a id="1258" class="Symbol">=</a> <a id="1260" href="EquivalenceType.html#2003" class="Function">lrmap-inverse</a> <a id="1274" href="FunExtAxiom.html#772" class="Function">eqFunExt</a>
+  <a id="1247" href="FunExtAxiom.html#1136" class="Function">funext-β</a> <a id="1256" href="FunExtAxiom.html#1256" class="Bound">h</a> <a id="1258" class="Symbol">=</a> <a id="1260" href="EquivalenceType.html#2195" class="Function">lrmap-inverse</a> <a id="1274" href="FunExtAxiom.html#772" class="Function">eqFunExt</a>
 </pre>
 
 <pre class="Agda">
@@ -79,5 +79,5 @@ showcitation: true
     <a id="1342" class="Comment">------------------------</a>
     <a id="1371" class="Symbol">→</a> <a id="1373" href="FunExtAxiom.html#952" class="Function">funext</a> <a id="1380" class="Symbol">(</a><a id="1381" href="FunExtAxiom.html#535" class="Function">happly</a> <a id="1388" href="FunExtAxiom.html#1326" class="Bound">p</a><a id="1389" class="Symbol">)</a> <a id="1391" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="1394" href="FunExtAxiom.html#1326" class="Bound">p</a>
 
-  <a id="1399" href="FunExtAxiom.html#1310" class="Function">funext-η</a> <a id="1408" href="FunExtAxiom.html#1408" class="Bound">p</a> <a id="1410" class="Symbol">=</a> <a id="1412" href="EquivalenceType.html#2207" class="Function">rlmap-inverse</a> <a id="1426" href="FunExtAxiom.html#772" class="Function">eqFunExt</a>
+  <a id="1399" href="FunExtAxiom.html#1310" class="Function">funext-η</a> <a id="1408" href="FunExtAxiom.html#1408" class="Bound">p</a> <a id="1410" class="Symbol">=</a> <a id="1412" href="EquivalenceType.html#2448" class="Function">rlmap-inverse</a> <a id="1426" href="FunExtAxiom.html#772" class="Function">eqFunExt</a>
 </pre>

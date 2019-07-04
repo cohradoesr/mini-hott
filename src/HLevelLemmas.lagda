@@ -136,13 +136,14 @@ Examples of propositions:
 
 \end{code}
 
+{: .foldable until="7"}
 \begin{code}
   is-prop-A+B
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
     → isProp A
     → isProp B
     → ¬ (A × B)
-    --------------------------------
+    ----------------
     → isProp (A + B)
 
   is-prop-A+B ispropA ispropB ¬A×B (inl x) (inl x₁) = ap inl (ispropA x x₁)
@@ -151,13 +152,15 @@ Examples of propositions:
   is-prop-A+B ispropA ispropB ¬A×B (inr x) (inr x₁) = ap inr (ispropB x x₁)
 \end{code}
 
-Propositions are propositions.
+Propositions are propositions. This time, please notice
+the strong use of function extensionality, used twice here.
 
-{: .foldable until="4"}
+{: .foldable until="5"}
 \begin{code}
   propIsProp
     : {A : Type ℓ}
-    --------------------
+    -- (funext : Function-Extensionality)
+    -------------------------------------
     → isProp (isProp A)
 
   propIsProp {_}{A} =
@@ -169,15 +172,17 @@ Propositions are propositions.
   prop-is-prop        = propIsProp
   prop→prop           = propIsProp
   isProp-isProp       = propIsProp
+  is-prop-is-prop     = propIsProp
 \end{code}
 
 The dependent function type to proposition types is itself a
 proposition.
 
-{: .foldable until="5"}
+{: .foldable until="6"}
 \begin{code}
   isProp-pi
     : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
+    -- (funext : Function-Extensionality)
     → ((a : A) → isProp (B a))
     --------------------------
     → isProp ((a : A) → B a)
@@ -189,22 +194,30 @@ proposition.
   piIsProp   = isProp-pi
 \end{code}
 
-{: .foldable until="7"}
+Propositional extensionality, here stated as `prop-ext`,
+is a consequence of univalence axiom. 
+
+{: .foldable until="8"}
 \begin{code}
-  ispropA-B
+  prop-ext
     : {A B : Type ℓ}
+    -- (ua : Univalence Axiom)
     → isProp A
     → isProp B
     → (A ⇔ B)
     -----------
     → A == B
 
-  ispropA-B propA propB (f , g) =
+  prop-ext propA propB (f , g) =
     ua (qinv-≃ f (g , (λ x → propB _ _) , (λ x → propA _ _)))
 \end{code}
+
+Synomyms:
+
 \begin{code}
-  -- Synonyms
-  props-⇔-to-== = ispropA-B
+  props-⇔-to-== = prop-ext
+  ispropA-B     = prop-ext
+  propositional-extensionality = prop-ext
 \end{code}
 
 {: .foldable until="4"}

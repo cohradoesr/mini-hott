@@ -500,6 +500,7 @@ Examples of propositions:
 \>[0]\<%
 \end{code}
 
+{: .foldable until="7"}
 \begin{code}%
 \>[0][@{}l@{\AgdaIndent{1}}]%
 \>[2]\AgdaFunction{is-prop-A+B}\<%
@@ -532,7 +533,7 @@ Examples of propositions:
 \AgdaBound{B}\AgdaSymbol{)}\<%
 \\
 %
-\>[4]\AgdaComment{--------------------------------}\<%
+\>[4]\AgdaComment{----------------}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
@@ -609,9 +610,10 @@ Examples of propositions:
 \AgdaBound{x₁}\AgdaSymbol{)}\<%
 \end{code}
 
-Propositions are propositions.
+Propositions are propositions. This time, please notice
+the strong use of function extensionality, used twice here.
 
-{: .foldable until="4"}
+{: .foldable until="5"}
 \begin{code}%
 %
 \>[2]\AgdaFunction{propIsProp}\<%
@@ -624,7 +626,10 @@ Propositions are propositions.
 \AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
 \\
 %
-\>[4]\AgdaComment{--------------------}\<%
+\>[4]\AgdaComment{-- (funext : Function-Extensionality)}\<%
+\\
+%
+\>[4]\AgdaComment{-------------------------------------}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
@@ -688,12 +693,17 @@ Propositions are propositions.
 \>[2]\AgdaFunction{isProp-isProp}%
 \>[22]\AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{propIsProp}\<%
+\\
+%
+\>[2]\AgdaFunction{is-prop-is-prop}%
+\>[22]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{propIsProp}\<%
 \end{code}
 
 The dependent function type to proposition types is itself a
 proposition.
 
-{: .foldable until="5"}
+{: .foldable until="6"}
 \begin{code}%
 %
 \>[2]\AgdaFunction{isProp-pi}\<%
@@ -710,6 +720,9 @@ proposition.
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓⱼ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaComment{-- (funext : Function-Extensionality)}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
@@ -771,10 +784,13 @@ proposition.
 \AgdaFunction{isProp-pi}\<%
 \end{code}
 
-{: .foldable until="7"}
+Propositional extensionality, here stated as `prop-ext`,
+is a consequence of univalence axiom. 
+
+{: .foldable until="8"}
 \begin{code}%
 %
-\>[2]\AgdaFunction{ispropA-B}\<%
+\>[2]\AgdaFunction{prop-ext}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
 \>[4]\AgdaSymbol{:}\AgdaSpace{}%
@@ -783,6 +799,9 @@ proposition.
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaComment{-- (ua : Univalence Axiom)}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
@@ -812,7 +831,7 @@ proposition.
 %
 \\[\AgdaEmptyExtraSkip]%
 %
-\>[2]\AgdaFunction{ispropA-B}\AgdaSpace{}%
+\>[2]\AgdaFunction{prop-ext}\AgdaSpace{}%
 \AgdaBound{propA}\AgdaSpace{}%
 \AgdaBound{propB}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
@@ -840,14 +859,24 @@ proposition.
 \AgdaSymbol{\AgdaUnderscore{}}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{})))}\<%
 \end{code}
+
+Synomyms:
+
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Synonyms}\<%
-\\
 %
 \>[2]\AgdaFunction{props-⇔-to-==}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
-\AgdaFunction{ispropA-B}\<%
+\AgdaFunction{prop-ext}\<%
+\\
+%
+\>[2]\AgdaFunction{ispropA-B}%
+\>[16]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{prop-ext}\<%
+\\
+%
+\>[2]\AgdaFunction{propositional-extensionality}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{prop-ext}\<%
 \end{code}
 
 {: .foldable until="4"}
@@ -2476,22 +2505,22 @@ Equivalence of propositions is the same logical equivalence.
 \\
 \>[6][@{}l@{\AgdaIndent{0}}]%
 \>[8]\AgdaFunction{g}%
-\>[1221I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
+\>[1225I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙←}}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[1221I]%
+\>[.][@{}l@{}]\<[1225I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨⟩}}\<%
 \\
 %
 \>[8]\AgdaBound{e}%
-\>[1226I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
+\>[1230I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{}}\<%
 \\
-\>[.][@{}l@{}]\<[1226I]%
+\>[.][@{}l@{}]\<[1230I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{Σ-bycomponents}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaInductiveConstructor{idp}\AgdaSpace{}%
