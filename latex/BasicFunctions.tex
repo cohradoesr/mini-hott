@@ -149,6 +149,8 @@ Constant function at some point `b` is `cst b`
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaDatatype{Bool}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaFunction{neg¬}\AgdaSpace{}%
 \AgdaInductiveConstructor{tt}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -251,7 +253,7 @@ A more sophisticated composition function that can handle dependent functions.
 
 Synonym for composition (diagrammatic version)
 
-{: .foldable until="7" }
+{: .foldable until="6" }
 \begin{code}%
 \>[0]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}:>\AgdaUnderscore{}}}\<%
 \\
@@ -696,9 +698,7 @@ Functions handy to manipulate coproducts:
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{〈}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
-\AgdaFunction{×}\AgdaSpace{}%
-\AgdaBound{g}\AgdaSpace{}%
-\AgdaFunction{〉}\<%
+\AgdaFunction{×}\AgdaBound{ g }\AgdaFunction{〉}\<%
 \end{code}
 
 ### Curryfication
@@ -739,7 +739,7 @@ Functions handy to manipulate coproducts:
 \AgdaBound{s}\AgdaSymbol{)}\<%
 \\
 %
-\>[2]\AgdaComment{---------------------}\<%
+\>[2]\AgdaComment{-------------------------------}\<%
 \\
 %
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
@@ -1058,9 +1058,8 @@ Functions handy to manipulate coproducts:
 \AgdaInductiveConstructor{idp}\<%
 \end{code}
 
+Synonyms for inverse path
 \begin{code}%
-\>[0]\AgdaComment{-- synonyms for inverse path}\<%
-\\
 \>[0]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}⁻¹}}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{inv}\<%
@@ -1102,10 +1101,8 @@ where `p` is a path from `a` to `b`, `q` is a path from `b` to `c`, and so on.
 \>[0]\AgdaKeyword{module}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
-\>[2]\AgdaModule{EquationalReasoning}\<%
-\\
-%
-\>[2]\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\>[2]\AgdaModule{EquationalReasoning}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
@@ -1116,6 +1113,7 @@ where `p` is a path from `a` to `b`, `q` is a path from `b` to `c`, and so on.
 
 Definitional equals:
 
+{: .foldable until="4" }
 \begin{code}%
 %
 \>[2]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}==⟨⟩\AgdaUnderscore{}}}\<%
@@ -1127,6 +1125,9 @@ Definitional equals:
 \AgdaSymbol{\{}\AgdaBound{y}\AgdaSymbol{\}}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSymbol{)}\<%
+\\
+%
+\>[4]\AgdaComment{-----------------}\<%
 \\
 %
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
@@ -1148,7 +1149,7 @@ Definitional equals:
 \AgdaBound{p}\<%
 \end{code}
 
-Synonyms for _==⟨⟩:
+Synonyms:
 
 \begin{code}%
 %
@@ -1177,10 +1178,10 @@ Synonyms for _==⟨⟩:
 \AgdaOperator{\AgdaFunction{\AgdaUnderscore{}≡⟨⟩\AgdaUnderscore{}}}\<%
 \end{code}
 
+Chain:
+
+{: .foldable until="6" }
 \begin{code}%
-%
-\>[2]\AgdaComment{-- chain}\<%
-\\
 %
 \>[2]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}==⟨\AgdaUnderscore{}⟩\AgdaUnderscore{}}}\<%
 \\
@@ -1207,6 +1208,9 @@ Synonyms for _==⟨⟩:
 \AgdaBound{z}\<%
 \\
 %
+\>[4]\AgdaComment{--------}\<%
+\\
+%
 \>[4]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
@@ -1224,9 +1228,10 @@ Synonyms for _==⟨⟩:
 \AgdaBound{thm}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
 \AgdaBound{q}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+Synomyms:
+\begin{code}%
 %
 \>[2]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}≡⟨\AgdaUnderscore{}⟩\AgdaUnderscore{}}}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -1241,10 +1246,8 @@ Synonyms for _==⟨⟩:
 \AgdaOperator{\AgdaFunction{\AgdaUnderscore{}≡⟨\AgdaUnderscore{}⟩\AgdaUnderscore{}}}\<%
 \end{code}
 
+Q.E.D:
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Q.E.D}\<%
-\\
 %
 \>[2]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}∎}}\<%
 \\
@@ -1278,15 +1281,9 @@ Synonyms for _==⟨⟩:
 \AgdaOperator{\AgdaFunction{\AgdaUnderscore{}∎}}\<%
 \end{code}
 
+The begining of a proof:
+
 \begin{code}%
-%
-\>[2]\AgdaComment{-- Begin}\<%
-\\
-%
-\>[2]\AgdaKeyword{infix}\AgdaSpace{}%
-\AgdaNumber{1}\AgdaSpace{}%
-\AgdaOperator{\AgdaFunction{begin\AgdaUnderscore{}}}\<%
-\\
 %
 \>[2]\AgdaOperator{\AgdaFunction{begin\AgdaUnderscore{}}}\<%
 \\
@@ -1316,6 +1313,13 @@ Synonyms for _==⟨⟩:
 \AgdaBound{p}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{p}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[2]\AgdaKeyword{infix}\AgdaSpace{}%
+\AgdaNumber{1}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{begin\AgdaUnderscore{}}}\<%
 \end{code}
 
 \begin{code}%

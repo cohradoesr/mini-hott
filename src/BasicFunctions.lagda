@@ -64,6 +64,7 @@ cst b = λ _ → b
 neg¬
   : Bool
   → Bool
+
 neg¬ tt = ff
 neg¬ ff = tt
 \end{code}
@@ -88,7 +89,7 @@ infixr 80 _∘_
 
 Synonym for composition (diagrammatic version)
 
-{: .foldable until="7" }
+{: .foldable until="6" }
 \begin{code}
 _:>_
   : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → (B a → Type ℓₖ)}
@@ -180,7 +181,7 @@ syntax parallell f g = 〈 f × g 〉
 curry
   : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Σ A B → Type ℓₖ}
   → ((s : ∑ A B) → C s)
-  ---------------------
+  -------------------------------
   → ((x : A)(y : B x) → C (x , y))
 
 curry f x y = f (x , y)
@@ -252,8 +253,8 @@ inv
 inv idp = idp
 \end{code}
 
+Synonyms for inverse path
 \begin{code}
--- synonyms for inverse path
 _⁻¹ = inv
 !_  = inv
 
@@ -283,22 +284,23 @@ where `p` is a path from `a` to `b`, `q` is a path from `b` to `c`, and so on.
 
 \begin{code}
 module
-  EquationalReasoning
-  {A : Type ℓ}
+  EquationalReasoning {A : Type ℓ}
   where
 \end{code}
 
 Definitional equals:
 
+{: .foldable until="4" }
 \begin{code}
   _==⟨⟩_
     : ∀ (x {y} : A)
+    -----------------
     → x == y → x == y
 
   _ ==⟨⟩ p = p
 \end{code}
 
-Synonyms for _==⟨⟩:
+Synonyms:
 
 \begin{code}
   _==⟨idp⟩_  = _==⟨⟩_
@@ -308,23 +310,29 @@ Synonyms for _==⟨⟩:
   infixr 2 _==⟨⟩_ _==⟨idp⟩_ _==⟨refl⟩_ _≡⟨⟩_
 \end{code}
 
+Chain:
+
+{: .foldable until="6" }
 \begin{code}
-  -- chain
   _==⟨_⟩_
     : (x : A) {y z : A}
     → x == y
     → y == z
+    --------
     → x == z
 
   _ ==⟨ thm ⟩ q = thm · q
+\end{code}
 
+Synomyms:
+\begin{code}
   _≡⟨_⟩_ = _==⟨_⟩_
 
   infixr 2 _==⟨_⟩_ _≡⟨_⟩_
 \end{code}
 
+Q.E.D:
 \begin{code}
-  -- Q.E.D
   _∎
     : (x : A)
     → x == x
@@ -334,15 +342,17 @@ Synonyms for _==⟨⟩:
   infix 3 _∎
 \end{code}
 
+The begining of a proof:
+
 \begin{code}
-  -- Begin
-  infix 1 begin_
   begin_
     : {x y : A}
     → x == y
     → x == y
 
   begin_ p = p
+
+  infix 1 begin_
 \end{code}
 
 \begin{code}

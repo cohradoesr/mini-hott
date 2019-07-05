@@ -34,10 +34,6 @@ showcitation: true
 \\
 %
 \\[\AgdaEmptyExtraSkip]%
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\\[\AgdaEmptyExtraSkip]%
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
 \AgdaModule{ProductIdentities}\<%
@@ -87,6 +83,9 @@ showcitation: true
 </div>
 
 ## HLevel Lemmas
+
+The following lemmas are not exactly in some coherent order.
+We are planning to fix that issue.
 
 ### Proposition and Set lemmas
 
@@ -200,6 +199,7 @@ To be contractible is itself a proposition.
 \end{code}
 
 Propositions are Sets:
+
 {: .foldable until="5"}
 \begin{code}%
 %
@@ -321,8 +321,30 @@ Propositions are Sets:
 \>[6][@{}l@{\AgdaIndent{0}}]%
 \>[8]\AgdaOperator{\AgdaFunction{begin}}\<%
 \\
-\>[8][@{}l@{\AgdaIndent{0}}]%
-\>[10]\AgdaBound{p}%
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[5]\AgdaSpace{}%
+\AgdaSpace{}%
+%
+\>[151I]\AgdaSpace{}%
+%
+\>[153I]\AgdaBound{p}%
+\>[13]%
+\>[16]\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+%
+\>[22]\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+\AgdaSpace{}%
+%
 \>[34]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}·}}\AgdaSpace{}%
@@ -334,7 +356,7 @@ Propositions are Sets:
 \AgdaBound{y}\AgdaSymbol{)))}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{⟩}}\<%
 \\
-%
+\>[.][@{}l@{}]\<[153I]%
 \>[10]\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
@@ -343,16 +365,14 @@ Propositions are Sets:
 \AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
-\AgdaBound{·}\AgdaSpace{}%
-\AgdaBound{p}\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaBound{==}\AgdaOperator{\AgdaFunction{⟨}}\AgdaSpace{}%
-\AgdaFunction{·}\AgdaBound{-}\AgdaFunction{ass}\AgdaBound{oc}\AgdaSpace{}%
-\AgdaFunction{(}\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaFunction{f}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{·}}\AgdaSpace{}%
+\AgdaBound{p}%
+\>[34]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
+\AgdaFunction{·-assoc}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
-\AgdaFunction{y}\AgdaSymbol{))}\AgdaSpace{}%
+\AgdaBound{y}\AgdaSymbol{))}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSymbol{)}\AgdaSpace{}%
@@ -390,7 +410,7 @@ Propositions are Sets:
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaBound{w}\AgdaSymbol{)}\<%
 \\
-%
+\>[.][@{}l@{}]\<[151I]%
 \>[8]\AgdaOperator{\AgdaFunction{∎}}\<%
 \end{code}
 
@@ -651,12 +671,12 @@ the strong use of function extensionality, used twice here.
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
 \AgdaSymbol{→}%
-\>[328I]\AgdaFunction{funext}\AgdaSpace{}%
+\>[344I]\AgdaFunction{funext}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaSymbol{→}\<%
 \\
-\>[328I][@{}l@{\AgdaIndent{0}}]%
+\>[344I][@{}l@{\AgdaIndent{0}}]%
 \>[14]\AgdaFunction{funext}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{b}\<%
@@ -673,9 +693,9 @@ the strong use of function extensionality, used twice here.
 \AgdaSymbol{(}\AgdaBound{y}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSymbol{)))}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaFunction{prop-is-prop-always}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -767,9 +787,9 @@ proposition.
 \AgdaBound{a}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{g}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSymbol{)}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+\begin{code}%
 %
 \>[2]\AgdaFunction{pi-is-prop}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -1488,11 +1508,48 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 \>[2]\AgdaComment{-- But it's nice to spell it out fully.}\<%
 \end{code}
 
+\begin{code}%
+%
+\>[2]\AgdaKeyword{postulate}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[3]\AgdaPostulate{≡-is-set-from-sets}\<%
+\\
+\>[3][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaBound{B}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓᵢ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaBound{B}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
+\AgdaBound{B}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0][@{}l@{\AgdaIndent{19}}]%
+\>[1]\AgdaComment{--  ≡-is-set-from-sets iA iB = \{!!\}}\<%
+\end{code}
+ 
 Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 
 {: .foldable until="4"}
 \begin{code}%
-%
+\>[1][@{}l@{\AgdaIndent{1}}]%
 \>[2]\AgdaFunction{isContrIsProp}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
@@ -2507,22 +2564,22 @@ Equivalence of propositions is the same logical equivalence.
 \\
 \>[6][@{}l@{\AgdaIndent{0}}]%
 \>[8]\AgdaFunction{g}%
-\>[1228I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
+\>[1256I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙←}}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[1228I]%
+\>[.][@{}l@{}]\<[1256I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨⟩}}\<%
 \\
 %
 \>[8]\AgdaBound{e}%
-\>[1233I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
+\>[1261I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{}}\<%
 \\
-\>[.][@{}l@{}]\<[1233I]%
+\>[.][@{}l@{}]\<[1261I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{Σ-bycomponents}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaInductiveConstructor{idp}\AgdaSpace{}%

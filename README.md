@@ -1,39 +1,15 @@
-Another library for Univalent Foundations in Agda
--------------------------------------------------
+Mini-HoTT : another library for Univalent Foundations in Agda
+------------------------------------------------------------
 
 The goal of this library is to provide the basis to learn and to use homotopy
-type theory to formalize mathematics. For instance, we are using this library to
+type theory (HoTT) to formalize mathematics. For instance, we are using this library to
 formalize planar graphs as we showed in TYPES2019. There are many other
 libraries in which we have based this developed, so we don't  claim any credit
-unless we state it. The complete list of references are on the website at the
-end, the section References.
+unless we state it. Nevertheless, we have included so many changes as for example
+our own intuition, pictures, proofs and naming. Please, see the complete list of
+references that are on the website at the end, the References section.
 
+[http://github.com/jonaprieto/mini-hott](http://github.com/jonaprieto/mini-hott)
 
-### Agda style
+- Comments to improve this work are really welcomed.
 
-Definitions are presented in the following way using always unicode as much as
-possible for readability. Very often, we presented them as rules using before the
-main conclusion (or output) a line forms with hyphens.
-
-```
-\begin{code}
-termName
-  :  {...} {t1 : type1}
-  → (t2 : type2)
-  → ...
-  ---------------------
-  → ... (t1 t2)
-
-termName = definition
-
--- infix precedence
-infix X termName
-\end{code}
-
-\begin{code}
-Synonyms:
-...
-\end{code}
-```
-
-Any further comment is very welcomed.

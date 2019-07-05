@@ -39,7 +39,9 @@ module
 Synomyms and syntax sugar:
 
 \begin{code}
-  fib = fibre
+  fib   = fibre
+  fiber = fibre
+  
   syntax fibre f b = f // b
 \end{code}
 

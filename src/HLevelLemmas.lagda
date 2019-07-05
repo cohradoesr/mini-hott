@@ -19,8 +19,6 @@ module _ where
 open import TransportLemmas
 open import EquivalenceType
 
-
-
 open import ProductIdentities
 open import CoproductIdentities
 
@@ -38,6 +36,9 @@ open import HLevelTypes
 </div>
 
 ## HLevel Lemmas
+
+The following lemmas are not exactly in some coherent order.
+We are planning to fix that issue.
 
 ### Proposition and Set lemmas
 
@@ -79,6 +80,7 @@ To be contractible is itself a proposition.
 \end{code}
 
 Propositions are Sets:
+
 {: .foldable until="5"}
 \begin{code}
   propIsSet
@@ -167,7 +169,9 @@ the strong use of function extensionality, used twice here.
     λ x y → funext (λ a →
               funext (λ b
                 → propIsSet x a b (x a b) (y a b)))
+\end{code}
 
+\begin{code}
   prop-is-prop-always = propIsProp
   prop-is-prop        = propIsProp
   prop→prop           = propIsProp
@@ -188,7 +192,9 @@ proposition.
     → isProp ((a : A) → B a)
 
   isProp-pi props f g = funext λ a → props a (f a) (g a)
+\end{code}
 
+\begin{code}
   pi-is-prop = isProp-pi
   Π-isProp   = isProp-pi
   piIsProp   = isProp-pi
@@ -369,6 +375,17 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
   -- But it's nice to spell it out fully.
 \end{code}
 
+\begin{code}
+  postulate
+   ≡-is-set-from-sets
+    : {A B : Type ℓᵢ}
+    → isSet A
+    → isSet B
+    → A ≡ B
+
+ --  ≡-is-set-from-sets iA iB = {!!}
+\end{code}
+ 
 Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 
 {: .foldable until="4"}
