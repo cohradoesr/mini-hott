@@ -51,6 +51,7 @@ Synonym:
 \begin{code}
 Contractible = isContr
 is-singleton = isContr
+isSingleton  = isContr
 \end{code}
 
 If a type is contractible, any of its points is a center of contraction:

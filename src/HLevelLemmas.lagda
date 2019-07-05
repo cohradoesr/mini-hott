@@ -598,7 +598,8 @@ FIXME : Put this somewhere else
     ------------------------
     → isProp (∑ A B)
 
-  ∑-prop {B = B} iA λ-iB u v = pair= (α , β)
+  ∑-prop {B = B} iA λ-iB u v
+    = pair= (α , β)
     where
       α : π₁ u ≡ π₁ v
       α = iA (π₁ u) (π₁ v)

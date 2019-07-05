@@ -37,11 +37,11 @@ notion of equivalence.
 <pre class="Agda">
 <a id="675" class="Keyword">module</a>
   <a id="684" href="HalfAdjointType.html" class="Module">HalfAdjointType</a> <a id="700" class="Symbol">{</a><a id="701" href="HalfAdjointType.html#701" class="Bound">A</a> <a id="703" class="Symbol">:</a> <a id="705" href="Intro.html#1803" class="Function">Type</a> <a id="710" href="Intro.html#2245" class="Generalizable">ℓᵢ</a><a id="712" class="Symbol">}</a> <a id="714" class="Symbol">{</a><a id="715" href="HalfAdjointType.html#715" class="Bound">B</a> <a id="717" class="Symbol">:</a> <a id="719" href="Intro.html#1803" class="Function">Type</a> <a id="724" href="Intro.html#2248" class="Generalizable">ℓⱼ</a><a id="726" class="Symbol">}</a>
-    <a id="732" class="Keyword">where</a>
-</pre>
+    <a id="732" class="Keyword">w</a><a id="733" class="Keyword">h</a><a id="734" class="Keyword">e</a><a id="735" class="Keyword">r</a><a id="736" class="Keyword">e</a>
+</pre><pre class="Agda"></pre><pre class="Agda">
 
 Half adjoint equivalence:
-<pre class="Agda">
+</pre>
     <a id="793" class="Keyword">record</a>
       <a id="ishae"></a><a id="806" href="HalfAdjointType.html#806" class="Record">ishae</a> <a id="812" class="Symbol">(</a><a id="813" href="HalfAdjointType.html#813" class="Bound">f</a> <a id="815" class="Symbol">:</a> <a id="817" href="HalfAdjointType.html#701" class="Bound">A</a> <a id="819" class="Symbol">→</a> <a id="821" href="HalfAdjointType.html#715" class="Bound">B</a><a id="822" class="Symbol">)</a>
       <a id="830" class="Symbol">:</a> <a id="832" href="Intro.html#1803" class="Function">Type</a> <a id="837" class="Symbol">(</a><a id="838" href="HalfAdjointType.html#710" class="Bound">ℓᵢ</a> <a id="841" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="843" href="HalfAdjointType.html#724" class="Bound">ℓⱼ</a><a id="845" class="Symbol">)</a>
@@ -52,12 +52,12 @@ Half adjoint equivalence:
         <a id="ishae.η"></a><a id="919" href="HalfAdjointType.html#919" class="Field">η</a> <a id="921" class="Symbol">:</a> <a id="923" class="Symbol">(</a><a id="924" href="HalfAdjointType.html#901" class="Field">g</a> <a id="926" href="BasicFunctions.html#1011" class="Function Operator">∘</a> <a id="928" href="HalfAdjointType.html#813" class="Bound">f</a><a id="929" class="Symbol">)</a> <a id="931" href="HomotopyType.html#989" class="Function Operator">∼</a> <a id="933" href="BasicFunctions.html#375" class="Function">id</a>
         <a id="ishae.ε"></a><a id="944" href="HalfAdjointType.html#944" class="Field">ε</a> <a id="946" class="Symbol">:</a> <a id="948" class="Symbol">(</a><a id="949" href="HalfAdjointType.html#813" class="Bound">f</a> <a id="951" href="BasicFunctions.html#1011" class="Function Operator">∘</a> <a id="953" href="HalfAdjointType.html#901" class="Field">g</a><a id="954" class="Symbol">)</a> <a id="956" href="HomotopyType.html#989" class="Function Operator">∼</a> <a id="958" href="BasicFunctions.html#375" class="Function">id</a>
         <a id="ishae.τ"></a><a id="969" href="HalfAdjointType.html#969" class="Field">τ</a> <a id="971" class="Symbol">:</a> <a id="973" class="Symbol">(</a><a id="974" href="HalfAdjointType.html#974" class="Bound">a</a> <a id="976" class="Symbol">:</a> <a id="978" href="HalfAdjointType.html#701" class="Bound">A</a><a id="979" class="Symbol">)</a> <a id="981" class="Symbol">→</a> <a id="983" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="986" href="HalfAdjointType.html#813" class="Bound">f</a> <a id="988" class="Symbol">(</a><a id="989" href="HalfAdjointType.html#919" class="Field">η</a> <a id="991" href="HalfAdjointType.html#974" class="Bound">a</a><a id="992" class="Symbol">)</a> <a id="994" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="997" href="HalfAdjointType.html#944" class="Field">ε</a> <a id="999" class="Symbol">(</a><a id="1000" href="HalfAdjointType.html#813" class="Bound">f</a> <a id="1002" href="HalfAdjointType.html#974" class="Bound">a</a><a id="1003" class="Symbol">)</a>
-</pre>
+<pre class="Agda">
 
 Half adjoint equivalences give contractible fibers.
 
 {: .foldable until="5" }
-<pre class="Agda">
+</pre>
     <a id="ishae-contr"></a><a id="1112" href="HalfAdjointType.html#1112" class="Function">ishae-contr</a>
       <a id="1130" class="Symbol">:</a> <a id="1132" class="Symbol">(</a><a id="1133" href="HalfAdjointType.html#1133" class="Bound">f</a> <a id="1135" class="Symbol">:</a> <a id="1137" href="HalfAdjointType.html#701" class="Bound">A</a> <a id="1139" class="Symbol">→</a> <a id="1141" href="HalfAdjointType.html#715" class="Bound">B</a><a id="1142" class="Symbol">)</a>
       <a id="1150" class="Symbol">→</a> <a id="1152" href="HalfAdjointType.html#806" class="Record">ishae</a> <a id="1158" href="HalfAdjointType.html#1133" class="Bound">f</a>
@@ -112,11 +112,11 @@ Half adjoint equivalences give contractible fibers.
                   <a id="3350" href="BasicFunctions.html#4999" class="Function Operator">==⟨</a> <a id="3354" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="3357" class="Symbol">(</a><a id="3358" href="BasicFunctions.html#3843" class="Function Operator">_·</a> <a id="3361" href="HalfAdjointType.html#1229" class="Bound">ε</a> <a id="3363" href="HalfAdjointType.html#1234" class="Bound">y</a><a id="3364" class="Symbol">)</a> <a id="3366" class="Symbol">(</a><a id="3367" href="AlgebraOnPaths.html#3012" class="Function">·-linv</a> <a id="3374" class="Symbol">(</a><a id="3375" href="AlgebraOnPaths.html#389" class="Function">ap</a> <a id="3378" class="Symbol">(λ</a> <a id="3381" href="HalfAdjointType.html#3381" class="Bound">z</a> <a id="3383" class="Symbol">→</a> <a id="3385" href="HalfAdjointType.html#1218" class="Bound">f</a> <a id="3387" class="Symbol">(</a><a id="3388" href="HalfAdjointType.html#1225" class="Bound">g</a> <a id="3390" href="HalfAdjointType.html#3381" class="Bound">z</a><a id="3391" class="Symbol">))</a> <a id="3394" href="HalfAdjointType.html#2087" class="Bound">p</a><a id="3395" class="Symbol">))</a> <a id="3398" href="BasicFunctions.html#4999" class="Function Operator">⟩</a>
                 <a id="3416" href="HalfAdjointType.html#1229" class="Bound">ε</a> <a id="3418" href="HalfAdjointType.html#1234" class="Bound">y</a>
               <a id="3434" href="BasicFunctions.html#5182" class="Function Operator">∎</a>
-</pre>
+<pre class="Agda">
 
 Half-adjointness implies equivalence:
 {: .foldable until="5" }
-<pre class="Agda">
+</pre>
     <a id="ishae-≃"></a><a id="3528" href="HalfAdjointType.html#3528" class="Function">ishae-≃</a>
       <a id="3542" class="Symbol">:</a> <a id="3544" class="Symbol">{</a><a id="3545" href="HalfAdjointType.html#3545" class="Bound">f</a> <a id="3547" class="Symbol">:</a> <a id="3549" href="HalfAdjointType.html#701" class="Bound">A</a> <a id="3551" class="Symbol">→</a> <a id="3553" href="HalfAdjointType.html#715" class="Bound">B</a><a id="3554" class="Symbol">}</a>
       <a id="3562" class="Symbol">→</a> <a id="3564" href="HalfAdjointType.html#806" class="Record">ishae</a> <a id="3570" href="HalfAdjointType.html#3545" class="Bound">f</a>
@@ -124,4 +124,5 @@ Half-adjointness implies equivalence:
       <a id="3594" class="Symbol">→</a> <a id="3596" href="HalfAdjointType.html#701" class="Bound">A</a> <a id="3598" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="3600" href="HalfAdjointType.html#715" class="Bound">B</a>
 
     <a id="3607" href="HalfAdjointType.html#3528" class="Function">ishae-≃</a> <a id="3615" href="HalfAdjointType.html#3615" class="Bound">ishaef</a> <a id="3622" class="Symbol">=</a> <a id="3624" class="Symbol">_</a> <a id="3626" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="3628" class="Symbol">(</a><a id="3629" href="HalfAdjointType.html#1112" class="Function">ishae-contr</a> <a id="3641" class="Symbol">_</a> <a id="3643" href="HalfAdjointType.html#3615" class="Bound">ishaef</a><a id="3649" class="Symbol">)</a>
+<pre class="Agda">
 </pre>

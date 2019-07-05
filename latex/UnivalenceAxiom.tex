@@ -87,11 +87,13 @@ two equivalent types. Some $β$ and $η$ rules are provided.
 %
 \>[2]\AgdaFunction{idtoeqv}\AgdaSpace{}%
 \AgdaBound{p}\AgdaSpace{}%
-\AgdaSymbol{=}\AgdaSpace{}%
-\AgdaFunction{qinv-≃}\<%
+\AgdaSymbol{=}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaSymbol{(}\AgdaFunction{transport}\AgdaSpace{}%
+\>[4]\AgdaFunction{qinv-≃}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaSymbol{(}\AgdaFunction{tr}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{X}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
@@ -99,15 +101,17 @@ two equivalent types. Some $β$ and $η$ rules are provided.
 \AgdaBound{p}\AgdaSymbol{)}\<%
 \\
 %
-\>[4]\AgdaSymbol{(}\AgdaFunction{transport}\AgdaSpace{}%
+\>[6]\AgdaSymbol{(}\AgdaFunction{tr}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{X}\AgdaSpace{}%
 \AgdaSymbol{→}\AgdaSpace{}%
 \AgdaBound{X}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaFunction{inv}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaBound{p}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaFunction{coe-inv-l}\AgdaSpace{}%
+\AgdaOperator{\AgdaInductiveConstructor{,}}\<%
+\\
+\>[6][@{}l@{\AgdaIndent{0}}]%
+\>[8]\AgdaSymbol{(}\AgdaFunction{coe-inv-l}\AgdaSpace{}%
 \AgdaBound{p}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaFunction{coe-inv-r}\AgdaSpace{}%
@@ -143,9 +147,9 @@ Univalence Axiom.
 \AgdaFunction{isEquivalence}\AgdaSpace{}%
 \AgdaFunction{≡-to-≃}\<%
 \end{code}
-\
-In Slide 20 from an [Escardo's talk](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf), I saw
-the following no standard definition of Univalence axiom.
+
+In Slide 20 from an [Escardo's talk](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf), base on what we saw, we give
+the following no standard definition of Univalence axiom (without transport).
 
 \begin{code}%
 %
@@ -175,11 +179,9 @@ the following no standard definition of Univalence axiom.
 \>[4]\AgdaSymbol{(}\AgdaBound{X}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
-\AgdaBound{ℓ}\AgdaSymbol{)}\<%
-\\
-%
-\>[4]\AgdaSymbol{→}\AgdaSpace{}%
-\AgdaFunction{isSet}\AgdaSpace{}%
+\AgdaBound{ℓ}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{isProp}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaSpace{}%
 \AgdaRecord{∑}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaFunction{Type}\AgdaSpace{}%
@@ -199,8 +201,12 @@ the following no standard definition of Univalence axiom.
 \>[23]\AgdaModule{HLevelTypes}\<%
 \end{code}
 
-Notes:
+About this Univalence axiom version:
 
+  - ∑ (Type ℓ) (λ Y → X ≃ Y) is inhabited, but we don't know if it's contractible
+  unless, we demand (assume) to be propositional. Then, in such a case,
+  we use the theorem (isProp P ≃ (P → isContr P)). To be more precise, we know it's contractible, in fact, the center of contractibility, is indeed (X, id-≃ X : X ≃ X).
+  
   - Univalence is a generalized extensionality axiom for intensional MLTT theory.
   - The type UA is a proposition.
   - UA is consistent with MLTT.

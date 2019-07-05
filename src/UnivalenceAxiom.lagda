@@ -40,9 +40,11 @@ module UnivalenceAxiom {ℓ} {A B : Type ℓ} where
     --------
     → A ≃ B
 
-  idtoeqv p = qinv-≃
-    (transport (λ X → X) p)
-    (transport (λ X → X) (inv p) , (coe-inv-l p , coe-inv-r p))
+  idtoeqv p =
+    qinv-≃
+      (tr (λ X → X) p)
+      (tr (λ X → X) (! p) ,
+        (coe-inv-l p , coe-inv-r p))
 \end{code}
 
 Synonyms:
@@ -61,9 +63,9 @@ Univalence Axiom.
   postulate
     axiomUnivalence : isEquivalence ≡-to-≃
 \end{code}
-\
-In Slide 20 from an [Escardo's talk](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf), I saw
-the following no standard definition of Univalence axiom.
+
+In Slide 20 from an [Escardo's talk](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf), base on what we saw, we give
+the following no standard definition of Univalence axiom (without transport).
 
 \begin{code}
   UA
@@ -71,13 +73,16 @@ the following no standard definition of Univalence axiom.
     → (Type (lsuc ℓ))
     
   UA {ℓ = ℓ}  =
-    (X : Type ℓ)
-    → isSet ( ∑ (Type ℓ) (λ Y → (X ≃ Y) ))
+    (X : Type ℓ) → isProp ( ∑ (Type ℓ) (λ Y → (X ≃ Y) ))
     where open import  HLevelTypes
 \end{code}
 
-Notes:
+About this Univalence axiom version:
 
+  - ∑ (Type ℓ) (λ Y → X ≃ Y) is inhabited, but we don't know if it's contractible
+  unless, we demand (assume) to be propositional. Then, in such a case,
+  we use the theorem (isProp P ≃ (P → isContr P)). To be more precise, we know it's contractible, in fact, the center of contractibility, is indeed (X, id-≃ X : X ≃ X).
+  
   - Univalence is a generalized extensionality axiom for intensional MLTT theory.
   - The type UA is a proposition.
   - UA is consistent with MLTT.

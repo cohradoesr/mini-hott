@@ -40,22 +40,43 @@ module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
     → Type (ℓᵢ ⊔ ℓⱼ)
 
   qinv f = Σ (B → A) (λ g → ((f ∘ g) ∼ id) × ((g ∘ f) ∼ id))
+
+  quasiinverse = qinv
 \end{code}
 
 \begin{code}
-  linv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
-  linv f = Σ (B → A) (λ g → (g ∘ f) ∼ id)
+  linv
+    : (A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+    
+  linv f = Σ (B → A) (λ g → (g ∘ f) ∼ idf A)
+
+  left-inverse = linv
 \end{code}
 
 \begin{code}
-  rinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
-  rinv f = Σ (B → A) λ g → (f ∘ g) ∼ id
+  rinv
+    : (A → B)
+    → Type (ℓᵢ ⊔ ℓⱼ)
+    
+  rinv f = Σ (B → A) (λ g → (f ∘ g) ∼ idf B)
+
+  right-inverse = rinv
 \end{code}
 
+Biinverse is another equivalent notion of the right equivalence for HoTT.
 \begin{code}
   biinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
   biinv f = linv f × rinv f
 
+  biinverse  = biinv
+  bi-inverse = biinv
+\end{code}
+
+A desire consequence (qinv → biinv):
+
+
+\begin{code}
   qinv-biinv : (f : A → B) → qinv f → biinv f
   qinv-biinv f (g , (u1 , u2)) = (g , u2) , (g , u1)
 
@@ -115,19 +136,53 @@ module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
             ==⟨ inv (·-assoc (inv (ε (f (g (f a))))) _ (ε (f a))) ⟩
           inv (ε (f (g (f a)))) · ap f (η (g (f a))) · ε (f a)
         ∎
+\end{code}
 
-  -- Quasiinverses create equivalences.
-  qinv-≃ : (f : A → B) → qinv f → A ≃ B
+
+Quasiinverses create equivalences.
+
+{: .foldable until="5"}
+\begin{code}
+  qinv-≃
+    : (f : A → B)
+    → qinv f
+    -------------
+    → A ≃ B
+    
   qinv-≃ f = ishae-≃ ∘ qinv-ishae
+\end{code}
 
-  ≃-qinv : A ≃ B → Σ (A → B) qinv
+{: .foldable until="4" }
+\begin{code}
+  ≃-qinv
+    : A ≃ B
+    ----------------
+    → Σ (A → B) qinv
+ 
   ≃-qinv eq =
     lemap eq , (remap eq , (lrmap-inverse-h eq , rlmap-inverse-h eq))
+\end{code}
 
-  -- Half-adjoint equivalences are quasiinverses.
-  ishae-qinv : {f : A → B} → ishae f → qinv f
+
+Half-adjoint equivalences are quasiinverses.
+
+{: .foldable until="5" }
+\begin{code}
+  ishae-qinv
+    : {f : A → B}
+    → ishae f
+    ---------
+    → qinv f
+    
   ishae-qinv {f} (hae g η ε τ) = g , (ε , η)
+\end{code}
 
-  ≃-ishae : (e : A ≃ B)→ ishae (lemap e)
+{: .foldable until="4"}
+\begin{code}
+  ≃-ishae
+    : (e : A ≃ B)
+    --------------
+    → ishae (e ∙→)
+    
   ≃-ishae e = qinv-ishae (π₂ (≃-qinv e))
 \end{code}

@@ -99,7 +99,23 @@ Recursion principle
     → ∥ A ∥ → P
 
   trunc-rec _ f !∣ x ∣ = f x
+
+  trunc-elim = trunc-rec
 \end{code}
+
+There exists the possibility to charactherize, propositional truncation
+using an impredicative approach, which means, our definition will lay on
+a larger universe as follows on the right-hand side.
+
+$$ ∥ X ∥ ⇔ ∏ (P : \mathsf{Type} ), \mathsf{isProp}(P) → (X → P) → P$$
+
+Remarks:
+
+- rhs is a propositon assuming funext
+- this equation tells us an important relation (a pattern) between
+the type (in this case, prop-trunc) and its elimination principle (trunc-rec)
+- *Impredicative* means in this context: "it is defined in terms of quantification over a family which the thing we are defining is a member of." (Gylterud).
+
 
 #### Truncation Lemmas
 
