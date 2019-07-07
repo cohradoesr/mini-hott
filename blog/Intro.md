@@ -123,11 +123,12 @@ The following type is to lift a type to a higher universe.
 <a id="3085" class="Keyword">open</a> <a id="3090" href="Intro.html#2987" class="Module">↑</a> <a id="3092" class="Keyword">public</a>
 </pre>
 
-From `Agda v2.6.0`, it is possible to use *global* variables
-to simplify the typing. These kind of variables are implicit,
-included in every single type definition that comes below.
+Since `Agda v2.6.0`, it is possible to use *global* variables
+to simplify the typing. These kind of variables are implicit and
+included in every single type definition that comes below unless
+other are stated.
 
 <pre class="Agda">
-<a id="3307" class="Keyword">variable</a>
-  <a id="3318" href="Intro.html#3318" class="Generalizable">ℓ</a> <a id="3320" href="Intro.html#3320" class="Generalizable">ℓᵢ</a> <a id="3323" href="Intro.html#3323" class="Generalizable">ℓⱼ</a> <a id="3326" href="Intro.html#3326" class="Generalizable">ℓₖ</a> <a id="3329" class="Symbol">:</a> <a id="3331" href="Agda.Primitive.html#408" class="Postulate">Level</a>
+<a id="3335" class="Keyword">variable</a>
+  <a id="3346" href="Intro.html#3346" class="Generalizable">ℓ</a> <a id="3348" href="Intro.html#3348" class="Generalizable">ℓᵢ</a> <a id="3351" href="Intro.html#3351" class="Generalizable">ℓⱼ</a> <a id="3354" href="Intro.html#3354" class="Generalizable">ℓₖ</a> <a id="3357" class="Symbol">:</a> <a id="3359" href="Agda.Primitive.html#408" class="Postulate">Level</a>
 </pre>

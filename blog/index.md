@@ -206,3 +206,6 @@ Some talks:
      - [Logic in univalent type theory](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf).
 
 {% include mathjax.html %}
+
+
+<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5ofvfm0irr4&amp;m=0c&amp;c=ff0000&amp;cr1=ffffff&amp;f=tahoma&amp;l=49&amp;s=192&amp;bv=65&amp;cw=ffffff&amp;cb=000000" async="async"></script>

@@ -78,6 +78,8 @@ module
     → ∥ X ∥
 
   ∣ x ∣ = !∣ x ∣
+
+  ∥∥-intro = ∣_∣ 
 \end{code}
 
 Any two elements of the truncated type are equal
@@ -101,6 +103,7 @@ Recursion principle
   trunc-rec _ f !∣ x ∣ = f x
 
   trunc-elim = trunc-rec
+  ∥∥-rec     = trunc-rec
 \end{code}
 
 There exists the possibility to charactherize, propositional truncation
@@ -124,6 +127,8 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)
     : {A : Type ℓ}
     → isProp (∥ A ∥)
   truncated-is-prop = trunc
+
+  ∥∥-is-a-prop = truncated-is-prop
 \end{code}
 
 \begin{code}

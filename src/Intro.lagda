@@ -123,9 +123,10 @@ record
 open ↑ public
 \end{code}
 
-From `Agda v2.6.0`, it is possible to use *global* variables
-to simplify the typing. These kind of variables are implicit,
-included in every single type definition that comes below.
+Since `Agda v2.6.0`, it is possible to use *global* variables
+to simplify the typing. These kind of variables are implicit and
+included in every single type definition that comes below unless
+other are stated.
 
 \begin{code}
 variable

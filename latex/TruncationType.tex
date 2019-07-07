@@ -189,6 +189,13 @@ For a different way of formalising trucation see:
 \AgdaOperator{\AgdaInductiveConstructor{!∣}}\AgdaSpace{}%
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{∣}}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[2]\AgdaFunction{∥∥-intro}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{∣\AgdaUnderscore{}∣}}\<%
 \end{code}
 
 Any two elements of the truncated type are equal
@@ -272,6 +279,11 @@ Recursion principle
 \>[2]\AgdaFunction{trunc-elim}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{trunc-rec}\<%
+\\
+%
+\>[2]\AgdaFunction{∥∥-rec}%
+\>[13]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{trunc-rec}\<%
 \end{code}
 
 There exists the possibility to charactherize, propositional truncation
@@ -312,6 +324,13 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)
 \>[2]\AgdaFunction{truncated-is-prop}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaPostulate{trunc}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[2]\AgdaFunction{∥∥-is-a-prop}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{truncated-is-prop}\<%
 \end{code}
 
 \begin{code}%
