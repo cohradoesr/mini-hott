@@ -203,7 +203,7 @@ showcitation: true
 
 Some talks:
 
-     - [Logic in univalent type theory](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf).
+  - [Logic in univalent type theory](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf).
 
 {% include mathjax.html %}
 
