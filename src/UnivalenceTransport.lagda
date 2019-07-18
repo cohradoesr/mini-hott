@@ -100,18 +100,11 @@ module UnivalenceTransport where
 
 {: .foldable until="5" }
 \begin{code}
-  ua-coe
+  coe-ua
     : {A B : Type ℓ}
     → (α : A ≃ B)
+    -------------------------------------
     → (∀ x → (coe (ua α) x) == ((α ∙) x))
-    
-  -- ua-coe α x =
-  --   begin
-  --     (coe (ua α) x)
-  --       ==⟨ idp ⟩
-  --     transport (λ X → X) (ua α) x
-  --       ==⟨ {!   !} ⟩
-  --     {!   !}
-  --       ==⟨ {!   !} ⟩
-  --     {!   !}
+
+  coe-ua α = happly (ap (lemap) (ua-β α))
 \end{code}

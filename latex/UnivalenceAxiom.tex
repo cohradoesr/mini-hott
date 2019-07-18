@@ -59,12 +59,9 @@ two equivalent types. Some $β$ and $η$ rules are provided.
 \AgdaKeyword{where}\<%
 \end{code}
 
-{: .foldable until="5"}
+{: .foldable until="4"}
 \begin{code}%
 \>[0][@{}l@{\AgdaIndent{1}}]%
-\>[2]\AgdaComment{-- Fun.}\<%
-\\
-%
 \>[2]\AgdaFunction{idtoeqv}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
@@ -93,20 +90,11 @@ two equivalent types. Some $β$ and $η$ rules are provided.
 \>[4]\AgdaFunction{qinv-≃}\<%
 \\
 \>[4][@{}l@{\AgdaIndent{0}}]%
-\>[6]\AgdaSymbol{(}\AgdaFunction{tr}\AgdaSpace{}%
-\AgdaSymbol{(λ}\AgdaSpace{}%
-\AgdaBound{X}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
-\AgdaBound{X}\AgdaSymbol{)}\AgdaSpace{}%
+\>[6]\AgdaSymbol{(}\AgdaFunction{coe}\AgdaSpace{}%
 \AgdaBound{p}\AgdaSymbol{)}\<%
 \\
 %
-\>[6]\AgdaSymbol{(}\AgdaFunction{tr}\AgdaSpace{}%
-\AgdaSymbol{(λ}\AgdaSpace{}%
-\AgdaBound{X}\AgdaSpace{}%
-\AgdaSymbol{→}\AgdaSpace{}%
-\AgdaBound{X}\AgdaSymbol{)}\AgdaSpace{}%
-\AgdaSymbol{(}\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
+\>[6]\AgdaSymbol{((}\AgdaFunction{!coe}\AgdaSpace{}%
 \AgdaBound{p}\AgdaSymbol{)}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\<%
 \\
@@ -130,6 +118,11 @@ Synonyms:
 \>[2]\AgdaFunction{≡-to-≃}%
 \>[10]\AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{idtoeqv}\<%
+\\
+%
+\>[2]\AgdaFunction{ite}%
+\>[10]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaFunction{idtoeqv}\<%
 \end{code}
 
 The **Univalence axiom** induces an equivalence between equalities
@@ -142,8 +135,10 @@ Univalence Axiom.
 \>[2]\AgdaKeyword{postulate}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
-\>[4]\AgdaPostulate{axiomUnivalence}\AgdaSpace{}%
-\AgdaSymbol{:}\AgdaSpace{}%
+\>[4]\AgdaPostulate{axiomUnivalence}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{isEquivalence}\AgdaSpace{}%
 \AgdaFunction{≡-to-≃}\<%
 \end{code}
@@ -166,8 +161,8 @@ the following no standard definition of Univalence axiom (without transport).
 \AgdaSymbol{(}\AgdaPrimitive{lsuc}\AgdaSpace{}%
 \AgdaBound{ℓ}\AgdaSymbol{))}\<%
 \\
-\>[0]\<%
-\\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{UA}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaArgument{ℓ}\AgdaSpace{}%
@@ -206,7 +201,7 @@ About this Univalence axiom version:
   - ∑ (Type ℓ) (λ Y → X ≃ Y) is inhabited, but we don't know if it's contractible
   unless, we demand (assume) to be propositional. Then, in such a case,
   we use the theorem (isProp P ≃ (P → isContr P)). To be more precise, we know it's contractible, in fact, the center of contractibility, is indeed (X, id-≃ X : X ≃ X).
-  
+
   - Univalence is a generalized extensionality axiom for intensional MLTT theory.
   - The type UA is a proposition.
   - UA is consistent with MLTT.
@@ -214,7 +209,7 @@ About this Univalence axiom version:
   - Theorem of spartan MLTT with two universes. The univalence axiom formulated
 with crude isomorphism rather than equivalence is false!.
 
-{: .foldable until="3" }
+{: .foldable until="2" }
 \begin{code}%
 %
 \>[2]\AgdaFunction{eqvUnivalence}\<%
@@ -259,6 +254,7 @@ Synonyms:
 
 Introduction rule for equalities:
 
+{: .foldable until="4" }
 \begin{code}%
 %
 \>[2]\AgdaFunction{ua}\<%
@@ -278,6 +274,8 @@ Introduction rule for equalities:
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaBound{B}\<%
 \\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{ua}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
@@ -301,7 +299,7 @@ Synonyms:
 
 Computation rules
 
-{: .foldable until="5"}
+{: .foldable until="4"}
 \begin{code}%
 %
 \>[2]\AgdaFunction{ua-β}\<%
@@ -335,7 +333,7 @@ Computation rules
 \AgdaFunction{eqvUnivalence}\<%
 \end{code}
 
-{: .foldable until="5"}
+{: .foldable until="4"}
 \begin{code}%
 %
 \>[2]\AgdaFunction{ua-η}\<%
