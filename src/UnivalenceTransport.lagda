@@ -108,3 +108,22 @@ module UnivalenceTransport where
 
   coe-ua α = happly (ap (lemap) (ua-β α))
 \end{code}
+
+\begin{code}
+  coe-ua-· 
+    : ∀ {ℓ} {A B C : Type ℓ}
+    → (α : A ≃ B)
+    → (β : B ≃ C)
+    → coe (ua α · ua β) ≡ ((coe (ua α)) :> coe (ua β))
+
+  coe-ua-· α β =
+    begin
+      coe (ua α · ua β)
+       ≡⟨⟩ 
+      tr (λ X → X) (ua α · ua β)
+       ≡⟨ ! (transport-comp (ua α) (ua β)) ⟩
+      (tr (λ X → X) (ua α)) :> (tr (λ X → X) (ua β))
+        ≡⟨ idp ⟩
+     ((coe (ua α)) :> coe (ua β))
+    ∎
+\end{code}
