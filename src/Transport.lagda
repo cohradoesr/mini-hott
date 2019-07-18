@@ -56,6 +56,20 @@ coe
 coe p a = transport (λ X → X) p a
 \end{code}
 
+and its inverse:
+
+{: .foldable until="5" }
+\begin{code}
+!coe
+  : ∀ {A B : Type ℓ}
+  → A == B
+  ---------
+  → (B → A)
+
+!coe p a = transport (λ X → X) (! p) a
+\end{code}
+
+
 ### Pathovers
 
 Let be `A : Type`, `a₁, a₂ : A`, `C : A → Type`, `c₁ : C a₁` and `c₂ : C a₂`.

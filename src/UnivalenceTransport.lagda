@@ -100,11 +100,11 @@ module UnivalenceTransport where
 
 {: .foldable until="5" }
 \begin{code}
-  postulate
-    ua-coe
-      : {A B : Type ℓ}
-      → (α : A ≃ B)
-      → (∀ x → (coe (ua α) x) == ((α ∙) x))
+  ua-coe
+    : {A B : Type ℓ}
+    → (α : A ≃ B)
+    → (∀ x → (coe (ua α) x) == ((α ∙) x))
+    
   -- ua-coe α x =
   --   begin
   --     (coe (ua α) x)

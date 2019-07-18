@@ -32,9 +32,8 @@ two equivalent types. Some $β$ and $η$ rules are provided.
 module UnivalenceAxiom {ℓ} {A B : Type ℓ} where
 \end{code}
 
-{: .foldable until="5"}
+{: .foldable until="4"}
 \begin{code}
-  -- Fun.
   idtoeqv
     : A == B
     --------
@@ -42,8 +41,8 @@ module UnivalenceAxiom {ℓ} {A B : Type ℓ} where
 
   idtoeqv p =
     qinv-≃
-      (tr (λ X → X) p)
-      (tr (λ X → X) (! p) ,
+      (coe p)
+      ((!coe p) ,
         (coe-inv-l p , coe-inv-r p))
 \end{code}
 
@@ -52,6 +51,7 @@ Synonyms:
 \begin{code}
   ==-to-≃ = idtoeqv
   ≡-to-≃  = idtoeqv
+  ite     = idtoeqv
 \end{code}
 
 The **Univalence axiom** induces an equivalence between equalities
@@ -61,7 +61,8 @@ Univalence Axiom.
 
 \begin{code}
   postulate
-    axiomUnivalence : isEquivalence ≡-to-≃
+    axiomUnivalence
+      : isEquivalence ≡-to-≃
 \end{code}
 
 In Slide 20 from an [Escardo's talk](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf), base on what we saw, we give
@@ -71,7 +72,7 @@ the following no standard definition of Univalence axiom (without transport).
   UA
     : ∀ {ℓ}
     → (Type (lsuc ℓ))
-    
+
   UA {ℓ = ℓ}  =
     (X : Type ℓ) → isProp ( ∑ (Type ℓ) (λ Y → (X ≃ Y) ))
     where open import  HLevelTypes
@@ -82,7 +83,7 @@ About this Univalence axiom version:
   - ∑ (Type ℓ) (λ Y → X ≃ Y) is inhabited, but we don't know if it's contractible
   unless, we demand (assume) to be propositional. Then, in such a case,
   we use the theorem (isProp P ≃ (P → isContr P)). To be more precise, we know it's contractible, in fact, the center of contractibility, is indeed (X, id-≃ X : X ≃ X).
-  
+
   - Univalence is a generalized extensionality axiom for intensional MLTT theory.
   - The type UA is a proposition.
   - UA is consistent with MLTT.
@@ -90,7 +91,7 @@ About this Univalence axiom version:
   - Theorem of spartan MLTT with two universes. The univalence axiom formulated
 with crude isomorphism rather than equivalence is false!.
 
-{: .foldable until="3" }
+{: .foldable until="2" }
 \begin{code}
   eqvUnivalence
     : (A == B) ≃ (A ≃ B)
@@ -107,11 +108,13 @@ Synonyms:
 
 Introduction rule for equalities:
 
+{: .foldable until="4" }
 \begin{code}
   ua
     : A ≃ B
     -------
     → A == B
+
   ua = remap eqvUnivalence
 \end{code}
 
@@ -124,7 +127,7 @@ Synonyms:
 
 Computation rules
 
-{: .foldable until="5"}
+{: .foldable until="4"}
 \begin{code}
   ua-β
     : (α : A ≃ B)
@@ -134,7 +137,7 @@ Computation rules
   ua-β eqv = lrmap-inverse eqvUnivalence
 \end{code}
 
-{: .foldable until="5"}
+{: .foldable until="4"}
 \begin{code}
   ua-η
     : (p : A == B)

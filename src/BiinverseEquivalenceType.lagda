@@ -54,6 +54,14 @@ Synonym:
 \end{code}
 
 \begin{code}
+  isequiv
+    :  {A : Type ℓᵢ} {B : Type ℓⱼ}
+    → (f : A → B)
+    → Type (ℓᵢ ⊔  ℓⱼ)
+  isequiv f = Equivalence f
+\end{code}
+
+\begin{code}
   record
     _≃_ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ)
     : Type (ℓᵢ ⊔ ℓⱼ)
