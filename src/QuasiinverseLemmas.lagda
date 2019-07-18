@@ -84,20 +84,22 @@ Equivalence types are equivalence relations.
 {: .foldable until="7"}
 \begin{code}
   -- Lemma.
-  ≃-trans
+  _:>≃_
     : ∀ {ℓ₁ ℓ₂ ℓ₃} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
     → A ≃ B
     → B ≃ C
     -------
     → A ≃ C
 
-  ≃-trans {A = A} {C = C} eq-f eq-g = qinv-≃ (π₁ qcomp) (π₂ qcomp)
+  _:>≃_ {A = A} {C = C} eq-f eq-g = qinv-≃ (π₁ qcomp) (π₂ qcomp)
    where
      qcomp : Σ (A → C) qinv
      qcomp = qinv-comp (≃-qinv eq-f) (≃-qinv eq-g)
 
   -- Synonyms
-  compEqv = ≃-trans
+  compEqv = _:>≃_
+  ≃-trans = _:>≃_
+  _∘≃_    = _:>≃_
 \end{code}
 
 {: .foldable until="5"}

@@ -1,0 +1,148 @@
+---
+layout: page
+title: "Univalence Lemma for id Equivalence"
+category: lemmas functions homotopy
+toc: true
+agda: true
+gallery: true
+latex: true
+references: false
+linkify: true
+showcitation: true
+---
+
+<div class="hide" >
+\begin{code}%
+\>[0]\AgdaSymbol{\{-\#}\AgdaSpace{}%
+\AgdaKeyword{OPTIONS}\AgdaSpace{}%
+\AgdaPragma{--without-K}\AgdaSpace{}%
+\AgdaSymbol{\#-\}}\<%
+\\
+\>[0]\AgdaKeyword{module}\AgdaSpace{}%
+\AgdaModule{\AgdaUnderscore{}}\AgdaSpace{}%
+\AgdaKeyword{where}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{TransportLemmas}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{EquivalenceType}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HomotopyType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{FunExtAxiom}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{EquivalenceType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{QuasiinverseType}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{QuasiinverseLemmas}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{UnivalenceAxiom}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{UnivalenceTransport}\<%
+\\
+\>[0]\AgdaKeyword{open}\AgdaSpace{}%
+\AgdaKeyword{import}\AgdaSpace{}%
+\AgdaModule{HLevelLemmas}\<%
+\end{code}
+</div>
+
+#### Univalence Lemma for id Equivalence
+
+\begin{code}%
+\>[0]\AgdaKeyword{module}\AgdaSpace{}%
+\AgdaModule{UnivalenceIdEquiv}\AgdaSpace{}%
+\AgdaKeyword{where}\<%
+\end{code}
+
+The identity equivalence creates the trivial path.
+
+{: .foldable until="4" }
+\begin{code}%
+\>[0][@{}l@{\AgdaIndent{1}}]%
+\>[2]\AgdaFunction{ua-id}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
+\AgdaSymbol{:}\AgdaSpace{}%
+\AgdaFunction{Type}\AgdaSpace{}%
+\AgdaGeneralizable{ℓ}\AgdaSymbol{\}}\<%
+\\
+%
+\>[4]\AgdaComment{--------------------}\<%
+\\
+%
+\>[4]\AgdaSymbol{→}\AgdaSpace{}%
+\AgdaFunction{ua}\AgdaSpace{}%
+\AgdaFunction{idEqv}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{≡}}\AgdaSpace{}%
+\AgdaFunction{refl}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\\[\AgdaEmptyExtraSkip]%
+%
+\>[2]\AgdaFunction{ua-id}\AgdaSpace{}%
+\AgdaSymbol{\{}\AgdaArgument{A}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{\}}\AgdaSpace{}%
+\AgdaSymbol{=}\<%
+\\
+\>[2][@{}l@{\AgdaIndent{0}}]%
+\>[4]\AgdaOperator{\AgdaFunction{begin}}\<%
+\\
+\>[4][@{}l@{\AgdaIndent{0}}]%
+\>[6]\AgdaFunction{ua}\AgdaSpace{}%
+\AgdaFunction{idEqv}\<%
+\\
+\>[6][@{}l@{\AgdaIndent{0}}]%
+\>[8]\AgdaOperator{\AgdaFunction{≡⟨}}\AgdaSpace{}%
+\AgdaFunction{ap}\AgdaSpace{}%
+\AgdaFunction{ua}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{sameEqv}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{refl}\AgdaSpace{}%
+\AgdaFunction{id}\AgdaSymbol{))}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{⟩}}\<%
+\\
+%
+\>[6]\AgdaFunction{ua}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{idtoeqv}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{refl}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{))}\<%
+\\
+\>[6][@{}l@{\AgdaIndent{0}}]%
+\>[8]\AgdaOperator{\AgdaFunction{≡⟨}}\AgdaSpace{}%
+\AgdaFunction{ua-η}\AgdaSpace{}%
+\AgdaSymbol{(}\AgdaFunction{refl}\AgdaSpace{}%
+\AgdaBound{A}\AgdaSymbol{)}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{⟩}}\<%
+\\
+%
+\>[6]\AgdaFunction{refl}\AgdaSpace{}%
+\AgdaBound{A}\<%
+\\
+%
+\>[4]\AgdaOperator{\AgdaFunction{∎}}\<%
+\end{code}

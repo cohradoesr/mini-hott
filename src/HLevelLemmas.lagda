@@ -46,7 +46,7 @@ We are planning to fix that issue.
 module HLevelLemmas where
 \end{code}
 
-For any type, $A : \Type$,
+For any type, $$A : \Type$$,
 
 {: .equation }
   $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \mathsf{isGroupoid}{A}.$$
@@ -132,7 +132,7 @@ Examples of propositions:
     : isProp {lzero} ⊥
   ⊥-is-prop x ()
 
-  𝟙-is-prop 
+  𝟙-is-prop
     : ∀ {ℓ} → isProp (𝟙 {ℓ})
   𝟙-is-prop unit .unit = idp
 
@@ -201,7 +201,7 @@ proposition.
 \end{code}
 
 Propositional extensionality, here stated as `prop-ext`,
-is a consequence of univalence axiom. 
+is a consequence of univalence axiom.
 
 {: .foldable until="8"}
 \begin{code}
@@ -353,7 +353,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 \end{code}
 
 \begin{code}
-  postulate 
+  postulate
    is-set-equiv-to-set
     : {A B : Type  ℓᵢ}
     → A ≃ B
@@ -367,7 +367,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
     : {A : Type ℓ}
     → isSet A
     → {a a' : A}
-    → a ≡ a' → isContr (a ≡ a') 
+    → a ≡ a' → isContr (a ≡ a')
 
   id-contractible-from-set iA {a}{.a} idp
     = idp , λ q → iA a a idp q
@@ -385,7 +385,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 
  --  ≡-is-set-from-sets iA iB = {!!}
 \end{code}
- 
+
 Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 
 {: .foldable until="4"}
@@ -439,7 +439,7 @@ Lemma 3.3.2 (HoTT-Book):
     lemma333 iA 𝟙-is-prop (λ _ → unit) (λ _ → a)
 
   BookLemma332 = prop-inhabited-≃𝟙
-\end{code}  
+\end{code}
 
 From Exercise 3.5 (HoTT-Book):
 \begin{code}
@@ -486,7 +486,7 @@ Equality of same-morphism equivalences
 {: .foldable until="6"}
 \begin{code}
   sameEqv
-    : {A : Type ℓᵢ}{B : Type ℓⱼ} 
+    : {A : Type ℓᵢ}{B : Type ℓⱼ}
     → {α β : A ≃ B}
     → π₁ α == π₁ β
     →    α == β
@@ -520,11 +520,11 @@ Equality of same-morphism equivalences
     → isProp B
     -----------------
     → isProp (A == B)
-    
+
   propEqvIsprop iA iB p q =
     begin
       p
-        ≡⟨ ! (ua-η p) ⟩ 
+        ≡⟨ ! (ua-η p) ⟩
       ua (idtoeqv p)
         ≡⟨ ap ua (equiv-iff-hprop iA iB (idtoeqv p) (idtoeqv q)) ⟩
       ua (idtoeqv q)
@@ -623,7 +623,7 @@ FIXME : Put this somewhere else
 
       β : (π₂ u) ≡ (π₂ v) [ B / α ]
       β = λ-iB (π₁ v) (tr B α (π₂ u)) (π₂ v)
-\end{code}  
+\end{code}
 
 \begin{code}
   postulate
@@ -644,7 +644,7 @@ with implicit parameters.
      → ((a : A) → isProp (B a))
      --------------------------
      → isProp ({a : A} → B a)
-     
+
   pi-is-prop-implicit {A = A} {B} f = isProp-≃ explicit-≃-implicit (pi-is-prop f)
     where
      explicit-≃-implicit
@@ -653,7 +653,7 @@ with implicit parameters.
        where
          go : ((a : A) → B a) → ({a : A} → B a)
          go f {a} = f a
-\end{code}  
+\end{code}
 
 
 \begin{code}

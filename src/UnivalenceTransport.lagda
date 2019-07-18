@@ -20,6 +20,8 @@ open import EquivalenceType
 open import HomotopyType
 open import FunExtAxiom
 open import QuasiinverseType
+open import QuasiinverseLemmas
+
 
 open import UnivalenceAxiom
 \end{code}
@@ -109,11 +111,13 @@ module UnivalenceTransport where
   coe-ua α = happly (ap (lemap) (ua-β α))
 \end{code}
 
+{: .foldable until="6" }
 \begin{code}
   coe-ua-· 
     : ∀ {ℓ} {A B C : Type ℓ}
     → (α : A ≃ B)
     → (β : B ≃ C)
+    --------------------------------------------------
     → coe (ua α · ua β) ≡ ((coe (ua α)) :> coe (ua β))
 
   coe-ua-· α β =
@@ -126,4 +130,39 @@ module UnivalenceTransport where
         ≡⟨ idp ⟩
      ((coe (ua α)) :> coe (ua β))
     ∎
+\end{code}
+
+In addition, we can state a similar result with `idtoequiv`:
+
+{: .foldable until="6"}
+\begin{code}
+  idtoequiv-ua-·
+    : ∀ {ℓ} {A B C : Type ℓ}
+    → (α : A ≃ B)
+    → (β : B ≃ C)
+    ---------------------------------------------------
+    → ite (ua α · ua β) ≡ ((ite (ua α)) ∘≃ (ite (ua β)))
+
+  idtoequiv-ua-· α β = sameEqv (coe-ua-· α β)
+    where open import HLevelLemmas
+    
+  ite-ua-· = idtoequiv-ua-·
+\end{code}
+
+\begin{code}
+  postulate
+   ∘≃-ite-ua
+    : ∀ {ℓ} {A B C : Type ℓ}
+    → (α : A ≃ B)
+    → (β : B ≃ C)
+    → (α ∘≃ β) ≡ ite (ua α · ua β)
+
+  {- lemma α β =
+        begin
+          (α ∘≃ β)
+            ≡⟨ ap₂ (λ x y → x ∘≃ y) (! (ua-β α)) (! (ua-β β)) ⟩
+          (ite (ua α)) ∘≃ (ite (ua β))
+            ≡⟨ ! (ite-ua-· α β) ⟩
+          ite (ua α · ua β)
+  -}
 \end{code}

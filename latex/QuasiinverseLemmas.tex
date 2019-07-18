@@ -64,7 +64,8 @@ The equivalence types are indeed equivalence
 {: .foldable until="7" }
 \begin{code}%
 \>[0][@{}l@{\AgdaIndent{1}}]%
-\>[2]\AgdaComment{-- Composition of quasiinverses}\<%
+\>[2]\AgdaComment{-- Composi}\AgdaComment{t}\AgdaComment{i}\AgdaComment{o}\AgdaComment{n o}\AgdaComment{f}\AgdaSpace{}%
+\AgdaComment{quasiin}\AgdaComment{v}\AgdaComment{e}\AgdaComment{rses}\<%
 \\
 %
 \>[2]\AgdaFunction{qinv-comp}\<%
@@ -306,7 +307,7 @@ Equivalence types are equivalence relations.
 \>[2]\AgdaComment{-- Lemma.}\<%
 \\
 %
-\>[2]\AgdaFunction{≃-trans}\<%
+\>[2]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}:>≃\AgdaUnderscore{}}}\<%
 \\
 \>[2][@{}l@{\AgdaIndent{0}}]%
 \>[4]\AgdaSymbol{:}\AgdaSpace{}%
@@ -349,7 +350,7 @@ Equivalence types are equivalence relations.
 %
 \\[\AgdaEmptyExtraSkip]%
 %
-\>[2]\AgdaFunction{≃-trans}\AgdaSpace{}%
+\>[2]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}:>≃\AgdaUnderscore{}}}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaArgument{A}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{A}\AgdaSymbol{\}}\AgdaSpace{}%
@@ -394,7 +395,17 @@ Equivalence types are equivalence relations.
 %
 \>[2]\AgdaFunction{compEqv}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
-\AgdaFunction{≃-trans}\<%
+\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}:>≃\AgdaUnderscore{}}}\<%
+\\
+%
+\>[2]\AgdaFunction{≃-trans}\AgdaSpace{}%
+\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}:>≃\AgdaUnderscore{}}}\<%
+\\
+%
+\>[2]\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}∘≃\AgdaUnderscore{}}}%
+\>[10]\AgdaSymbol{=}\AgdaSpace{}%
+\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}:>≃\AgdaUnderscore{}}}\<%
 \end{code}
 
 {: .foldable until="5"}

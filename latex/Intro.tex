@@ -10,15 +10,20 @@ linkify: true
 showcitation: true
 ---
 
-This is a library to learn Univalent Type Theory in [Agda](http://github.com/agda/agda).
-It's been developing at [University of Bergen](https://www.uib.no/) in the Programming Theory Research Group
-of the department of informatics.
+![path](/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
 
-No other libraries are required to use this Agda library. To ease its adoption, we have included synonyms
-and syntax sugar for types, lemmas, and theorems. Naming things and remember them has always been a hassle.
-We think all the synomyms included aliviate this issue. Regarding performance, we would recommend you another option, maybe
-`HoTT-Agda` library. As with any other work, please see the references at the end, which they
-might contain better explanation of our exposition.
+This is a library for Univalent Type Theory in
+[Agda](http://github.com/agda/agda) developed at [University of
+Bergen](https://www.uib.no/) in the Programming Theory Research Group of the
+department of informatics.
+
+No other libraries are required to use this Agda library. To ease its adoption,
+we have included synonyms and syntax sugar for types, lemmas, and theorems.
+Naming things and remember them has always been a hassle. We think all the
+synonyms included alleviate this issue. Regarding performance, we would
+recommend you another option, maybe `HoTT-Agda` library. As with any other work,
+please see the references at the end, which they might contain better
+explanation of our exposition.
 
 # Code
 
@@ -34,7 +39,7 @@ might contain better explanation of our exposition.
 as follows:
 
   - `pip install agda-pkg`
-  - `apkg install mini-hott`
+  - `apkg install mini-hott` (not indexed at the moment until it's more stable)
 
 - Use the library by including the following import at the top of your source code:
 
@@ -42,9 +47,9 @@ as follows:
 
 ## Style
 
-Definitions and theorems are typed with unicode characteres, we believe they
-improve significantly its readability. Very often, we present them as rule
-inferences (with hyphens), to denote after the line the main conclusion or the output.
+Definitions and theorems are typed with unicode characters, we believe they
+improve significantly the readability. We usually present lemmas and theorems as
+rule inferences as in the following example.
 
 ```
 termName
@@ -52,18 +57,19 @@ termName
   → (t2 : type2)
   → ...
   ---------------------
-  → ... (t1 t2) → ... 
+  → ... (t1 t2) → ...
 ```
 
-On the website, we often collapse the term definitions but if you are interested on these,
-you can expand them by clicking on their types.
+On the website, we show the type for each term and the term definition is
+collapsed. However, you can expand them by clicking on the code boxes (this
+requires Javascript).
 
-``` 
+```
 termName = definition
   where
   helper1 : ...
   helper2 = def...
-```  
+```
 
 Infix precedence:
 
@@ -73,9 +79,7 @@ infix X termName
 
 ## Proof relevancy
 
-![path](/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
-
-To be consistent with univalent type theory, we tell `Agda` to not use *Axiom K*
+To be consistent with Univalent Type Theory, we tell `Agda` to not use *Axiom K*
 for type-checking by using the option `without-K`.
 
 \begin{code}%

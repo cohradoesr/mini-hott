@@ -138,6 +138,15 @@ showcitation: true
 
 {% include_relative UnivalenceTransport.md %}
 
+[UnivalenceIdEquiv.lagda]({% link UnivalenceIdEquiv.md %})
+
+{% include_relative UnivalenceIdEquiv.md %}
+
+[UnivalenceLemmas.lagda]({% link UnivalenceLemmas.md %})
+
+{% include_relative UnivalenceLemmas.md %}
+
+
 ## Higher inductive types
 
 [CircleType.lagda]({% link CircleType.md %})

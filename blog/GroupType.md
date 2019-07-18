@@ -31,9 +31,8 @@ showcitation: true
     <a id="422" class="Keyword">where</a>
 </pre>
 
-A group is a monoid with something else, which is, the property of having an
-inverse of the operation. Thus, exists the function $\mathsf{inverse} : G → G}$
-such that:
+A group $G$ is a monoid with something else, *inverses* for each element.
+This means, there is a function $\mathsf{inverse} : G → G$ such that:
 
 $$∀ (x : G) → \mathsf{inverse}(x) <> x ≡ e\text {  and  }x <>
 \mathsf{inverse}(x)  ≡ e,$$
@@ -43,15 +42,15 @@ monoid. This is the following type for groups:
 
 
 <pre class="Agda">
-  <a id="Group"></a><a id="844" href="GroupType.html#844" class="Function">Group</a>
-    <a id="854" class="Symbol">:</a> <a id="856" class="Symbol">∀</a> <a id="858" class="Symbol">{</a><a id="859" href="GroupType.html#859" class="Bound">ℓ</a><a id="860" class="Symbol">}</a> <a id="862" class="Symbol">→</a> <a id="864" href="Intro.html#1803" class="Function">Type</a> <a id="869" class="Symbol">(</a><a id="870" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="875" href="GroupType.html#859" class="Bound">ℓ</a><a id="876" class="Symbol">)</a>
+  <a id="Group"></a><a id="820" href="GroupType.html#820" class="Function">Group</a>
+    <a id="830" class="Symbol">:</a> <a id="832" class="Symbol">∀</a> <a id="834" class="Symbol">{</a><a id="835" href="GroupType.html#835" class="Bound">ℓ</a><a id="836" class="Symbol">}</a> <a id="838" class="Symbol">→</a> <a id="840" href="Intro.html#2793" class="Function">Type</a> <a id="845" class="Symbol">(</a><a id="846" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="851" href="GroupType.html#835" class="Bound">ℓ</a><a id="852" class="Symbol">)</a>
 
-  <a id="881" href="GroupType.html#844" class="Function">Group</a>
-    <a id="891" class="Symbol">=</a> <a id="893" href="BasicTypes.html#1497" class="Record">∑</a> <a id="895" class="Symbol">(</a><a id="896" href="MonoidType.html#872" class="Record">Monoid</a><a id="902" class="Symbol">)</a> <a id="904" class="Symbol">(λ</a> <a id="907" class="Symbol">{(</a><a id="909" href="MonoidType.html#929" class="InductiveConstructor">monoid</a> <a id="916" href="GroupType.html#916" class="Bound">G</a> <a id="918" href="GroupType.html#918" class="Bound">e</a> <a id="920" href="GroupType.html#920" class="Bound Operator">_&lt;&gt;_</a> <a id="925" href="GroupType.html#925" class="Bound">GisSet</a> <a id="932" href="GroupType.html#932" class="Bound">lunit</a> <a id="938" href="GroupType.html#938" class="Bound">runit</a> <a id="944" href="GroupType.html#944" class="Bound">assoc</a><a id="949" class="Symbol">)</a>
-      <a id="957" class="Symbol">→</a> <a id="959" href="BasicTypes.html#1497" class="Record">∑</a> <a id="961" class="Symbol">(</a><a id="962" href="GroupType.html#916" class="Bound">G</a> <a id="964" class="Symbol">→</a> <a id="966" href="GroupType.html#916" class="Bound">G</a><a id="967" class="Symbol">)</a> <a id="969" class="Symbol">(λ</a> <a id="972" href="GroupType.html#972" class="Bound">inverse</a> <a id="980" class="Symbol">→</a>
-        <a id="990" href="BasicTypes.html#2022" class="Function">∏</a> <a id="992" href="GroupType.html#916" class="Bound">G</a> <a id="994" class="Symbol">(λ</a> <a id="997" href="GroupType.html#997" class="Bound">x</a> <a id="999" class="Symbol">→</a>
-          <a id="1011" class="Comment">-- properties:</a>
-          <a id="1036" class="Symbol">(</a>   <a id="1040" class="Symbol">(</a><a id="1041" href="GroupType.html#997" class="Bound">x</a> <a id="1043" href="GroupType.html#920" class="Bound Operator">&lt;&gt;</a> <a id="1046" href="GroupType.html#972" class="Bound">inverse</a> <a id="1054" href="GroupType.html#997" class="Bound">x</a><a id="1055" class="Symbol">)</a> <a id="1057" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1060" href="GroupType.html#918" class="Bound">e</a><a id="1061" class="Symbol">)</a>
-          <a id="1073" href="BasicTypes.html#2139" class="Function Operator">×</a> <a id="1075" class="Symbol">(</a> <a id="1077" class="Symbol">(</a><a id="1078" href="GroupType.html#972" class="Bound">inverse</a> <a id="1086" href="GroupType.html#997" class="Bound">x</a> <a id="1088" href="GroupType.html#920" class="Bound Operator">&lt;&gt;</a> <a id="1091" href="GroupType.html#997" class="Bound">x</a><a id="1092" class="Symbol">)</a> <a id="1094" href="BasicTypes.html#4284" class="Datatype Operator">==</a> <a id="1097" href="GroupType.html#918" class="Bound">e</a> <a id="1099" class="Symbol">))</a>
-          <a id="1112" class="Symbol">)})</a>
+  <a id="857" href="GroupType.html#820" class="Function">Group</a>
+    <a id="867" class="Symbol">=</a> <a id="869" href="BasicTypes.html#1497" class="Record">∑</a> <a id="871" class="Symbol">(</a><a id="872" href="MonoidType.html#872" class="Record">Monoid</a><a id="878" class="Symbol">)</a> <a id="880" class="Symbol">(λ</a> <a id="883" class="Symbol">{(</a><a id="885" href="MonoidType.html#929" class="InductiveConstructor">monoid</a> <a id="892" href="GroupType.html#892" class="Bound">G</a> <a id="894" href="GroupType.html#894" class="Bound">e</a> <a id="896" href="GroupType.html#896" class="Bound Operator">_&lt;&gt;_</a> <a id="901" href="GroupType.html#901" class="Bound">GisSet</a> <a id="908" href="GroupType.html#908" class="Bound">lunit</a> <a id="914" href="GroupType.html#914" class="Bound">runit</a> <a id="920" href="GroupType.html#920" class="Bound">assoc</a><a id="925" class="Symbol">)</a>
+      <a id="933" class="Symbol">→</a> <a id="935" href="BasicTypes.html#1497" class="Record">∑</a> <a id="937" class="Symbol">(</a><a id="938" href="GroupType.html#892" class="Bound">G</a> <a id="940" class="Symbol">→</a> <a id="942" href="GroupType.html#892" class="Bound">G</a><a id="943" class="Symbol">)</a> <a id="945" class="Symbol">(λ</a> <a id="948" href="GroupType.html#948" class="Bound">inverse</a> <a id="956" class="Symbol">→</a>
+        <a id="966" href="BasicTypes.html#2031" class="Function">∏</a> <a id="968" href="GroupType.html#892" class="Bound">G</a> <a id="970" class="Symbol">(λ</a> <a id="973" href="GroupType.html#973" class="Bound">x</a> <a id="975" class="Symbol">→</a>
+          <a id="987" class="Comment">-- properties:</a>
+          <a id="1012" class="Symbol">(</a>   <a id="1016" class="Symbol">(</a><a id="1017" href="GroupType.html#973" class="Bound">x</a> <a id="1019" href="GroupType.html#896" class="Bound Operator">&lt;&gt;</a> <a id="1022" href="GroupType.html#948" class="Bound">inverse</a> <a id="1030" href="GroupType.html#973" class="Bound">x</a><a id="1031" class="Symbol">)</a> <a id="1033" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="1036" href="GroupType.html#894" class="Bound">e</a><a id="1037" class="Symbol">)</a>
+          <a id="1049" href="BasicTypes.html#2148" class="Function Operator">×</a> <a id="1051" class="Symbol">(</a> <a id="1053" class="Symbol">(</a><a id="1054" href="GroupType.html#948" class="Bound">inverse</a> <a id="1062" href="GroupType.html#973" class="Bound">x</a> <a id="1064" href="GroupType.html#896" class="Bound Operator">&lt;&gt;</a> <a id="1067" href="GroupType.html#973" class="Bound">x</a><a id="1068" class="Symbol">)</a> <a id="1070" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="1073" href="GroupType.html#894" class="Bound">e</a> <a id="1075" class="Symbol">))</a>
+          <a id="1088" class="Symbol">)})</a>
 </pre>

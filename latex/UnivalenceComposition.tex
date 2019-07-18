@@ -64,7 +64,7 @@ showcitation: true
 \\
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
-\AgdaModule{UnivalenceIdEquiv}\<%
+\AgdaModule{UnivalenceLemmas}\<%
 \\
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
@@ -80,7 +80,7 @@ showcitation: true
 \AgdaKeyword{where}\<%
 \end{code}
 
-
+-
 {: .foldable until="6" }
 \begin{code}%
 \>[0][@{}l@{\AgdaIndent{1}}]%
@@ -183,9 +183,9 @@ showcitation: true
 \>[3]\AgdaOperator{\AgdaFunction{∎}}\<%
 \end{code}
 
-Inverses are preserved (Type-check this takes ~30min)
+- Inverses are preserved (Typechecking of this takes ~30min)
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}%
 %
 \>[2]\AgdaKeyword{postulate}\<%
@@ -224,24 +224,25 @@ Inverses are preserved (Type-check this takes ~30min)
 \AgdaFunction{refl}\AgdaSpace{}%
 \AgdaBound{A}\<%
 \\
-%
-\\[\AgdaEmptyExtraSkip]%
+\>[0]\<%
+\\
 %
 \>[2]\AgdaComment{\{-
   ua-inv-r \{A = A\} α =
     begin
-      ua α · ua (≃-sym α)
+      ua α · ua (≃-sym α)      
         ==⟨ ! (ua-comp α (≃-sym α)) ⟩
-      ua (≃-trans α (≃-sym α))
+      ua (≃-trans α (≃-sym α)) 
         ==⟨ ap ua (≃-trans-inv α) ⟩
-      ua idEqv
+      ua idEqv                  
         ==⟨ UnivalenceLemmas.ua-id ⟩
       refl A
     ∎
   -\}}\<%
 \end{code}
 
-{: .foldable until="5" }
+- 
+{: .foldable until="5"}
 \begin{code}%
 %
 \>[2]\AgdaFunction{ua-inv}\<%
@@ -275,8 +276,8 @@ Inverses are preserved (Type-check this takes ~30min)
 \AgdaSymbol{(}\AgdaFunction{ua}\AgdaSpace{}%
 \AgdaBound{α}\AgdaSymbol{)}\<%
 \\
-%
-\\[\AgdaEmptyExtraSkip]%
+\>[0]\<%
+\\
 %
 \>[2]\AgdaFunction{ua-inv}\AgdaSpace{}%
 \AgdaBound{α}\AgdaSpace{}%

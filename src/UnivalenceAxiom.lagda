@@ -20,6 +20,7 @@ open import EquivalenceType
 open import HomotopyType
 open import FunExtAxiom
 open import QuasiinverseType
+open import QuasiinverseLemmas
 \end{code}
 </div>
 
@@ -146,3 +147,5 @@ Computation rules
 
   ua-η p = rlmap-inverse eqvUnivalence
 \end{code}
+
+

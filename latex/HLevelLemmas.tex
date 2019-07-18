@@ -95,7 +95,7 @@ We are planning to fix that issue.
 \AgdaKeyword{where}\<%
 \end{code}
 
-For any type, $A : \Type$,
+For any type, $$A : \Type$$,
 
 {: .equation }
   $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \mathsf{isGroupoid}{A}.$$
@@ -321,30 +321,8 @@ Propositions are Sets:
 \>[6][@{}l@{\AgdaIndent{0}}]%
 \>[8]\AgdaOperator{\AgdaFunction{begin}}\<%
 \\
-\>[4][@{}l@{\AgdaIndent{0}}]%
-\>[5]\AgdaSpace{}%
-\AgdaSpace{}%
-%
-\>[151I]\AgdaSpace{}%
-%
-\>[153I]\AgdaBound{p}%
-\>[13]%
-\>[16]\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-%
-\>[22]\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-\AgdaSpace{}%
-%
+\>[8][@{}l@{\AgdaIndent{0}}]%
+\>[10]\AgdaBound{p}%
 \>[34]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{ap}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaOperator{\AgdaFunction{\AgdaUnderscore{}·}}\AgdaSpace{}%
@@ -356,7 +334,7 @@ Propositions are Sets:
 \AgdaBound{y}\AgdaSymbol{)))}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{⟩}}\<%
 \\
-\>[.][@{}l@{}]\<[153I]%
+%
 \>[10]\AgdaOperator{\AgdaFunction{!}}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
@@ -410,7 +388,7 @@ Propositions are Sets:
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaBound{w}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[151I]%
+%
 \>[8]\AgdaOperator{\AgdaFunction{∎}}\<%
 \end{code}
 
@@ -671,12 +649,12 @@ the strong use of function extensionality, used twice here.
 \AgdaBound{x}\AgdaSpace{}%
 \AgdaBound{y}\AgdaSpace{}%
 \AgdaSymbol{→}%
-\>[344I]\AgdaFunction{funext}\AgdaSpace{}%
+\>[325I]\AgdaFunction{funext}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSpace{}%
 \AgdaSymbol{→}\<%
 \\
-\>[344I][@{}l@{\AgdaIndent{0}}]%
+\>[325I][@{}l@{\AgdaIndent{0}}]%
 \>[14]\AgdaFunction{funext}\AgdaSpace{}%
 \AgdaSymbol{(λ}\AgdaSpace{}%
 \AgdaBound{b}\<%
@@ -807,7 +785,7 @@ proposition.
 \end{code}
 
 Propositional extensionality, here stated as `prop-ext`,
-is a consequence of univalence axiom. 
+is a consequence of univalence axiom.
 
 {: .foldable until="8"}
 \begin{code}%
@@ -1544,7 +1522,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 \>[0][@{}l@{\AgdaIndent{19}}]%
 \>[1]\AgdaComment{--  ≡-is-set-from-sets iA iB = \{!!\}}\<%
 \end{code}
- 
+
 Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 
 {: .foldable until="4"}
@@ -1797,7 +1775,7 @@ Lemma 3.3.2 (HoTT-Book):
 \>[2]\AgdaFunction{BookLemma332}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{prop-inhabited-≃𝟙}\<%
-\end{code}  
+\end{code}
 
 From Exercise 3.5 (HoTT-Book):
 \begin{code}%
@@ -2166,8 +2144,8 @@ Equality of same-morphism equivalences
 \AgdaOperator{\AgdaDatatype{==}}\AgdaSpace{}%
 \AgdaBound{B}\AgdaSymbol{)}\<%
 \\
-\>[0]\<%
-\\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{propEqvIsprop}\AgdaSpace{}%
 \AgdaBound{iA}\AgdaSpace{}%
@@ -2564,22 +2542,22 @@ Equivalence of propositions is the same logical equivalence.
 \\
 \>[6][@{}l@{\AgdaIndent{0}}]%
 \>[8]\AgdaFunction{g}%
-\>[1256I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
+\>[1237I]\AgdaSymbol{(}\AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaBound{e}\AgdaSpace{}%
 \AgdaOperator{\AgdaFunction{∙←}}\AgdaSymbol{)}\<%
 \\
-\>[.][@{}l@{}]\<[1256I]%
+\>[.][@{}l@{}]\<[1237I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨⟩}}\<%
 \\
 %
 \>[8]\AgdaBound{e}%
-\>[1261I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
+\>[1242I]\AgdaOperator{\AgdaFunction{∙→}}\AgdaSpace{}%
 \AgdaOperator{\AgdaInductiveConstructor{,}}\AgdaSpace{}%
 \AgdaSymbol{\AgdaUnderscore{}}\<%
 \\
-\>[.][@{}l@{}]\<[1261I]%
+\>[.][@{}l@{}]\<[1242I]%
 \>[10]\AgdaOperator{\AgdaFunction{==⟨}}\AgdaSpace{}%
 \AgdaFunction{Σ-bycomponents}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaInductiveConstructor{idp}\AgdaSpace{}%
@@ -2711,7 +2689,7 @@ FIXME : Put this somewhere else
 \AgdaBound{u}\AgdaSymbol{))}\AgdaSpace{}%
 \AgdaSymbol{(}\AgdaField{π₂}\AgdaSpace{}%
 \AgdaBound{v}\AgdaSymbol{)}\<%
-\end{code}  
+\end{code}
 
 \begin{code}%
 %
@@ -2800,8 +2778,8 @@ with implicit parameters.
 \AgdaBound{B}\AgdaSpace{}%
 \AgdaBound{a}\AgdaSymbol{)}\<%
 \\
-\>[0]\<%
-\\
+%
+\\[\AgdaEmptyExtraSkip]%
 %
 \>[2]\AgdaFunction{pi-is-prop-implicit}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaArgument{A}\AgdaSpace{}%
@@ -2885,7 +2863,7 @@ with implicit parameters.
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{a}\<%
-\end{code}  
+\end{code}
 
 
 \begin{code}%
