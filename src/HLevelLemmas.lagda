@@ -662,15 +662,29 @@ open HLevelLemmas public
 
 \begin{code}
 postulate
- univalent-lem
-  : ∀ {ℓ} {P : Type ℓ}
-  → isProp P
-  ------------
-  → P + (¬ P)
+  law-excluded-middle
+    : ∀ {ℓ} {P : Type ℓ}
+    → isProp P
+    ------------
+    → P + (¬ P)
+
+LEM = law-excluded-middle
 \end{code}
 
+and the more general propositions-as-types formulation of the
+law of excluded middle is:
+
 \begin{code}
- univalent-double-implication
+postulate
+ LEM∞
+   : {A : Type ℓ}
+   → A + (¬ A)
+\end{code}
+
+
+\begin{code}
+postulate
+ law-double-negation
    : ∀ {ℓ} {P : Type ℓ}
    → isProp P
    -----------
