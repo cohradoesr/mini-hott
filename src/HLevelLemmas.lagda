@@ -682,11 +682,17 @@ postulate
 \end{code}
 
 
+{: .foldable until="5"}
 \begin{code}
-postulate
- law-double-negation
-   : ∀ {ℓ} {P : Type ℓ}
-   → isProp P
-   -----------
-   → (¬ (¬ P)) → P
+law-double-negation
+ : ∀ {ℓ} {P : Type ℓ}
+ → isProp P
+ -----------
+ → (¬ (¬ P)) → P
+
+law-double-negation iP with LEM iP
+law-double-negation iP | inl x = λ _ → x
+law-double-negation iP | inr x = λ p→⊥→⊥ → ⊥-elim (p→⊥→⊥ x) 
 \end{code}
+
+Law excluded middle and law of double negation are both equivalent.
