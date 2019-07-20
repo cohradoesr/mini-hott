@@ -696,3 +696,20 @@ law-double-negation iP | inr x = λ p→⊥→⊥ → ⊥-elim (p→⊥→⊥ x)
 \end{code}
 
 Law excluded middle and law of double negation are both equivalent.
+
+
+Weak extensionality principle:
+
+\begin{code}
+WeakExtensionalityPrinciple
+  : {A : Type ℓ} {P : A → Type ℓ}
+  → ((x : A) → isContr (P x))
+  -------------------------
+  → isContr ( ∏ A P )
+
+WeakExtensionalityPrinciple {A = A}{P} f =
+  (fx , λ h →  ! funext (λ x → ! (π₂ (f x)) (h x)))
+  where
+   fx : ∏ A P
+   fx = λ x → π₁ (f x)
+\end{code}

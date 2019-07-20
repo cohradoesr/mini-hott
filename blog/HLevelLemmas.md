@@ -662,17 +662,53 @@ with implicit parameters.
 
 <pre class="Agda">
 <a id="13849" class="Keyword">postulate</a>
- <a id="univalent-lem"></a><a id="13860" href="HLevelLemmas.html#13860" class="Postulate">univalent-lem</a>
-  <a id="13876" class="Symbol">:</a> <a id="13878" class="Symbol">∀</a> <a id="13880" class="Symbol">{</a><a id="13881" href="HLevelLemmas.html#13881" class="Bound">ℓ</a><a id="13882" class="Symbol">}</a> <a id="13884" class="Symbol">{</a><a id="13885" href="HLevelLemmas.html#13885" class="Bound">P</a> <a id="13887" class="Symbol">:</a> <a id="13889" href="Intro.html#2793" class="Function">Type</a> <a id="13894" href="HLevelLemmas.html#13881" class="Bound">ℓ</a><a id="13895" class="Symbol">}</a>
-  <a id="13899" class="Symbol">→</a> <a id="13901" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="13908" href="HLevelLemmas.html#13885" class="Bound">P</a>
-  <a id="13912" class="Comment">------------</a>
-  <a id="13927" class="Symbol">→</a> <a id="13929" href="HLevelLemmas.html#13885" class="Bound">P</a> <a id="13931" href="BasicTypes.html#2351" class="Datatype Operator">+</a> <a id="13933" class="Symbol">(</a><a id="13934" href="BasicTypes.html#885" class="Function">¬</a> <a id="13936" href="HLevelLemmas.html#13885" class="Bound">P</a><a id="13937" class="Symbol">)</a>
+  <a id="law-excluded-middle"></a><a id="13861" href="HLevelLemmas.html#13861" class="Postulate">law-excluded-middle</a>
+    <a id="13885" class="Symbol">:</a> <a id="13887" class="Symbol">∀</a> <a id="13889" class="Symbol">{</a><a id="13890" href="HLevelLemmas.html#13890" class="Bound">ℓ</a><a id="13891" class="Symbol">}</a> <a id="13893" class="Symbol">{</a><a id="13894" href="HLevelLemmas.html#13894" class="Bound">P</a> <a id="13896" class="Symbol">:</a> <a id="13898" href="Intro.html#2793" class="Function">Type</a> <a id="13903" href="HLevelLemmas.html#13890" class="Bound">ℓ</a><a id="13904" class="Symbol">}</a>
+    <a id="13910" class="Symbol">→</a> <a id="13912" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="13919" href="HLevelLemmas.html#13894" class="Bound">P</a>
+    <a id="13925" class="Comment">------------</a>
+    <a id="13942" class="Symbol">→</a> <a id="13944" href="HLevelLemmas.html#13894" class="Bound">P</a> <a id="13946" href="BasicTypes.html#2351" class="Datatype Operator">+</a> <a id="13948" class="Symbol">(</a><a id="13949" href="BasicTypes.html#885" class="Function">¬</a> <a id="13951" href="HLevelLemmas.html#13894" class="Bound">P</a><a id="13952" class="Symbol">)</a>
+
+<a id="LEM"></a><a id="13955" href="HLevelLemmas.html#13955" class="Function">LEM</a> <a id="13959" class="Symbol">=</a> <a id="13961" href="HLevelLemmas.html#13861" class="Postulate">law-excluded-middle</a>
 </pre>
 
+and the more general propositions-as-types formulation of the
+law of excluded middle is:
+
 <pre class="Agda">
- <a id="univalent-double-implication"></a><a id="13965" href="HLevelLemmas.html#13965" class="Postulate">univalent-double-implication</a>
-   <a id="13997" class="Symbol">:</a> <a id="13999" class="Symbol">∀</a> <a id="14001" class="Symbol">{</a><a id="14002" href="HLevelLemmas.html#14002" class="Bound">ℓ</a><a id="14003" class="Symbol">}</a> <a id="14005" class="Symbol">{</a><a id="14006" href="HLevelLemmas.html#14006" class="Bound">P</a> <a id="14008" class="Symbol">:</a> <a id="14010" href="Intro.html#2793" class="Function">Type</a> <a id="14015" href="HLevelLemmas.html#14002" class="Bound">ℓ</a><a id="14016" class="Symbol">}</a>
-   <a id="14021" class="Symbol">→</a> <a id="14023" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="14030" href="HLevelLemmas.html#14006" class="Bound">P</a>
-   <a id="14035" class="Comment">-----------</a>
-   <a id="14050" class="Symbol">→</a> <a id="14052" class="Symbol">(</a><a id="14053" href="BasicTypes.html#885" class="Function">¬</a> <a id="14055" class="Symbol">(</a><a id="14056" href="BasicTypes.html#885" class="Function">¬</a> <a id="14058" href="HLevelLemmas.html#14006" class="Bound">P</a><a id="14059" class="Symbol">))</a> <a id="14062" class="Symbol">→</a> <a id="14064" href="HLevelLemmas.html#14006" class="Bound">P</a>
+<a id="14096" class="Keyword">postulate</a>
+ <a id="LEM∞"></a><a id="14107" href="HLevelLemmas.html#14107" class="Postulate">LEM∞</a>
+   <a id="14115" class="Symbol">:</a> <a id="14117" class="Symbol">{</a><a id="14118" href="HLevelLemmas.html#14118" class="Bound">A</a> <a id="14120" class="Symbol">:</a> <a id="14122" href="Intro.html#2793" class="Function">Type</a> <a id="14127" href="Intro.html#3373" class="Generalizable">ℓ</a><a id="14128" class="Symbol">}</a>
+   <a id="14133" class="Symbol">→</a> <a id="14135" href="HLevelLemmas.html#14118" class="Bound">A</a> <a id="14137" href="BasicTypes.html#2351" class="Datatype Operator">+</a> <a id="14139" class="Symbol">(</a><a id="14140" href="BasicTypes.html#885" class="Function">¬</a> <a id="14142" href="HLevelLemmas.html#14118" class="Bound">A</a><a id="14143" class="Symbol">)</a>
+</pre>
+
+
+{: .foldable until="5"}
+<pre class="Agda">
+<a id="law-double-negation"></a><a id="14195" href="HLevelLemmas.html#14195" class="Function">law-double-negation</a>
+ <a id="14216" class="Symbol">:</a> <a id="14218" class="Symbol">∀</a> <a id="14220" class="Symbol">{</a><a id="14221" href="HLevelLemmas.html#14221" class="Bound">ℓ</a><a id="14222" class="Symbol">}</a> <a id="14224" class="Symbol">{</a><a id="14225" href="HLevelLemmas.html#14225" class="Bound">P</a> <a id="14227" class="Symbol">:</a> <a id="14229" href="Intro.html#2793" class="Function">Type</a> <a id="14234" href="HLevelLemmas.html#14221" class="Bound">ℓ</a><a id="14235" class="Symbol">}</a>
+ <a id="14238" class="Symbol">→</a> <a id="14240" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="14247" href="HLevelLemmas.html#14225" class="Bound">P</a>
+ <a id="14250" class="Comment">-----------</a>
+ <a id="14263" class="Symbol">→</a> <a id="14265" class="Symbol">(</a><a id="14266" href="BasicTypes.html#885" class="Function">¬</a> <a id="14268" class="Symbol">(</a><a id="14269" href="BasicTypes.html#885" class="Function">¬</a> <a id="14271" href="HLevelLemmas.html#14225" class="Bound">P</a><a id="14272" class="Symbol">))</a> <a id="14275" class="Symbol">→</a> <a id="14277" href="HLevelLemmas.html#14225" class="Bound">P</a>
+
+<a id="14280" href="HLevelLemmas.html#14195" class="Function">law-double-negation</a> <a id="14300" href="HLevelLemmas.html#14300" class="Bound">iP</a> <a id="14303" class="Keyword">with</a> <a id="14308" href="HLevelLemmas.html#13955" class="Function">LEM</a> <a id="14312" href="HLevelLemmas.html#14300" class="Bound">iP</a>
+<a id="14315" href="HLevelLemmas.html#14195" class="Function">law-double-negation</a> <a id="14335" href="HLevelLemmas.html#14335" class="Bound">iP</a> <a id="14338" class="Symbol">|</a> <a id="14340" href="BasicTypes.html#2414" class="InductiveConstructor">inl</a> <a id="14344" href="HLevelLemmas.html#14344" class="Bound">x</a> <a id="14346" class="Symbol">=</a> <a id="14348" class="Symbol">λ</a> <a id="14350" href="HLevelLemmas.html#14350" class="Bound">_</a> <a id="14352" class="Symbol">→</a> <a id="14354" href="HLevelLemmas.html#14344" class="Bound">x</a>
+<a id="14356" href="HLevelLemmas.html#14195" class="Function">law-double-negation</a> <a id="14376" href="HLevelLemmas.html#14376" class="Bound">iP</a> <a id="14379" class="Symbol">|</a> <a id="14381" href="BasicTypes.html#2432" class="InductiveConstructor">inr</a> <a id="14385" href="HLevelLemmas.html#14385" class="Bound">x</a> <a id="14387" class="Symbol">=</a> <a id="14389" class="Symbol">λ</a> <a id="14391" href="HLevelLemmas.html#14391" class="Bound">p→⊥→⊥</a> <a id="14397" class="Symbol">→</a> <a id="14399" href="BasicTypes.html#746" class="Function">⊥-elim</a> <a id="14406" class="Symbol">(</a><a id="14407" href="HLevelLemmas.html#14391" class="Bound">p→⊥→⊥</a> <a id="14413" href="HLevelLemmas.html#14385" class="Bound">x</a><a id="14414" class="Symbol">)</a> 
+</pre>
+
+Law excluded middle and law of double negation are both equivalent.
+
+
+Weak extensionality principle:
+<pre class="Agda">
+<a id="WeakExtensionalityPrinciple"></a><a id="14543" href="HLevelLemmas.html#14543" class="Function">WeakExtensionalityPrinciple</a>
+  <a id="14573" class="Symbol">:</a> <a id="14575" class="Symbol">{</a><a id="14576" href="HLevelLemmas.html#14576" class="Bound">A</a> <a id="14578" class="Symbol">:</a> <a id="14580" href="Intro.html#2793" class="Function">Type</a> <a id="14585" href="Intro.html#3373" class="Generalizable">ℓ</a><a id="14586" class="Symbol">}</a> <a id="14588" class="Symbol">{</a><a id="14589" href="HLevelLemmas.html#14589" class="Bound">P</a> <a id="14591" class="Symbol">:</a> <a id="14593" href="HLevelLemmas.html#14576" class="Bound">A</a> <a id="14595" class="Symbol">→</a> <a id="14597" href="Intro.html#2793" class="Function">Type</a> <a id="14602" href="Intro.html#3373" class="Generalizable">ℓ</a><a id="14603" class="Symbol">}</a>
+  <a id="14607" class="Symbol">→</a> <a id="14609" class="Symbol">((</a><a id="14611" href="HLevelLemmas.html#14611" class="Bound">x</a> <a id="14613" class="Symbol">:</a> <a id="14615" href="HLevelLemmas.html#14576" class="Bound">A</a><a id="14616" class="Symbol">)</a> <a id="14618" class="Symbol">→</a> <a id="14620" href="HLevelTypes.html#603" class="Function">isContr</a> <a id="14628" class="Symbol">(</a><a id="14629" href="HLevelLemmas.html#14589" class="Bound">P</a> <a id="14631" href="HLevelLemmas.html#14611" class="Bound">x</a><a id="14632" class="Symbol">))</a>
+  <a id="14637" class="Comment">-------------------------</a>
+  <a id="14665" class="Symbol">→</a> <a id="14667" href="HLevelTypes.html#603" class="Function">isContr</a> <a id="14675" class="Symbol">(</a> <a id="14677" href="BasicTypes.html#2031" class="Function">∏</a> <a id="14679" href="HLevelLemmas.html#14576" class="Bound">A</a> <a id="14681" href="HLevelLemmas.html#14589" class="Bound">P</a> <a id="14683" class="Symbol">)</a>
+
+<a id="14686" href="HLevelLemmas.html#14543" class="Function">WeakExtensionalityPrinciple</a> <a id="14714" class="Symbol">{</a><a id="14715" class="Argument">A</a> <a id="14717" class="Symbol">=</a> <a id="14719" href="HLevelLemmas.html#14719" class="Bound">A</a><a id="14720" class="Symbol">}{</a><a id="14722" href="HLevelLemmas.html#14722" class="Bound">P</a><a id="14723" class="Symbol">}</a> <a id="14725" href="HLevelLemmas.html#14725" class="Bound">f</a> <a id="14727" class="Symbol">=</a>
+  <a id="14731" class="Symbol">(</a><a id="14732" href="HLevelLemmas.html#14792" class="Function">fx</a> <a id="14735" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="14737" class="Symbol">λ</a> <a id="14739" href="HLevelLemmas.html#14739" class="Bound">h</a> <a id="14741" class="Symbol">→</a>  <a id="14744" href="BasicFunctions.html#4249" class="Function Operator">!</a> <a id="14746" href="FunExtAxiom.html#952" class="Function">funext</a> <a id="14753" class="Symbol">(λ</a> <a id="14756" href="HLevelLemmas.html#14756" class="Bound">x</a> <a id="14758" class="Symbol">→</a> <a id="14760" href="BasicFunctions.html#4249" class="Function Operator">!</a> <a id="14762" class="Symbol">(</a><a id="14763" href="BasicTypes.html#1608" class="Field">π₂</a> <a id="14766" class="Symbol">(</a><a id="14767" href="HLevelLemmas.html#14725" class="Bound">f</a> <a id="14769" href="HLevelLemmas.html#14756" class="Bound">x</a><a id="14770" class="Symbol">))</a> <a id="14773" class="Symbol">(</a><a id="14774" href="HLevelLemmas.html#14739" class="Bound">h</a> <a id="14776" href="HLevelLemmas.html#14756" class="Bound">x</a><a id="14777" class="Symbol">)))</a>
+  <a id="14783" class="Keyword">where</a>
+   <a id="14792" href="HLevelLemmas.html#14792" class="Function">fx</a> <a id="14795" class="Symbol">:</a> <a id="14797" href="BasicTypes.html#2031" class="Function">∏</a> <a id="14799" href="HLevelLemmas.html#14719" class="Bound">A</a> <a id="14801" href="HLevelLemmas.html#14722" class="Bound">P</a>
+   <a id="14806" href="HLevelLemmas.html#14792" class="Function">fx</a> <a id="14809" class="Symbol">=</a> <a id="14811" class="Symbol">λ</a> <a id="14813" href="HLevelLemmas.html#14813" class="Bound">x</a> <a id="14815" class="Symbol">→</a> <a id="14817" href="BasicTypes.html#1597" class="Field">π₁</a> <a id="14820" class="Symbol">(</a><a id="14821" href="HLevelLemmas.html#14725" class="Bound">f</a> <a id="14823" href="HLevelLemmas.html#14813" class="Bound">x</a><a id="14824" class="Symbol">)</a>
 </pre>
