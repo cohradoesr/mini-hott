@@ -50,7 +50,7 @@ module
   funext-transport-dfun idp f g = eqFunExt
 \end{code}
 
-{: .foldable until="8" }
+{: .foldable until="7" }
 \begin{code}
   funext-transport-dfun-l
     : (p : x == y) → (f : (a : A x) → B x a) → (g : (a : A y) → B y a)
@@ -91,7 +91,7 @@ funext-transport-dfun-bezem
 funext-transport-dfun-bezem idp f g a = idEqv
 \end{code}
 
-{: .foldable until="8" }
+{: .foldable until="9" }
 \begin{code}
 funext-transport-dfun-bezem-l
   : {X : Type ℓᵢ}{A : X → Type ℓⱼ}{B : (x : X) → A x → Type ℓⱼ} {x y : X}
@@ -106,7 +106,7 @@ funext-transport-dfun-bezem-l
 funext-transport-dfun-bezem-l p f g a x₁ = lemap (funext-transport-dfun-bezem p f g a) x₁
 \end{code}
 
-{: .foldable until="8" }
+{: .foldable until="9" }
 \begin{code}
 funext-transport-dfun-bezem-r
   : {X : Type ℓᵢ}{A : X → Type ℓⱼ}{B : (x : X) → A x → Type ℓⱼ} {x y : X}

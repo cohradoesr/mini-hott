@@ -29,24 +29,35 @@ elements are equal or different. This would be a particular
 instance of the Law of Excluded Middle that holds even if we do not
 assume Excluded Middle.
 
+{: .foldable until="5"}
 \begin{code}
 module DecidableEquality {ℓ} where
 
-  -- A type has decidable equality if we can prove that any two of its
-  -- elements are equal or different.
-  decEq : (A : Type ℓ) → Type ℓ
-  decEq A = (a b : A) → (a == b) + ¬ (a == b)
+\end{code}
 
-  -- The product of types with decidable equality is a type with
-  -- decidable equality.
+\begin{code}
+  decEq
+    : (A : Type ℓ) → Type ℓ
+
+  decEq A = (a b : A) → (a == b) + ¬ (a == b)
+\end{code}
+
+The product of types with decidable equality is a type with
+decidable equality.
+
+{: .foldable until="5" }
+\begin{code}
   decEqProd
     : {A B : Type ℓ}
     → decEq A → decEq B
     -------------------
     → decEq (A × B)
 
-  decEqProd da db (a1 , b1) (a2 , b2) with (da a1 a2) | (db b1 b2)
-  decEqProd da db (a1 , b1) (a2 , b2) | inl aeq | inl beq = inl (prodByComponents (aeq , beq))
-  decEqProd da db (a1 , b1) (a2 , b2) | inl aeq | inr bnq = inr λ b → bnq (ap π₂ b)
-  decEqProd da db (a1 , b1) (a2 , b2) | inr anq | u       = inr λ b → anq (ap π₁ b)
+  decEqProd da db (a1 , b1) (a2 , b2)
+   with (da a1 a2) | (db b1 b2)
+  ... | inl aeq | inl beq = inl (prodByComponents (aeq , beq))
+  ... | inl _   | inr bnq = inr λ b → bnq (ap π₂ b)
+  ... | inr anq | _       = inr λ b → anq (ap π₁ b)
 \end{code}
+
+This surely can be extend to other types.
