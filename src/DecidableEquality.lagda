@@ -29,10 +29,8 @@ elements are equal or different. This would be a particular
 instance of the Law of Excluded Middle that holds even if we do not
 assume Excluded Middle.
 
-{: .foldable until="5"}
 \begin{code}
 module DecidableEquality {ℓ} where
-
 \end{code}
 
 \begin{code}

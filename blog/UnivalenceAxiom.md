@@ -38,7 +38,7 @@ two equivalent types. Some $β$ and $η$ rules are provided.
   <a id="idtoeqv"></a><a id="716" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a>
     <a id="728" class="Symbol">:</a> <a id="730" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="732" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="735" href="UnivalenceAxiom.html#647" class="Bound">B</a>
     <a id="741" class="Comment">--------</a>
-    <a id="754" class="Symbol">→</a> <a id="756" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="758" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="760" href="UnivalenceAxiom.html#647" class="Bound">B</a>
+    <a id="754" class="Symbol">→</a> <a id="756" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="758" href="EquivalenceType.html#1467" class="Function Operator">≃</a> <a id="760" href="UnivalenceAxiom.html#647" class="Bound">B</a>
 
   <a id="765" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a> <a id="773" href="UnivalenceAxiom.html#773" class="Bound">p</a> <a id="775" class="Symbol">=</a>
     <a id="781" href="QuasiinverseType.html#3454" class="Function">qinv-≃</a>
@@ -60,23 +60,25 @@ and equivalences.
 
 Univalence Axiom.
 
+{: .axiom }
 <pre class="Agda">
-  <a id="1085" class="Keyword">postulate</a>
-    <a id="axiomUnivalence"></a><a id="1099" href="UnivalenceAxiom.html#1099" class="Postulate">axiomUnivalence</a>
-      <a id="1121" class="Symbol">:</a> <a id="1123" href="EquivalenceType.html#1337" class="Function">isEquivalence</a> <a id="1137" href="UnivalenceAxiom.html#915" class="Function">≡-to-≃</a>
+  <a id="1097" class="Keyword">postulate</a>
+    <a id="axiomUnivalence"></a><a id="1111" href="UnivalenceAxiom.html#1111" class="Postulate">axiomUnivalence</a>
+      <a id="1133" class="Symbol">:</a> <a id="1135" href="EquivalenceType.html#1369" class="Function">isEquivalence</a> <a id="1149" href="UnivalenceAxiom.html#915" class="Function">≡-to-≃</a>
 </pre>
 
 In Slide 20 from an [Escardo's talk](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf), base on what we saw, we give
 the following no standard definition of Univalence axiom (without transport).
 
+{: .axiom }
 <pre class="Agda">
-  <a id="UA"></a><a id="1387" href="UnivalenceAxiom.html#1387" class="Function">UA</a>
-    <a id="1394" class="Symbol">:</a> <a id="1396" class="Symbol">∀</a> <a id="1398" class="Symbol">{</a><a id="1399" href="UnivalenceAxiom.html#1399" class="Bound">ℓ</a><a id="1400" class="Symbol">}</a>
-    <a id="1406" class="Symbol">→</a> <a id="1408" class="Symbol">(</a><a id="1409" href="Intro.html#2793" class="Function">Type</a> <a id="1414" class="Symbol">(</a><a id="1415" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="1420" href="UnivalenceAxiom.html#1399" class="Bound">ℓ</a><a id="1421" class="Symbol">))</a>
+  <a id="UA"></a><a id="1411" href="UnivalenceAxiom.html#1411" class="Function">UA</a>
+    <a id="1418" class="Symbol">:</a> <a id="1420" class="Symbol">∀</a> <a id="1422" class="Symbol">{</a><a id="1423" href="UnivalenceAxiom.html#1423" class="Bound">ℓ</a><a id="1424" class="Symbol">}</a>
+    <a id="1430" class="Symbol">→</a> <a id="1432" class="Symbol">(</a><a id="1433" href="Intro.html#2793" class="Function">Type</a> <a id="1438" class="Symbol">(</a><a id="1439" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="1444" href="UnivalenceAxiom.html#1423" class="Bound">ℓ</a><a id="1445" class="Symbol">))</a>
 
-  <a id="1427" href="UnivalenceAxiom.html#1387" class="Function">UA</a> <a id="1430" class="Symbol">{</a><a id="1431" class="Argument">ℓ</a> <a id="1433" class="Symbol">=</a> <a id="1435" href="UnivalenceAxiom.html#1435" class="Bound">ℓ</a><a id="1436" class="Symbol">}</a>  <a id="1439" class="Symbol">=</a>
-    <a id="1445" class="Symbol">(</a><a id="1446" href="UnivalenceAxiom.html#1446" class="Bound">X</a> <a id="1448" class="Symbol">:</a> <a id="1450" href="Intro.html#2793" class="Function">Type</a> <a id="1455" href="UnivalenceAxiom.html#1435" class="Bound">ℓ</a><a id="1456" class="Symbol">)</a> <a id="1458" class="Symbol">→</a> <a id="1460" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="1467" class="Symbol">(</a> <a id="1469" href="BasicTypes.html#1497" class="Record">∑</a> <a id="1471" class="Symbol">(</a><a id="1472" href="Intro.html#2793" class="Function">Type</a> <a id="1477" href="UnivalenceAxiom.html#1435" class="Bound">ℓ</a><a id="1478" class="Symbol">)</a> <a id="1480" class="Symbol">(λ</a> <a id="1483" href="UnivalenceAxiom.html#1483" class="Bound">Y</a> <a id="1485" class="Symbol">→</a> <a id="1487" class="Symbol">(</a><a id="1488" href="UnivalenceAxiom.html#1446" class="Bound">X</a> <a id="1490" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="1492" href="UnivalenceAxiom.html#1483" class="Bound">Y</a><a id="1493" class="Symbol">)</a> <a id="1495" class="Symbol">))</a>
-    <a id="1502" class="Keyword">where</a> <a id="1508" class="Keyword">open</a> <a id="1513" class="Keyword">import</a>  <a id="1521" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+  <a id="1451" href="UnivalenceAxiom.html#1411" class="Function">UA</a> <a id="1454" class="Symbol">{</a><a id="1455" class="Argument">ℓ</a> <a id="1457" class="Symbol">=</a> <a id="1459" href="UnivalenceAxiom.html#1459" class="Bound">ℓ</a><a id="1460" class="Symbol">}</a>  <a id="1463" class="Symbol">=</a>
+    <a id="1469" class="Symbol">(</a><a id="1470" href="UnivalenceAxiom.html#1470" class="Bound">X</a> <a id="1472" class="Symbol">:</a> <a id="1474" href="Intro.html#2793" class="Function">Type</a> <a id="1479" href="UnivalenceAxiom.html#1459" class="Bound">ℓ</a><a id="1480" class="Symbol">)</a> <a id="1482" class="Symbol">→</a> <a id="1484" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="1491" class="Symbol">(</a> <a id="1493" href="BasicTypes.html#1497" class="Record">∑</a> <a id="1495" class="Symbol">(</a><a id="1496" href="Intro.html#2793" class="Function">Type</a> <a id="1501" href="UnivalenceAxiom.html#1459" class="Bound">ℓ</a><a id="1502" class="Symbol">)</a> <a id="1504" class="Symbol">(λ</a> <a id="1507" href="UnivalenceAxiom.html#1507" class="Bound">Y</a> <a id="1509" class="Symbol">→</a> <a id="1511" class="Symbol">(</a><a id="1512" href="UnivalenceAxiom.html#1470" class="Bound">X</a> <a id="1514" href="EquivalenceType.html#1467" class="Function Operator">≃</a> <a id="1516" href="UnivalenceAxiom.html#1507" class="Bound">Y</a><a id="1517" class="Symbol">)</a> <a id="1519" class="Symbol">))</a>
+    <a id="1526" class="Keyword">where</a> <a id="1532" class="Keyword">open</a> <a id="1537" class="Keyword">import</a>  <a id="1545" href="HLevelTypes.html" class="Module">HLevelTypes</a>
 </pre>
 
 About this Univalence axiom version:
@@ -94,58 +96,56 @@ with crude isomorphism rather than equivalence is false!.
 
 {: .foldable until="2" }
 <pre class="Agda">
-  <a id="eqvUnivalence"></a><a id="2333" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a>
-    <a id="2351" class="Symbol">:</a> <a id="2353" class="Symbol">(</a><a id="2354" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2356" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="2359" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="2360" class="Symbol">)</a> <a id="2362" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="2364" class="Symbol">(</a><a id="2365" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2367" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="2369" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="2370" class="Symbol">)</a>
+  <a id="eqvUnivalence"></a><a id="2357" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a>
+    <a id="2375" class="Symbol">:</a> <a id="2377" class="Symbol">(</a><a id="2378" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2380" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="2383" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="2384" class="Symbol">)</a> <a id="2386" href="EquivalenceType.html#1467" class="Function Operator">≃</a> <a id="2388" class="Symbol">(</a><a id="2389" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2391" href="EquivalenceType.html#1467" class="Function Operator">≃</a> <a id="2393" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="2394" class="Symbol">)</a>
 
-  <a id="2375" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a> <a id="2389" class="Symbol">=</a> <a id="2391" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a> <a id="2399" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="2401" href="UnivalenceAxiom.html#1099" class="Postulate">axiomUnivalence</a>
+  <a id="2399" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a> <a id="2413" class="Symbol">=</a> <a id="2415" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a> <a id="2423" href="BasicTypes.html#1581" class="InductiveConstructor Operator">,</a> <a id="2425" href="UnivalenceAxiom.html#1111" class="Postulate">axiomUnivalence</a>
 </pre>
 
 Synonyms:
 <pre class="Agda">
-  <a id="==-equiv-≃"></a><a id="2454" href="UnivalenceAxiom.html#2454" class="Function">==-equiv-≃</a> <a id="2465" class="Symbol">=</a> <a id="2467" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a>
-  <a id="==-≃-≃"></a><a id="2483" href="UnivalenceAxiom.html#2483" class="Function">==-≃-≃</a>     <a id="2494" class="Symbol">=</a> <a id="2496" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a>
-  <a id="≡-≃-≃"></a><a id="2512" href="UnivalenceAxiom.html#2512" class="Function">≡-≃-≃</a>      <a id="2523" class="Symbol">=</a> <a id="2525" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a>
+  <a id="==-equiv-≃"></a><a id="2478" href="UnivalenceAxiom.html#2478" class="Function">==-equiv-≃</a> <a id="2489" class="Symbol">=</a> <a id="2491" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a>
+  <a id="==-≃-≃"></a><a id="2507" href="UnivalenceAxiom.html#2507" class="Function">==-≃-≃</a>     <a id="2518" class="Symbol">=</a> <a id="2520" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a>
+  <a id="≡-≃-≃"></a><a id="2536" href="UnivalenceAxiom.html#2536" class="Function">≡-≃-≃</a>      <a id="2547" class="Symbol">=</a> <a id="2549" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a>
 </pre>
 
 Introduction rule for equalities:
 
 {: .foldable until="4" }
 <pre class="Agda">
-  <a id="ua"></a><a id="2626" href="UnivalenceAxiom.html#2626" class="Function">ua</a>
-    <a id="2633" class="Symbol">:</a> <a id="2635" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2637" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="2639" href="UnivalenceAxiom.html#647" class="Bound">B</a>
-    <a id="2645" class="Comment">-------</a>
-    <a id="2657" class="Symbol">→</a> <a id="2659" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2661" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="2664" href="UnivalenceAxiom.html#647" class="Bound">B</a>
+  <a id="ua"></a><a id="2650" href="UnivalenceAxiom.html#2650" class="Function">ua</a>
+    <a id="2657" class="Symbol">:</a> <a id="2659" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2661" href="EquivalenceType.html#1467" class="Function Operator">≃</a> <a id="2663" href="UnivalenceAxiom.html#647" class="Bound">B</a>
+    <a id="2669" class="Comment">-------</a>
+    <a id="2681" class="Symbol">→</a> <a id="2683" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2685" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="2688" href="UnivalenceAxiom.html#647" class="Bound">B</a>
 
-  <a id="2669" href="UnivalenceAxiom.html#2626" class="Function">ua</a> <a id="2672" class="Symbol">=</a> <a id="2674" href="EquivalenceType.html#1901" class="Function">remap</a> <a id="2680" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a>
+  <a id="2693" href="UnivalenceAxiom.html#2650" class="Function">ua</a> <a id="2696" class="Symbol">=</a> <a id="2698" href="EquivalenceType.html#1933" class="Function">remap</a> <a id="2704" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a>
 </pre>
 
 Synonyms:
 
 <pre class="Agda">
-  <a id="≃-to-=="></a><a id="2732" href="UnivalenceAxiom.html#2732" class="Function">≃-to-==</a>   <a id="2742" class="Symbol">=</a> <a id="2744" href="UnivalenceAxiom.html#2626" class="Function">ua</a>
-  <a id="eqv-to-eq"></a><a id="2749" href="UnivalenceAxiom.html#2749" class="Function">eqv-to-eq</a> <a id="2759" class="Symbol">=</a> <a id="2761" href="UnivalenceAxiom.html#2626" class="Function">ua</a>
+  <a id="≃-to-=="></a><a id="2756" href="UnivalenceAxiom.html#2756" class="Function">≃-to-==</a>   <a id="2766" class="Symbol">=</a> <a id="2768" href="UnivalenceAxiom.html#2650" class="Function">ua</a>
+  <a id="eqv-to-eq"></a><a id="2773" href="UnivalenceAxiom.html#2773" class="Function">eqv-to-eq</a> <a id="2783" class="Symbol">=</a> <a id="2785" href="UnivalenceAxiom.html#2650" class="Function">ua</a>
 </pre>
 
 Computation rules
 
 {: .foldable until="4"}
 <pre class="Agda">
-  <a id="ua-β"></a><a id="2834" href="UnivalenceAxiom.html#2834" class="Function">ua-β</a>
-    <a id="2843" class="Symbol">:</a> <a id="2845" class="Symbol">(</a><a id="2846" href="UnivalenceAxiom.html#2846" class="Bound">α</a> <a id="2848" class="Symbol">:</a> <a id="2850" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2852" href="EquivalenceType.html#1435" class="Function Operator">≃</a> <a id="2854" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="2855" class="Symbol">)</a>
-    <a id="2861" class="Comment">----------------------</a>
-    <a id="2888" class="Symbol">→</a> <a id="2890" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a> <a id="2898" class="Symbol">(</a><a id="2899" href="UnivalenceAxiom.html#2626" class="Function">ua</a> <a id="2902" href="UnivalenceAxiom.html#2846" class="Bound">α</a><a id="2903" class="Symbol">)</a> <a id="2905" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="2908" href="UnivalenceAxiom.html#2846" class="Bound">α</a>
+  <a id="ua-β"></a><a id="2858" href="UnivalenceAxiom.html#2858" class="Function">ua-β</a>
+    <a id="2867" class="Symbol">:</a> <a id="2869" class="Symbol">(</a><a id="2870" href="UnivalenceAxiom.html#2870" class="Bound">α</a> <a id="2872" class="Symbol">:</a> <a id="2874" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="2876" href="EquivalenceType.html#1467" class="Function Operator">≃</a> <a id="2878" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="2879" class="Symbol">)</a>
+    <a id="2885" class="Comment">----------------------</a>
+    <a id="2912" class="Symbol">→</a> <a id="2914" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a> <a id="2922" class="Symbol">(</a><a id="2923" href="UnivalenceAxiom.html#2650" class="Function">ua</a> <a id="2926" href="UnivalenceAxiom.html#2870" class="Bound">α</a><a id="2927" class="Symbol">)</a> <a id="2929" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="2932" href="UnivalenceAxiom.html#2870" class="Bound">α</a>
 
-  <a id="2913" href="UnivalenceAxiom.html#2834" class="Function">ua-β</a> <a id="2918" href="UnivalenceAxiom.html#2918" class="Bound">eqv</a> <a id="2922" class="Symbol">=</a> <a id="2924" href="EquivalenceType.html#2195" class="Function">lrmap-inverse</a> <a id="2938" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a>
+  <a id="2937" href="UnivalenceAxiom.html#2858" class="Function">ua-β</a> <a id="2942" href="UnivalenceAxiom.html#2942" class="Bound">eqv</a> <a id="2946" class="Symbol">=</a> <a id="2948" href="EquivalenceType.html#2227" class="Function">lrmap-inverse</a> <a id="2962" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a>
 </pre>
 
 {: .foldable until="4"}
 <pre class="Agda">
-  <a id="ua-η"></a><a id="3003" href="UnivalenceAxiom.html#3003" class="Function">ua-η</a>
-    <a id="3012" class="Symbol">:</a> <a id="3014" class="Symbol">(</a><a id="3015" href="UnivalenceAxiom.html#3015" class="Bound">p</a> <a id="3017" class="Symbol">:</a> <a id="3019" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="3021" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="3024" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="3025" class="Symbol">)</a>
-    <a id="3031" class="Comment">---------------------</a>
-    <a id="3057" class="Symbol">→</a> <a id="3059" href="UnivalenceAxiom.html#2626" class="Function">ua</a> <a id="3062" class="Symbol">(</a><a id="3063" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a> <a id="3071" href="UnivalenceAxiom.html#3015" class="Bound">p</a><a id="3072" class="Symbol">)</a> <a id="3074" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="3077" href="UnivalenceAxiom.html#3015" class="Bound">p</a>
+  <a id="ua-η"></a><a id="3027" href="UnivalenceAxiom.html#3027" class="Function">ua-η</a>
+    <a id="3036" class="Symbol">:</a> <a id="3038" class="Symbol">(</a><a id="3039" href="UnivalenceAxiom.html#3039" class="Bound">p</a> <a id="3041" class="Symbol">:</a> <a id="3043" href="UnivalenceAxiom.html#645" class="Bound">A</a> <a id="3045" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="3048" href="UnivalenceAxiom.html#647" class="Bound">B</a><a id="3049" class="Symbol">)</a>
+    <a id="3055" class="Comment">---------------------</a>
+    <a id="3081" class="Symbol">→</a> <a id="3083" href="UnivalenceAxiom.html#2650" class="Function">ua</a> <a id="3086" class="Symbol">(</a><a id="3087" href="UnivalenceAxiom.html#716" class="Function">idtoeqv</a> <a id="3095" href="UnivalenceAxiom.html#3039" class="Bound">p</a><a id="3096" class="Symbol">)</a> <a id="3098" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="3101" href="UnivalenceAxiom.html#3039" class="Bound">p</a>
 
-  <a id="3082" href="UnivalenceAxiom.html#3003" class="Function">ua-η</a> <a id="3087" href="UnivalenceAxiom.html#3087" class="Bound">p</a> <a id="3089" class="Symbol">=</a> <a id="3091" href="EquivalenceType.html#2448" class="Function">rlmap-inverse</a> <a id="3105" href="UnivalenceAxiom.html#2333" class="Function">eqvUnivalence</a>
+  <a id="3106" href="UnivalenceAxiom.html#3027" class="Function">ua-η</a> <a id="3111" href="UnivalenceAxiom.html#3111" class="Bound">p</a> <a id="3113" class="Symbol">=</a> <a id="3115" href="EquivalenceType.html#2480" class="Function">rlmap-inverse</a> <a id="3129" href="UnivalenceAxiom.html#2357" class="Function">eqvUnivalence</a>
 </pre>
-
-

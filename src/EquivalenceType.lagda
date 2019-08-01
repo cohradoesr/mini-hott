@@ -19,16 +19,14 @@ open import FibreType
 
 open import Transport
 open import HomotopyType
-
 \end{code}
 </div>
 
+## Equivalences
+
 \begin{code}
 module EquivalenceType where
-
 \end{code}
-
-## Equivalences
 
 There are three definitions to say a function is an
 equivalence. All these definitions
@@ -37,7 +35,7 @@ the bi-implication of begin *quasi-inverse*. We show
 this clearly in what follows. Nevertheless, we want to get
 the following fact:
 
-$$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
+$$ \mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
 
 ### Contractible maps
 
@@ -51,8 +49,10 @@ isContrMap
   → Type (ℓᵢ ⊔ ℓⱼ)
 
 isContrMap {B = B} f = (b : B) → isContr (fib f b)
+\end{code}
 
-
+Synomyns:
+\begin{code}
 map-contractible = isContrMap
 \end{code}
 

@@ -60,6 +60,7 @@ and equivalences.
 
 Univalence Axiom.
 
+{: .axiom }
 \begin{code}
   postulate
     axiomUnivalence
@@ -69,6 +70,7 @@ Univalence Axiom.
 In Slide 20 from an [Escardo's talk](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf), base on what we saw, we give
 the following no standard definition of Univalence axiom (without transport).
 
+{: .axiom }
 \begin{code}
   UA
     : ∀ {ℓ}
@@ -147,5 +149,3 @@ Computation rules
 
   ua-η p = rlmap-inverse eqvUnivalence
 \end{code}
-
-

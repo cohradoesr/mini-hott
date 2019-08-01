@@ -38,20 +38,16 @@ showcitation: true
 \>[0]\AgdaKeyword{open}\AgdaSpace{}%
 \AgdaKeyword{import}\AgdaSpace{}%
 \AgdaModule{HomotopyType}\<%
-\\
-\>[0]\<%
 \end{code}
 </div>
+
+## Equivalences
 
 \begin{code}%
 \>[0]\AgdaKeyword{module}\AgdaSpace{}%
 \AgdaModule{EquivalenceType}\AgdaSpace{}%
 \AgdaKeyword{where}\<%
-\\
-\>[0]\<%
 \end{code}
-
-## Equivalences
 
 There are three definitions to say a function is an
 equivalence. All these definitions
@@ -60,7 +56,7 @@ the bi-implication of begin *quasi-inverse*. We show
 this clearly in what follows. Nevertheless, we want to get
 the following fact:
 
-$$\mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
+$$ \mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
 
 ### Contractible maps
 
@@ -112,11 +108,10 @@ element has a unique preimagen.
 \AgdaSymbol{(}\AgdaFunction{fib}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
 \AgdaBound{b}\AgdaSymbol{)}\<%
-\\
-%
-\\[\AgdaEmptyExtraSkip]%
-%
-\\[\AgdaEmptyExtraSkip]%
+\end{code}
+
+Synomyns:
+\begin{code}%
 \>[0]\AgdaFunction{map-contractible}\AgdaSpace{}%
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{isContrMap}\<%

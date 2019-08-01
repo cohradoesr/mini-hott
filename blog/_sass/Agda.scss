@@ -55,3 +55,10 @@
 /* Standard attributes. */
 .Agda a { text-decoration: none }
 .Agda a[href]:hover { background-color: #B4EEB4; }
+
+
+.axiom     { background: cornsilk; }
+.postulate { background: cornsilk; }
+.exercise  { background: cornsilk; }
+.synomyms  { background: lightgray; }
+.todo      { background: red ;}
