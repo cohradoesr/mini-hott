@@ -2,9 +2,9 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
 
  <title>Mini-HoTT</title>
- <link href="http://jonaprieto.github.io/mini-hott/atom.xml" rel="self"/>
- <link href="http://jonaprieto.github.io/mini-hott/"/>
- <updated>2019-08-18T11:39:50+02:00</updated>
+ <link href="http://jonaprieto.github.io/mini-hottmini-hott/atom.xml" rel="self"/>
+ <link href="http://jonaprieto.github.io/mini-hottmini-hott/"/>
+ <updated>2019-08-18T16:05:44+02:00</updated>
  <id>http://jonaprieto.github.io/mini-hott</id>
  <author>
    <name></name>

@@ -4,7 +4,7 @@ title:               'Mini-HoTT'
 tagline:             ''
 description:         'Jonathan Prieto-Cubides'
 url:                 'http://jonaprieto.github.io/mini-hott'
-baseurl:             ''
+baseurl:             'mini-hott'
 timezone:            'Europe/Oslo'
 # paginate:            100
 
