@@ -434,3 +434,4 @@ images/png/*
 node_modules/*
 Gemfile.lock
 blog/*.md
+!blog/index.md
