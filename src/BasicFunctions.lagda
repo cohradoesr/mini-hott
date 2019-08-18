@@ -244,7 +244,7 @@ _·_ idp q = q
 infixl 50 _·_
 \end{code}
 
-![path](/assets/ipe-images/path-concatenation.png){: width="60%" align="right" }
+![path]({{ site.baseurl }}/assets/ipe-images/path-concatenation.png){: width="60%" align="right" }
 
 #### Inverse of paths
 

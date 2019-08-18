@@ -22,7 +22,7 @@ showcitation: true
 
 ## Transport
 
-![path](/assets/ipe-images/transport-fiber-minihott.png){: width="50%" align="right" }
+![path]({{ site.baseurl }}/assets/ipe-images/transport-fiber-minihott.png){: width="50%" align="right" }
 
 {: .foldable until="6" }
 <pre class="Agda">
@@ -79,7 +79,7 @@ path `α : a₁ = a₂` of the point `c₁ : C a₁` and the point `c₂` in the
 a₂`. That is, a pathover is a term that inhabit the type `transport C α c₁ = c₂`
 also denoted by `PathOver C c₁ α c₂`.
 
-![path](/assets/ipe-images/pathover-3.png){: width="45%" align="right" }
+![path]({{ site.baseurl }}/assets/ipe-images/pathover-3.png){: width="45%" align="right" }
 
 <pre class="Agda">
 <a id="PathOver"></a><a id="1598" href="Transport.html#1598" class="Function">PathOver</a>

@@ -282,7 +282,7 @@ transport-fun idp f = idp
 back-and-forth = transport-fun
 \end{code}
 
-![path](/assets/ipe-images/transport-fun.png){: width="100%" }
+![path]({{ site.baseurl }}/assets/ipe-images/transport-fun.png){: width="100%" }
 
 {: .foldable until="7" }
 \begin{code}
@@ -304,7 +304,7 @@ back-and-forth-h = transport-fun-h
 
 Now, when we transport dependent functions this is what we got:
 
-![path](/assets/ipe-images/transport-fun-dependent.png){: width="100%" }
+![path]({{ site.baseurl }}/assets/ipe-images/transport-fun-dependent.png){: width="100%" }
 
 {: .foldable until="9" }
 \begin{code}
@@ -412,7 +412,7 @@ ap-idp f idp = idp
 \begin{code}
 postulate
  ap-idp'
-  : {A : Type ℓᵢ} {B : Type ℓⱼ} 
+  : {A : Type ℓᵢ} {B : Type ℓⱼ}
   → (f r : A → B)
   → (σ : ∀ a → f a == r a)
   → {a a' : A}

@@ -10,7 +10,7 @@ linkify: true
 showcitation: true
 ---
 
-![path](/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
+![path]({{ site.baseurl }}/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
 
 This is a library for Univalent Type Theory in
 [Agda](http://github.com/agda/agda) developed at [University of
