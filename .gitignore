@@ -433,3 +433,4 @@ latex/*
 images/png/*
 node_modules/*
 Gemfile.lock
+blog/*.md
