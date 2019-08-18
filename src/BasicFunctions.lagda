@@ -173,10 +173,11 @@ parallell
   → (a : A) → ∑ (B a) (C a)
 
 parallell f g a = (f a , g a)
-
-syntax parallell f g = 〈 f × g 〉
 \end{code}
 
+\begin{code}
+syntax parallell f g = 〈 f × g 〉
+\end{code}
 
 
 ### Curryfication

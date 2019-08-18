@@ -29,7 +29,7 @@ open import CoproductIdentities
 module SigmaEquivalence {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
 \end{code}
 
-{: .foldable until="3"}
+{: .foldable until="4"}
 \begin{code}
   pair=Equiv
     : {v w : Σ A P}
@@ -70,8 +70,8 @@ module SigmaEquivalence {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
     g-f {β = idp} {γ = idp} idp = idp
 \end{code}
 
-{: .foldable until="5"}
-\begin{code}
+{: .foldable until="6"}
+\begin{code} 
   ap-π₁-pair=Equiv
     : {a₁ a₂ : A} {c₁ : P a₁} {c₂ : P a₂}
     → (α : a₁ == a₂)

@@ -306,6 +306,7 @@ Synomys:
 H-levels actually are preserved by products, coproducts, pi-types and sigma-types.
 
 
+{: .foldable until="7"}
 \begin{code}
   postulate
     +-of-sets-is-set
@@ -314,6 +315,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
       → isSet B
       ---------------
       → isSet (A + B)
+
   {-
       The idea here is to have an iso between:
       A + B ≃ ∑ 𝟚 P where P : (tt ↦ A, ff ↦ B)
@@ -660,6 +662,7 @@ with implicit parameters.
 open HLevelLemmas public
 \end{code}
 
+{: .axiom }
 \begin{code}
 postulate
   law-excluded-middle

@@ -26,7 +26,6 @@ module
 \end{code}
 
 \begin{code}
-  -- Fiber
   fibre
     : (f : A → B)
     → (b : B)
@@ -48,11 +47,10 @@ Synomyms and syntax sugar:
 A function applied over the fiber returns the original point
 
 \begin{code}
-  
   fib-eq
     : ∀ {f : A → B} {b : B}
     → (h : fib f b)
-    ---------------
+    ------------------
     → f (proj₁ h) == b
 
   fib-eq (a , α) = α
@@ -62,7 +60,6 @@ Each point is on the fiber of its image.
 
 {: .foldable until="4"}
 \begin{code}
-  
   fib-image
     :  ∀ {f : A → B} → {a : A}
     → fib f (f a)

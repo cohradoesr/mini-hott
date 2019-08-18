@@ -36,6 +36,7 @@ $$
   ⇒ ∃ (g : (b : B) → A b) . ∀ (b : B) . P (b, g(b)) .
 $$
 
+{: .axiom }
 \begin{code}
   postulate
     Choice

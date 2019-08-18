@@ -64,9 +64,8 @@ module
     H₂ (a , c) = pair= (idp , β a c)
 \end{code}
 
-{: .foldable until="3"}
+{: .foldable until="2"}
 \begin{code}
-  -- Lem.
   sigma-preserves
     : Σ A C ≃ Σ A D
 
@@ -74,8 +73,6 @@ module
 
 open SigmaPreserves
 \end{code}
-
-
 
 If $$A\,,~B : U$$ and $$C: A → U$$ and $$e: B \simeq A$$, then
 
@@ -87,7 +84,6 @@ If $$A\,,~B : U$$ and $$C: A → U$$ and $$e: B \simeq A$$, then
 module SigmaPreserves-≃ {ℓ₁ ℓ₂ ℓ₃}
   {A : Type ℓ₁} {B : Type ℓ₂} (e : B ≃ A) {C : A → Type ℓ₃} where
 
-  
   private
     f : B → A
     f = lemap e
@@ -157,20 +153,23 @@ module SigmaPreserves-≃ {ℓ₁ ℓ₂ ℓ₃}
         ∎
 \end{code}
 
-{: .foldable until="3"}
+{: .foldable until="2"}
 \begin{code}
-  -- Equivalence
   sigma-preserves-≃
     : Σ A C ≃ Σ B (λ b → C (f b))
 
   sigma-preserves-≃ = qinv-≃ ΣAC-to-ΣBCf (ΣBCf-to-ΣAC , H₁ , H₂)
 
 open SigmaPreserves-≃ public
+\end{code}
 
+{: .foldable until="6"}
+\begin{code}
 sigma-maps-≃
   : ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄} {A : Type ℓ₁} {A' : Type ℓ₄} {B : A → Type ℓ₂}{B' : A' → Type ℓ₃}
   → (α : A ≃ A')
   → ((a : A) → (B a ≃ B' ((α ∙) a)))
+  ----------------------------------
   → Σ A B ≃ Σ A' B'
 
 sigma-maps-≃ {A = A}{A'}{B}{B'} α β =
