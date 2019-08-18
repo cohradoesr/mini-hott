@@ -1,11 +1,11 @@
 source 'https://rubygems.org'
 
-gem "minima", "~> 2.4.0"
+gem "minima"
 gem "liquid-c"
 
 group :jekyll_plugins do
    gem "jekyll-commonmark"
-   gem "jekyll-feed", "~> 0.6"
+   gem "jekyll-feed"
    gem 'hawkins'
    gem 'jekyll-seo-tag'
    gem 'jekyll-last-modified-at'

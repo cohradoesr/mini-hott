@@ -1,3 +1,4 @@
+
 ---
 layout: page
 title: "Algebra On Paths"

@@ -30,6 +30,7 @@ showcitation: true
 ### Identity functions
 
 The identity function with implicit type.
+
 \begin{code}%
 \>[0]\AgdaFunction{id}\<%
 \\
@@ -608,9 +609,9 @@ Functions handy to manipulate coproducts:
 \AgdaBound{f}\AgdaSpace{}%
 \AgdaFunction{⊕}\AgdaSpace{}%
 \AgdaBound{g}\AgdaSpace{}%
-\AgdaFunction{〉}%
-\>[30]\AgdaComment{-- Obs: Note the space after the left bracket.}\<%
+\AgdaFunction{〉}\<%
 \end{code}
+
 
 \begin{code}%
 \>[0]\AgdaFunction{parallell}\<%
@@ -698,16 +699,22 @@ Functions handy to manipulate coproducts:
 \AgdaSymbol{=}\AgdaSpace{}%
 \AgdaFunction{〈}\AgdaSpace{}%
 \AgdaBound{f}\AgdaSpace{}%
-\AgdaFunction{×}\AgdaBound{ g }\AgdaFunction{〉}\<%
+\AgdaFunction{×}\AgdaSpace{}%
+\AgdaBound{g}\AgdaSpace{}%
+\AgdaFunction{〉}\<%
 \end{code}
 
+
+
 ### Curryfication
+
 
 \begin{code}%
 \>[0]\AgdaFunction{curry}\<%
 \\
 \>[0][@{}l@{\AgdaIndent{0}}]%
-\>[2]\AgdaSymbol{:}\AgdaSpace{}%
+\>[1]%
+\>[407I]\AgdaSymbol{:}\AgdaSpace{}%
 \AgdaSymbol{\{}\AgdaBound{A}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%
 \AgdaFunction{Type}\AgdaSpace{}%
@@ -727,7 +734,7 @@ Functions handy to manipulate coproducts:
 \AgdaFunction{Type}\AgdaSpace{}%
 \AgdaGeneralizable{ℓₖ}\AgdaSymbol{\}}\<%
 \\
-%
+\>[.][@{}l@{}]\<[407I]%
 \>[2]\AgdaSymbol{→}\AgdaSpace{}%
 \AgdaSymbol{((}\AgdaBound{s}\AgdaSpace{}%
 \AgdaSymbol{:}\AgdaSpace{}%

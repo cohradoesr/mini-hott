@@ -12,7 +12,7 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: Cambria, Helvetica, Arial, sans-serif;
   font-size: 15px;
 }
 @media (min-width: 38em) {
@@ -255,6 +255,15 @@ blockquote p:last-child {
     padding: 25px;
     // width: 50%;
 }
+
+.page img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 25px;
+    // width: 50%;
+}
+
 
 .home img {
     display: block;

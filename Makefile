@@ -2,9 +2,10 @@ agda    := $(wildcard src/*.lagda)
 latex   := $(subst src,latex,$(subst .lagda,.tex,$(agda)))
 md      := $(subst src,blog,$(subst .lagda,.md,$(agda)))
 rawagda := $(subst src,docs/agda,$(subst .lagda,.agda,$(agda)))
+
 ipes    := $(wildcard images/*.ipe)
 pngs    := $(subst images/,images/png/,$(subst .ipe,.png,$(ipes)))
-pubpngs := $(subst images/,docs/assets/ipe-images/,$(subst .ipe,.png,$(ipes)))
+pubpngs := $(subst images/,blog/assets/ipe-images/,$(subst .ipe,.png,$(ipes)))
 
 all:
 	- @echo "We have these options:"
@@ -57,8 +58,8 @@ docs/agda/%.agda : src/%.lagda
 	- @mkdir -p docs/agda
 	- @gsed -n '/\\begin/,/\\end/ {/{code}/!p}' $< > $@
 
-docs/assets/ipe-images/%.png : images/png/%.png
-	- @mkdir -p docs/assets/ipe-images/
+blog/assets/ipe-images/%.png : images/png/%.png
+	- @mkdir -p blog/assets/ipe-images/
 	- cp $< $@
 
 images/png/%.png : images/%.ipe
@@ -83,7 +84,10 @@ docs-build:
 	@echo " [!] run $$ make docs-serve"
 
 docs-serve:
-	cd docs && gulp default
+	- bundle exec jekyll serve \
+    --incremental\
+    --source blog \
+    --config blog/_config.yml
 
 
 blog/_bibliography/reb.bib : blog/_bibliography/library.bib

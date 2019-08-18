@@ -23,6 +23,7 @@ open import BasicTypes public
 ### Identity functions
 
 The identity function with implicit type.
+
 \begin{code}
 id
   : {A : Type ℓ}
@@ -159,8 +160,9 @@ Functions handy to manipulate coproducts:
 
 +-map f g = cases (f :> left) (g :> right)
 
-syntax +-map f g = 〈 f ⊕ g 〉  -- Obs: Note the space after the left bracket.
+syntax +-map f g = 〈 f ⊕ g 〉
 \end{code}
+
 
 \begin{code}
 parallell
@@ -175,7 +177,10 @@ parallell f g a = (f a , g a)
 syntax parallell f g = 〈 f × g 〉
 \end{code}
 
+
+
 ### Curryfication
+
 
 \begin{code}
 curry

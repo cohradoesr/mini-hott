@@ -12,6 +12,9 @@ timezone:            'Europe/Oslo'
 
 affiliation: 'University of Bergen'
 email:  'jonathan.cubides@uib.no'
+sass:
+  sass_dir: _sass
+  style: compressed
 
 highlighter: pygments
 
