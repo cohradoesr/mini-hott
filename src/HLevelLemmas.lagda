@@ -125,18 +125,6 @@ Propositions are Sets:
   Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y)
 \end{code}
 
-Examples of propositions:
-
-\begin{code}
-  ⊥-is-prop
-    : isProp {lzero} ⊥
-  ⊥-is-prop x ()
-
-  𝟙-is-prop
-    : ∀ {ℓ} → isProp (𝟙 {ℓ})
-  𝟙-is-prop unit .unit = idp
-
-\end{code}
 
 {: .foldable until="7"}
 \begin{code}

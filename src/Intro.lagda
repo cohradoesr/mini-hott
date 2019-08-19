@@ -113,6 +113,13 @@ Type₀
 Type₀ = Type lzero
 \end{code}
 
+\begin{code}
+Type₁
+  : Type (lsuc (lsuc lzero))
+
+Type₁ = Type (lsuc lzero)
+\end{code}
+
 The following type is to lift a type to a higher universe.
 
 \begin{code}

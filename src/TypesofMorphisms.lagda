@@ -78,6 +78,14 @@ Which is equivalent to say $f$ is a **retraction**:
     ∑ (B → A) (λ g → (b : B) → f (g b) ≡ b)
 \end{code}
 
+As a trivial example, we know the identity function is indeed
+a surjective function. Let us check this.
+
+\begin{code}
+  identity-is-surjective : {A : Type ℓ} →  isSurjection {A = A} id
+  identity-is-surjective {A = A} b = ∥∥-intro (b , idp)
+\end{code}
+
 ### Embeddings
 
 \begin{code}
@@ -93,7 +101,7 @@ Which is equivalent to say $f$ is a **retraction**:
 
 ### Injections
 
-TODO: Should I demand for injective functions have their domains and codomains as sets?
+**Discuss**: should I demand for injective functions have their domains and codomains as sets?
 
 \begin{code}
   isInjective
@@ -103,6 +111,17 @@ TODO: Should I demand for injective functions have their domains and codomains a
 
   isInjective {A = A} f = ∀ {x y} → f x ≡ f y → x ≡ y
 \end{code}
+
+As a trivial example, let us prove identity is an injective function:
+
+\begin{code}
+  identity-is-injective
+    : {A : Type ℓ}
+    → isInjective {A = A}{A}id
+    
+  identity-is-injective p = p
+\end{code}   
+
 
 {: .foldable until="6" }
 \begin{code}
@@ -162,7 +181,13 @@ a function $g : B → A$ by the recursion principle of truncation.
               (tr (λ z₁ → f z₁ == f x) (f-is-injective (! p2)) idp) p2)
 \end{code}
 
+
 ### Bijections
+
+Bijection is a concept from Set Theory, which meeans that if we want
+to define it in Univalent Type Theory, we must talk about only functions
+between (homotopy) sets. Thus, we will find these assumptions in the type
+for bijections.
 
 \begin{code}
   isBijection
@@ -175,6 +200,24 @@ a function $g : B → A$ by the recursion principle of truncation.
 
   isBijection f iA iB = isInjective f × isSurjection f
 \end{code}
+
+
+Before to proceed to prove that *equivalence* and *bijection* are
+two logical equivalent concept when we talk about (homotopy) sets,
+let us give an example of a natural bijection, the idenitity function.
+
+
+\begin{code}
+  identity-is-bijection
+    : {A : Type ℓ}
+    → (A-is-set : isSet A)
+    → isBijection id A-is-set A-is-set
+  identity-is-bijection {A} ia = identity-is-injective , identity-is-surjective
+\end{code}
+
+**Discuss**: we again see that the assumption of being a set for the domain is
+required in the way to check the funciton is injective or surjective. This must
+suggest, we must include this assumption in the Injective definition.
 
 {: .foldable until="8" }
 \begin{code}
@@ -202,6 +245,7 @@ a function $g : B → A$ by the recursion principle of truncation.
     H₂ : (a : A) → g (f a) == a
     H₂ a = f-is-injective (H₁ (f a))
 \end{code}
+
 
 {: .foldable until="6" }
 \begin{code}

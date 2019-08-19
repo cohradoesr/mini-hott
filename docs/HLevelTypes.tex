@@ -657,32 +657,32 @@ A *contractible* type is a type such that **every**
 element is equal to a point, the *center* of contraction.
 
 <pre class="Agda">
-  
-<a id="isContr"></a><a id="603" href="HLevelTypes.html#603" class="Function">isContr</a>
-  <a id="613" class="Symbol">:</a> <a id="615" class="Symbol">(</a><a id="616" href="HLevelTypes.html#616" class="Bound">A</a> <a id="618" class="Symbol">:</a> <a id="620" href="Intro.html#2811" class="Function">Type</a> <a id="625" href="Intro.html#3391" class="Generalizable">ℓ</a><a id="626" class="Symbol">)</a>
-  <a id="630" class="Comment">--------------</a>
-  <a id="647" class="Symbol">→</a> <a id="649" href="Intro.html#2811" class="Function">Type</a> <a id="654" href="Intro.html#3391" class="Generalizable">ℓ</a>
 
-<a id="657" href="HLevelTypes.html#603" class="Function">isContr</a> <a id="665" href="HLevelTypes.html#665" class="Bound">A</a> <a id="667" class="Symbol">=</a> <a id="669" href="BasicTypes.html#1689" class="Function">Σ</a> <a id="671" href="HLevelTypes.html#665" class="Bound">A</a> <a id="673" class="Symbol">(λ</a> <a id="676" href="HLevelTypes.html#676" class="Bound">a</a> <a id="678" class="Symbol">→</a> <a id="680" class="Symbol">((</a><a id="682" href="HLevelTypes.html#682" class="Bound">x</a> <a id="684" class="Symbol">:</a> <a id="686" href="HLevelTypes.html#665" class="Bound">A</a><a id="687" class="Symbol">)</a> <a id="689" class="Symbol">→</a> <a id="691" href="HLevelTypes.html#676" class="Bound">a</a> <a id="693" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="696" href="HLevelTypes.html#682" class="Bound">x</a><a id="697" class="Symbol">))</a>
+<a id="isContr"></a><a id="601" href="HLevelTypes.html#601" class="Function">isContr</a>
+  <a id="611" class="Symbol">:</a> <a id="613" class="Symbol">(</a><a id="614" href="HLevelTypes.html#614" class="Bound">A</a> <a id="616" class="Symbol">:</a> <a id="618" href="Intro.html#2811" class="Function">Type</a> <a id="623" href="Intro.html#3478" class="Generalizable">ℓ</a><a id="624" class="Symbol">)</a>
+  <a id="628" class="Comment">--------------</a>
+  <a id="645" class="Symbol">→</a> <a id="647" href="Intro.html#2811" class="Function">Type</a> <a id="652" href="Intro.html#3478" class="Generalizable">ℓ</a>
+
+<a id="655" href="HLevelTypes.html#601" class="Function">isContr</a> <a id="663" href="HLevelTypes.html#663" class="Bound">A</a> <a id="665" class="Symbol">=</a> <a id="667" href="BasicTypes.html#1689" class="Function">Σ</a> <a id="669" href="HLevelTypes.html#663" class="Bound">A</a> <a id="671" class="Symbol">(λ</a> <a id="674" href="HLevelTypes.html#674" class="Bound">a</a> <a id="676" class="Symbol">→</a> <a id="678" class="Symbol">((</a><a id="680" href="HLevelTypes.html#680" class="Bound">x</a> <a id="682" class="Symbol">:</a> <a id="684" href="HLevelTypes.html#663" class="Bound">A</a><a id="685" class="Symbol">)</a> <a id="687" class="Symbol">→</a> <a id="689" href="HLevelTypes.html#674" class="Bound">a</a> <a id="691" href="BasicTypes.html#4915" class="Datatype Operator">==</a> <a id="694" href="HLevelTypes.html#680" class="Bound">x</a><a id="695" class="Symbol">))</a>
 </pre>
 
 Synonym:
 
 <pre class="Agda">
-<a id="Contractible"></a><a id="735" href="HLevelTypes.html#735" class="Function">Contractible</a> <a id="748" class="Symbol">=</a> <a id="750" href="HLevelTypes.html#603" class="Function">isContr</a>
-<a id="is-singleton"></a><a id="758" href="HLevelTypes.html#758" class="Function">is-singleton</a> <a id="771" class="Symbol">=</a> <a id="773" href="HLevelTypes.html#603" class="Function">isContr</a>
-<a id="isSingleton"></a><a id="781" href="HLevelTypes.html#781" class="Function">isSingleton</a>  <a id="794" class="Symbol">=</a> <a id="796" href="HLevelTypes.html#603" class="Function">isContr</a>
+<a id="Contractible"></a><a id="733" href="HLevelTypes.html#733" class="Function">Contractible</a> <a id="746" class="Symbol">=</a> <a id="748" href="HLevelTypes.html#601" class="Function">isContr</a>
+<a id="is-singleton"></a><a id="756" href="HLevelTypes.html#756" class="Function">is-singleton</a> <a id="769" class="Symbol">=</a> <a id="771" href="HLevelTypes.html#601" class="Function">isContr</a>
+<a id="isSingleton"></a><a id="779" href="HLevelTypes.html#779" class="Function">isSingleton</a>  <a id="792" class="Symbol">=</a> <a id="794" href="HLevelTypes.html#601" class="Function">isContr</a>
 </pre>
 
 If a type is contractible, any of its points is a center of contraction:
 
 <pre class="Agda">
-<a id="allAreCenter"></a><a id="903" href="HLevelTypes.html#903" class="Function">allAreCenter</a>
-  <a id="918" class="Symbol">:</a> <a id="920" class="Symbol">∀</a> <a id="922" class="Symbol">{</a><a id="923" href="HLevelTypes.html#923" class="Bound">ℓ</a><a id="924" class="Symbol">}</a> <a id="926" class="Symbol">{</a><a id="927" href="HLevelTypes.html#927" class="Bound">A</a> <a id="929" class="Symbol">:</a> <a id="931" href="Intro.html#2811" class="Function">Type</a> <a id="936" href="HLevelTypes.html#923" class="Bound">ℓ</a><a id="937" class="Symbol">}</a>
-  <a id="941" class="Symbol">→</a> <a id="943" class="Symbol">(</a><a id="944" href="HLevelTypes.html#944" class="Bound">c₁</a> <a id="947" class="Symbol">:</a> <a id="949" href="HLevelTypes.html#927" class="Bound">A</a><a id="950" class="Symbol">)</a> <a id="952" class="Symbol">→</a> <a id="954" class="Symbol">(</a><a id="955" href="HLevelTypes.html#955" class="Bound">f</a> <a id="957" class="Symbol">:</a> <a id="959" class="Symbol">(</a><a id="960" href="HLevelTypes.html#960" class="Bound">x</a> <a id="962" class="Symbol">:</a> <a id="964" href="HLevelTypes.html#927" class="Bound">A</a><a id="965" class="Symbol">)</a> <a id="967" class="Symbol">→</a> <a id="969" href="HLevelTypes.html#944" class="Bound">c₁</a> <a id="972" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="975" href="HLevelTypes.html#960" class="Bound">x</a><a id="976" class="Symbol">)</a>
-  <a id="980" class="Symbol">→</a> <a id="982" class="Symbol">(∀</a> <a id="985" class="Symbol">(</a><a id="986" href="HLevelTypes.html#986" class="Bound">c₂</a> <a id="989" class="Symbol">:</a> <a id="991" href="HLevelTypes.html#927" class="Bound">A</a><a id="992" class="Symbol">)</a> <a id="994" class="Symbol">→</a> <a id="996" class="Symbol">(∀</a> <a id="999" class="Symbol">(</a><a id="1000" href="HLevelTypes.html#1000" class="Bound">x</a> <a id="1002" class="Symbol">:</a> <a id="1004" href="HLevelTypes.html#927" class="Bound">A</a><a id="1005" class="Symbol">)</a> <a id="1007" class="Symbol">→</a> <a id="1009" href="HLevelTypes.html#986" class="Bound">c₂</a> <a id="1012" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="1015" href="HLevelTypes.html#1000" class="Bound">x</a><a id="1016" class="Symbol">))</a>
+<a id="allAreCenter"></a><a id="901" href="HLevelTypes.html#901" class="Function">allAreCenter</a>
+  <a id="916" class="Symbol">:</a> <a id="918" class="Symbol">∀</a> <a id="920" class="Symbol">{</a><a id="921" href="HLevelTypes.html#921" class="Bound">ℓ</a><a id="922" class="Symbol">}</a> <a id="924" class="Symbol">{</a><a id="925" href="HLevelTypes.html#925" class="Bound">A</a> <a id="927" class="Symbol">:</a> <a id="929" href="Intro.html#2811" class="Function">Type</a> <a id="934" href="HLevelTypes.html#921" class="Bound">ℓ</a><a id="935" class="Symbol">}</a>
+  <a id="939" class="Symbol">→</a> <a id="941" class="Symbol">(</a><a id="942" href="HLevelTypes.html#942" class="Bound">c₁</a> <a id="945" class="Symbol">:</a> <a id="947" href="HLevelTypes.html#925" class="Bound">A</a><a id="948" class="Symbol">)</a> <a id="950" class="Symbol">→</a> <a id="952" class="Symbol">(</a><a id="953" href="HLevelTypes.html#953" class="Bound">f</a> <a id="955" class="Symbol">:</a> <a id="957" class="Symbol">(</a><a id="958" href="HLevelTypes.html#958" class="Bound">x</a> <a id="960" class="Symbol">:</a> <a id="962" href="HLevelTypes.html#925" class="Bound">A</a><a id="963" class="Symbol">)</a> <a id="965" class="Symbol">→</a> <a id="967" href="HLevelTypes.html#942" class="Bound">c₁</a> <a id="970" href="BasicTypes.html#4915" class="Datatype Operator">==</a> <a id="973" href="HLevelTypes.html#958" class="Bound">x</a><a id="974" class="Symbol">)</a>
+  <a id="978" class="Symbol">→</a> <a id="980" class="Symbol">(∀</a> <a id="983" class="Symbol">(</a><a id="984" href="HLevelTypes.html#984" class="Bound">c₂</a> <a id="987" class="Symbol">:</a> <a id="989" href="HLevelTypes.html#925" class="Bound">A</a><a id="990" class="Symbol">)</a> <a id="992" class="Symbol">→</a> <a id="994" class="Symbol">(∀</a> <a id="997" class="Symbol">(</a><a id="998" href="HLevelTypes.html#998" class="Bound">x</a> <a id="1000" class="Symbol">:</a> <a id="1002" href="HLevelTypes.html#925" class="Bound">A</a><a id="1003" class="Symbol">)</a> <a id="1005" class="Symbol">→</a> <a id="1007" href="HLevelTypes.html#984" class="Bound">c₂</a> <a id="1010" href="BasicTypes.html#4915" class="Datatype Operator">==</a> <a id="1013" href="HLevelTypes.html#998" class="Bound">x</a><a id="1014" class="Symbol">))</a>
 
-<a id="1020" href="HLevelTypes.html#903" class="Function">allAreCenter</a> <a id="1033" href="HLevelTypes.html#1033" class="Bound">c₁</a> <a id="1036" href="HLevelTypes.html#1036" class="Bound">f</a> <a id="1038" href="HLevelTypes.html#1038" class="Bound">c₂</a> <a id="1041" href="HLevelTypes.html#1041" class="Bound">x</a> <a id="1043" class="Symbol">=</a> <a id="1045" href="BasicTypes.html#4788" class="Function">sym</a> <a id="1049" class="Symbol">(</a><a id="1050" href="HLevelTypes.html#1036" class="Bound">f</a> <a id="1052" href="HLevelTypes.html#1038" class="Bound">c₂</a><a id="1054" class="Symbol">)</a> <a id="1056" href="BasicFunctions.html#3834" class="Function Operator">·</a> <a id="1058" class="Symbol">(</a><a id="1059" href="HLevelTypes.html#1036" class="Bound">f</a> <a id="1061" href="HLevelTypes.html#1041" class="Bound">x</a><a id="1062" class="Symbol">)</a>
+<a id="1018" href="HLevelTypes.html#901" class="Function">allAreCenter</a> <a id="1031" href="HLevelTypes.html#1031" class="Bound">c₁</a> <a id="1034" href="HLevelTypes.html#1034" class="Bound">f</a> <a id="1036" href="HLevelTypes.html#1036" class="Bound">c₂</a> <a id="1039" href="HLevelTypes.html#1039" class="Bound">x</a> <a id="1041" class="Symbol">=</a> <a id="1043" href="BasicTypes.html#5365" class="Function">sym</a> <a id="1047" class="Symbol">(</a><a id="1048" href="HLevelTypes.html#1034" class="Bound">f</a> <a id="1050" href="HLevelTypes.html#1036" class="Bound">c₂</a><a id="1052" class="Symbol">)</a> <a id="1054" href="BasicFunctions.html#3834" class="Function Operator">·</a> <a id="1056" class="Symbol">(</a><a id="1057" href="HLevelTypes.html#1034" class="Bound">f</a> <a id="1059" href="HLevelTypes.html#1039" class="Bound">x</a><a id="1060" class="Symbol">)</a>
 </pre>
 
 ### Propositions
@@ -690,18 +690,18 @@ If a type is contractible, any of its points is a center of contraction:
 A type is a *mere proposition* if any two inhabitants of the type are equal.
 
 <pre class="Agda">
-<a id="isProp"></a><a id="1185" href="HLevelTypes.html#1185" class="Function">isProp</a>
-  <a id="1194" class="Symbol">:</a> <a id="1196" class="Symbol">∀</a> <a id="1198" class="Symbol">{</a><a id="1199" href="HLevelTypes.html#1199" class="Bound">ℓ</a><a id="1200" class="Symbol">}</a> <a id="1202" class="Symbol">(</a><a id="1203" href="HLevelTypes.html#1203" class="Bound">A</a> <a id="1205" class="Symbol">:</a> <a id="1207" href="Intro.html#2811" class="Function">Type</a> <a id="1212" href="HLevelTypes.html#1199" class="Bound">ℓ</a><a id="1213" class="Symbol">)</a> <a id="1215" class="Symbol">→</a> <a id="1217" href="Intro.html#2811" class="Function">Type</a> <a id="1222" href="HLevelTypes.html#1199" class="Bound">ℓ</a>
+<a id="isProp"></a><a id="1183" href="HLevelTypes.html#1183" class="Function">isProp</a>
+  <a id="1192" class="Symbol">:</a> <a id="1194" class="Symbol">∀</a> <a id="1196" class="Symbol">{</a><a id="1197" href="HLevelTypes.html#1197" class="Bound">ℓ</a><a id="1198" class="Symbol">}</a> <a id="1200" class="Symbol">(</a><a id="1201" href="HLevelTypes.html#1201" class="Bound">A</a> <a id="1203" class="Symbol">:</a> <a id="1205" href="Intro.html#2811" class="Function">Type</a> <a id="1210" href="HLevelTypes.html#1197" class="Bound">ℓ</a><a id="1211" class="Symbol">)</a> <a id="1213" class="Symbol">→</a> <a id="1215" href="Intro.html#2811" class="Function">Type</a> <a id="1220" href="HLevelTypes.html#1197" class="Bound">ℓ</a>
 
-<a id="1225" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="1232" href="HLevelTypes.html#1232" class="Bound">A</a> <a id="1234" class="Symbol">=</a> <a id="1236" class="Symbol">((</a><a id="1238" href="HLevelTypes.html#1238" class="Bound">x</a> <a id="1240" href="HLevelTypes.html#1240" class="Bound">y</a> <a id="1242" class="Symbol">:</a> <a id="1244" href="HLevelTypes.html#1232" class="Bound">A</a><a id="1245" class="Symbol">)</a> <a id="1247" class="Symbol">→</a> <a id="1249" href="HLevelTypes.html#1238" class="Bound">x</a> <a id="1251" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="1254" href="HLevelTypes.html#1240" class="Bound">y</a><a id="1255" class="Symbol">)</a>
+<a id="1223" href="HLevelTypes.html#1183" class="Function">isProp</a> <a id="1230" href="HLevelTypes.html#1230" class="Bound">A</a> <a id="1232" class="Symbol">=</a> <a id="1234" class="Symbol">((</a><a id="1236" href="HLevelTypes.html#1236" class="Bound">x</a> <a id="1238" href="HLevelTypes.html#1238" class="Bound">y</a> <a id="1240" class="Symbol">:</a> <a id="1242" href="HLevelTypes.html#1230" class="Bound">A</a><a id="1243" class="Symbol">)</a> <a id="1245" class="Symbol">→</a> <a id="1247" href="HLevelTypes.html#1236" class="Bound">x</a> <a id="1249" href="BasicTypes.html#4915" class="Datatype Operator">==</a> <a id="1252" href="HLevelTypes.html#1238" class="Bound">y</a><a id="1253" class="Symbol">)</a>
 </pre>
 
 Synonyms:
 
 <pre class="Agda">
-<a id="is-subsingleton"></a><a id="1293" href="HLevelTypes.html#1293" class="Function">is-subsingleton</a> <a id="1309" class="Symbol">=</a> <a id="1311" href="HLevelTypes.html#1185" class="Function">isProp</a>
-<a id="isSubsingleton"></a><a id="1318" href="HLevelTypes.html#1318" class="Function">isSubsingleton</a>  <a id="1334" class="Symbol">=</a> <a id="1336" href="HLevelTypes.html#1185" class="Function">isProp</a>
-<a id="is-prop"></a><a id="1343" href="HLevelTypes.html#1343" class="Function">is-prop</a>         <a id="1359" class="Symbol">=</a> <a id="1361" href="HLevelTypes.html#1185" class="Function">isProp</a>
+<a id="is-subsingleton"></a><a id="1291" href="HLevelTypes.html#1291" class="Function">is-subsingleton</a> <a id="1307" class="Symbol">=</a> <a id="1309" href="HLevelTypes.html#1183" class="Function">isProp</a>
+<a id="isSubsingleton"></a><a id="1316" href="HLevelTypes.html#1316" class="Function">isSubsingleton</a>  <a id="1332" class="Symbol">=</a> <a id="1334" href="HLevelTypes.html#1183" class="Function">isProp</a>
+<a id="is-prop"></a><a id="1341" href="HLevelTypes.html#1341" class="Function">is-prop</a>         <a id="1357" class="Symbol">=</a> <a id="1359" href="HLevelTypes.html#1183" class="Function">isProp</a>
 </pre>
 
 Let's stop a bit. So, these propositios, also named "mere" propositions
@@ -716,10 +716,29 @@ Therefore, we will find a theorem later that says "if A is a proposition,
 and it's inhabited then it's contractible", and it makes sense perfectly.
 
 <pre class="Agda">
-<a id="hProp"></a><a id="1933" href="HLevelTypes.html#1933" class="Function">hProp</a>
-  <a id="1941" class="Symbol">:</a> <a id="1943" class="Symbol">∀</a> <a id="1945" class="Symbol">{</a><a id="1946" href="HLevelTypes.html#1946" class="Bound">ℓ</a><a id="1947" class="Symbol">}</a> <a id="1949" class="Symbol">→</a> <a id="1951" href="Intro.html#2811" class="Function">Type</a> <a id="1956" class="Symbol">(</a><a id="1957" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="1962" href="HLevelTypes.html#1946" class="Bound">ℓ</a><a id="1963" class="Symbol">)</a>
+<a id="hProp"></a><a id="1931" href="HLevelTypes.html#1931" class="Function">hProp</a>
+  <a id="1939" class="Symbol">:</a> <a id="1941" class="Symbol">∀</a> <a id="1943" class="Symbol">{</a><a id="1944" href="HLevelTypes.html#1944" class="Bound">ℓ</a><a id="1945" class="Symbol">}</a> <a id="1947" class="Symbol">→</a> <a id="1949" href="Intro.html#2811" class="Function">Type</a> <a id="1954" class="Symbol">(</a><a id="1955" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="1960" href="HLevelTypes.html#1944" class="Bound">ℓ</a><a id="1961" class="Symbol">)</a>
 
-<a id="1966" href="HLevelTypes.html#1933" class="Function">hProp</a> <a id="1972" class="Symbol">{</a><a id="1973" href="HLevelTypes.html#1973" class="Bound">ℓ</a><a id="1974" class="Symbol">}</a> <a id="1976" class="Symbol">=</a> <a id="1978" href="BasicTypes.html#1497" class="Record">∑</a> <a id="1980" class="Symbol">(</a><a id="1981" href="Intro.html#2811" class="Function">Type</a> <a id="1986" href="HLevelTypes.html#1973" class="Bound">ℓ</a><a id="1987" class="Symbol">)</a> <a id="1989" href="HLevelTypes.html#1185" class="Function">isProp</a>
+<a id="1964" href="HLevelTypes.html#1931" class="Function">hProp</a> <a id="1970" class="Symbol">{</a><a id="1971" href="HLevelTypes.html#1971" class="Bound">ℓ</a><a id="1972" class="Symbol">}</a> <a id="1974" class="Symbol">=</a> <a id="1976" href="BasicTypes.html#1497" class="Record">∑</a> <a id="1978" class="Symbol">(</a><a id="1979" href="Intro.html#2811" class="Function">Type</a> <a id="1984" href="HLevelTypes.html#1971" class="Bound">ℓ</a><a id="1985" class="Symbol">)</a> <a id="1987" href="HLevelTypes.html#1183" class="Function">isProp</a>
+</pre>
+
+We prove now that the basic type (⊥, ⊤) are indeed (mere) propositions:
+
+<pre class="Agda">
+<a id="⊥-is-prop"></a><a id="2092" href="HLevelTypes.html#2092" class="Function">⊥-is-prop</a> <a id="2102" class="Symbol">:</a> <a id="2104" class="Symbol">∀</a> <a id="2106" class="Symbol">{</a><a id="2107" href="HLevelTypes.html#2107" class="Bound">ℓ</a><a id="2108" class="Symbol">}</a> <a id="2110" class="Symbol">→</a>  <a id="2113" href="HLevelTypes.html#1183" class="Function">isProp</a> <a id="2120" class="Symbol">(</a><a id="2121" href="BasicTypes.html#414" class="Datatype">⊥</a> <a id="2123" class="Symbol">{</a><a id="2124" href="HLevelTypes.html#2107" class="Bound">ℓ</a><a id="2125" class="Symbol">})</a>
+<a id="2128" href="HLevelTypes.html#2092" class="Function">⊥-is-prop</a> <a id="2138" class="Symbol">()</a>
+</pre>
+
+<pre class="Agda">
+<a id="⊤-is-prop"></a><a id="2166" href="HLevelTypes.html#2166" class="Function">⊤-is-prop</a> <a id="2176" class="Symbol">:</a> <a id="2178" class="Symbol">∀</a> <a id="2180" class="Symbol">{</a><a id="2181" href="HLevelTypes.html#2181" class="Bound">ℓ</a><a id="2182" class="Symbol">}</a> <a id="2184" class="Symbol">→</a>  <a id="2187" href="HLevelTypes.html#1183" class="Function">isProp</a> <a id="2194" class="Symbol">(</a><a id="2195" href="BasicTypes.html#1090" class="Record">⊤</a> <a id="2197" class="Symbol">{</a><a id="2198" href="HLevelTypes.html#2181" class="Bound">ℓ</a><a id="2199" class="Symbol">})</a>
+<a id="2202" href="HLevelTypes.html#2166" class="Function">⊤-is-prop</a> <a id="2212" class="Symbol">_</a> <a id="2214" class="Symbol">_</a> <a id="2216" class="Symbol">=</a> <a id="2218" href="BasicTypes.html#4970" class="InductiveConstructor">idp</a>
+</pre>
+
+Synonyms:
+
+<pre class="Agda">
+<a id="𝟘-is-prop"></a><a id="2258" href="HLevelTypes.html#2258" class="Function">𝟘-is-prop</a> <a id="2268" class="Symbol">=</a> <a id="2270" href="HLevelTypes.html#2092" class="Function">⊥-is-prop</a>
+<a id="𝟙-is-prop"></a><a id="2280" href="HLevelTypes.html#2280" class="Function">𝟙-is-prop</a> <a id="2290" class="Symbol">=</a> <a id="2292" href="HLevelTypes.html#2166" class="Function">⊤-is-prop</a>
 </pre>
 
 ### Sets
@@ -729,45 +748,45 @@ are types without any higher *dimensional structure*,  all parallel paths are
 homotopic and the homotopy is given by a continuous function on the two paths.
 
 <pre class="Agda">
-<a id="isSet"></a><a id="2270" href="HLevelTypes.html#2270" class="Function">isSet</a>
-  <a id="2278" class="Symbol">:</a> <a id="2280" href="Intro.html#2811" class="Function">Type</a> <a id="2285" href="Intro.html#3391" class="Generalizable">ℓ</a> <a id="2287" class="Symbol">→</a> <a id="2289" href="Intro.html#2811" class="Function">Type</a> <a id="2294" href="Intro.html#3391" class="Generalizable">ℓ</a>
-<a id="2296" href="HLevelTypes.html#2270" class="Function">isSet</a> <a id="2302" href="HLevelTypes.html#2302" class="Bound">A</a> <a id="2304" class="Symbol">=</a> <a id="2306" class="Symbol">(</a><a id="2307" href="HLevelTypes.html#2307" class="Bound">x</a> <a id="2309" href="HLevelTypes.html#2309" class="Bound">y</a> <a id="2311" class="Symbol">:</a> <a id="2313" href="HLevelTypes.html#2302" class="Bound">A</a><a id="2314" class="Symbol">)</a> <a id="2316" class="Symbol">→</a> <a id="2318" href="HLevelTypes.html#1185" class="Function">isProp</a> <a id="2325" class="Symbol">(</a><a id="2326" href="HLevelTypes.html#2307" class="Bound">x</a> <a id="2328" href="BasicTypes.html#4338" class="Datatype Operator">==</a> <a id="2331" href="HLevelTypes.html#2309" class="Bound">y</a><a id="2332" class="Symbol">)</a>
+<a id="isSet"></a><a id="2576" href="HLevelTypes.html#2576" class="Function">isSet</a>
+  <a id="2584" class="Symbol">:</a> <a id="2586" href="Intro.html#2811" class="Function">Type</a> <a id="2591" href="Intro.html#3478" class="Generalizable">ℓ</a> <a id="2593" class="Symbol">→</a> <a id="2595" href="Intro.html#2811" class="Function">Type</a> <a id="2600" href="Intro.html#3478" class="Generalizable">ℓ</a>
+<a id="2602" href="HLevelTypes.html#2576" class="Function">isSet</a> <a id="2608" href="HLevelTypes.html#2608" class="Bound">A</a> <a id="2610" class="Symbol">=</a> <a id="2612" class="Symbol">(</a><a id="2613" href="HLevelTypes.html#2613" class="Bound">x</a> <a id="2615" href="HLevelTypes.html#2615" class="Bound">y</a> <a id="2617" class="Symbol">:</a> <a id="2619" href="HLevelTypes.html#2608" class="Bound">A</a><a id="2620" class="Symbol">)</a> <a id="2622" class="Symbol">→</a> <a id="2624" href="HLevelTypes.html#1183" class="Function">isProp</a> <a id="2631" class="Symbol">(</a><a id="2632" href="HLevelTypes.html#2613" class="Bound">x</a> <a id="2634" href="BasicTypes.html#4915" class="Datatype Operator">==</a> <a id="2637" href="HLevelTypes.html#2615" class="Bound">y</a><a id="2638" class="Symbol">)</a>
 </pre>
 
 Synonyms:
 
 <pre class="Agda">
-<a id="is-set"></a><a id="2370" href="HLevelTypes.html#2370" class="Function">is-set</a> <a id="2377" class="Symbol">=</a> <a id="2379" href="HLevelTypes.html#2270" class="Function">isSet</a>
+<a id="is-set"></a><a id="2676" href="HLevelTypes.html#2676" class="Function">is-set</a> <a id="2683" class="Symbol">=</a> <a id="2685" href="HLevelTypes.html#2576" class="Function">isSet</a>
 </pre>
 
 The type of sets
 
 <pre class="Agda">
-<a id="hSet"></a><a id="2428" href="HLevelTypes.html#2428" class="Function">hSet</a>
-  <a id="2435" class="Symbol">:</a> <a id="2437" href="Intro.html#2811" class="Function">Type</a> <a id="2442" class="Symbol">(</a><a id="2443" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="2448" href="Intro.html#3391" class="Generalizable">ℓ</a><a id="2449" class="Symbol">)</a>
+<a id="hSet"></a><a id="2734" href="HLevelTypes.html#2734" class="Function">hSet</a>
+  <a id="2741" class="Symbol">:</a> <a id="2743" href="Intro.html#2811" class="Function">Type</a> <a id="2748" class="Symbol">(</a><a id="2749" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="2754" href="Intro.html#3478" class="Generalizable">ℓ</a><a id="2755" class="Symbol">)</a>
 
-<a id="2452" href="HLevelTypes.html#2428" class="Function">hSet</a> <a id="2457" class="Symbol">{</a><a id="2458" href="HLevelTypes.html#2458" class="Bound">ℓ</a><a id="2459" class="Symbol">}</a> <a id="2461" class="Symbol">=</a> <a id="2463" href="BasicTypes.html#1497" class="Record">∑</a> <a id="2465" class="Symbol">(</a><a id="2466" href="Intro.html#2811" class="Function">Type</a> <a id="2471" href="HLevelTypes.html#2458" class="Bound">ℓ</a><a id="2472" class="Symbol">)</a> <a id="2474" href="HLevelTypes.html#2270" class="Function">isSet</a>
+<a id="2758" href="HLevelTypes.html#2734" class="Function">hSet</a> <a id="2763" class="Symbol">{</a><a id="2764" href="HLevelTypes.html#2764" class="Bound">ℓ</a><a id="2765" class="Symbol">}</a> <a id="2767" class="Symbol">=</a> <a id="2769" href="BasicTypes.html#1497" class="Record">∑</a> <a id="2771" class="Symbol">(</a><a id="2772" href="Intro.html#2811" class="Function">Type</a> <a id="2777" href="HLevelTypes.html#2764" class="Bound">ℓ</a><a id="2778" class="Symbol">)</a> <a id="2780" href="HLevelTypes.html#2576" class="Function">isSet</a>
 </pre>
 
 ### Groupoids
 
 <pre class="Agda">
-<a id="isGroupoid"></a><a id="2520" href="HLevelTypes.html#2520" class="Function">isGroupoid</a>
-  <a id="2533" class="Symbol">:</a> <a id="2535" href="Intro.html#2811" class="Function">Type</a> <a id="2540" href="Intro.html#3391" class="Generalizable">ℓ</a> <a id="2542" class="Symbol">→</a> <a id="2544" href="Intro.html#2811" class="Function">Type</a> <a id="2549" href="Intro.html#3391" class="Generalizable">ℓ</a>
+<a id="isGroupoid"></a><a id="2826" href="HLevelTypes.html#2826" class="Function">isGroupoid</a>
+  <a id="2839" class="Symbol">:</a> <a id="2841" href="Intro.html#2811" class="Function">Type</a> <a id="2846" href="Intro.html#3478" class="Generalizable">ℓ</a> <a id="2848" class="Symbol">→</a> <a id="2850" href="Intro.html#2811" class="Function">Type</a> <a id="2855" href="Intro.html#3478" class="Generalizable">ℓ</a>
 
-<a id="2552" href="HLevelTypes.html#2520" class="Function">isGroupoid</a> <a id="2563" href="HLevelTypes.html#2563" class="Bound">A</a>  <a id="2566" class="Symbol">=</a> <a id="2568" class="Symbol">(</a><a id="2569" href="HLevelTypes.html#2569" class="Bound">a₀</a> <a id="2572" href="HLevelTypes.html#2572" class="Bound">a₁</a> <a id="2575" class="Symbol">:</a> <a id="2577" href="HLevelTypes.html#2563" class="Bound">A</a><a id="2578" class="Symbol">)</a> <a id="2580" class="Symbol">→</a> <a id="2582" href="HLevelTypes.html#2270" class="Function">isSet</a> <a id="2588" class="Symbol">(</a><a id="2589" href="HLevelTypes.html#2569" class="Bound">a₀</a> <a id="2592" href="BasicTypes.html#4524" class="Function Operator">≡</a> <a id="2594" href="HLevelTypes.html#2572" class="Bound">a₁</a><a id="2596" class="Symbol">)</a>
+<a id="2858" href="HLevelTypes.html#2826" class="Function">isGroupoid</a> <a id="2869" href="HLevelTypes.html#2869" class="Bound">A</a>  <a id="2872" class="Symbol">=</a> <a id="2874" class="Symbol">(</a><a id="2875" href="HLevelTypes.html#2875" class="Bound">a₀</a> <a id="2878" href="HLevelTypes.html#2878" class="Bound">a₁</a> <a id="2881" class="Symbol">:</a> <a id="2883" href="HLevelTypes.html#2869" class="Bound">A</a><a id="2884" class="Symbol">)</a> <a id="2886" class="Symbol">→</a> <a id="2888" href="HLevelTypes.html#2576" class="Function">isSet</a> <a id="2894" class="Symbol">(</a><a id="2895" href="HLevelTypes.html#2875" class="Bound">a₀</a> <a id="2898" href="BasicTypes.html#5101" class="Function Operator">≡</a> <a id="2900" href="HLevelTypes.html#2878" class="Bound">a₁</a><a id="2902" class="Symbol">)</a>
 </pre>
 
 Synonyms:
 
 <pre class="Agda">
-<a id="is-groupoid"></a><a id="2634" href="HLevelTypes.html#2634" class="Function">is-groupoid</a> <a id="2646" class="Symbol">=</a> <a id="2648" href="HLevelTypes.html#2520" class="Function">isGroupoid</a>
+<a id="is-groupoid"></a><a id="2940" href="HLevelTypes.html#2940" class="Function">is-groupoid</a> <a id="2952" class="Symbol">=</a> <a id="2954" href="HLevelTypes.html#2826" class="Function">isGroupoid</a>
 </pre>
 
 <pre class="Agda">
-<a id="Groupoid"></a><a id="2684" href="HLevelTypes.html#2684" class="Function">Groupoid</a>
-  <a id="2695" class="Symbol">:</a> <a id="2697" href="Intro.html#2811" class="Function">Type</a> <a id="2702" class="Symbol">(</a><a id="2703" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="2708" href="Intro.html#3391" class="Generalizable">ℓ</a><a id="2709" class="Symbol">)</a>
-<a id="2711" href="HLevelTypes.html#2684" class="Function">Groupoid</a> <a id="2720" class="Symbol">{</a><a id="2721" href="HLevelTypes.html#2721" class="Bound">ℓ</a><a id="2722" class="Symbol">}</a> <a id="2724" class="Symbol">=</a> <a id="2726" href="BasicTypes.html#1497" class="Record">∑</a> <a id="2728" class="Symbol">(</a><a id="2729" href="Intro.html#2811" class="Function">Type</a> <a id="2734" href="HLevelTypes.html#2721" class="Bound">ℓ</a><a id="2735" class="Symbol">)</a> <a id="2737" href="HLevelTypes.html#2520" class="Function">isGroupoid</a>
+<a id="Groupoid"></a><a id="2990" href="HLevelTypes.html#2990" class="Function">Groupoid</a>
+  <a id="3001" class="Symbol">:</a> <a id="3003" href="Intro.html#2811" class="Function">Type</a> <a id="3008" class="Symbol">(</a><a id="3009" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="3014" href="Intro.html#3478" class="Generalizable">ℓ</a><a id="3015" class="Symbol">)</a>
+<a id="3017" href="HLevelTypes.html#2990" class="Function">Groupoid</a> <a id="3026" class="Symbol">{</a><a id="3027" href="HLevelTypes.html#3027" class="Bound">ℓ</a><a id="3028" class="Symbol">}</a> <a id="3030" class="Symbol">=</a> <a id="3032" href="BasicTypes.html#1497" class="Record">∑</a> <a id="3034" class="Symbol">(</a><a id="3035" href="Intro.html#2811" class="Function">Type</a> <a id="3040" href="HLevelTypes.html#3027" class="Bound">ℓ</a><a id="3041" class="Symbol">)</a> <a id="3043" href="HLevelTypes.html#2826" class="Function">isGroupoid</a>
 </pre>
 
 
@@ -789,7 +808,7 @@ Synonyms:
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-08-18"
+       data-lastchecked ="2019-08-19"
        data-originalyear =""
        data-title ="H-Levels Types"
        data-url ="http://jonaprieto.github.io/mini-hott/HLevelTypes.tex"

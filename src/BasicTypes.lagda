@@ -283,6 +283,30 @@ pattern sc = succ
 {-# BUILTIN NATURAL ℕ #-}
 \end{code}
 
+### Finite sets
+
+A finite set can be define in so many ways.
+We opt to use a ∑-type which we believe is clear enough to say what they are.
+A finite set of $n : \mathsf{N}$, $\mathsf{Fin}_{n}$, is the collection of
+numbers less ($<$) than the number $n$. This notion is the following type family.
+
+\begin{code}
+mutual
+  Fin : ℕ → Type lzero
+  Fin n = Σ ℕ (λ m → m < n)
+\end{code}
+
+Where the ordering relation is defined as follows.
+
+\begin{code}
+  _<_ : ℕ → ℕ → Type lzero
+  zero   < zero   = ⊥
+  zero   < succ b = ⊤
+  succ _ < zero   = ⊥
+  succ a < succ b = a < b
+\end{code}
+
+
 ### Equalities
 
 In HoTT, we have a different interpretation of type theory in which the
@@ -367,4 +391,24 @@ J'
   → {a' : A} (p : a' == a) → B a' p
 
 J' {a = a} B d idp = d
+\end{code}
+
+
+### Decidable type
+
+
+\begin{code}
+data Dec (P : Type₀) : Type₀ where
+  yes : ( p :   P) → Dec P
+  no  : (¬p : ¬ P) → Dec P
+
+⌊_⌋ : {P : Type₀} → Dec P → Bool
+⌊ yes _ ⌋ = true
+⌊ no  _ ⌋ = false
+
+REL : Type₀ → Type₀ → Type₁
+REL A B = A → B → Type₀
+
+Decidable : {A : Type₀} {B : Type₀} → REL A B → Type₀
+Decidable _∼_ = ∀ x y → Dec (x ∼ y)
 \end{code}

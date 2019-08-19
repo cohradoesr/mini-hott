@@ -37,7 +37,7 @@ A *contractible* type is a type such that **every**
 element is equal to a point, the *center* of contraction.
 
 \begin{code}
-  
+
 isContr
   : (A : Type ℓ)
   --------------
@@ -100,6 +100,25 @@ hProp
   : ∀ {ℓ} → Type (lsuc ℓ)
 
 hProp {ℓ} = ∑ (Type ℓ) isProp
+\end{code}
+
+We prove now that the basic type (⊥, ⊤) are indeed (mere) propositions:
+
+\begin{code}
+⊥-is-prop : ∀ {ℓ} →  isProp (⊥ {ℓ})
+⊥-is-prop ()
+\end{code}
+
+\begin{code}
+⊤-is-prop : ∀ {ℓ} →  isProp (⊤ {ℓ})
+⊤-is-prop _ _ = idp
+\end{code}
+
+Synonyms:
+
+\begin{code}
+𝟘-is-prop = ⊥-is-prop
+𝟙-is-prop = ⊤-is-prop
 \end{code}
 
 ### Sets
