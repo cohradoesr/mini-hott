@@ -31,6 +31,8 @@ id
   → A → A
 
 id = λ x → x
+
+identity = id
 \end{code}
 
 The identity function on a type `A` is `idf A`.
@@ -57,6 +59,8 @@ cst
   → (A → B)
 
 cst b = λ _ → b
+
+constant = cst
 \end{code}
 
 ### Logical negation

@@ -292,20 +292,26 @@ numbers less ($<$) than the number $n$. This notion is the following type family
 
 \begin{code}
 mutual
-  Fin : ℕ → Type lzero
+  Fin : ℕ → Type₀
   Fin n = Σ ℕ (λ m → m < n)
 \end{code}
 
 Where the ordering relation is defined as follows.
 
 \begin{code}
-  _<_ : ℕ → ℕ → Type lzero
+  _<_ : ℕ → ℕ → Type₀
   zero   < zero   = ⊥
   zero   < succ b = ⊤
   succ _ < zero   = ⊥
   succ a < succ b = a < b
 \end{code}
 
+and we can state the relation $\geq$ as as shortcut for...
+
+\begin{code}
+  _>_ : ℕ → ℕ → Type₀
+  a > b = b < a
+\end{code}  
 
 ### Equalities
 

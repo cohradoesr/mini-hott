@@ -34,7 +34,9 @@ open import MonoidType
 
 \begin{code}
 module NaturalType where
+\end{code}
 
+\begin{code}
   -- Addition of natural numbers
   plus : ℕ → ℕ → ℕ
   plus zero y = y
@@ -43,33 +45,55 @@ module NaturalType where
   infixl 60 _+ₙ_
   _+ₙ_ : ℕ → ℕ → ℕ
   _+ₙ_ = plus
+\end{code}
 
-  --- s about addition
-  plus-lunit : (n : ℕ) → zero +ₙ n == n
+{: .foldable until="3"}
+\begin{code}
+  plus-lunit
+    : (n : ℕ)
+    → zero +ₙ n == n
+
   plus-lunit n = refl n
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   plus-runit : (n : ℕ) → n +ₙ zero == n
   plus-runit zero = refl zero
   plus-runit (succ n) = ap succ (plus-runit n)
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   plus-succ : (n m : ℕ) → succ (n +ₙ m) == (n +ₙ (succ m))
   plus-succ zero     m = refl (succ m)
   plus-succ (succ n) m = ap succ (plus-succ n m)
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   plus-succ-rs : (n m o p : ℕ) → n +ₙ m == o +ₙ p → n +ₙ (succ m) == o +ₙ (succ p)
   plus-succ-rs n m o p α = inv (plus-succ n m) · ap succ α · (plus-succ o p)
+\end{code}
 
-  -- Commutativity
+Commutativity
+{: .foldable until="3"}
+\begin{code}
   plus-comm : (n m : ℕ) → n +ₙ m == m +ₙ n
   plus-comm zero     m = inv (plus-runit m)
   plus-comm (succ n) m = ap succ (plus-comm n m) · plus-succ m n
+\end{code}
 
-  -- Associativity
+Associativity
+{: .foldable until="3"}
+\begin{code}
   plus-assoc : (n m p : ℕ) → n +ₙ (m +ₙ p) == (n +ₙ m) +ₙ p
   plus-assoc zero     m p = refl (m +ₙ p)
   plus-assoc (succ n) m p = ap succ (plus-assoc n m p)
+\end{code}
 
-
+{: .foldable until="3"}
+\begin{code}
   -- Decidable equality
   -- Encode-decode technique for natural numbers
   private
@@ -92,18 +116,30 @@ module NaturalType where
     decode zero (succ m) ()
     decode (succ n) zero ()
     decode (succ n) (succ m) c = ap succ (decode n m c)
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   zero-not-succ : (n : ℕ) → ¬ (succ n == zero)
   zero-not-succ n = encode (succ n) 0
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   -- The successor function is injective
   succ-inj : {n m : ℕ} → (succ n == succ m) → n == m
   succ-inj {n} {m} p = decode n m (encode (succ n) (succ m) p)
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   +-inj : (k : ℕ) {n m : ℕ} → (k +ₙ n == k +ₙ m) → n == m
   +-inj zero   p = p
   +-inj (succ k) p = +-inj k (succ-inj p)
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   nat-decEq : decEq ℕ
   nat-decEq zero zero = inl (refl zero)
   nat-decEq zero (succ m) = inr (λ ())
@@ -111,26 +147,58 @@ module NaturalType where
   nat-decEq (succ n) (succ m) with (nat-decEq n m)
   nat-decEq (succ n) (succ m) | inl p = inl (ap succ p)
   nat-decEq (succ n) (succ m) | inr f = inr λ p → f (succ-inj p)
+\end{code}
 
-  nat-isSet : isSet ℕ
-  nat-isSet = hedberg nat-decEq
+{: .foldable until="3"}
+\begin{code}
 
+  -- REMOVE some of the DEC for nats.
+  natIsDec : (n m : ℕ) → (n == m) + (¬ (n == m))
+  natIsDec zero zero     = inl idp
+  natIsDec zero (succ m) = inr (λ ())
+  natIsDec (succ n) zero = inr (λ ())
+  natIsDec (succ n) (succ m) with natIsDec n m
+  ... | inl p  = inl (ap succ p)
+  ... | inr ¬p = inr λ sn=sm → ¬p (succ-inj sn=sm)
+\end{code}
+
+{: .foldable until="3"}
+\begin{code}
+  nat-is-set : isSet ℕ
+  nat-is-set = hedberg natIsDec
+\end{code}
+
+{: .foldable until="3"}
+\begin{code}
+  ℕ-is-set : isSet ℕ
+  ℕ-is-set = nat-is-set
+  nat-isSet = nat-is-set
+\end{code}
+
+{: .foldable until="3"}
+\begin{code}
   -- Naturals form a monoid with addition
   ℕ-plus-monoid : Monoid
   ℕ-plus-monoid = record
     { M = ℕ
     ; M-is-set = nat-isSet
-    ; _<>_ = plus
+    ; _<>_     = plus
     ; e = zero
     ; lunit = plus-lunit
     ; runit = plus-runit
     ; assoc = plus-assoc
     }
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   -- Ordering
   _<ₙ_ : ℕ → ℕ → Type₀
   n <ₙ m = Σ ℕ (λ k → n +ₙ succ k == m)
+\end{code}
 
+{: .foldable until="3"}
+\begin{code}
   <-isProp : (n m : ℕ) → isProp (n <ₙ m)
   <-isProp n m (k1 , p1) (k2 , p2) = Σ-bycomponents (succ-inj (+-inj n (p1 · inv p2)) , nat-isSet _ _ _ _)
 
