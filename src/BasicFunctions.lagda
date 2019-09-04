@@ -162,7 +162,7 @@ Functions handy to manipulate coproducts:
   → (B → B')
   → A + B → A' + B'
 
-+-map f g = cases (f :> left) (g :> right)
++-map f g = cases (f :> inl) (g :> inr)
 
 syntax +-map f g = 〈 f ⊕ g 〉
 \end{code}

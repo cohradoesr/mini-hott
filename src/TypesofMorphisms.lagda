@@ -297,7 +297,7 @@ Bijection and being equivalent are equivalent notions:
     ------------------------------
     → isProp (isBijection f iA iB)
 
-  bijIsProp iA iB f  = isProp-≃ (≃-sym (bij-≃-≃ iA iB f)) (isEquivIsProp f)
+  bijIsProp iA iB f = isProp-≃ (≃-sym (bij-≃-≃ iA iB f)) (isEquivIsProp f)
   bijection-is-prop = bijIsProp
 \end{code}
 
@@ -312,7 +312,8 @@ One way I see now is to recover such a function from the equivalence, using `rem
     → isBijection f iA iB
     ------------------------------
     → B → A
-  inverse-of-bijection {iA = iA}{iB} f isBij = remap (Bijection {iA = iA}{iB}f isBij)
+  inverse-of-bijection {iA = iA}{iB} f isBij
+    = remap (Bijection {iA = iA}{iB}f isBij)
 
   inv-of-bij = inverse-of-bijection
 \end{code}

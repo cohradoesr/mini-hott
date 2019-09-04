@@ -126,6 +126,7 @@ Synonyms:
   ≃-to-←  = remap
   invfun≃ = remap
   _∙←     = remap
+  rapply  = remap
 
   infixl 70 _∙←
 \end{code}

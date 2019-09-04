@@ -137,7 +137,7 @@ Propositions are Sets:
     → isProp (A + B)
 
   is-prop-A+B ispropA ispropB ¬A×B (inl x) (inl x₁) = ap inl (ispropA x x₁)
-  is-prop-A+B ispropA ispropB ¬A×B (inl x) (inr x₁) = ⊥-elim (¬A×B ( x , x₁))
+  is-prop-A+B ispropA ispropB ¬A×B (inl x) (inr x₁) = ⊥-elim (¬A×B (x , x₁))
   is-prop-A+B ispropA ispropB ¬A×B (inr x) (inl x₁) = ⊥-elim (¬A×B (x₁ , x))
   is-prop-A+B ispropA ispropB ¬A×B (inr x) (inr x₁) = ap inr (ispropB x x₁)
 \end{code}
@@ -365,16 +365,6 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
   -- But it's nice to spell it out fully.
 \end{code}
 
-\begin{code}
-  postulate
-   ≡-is-set-from-sets
-    : {A B : Type ℓᵢ}
-    → isSet A
-    → isSet B
-    → A ≡ B
-
- --  ≡-is-set-from-sets iA iB = {!!}
-\end{code}
 
 Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 
@@ -616,12 +606,21 @@ FIXME : Put this somewhere else
 \end{code}
 
 \begin{code}
-  postulate
-   ∏-set
+  pi-is-set
     : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
-    → (iA : isSet A)
     → ((a : A) → isSet (B a))
     → isSet (∏ A B)
+
+  pi-is-set  setBa f g = b
+    where
+    a : isProp (f ∼ g)
+    a h1 h2 = funext λ x → setBa x (f x) (g x) (h1 x) (h2 x)
+
+    b : isProp (f ≡ g)
+    b = isProp-≃ (≃-sym eqFunExt) (pi-is-prop λ a → setBa a (f a) (g a))
+
+  ∏-set = pi-is-set
+  Π-set = pi-is-set
 \end{code}
 
 The following was a custom version useful to deal with functions
@@ -703,4 +702,27 @@ WeakExtensionalityPrinciple {A = A}{P} f =
   where
    fx : ∏ A P
    fx = λ x → π₁ (f x)
+\end{code}
+
+
+
+\begin{code}
+≃-is-set-from-sets
+  : {A B : Type ℓᵢ}
+  → isSet A
+  → isSet B
+  → isSet (A ≃ B)
+
+≃-is-set-from-sets {A = A}{B} ia ib
+  = isSet-Σ (pi-is-set  (λ _ → ib)) (λ _ → prop-is-set (isEquivIsProp _))
+
+postulate
+ ≡-is-set-from-sets
+  : {A B : Type ℓᵢ}
+  → isSet A
+  → isSet B
+  → isSet (A ≡ B)
+
+-- ≡-is-set-from-sets {A = A}{B} ia ib =  tr isSet {!!} (≃-is-set-from-sets {!ia !} {!ib!}) 
+
 \end{code}

@@ -92,6 +92,7 @@ pattern unit = ★
 pattern ∗    = ★
 \end{code}
 
+
 ### ∑-types
 
 The dependent product is called Sigma types. It's the the type for pairs where
@@ -181,8 +182,8 @@ infixr 31 _+_
 Constructors synonyms:
 
 \begin{code}
-pattern left  = inl  -- TODO: This is not working as I expected
-pattern right = inr
+-- pattern left  = inl  -- TODO: This is not working as I expected
+-- pattern right = inr
 \end{code}
 
 The elimination principle:
@@ -277,8 +278,8 @@ Synonyms for natural numbers
 \begin{code}
 Nat = ℕ
 
-pattern zr  = zero
-pattern sc = succ
+pattern zr = zero 
+pattern sc = succ 
 
 {-# BUILTIN NATURAL ℕ #-}
 \end{code}
@@ -311,7 +312,57 @@ and we can state the relation $\geq$ as as shortcut for...
 \begin{code}
   _>_ : ℕ → ℕ → Type₀
   a > b = b < a
-\end{code}  
+\end{code}
+
+Even though, there are other approaches to define finite sets,
+(in the standard-library in Agda, they have defined inductively
+fin sets as with natural numbers.)
+
+\begin{code}
+⟦_⟧ : ℕ → Type₀
+⟦ zero ⟧   = 𝟘
+⟦ succ n ⟧ = 𝟙 + ⟦ n ⟧
+
+\end{code}
+
+In math books, we denote by the finite set of $n$ as $[n]$, we
+mimic this notation as follows:
+
+Synomym:
+\begin{code}
+Fin₂ = ⟦_⟧
+\end{code}
+
+Without going further, it's natural to define two essential functions:
+successor, and predecessor.
+
+Succesor function on (finite) natural numbers are well-defined when
+we consider sets with at least one element.
+
+$$ ⟦ n ⟧ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$ 
+
+- $1 :≡ inl unit$
+
+- $n :≡ inr (inr ...)$
+
+\begin{code}
+⟦⟧-succ
+  : ∀ {n : ℕ}
+  → ⟦ n ⟧ → ⟦ succ n ⟧
+  
+⟦⟧-succ {succ n} (inl x) = inr (inl unit)
+⟦⟧-succ {succ n} (inr x) = inr (⟦⟧-succ x)
+\end{code}
+
+\begin{code}
+⟦⟧-pred
+  : ∀ (n : ℕ)
+  → ⟦ n ⟧ →  ⟦ n ⟧ -- clarify why in succ?,
+
+⟦⟧-pred (succ n) (inl x) = inl x
+⟦⟧-pred (succ n) (inr x) = inr (⟦⟧-pred n x) 
+\end{code}
+
 
 ### Equalities
 
@@ -339,7 +390,7 @@ Eq   = _==_
 Id   = _==_
 Path = _==_
 _⇝_  = _==_   -- '\r~'
-_≡_  = _==_   -- '\equiv'
+_≡_  = _==_   -- '\equiv' (may be not good idea...)
 
 infix 30 _==_ _⇝_ _≡_
 
