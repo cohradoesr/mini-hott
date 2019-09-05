@@ -339,17 +339,16 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
       → isSet (Σ A B)
 
   sigma-is-set = isSet-Σ
-  -- isSet-Σ sa sb (a , b) (c , d) p q = {!   !}
 \end{code}
 
 \begin{code}
   postulate
-   is-set-equiv-to-set
-    : {A B : Type  ℓᵢ}
-    → A ≃ B
-    → isSet A
-    ---------
-    → isSet B
+    is-set-equiv-to-set
+      : {A : Type  ℓ}{B : Type ℓⱼ}
+      → A ≃ B
+      → isSet A
+      ---------
+      → isSet B
 \end{code}
 
 \begin{code}
@@ -682,7 +681,7 @@ law-double-negation
 
 law-double-negation iP with LEM iP
 law-double-negation iP | inl x = λ _ → x
-law-double-negation iP | inr x = λ p→⊥→⊥ → ⊥-elim (p→⊥→⊥ x) 
+law-double-negation iP | inr x = λ p→⊥→⊥ → ⊥-elim (p→⊥→⊥ x)
 \end{code}
 
 Law excluded middle and law of double negation are both equivalent.
@@ -723,6 +722,6 @@ postulate
   → isSet B
   → isSet (A ≡ B)
 
--- ≡-is-set-from-sets {A = A}{B} ia ib =  tr isSet {!!} (≃-is-set-from-sets {!ia !} {!ib!}) 
+-- ≡-is-set-from-sets {A = A}{B} ia ib =  tr isSet {!!} (≃-is-set-from-sets {!ia !} {!ib!})
 
 \end{code}
