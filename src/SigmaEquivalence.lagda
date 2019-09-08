@@ -71,7 +71,7 @@ module SigmaEquivalence {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
 \end{code}
 
 {: .foldable until="6"}
-\begin{code} 
+\begin{code}
   ap-π₁-pair=Equiv
     : {a₁ a₂ : A} {c₁ : P a₁} {c₂ : P a₂}
     → (α : a₁ == a₂)

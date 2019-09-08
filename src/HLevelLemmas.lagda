@@ -329,17 +329,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
   --   ... | e = {!e!}
 \end{code}
 
-{: .foldable until="6" }
-\begin{code}
-  postulate -- Ex. 3.3
-    isSet-Σ
-      : {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
-      → isSet A → ((a : A) →  isSet (B a))
-      -------------------
-      → isSet (Σ A B)
 
-  sigma-is-set = isSet-Σ
-\end{code}
 
 \begin{code}
   id-contractible-from-set
@@ -547,7 +537,7 @@ Equivalences preserve propositions
        = qinv-≃ (λ p → ! (lrmap-inverse e) · ap f p · lrmap-inverse e)
                 ((λ { idp → idp})
                 , (λ { idp → H₁})
-                , λ {p → iA (remap e x) _ _ p})
+                , λ {p → iA (!f x) (!f y) _ p})
        where
        H₁ : (! lrmap-inverse e · idp) · lrmap-inverse e {x} == idp
        H₁ = begin
@@ -557,7 +547,7 @@ Equivalences preserve propositions
            ≡⟨ ·-linv (lrmap-inverse e) ⟩
          idp
          ∎
-
+  equiv-with-a-set-is-set = is-set-equiv-to-set
 \end{code}
 
 Above, we might want to use univalence to rewrite $x ≡B y$. Unfortunately,
@@ -738,8 +728,33 @@ WeakExtensionalityPrinciple {A = A}{P} f =
    fx = λ x → π₁ (f x)
 \end{code}
 
+{: .hide }
+\begin{code}
+open import SigmaEquivalence
+\end{code}
+
+{: .foldable until="5" }
+\begin{code}
+isSet-Σ
+  : {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
+  → isSet A → ((a : A) →  isSet (B a))
+  -------------------
+  → isSet (Σ A B)
+
+isSet-Σ {A = A}{B} iA f x y
+  = isProp-≃
+    (pair=Equiv {v = x}{y})
+    (∑-prop (iA (π₁ x) (π₁ y))
+      (λ a → f _ (tr (λ x  → B x) a (π₂ x)) (π₂ y) ))
 
 
+sigma-is-set = isSet-Σ
+∑-set = isSet-Σ
+isSet-∑ = isSet-Σ
+\end{code}
+
+
+{ .foldable until="6" }
 \begin{code}
 ≃-is-set-from-sets
   : {A : Type ℓᵢ}{B : Type ℓⱼ}
@@ -750,15 +765,16 @@ WeakExtensionalityPrinciple {A = A}{P} f =
 
 ≃-is-set-from-sets {A = A}{B} ia ib
   = isSet-Σ (pi-is-set  (λ _ → ib)) (λ _ → prop-is-set (isEquivIsProp _))
+\end{code}
 
-postulate
- ≡-is-set-from-sets
+{: .foldable until="6" }
+\begin{code}
+≡-is-set-from-sets
   : {A B : Type ℓᵢ}
   → isSet A
   → isSet B
   --------------
   → isSet (A ≡ B)
 
--- ≡-is-set-from-sets {A = A}{B} ia ib =  tr isSet {!!} (≃-is-set-from-sets {!ia !} {!ib!})
-
+≡-is-set-from-sets iA iB = equiv-with-a-set-is-set (≃-sym eqvUnivalence) (≃-is-set-from-sets iA iB)
 \end{code}
