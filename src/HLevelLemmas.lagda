@@ -52,6 +52,7 @@ For any type, $$A : \Type$$,
   $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \mathsf{isGroupoid}{A}.$$
 
 Contractible types are Propositions:
+
 {: .foldable until="5"}
 \begin{code}
   contrIsProp
@@ -227,6 +228,7 @@ Synomyms:
         funext (λ p →
           funext (λ q → propIsSet (p₂ x y) p q (p₁ x y p q) (p₂ x y p q)))))
 \end{code}
+
 \begin{code}
   set-is-prop = setIsProp
   set→prop    = setIsProp
@@ -280,6 +282,7 @@ Synomys:
   set×set→set   = isSet-prod
 \end{code}
 
+{: .foldable until="6"}
 \begin{code}
   Prop-/-≡
     : {A : Type ℓᵢ}
@@ -330,12 +333,13 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 \end{code}
 
 
-
+{: .foldable until="6"}
 \begin{code}
   id-contractible-from-set
     : {A : Type ℓ}
     → isSet A
     → {a a' : A}
+    --------------------------
     → a ≡ a' → isContr (a ≡ a')
 
   id-contractible-from-set iA {a}{.a} idp
@@ -364,14 +368,14 @@ Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 \end{code}
 
 Lemma 3.3.3 (HoTT-Book):
+
+{: .foldable until="6"}
 \begin{code}
   lemma333
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
-    → isProp A
-    → isProp B
-    → (A → B)
-    → (B → A)
-    ----------
+    → isProp A → isProp B
+    → (A → B)  → (B → A)
+    ----------------------
     → A ≃ B
 
   lemma333 iA iB f g = qinv-≃ f (g , gf , fg)
@@ -387,6 +391,8 @@ Lemma 3.3.3 (HoTT-Book):
 \end{code}
 
 Lemma 3.3.2 (HoTT-Book):
+
+{: .foldable until="6"}
 \begin{code}
   prop-inhabited-≃𝟙
     : {A : Type ℓ}
@@ -394,6 +400,7 @@ Lemma 3.3.2 (HoTT-Book):
     → (a : A)
     ---------
     → A ≃ (𝟙 {ℓ})
+
   prop-inhabited-≃𝟙 iA a =
     lemma333 iA 𝟙-is-prop (λ _ → unit) (λ _ → a)
 
@@ -401,6 +408,8 @@ Lemma 3.3.2 (HoTT-Book):
 \end{code}
 
 From Exercise 3.5 (HoTT-Book):
+
+{: .foldable until="3"}
 \begin{code}
   isProp-≃-isContr
     : {A : Type ℓ}
@@ -422,6 +431,7 @@ Moreover, equivalences preserve propositions.
 
 Contractible maps are propositions:
 
+{: .foldable until="5"}
 \begin{code}
   isContrMapIsProp
     : {A : Type ℓᵢ} {B : Type ℓⱼ}
@@ -432,6 +442,7 @@ Contractible maps are propositions:
   isContrMapIsProp f = pi-is-prop (λ a → isContrIsProp)
 \end{code}
 
+{: .foldable until="4"}
 \begin{code}
   isEquivIsProp
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
@@ -442,12 +453,14 @@ Contractible maps are propositions:
 \end{code}
 
 Equality of same-morphism equivalences
+
 {: .foldable until="6"}
 \begin{code}
   sameEqv
     : {A : Type ℓᵢ}{B : Type ℓⱼ}
     → {α β : A ≃ B}
     → π₁ α == π₁ β
+    ---------------
     →    α == β
 
   sameEqv {α = (f , σ)} {(g , τ)} p = Σ-bycomponents (p , (isEquivIsProp g _ τ))
@@ -608,7 +621,6 @@ Equivalence of propositions is the same logical equivalence.
       ∎
 \end{code}
 
-FIXME : Put this somewhere else
 
 {: .foldable until="6"}
 \begin{code}
@@ -627,12 +639,18 @@ FIXME : Put this somewhere else
 
       β : (π₂ u) ≡ (π₂ v) [ B / α ]
       β = λ-iB (π₁ v) (tr B α (π₂ u)) (π₂ v)
+
+  isProp-Σ = ∑-prop
+  isProp-∑ = ∑-prop
+  Σ-prop = ∑-prop
 \end{code}
 
+{: .foldable until="5"}
 \begin{code}
   pi-is-set
     : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
     → ((a : A) → isSet (B a))
+    -------------------------
     → isSet (∏ A B)
 
   pi-is-set  setBa f g = b
@@ -642,7 +660,9 @@ FIXME : Put this somewhere else
 
     b : isProp (f ≡ g)
     b = isProp-≃ (≃-sym eqFunExt) (pi-is-prop λ a → setBa a (f a) (g a))
+\end{code}
 
+\begin{code}
   ∏-set = pi-is-set
   Π-set = pi-is-set
 \end{code}
@@ -668,7 +688,7 @@ with implicit parameters.
          go f {a} = f a
 \end{code}
 
-
+{: .hide}
 \begin{code}
 open HLevelLemmas public
 \end{code}
@@ -714,6 +734,7 @@ Law excluded middle and law of double negation are both equivalent.
 
 Weak extensionality principle:
 
+{: .foldable until="5"}
 \begin{code}
 WeakExtensionalityPrinciple
   : {A : Type ℓ} {P : A → Type ℓ}
@@ -746,10 +767,11 @@ isSet-Σ {A = A}{B} iA f x y
     (pair=Equiv {v = x}{y})
     (∑-prop (iA (π₁ x) (π₁ y))
       (λ a → f _ (tr (λ x  → B x) a (π₂ x)) (π₂ y) ))
+\end{code}
 
-
+\begin{code}
 sigma-is-set = isSet-Σ
-∑-set = isSet-Σ
+∑-set   = isSet-Σ
 isSet-∑ = isSet-Σ
 \end{code}
 
