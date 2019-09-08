@@ -342,16 +342,6 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 \end{code}
 
 \begin{code}
-  postulate
-    is-set-equiv-to-set
-      : {A : Type  ℓ}{B : Type ℓⱼ}
-      → A ≃ B
-      → isSet A
-      ---------
-      → isSet B
-\end{code}
-
-\begin{code}
   id-contractible-from-set
     : {A : Type ℓ}
     → isSet A
@@ -533,6 +523,51 @@ Equivalences preserve propositions
     ∎
 \end{code}
 
+{: .foldable until="6" }
+\begin{code}
+  is-set-equiv-to-set
+    : {A : Type  ℓᵢ}{B : Type ℓⱼ}
+    → A ≃ B
+    → isSet A
+    ---------
+    → isSet B
+
+  is-set-equiv-to-set {A = A}{B} e iA
+    x y  =  isProp-≃ aux (iA (!f x) (!f y))
+    where
+    private
+     f : A → B
+     f = lemap e
+
+     !f : B → A
+     !f = remap e
+
+     aux : (remap e x ≡ remap e y) ≃ (x ≡ y)
+     aux
+       = qinv-≃ (λ p → ! (lrmap-inverse e) · ap f p · lrmap-inverse e)
+                ((λ { idp → idp})
+                , (λ { idp → H₁})
+                , λ {p → iA (remap e x) _ _ p})
+       where
+       H₁ : (! lrmap-inverse e · idp) · lrmap-inverse e {x} == idp
+       H₁ = begin
+         (! lrmap-inverse e · idp) · lrmap-inverse e
+           ≡⟨ ap (λ w → w · (lrmap-inverse e)) (! (·-runit _)) ⟩
+         ! lrmap-inverse e · lrmap-inverse e
+           ≡⟨ ·-linv (lrmap-inverse e) ⟩
+         idp
+         ∎
+
+\end{code}
+
+Above, we might want to use univalence to rewrite $x ≡B y$. Unfortunately,
+we can not because a universe level matters, at least for now.
+A first proof would have been saying $x ≡A y$ is a mere proposition and since
+$A ≃ B$, $x ≡B y$ is also a mere proposition. So, $B$ is a set.
+Second proof is construct a term of 'isSet B' by using the inverse function
+from the equivalence and some path algebra. Not happy with this but it works.
+
+
 {: .foldable until="5"}
 \begin{code}
   ≃-trans-inv
@@ -707,9 +742,10 @@ WeakExtensionalityPrinciple {A = A}{P} f =
 
 \begin{code}
 ≃-is-set-from-sets
-  : {A B : Type ℓᵢ}
+  : {A : Type ℓᵢ}{B : Type ℓⱼ}
   → isSet A
   → isSet B
+  --------------
   → isSet (A ≃ B)
 
 ≃-is-set-from-sets {A = A}{B} ia ib
@@ -720,6 +756,7 @@ postulate
   : {A B : Type ℓᵢ}
   → isSet A
   → isSet B
+  --------------
   → isSet (A ≡ B)
 
 -- ≡-is-set-from-sets {A = A}{B} ia ib =  tr isSet {!!} (≃-is-set-from-sets {!ia !} {!ib!})
