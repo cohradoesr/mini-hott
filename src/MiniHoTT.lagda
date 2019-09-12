@@ -88,6 +88,8 @@ module MiniHoTT where
   open import MonoidType public
   open import GroupType public
 
+  open import BasicEquivalences public
+
   --   open import FundamentalGroupType public
 
 \end{code}

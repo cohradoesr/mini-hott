@@ -72,13 +72,13 @@ the following no standard definition of Univalence axiom (without transport).
 
 {: .axiom }
 \begin{code}
+  open import HLevelTypes
+
   UA
     : ∀ {ℓ}
     → (Type (lsuc ℓ))
 
-  UA {ℓ = ℓ}  =
-    (X : Type ℓ) → isProp ( ∑ (Type ℓ) (λ Y → (X ≃ Y) ))
-    where open import  HLevelTypes
+  UA {ℓ = ℓ}  = (X : Type ℓ) → isContr (∑ (Type ℓ) (λ Y → (X ≃ Y)))
 \end{code}
 
 About this Univalence axiom version:

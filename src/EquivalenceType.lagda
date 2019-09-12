@@ -73,7 +73,7 @@ Synomyms:
 
 \begin{code}
 isEquivalence  = isEquiv
-is-equivalence = isEquiv 
+is-equivalence = isEquiv
 \end{code}
 
 ### Equivalence Type

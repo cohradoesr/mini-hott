@@ -101,6 +101,10 @@ showcitation: true
 
 {% include_relative EquivalenceReasoning.md %}
 
+[BasicEquivalences.lagda]({% link BasicEquivalences.md %})
+
+{% include_relative BasicEquivalences.md %}
+
 [SigmaEquivalence.lagda]({% link SigmaEquivalence.md %})
 
 {% include_relative SigmaEquivalence.md %}

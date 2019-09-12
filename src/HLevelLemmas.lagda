@@ -776,7 +776,7 @@ isSet-∑ = isSet-Σ
 \end{code}
 
 
-{ .foldable until="6" }
+{: .foldable until="6" }
 \begin{code}
 ≃-is-set-from-sets
   : {A : Type ℓᵢ}{B : Type ℓⱼ}
