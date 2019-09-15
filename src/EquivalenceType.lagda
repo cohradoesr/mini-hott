@@ -44,9 +44,9 @@ element has a unique preimagen.
 
 \begin{code}
 isContrMap
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → (f : A → B)
-  → Type (ℓᵢ ⊔ ℓⱼ)
+  → Type (ℓ₁ ⊔ ℓ₂)
 
 isContrMap {B = B} f = (b : B) → isContr (fib f b)
 \end{code}
@@ -62,9 +62,9 @@ contractible function between them.
 
 \begin{code}
 isEquiv
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
-  →  (f : A → B)
-  → Type (ℓᵢ ⊔ ℓⱼ)
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+  → (f : A → B)
+  → Type (ℓ₁ ⊔ ℓ₂)
 
 isEquiv f = isContrMap f
 \end{code}
@@ -80,14 +80,14 @@ is-equivalence = isEquiv
 
 \begin{code}
 _≃_
-  : (A : Type ℓᵢ) (B : Type ℓⱼ)
-  → Type (ℓᵢ ⊔ ℓⱼ)
+  : ∀ {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁)(B : Type ℓ₂)
+  → Type (ℓ₁ ⊔ ℓ₂)
 
 A ≃ B = Σ (A → B) isEquiv
 \end{code}
 
 \begin{code}
-module EquivalenceMaps {A : Type ℓᵢ} {B : Type ℓⱼ} where
+module EquivalenceMaps {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}  where
 \end{code}
 
 {: .foldable until="4" }

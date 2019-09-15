@@ -41,7 +41,7 @@ module UnivalenceComposition where
 {: .foldable until="6" }
 \begin{code}
   ua-comp
-    : {A B C : Type ℓ}
+    : ∀ {ℓ : Level} {A B C : Type ℓ}
     → (α : A ≃ B)
     → (β : B ≃ C)
     ---------------------------------
@@ -63,7 +63,7 @@ Inverses are preserved (Type-check this takes ~30min)
 \begin{code}
   postulate
    ua-inv-r
-    : {A B : Type ℓ}
+    : ∀ {ℓ : Level} {A B : Type ℓ}
     → (α : A ≃ B)
     -------------------------------
     → ua α · ua (≃-sym α) == refl A
@@ -85,7 +85,7 @@ Inverses are preserved (Type-check this takes ~30min)
 {: .foldable until="5" }
 \begin{code}
   ua-inv
-    : {A B : Type ℓ}
+    : ∀ {ℓ : Level} {A B : Type ℓ}
     → (α : A ≃ B)
     -------------------------
     → ua (≃-sym α) ≡ ! (ua α)

@@ -19,6 +19,7 @@ product and coproducts.
 {-# OPTIONS --without-K #-}
 open import BasicTypes
 open import BasicFunctions
+open import AlgebraOnPaths
 open import EquivalenceType
 open import HomotopyType
 open import QuasiinverseType
@@ -30,7 +31,7 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-+-comm
-    : {X : Type ℓᵢ}{Y : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {X : Type ℓ₁}{Y : Type ℓ₂}
     → X + Y ≃ Y + X
 
   ≃-+-comm {X = X}{Y} = qinv-≃ f (g , H₁ , H₂ )
@@ -56,7 +57,7 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-+-assoc
-    : {X : Type ℓᵢ}{Y : Type ℓⱼ}{Z : Type ℓₖ}
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}{Y : Type ℓ₂} {Z : Type ℓ₃}
     → X + (Y + Z) ≃ (X + Y) + Z
 
   ≃-+-assoc {X = X}{Y}{Z} = qinv-≃ f (g , (H₁ , H₂))
@@ -87,15 +88,15 @@ module BasicEquivalences where
 \begin{code}
   ≃-+-runit
     : ∀ {ℓ : Level}{X : Type ℓ}
-    → X ≃ X + (𝟘 {ℓ})
+    → X ≃ X + (𝟘 ℓ)
 
   ≃-+-runit {ℓ = ℓ}{X} = qinv-≃ f (g , (H₁ , H₂ ))
     where
     private
-      f : X →  X + (𝟘 {ℓ})
+      f : X →  X + (𝟘 ℓ)
       f  x = inl x
 
-      g : X + (𝟘 {ℓ}) → X
+      g : X + (𝟘 ℓ) → X
       g (inl x) = x
 
 
@@ -109,16 +110,20 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-+-lunit
-    : ∀ {ℓ} {X : Type ℓ}
-    → X ≃ 𝟘 {ℓ} + X
+    : ∀ {ℓ : Level} {X : Type ℓ}
+    → X ≃ 𝟘 ℓ + X
 
-  ≃-+-lunit {ℓ = ℓ}{X} = X ≃⟨ ≃-+-runit ⟩  X + 𝟘 ≃⟨ ≃-+-comm ⟩ 𝟘 + X ≃∎
+  ≃-+-lunit {ℓ}{X} =
+    X           ≃⟨ ≃-+-runit ⟩
+    X + 𝟘 ℓ     ≃⟨ ≃-+-comm ⟩
+    (𝟘 ℓ) + X   ≃∎
+
 \end{code}
 
 {: .foldable until="3"}
 \begin{code}
   ≃-×-comm
-    : {X : Type ℓᵢ}{Y : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {X : Type ℓ₁}{Y : Type ℓ₂}
     → X × Y ≃ Y × X
 
   ≃-×-comm {X = X}{Y} = qinv-≃ f (g , (H₁ , H₂))
@@ -141,15 +146,15 @@ module BasicEquivalences where
 \begin{code}
   ≃-×-runit
     : ∀ {ℓ} {X : Type ℓ}
-    → X ≃ X × (𝟙 {ℓ})
+    → X ≃ X × (𝟙 ℓ)
 
   ≃-×-runit {ℓ = ℓ}{X = X} = qinv-≃ f (g , (H₁ , H₂))
     where
     private
-      f : X → X × 𝟙 {ℓ}
+      f : X → X × 𝟙 ℓ
       f x = (x , unit)
 
-      g : X × 𝟙 {ℓ} → X
+      g : X × 𝟙 ℓ → X
       g (x , _) = x
 
       H₁ : (f ∘ g) ∼ id
@@ -162,16 +167,19 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-×-lunit
-    : {X : Type ℓ}
-    → X ≃ 𝟙 {ℓ} × X
+    : ∀ {ℓ : Level}{X : Type ℓ}
+    → X ≃ 𝟙 ℓ × X
 
-  ≃-×-lunit {ℓ = ℓ} {X = X} = X ≃⟨ ≃-×-runit ⟩  X × 𝟙 ≃⟨ ≃-×-comm ⟩ 𝟙 × X ≃∎
+  ≃-×-lunit {ℓ = ℓ} {X = X} =
+    X           ≃⟨ ≃-×-runit ⟩
+    X × (𝟙 ℓ)   ≃⟨ ≃-×-comm ⟩
+    (𝟙 ℓ) × X   ≃∎
 \end{code}
 
 {: .foldable until="3"}
 \begin{code}
   ≃-×-assoc
-    : {X : Type ℓᵢ}{Y : Type ℓⱼ}{Z : Type ℓₖ}
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}{Y : Type ℓ₂} {Z : Type ℓ₃}
     → X × (Y × Z) ≃ (X × Y) × Z
 
   ≃-×-assoc {X = X}{Y}{Z} = qinv-≃ f (g , (H₁ , H₂))
@@ -188,4 +196,31 @@ module BasicEquivalences where
 
       H₂ : g ∘ f ∼ id
       H₂ (x , (y , z)) = idp
+\end{code}
+
+{: .foldable until="3"}
+\begin{code}
+  ≃-×-+-distr
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}{Y : Type ℓ₂} {Z : Type ℓ₃}
+    → (X × (Y + Z)) ≃ ((X × Y) + (X × Z))
+
+  ≃-×-+-distr {X = X}{Y}{Z} = qinv-≃ f (g , (H₁ , H₂))
+    where
+    private
+      f : (X × (Y + Z)) → ((X × Y) + (X × Z))
+      f (x , inl y) = inl (x , y)
+      f (x , inr z) = inr (x , z)
+
+      g : ((X × Y) + (X × Z)) → (X × (Y + Z))
+      g (inl (x , y)) = x , inl y
+      g (inr (x , z)) = x , inr z
+
+      open import CoproductIdentities
+      H₁ : (f ∘ g) ∼ id
+      H₁ (inl x) = ap inl (uppt x )
+      H₁ (inr x) = ap inr (uppt x)
+
+      H₂ : (g ∘ f) ∼ id
+      H₂ (p , inl x) = pair= (idp , idp)
+      H₂ (p , inr x) = pair= (idp , idp)
 \end{code}

@@ -56,7 +56,7 @@ Contractible types are Propositions:
 {: .foldable until="5"}
 \begin{code}
   contrIsProp
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isContr A
     -----------
     → isProp A
@@ -71,7 +71,7 @@ To be contractible is itself a proposition.
 
 \begin{code}
   contractible-from-inhabited-prop
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → A
     → isProp A
     ----------------
@@ -85,7 +85,7 @@ Propositions are Sets:
 {: .foldable until="5"}
 \begin{code}
   propIsSet
-    : ∀ {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isProp A
     ----------
     → isSet A
@@ -118,7 +118,7 @@ Propositions are Sets:
 {: .foldable until="5"}
 \begin{code}
   Set-is-Groupoid
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isSet A
     ----------
     → isGroupoid A
@@ -130,7 +130,7 @@ Propositions are Sets:
 {: .foldable until="7"}
 \begin{code}
   is-prop-A+B
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → isProp A
     → isProp B
     → ¬ (A × B)
@@ -139,7 +139,7 @@ Propositions are Sets:
 
   is-prop-A+B ispropA ispropB ¬A×B (inl x) (inl x₁) = ap inl (ispropA x x₁)
   is-prop-A+B ispropA ispropB ¬A×B (inl x) (inr x₁) = ⊥-elim (¬A×B (x , x₁))
-  is-prop-A+B ispropA ispropB ¬A×B (inr x) (inl x₁) = ⊥-elim (¬A×B (x₁ , x))
+  is-prop-A+B ispropA ispropB ¬A×B (inr x) (inl x₁) =  ⊥-elim (¬A×B (x₁ , x))
   is-prop-A+B ispropA ispropB ¬A×B (inr x) (inr x₁) = ap inr (ispropB x x₁)
 \end{code}
 
@@ -149,7 +149,7 @@ the strong use of function extensionality, used twice here.
 {: .foldable until="5"}
 \begin{code}
   propIsProp
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     -- (funext : Function-Extensionality)
     -------------------------------------
     → isProp (isProp A)
@@ -174,7 +174,7 @@ proposition.
 {: .foldable until="6"}
 \begin{code}
   isProp-pi
-    : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
     -- (funext : Function-Extensionality)
     → ((a : A) → isProp (B a))
     --------------------------
@@ -195,7 +195,7 @@ is a consequence of univalence axiom.
 {: .foldable until="8"}
 \begin{code}
   prop-ext
-    : {A B : Type ℓ}
+    : ∀ {ℓ : Level} {A B : Type ℓ}
     -- (ua : Univalence Axiom)
     → isProp A
     → isProp B
@@ -218,7 +218,7 @@ Synomyms:
 {: .foldable until="4"}
 \begin{code}
   setIsProp
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     -----------------
     → isProp (isSet A)
 
@@ -239,7 +239,7 @@ The product of propositions is itself a proposition.
 {: .foldable until="6"}
 \begin{code}
   isProp-prod
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → isProp A
     → isProp B
     ---------------------
@@ -258,7 +258,7 @@ The product of propositions is itself a proposition.
 {: .foldable until="5" }
 \begin{code}
   isSet-prod
-    : {A : Type ℓᵢ} → {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → isSet A → isSet B
     -------------------
     → isSet (A × B)
@@ -285,8 +285,8 @@ Synomys:
 {: .foldable until="6"}
 \begin{code}
   Prop-/-≡
-    : {A : Type ℓᵢ}
-    → (P : A → hProp {ℓᵢ})
+    : ∀ {ℓ : Level} {A : Type ℓ}
+    → (P : A → hProp {ℓ})
     → ∀ {a₀ a₁} p₀ p₁ {α : a₀ ≡ a₁}
     ------------------------------
     → p₀ ≡ p₁ [ (# ∘ P) / α ]
@@ -301,7 +301,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 \begin{code}
   postulate
     +-of-sets-is-set
-      : {A : Type ℓᵢ}{B : Type ℓⱼ}
+      : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
       → isSet A
       → isSet B
       ---------------
@@ -336,7 +336,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 {: .foldable until="6"}
 \begin{code}
   id-contractible-from-set
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isSet A
     → {a a' : A}
     --------------------------
@@ -354,7 +354,7 @@ Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 {: .foldable until="4"}
 \begin{code}
   isContrIsProp
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     --------------------
     → isProp (isContr A)
 
@@ -372,7 +372,7 @@ Lemma 3.3.3 (HoTT-Book):
 {: .foldable until="6"}
 \begin{code}
   lemma333
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → isProp A → isProp B
     → (A → B)  → (B → A)
     ----------------------
@@ -395,11 +395,11 @@ Lemma 3.3.2 (HoTT-Book):
 {: .foldable until="6"}
 \begin{code}
   prop-inhabited-≃𝟙
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isProp A
     → (a : A)
     ---------
-    → A ≃ (𝟙 {ℓ})
+    → A ≃ (𝟙 ℓ)
 
   prop-inhabited-≃𝟙 iA a =
     lemma333 iA 𝟙-is-prop (λ _ → unit) (λ _ → a)
@@ -412,7 +412,7 @@ From Exercise 3.5 (HoTT-Book):
 {: .foldable until="3"}
 \begin{code}
   isProp-≃-isContr
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isProp A ≃ (A → isContr A)
 
   isProp-≃-isContr {A = A} =
@@ -434,7 +434,7 @@ Contractible maps are propositions:
 {: .foldable until="5"}
 \begin{code}
   isContrMapIsProp
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
     -------------
     → isProp (isContrMap f)
@@ -445,7 +445,7 @@ Contractible maps are propositions:
 {: .foldable until="4"}
 \begin{code}
   isEquivIsProp
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
     → isProp (isEquiv f)
 
@@ -457,7 +457,7 @@ Equality of same-morphism equivalences
 {: .foldable until="6"}
 \begin{code}
   sameEqv
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → {α β : A ≃ B}
     → π₁ α == π₁ β
     ---------------
@@ -469,7 +469,7 @@ Equality of same-morphism equivalences
 {: .foldable until="6"}
 \begin{code}
   equiv-iff-hprop
-    : {A B : Type  ℓᵢ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → isProp A
     → isProp B
     -----------------
@@ -487,7 +487,7 @@ Equality of same-morphism equivalences
 {: .foldable until="6"}
 \begin{code}
   propEqvIsprop
-    : {A B : Type  ℓᵢ}
+    : ∀ {ℓ : Level} {A B : Type ℓ}
     → isProp A
     → isProp B
     -----------------
@@ -511,7 +511,7 @@ Equivalences preserve propositions
 {: .foldable until="6"}
 \begin{code}
   isProp-≃
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (A ≃ B)
     → isProp A
     ----------
@@ -529,7 +529,7 @@ Equivalences preserve propositions
 {: .foldable until="6" }
 \begin{code}
   is-set-equiv-to-set
-    : {A : Type  ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → A ≃ B
     → isSet A
     ---------
@@ -593,7 +593,7 @@ Equivalence of propositions is the same logical equivalence.
 {: .foldable until="6"}
 \begin{code}
   twoprops-to-equiv-≃-⇔
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → isProp A
     → isProp B
     -------------------
@@ -625,7 +625,7 @@ Equivalence of propositions is the same logical equivalence.
 {: .foldable until="6"}
 \begin{code}
   ∑-prop
-    : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
     → isProp A
     → ((a : A) → isProp (B a))
     ------------------------
@@ -648,7 +648,7 @@ Equivalence of propositions is the same logical equivalence.
 {: .foldable until="5"}
 \begin{code}
   pi-is-set
-    : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
     → ((a : A) → isSet (B a))
     -------------------------
     → isSet (∏ A B)
@@ -673,7 +673,7 @@ with implicit parameters.
 {: .foldable until="5" }
 \begin{code}
   pi-is-prop-implicit
-     : {A : Type ℓᵢ}{B : A → Type ℓⱼ}
+     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
      → ((a : A) → isProp (B a))
      --------------------------
      → isProp ({a : A} → B a)
@@ -711,7 +711,7 @@ law of excluded middle is:
 \begin{code}
 postulate
  LEM∞
-   : {A : Type ℓ}
+   : ∀ {ℓ : Level} {A : Type ℓ}
    → A + (¬ A)
 \end{code}
 
@@ -729,6 +729,7 @@ law-double-negation iP | inl x = λ _ → x
 law-double-negation iP | inr x = λ p→⊥→⊥ → ⊥-elim (p→⊥→⊥ x)
 \end{code}
 
+
 Law excluded middle and law of double negation are both equivalent.
 
 
@@ -737,7 +738,7 @@ Weak extensionality principle:
 {: .foldable until="5"}
 \begin{code}
 WeakExtensionalityPrinciple
-  : {A : Type ℓ} {P : A → Type ℓ}
+  : ∀ {ℓ : Level} {A : Type ℓ}  {P : A → Type ℓ}
   → ((x : A) → isContr (P x))
   -------------------------
   → isContr ( ∏ A P )
@@ -757,14 +758,14 @@ open import SigmaEquivalence
 {: .foldable until="5" }
 \begin{code}
 isSet-Σ
-  : {A : Type ℓᵢ} → {B : A → Type ℓⱼ}
-  → isSet A → ((a : A) →  isSet (B a))
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
+  → isSet A → ((a : A) → isSet (B a))
   -------------------
   → isSet (Σ A B)
 
 isSet-Σ {A = A}{B} iA f x y
   = isProp-≃
-    (pair=Equiv {v = x}{y})
+    (pair=Equiv A B)
     (∑-prop (iA (π₁ x) (π₁ y))
       (λ a → f _ (tr (λ x  → B x) a (π₂ x)) (π₂ y) ))
 \end{code}
@@ -779,7 +780,7 @@ isSet-∑ = isSet-Σ
 {: .foldable until="6" }
 \begin{code}
 ≃-is-set-from-sets
-  : {A : Type ℓᵢ}{B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → isSet A
   → isSet B
   --------------
@@ -792,7 +793,7 @@ isSet-∑ = isSet-Σ
 {: .foldable until="6" }
 \begin{code}
 ≡-is-set-from-sets
-  : {A B : Type ℓᵢ}
+  : ∀ {ℓ : Level} {A B : Type ℓ}
   → isSet A
   → isSet B
   --------------

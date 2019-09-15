@@ -40,15 +40,15 @@ $$
 \begin{code}
   postulate
     Choice
-      :
-      -- Asummption 1: 
-        (B : Type ℓᵢ)
+      : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level }
+      -- Asummption 1:
+        (B : Type ℓ₁)
       → isSet B
-      -- Asummption 2: 
-      → (A : B → Type ℓⱼ)
+      -- Asummption 2:
+      → (A : B → Type ℓ₂)
       → ∀ (b : B) → isSet (A b)
       -- Asummption 3:
-      → (P : (b : B) → (A b) → Type ℓₖ)
+      → (P : (b : B) → (A b) → Type ℓ₃)
       → ∀ (b : B)(a : A b) → isProp (P b a)
       -----------------------------------
       → (∀ b → ∥ ∑ (A b) (λ a → P b a) ∥)

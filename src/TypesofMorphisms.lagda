@@ -40,9 +40,9 @@ module TypesofMorphisms where
 
 \begin{code}
   isSurjection
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   isSurjection {B = B} f = (b : B) → ∥ fib f b ∥
 
@@ -59,9 +59,9 @@ Therefore, we define the concept of *split-surjection*:
 
 \begin{code}
   isSplitSurjection
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   isSplitSurjection {B = B} f = (b  : B) → fib f b
 \end{code}
@@ -70,9 +70,9 @@ Which is equivalent to say $f$ is a **retraction**:
 
 \begin{code}
   isRetraction
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   isRetraction {A = A}{B} f =
     ∑ (B → A) (λ g → (b : B) → f (g b) ≡ b)
@@ -82,7 +82,7 @@ As a trivial example, we know the identity function is indeed
 a surjective function. Let us check this.
 
 \begin{code}
-  identity-is-surjective : {A : Type ℓ} →  isSurjection {A = A} id
+  identity-is-surjective : ∀ {ℓ : Level}{A : Type ℓ} →  isSurjection {A = A} id
   identity-is-surjective {A = A} b = ∥∥-intro (b , idp)
 \end{code}
 
@@ -90,10 +90,10 @@ a surjective function. Let us check this.
 
 \begin{code}
   isEmbedding
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
     ---------------
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   isEmbedding {A = A} f =
     ∀ {x y : A} → isEquiv (ap f {x}{y})
@@ -105,9 +105,9 @@ a surjective function. Let us check this.
 
 \begin{code}
   isInjective
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   isInjective {A = A} f = ∀ {x y} → f x ≡ f y → x ≡ y
 \end{code}
@@ -116,22 +116,22 @@ As a trivial example, let us prove identity is an injective function:
 
 \begin{code}
   identity-is-injective
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isInjective {A = A}{A}id
-    
+
   identity-is-injective p = p
-\end{code}   
+\end{code}
 
 
 {: .foldable until="6" }
 \begin{code}
   isInjectiveIsProp
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (iA : isSet A)
     → (f : A → B)
     ------------------------
     → isProp (isInjective f)
-    
+
   isInjectiveIsProp {A = A}{B} iA f i1 i2 =
     aux i1 i2
     where
@@ -145,9 +145,10 @@ As a trivial example, let us prove identity is an injective function:
 
 \begin{code}
   isSurjectionIsProp
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
     → isProp (isSurjection f)
+
   isSurjectionIsProp f = pi-is-prop (λ b → truncated-is-prop {A = fib f b})
 \end{code}
 
@@ -157,7 +158,7 @@ a function $g : B → A$ by the recursion principle of truncation.
 {: .foldable until="8" }
 \begin{code}
   fromSurjection
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
     → isSet B
     → isSurjection f
@@ -191,12 +192,12 @@ for bijections.
 
 \begin{code}
   isBijection
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
     → isSet A
     → isSet B
     ---------------
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   isBijection f iA iB = isInjective f × isSurjection f
 \end{code}
@@ -209,7 +210,7 @@ let us give an example of a natural bijection, the idenitity function.
 
 \begin{code}
   identity-is-bijection
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → (A-is-set : isSet A)
     → isBijection id A-is-set A-is-set
   identity-is-bijection {A} ia = identity-is-injective , identity-is-surjective
@@ -222,7 +223,7 @@ suggest, we must include this assumption in the Injective definition.
 {: .foldable until="8" }
 \begin{code}
   Bijection
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → {iA : isSet A}
     → {iB : isSet B}
     → (f : A → B)
@@ -250,7 +251,7 @@ suggest, we must include this assumption in the Injective definition.
 {: .foldable until="6" }
 \begin{code}
   ≃-to-bijection
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (iA : isSet A)
     → (iB : isSet B)
     -----------------------------------------
@@ -267,12 +268,12 @@ Bijection and being equivalent are equivalent notions:
 {: .foldable until="6" }
 \begin{code}
   bij-≃-≃
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (iA : isSet A) (iB : isSet B)
     → (f : A → B)
     ----------------------------------
     → isBijection f iA iB  ≃ isEquiv f
-    
+
   bij-≃-≃ {A = A}{B} iA iB f =
     qinv-≃
       (λ bij → π₂ (Bijection {iA = iA}{iB} f bij))
@@ -291,7 +292,7 @@ Bijection and being equivalent are equivalent notions:
 {: .foldable until="6"}
 \begin{code}
   bijIsProp
-    : {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (iA : isSet A)(iB : isSet B)
     → (f : A → B)
     ------------------------------
@@ -306,7 +307,7 @@ One way I see now is to recover such a function from the equivalence, using `rem
 
 \begin{code}
   inverse-of-bijection
-    : {A : Type ℓᵢ}{B : Type ℓᵢ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → {iA : isSet A}{iB : isSet B}
     → (f : A → B)
     → isBijection f iA iB
@@ -317,5 +318,3 @@ One way I see now is to recover such a function from the equivalence, using `rem
 
   inv-of-bij = inverse-of-bijection
 \end{code}
-
-

@@ -30,12 +30,12 @@ instance of the Law of Excluded Middle that holds even if we do not
 assume Excluded Middle.
 
 \begin{code}
-module DecidableEquality {ℓ} where
+module DecidableEquality where
 \end{code}
 
 \begin{code}
   decEq
-    : (A : Type ℓ) → Type ℓ
+    : ∀ {ℓ : Level} → (A : Type ℓ) → Type ℓ
 
   decEq A = (a b : A) → (a == b) + ¬ (a == b)
 \end{code}
@@ -46,7 +46,7 @@ decidable equality.
 {: .foldable until="5" }
 \begin{code}
   decEqProd
-    : {A B : Type ℓ}
+    : ∀ {ℓ : Level} {A B : Type ℓ} 
     → decEq A → decEq B
     -------------------
     → decEq (A × B)

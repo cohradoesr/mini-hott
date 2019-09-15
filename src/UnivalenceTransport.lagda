@@ -36,8 +36,8 @@ module UnivalenceTransport where
 {: .foldable until="8" }
 \begin{code}
   transport-family-ap
-    : {A : Type ℓ}
-    → (B : A → Type ℓ)
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
+    → (B : A → Type ℓ₂)
     → {x y : A}
     → (p : x == y)
     → (u : B x)
@@ -50,8 +50,8 @@ module UnivalenceTransport where
 {: .foldable until="8" }
 \begin{code}
   transport-family-idtoeqv
-    : {A : Type ℓ}
-    → (B : A → Type ℓ)
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
+    → (B : A → Type ℓ₂)
     → {x y : A}
     → (p : x == y)
     → (u : B x)
@@ -64,8 +64,8 @@ module UnivalenceTransport where
 {: .foldable until="9" }
 \begin{code}
   transport-ua
-    : {A : Type ℓ}
-    → (B : A → Type ℓ)
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
+    → (B : A → Type ℓ₂)
     → {x y : A}
     → (p : x == y)
     → (e : B x ≃ B y)
@@ -88,8 +88,8 @@ module UnivalenceTransport where
 {: .foldable until="9" }
 \begin{code}
   funext-transport-ua
-    : {A : Type ℓ}
-    → (B : A → Type ℓ)
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
+    → (B : A → Type ℓ₂)
     → {x y : A}
     → (p : x == y)
     → (e : B x ≃ B y)
@@ -103,7 +103,7 @@ module UnivalenceTransport where
 {: .foldable until="5" }
 \begin{code}
   coe-ua
-    : {A B : Type ℓ}
+    : ∀ {ℓ : Level} {A B : Type ℓ}
     → (α : A ≃ B)
     -------------------------------------
     → (∀ x → (coe (ua α) x) == ((α ∙) x))
@@ -113,8 +113,8 @@ module UnivalenceTransport where
 
 {: .foldable until="6" }
 \begin{code}
-  coe-ua-· 
-    : ∀ {ℓ} {A B C : Type ℓ}
+  coe-ua-·
+    : ∀ {ℓ : Level} {A B C : Type ℓ}
     → (α : A ≃ B)
     → (β : B ≃ C)
     --------------------------------------------------
@@ -123,7 +123,7 @@ module UnivalenceTransport where
   coe-ua-· α β =
     begin
       coe (ua α · ua β)
-       ≡⟨⟩ 
+       ≡⟨⟩
       tr (λ X → X) (ua α · ua β)
        ≡⟨ ! (transport-comp (ua α) (ua β)) ⟩
       (tr (λ X → X) (ua α)) :> (tr (λ X → X) (ua β))
@@ -137,7 +137,7 @@ In addition, we can state a similar result with `idtoequiv`:
 {: .foldable until="6"}
 \begin{code}
   idtoequiv-ua-·
-    : ∀ {ℓ} {A B C : Type ℓ}
+    : ∀ {ℓ : Level} {A B C : Type ℓ}
     → (α : A ≃ B)
     → (β : B ≃ C)
     ---------------------------------------------------
@@ -145,14 +145,14 @@ In addition, we can state a similar result with `idtoequiv`:
 
   idtoequiv-ua-· α β = sameEqv (coe-ua-· α β)
     where open import HLevelLemmas
-    
+
   ite-ua-· = idtoequiv-ua-·
 \end{code}
 
 \begin{code}
   postulate
    ∘≃-ite-ua
-    : ∀ {ℓ} {A B C : Type ℓ}
+    : ∀ {ℓ : Level} {A B C : Type ℓ}
     → (α : A ≃ B)
     → (β : B ≃ C)
     → (α ∘≃ β) ≡ ite (ua α · ua β)

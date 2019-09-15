@@ -23,7 +23,7 @@ Some lemmas on the transport operation
 {: .foldable until="6" }
 \begin{code}
 lift
-  : ∀ {A : Type ℓᵢ} {a₁ a₂ : A} {C : A → Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {a₁ a₂ : A} {C : A → Type ℓ₂}
   → (α : a₁ == a₂)
   → (u : C a₁)
   -----------------------------
@@ -34,7 +34,7 @@ lift {a₁ = a₁} idp u = refl (a₁ , u)
 
 \begin{code}
 transport-const
-  : ∀ {A : Type ℓᵢ} {a₁  a₂ : A} {B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {a₁  a₂ : A} {B : Type ℓ₂}
   → (p : a₁ == a₂)
   → (b : B)
   -----------------------
@@ -45,10 +45,10 @@ transport-const idp b = refl b
 
 \begin{code}
 transport-inv-l
-  : ∀ {A : Type ℓᵢ} {P : A → Type ℓⱼ}  {a a' : A}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂} {a a' : A}
   → (p : a == a')
   → (b : P a')
-  --------------------------------------------
+  ----------------------------
   → tr P p (tr P (! p) b) == b
 
 transport-inv-l idp b = idp
@@ -56,7 +56,7 @@ transport-inv-l idp b = idp
 
 \begin{code}
 transport-inv-r
-  : ∀ {A : Type ℓᵢ} {P : A → Type ℓⱼ}  {a a' : A}
+  :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂}  {a a' : A}
   → (p : a == a')
   → (b : P a)
   --------------------------------------------
@@ -70,7 +70,7 @@ tr-inverse = transport-inv-r
 
 \begin{code}
 transport-concat-r
-  : ∀ {A : Type ℓᵢ} {a : A} {x y : A}
+  : ∀ {ℓ : Level} {A : Type ℓ} {a : A} {x y : A}
   → (p : x == y)
   → (q : a == x)
   ---------------------------------
@@ -82,7 +82,7 @@ transport-concat-r idp q = ·-runit q
 {: .foldable until="6" }
 \begin{code}
 transport-concat-l
-  : ∀ {A : Type ℓᵢ} {a : A} {x y : A}
+  : ∀ {ℓ : Level} {A : Type ℓ} {a : A} {x y : A}
   → (p : x == y)
   → (q : x == a)
   ----------------------------------
@@ -94,7 +94,7 @@ transport-concat-l idp q = idp
 {: .foldable until="6" }
 \begin{code}
 transport-concat
-  : ∀ {A : Type ℓᵢ} {x y : A}
+  : ∀ {ℓ : Level} {A : Type ℓ} {x y : A}
   → (p : x == y)
   → (q : x == x)
   ---------------------------------------
@@ -106,7 +106,7 @@ transport-concat idp q = ·-runit q
 {: .foldable until="7" }
 \begin{code}
 transport-eq-fun
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → (f g : A → B) {x y : A}
   → (p : x == y)
   → (q : f x == g x)
@@ -119,7 +119,7 @@ transport-eq-fun f g idp q = ·-runit q
 {: .foldable until="6" }
 \begin{code}
 transport-comp
-  : ∀ {A : Type ℓᵢ} {a b c : A} {P : A → Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {a b c : A} {P : A → Type ℓ₂}
   → (p : a == b)
   → (q : b == c)
   ---------------------------------------
@@ -131,7 +131,7 @@ transport-comp {P = P} idp q = refl (transport P q)
 {: .foldable until="7" }
 \begin{code}
 transport-comp-h
-  : ∀ {A : Type ℓᵢ} {a b c : A} {P : A → Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {a b c : A} {P : A → Type ℓ₂}
   → (p : a == b)
   → (q : b == c)
   → (x : P a)
@@ -144,7 +144,8 @@ transport-comp-h {P = P} idp q x = refl (transport P q x)
 {: .foldable until="6" }
 \begin{code}
 transport-eq-fun-l
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {b : B} (f : A → B) {x y : A}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}  {b : B}
+  → (f : A → B) {x y : A}
   → (p :   x == y)
   → (q : f x == b)
   -------------------------------------------
@@ -162,7 +163,7 @@ transport-eq-fun-l {b = b} f p q =
 {: .foldable until="7" }
 \begin{code}
 transport-eq-fun-r
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {b : B}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {b : B}
   → (g : A → B) {x y : A}
   → (p : x == y)
   → (q : b == g x)
@@ -181,7 +182,7 @@ transport-eq-fun-r {b = b} g p q =
 {: .foldable until="6" }
 \begin{code}
 transport-inv
-  : ∀ {A : Type ℓᵢ}{P : A → Type ℓⱼ}{a a' : A}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂} {a a' : A}
   → (p : a == a')
   → {a : P a'}
   --------------------------------------
@@ -202,7 +203,7 @@ transport-inv {P = P}  idp {a = a} =
 {: .foldable until="6" }
 \begin{code}
 coe-inv-l
-  : ∀ {A B : Type ℓ}
+  : ∀ {ℓ : Level} {A B : Type ℓ}
   → (p : A == B)
   → (b : B)
   --------------------------------------------
@@ -214,7 +215,7 @@ coe-inv-l idp b = idp
 {: .foldable until="6" }
 \begin{code}
 coe-inv-r
-  : ∀ {A B : Type ℓ}
+  : ∀ {ℓ : Level} {A B : Type ℓ}
   → (p : A == B)
   → (a : A)
   ---------------------------------------------
@@ -226,7 +227,7 @@ coe-inv-r idp b = idp
 {: .foldable until="7" }
 \begin{code}
 transport-family
-  : ∀ {A : Type ℓᵢ} {B : Type ℓⱼ} {P : B → Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : Type ℓ₂} {P : B → Type ℓ₃}
   → {f : A → B} → {x y : A}
   → (p : x == y)
   → (u : P (f x))
@@ -239,7 +240,7 @@ transport-family idp u = idp
 {: .foldable until="6" }
 \begin{code}
 transport-family-id
-  : ∀ {A : Type ℓᵢ} {P : A → Type ℓₖ} → {x y : A}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂}  → {x y : A}
   → (p : x == y)
   → (u : P x)
   ----------------------------------------------
@@ -251,7 +252,7 @@ transport-family-id idp u = idp
 {: .foldable until="8" }
 \begin{code}
 transport-fun-coe
-  : ∀ {A : Type ℓᵢ} {B : Type ℓᵢ}
+  : ∀ {ℓ : Level} {A B : Type ℓ}
   → (α : A ≡ B)
   → (f : A → A)
   → (g : B → B)
@@ -266,8 +267,8 @@ transport-fun-coe idp _ _ idp = idp
 {: .foldable until="8" }
 \begin{code}
 transport-fun
-  : ∀ {X : Type ℓᵢ} {x y : X}
-  → {A : X → Type ℓⱼ} {B : X → Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁} {x y : X}
+  → {A : X → Type ℓ₂} {B : X → Type ℓ₃}
   → (p : x == y)
   → (f : A x → B x)
   ------------------------------------------
@@ -287,7 +288,8 @@ back-and-forth = transport-fun
 {: .foldable until="7" }
 \begin{code}
 transport-fun-h
-  : ∀ {X : Type ℓᵢ} {A : X → Type ℓⱼ} {B : X → Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}
+  → {A : X → Type ℓ₂} {B : X → Type ℓ₃}
   → {x y : X}
   → (p : x == y) → (f : A x → B x)
   → (b : A y)
@@ -309,8 +311,8 @@ Now, when we transport dependent functions this is what we got:
 {: .foldable until="9" }
 \begin{code}
 transport-fun-dependent-h
-  : ∀ {X : Type ℓᵢ} {A : X → Type ℓⱼ}
-  → {B : (x : X) → (a : A x) → Type ℓₖ} {x y : X}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{X : Type ℓ₁} {A : X → Type ℓ₂}
+  → {B : (x : X) → (a : A x) → Type ℓ₃} {x y : X}
   → (p : x == y)
   → (f : (a : A x) → B x a)
   ---------------------------------------------------------------------
@@ -329,8 +331,8 @@ dependent-back-and-forth-h = transport-fun-dependent-h
 {: .foldable until="9" }
 \begin{code}
 transport-fun-dependent
-  : ∀ {X : Type ℓᵢ} {A : X → Type ℓⱼ}
-  → {B : (x : X) → (a : A x) → Type ℓₖ} {x y : X}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{X : Type ℓ₁} {A : X → Type ℓ₂}
+  → {B : (x : X) → (a : A x) → Type ℓ₃} {x y : X}
   → (p : x == y)
   → (f : (a : A x) → B x a)
   ---------------------------------------------------------------------
@@ -351,8 +353,8 @@ When using pathovers, we may need one of these identities:
 {: .foldable until="9"}
 \begin{code}
 apOver
-  : ∀ {A A' : Type ℓᵢ} {C : A → Type ℓⱼ} {C' : A' → Type ℓₖ}  -- types
-  → {a a' : A} {b : C a} {b' : C a'}                         -- points
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A A' : Type ℓ₁} {C : A → Type ℓ₂} {C' : A' → Type ℓ₃}
+  → {a a' : A} {b : C a} {b' : C a'}
   → (f : A → A')
   → (g : {x : A} → C x → C' (f x))
   → (p : a == a')
@@ -369,7 +371,7 @@ apOver f g idp q = ap g q
 {: .foldable until="6"}
 \begin{code}
 apd
-  : ∀ {A : Type ℓᵢ}  {P : A → Type ℓⱼ} {a a' : A}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂}  {a a' : A}
   → (f : (a : A) → P a)
   → (p : a == a')
   --------------------------
@@ -386,7 +388,7 @@ fibre-app-≡ = apd
 
 \begin{code}
 ap2d
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}  {C : Type ℓ₃}
   → (F : ∀ a → B a → C)
   → {a a' : A} {b : B a} {b' : B a'}
   → (p : a == a')
@@ -399,12 +401,12 @@ ap2d F idp idp = idp
 
 \begin{code}
 ap-idp
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
-   → (f : A → B)
-   → {a a' : A}
-   → (p : a == a')
-   ------------------------------------------
-   → ap f p == idp [ (λ x → f x == f a') ↓ p ]
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+  → (f : A → B)
+  → {a a' : A}
+  → (p : a == a')
+  ------------------------------------------
+  → ap f p == idp [ (λ x → f x == f a') ↓ p ]
 
 ap-idp f idp = idp
 \end{code}
@@ -412,7 +414,7 @@ ap-idp f idp = idp
 \begin{code}
 postulate
  ap-idp'
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → (f r : A → B)
   → (σ : ∀ a → f a == r a)
   → {a a' : A}

@@ -36,7 +36,7 @@ module EquivalenceReasoning where
 
 \begin{code}
   _≃⟨⟩_
-    : (A {B} : Type ℓ)
+    : ∀ {ℓ₁ ℓ₂} (A : Type ℓ₁) {B : Type ℓ₂}
     → A ≃ B
     -------
     → A ≃ B
@@ -47,7 +47,7 @@ module EquivalenceReasoning where
 
 \begin{code}
   _≃⟨by-def⟩_
-    : (A {B} : Type ℓ)
+    : ∀ {ℓ₁ ℓ₂} (A : Type ℓ₁) {B : Type ℓ₂}
     → A ≃ B
     -------
     → A ≃ B
@@ -58,18 +58,19 @@ module EquivalenceReasoning where
 
 \begin{code}
   _≃⟨_⟩_
-    : (A : Type ℓᵢ) {B : Type ℓⱼ}{C : Type ℓₖ}
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} (A : Type ℓ₁){B : Type ℓ₂} {C : Type ℓ₃}
     → A ≃ B → B ≃ C
     ---------------
     → A ≃ C
 
   _ ≃⟨ e₁ ⟩ e₂ = ≃-trans e₁ e₂
+
   infixr 2 _≃⟨_⟩_
 \end{code}
 
 \begin{code}
   _≃∎
-    : (A : Type ℓ)
+    : ∀ {ℓ : Level} (A : Type ℓ)
     → A ≃ A
 
   _≃∎ = λ A → idEqv {A = A}
@@ -78,7 +79,7 @@ module EquivalenceReasoning where
 
 \begin{code}
   begin≃_
-    : {A : Type ℓᵢ}{B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → A ≃ B
     -------
     → A ≃ B

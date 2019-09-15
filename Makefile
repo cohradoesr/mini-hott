@@ -40,6 +40,8 @@ latex/%.tex : src/%.lagda
 .PHONY: clean
 clean:
 	-@rm -rf docs/* blog/_site
+	-@rm -rf blog/*.tex
+
 
 # ------------------------------------------------------------------------------
 # ------< The following is related with the website of this library. >----------

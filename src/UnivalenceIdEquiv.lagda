@@ -41,7 +41,7 @@ The identity equivalence creates the trivial path.
 {: .foldable until="4" }
 \begin{code}
   ua-id
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     --------------------
     → ua idEqv ≡ refl A
 

@@ -38,13 +38,13 @@ module SetTruncationType where
       !∣_∣₀ : A → !∥ A ∥₀
 
   ∥_∥₀
-    : (A : Type ℓ)
+    : ∀ {ℓ : Level} (A : Type ℓ)
     → Type ℓ
 
   ∥ A ∥₀ = !∥ A ∥₀
 
   ∣_∣₀
-    : {X : Type ℓ}
+    : ∀ {ℓ : Level} {X : Type ℓ}
     → X
     → ∥ X ∥₀
 
@@ -52,7 +52,7 @@ module SetTruncationType where
 
   postulate
     strunc
-      : {A : Type ℓ}
+      : ∀ {ℓ : Level} {A : Type ℓ}
       → isSet ∥ A ∥₀
 \end{code}
 
@@ -61,7 +61,7 @@ module SetTruncationType where
  {: .foldable until="6" }
 \begin{code}
   strunc-rec
-    : {A : Type ℓᵢ} {P : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : Type ℓ₂}
     → isSet P
     → (A → P)
     ------------
@@ -75,7 +75,7 @@ Induction principle
 {: .foldable until="6" }
 \begin{code}
   strunc-ind
-    : {A : Type ℓᵢ} {B : ∥ A ∥₀ → Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : ∥ A ∥₀ → Type ℓ₂}
     → ((a : ∥ A ∥₀) → isSet (B a))
     → (g : (a : A) → B ∣ a ∣₀)
     ------------------------------

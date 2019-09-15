@@ -28,7 +28,7 @@ open import QuasiinverseType
 
 {: .foldable until="2"}
 \begin{code}
-module PiPreserves {ℓ₁ ℓ₂ ℓ₃} {A : Type ℓ₁}{C : A → Type ℓ₂}{D : A → Type ℓ₃}
+module PiPreserves {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{C : A → Type ℓ₂}{D : A → Type ℓ₃}
     (e : (a : A) → (C a ≃ D a)) where
 
   private

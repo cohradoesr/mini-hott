@@ -33,8 +33,7 @@ module
 
 \begin{code}
 ∑-≡
-  : ∀ {A : Type ℓᵢ}
-  → (B : A → Type ℓⱼ)
+  :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
   → {ab ab' : ∑ A B}
   → (p : π₁ ab ≡ π₁ ab')
   → π₂ ab ≡ π₂ ab' [ B / p ]
@@ -43,30 +42,33 @@ module
 ∑-≡ B idp idp = idp
 \end{code}
 
+
 \begin{code}
 π₁-≡
-  : ∀ {A : Type ℓᵢ} (B : A → Type ℓⱼ)
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
   → {ab ab' : ∑ A B}
   → ab ≡ ab'
   ----------------
   → π₁ ab ≡ π₁ ab'
+
 π₁-≡ B idp = idp
 \end{code}
 
 \begin{code}
 π₂-≡
-  : {A : Type ℓᵢ}
-  → (B : A → Type ℓⱼ)
+  :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
   → {ab ab' : ∑ A B}
   → (p : ab ≡ ab')
   ---------------------------------------
   → (π₂ ab) ≡ (π₂ ab') [ B / (π₁-≡ B p) ]
+
 π₂-≡ B idp = idp
 \end{code}
 
 \begin{code}
 ∑-map
-  : {A : Type ℓᵢ}  {B : A → Type ℓⱼ} {A' : Type ℓₖ} {B' : A' → Type ℓ}
+  :  ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂}
+  → {A' : Type ℓ₃} {B' : A' → Type ℓ₄}
   → (f : A → A')
   → ((a : A) → B a → B' (f a))
   ----------------------------
@@ -93,7 +95,7 @@ module
 
 \begin{code}
 ∑-lift
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : A → Type ℓₖ}
+  :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂} {C : A → Type ℓ₂}
   → (∀ a → B a → C a)
   --------------------
   → ∑ A B → ∑ A C
@@ -111,7 +113,7 @@ Two dependent pairs are equal if they are componentwise equal.
 
 {: .foldable until="6"}
 \begin{code}
-  
+
   Σ-componentwise
     : ∀ {v w : Σ A P}
     → v == w
@@ -123,7 +125,7 @@ Two dependent pairs are equal if they are componentwise equal.
 
 {: .foldable until="6"}
 \begin{code}
-  
+
   Σ-bycomponents
     : ∀ {v w : Σ A P}
     → Σ (π₁ v == π₁ w) (λ p → (π₂ v) == (π₂ w) [ P ↓ p ] )

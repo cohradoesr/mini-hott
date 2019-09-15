@@ -36,7 +36,7 @@ open import FibreType
 
 \begin{code}
 module
-  HalfAdjointType {A : Type ℓᵢ} {B : Type ℓⱼ}
+  HalfAdjointType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     where
 \end{code}
 
@@ -44,7 +44,7 @@ Half adjoint equivalence:
 \begin{code}
     record
       ishae (f : A → B)
-      : Type (ℓᵢ ⊔ ℓⱼ)
+      : Type (ℓ₁ ⊔ ℓ₂)
       where
       constructor hae
       field

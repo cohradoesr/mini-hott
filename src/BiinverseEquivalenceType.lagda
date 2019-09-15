@@ -25,14 +25,14 @@ open import TransportLemmas
 
 \begin{code}
 module
-  BiinverseEquivalenceType {A : Type ℓᵢ} {B : Type ℓⱼ}
+  BiinverseEquivalenceType {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁} {B : Type ℓ₂}
    where
 \end{code}
 
 \begin{code}
   record
-    Equivalence {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {B : Type ℓⱼ} (f : A → B)
-    : Type (ℓᵢ ⊔  ℓⱼ)
+    Equivalence {ℓ₁ ℓ₂} {A : Type ℓ₁} {B : Type ℓ₂} (f : A → B)
+    : Type (ℓ₁ ⊔  ℓ₂)
     where
     constructor equivalence
     field
@@ -47,24 +47,24 @@ module
 Synonym:
 \begin{code}
   biinv
-    :  {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : Type ℓ₂}
     → (f : A → B)
-    → Type (ℓᵢ ⊔  ℓⱼ)
+    → Type (ℓ₁ ⊔  ℓ₂)
   biinv f = Equivalence f
 \end{code}
 
 \begin{code}
   isequiv
-    :  {A : Type ℓᵢ} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : Type ℓ₂}
     → (f : A → B)
-    → Type (ℓᵢ ⊔  ℓⱼ)
+    → Type (ℓ₁ ⊔  ℓ₂)
   isequiv f = Equivalence f
 \end{code}
 
 \begin{code}
   record
-    _≃_ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ) (B : Type ℓⱼ)
-    : Type (ℓᵢ ⊔ ℓⱼ)
+    _≃_ {ℓ₁}{ℓ₂} (A : Type ℓ₁) (B : Type ℓ₂)
+    : Type (ℓ₁ ⊔ ℓ₂)
     where
     constructor eq
     field
@@ -74,7 +74,7 @@ Synonym:
 
 \begin{code}
   ide
-    : ∀ {ℓᵢ} {A : Type ℓᵢ}
+    : ∀ {ℓ₁} {A : Type ℓ₁}
     → A ≃ A
 
   ide = eq id (equivalence id id (λ a → idp) (λ a → idp))
@@ -82,8 +82,8 @@ Synonym:
 
 \begin{code}
   ≃-from-≡
-    : {A : Type ℓᵢ}
-    → (F : A → Type ℓⱼ)
+    : {A : Type ℓ₁}
+    → (F : A → Type ℓ₂)
     → (a b : A)
     → a ≡ b → F a ≃ F b
 

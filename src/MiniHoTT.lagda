@@ -13,6 +13,7 @@ showcitation: true
 \begin{code}
 
 {-# OPTIONS --without-K #-}
+{-# OPTIONS --allow-unsolved-metas #-}
 
 module MiniHoTT where
 

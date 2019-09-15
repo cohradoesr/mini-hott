@@ -38,16 +38,16 @@ module FundamentalGroupType where
 Definition of the fundamental group.
 \begin{code}
   Ω
-    : (A : Type ℓ)
+    : ∀ {ℓ : Level}(A : Type ℓ)
     ------------------
     → (a : A) → Type ℓ
-    
+
   Ω A a = (a == a)
 \end{code}
 
 \begin{code}
   Ω-gr
-    : (A : Type ℓ)
+    : ∀ {ℓ : Level} (A : Type ℓ)
     → (a : A) → Group {ℓ}
   Ω-gr A a =
     monoid

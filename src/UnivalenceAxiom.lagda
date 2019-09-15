@@ -30,7 +30,7 @@ Voevodsky's Univalence axiom is postulated. It induces an equality between any
 two equivalent types. Some $β$ and $η$ rules are provided.
 
 \begin{code}
-module UnivalenceAxiom {ℓ} {A B : Type ℓ} where
+module UnivalenceAxiom {ℓ : Level} {A B : Type ℓ} where
 \end{code}
 
 {: .foldable until="4"}
@@ -75,7 +75,7 @@ the following no standard definition of Univalence axiom (without transport).
   open import HLevelTypes
 
   UA
-    : ∀ {ℓ}
+    : ∀ {ℓ : Level}
     → (Type (lsuc ℓ))
 
   UA {ℓ = ℓ}  = (X : Type ℓ) → isContr (∑ (Type ℓ) (λ Y → (X ≃ Y)))

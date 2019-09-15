@@ -21,7 +21,7 @@ open import BasicTypes
 
 \begin{code}
 module
-  FibreType {A : Type ℓᵢ} {B : Type ℓⱼ}
+  FibreType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     where
 \end{code}
 
@@ -30,7 +30,7 @@ module
     : (f : A → B)
     → (b : B)
     ---------------
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   fibre f b = Σ A (λ a → f a == b)
 \end{code}
@@ -40,7 +40,7 @@ Synomyms and syntax sugar:
 \begin{code}
   fib   = fibre
   fiber = fibre
-  
+
   syntax fibre f b = f // b
 \end{code}
 

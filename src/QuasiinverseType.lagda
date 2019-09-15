@@ -31,13 +31,13 @@ open import HalfAdjointType
 </div>
 
 \begin{code}
-module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
+module QuasiinverseType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} where
 \end{code}
 
 \begin{code}
   qinv
     : (A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   qinv f = Σ (B → A) (λ g → ((f ∘ g) ∼ id) × ((g ∘ f) ∼ id))
 
@@ -47,8 +47,8 @@ module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
 \begin{code}
   linv
     : (A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
-    
+    → Type (ℓ₁ ⊔ ℓ₂)
+
   linv f = Σ (B → A) (λ g → (g ∘ f) ∼ idf A)
 
   left-inverse = linv
@@ -57,8 +57,8 @@ module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
 \begin{code}
   rinv
     : (A → B)
-    → Type (ℓᵢ ⊔ ℓⱼ)
-    
+    → Type (ℓ₁ ⊔ ℓ₂)
+
   rinv f = Σ (B → A) (λ g → (f ∘ g) ∼ idf B)
 
   right-inverse = rinv
@@ -66,7 +66,7 @@ module QuasiinverseType {A : Type ℓᵢ} {B : Type ℓⱼ} where
 
 Biinverse is another equivalent notion of the right equivalence for HoTT.
 \begin{code}
-  biinv : (A → B) → Type (ℓᵢ ⊔ ℓⱼ)
+  biinv : (A → B) → Type (ℓ₁ ⊔ ℓ₂)
   biinv f = linv f × rinv f
 
   biinverse  = biinv
@@ -148,7 +148,7 @@ Quasiinverses create equivalences.
     → qinv f
     -------------
     → A ≃ B
-    
+
   qinv-≃ f = ishae-≃ ∘ qinv-ishae
 \end{code}
 
@@ -158,7 +158,7 @@ Quasiinverses create equivalences.
     : A ≃ B
     ----------------
     → Σ (A → B) qinv
- 
+
   ≃-qinv eq =
     lemap eq , (remap eq , (lrmap-inverse-h eq , rlmap-inverse-h eq))
 \end{code}
@@ -173,7 +173,7 @@ Half-adjoint equivalences are quasiinverses.
     → ishae f
     ---------
     → qinv f
-    
+
   ishae-qinv {f} (hae g η ε τ) = g , (ε , η)
 \end{code}
 
@@ -183,6 +183,6 @@ Half-adjoint equivalences are quasiinverses.
     : (e : A ≃ B)
     --------------
     → ishae (e ∙→)
-    
+
   ≃-ishae e = qinv-ishae (π₂ (≃-qinv e))
 \end{code}

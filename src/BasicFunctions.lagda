@@ -26,7 +26,7 @@ The identity function with implicit type.
 
 \begin{code}
 id
-  : {A : Type ℓ}
+  : ∀ {ℓ : Level} {A : Type ℓ}
   ----------------
   → A → A
 
@@ -39,7 +39,7 @@ The identity function on a type `A` is `idf A`.
 
 \begin{code}
 idf
-  : (A : Type ℓᵢ)
+  : ∀ {ℓ : Level} (A : Type ℓ)
   ---------------
   → (A → A)
 
@@ -53,7 +53,7 @@ Constant function at some point `b` is `cst b`
 
 \begin{code}
 cst
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → (b : B)
   ---------
   → (A → B)
@@ -71,7 +71,7 @@ neg¬
   → Bool
 
 neg¬ tt = ff
-neg¬ ff = tt
+
 \end{code}
 
 ### Composition
@@ -81,7 +81,7 @@ A more sophisticated composition function that can handle dependent functions.
 {: .foldable until="6" }
 \begin{code}
 _∘_
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → (B a → Type ℓₖ)}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂} {C : (a : A) → (B a → Type ℓ₃)}
   → (g : {a : A} → ∏ (B a) (C a))
   → (f : ∏ A B)
   -------------------------------
@@ -97,7 +97,7 @@ Synonym for composition (diagrammatic version)
 {: .foldable until="6" }
 \begin{code}
 _:>_
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → (B a → Type ℓₖ)}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂} {C : (a : A) → (B a → Type ℓ₃)}
   → (f : Π A B)
   → (g : {a : A} → Π (B a) (C a))
   -------------------------------
@@ -115,7 +115,7 @@ infixr 90 _:>_
 {: .foldable until="5" }
 \begin{code}
 ∘-lassoc
-  : {A B C D : Type ℓ}
+  : ∀ {ℓ : Level} {A B C D : Type ℓ}
   → (h : C → D) → (g : B → C) → (f : A → B)
   -----------------------------------------
   → (h ∘ (g ∘ f)) == ((h ∘ g) ∘ f)
@@ -128,7 +128,7 @@ infixr 90 _:>_
 {: .foldable until="5" }
 \begin{code}
 ∘-rassoc
-  : {A B C D : Type ℓ}
+  : ∀ {ℓ : Level} {A B C D : Type ℓ}
   → (h : C → D) → (g : B → C) → (f : A → B)
   -----------------------------------------
   → ((h ∘ g) ∘ f) == (h ∘ (g ∘ f))
@@ -141,10 +141,10 @@ infixr 90 _:>_
 
 \begin{code}
 _$_
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
-  → (∀ x → B x)
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
+  → (∀ (x : A) → B x)
   -------------
-  → (∀ x → B x)
+  → (∀ (x : A) → B x)
 
 f $ x = f x
 
@@ -157,7 +157,7 @@ Functions handy to manipulate coproducts:
 
 \begin{code}
 +-map
-  : ∀ {i j k l} {A : Type i} {B : Type j} {A' : Type k} {B' : Type l}
+  : ∀ {i j k l : Level} {A : Type i} {B : Type j} {A' : Type k} {B' : Type l}
   → (A → A')
   → (B → B')
   → A + B → A' + B'
@@ -170,7 +170,7 @@ syntax +-map f g = 〈 f ⊕ g 〉
 
 \begin{code}
 parallell
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂} {C : (a : A) → (B a → Type ℓ₃)}
   → (f : (a : A) → B a)
   → ((a : A) → C a (f a))
   -------------------------
@@ -189,7 +189,7 @@ syntax parallell f g = 〈 f × g 〉
 
 \begin{code}
 curry
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : Σ A B → Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}  {C : Σ A B → Type ℓ₃}
   → ((s : ∑ A B) → C s)
   -------------------------------
   → ((x : A)(y : B x) → C (x , y))
@@ -201,7 +201,7 @@ curry f x y = f (x , y)
 
 \begin{code}
 unCurry
-  : {A : Type ℓᵢ}{B : A → Type ℓⱼ}{C : Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂} {C : Type ℓ₃}
   → (D : (a : A) → B a → C)
   ------------------------
   → (p : ∑ A B) → C
@@ -211,7 +211,7 @@ unCurry D p = D (proj₁ p) (proj₂ p)
 
 \begin{code}
 uncurry
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ} {C : (a : A) → B a → Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂} {C : (a : A) → (B a → Type ℓ₃)}
   → (f : (a : A) (b : B a) → C a b)
   ---------------------------------
   → (p : ∑ A B) → C (π₁ p) (π₂ p)
@@ -223,7 +223,7 @@ uncurry f (x , y) = f x y
 
 \begin{code}
 data
-  HEq (A : Type ℓ)
+  HEq {ℓ : Level} (A : Type ℓ)
     : (B : Type ℓ)
     → (α : A == B) (a : A) (b : B)
     → Type (lsuc ℓ)
@@ -238,7 +238,7 @@ data
 {: .foldable until="6" }
 \begin{code}
 _·_
-  : {A : Type ℓ} {x y z : A}
+  : ∀ {ℓ : Level} {A : Type ℓ}  {x y z : A}
   → (p : x == y)
   → (q : y == z)
   --------------
@@ -255,7 +255,7 @@ infixl 50 _·_
 
 \begin{code}
 inv
-  : {A : Type ℓ} {a b : A}
+  : ∀ {ℓ : Level} {A : Type ℓ}  {a b : A}
   → a == b
   --------
   → b == a
@@ -294,7 +294,7 @@ where `p` is a path from `a` to `b`, `q` is a path from `b` to `c`, and so on.
 
 \begin{code}
 module
-  EquationalReasoning {A : Type ℓ}
+  EquationalReasoning {ℓ : Level} {A : Type ℓ}
   where
 \end{code}
 

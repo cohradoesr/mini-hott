@@ -22,7 +22,7 @@ open import FibreType
 
 \begin{code}
 fibre-transport
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁} {B : Type ℓ₂}
   → (f : A → B)
   → {b b' : B} → (h : b == b')
   ------------------------------------------------

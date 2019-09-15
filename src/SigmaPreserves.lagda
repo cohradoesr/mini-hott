@@ -34,7 +34,7 @@ open import QuasiinverseLemmas
 {: .foldable until="2"}
 \begin{code}
 module
-  SigmaPreserves {A : Type ℓᵢ}{C : A → Type ℓⱼ}{D : A → Type ℓₖ}
+  SigmaPreserves {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{C : A → Type ℓ₂}{D : A → Type ℓ₃}
     (e : (a : A) → C a ≃ D a)
   where
 

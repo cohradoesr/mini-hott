@@ -30,7 +30,7 @@ open import QuasiinverseLemmas
 \begin{code}
 module
   FunExtTransportDependent
-  {X : Type ℓᵢ} {A : X → Type ℓⱼ}{B : (x : X) → A x → Type ℓⱼ}{x y : X}
+  {ℓ₁ ℓ₂ : Level}{X : Type ℓ₁} {A : X → Type ℓ₂}{B : (x : X) → A x → Type ℓ₂}{x y : X}
   where
 \end{code}
 
@@ -79,7 +79,7 @@ module
 {: .foldable until="9" }
 \begin{code}
 funext-transport-dfun-bezem
-  : {X : Type ℓᵢ}{A : X → Type ℓⱼ}{B : (x : X) → A x → Type ℓⱼ} {x y : X}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}{A : X → Type ℓ₂}{B : (x : X) → A x → Type ℓ₃} {x y : X}
   → (p : x == y)
   → (f : (a : A x) → B x a)
   → (g : (a : A y) → B y a)
@@ -94,7 +94,7 @@ funext-transport-dfun-bezem idp f g a = idEqv
 {: .foldable until="9" }
 \begin{code}
 funext-transport-dfun-bezem-l
-  : {X : Type ℓᵢ}{A : X → Type ℓⱼ}{B : (x : X) → A x → Type ℓⱼ} {x y : X}
+  :  ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}{A : X → Type ℓ₂}{B : (x : X) → A x → Type ℓ₃} {x y : X}
   → (p : x == y)
   → (f : (a : A x) → B x a)
   → (g : (a : A y) → B y a)
@@ -109,7 +109,7 @@ funext-transport-dfun-bezem-l p f g a x₁ = lemap (funext-transport-dfun-bezem 
 {: .foldable until="9" }
 \begin{code}
 funext-transport-dfun-bezem-r
-  : {X : Type ℓᵢ}{A : X → Type ℓⱼ}{B : (x : X) → A x → Type ℓⱼ} {x y : X}
+  :  ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}{A : X → Type ℓ₂}{B : (x : X) → A x → Type ℓ₃} {x y : X}
   → (p : x == y)
   → (f : (a : A x) → B x a)
   → (g : (a : A y) → B y a)

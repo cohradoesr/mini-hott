@@ -26,7 +26,7 @@ open import CoproductIdentities
 
 
 \begin{code}
-module SigmaEquivalence {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
+module SigmaEquivalence {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁) (P : A → Type ℓ₂) where
 \end{code}
 
 {: .foldable until="4"}

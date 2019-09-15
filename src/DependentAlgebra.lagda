@@ -29,9 +29,8 @@ open import QuasiinverseType
 {: .foldable until="6"}
 \begin{code}
 sum-commute
-  : {A : Type ℓᵢ}
-  → (B : A → Type ℓⱼ)
-  → (C : A → Type ℓₖ)
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}
+  → (B : A → Type ℓ₂) (C : A → Type ℓ₃)
     -----------------------------------------
   → Σ (Σ A B) (C ∘ fst) ≃ Σ (Σ A C) (B ∘ fst)
 
@@ -53,9 +52,9 @@ sum-commute {A = A} B C = qinv-≃ there (back , there-back , back-there)
 {: .foldable until="6"}
 \begin{code}
 prod-commute
-  : {A : Type ℓᵢ}
-  → (B : A → Type ℓⱼ)
-  → (C : {a : A} → B a → Type ℓₖ)
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}
+  → (B : A → Type ℓ₂)
+  → (C : {a : A} → B a → Type ℓ₃)
   -----------------------------------------------------------
   → (Σ (Π A B) (λ f → Π A (C ∘ f))) ≃ (Π A (λ x → Σ (B x) C))
 

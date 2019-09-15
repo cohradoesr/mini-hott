@@ -43,7 +43,7 @@ monoid. This is the following type for groups:
 
 \begin{code}
   Group
-    : ∀ {ℓ} → Type (lsuc ℓ)
+    : ∀ {ℓ : Level} → Type (lsuc ℓ)
 
   Group
     = ∑ (Monoid) (λ {(monoid G e _<>_ GisSet lunit runit assoc)

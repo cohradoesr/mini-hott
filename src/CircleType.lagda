@@ -50,7 +50,7 @@ Recursion principle on points
 {: .foldable until="6" }
 \begin{code}
   S¹-rec
-    : (A : Type ℓ)
+    : ∀ {ℓ : Level} (A : Type ℓ)
     → (a : A)
     → (p : a == a)
     --------------
@@ -64,7 +64,7 @@ Recursion principle on paths
 \begin{code}
   postulate
     S¹-βrec
-      : (A : Type ℓ)
+      : ∀ {ℓ : Level} (A : Type ℓ)
       → (a : A)
       → (p : a == a)
       ------------------------------
@@ -75,7 +75,7 @@ Induction principle on points
 {: .foldable until="6" }
 \begin{code}
   S¹-ind
-    : (P : S¹ → Type ℓ)
+    : ∀ {ℓ : Level}(P : S¹ → Type ℓ)
     → (x : P base)
     → (x == x [ P ↓ loop ])
     --------------------------
@@ -89,7 +89,7 @@ Induction principle on paths
 \begin{code}
   postulate
     S¹-βind
-      : (P : S¹ → Type ℓ)
+      : ∀ {ℓ : Level} (P : S¹ → Type ℓ)
       → (x : P base)
       → (p : x == x [ P ↓ loop ])
       -------------------------------

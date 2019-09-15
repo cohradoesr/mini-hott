@@ -35,12 +35,12 @@ module SuspensionType where
   module S where
 
   private
-    data Suspₚ {ℓ} (A : Type ℓ) : Type ℓ where
+    data Suspₚ {ℓ : Level} (A : Type ℓ) : Type ℓ where
       Nₚ : Suspₚ A
       Sₚ : Suspₚ A
 
     data Suspₓ {ℓ} (A : Type ℓ) : Type ℓ where
-      mkSusp : Suspₚ A → (𝟙 {ℓ} → 𝟙 {ℓ}) → Suspₓ A
+      mkSusp : Suspₚ A → (𝟙 ℓ → 𝟙 ℓ) → Suspₓ A
 
   Susp = Suspₓ
 
@@ -62,7 +62,7 @@ module SuspensionType where
 Recursion principle on points
 \begin{code}
   Susp-rec
-    : {A : Type ℓᵢ}{C : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{C : Type ℓ₂}
     → (cₙ cₛ  : C)
     → (merid' : A → cₙ == cₛ)
     ------------------------
@@ -76,7 +76,7 @@ Recursion principle on paths
 \begin{code}
   postulate
     Susp-βrec
-      : {A : Type ℓᵢ}{C : Type ℓⱼ}
+      : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{C : Type ℓ₂}
       → {cₙ cₛ : C} {mer : A → cₙ == cₛ}
       → {a : A}
       -------------------------------------------
@@ -86,7 +86,7 @@ Recursion principle on paths
 Induction principle on points
 \begin{code}
   Susp-ind
-    : ∀ {ℓ} {A : Type ℓ} (C : Susp A → Type ℓ)
+    : ∀ {ℓ : Level} {A : Type ℓ} (C : Susp A → Type ℓ)
     → (N' : C North)
     → (S' : C South)
     → (merid' : (x : A) → N' == S' [ C ↓ (merid x) ])

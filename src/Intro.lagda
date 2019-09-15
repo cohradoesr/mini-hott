@@ -12,20 +12,17 @@ showcitation: true
 
 ![path]({{ site.baseurl }}/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
 
-This is a library for Univalent Type Theory in
+Mini-HoTT is a basic library for Homotopy Type Theory in
 [Agda](http://github.com/agda/agda) developed at [University of
-Bergen](https://www.uib.no/) in the Programming Theory Research Group of the
-department of informatics.
+Bergen](https://www.uib.no/) in the Programming Theory Research Group.
 
 No other libraries are required to use this Agda library. To ease its adoption,
 we have included synonyms and syntax sugar for types, lemmas, and theorems.
-Naming things and remember them has always been a hassle. We think all the
-synonyms included alleviate this issue. Regarding performance, we would
-recommend you another option, maybe `HoTT-Agda` library. As with any other work,
-please see the references at the end, which they might contain better
-explanation of our exposition.
+Regarding performance, we would recommend to check out another option like the
+`HoTT-Agda` library.  We encourage to check the references at the end of this
+documment, which might contain better explanation of our exposition.
 
-# Code
+# Quick start
 
 ## Installation
 
@@ -45,36 +42,31 @@ as follows:
 
     - `open import MiniHoTT`
 
-## Style
+## Code style
 
-Definitions and theorems are typed with unicode characters, we believe they
-improve significantly the readability. We usually present lemmas and theorems as
-rule inferences as in the following example.
+Definitions and theorems are typed with unicode characters, this to improve
+significantly the readability. We usually present lemmas and theorems as rule
+inferences as in the following example. Level universes are now included in each
+definition, this apparently improves the time for type-checking.
 
 ```
 termName
-  :  {...} {t1 : type1}
-  → (t2 : type2)
-  → ...
+  :  ∀ {ℓ₁ ℓ₂.. : Level} {A : Type ℓ₁}   -- Implicit Assumptions
+  → (B : A → Type ℓ₂)                    -- Explicit Assumptions
+  → ...                                  -- Explicit Assumptions
   ---------------------
-  → ... (t1 t2) → ...
+  → ...                                  -- Conclusion
 ```
 
-On the website, we show the type for each term and the term definition is
-collapsed. However, you can expand them by clicking on the code boxes (this
-requires Javascript).
+On the website, we show the type for each term but some term definitions are
+hidden. However, you can expand them by clicking on the code boxes --this
+requires Javascript--.
 
 ```
 termName = definition
   where
   helper1 : ...
   helper2 = def...
-```
-
-Infix precedence:
-
-```
-infix X termName
 ```
 
 ## Proof relevancy
@@ -132,14 +124,4 @@ record
     lower : A
 
 open ↑ public
-\end{code}
-
-Since `Agda v2.6.0`, it is possible to use *global* variables
-to simplify the typing. These kind of variables are implicit and
-included in every single type definition that comes below unless
-other are stated.
-
-\begin{code}
-variable
-  ℓ ℓᵢ ℓⱼ ℓₖ : Level
 \end{code}

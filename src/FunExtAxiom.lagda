@@ -24,8 +24,8 @@ open import HomotopyType
 
 \begin{code}
 
-module FunExtAxiom {ℓᵢ ℓⱼ} {A : Type ℓᵢ}
-  {B : A → Type ℓⱼ} {f g : (a : A) → B a} where
+module FunExtAxiom {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
+  {B : A → Type ℓ₂} {f g : (a : A) → B a} where
 \end{code}
 
 \begin{code}

@@ -28,8 +28,7 @@ A datatype without *constructors* is the *empty type*. This represents  the *fal
 
 \begin{code}
 data
-  ⊥ {ℓᵢ}
-    : Type ℓᵢ
+  𝟘 (ℓ : Level) : Type ℓ
   where
   -- Nothing
 \end{code}
@@ -37,16 +36,16 @@ data
 Synonyms of ⊥:
 
 \begin{code}
-Empty = ⊥
-𝟘     = ⊥
+⊥     = 𝟘
+Empty = 𝟘
 \end{code}
 
 Its *eliminator* principle also called *Ex falso quodlibet*:
 
 \begin{code}
 exfalso
-  : ∀ {A : Type ℓ}
-  → ⊥ {ℓᵢ}
+  : ∀ {ℓ : Level} {A : Type ℓ}
+  → ⊥ ℓ
   --------
   → A
 
@@ -64,8 +63,8 @@ Empty-elim = exfalso
 The negation symbol is a shortcut of an implication for the falsehood.
 
 \begin{code}
-¬ : Type ℓ → Type ℓ
-¬ A = (A → ⊥ {lzero})
+¬ : ∀ {ℓ : Level} → Type ℓ → Type ℓ
+¬ {ℓ} A = (A → ⊥ ℓ)
 \end{code}
 
 ### Unit type
@@ -74,22 +73,25 @@ The *unit type* is defined as a record to get also the $η$-rule
 definitionally. This type has no elimination rule.
 
 \begin{code}
-record ⊤ : Type ℓ where
-  constructor ★
+record
+  𝟙 (ℓ : Level)
+    : Type ℓ
+  where
+  constructor unit
 
-{-# BUILTIN UNIT ⊤ #-}
+-- {-# BUILTIN UNIT ⊤ #-}
 \end{code}
 
 Synonyms for the Unit type:
 \begin{code}
-Unit = ⊤
-𝟙    = ⊤
+Unit = 𝟙
+⊤    = 𝟙
 \end{code}
 
 Synonyms for the data constructor:
 \begin{code}
-pattern unit = ★
-pattern ∗    = ★
+pattern ★ = unit
+pattern ∗ = unit
 \end{code}
 
 
@@ -100,8 +102,8 @@ the second term in the pair may depend on the first term.
 
 \begin{code}
 record
-  ∑ {ℓᵢ}{ℓⱼ} (A : Type ℓᵢ)(B : A → Type ℓⱼ)
-   : Type (ℓᵢ ⊔ ℓⱼ)
+  ∑ {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁)(B : A → Type ℓ₂)
+   : Type (ℓ₁ ⊔ ℓ₂)
   where
   constructor _,_
   field
@@ -115,7 +117,7 @@ open ∑ public
 Symbol synonym:
 
 \begin{code}
-Σ = ∑  -- \Sigma and \sum
+Σ = ∑ -- \Sigma and \sum
 \end{code}
 
 Constructor synonyms:
@@ -137,11 +139,11 @@ snd   = π₂
 
 \begin{code}
 Π
-  : (A : Type ℓᵢ) (P : A → Type ℓⱼ)
-  --------------------------------
-  → Type (ℓᵢ ⊔ ℓⱼ)
+  : ∀ {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁)(B : A → Type ℓ₂)
+  --------------------------------------------------
+  → Type (ℓ₁ ⊔ ℓ₂)
 
-Π A P = (x : A) → P x
+Π A B = (x : A) → B x
 \end{code}
 
 Synonyms
@@ -155,9 +157,9 @@ Product type as a particular case of the Sigma type.
 
 \begin{code}
 _×_
-  : (A : Type ℓᵢ) (B : Type ℓⱼ)
-  ----------------------------
-  → Type (ℓᵢ ⊔ ℓⱼ)
+  : ∀ {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁)(B : Type ℓ₂)
+  ----------------------------------------------
+  → Type (ℓ₁ ⊔ ℓ₂)
 
 A × B = ∑ A (λ _ → B)
 
@@ -170,8 +172,8 @@ Sum types as inductive types
 
 \begin{code}
 data
-  _+_ (A : Type ℓᵢ) (B : Type ℓⱼ)
-    : Type (ℓᵢ ⊔ ℓⱼ)
+  _+_ {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁)(B : Type ℓ₂)
+    : Type (ℓ₁ ⊔ ℓ₂)
   where
   inl : A → A + B
   inr : B → A + B
@@ -190,10 +192,11 @@ The elimination principle:
 
 \begin{code}
 +-elim
-  : {A : Type ℓᵢ}{B : Type ℓⱼ}{C : Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {C : Type ℓ₃}
   → (A → C) → (B → C)
   -------------------
   → (A + B) → C
+
 +-elim A→C B→C (inl x) = A→C x
 +-elim A→C B→C (inr x) = B→C x
 \end{code}
@@ -210,8 +213,8 @@ syntax cases f g = ⟨ f + g ⟩
 
 \begin{code}
 data
-  _⇒_ (A B : Type ℓ)
-    : Type ℓ
+  _⇒_ {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁)(B : Type ℓ₂)
+    : Type (ℓ₁ ⊔ ℓ₂)
   where
   fun : (A → B) → A ⇒ B
 \end{code}
@@ -239,35 +242,37 @@ infix 30 _↔_ _⇔_
 ### Booleans
 
 \begin{code}
-data
-  Bool
-    : Type₀
-  where
-  true  : Bool
-  false : Bool
+module _  where
+  data
+    𝟚 (ℓ : Level) : Type (lsuc ℓ)
+    where
+    𝟘₂ : 𝟚 ℓ
+    𝟙₂ : 𝟚 ℓ
 \end{code}
 
 Synonyms:
 
 \begin{code}
-𝟚  = Bool
+Bool = 𝟚 lzero
 \end{code}
 
 Constructors synonyms:
 \begin{code}
-pattern 𝟘₂ = false
-pattern 𝟙₂ = true
+false : 𝟚 lzero
+false = 𝟘₂
 
-pattern ff = false
-pattern tt = true
+true : 𝟚 lzero
+true  = 𝟙₂
+
+ff = false
+tt = true
 \end{code}
 
 ### Natural numbers
 
 \begin{code}
 data
-  ℕ
-    : Type₀
+  ℕ : Type lzero
   where
   zero : ℕ
   succ : ℕ → ℕ
@@ -278,10 +283,29 @@ Synonyms for natural numbers
 \begin{code}
 Nat = ℕ
 
-pattern zr = zero 
-pattern sc = succ 
+pattern zr = zero
+pattern sc = succ
 
 {-# BUILTIN NATURAL ℕ #-}
+\end{code}
+
+An order relation will use in the following type constructor.
+
+\begin{code}
+module ℕ-< {ℓ : Level} where
+  _<_ :  ℕ → ℕ → Type ℓ
+  zero   < zero   = ⊥ ℓ
+  zero   < succ b = ⊤ ℓ
+  succ _ < zero   = ⊥ ℓ
+  succ a < succ b = a < b
+\end{code}
+
+and we can state the relation $\geq$ as as shortcut for...
+
+\begin{code}
+  _>_ : ℕ → ℕ → Type ℓ
+  a > b = b < a
+
 \end{code}
 
 ### Finite sets
@@ -291,37 +315,25 @@ We opt to use a ∑-type which we believe is clear enough to say what they are.
 A finite set of $n : \mathsf{N}$, $\mathsf{Fin}_{n}$, is the collection of
 numbers less ($<$) than the number $n$. This notion is the following type family.
 
-\begin{code}
-mutual
-  Fin : ℕ → Type₀
-  Fin n = Σ ℕ (λ m → m < n)
-\end{code}
-
-Where the ordering relation is defined as follows.
 
 \begin{code}
-  _<_ : ℕ → ℕ → Type₀
-  zero   < zero   = ⊥
-  zero   < succ b = ⊤
-  succ _ < zero   = ⊥
-  succ a < succ b = a < b
+module Fin (ℓ : Level) where
+  mutual
+    Fin : ℕ → Type ℓ
+    Fin n = Σ (ℕ) (λ m → m < n)
+    open ℕ-< {ℓ}
 \end{code}
 
-and we can state the relation $\geq$ as as shortcut for...
-
-\begin{code}
-  _>_ : ℕ → ℕ → Type₀
-  a > b = b < a
-\end{code}
 
 Even though, there are other approaches to define finite sets,
 (in the standard-library in Agda, they have defined inductively
 fin sets as with natural numbers.)
 
 \begin{code}
-⟦_⟧ : ℕ → Type₀
-⟦ zero ⟧   = 𝟘
-⟦ succ n ⟧ = 𝟙 + ⟦ n ⟧
+module _ {ℓ : Level} where
+  ⟦_⟧ : ℕ → Type ℓ
+  ⟦_⟧ zero  = 𝟘 ℓ
+  ⟦_⟧ (succ n)  = 𝟙 ℓ + ⟦ n ⟧
 
 \end{code}
 
@@ -330,7 +342,7 @@ mimic this notation as follows:
 
 Synomym:
 \begin{code}
-Fin₂ = ⟦_⟧
+  Fin₂ = ⟦_⟧
 \end{code}
 
 Without going further, it's natural to define two essential functions:
@@ -339,28 +351,28 @@ successor, and predecessor.
 Succesor function on (finite) natural numbers are well-defined when
 we consider sets with at least one element.
 
-$$ ⟦ n ⟧ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$ 
+$$ ⟦ n ⟧ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$
 
 - $1 :≡ inl unit$
 
 - $n :≡ inr (inr ...)$
 
 \begin{code}
-⟦⟧-succ
-  : ∀ {n : ℕ}
-  → ⟦ n ⟧ → ⟦ succ n ⟧
-  
-⟦⟧-succ {succ n} (inl x) = inr (inl unit)
-⟦⟧-succ {succ n} (inr x) = inr (⟦⟧-succ x)
+  ⟦⟧-succ
+    : {n : ℕ}
+    → ⟦ n ⟧ → ⟦ succ n ⟧
+
+  ⟦⟧-succ {succ n} (inl x) = inr (inl unit)
+  ⟦⟧-succ {succ n} (inr x) = inr (⟦⟧-succ x)
 \end{code}
 
 \begin{code}
-⟦⟧-pred
-  : ∀ (n : ℕ)
-  → ⟦ n ⟧ →  ⟦ n ⟧ -- clarify why in succ?,
+  ⟦⟧-pred
+    : ∀ (n : ℕ)
+    → ⟦ n ⟧ →  ⟦ n ⟧ -- clarify why in succ?,
 
-⟦⟧-pred (succ n) (inl x) = inl x
-⟦⟧-pred (succ n) (inr x) = inr (⟦⟧-pred n x) 
+  ⟦⟧-pred (succ n) (inl x) = inl x
+  ⟦⟧-pred (succ n) (inr x) = inr (⟦⟧-pred n x)
 \end{code}
 
 
@@ -378,8 +390,8 @@ term `a : A`, to have the identity type `a == a`, also denoted by `Id(a,a)` or
 
 \begin{code}
 data
-  _==_ {A : Type ℓᵢ} (a : A)
-    : A → Type ℓᵢ
+  _==_ {ℓ : Level}{A : Type ℓ} (a : A)
+    : A → Type ℓ
   where
   idp : a == a
 \end{code}
@@ -399,19 +411,19 @@ infix 30 _==_ _⇝_ _≡_
 
 \begin{code}
 refl
-  : ∀ {A : Type ℓᵢ}
+  : ∀ {ℓ : Level} {A : Type ℓ}
   → (a : A)
   -----------------
   → a == a
 
-refl {ℓᵢ}{A} a = idp
+refl  a = idp
 \end{code}
 
 Symmetry property for the identity types.
 
 \begin{code}
 sym
-  : ∀ {A : Type ℓ}{x y : A}
+  : ∀ {ℓ : Level} {A : Type ℓ} {x y : A}
   → x == y
   --------
   → y == x
@@ -429,8 +441,8 @@ J-eliminator.
 {: .foldable until="6" }
 \begin{code}
 J
-  : ∀ {A : Type ℓᵢ} {a : A}
-  → (B : (a' : A) (p : a == a') → Type ℓⱼ)
+  : ∀ {ℓ : Level} {A : Type ℓ}  {a : A} {ℓ₂ : Level}
+  → (B : (a' : A) (p : a == a') → Type ℓ₂)
   → (d : B a idp)
   ----------------------------------------
   → {a' : A} (p : a == a') → B a' p
@@ -441,8 +453,8 @@ J {a = a} B d idp = d
 {: .foldable until="6" }
 \begin{code}
 J'
-  : ∀ {A : Type ℓᵢ} {a : A}
-  → (B : (a' : A) (p : a' == a) → Type ℓⱼ)
+  : ∀ {ℓ : Level} {A : Type ℓ}  {a : A} {ℓ₂ : Level}
+  → (B : (a' : A) (p : a' == a) → Type ℓ₂)
   → (d : B a idp)
   ----------------------------------------
   → {a' : A} (p : a' == a) → B a' p
@@ -455,17 +467,29 @@ J' {a = a} B d idp = d
 
 
 \begin{code}
-data Dec (P : Type₀) : Type₀ where
+data
+  Dec {ℓ : Level}(P : Type ℓ)
+    : Type ℓ
+  where
   yes : ( p :   P) → Dec P
   no  : (¬p : ¬ P) → Dec P
 
-⌊_⌋ : {P : Type₀} → Dec P → Bool
+⌊_⌋ : ∀ {ℓ : Level}{P : Type ℓ} → Dec P → Bool
 ⌊ yes _ ⌋ = true
 ⌊ no  _ ⌋ = false
 
-REL : Type₀ → Type₀ → Type₁
-REL A B = A → B → Type₀
+REL
+  : ∀ {ℓ : Level}
+  → Type ℓ → Type ℓ
+  ----------------
+  → Type (lsuc ℓ)
 
-Decidable : {A : Type₀} {B : Type₀} → REL A B → Type₀
+REL {ℓ = ℓ} A B = A → B → Type ℓ
+
+Decidable
+  : ∀ {ℓ : Level} {A B : Type ℓ}
+  → REL A B
+  → Type ℓ
+
 Decidable _∼_ = ∀ x y → Dec (x ∼ y)
 \end{code}

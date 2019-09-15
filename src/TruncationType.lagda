@@ -35,7 +35,7 @@ solution to the problem of mapping $X$ to a proposition $P$:
 ```
 X  → ∥ X ∥
  ↘    ⇣ (!∃ h)
-    ↘ P 
+    ↘ P
 ```
 
 Notes:
@@ -63,23 +63,23 @@ module
 
 \begin{code}
   ∥_∥
-    :  (A : Type ℓ)
+    : ∀ {ℓ : Level} (A : Type ℓ)
     → Type ℓ
 
   ∥ A ∥ = !∥ A ∥
 
-  prop-trunc = ∥_∥ 
+  prop-trunc = ∥_∥
 \end{code}
 
 \begin{code}
   ∣_∣
-    : {X : Type ℓ}
+    : ∀ {ℓ : Level} {X : Type ℓ}
     → X
     → ∥ X ∥
 
   ∣ x ∣ = !∣ x ∣
 
-  ∥∥-intro = ∣_∣ 
+  ∥∥-intro = ∣_∣
 \end{code}
 
 Any two elements of the truncated type are equal
@@ -87,14 +87,14 @@ Any two elements of the truncated type are equal
 \begin{code}
   postulate
     trunc
-      : {A : Type ℓ}
+      : ∀ {ℓ : Level} {A : Type ℓ}
       → isProp ∥ A ∥
 \end{code}
 
 Recursion principle
 \begin{code}
   trunc-rec
-    : {A : Type ℓᵢ} {P : Type ℓⱼ}
+    :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : Type ℓ₂}
     → isProp P
     → (A → P)
     ---------
@@ -124,7 +124,7 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)
 
 \begin{code}
   truncated-is-prop
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isProp (∥ A ∥)
   truncated-is-prop = trunc
 
@@ -133,14 +133,14 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)
 
 \begin{code}
   prop-≃-truncated
-    : { A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → isProp A
     → ∥ A ∥ ≃ A
 
   prop-≃-truncated pA = lemma333 trunc pA (trunc-rec pA id) ∣_∣
 
-  trunc-≃ = prop-≃-truncated 
-\end{code}  
+  trunc-≃ = prop-≃-truncated
+\end{code}
 
 A relation between double implication and the truncation of a type:
 

@@ -30,7 +30,7 @@ open import HedbergLemmas
 \begin{code}
 module QuotientType where
 
-  record QRel {ℓ} (A : Type ℓ) : Type (lsuc ℓ) where
+  record QRel {ℓ : Level} (A : Type ℓ) : Type (lsuc ℓ) where
     field
       R     : A → A → Type ℓ
       Aset  : isSet A
@@ -39,19 +39,19 @@ module QuotientType where
   open QRel {{...}} public
 
   private
-    data _!/_ {ℓ} (A : Type ℓ) (r : QRel A)
+    data _!/_ {ℓ : Level} (A : Type ℓ)  (r : QRel A)
       : Type (lsuc ℓ)
       where
       ![_] : A → (A !/ r)
 
   _/_
-    : (A : Type ℓ) (r : QRel A)
+    : {ℓ : Level} (A : Type ℓ)  (r : QRel A)
     → Type (lsuc ℓ)
 
   A / r = (A !/ r)
 
   [_]
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → A → {r : QRel A}
     ---------
     → (A / r)
@@ -61,7 +61,7 @@ module QuotientType where
   -- Equalities induced by the relation
   postulate
     Req
-      : {A : Type ℓ} {r : QRel A}
+      : ∀ {ℓ : Level} {A : Type ℓ}  {r : QRel A}
       → {a b : A}
       → R {{r}} a b
       --------------------
@@ -70,7 +70,7 @@ module QuotientType where
   -- The quotient of a set is again a set
   postulate
     Rtrunc
-      : {A : Type ℓ} {r : QRel A}
+      : ∀ {ℓ : Level} {A : Type ℓ}  {r : QRel A}
       ---------------
       → isSet (A / r)
 \end{code}
@@ -80,7 +80,7 @@ Recursion principle
 {: .foldable until="6" }
 \begin{code}
   QRel-rec
-    : {A : Type ℓᵢ} {r : QRel A} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}  {r : QRel A} {B : Type ℓ₂}
     → (f : A → B)
     → ((x y : A) → R {{r}} x y → f x == f y)
     ---------------------------------------
@@ -93,7 +93,7 @@ Induction principle
 {: .foldable until="6" }
 \begin{code}
   QRel-ind
-    : {A : Type ℓᵢ} {r : QRel A} {B : A / r → Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {r : QRel A} {B : A / r → Type ℓ₂}
     → (f : ((a : A) → B [ a ]))
     → ((x y : A) → (o : R {{r}} x y) → (transport B (Req o) (f x)) == f y)
     -------------------
@@ -108,7 +108,7 @@ Recursion in two arguments
 {: .foldable until="6" }
 \begin{code}
   QRel-rec-bi
-    : {A : Type ℓᵢ} {r : QRel A} {B : Type ℓⱼ}
+    : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁} {r : QRel A} {B : Type ℓ₂}
     → (f : A → A → B)
     → ((x y z t : A) → R {{r}} x y → R {{r}} z t → f x z == f y t)
     -------------------
@@ -120,7 +120,7 @@ Recursion in two arguments
 {: .foldable until="5" }
 \begin{code}
   Qrel-prod
-    : {A : Type ℓᵢ}
+    : ∀ {ℓ : Level}{A : Type ℓ}
     → (r : QRel A)
     --------------
     → QRel (A × A)

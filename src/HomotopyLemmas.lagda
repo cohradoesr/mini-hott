@@ -25,7 +25,7 @@ open import HomotopyType
 {: .foldable until="8"}
 \begin{code}
 hl-comp
-  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {C : Type ℓ₃}
   → {f g : A → B}
   → {j k : B → C}
   → f ∼ g
@@ -40,7 +40,7 @@ hl-comp {g = g}{j = j} f-g j-k = λ x → ap j (f-g x) · j-k (g x)
 {: .foldable until="7"}
 \begin{code}
 rcomp-∼
-  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {C : Type ℓ₃}
   → (f : A → B)
   → {j k : B → C}
   → j ∼ k
@@ -53,7 +53,7 @@ rcomp-∼ f j-k = hl-comp (h-refl f) j-k
 {: .foldable until="7"}
 \begin{code}
 lcomp-∼
-  : {A : Type ℓᵢ} {B : Type ℓⱼ} {C : Type ℓₖ}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {C : Type ℓ₃}
   → {f g : A → B}
   → (j : B → C)
   → f ∼ g
@@ -74,7 +74,7 @@ square commutative diagram.
 {: .foldable until="5"}
 \begin{code}
 h-naturality
-  : {A : Type ℓᵢ} {B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → {f g : A → B} → {x y : A}
   → (H : f ∼ g)
   → (p : x == y)
@@ -89,7 +89,7 @@ A particular case of naturality on the identity function.
 {: .foldable until="5"}
 \begin{code}
 h-naturality-id
-  : {A : Type ℓ} {f : A → A} → {x : A}
+  : ∀ {ℓ : Level} {A : Type ℓ}  {f : A → A} → {x : A}
   → (H : f ∼ id)
   -----------------------
   → H (f x) == ap f (H x)

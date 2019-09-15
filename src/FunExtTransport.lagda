@@ -24,7 +24,7 @@ Function extensionality in the transport case
 
 \begin{code}
 module
-  FunExtTransport {X : Type ℓᵢ} {A B : X → Type ℓⱼ} {x y : X}
+  FunExtTransport {ℓ₁ ℓ₂ : Level}{X : Type ℓ₁} {A B : X → Type ℓ₂} {x y : X}
     where
 \end{code}
 

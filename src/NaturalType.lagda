@@ -50,7 +50,7 @@ module NaturalType where
 {: .foldable until="3"}
 \begin{code}
   plus-lunit
-    : (n : ℕ)
+    :  (n : ℕ)
     → zero +ₙ n == n
 
   plus-lunit n = refl n
@@ -58,14 +58,14 @@ module NaturalType where
 
 {: .foldable until="3"}
 \begin{code}
-  plus-runit : (n : ℕ) → n +ₙ zero == n
+  plus-runit :   (n : ℕ) → n +ₙ zero == n
   plus-runit zero = refl zero
   plus-runit (succ n) = ap succ (plus-runit n)
 \end{code}
 
 {: .foldable until="3"}
 \begin{code}
-  plus-succ : (n m : ℕ) → succ (n +ₙ m) == (n +ₙ (succ m))
+  plus-succ :  (n m : ℕ) → succ (n +ₙ m) == (n +ₙ (succ m))
   plus-succ zero     m = refl (succ m)
   plus-succ (succ n) m = ap succ (plus-succ n m)
 \end{code}
@@ -98,9 +98,9 @@ Associativity
   -- Encode-decode technique for natural numbers
   private
     code : ℕ → ℕ → Type₀
-    code 0        0        = ⊤
-    code 0        (succ m) = ⊥
-    code (succ n) 0        = ⊥
+    code 0        0        = ⊤ lzero
+    code 0        (succ m) = ⊥ lzero
+    code (succ n) 0        = ⊥ lzero
     code (succ n) (succ m) = code n m
 
   crefl : (n : ℕ) → code n n
@@ -182,10 +182,10 @@ Associativity
   ℕ-plus-monoid = record
     { M = ℕ
     ; M-is-set = nat-isSet
-    ; _<>_     = plus
+    ; _⊕_     = plus
     ; e = zero
-    ; lunit = plus-lunit
-    ; runit = plus-runit
+    ; l-unit = plus-lunit
+    ; r-unit = plus-runit
     ; assoc = plus-assoc
     }
 \end{code}

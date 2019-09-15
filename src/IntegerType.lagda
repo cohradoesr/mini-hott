@@ -192,14 +192,14 @@ module IntegerType where
 
   -- Ordering
   _<ᶻ_ : ℤ → ℤ → Type₀
-  zer <ᶻ zer = ⊥
-  zer <ᶻ pos x = ⊤
-  zer <ᶻ neg x = ⊥
-  pos x <ᶻ zer = ⊥
+  zer <ᶻ zer = ⊥ lzero
+  zer <ᶻ pos x = ⊤ lzero
+  zer <ᶻ neg x = ⊥ lzero
+  pos x <ᶻ zer = ⊥ lzero
   pos x <ᶻ pos y = x <ₙ y
-  pos x <ᶻ neg y = ⊥
-  neg x <ᶻ zer = ⊤
-  neg x <ᶻ pos y = ⊤
+  pos x <ᶻ neg y = ⊥ lzero
+  neg x <ᶻ zer = ⊤ lzero
+  neg x <ᶻ pos y = ⊤ lzero
   neg x <ᶻ neg y = y <ₙ x
 
 \end{code}

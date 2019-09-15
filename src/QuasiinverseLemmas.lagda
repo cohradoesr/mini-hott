@@ -42,7 +42,7 @@ The equivalence types are indeed equivalence
 \begin{code}
   -- Composition of quasiinverses
   qinv-comp
-    : ∀ {ℓ₁ ℓ₂ ℓ₃} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
     → Σ (A → B) qinv
     → Σ (B → C) qinv
     ----------------
@@ -57,7 +57,7 @@ The equivalence types are indeed equivalence
 \begin{code}
   -- Lemma.
   qinv-inv
-    : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → Σ (A → B) qinv
     ----------------
     → Σ (B → A) qinv
@@ -85,7 +85,7 @@ Equivalence types are equivalence relations.
 \begin{code}
   -- Lemma.
   _:>≃_
-    : ∀ {ℓ₁ ℓ₂ ℓ₃} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
     → A ≃ B
     → B ≃ C
     -------
@@ -105,7 +105,7 @@ Equivalence types are equivalence relations.
 {: .foldable until="5"}
 \begin{code}
   ≃-sym
-    : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁}{B : Type ℓ₂}
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → A ≃ B
     -------
     → B ≃ A

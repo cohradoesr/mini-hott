@@ -35,7 +35,7 @@ module
 \begin{code}
 
 prodComponentwise
-  : {A : Type ℓᵢ}{B : Type ℓⱼ}{x y : A × B}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {x y : A × B}
   → (x == y)
   ---------------------------------
   → (π₁ x == π₁ y) × (π₂ x == π₂ y)
@@ -47,7 +47,7 @@ prodComponentwise {x = x} idp = refl (π₁ x) , refl (π₂ x)
 \begin{code}
 
 prodByComponents
-  : {A : Type ℓᵢ}{B : Type ℓⱼ} {x y : A × B}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {x y : A × B}
   → (π₁ x == π₁ y) × (π₂ x == π₂ y)
   ---------------------------------
   → (x == y)
@@ -59,7 +59,7 @@ prodByComponents {x = a , b} (idp , idp) = refl (a , b)
 \begin{code}
 
 prodCompInverse
-  : {A : Type ℓᵢ}{B : Type ℓⱼ} {x y : A × B}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {x y : A × B}
   → (b : (π₁ x == π₁ y) × (π₂ x == π₂ y))
   ---------------------------------------------
   → prodComponentwise (prodByComponents b) == b
@@ -71,7 +71,7 @@ prodCompInverse {x = x} (idp , idp) = refl (refl (π₁ x) , refl (π₂ x))
 \begin{code}
 
 prodByCompInverse
-  : {A : Type ℓᵢ}{B : Type ℓⱼ} {x y : A × B}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}  {x y : A × B}
   → (b : x == y)
   ---------------------------------------------
   → prodByComponents (prodComponentwise b) == b
@@ -81,7 +81,7 @@ prodByCompInverse {x = x} idp = refl (refl x)
 
 \begin{code}
 ×-≡
-  : {A : Type ℓᵢ}{B : Type ℓⱼ}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} 
   → {ab ab' : A × B}
   → (p : π₁ ab ≡ π₁ ab') → (π₂ ab) ≡ π₂ ab'
   → ab ≡ ab'

@@ -24,45 +24,44 @@ open import FunExtTransport
 module
   HedbergLemmas
   where
-\end{code}
-
-</div>
-\begin{code}
   module
-    HedbergLemmas2 (A : Type ℓ)
+    HedbergLemmas2
     where
 \end{code}
 
 A set is a type satisfiying Axiom K.
+
 \begin{code}
     axiomKisSet
-      : ((a : A) → (p : a == a) → p == refl a)
+      : ∀ {ℓ : Level} {A : Type ℓ}
+      → ((a : A) → (p : a == a) → p == refl a)
       → isSet A
 
     axiomKisSet k x _ p idp = k x p
 \end{code}
 
-{: .foldable until="6" }
+{: .foldable until="7" }
 \begin{code}
     reflRelIsSet
-      : (r : Rel A)
+      : ∀ {ℓ : Level} (A : Type ℓ)
+      → (r : Rel A)
       → ((x y : A) → R {{r}} x y → x == y)  -- xRy ⇒ Id(x,y)
       →   ((x : A) → R {{r}} x x)           -- ∀ x ⇒ xRx
       ------------------------------------
       → isSet A
 
-    reflRelIsSet r f ρ x .x p idp = lemma p
+    reflRelIsSet A r f ρ x .x p idp = lemma p
       where
       lemma2
         : {a : A}
         → (p : a == a) → (o : R {{r}} a a)
         → (f a a o) == f a a (transport (R {{r}} a) p o)
                      [ (λ x → a == x) ↓ p ]
-                     
+
       lemma2 {a} p = funext-transport-l p (f a a) (f a a) (apd (f a) p)
 
       lemma3
-        : {a : A}
+        :  {a : A}
         → (p : a == a)
         → (f a a (ρ a)) · p == (f a a (ρ a))
 
@@ -73,21 +72,23 @@ A set is a type satisfiying Axiom K.
         : {a : A}
         → (p : a == a)
         → p == refl a
-        
+
       lemma {a} p = ·-cancellation ((f a a (ρ a))) p (lemma3 p)
-\end{code}      
+\end{code}
 
 Lema: if a type is decidable, then ¬¬A is actually A.
 
-{: .foldable untile="4" }
-\begin{code}      
+{: .foldable untile="5" }
+\begin{code}
     lemDoubleNeg
-      : (A + ¬ A)
+      : ∀ {ℓ : Level} {A : Type ℓ}
+      → (A + ¬ A)
       ---------------
       → (¬ (¬ A) → A)
 
     lemDoubleNeg (inl x) _ = x
     lemDoubleNeg (inr f) n = exfalso (n f)
+
   open HedbergLemmas2 public
 \end{code}
 
@@ -96,12 +97,12 @@ Lema: if a type is decidable, then ¬¬A is actually A.
 {: .foldable until="5"}
 \begin{code}
   hedberg
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → ((a b : A) → (a == b) + ¬ (a == b))
     -------------------------------------
     → isSet A
 
-  hedberg {A = A} f
+  hedberg {ℓ}{A = A} f
     = reflRelIsSet A
         (record { R = λ a b → ¬ (¬ (a == b))
                 ; Rprop = isPropNeg })
@@ -112,7 +113,7 @@ Lema: if a type is decidable, then ¬¬A is actually A.
      : (a b : A) → ¬ (¬ (a == b))
      → (a == b)
 
-    doubleNegEq a b = lemDoubleNeg (a == b) (f a b)
+    doubleNegEq a b p = lemDoubleNeg (f a b) p
 
     isPropNeg
       : (a b : A)

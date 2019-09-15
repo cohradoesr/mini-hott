@@ -25,7 +25,7 @@ open import TransportLemmas
 
 The context:
 \begin{code}
-module HomotopyType {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
+module HomotopyType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {P : A → Type ℓ₂} where
 \end{code}
 
 Let $$f , g : \prod\limits_{(x:A)} P(x)$$ be two sections of a
@@ -39,18 +39,18 @@ $$ (f \sim g) :\equiv \prod\limits_{x : A} (f(x) = g(x)). $$
 
 {: .foldable until="5"}
 \begin{code}
-  
+
   homotopy
     : (f g : Π A P)
     ---------------
-    → Type (ℓᵢ ⊔ ℓⱼ)
+    → Type (ℓ₁ ⊔ ℓ₂)
 
   homotopy f g = ∀ (x : A) → f x == g x
 \end{code}
 
 \begin{code}
   -- Usual notation for homotopy
-  _∼_ : (f g : ((x : A) → P x)) → Type (ℓᵢ ⊔ ℓⱼ)
+  _∼_ : (f g : ((x : A) → P x)) → Type (ℓ₁ ⊔ ℓ₂)
   f ∼ g = homotopy f g
 \end{code}
 
@@ -72,7 +72,7 @@ $$ (f \sim g) :\equiv \prod\limits_{x : A} (f(x) = g(x)). $$
 
 {: .foldable until="6"}
 \begin{code}
-  
+
   h-sym
     : (f g : Π A P)
     → f ∼ g
@@ -84,7 +84,7 @@ $$ (f \sim g) :\equiv \prod\limits_{x : A} (f(x) = g(x)). $$
 
 {: .foldable until="7"}
 \begin{code}
-  
+
   h-comp
     : {f g h : Π A P}
     → f ∼ g

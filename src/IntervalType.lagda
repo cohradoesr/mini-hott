@@ -53,7 +53,7 @@ Recursion principle on points.
 {: .foldable until="6" }
 \begin{code}
   I-rec
-    : {A : Type ℓ}
+    : ∀ {ℓ : Level} {A : Type ℓ}
     → (a b : A)
     → (p : a == b)
     --------------
@@ -68,7 +68,7 @@ Recursion principle on paths.
 \begin{code}
   postulate
     I-βrec
-      : (A : Type ℓ)
+      : ∀ {ℓ : Level} (A : Type ℓ)
       → (a b : A)
       → (p : a == b)
       ---------------------------

@@ -27,8 +27,8 @@ open import AlgebraOnPaths public
 {: .foldable until="6" }
 \begin{code}
 transport
-  : ∀ {A : Type ℓᵢ}
-  → (C : A → Type ℓⱼ) {a₁ a₂ : A}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
+  → (C : A → Type ℓ₂) {a₁ a₂ : A}
   → (p : a₁ == a₂)
   -------------------------------
   → (C a₁ → C a₂)
@@ -48,7 +48,7 @@ transp = transport
 {: .foldable until="5" }
 \begin{code}
 coe
-  : ∀ {A B : Type ℓ}
+  : ∀ {ℓ : Level} {A B : Type ℓ}
   → A == B
   ---------
   → (A → B)
@@ -61,7 +61,7 @@ and its inverse:
 {: .foldable until="5" }
 \begin{code}
 !coe
-  : ∀ {A B : Type ℓ}
+  : ∀ {ℓ : Level} {A B : Type ℓ}
   → A == B
   ---------
   → (B → A)
@@ -83,11 +83,11 @@ also denoted by `PathOver C c₁ α c₂`.
 
 \begin{code}
 PathOver
-  : {A : Type ℓᵢ}
-  → (B : A → Type ℓⱼ) {a₁ a₂ : A}
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
+  → (B : A → Type ℓ₂) {a₁ a₂ : A}
   → (b₁ : B a₁) → (α : a₁ == a₂) → (b₂ : B a₂)
   --------------------------------------------
-  → Type ℓⱼ
+  → Type ℓ₂
 
 PathOver B b₁ α b₂ = tr B α b₁ == b₂
 \end{code}
@@ -113,7 +113,7 @@ Transport and composition:
 
 \begin{code}
 tr₁-≡
-  : {A : Type ℓ} {a₀ a₁ a₂ : A}
+  : ∀ {ℓ : Level} {A : Type ℓ} {a₀ a₁ a₂ : A}
   → (α : a₁ ≡ a₂)
   → (ε : a₀ ≡ a₁)
   → (δ : a₀ ≡ a₂)
@@ -130,8 +130,8 @@ tr₁-≡ idp .idp idp idp = idp
 {: .foldable until="9"}
 \begin{code}
 tr₂
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
-  → (C : (x : A) → (b : B x) → Type ℓₖ)
+  :  ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂}
+  → (C : (a : A) → (B a → Type ℓ₃))
   → {a₁ a₂ : A}{b₁ : B a₁}{b₂ : B a₂}
   → (p : a₁ == a₂)
   → (q : b₁ == b₂ [ B ↓ p ])
@@ -145,9 +145,9 @@ tr₂ C idp idp = id
 \begin{code}
 -- Gylterud's tr₂-commute
 tr₂-commute
-  : {A : Type ℓᵢ} {B : A → Type ℓⱼ}
-  → (C : (a : A) → (B a) → Type ℓₖ)
-  → (D : (a : A) → (B a) → Type ℓ)
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂}
+  → (C : (a : A) → (B a → Type ℓ₃))
+  → (D : (a : A) → (B a → Type ℓ₃))
   → (f : ∀ a b → C a b → D a b)
   → ∀ {a a' b b'}
   → (p : a ≡ a')

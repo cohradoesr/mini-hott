@@ -39,7 +39,7 @@ element is equal to a point, the *center* of contraction.
 \begin{code}
 
 isContr
-  : (A : Type ℓ)
+  : ∀ {ℓ : Level} (A : Type ℓ)
   --------------
   → Type ℓ
 
@@ -58,7 +58,7 @@ If a type is contractible, any of its points is a center of contraction:
 
 \begin{code}
 allAreCenter
-  : ∀ {ℓ} {A : Type ℓ}
+  : ∀ {ℓ : Level} {A : Type ℓ}
   → (c₁ : A) → (f : (x : A) → c₁ == x)
   → (∀ (c₂ : A) → (∀ (x : A) → c₂ == x))
 
@@ -71,7 +71,7 @@ A type is a *mere proposition* if any two inhabitants of the type are equal.
 
 \begin{code}
 isProp
-  : ∀ {ℓ} (A : Type ℓ) → Type ℓ
+  : ∀ {ℓ : Level} (A : Type ℓ) → Type ℓ
 
 isProp A = ((x y : A) → x == y)
 \end{code}
@@ -97,7 +97,7 @@ and it's inhabited then it's contractible", and it makes sense perfectly.
 
 \begin{code}
 hProp
-  : ∀ {ℓ} → Type (lsuc ℓ)
+  : ∀ {ℓ : Level} → Type (lsuc ℓ)
 
 hProp {ℓ} = ∑ (Type ℓ) isProp
 \end{code}
@@ -105,12 +105,12 @@ hProp {ℓ} = ∑ (Type ℓ) isProp
 We prove now that the basic type (⊥, ⊤) are indeed (mere) propositions:
 
 \begin{code}
-⊥-is-prop : ∀ {ℓ} →  isProp (⊥ {ℓ})
+⊥-is-prop : ∀ {ℓ : Level} →  isProp (⊥ ℓ)
 ⊥-is-prop ()
 \end{code}
 
 \begin{code}
-⊤-is-prop : ∀ {ℓ} →  isProp (⊤ {ℓ})
+⊤-is-prop : ∀ {ℓ : Level} →  isProp (⊤ ℓ)
 ⊤-is-prop _ _ = idp
 \end{code}
 
@@ -129,7 +129,7 @@ homotopic and the homotopy is given by a continuous function on the two paths.
 
 \begin{code}
 isSet
-  : Type ℓ → Type ℓ
+  : ∀ {ℓ : Level} → Type ℓ → Type ℓ
 isSet A = (x y : A) → isProp (x == y)
 \end{code}
 
@@ -143,16 +143,16 @@ The type of sets
 
 \begin{code}
 hSet
-  : Type (lsuc ℓ)
+  :  ∀ {ℓ : Level} → Type (lsuc ℓ)
 
-hSet {ℓ} = ∑ (Type ℓ) isSet
+hSet {ℓ}= ∑ (Type ℓ) isSet
 \end{code}
 
 ### Groupoids
 
 \begin{code}
 isGroupoid
-  : Type ℓ → Type ℓ
+  : ∀ {ℓ : Level} → Type ℓ → Type ℓ
 
 isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
 \end{code}
@@ -165,6 +165,7 @@ is-groupoid = isGroupoid
 
 \begin{code}
 Groupoid
-  : Type (lsuc ℓ)
+  : ∀ {ℓ : Level} → Type (lsuc ℓ)
+
 Groupoid {ℓ} = ∑ (Type ℓ) isGroupoid
 \end{code}
