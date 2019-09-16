@@ -44,8 +44,8 @@ Its *eliminator* principle also called *Ex falso quodlibet*:
 
 \begin{code}
 exfalso
-  : ∀ {ℓ : Level} {A : Type ℓ}
-  → ⊥ ℓ
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₂}
+  → ⊥ ℓ₁
   --------
   → A
 
@@ -471,12 +471,12 @@ data
   Dec {ℓ : Level}(P : Type ℓ)
     : Type ℓ
   where
-  yes : ( p :   P) → Dec P
-  no  : (¬p : ¬ P) → Dec P
+  yes : ( p : P) → Dec P
+  no  : (¬p : P → ⊥ ℓ) → Dec P
 
-⌊_⌋ : ∀ {ℓ : Level}{P : Type ℓ} → Dec P → Bool
-⌊ yes _ ⌋ = true
-⌊ no  _ ⌋ = false
+⌊_⌋ : ∀ {ℓ : Level}{P : Type ℓ} → Dec P → 𝟚 ℓ
+⌊ yes _ ⌋ = 𝟙₂
+⌊ no  _ ⌋ = 𝟘₂
 
 REL
   : ∀ {ℓ : Level}
@@ -484,7 +484,7 @@ REL
   ----------------
   → Type (lsuc ℓ)
 
-REL {ℓ = ℓ} A B = A → B → Type ℓ
+REL {ℓ} A B = A → B → Type ℓ
 
 Decidable
   : ∀ {ℓ : Level} {A B : Type ℓ}

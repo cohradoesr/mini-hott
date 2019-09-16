@@ -127,14 +127,12 @@ Propositions are Sets:
 \end{code}
 
 
-{: .foldable until="7"}
+{: .foldable until="5"}
 \begin{code}
   is-prop-A+B
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
-    → isProp A
-    → isProp B
-    → ¬ (A × B)
-    ----------------
+    → isProp A → isProp B → ¬ (A × B)
+    ---------------------------------
     → isProp (A + B)
 
   is-prop-A+B ispropA ispropB ¬A×B (inl x) (inl x₁) = ap inl (ispropA x x₁)
