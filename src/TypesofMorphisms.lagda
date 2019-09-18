@@ -213,6 +213,7 @@ let us give an example of a natural bijection, the idenitity function.
     : ∀ {ℓ : Level} {A : Type ℓ}
     → (A-is-set : isSet A)
     → isBijection id A-is-set A-is-set
+
   identity-is-bijection {A} ia = identity-is-injective , identity-is-surjective
 \end{code}
 
@@ -313,6 +314,7 @@ One way I see now is to recover such a function from the equivalence, using `rem
     → isBijection f iA iB
     ------------------------------
     → B → A
+
   inverse-of-bijection {iA = iA}{iB} f isBij
     = remap (Bijection {iA = iA}{iB}f isBij)
 

@@ -87,16 +87,16 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-+-runit
-    : ∀ {ℓ : Level}{X : Type ℓ}
-    → X ≃ X + (𝟘 ℓ)
+    : ∀ {ℓ₁ ℓ₂ : Level}{X : Type ℓ₁}
+    → X ≃ X + (𝟘 ℓ₂)
 
-  ≃-+-runit {ℓ = ℓ}{X} = qinv-≃ f (g , (H₁ , H₂ ))
+  ≃-+-runit {ℓ₁ = ℓ₁}{ℓ₂}{X} = qinv-≃ f (g , (H₁ , H₂ ))
     where
     private
-      f : X →  X + (𝟘 ℓ)
+      f : X →  X + (𝟘 ℓ₂)
       f  x = inl x
 
-      g : X + (𝟘 ℓ) → X
+      g : X + (𝟘 ℓ₂) → X
       g (inl x) = x
 
 
@@ -110,13 +110,13 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-+-lunit
-    : ∀ {ℓ : Level} {X : Type ℓ}
-    → X ≃ 𝟘 ℓ + X
+    : ∀ {ℓ₁ ℓ₂ : Level}{X : Type ℓ₁}
+    → X ≃ 𝟘 ℓ₂ + X
 
-  ≃-+-lunit {ℓ}{X} =
-    X           ≃⟨ ≃-+-runit ⟩
-    X + 𝟘 ℓ     ≃⟨ ≃-+-comm ⟩
-    (𝟘 ℓ) + X   ≃∎
+  ≃-+-lunit {ℓ₂ = ℓ₂}{X} =
+    X            ≃⟨ ≃-+-runit ⟩
+    X + 𝟘 ℓ₂     ≃⟨ ≃-+-comm ⟩
+    (𝟘 ℓ₂) + X   ≃∎
 
 \end{code}
 
@@ -145,16 +145,16 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-×-runit
-    : ∀ {ℓ} {X : Type ℓ}
-    → X ≃ X × (𝟙 ℓ)
+    : ∀ {ℓ₁ ℓ₂} {X : Type ℓ₁}
+    → X ≃ X × (𝟙 ℓ₂)
 
-  ≃-×-runit {ℓ = ℓ}{X = X} = qinv-≃ f (g , (H₁ , H₂))
+  ≃-×-runit {ℓ₁}{ℓ₂}{X = X} = qinv-≃ f (g , (H₁ , H₂))
     where
     private
-      f : X → X × 𝟙 ℓ
+      f : X → X × 𝟙 ℓ₂
       f x = (x , unit)
 
-      g : X × 𝟙 ℓ → X
+      g : X × 𝟙 ℓ₂ → X
       g (x , _) = x
 
       H₁ : (f ∘ g) ∼ id
@@ -167,13 +167,13 @@ module BasicEquivalences where
 {: .foldable until="3"}
 \begin{code}
   ≃-×-lunit
-    : ∀ {ℓ : Level}{X : Type ℓ}
-    → X ≃ 𝟙 ℓ × X
+    : ∀ {ℓ₁ ℓ₂ : Level} {X : Type ℓ₁}
+    → X ≃ 𝟙 ℓ₂ × X
 
-  ≃-×-lunit {ℓ = ℓ} {X = X} =
+  ≃-×-lunit {ℓ₁}{ℓ₂} {X = X} =
     X           ≃⟨ ≃-×-runit ⟩
-    X × (𝟙 ℓ)   ≃⟨ ≃-×-comm ⟩
-    (𝟙 ℓ) × X   ≃∎
+    X × (𝟙 ℓ₂)   ≃⟨ ≃-×-comm ⟩
+    (𝟙 ℓ₂) × X   ≃∎
 \end{code}
 
 {: .foldable until="3"}
