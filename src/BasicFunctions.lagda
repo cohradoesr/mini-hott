@@ -140,6 +140,11 @@ infixr 90 _:>_
 ### Application
 
 \begin{code}
+_←_ : ∀ {ℓ₁ ℓ₂ : Level} (A : Type ℓ₁) (B : Type ℓ₂) → Type (ℓ₁ ⊔ ℓ₂)
+B ← A = A → B
+\end{code}
+
+\begin{code}
 _$_
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
   → (∀ (x : A) → B x)
