@@ -150,6 +150,8 @@ Quasiinverses create equivalences.
     → A ≃ B
 
   qinv-≃ f = ishae-≃ ∘ qinv-ishae
+
+  quasiinverse-to-≃ = qinv-≃
 \end{code}
 
 {: .foldable until="4" }
@@ -161,6 +163,8 @@ Quasiinverses create equivalences.
 
   ≃-qinv eq =
     lemap eq , (remap eq , (lrmap-inverse-h eq , rlmap-inverse-h eq))
+
+  ≃-to-quasiinverse = ≃-qinv
 \end{code}
 
 
