@@ -224,3 +224,28 @@ module BasicEquivalences where
       H₂ (p , inl x) = pair= (idp , idp)
       H₂ (p , inr x) = pair= (idp , idp)
 \end{code}
+
+A type and its lifting to some universe are equivalent as types.
+
+{: .foldable until="4"}
+\begin{code}
+  lifting-equivalence
+    : ∀ {ℓ₁ ℓ₂ : Level}
+    → (A : Type ℓ₁)
+    → A ≃ (↑ ℓ₂ A)
+
+  lifting-equivalence {ℓ₁}{ℓ₂} A =
+    quasiinverse-to-≃ f (g , (λ { (Lift a) → idp}) , λ {p → idp})
+    where
+    f : A → ↑ ℓ₂ A
+    f a = Lift a
+
+    g : A ← ↑ ℓ₂ A
+    g (Lift a) = a
+\end{code}
+
+Some synomys:
+
+\begin{code}
+  ≃-↑ = lifting-equivalence
+\end{code}
