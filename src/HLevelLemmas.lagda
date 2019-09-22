@@ -295,42 +295,6 @@ Synomys:
 H-levels actually are preserved by products, coproducts, pi-types and sigma-types.
 
 
-{: .foldable until="7"}
-\begin{code}
-  postulate
-    +-of-sets-is-set
-      : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
-      → isSet A
-      → isSet B
-      ---------------
-      → isSet (A + B)
-
-  {-
-      The idea here is to have an iso between:
-      A + B ≃ ∑ 𝟚 P where P : (tt ↦ A, ff ↦ B)
-
-        f : A + B → ∑ 𝟚 P
-           (left a) ↦ (t , A)
-  -}
-
-  -- +-of-sets-is-set {ℓᵢ} {ℓⱼ} {A} {B} issetA issetB x y p q = {!!}
-  --   where
-  --   f : (A + B) → Type (ℓᵢ ⊔ ℓⱼ)
-  --   f (inl a) = ↑ ℓⱼ  A
-  --   f (inr b) = ↑ ℓᵢ B
-  --
-  --   aux
-  --     : (a : A + B) → f a
-  --   aux (inl a) = Lift a
-  --   aux (inr b) = Lift b
-  --
-  --   aux2 : (A + B) → {!!}
-  --   aux2 w
-  --     with aux w
-  --   ... | e = {!e!}
-\end{code}
-
-
 {: .foldable until="6"}
 \begin{code}
   id-contractible-from-set
@@ -559,6 +523,7 @@ Equivalences preserve propositions
          idp
          ∎
   equiv-with-a-set-is-set = is-set-equiv-to-set
+  ≃-with-a-set-is-set = is-set-equiv-to-set
 \end{code}
 
 Above, we might want to use univalence to rewrite $x ≡B y$. Unfortunately,
@@ -798,4 +763,100 @@ isSet-∑ = isSet-Σ
   → isSet (A ≡ B)
 
 ≡-is-set-from-sets iA iB = equiv-with-a-set-is-set (≃-sym eqvUnivalence) (≃-is-set-from-sets iA iB)
+\end{code}
+
+A handy result is that the two point type is a set. We know
+already that 𝟙 is indeed mere propositions and hence a set.
+The two point type 𝟚 is in fact equivalent to the type 𝟙 + 𝟙.
+The fact 𝟚 is a set is used later to show A + B is a set when
+both are sets.
+
+\begin{code}
+𝟙-is-set : ∀ {ℓ : Level} → isSet (𝟙 ℓ)
+𝟙-is-set = prop-is-set (𝟙-is-prop)
+\end{code}
+
+\begin{code}
+𝟙+𝟙-is-set : ∀ {ℓ : Level} → isSet (𝟙 ℓ + 𝟙 ℓ)
+𝟙+𝟙-is-set (inl ∗) (inl ∗) idp idp = idp
+𝟙+𝟙-is-set (inr ∗) (inr ∗) idp idp = idp
+\end{code}
+
+
+{: .foldable until="3"}
+\begin{code}
+𝟚-≃-𝟙+𝟙
+  : ∀ {ℓ₁ ℓ₂ : Level}
+  → 𝟚 ℓ₁ ≃ 𝟙 ℓ₂ + 𝟙 ℓ₂
+
+𝟚-≃-𝟙+𝟙 {ℓ₁}{ℓ₂} = quasiinverse-to-≃ f (g ,
+  (λ { (inl x) → ap inl idp ; (inr x) → ap inr idp}) ,
+  λ { 𝟘₂ → idp ; 𝟙₂ → idp})
+  where
+    f : 𝟚 ℓ₁ → 𝟙 ℓ₂ + 𝟙 ℓ₂
+    f 𝟘₂ = inl ∗
+    f 𝟙₂ = inr ∗
+
+    g : 𝟚 ℓ₁ ← 𝟙 ℓ₂ + 𝟙 ℓ₂
+    g (inl x) = 𝟘₂
+    g (inr x) = 𝟙₂
+\end{code}
+
+
+\begin{code}
+𝟚-is-set : ∀ {ℓ : Level} → isSet (𝟚 ℓ)
+𝟚-is-set {ℓ} = ≃-with-a-set-is-set {ℓ}{lsuc ℓ} (≃-sym (𝟚-≃-𝟙+𝟙 )) 𝟙+𝟙-is-set
+\end{code}
+
+Another fact we might use later is the fact, natural numbers forms a set.
+We can see ℕ as a type is equivalent to ∑ (n : ℕ) 𝟙.
+
+The coproduct A + B is equivalent to the sigma type ∑ 𝟚 P, where P is the
+type family that maps 𝟘₂ to A and consequently, 𝟙₂ maps to B.
+
+
+\begin{code}
+P𝟚-to-A+B
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+  → 𝟚 ℓ₃ → Type (ℓ₁ ⊔ ℓ₂)
+P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ₂ A ; 𝟙₂ → ↑ ℓ₁ B}
+\end{code}
+
+{: .foldable until="3"}
+\begin{code}
++-≃-∑
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+  → A + B ≃ ∑ (𝟚 ℓ₃) (P𝟚-to-A+B {A = A}{B})
+
++-≃-∑ {ℓ₁}{ℓ₂}{ℓ₃}{A}{B} = quasiinverse-to-≃ f (g
+  , (λ { (𝟘₂ , Lift lower₁) → idp ; (𝟙₂ , Lift lower₁) → idp})
+  , λ { (inl x) → idp ; (inr x) → idp})
+  where
+  f : A + B → ∑ (𝟚 ℓ₃) (P𝟚-to-A+B {A = A}{B})
+  f (inl x) = 𝟘₂ , Lift x
+  f (inr x) = 𝟙₂ , Lift x
+
+  g : A + B ← ∑ (𝟚 ℓ₃) (P𝟚-to-A+B {A = A}{B})
+  g (𝟘₂ , Lift a) = inl a
+  g (𝟙₂ , Lift b) = inr b
+\end{code}
+
+{: .foldable until="7"}
+\begin{code}
++-of-sets-is-set
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+  → isSet A   → isSet B
+  ---------------------
+  → isSet (A + B)
+
++-of-sets-is-set {ℓ₁}{ℓ₂}{A}{B} iA iB
+  = ≃-with-a-set-is-set (≃-sym (+-≃-∑ {ℓ₃ = ℓ₂}{A = A}{B}))
+    (∑-set 𝟚-is-set λ { 𝟘₂ → fact₁ ; 𝟙₂ → fact₂})
+  where
+  open import BasicEquivalences
+  fact₁ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂}{A = A}{B} 𝟘₂)
+  fact₁ = ≃-with-a-set-is-set (lifting-equivalence A) iA
+
+  fact₂ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂}{A = A}{B} 𝟙₂)
+  fact₂ = ≃-with-a-set-is-set (lifting-equivalence B) iB
 \end{code}
