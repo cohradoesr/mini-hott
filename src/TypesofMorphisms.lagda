@@ -95,8 +95,7 @@ a surjective function. Let us check this.
     ---------------
     → Type (ℓ₁ ⊔ ℓ₂)
 
-  isEmbedding {A = A} f =
-    ∀ {x y : A} → isEquiv (ap f {x}{y})
+  isEmbedding {A = A} f = ∀ {x y : A} → isEquiv (ap f {x}{y})
 \end{code}
 
 ### Injections
@@ -117,7 +116,7 @@ As a trivial example, let us prove identity is an injective function:
 \begin{code}
   identity-is-injective
     : ∀ {ℓ : Level} {A : Type ℓ}
-    → isInjective {A = A}{A}id
+    → isInjective {A = A} id
 
   identity-is-injective p = p
 \end{code}
@@ -141,6 +140,8 @@ As a trivial example, let us prove identity is an injective function:
                (λ x → pi-is-prop-implicit (λ y →
                  pi-is-prop (λ p → iA x y)
                ))
+
+  injective-is-prop = isInjectiveIsProp
 \end{code}
 
 \begin{code}
@@ -150,6 +151,8 @@ As a trivial example, let us prove identity is an injective function:
     → isProp (isSurjection f)
 
   isSurjectionIsProp f = pi-is-prop (λ b → truncated-is-prop {A = fib f b})
+
+  surjective-is-prop = isSurjectionIsProp
 \end{code}
 
 If the function $f : A → B$ is a surjection, we are able to get
@@ -180,6 +183,10 @@ a function $g : B → A$ by the recursion principle of truncation.
           (f-is-injective (! p2))
           (iB (f x') (f x)
               (tr (λ z₁ → f z₁ == f x) (f-is-injective (! p2)) idp) p2)
+\end{code}
+
+\begin{code}
+  preimage-function = fromSurjection
 \end{code}
 
 
@@ -319,4 +326,74 @@ One way I see now is to recover such a function from the equivalence, using `rem
     = remap (Bijection {iA = iA}{iB}f isBij)
 
   inv-of-bij = inverse-of-bijection
+\end{code}
+
+### Compositions
+
+{: .foldable until="7"}
+\begin{code}
+  ∘-injectives-is-injective
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level }
+    → {A : Type ℓ₁} {B : Type ℓ₂} {C : Type ℓ₃}
+    → (f : A → B) → isInjective f
+    → (g : B → C) → isInjective g
+    -----------------------------
+    → isInjective (g ∘ f)
+
+  ∘-injectives-is-injective f f-is-injective g g-is-injective
+    p = f-is-injective (g-is-injective p)
+\end{code}
+
+As we expect, composition of surjections is also surjections.
+However, this fact is not trivial and it is a good exercise
+to understand better propositional truncation.
+
+{: .foldable until="7"}
+\begin{code}
+  ∘-surjection-is-surjection
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level }
+    → {A : Type ℓ₁} {B : Type ℓ₂} {C : Type ℓ₃}
+    → (f : A → B) → isSurjection f
+    → (g : B → C) → isSurjection g
+    -----------------------------
+    → isSurjection (g ∘ f)
+
+  ∘-surjection-is-surjection {A = A}{B}{C} f f-is-surjection g g-is-surjection
+    c = step₁ (g-is-surjection c)
+    where
+    step₁ : ∥ ∑ B (λ b → g b ≡ c) ∥ → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
+    step₁ = trunc-rec ∥∥-is-a-prop e
+      where
+        step₂ : (b : B) → g b ≡ c → ∥ ∑ A (λ a → f a ≡ b) ∥ → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
+        step₂ b p₁ = trunc-rec ∥∥-is-a-prop r
+           where
+             r : ∑ A (λ a → f a ≡ b) → ∥ ∑ A (λ a → (f :> (λ {a = a₁} → g)) a ≡ c) ∥
+             r (a , p) = ∣ a , ((ap g p) · p₁) ∣
+
+        e : ∑ B (λ b → g b ≡ c) → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
+        e (b , p₁) = step₂ b p₁ (f-is-surjection b)
+\end{code}
+
+Lastly, bijections is also closed by compositions but its proof is just
+application of the lemmas proved above. Notice the extra requirement which is
+the domain and codomains need to be sets. This was not stated above for the related lemmas,
+but it the condition to talk about the concept of bijection.
+
+{: .foldable until="8"}
+\begin{code}
+  ∘-bijections-is-bijection
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}
+    → {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+    → (A-is-set : isSet A) (B-is-set : isSet B)(C-is-set : isSet C)
+    → (f : A → B) → isBijection f A-is-set B-is-set
+    → (g : B → C) → isBijection g B-is-set C-is-set
+    -----------------------------------------------
+    → isBijection (g ∘ f) A-is-set C-is-set
+
+  ∘-bijections-is-bijection {A = A}{B}{C}
+    iA iB iC
+      f (f-is-injective , f-is-surjection)
+      g (g-is-injective , g-is-surjection)
+    = ∘-injectives-is-injective f f-is-injective g g-is-injective
+    , ∘-surjection-is-surjection f f-is-surjection g g-is-surjection
 \end{code}
