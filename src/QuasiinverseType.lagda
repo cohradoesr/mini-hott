@@ -65,6 +65,7 @@ module QuasiinverseType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ�
 \end{code}
 
 Biinverse is another equivalent notion of the right equivalence for HoTT.
+
 \begin{code}
   biinv : (A → B) → Type (ℓ₁ ⊔ ℓ₂)
   biinv f = linv f × rinv f
@@ -79,7 +80,9 @@ A desire consequence (qinv → biinv):
 \begin{code}
   qinv-biinv : (f : A → B) → qinv f → biinv f
   qinv-biinv f (g , (u1 , u2)) = (g , u2) , (g , u1)
+\end{code}
 
+\begin{code}
   biinv-qinv : (f : A → B) → biinv f → qinv f
   biinv-qinv f ((h , α) , (g , β)) = g , (β , δ)
     where
@@ -94,16 +97,31 @@ A desire consequence (qinv → biinv):
 
       δ : (g ∘ f) ∼ id
       δ = (rcomp-∼ f γ) ● α
+\end{code}
 
-  equiv-biinv : (f : A → B) → isContrMap f → biinv f
+{: .foldable until="5"}
+\begin{code}
+  equiv-biinv
+    : (f : A → B)
+    → isContrMap f
+    --------------
+    → biinv f
+
   equiv-biinv f contrf =
     (remap eq , rlmap-inverse-h eq) , (remap eq , lrmap-inverse-h eq)
     where
       eq : A ≃ B
       eq = f , contrf
+\end{code}
 
-  -- Quasiinverses are halfadjoint equivalences.
-  qinv-ishae : {f : A → B} → qinv f → ishae f
+{: .foldable until="5"}
+\begin{code}
+  qinv-ishae
+    : {f : A → B}
+    → qinv f
+    ---------
+    → ishae f
+
   qinv-ishae {f} (g , (ε , η)) = record {
       g = g ;
       η = η ;

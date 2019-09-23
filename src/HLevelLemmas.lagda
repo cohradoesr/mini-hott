@@ -861,6 +861,7 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
   fact₂ = ≃-with-a-set-is-set (lifting-equivalence B) iB
 \end{code}
 
+{: .foldable until="6" }
 \begin{code}
 ∑-≃-base
   : ∀ {ℓ₁ ℓ₂ : Level}
