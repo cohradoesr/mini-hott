@@ -120,7 +120,7 @@ Propositions are Sets:
   Set-is-Groupoid
     : ∀ {ℓ : Level} {A : Type ℓ}
     → isSet A
-    ----------
+    --------------
     → isGroupoid A
 
   Set-is-Groupoid {A} A-is-set = λ x y → prop-is-set (A-is-set x y)
@@ -841,7 +841,7 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
   g (𝟙₂ , Lift b) = inr b
 \end{code}
 
-{: .foldable until="7"}
+{: .foldable until="4"}
 \begin{code}
 +-of-sets-is-set
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -859,4 +859,29 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
 
   fact₂ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂}{A = A}{B} 𝟙₂)
   fact₂ = ≃-with-a-set-is-set (lifting-equivalence B) iB
+\end{code}
+
+\begin{code}
+∑-≃-base
+  : ∀ {ℓ₁ ℓ₂ : Level}
+  → {A : Type ℓ₁}{B : A → Type ℓ₂}
+  → ((a : A) → isContr (B a))
+  ---------------------------
+  → ∑ A B ≃ A
+
+∑-≃-base {A = A}{B} discrete-base
+  = quasiinverse-to-≃ f (g , (H₁ , H₂))
+  where
+  private
+   f : ∑ A B → A
+   f (a , b) = a
+
+   g : ∑ A B ← A
+   g a = (a ,  π₁ (discrete-base a))
+
+   H₁ : f ∘ g ∼ id
+   H₁ x = idp
+
+   H₂ : g ∘ f ∼ id
+   H₂ x = pair= (idp , contrIsProp (discrete-base (π₁ x)) _ _)
 \end{code}
