@@ -2,6 +2,9 @@
 	.page-break	{ display: block; page-break-before: always; }
 
   .only-website { display: none !important;}
+  .sidebar { display: none !important;}
+  .sidebar-overlay { display: none !important;}
+  
   .print-version {
     display: inherit !important;
   }

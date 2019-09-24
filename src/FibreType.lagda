@@ -58,7 +58,7 @@ A function applied over the fiber returns the original point
 
 Each point is on the fiber of its image.
 
-{: .foldable until="4"}
+{: .foldable until="3"}
 \begin{code}
   fib-image
     :  ∀ {f : A → B} → {a : A}

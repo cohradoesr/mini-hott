@@ -28,6 +28,7 @@ module
     HedbergLemmas2
     where
 \end{code}
+</div>
 
 A set is a type satisfiying Axiom K.
 

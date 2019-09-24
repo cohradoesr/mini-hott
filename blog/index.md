@@ -133,13 +133,17 @@ showcitation: true
 
 {% include_relative TypesofMorphisms.md %}
 
+
+
 [HedbergLemmas.lagda]({% link HedbergLemmas.md %})
 
 {% include_relative HedbergLemmas.md %}
 
+
 [UnivalenceTransport.lagda]({% link UnivalenceTransport.md %})
 
 {% include_relative UnivalenceTransport.md %}
+
 
 [UnivalenceIdEquiv.lagda]({% link UnivalenceIdEquiv.md %})
 
@@ -148,6 +152,8 @@ showcitation: true
 [UnivalenceLemmas.lagda]({% link UnivalenceLemmas.md %})
 
 {% include_relative UnivalenceLemmas.md %}
+
+
 
 
 ## Higher inductive types

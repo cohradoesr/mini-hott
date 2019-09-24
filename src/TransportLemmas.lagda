@@ -32,6 +32,7 @@ lift
 lift {a₁ = a₁} idp u = refl (a₁ , u)
 \end{code}
 
+{: .foldable until="6" }
 \begin{code}
 transport-const
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {a₁  a₂ : A} {B : Type ℓ₂}
@@ -43,6 +44,7 @@ transport-const
 transport-const idp b = refl b
 \end{code}
 
+{: .foldable until="6" }
 \begin{code}
 transport-inv-l
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂} {a a' : A}
@@ -54,6 +56,7 @@ transport-inv-l
 transport-inv-l idp b = idp
 \end{code}
 
+{: .foldable until="6" }
 \begin{code}
 transport-inv-r
   :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂}  {a a' : A}
@@ -68,6 +71,8 @@ transport-inv-r idp _ = idp
 tr-inverse = transport-inv-r
 \end{code}
 
+
+{: .foldable until="6" }
 \begin{code}
 transport-concat-r
   : ∀ {ℓ : Level} {A : Type ℓ} {a : A} {x y : A}
@@ -98,12 +103,13 @@ transport-concat
   → (p : x == y)
   → (q : x == x)
   ---------------------------------------
-  → tr (λ x → x == x) p q == ! p · q · p
+  → tr (λ x → x == x) p q == (! p · q) · p
 
 transport-concat idp q = ·-runit q
 \end{code}
 
-{: .foldable until="7" }
+
+
 \begin{code}
 transport-eq-fun
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -146,8 +152,7 @@ transport-comp-h {P = P} idp q x = refl (transport P q x)
 transport-eq-fun-l
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}  {b : B}
   → (f : A → B) {x y : A}
-  → (p :   x == y)
-  → (q : f x == b)
+  → (p :   x == y)           → (q : f x == b)
   -------------------------------------------
   → tr (λ z → f z == b) p q == ! (ap f p) · q
 
@@ -283,7 +288,7 @@ transport-fun idp f = idp
 back-and-forth = transport-fun
 \end{code}
 
-![path]({{ site.baseurl }}/assets/ipe-images/transport-fun.png){: width="100%" }
+![path]({{ site.baseurl }}/assets/images/transport-fun.png){: width="100%" }
 
 {: .foldable until="7" }
 \begin{code}
@@ -306,7 +311,7 @@ back-and-forth-h = transport-fun-h
 
 Now, when we transport dependent functions this is what we got:
 
-![path]({{ site.baseurl }}/assets/ipe-images/transport-fun-dependent.png){: width="100%" }
+![path]({{ site.baseurl }}/assets/images/transport-fun-dependent.png){: width="100%" }
 
 {: .foldable until="9" }
 \begin{code}
@@ -411,6 +416,7 @@ ap-idp
 ap-idp f idp = idp
 \end{code}
 
+{: .foldable until="8" }
 \begin{code}
 postulate
  ap-idp'

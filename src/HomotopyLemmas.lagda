@@ -69,7 +69,7 @@ lcomp-∼ j α = hl-comp α (h-refl j)
 Homotopy is natural, meaning that it satisfies the following
 square commutative diagram.
 
-![path]({{ site.baseurl }}/assets/ipe-images/h-naturality.png){: width="30%"  align="right" style="padding:5px" }
+![path]({{ site.baseurl }}/assets/images/h-naturality.png){: width="30%"  align="right" style="padding:5px" }
 
 {: .foldable until="5"}
 \begin{code}

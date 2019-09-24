@@ -13,9 +13,9 @@ showcitation: true
 ## Basic Equivalences
 
 There are some well-known equivalences very handy about
-product and coproducts.
+products and coproducts.
 
-\begin{code}[hide]
+\begin{code}
 {-# OPTIONS --without-K #-}
 open import BasicTypes
 open import BasicFunctions

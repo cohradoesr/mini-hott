@@ -82,8 +82,12 @@ A desire consequence (qinv → biinv):
   qinv-biinv f (g , (u1 , u2)) = (g , u2) , (g , u1)
 \end{code}
 
+{: .foldable until="3"}
 \begin{code}
-  biinv-qinv : (f : A → B) → biinv f → qinv f
+  biinv-qinv
+    : (f : A → B)
+    → biinv f → qinv f
+
   biinv-qinv f ((h , α) , (g , β)) = g , (β , δ)
     where
       γ1 : g ∼ ((h ∘ f) ∘ g)

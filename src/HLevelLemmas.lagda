@@ -38,9 +38,8 @@ open import HLevelTypes
 ## HLevel Lemmas
 
 The following lemmas are not exactly in some coherent order.
-We are planning to fix that issue.
-
-### Proposition and Set lemmas
+We are planning to fix that. For now, we are only adding lemmas
+as soon as we need them.
 
 \begin{code}
 module HLevelLemmas where
@@ -48,12 +47,11 @@ module HLevelLemmas where
 
 For any type, $$A : \Type$$,
 
-{: .equation }
-  $$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \mathsf{isGroupoid}{A}.$$
+$$ \isContr{A} ⇒ \isProp{A} ⇒ \isSet{A} ⇒ \mathsf{isGroupoid}{A}.$$
 
 Contractible types are Propositions:
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   contrIsProp
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -82,7 +80,7 @@ To be contractible is itself a proposition.
 
 Propositions are Sets:
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   propIsSet
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -115,7 +113,7 @@ Synonyms:
 
 
 Propositions are Sets:
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   Set-is-Groupoid
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -127,7 +125,7 @@ Propositions are Sets:
 \end{code}
 
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   is-prop-A+B
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -144,7 +142,7 @@ Propositions are Sets:
 Propositions are propositions. This time, please notice
 the strong use of function extensionality, used twice here.
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   propIsProp
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -169,7 +167,7 @@ the strong use of function extensionality, used twice here.
 The dependent function type to proposition types is itself a
 proposition.
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   isProp-pi
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
@@ -190,7 +188,7 @@ proposition.
 Propositional extensionality, here stated as `prop-ext`,
 is a consequence of univalence axiom.
 
-{: .foldable until="8"}
+{: .foldable until="8" }
 \begin{code}
   prop-ext
     : ∀ {ℓ : Level} {A B : Type ℓ}
@@ -213,7 +211,7 @@ Synomyms:
   propositional-extensionality = prop-ext
 \end{code}
 
-{: .foldable until="4"}
+{: .foldable until="4" }
 \begin{code}
   setIsProp
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -234,7 +232,7 @@ Synomyms:
 
 The product of propositions is itself a proposition.
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   isProp-prod
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -280,7 +278,7 @@ Synomys:
   set×set→set   = isSet-prod
 \end{code}
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   Prop-/-≡
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -295,7 +293,7 @@ Synomys:
 H-levels actually are preserved by products, coproducts, pi-types and sigma-types.
 
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   id-contractible-from-set
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -313,7 +311,7 @@ H-levels actually are preserved by products, coproducts, pi-types and sigma-type
 
 Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 
-{: .foldable until="4"}
+{: .foldable until="4" }
 \begin{code}
   isContrIsProp
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -331,7 +329,7 @@ Lemma 3.11.3: For any type A, `isContr A` is a mere proposition.
 
 Lemma 3.3.3 (HoTT-Book):
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   lemma333
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -354,7 +352,7 @@ Lemma 3.3.3 (HoTT-Book):
 
 Lemma 3.3.2 (HoTT-Book):
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   prop-inhabited-≃𝟙
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -371,7 +369,7 @@ Lemma 3.3.2 (HoTT-Book):
 
 From Exercise 3.5 (HoTT-Book):
 
-{: .foldable until="3"}
+{: .foldable until="3" }
 \begin{code}
   isProp-≃-isContr
     : ∀ {ℓ : Level} {A : Type ℓ}
@@ -393,7 +391,7 @@ Moreover, equivalences preserve propositions.
 
 Contractible maps are propositions:
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   isContrMapIsProp
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -404,7 +402,7 @@ Contractible maps are propositions:
   isContrMapIsProp f = pi-is-prop (λ a → isContrIsProp)
 \end{code}
 
-{: .foldable until="4"}
+{: .foldable until="4" }
 \begin{code}
   isEquivIsProp
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -416,7 +414,7 @@ Contractible maps are propositions:
 
 Equality of same-morphism equivalences
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   sameEqv
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -428,7 +426,7 @@ Equality of same-morphism equivalences
   sameEqv {α = (f , σ)} {(g , τ)} p = Σ-bycomponents (p , (isEquivIsProp g _ τ))
 \end{code}
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   equiv-iff-hprop
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -446,7 +444,7 @@ Equality of same-morphism equivalences
 \end{code}
 
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   propEqvIsprop
     : ∀ {ℓ : Level} {A B : Type ℓ}
@@ -470,7 +468,7 @@ Equality of same-morphism equivalences
 
 Equivalences preserve propositions
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   isProp-≃
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -534,7 +532,7 @@ Second proof is construct a term of 'isSet B' by using the inverse function
 from the equivalence and some path algebra. Not happy with this but it works.
 
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   ≃-trans-inv
     : ∀ {ℓ} {A B : Type ℓ}
@@ -553,7 +551,7 @@ from the equivalence and some path algebra. Not happy with this but it works.
 The following lemma is telling us, something we should probably knew already:
 Equivalence of propositions is the same logical equivalence.
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   twoprops-to-equiv-≃-⇔
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -585,7 +583,7 @@ Equivalence of propositions is the same logical equivalence.
 \end{code}
 
 
-{: .foldable until="6"}
+{: .foldable until="6" }
 \begin{code}
   ∑-prop
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
@@ -608,7 +606,7 @@ Equivalence of propositions is the same logical equivalence.
   Σ-prop = ∑-prop
 \end{code}
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
   pi-is-set
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : A → Type ℓ₂}
@@ -679,7 +677,7 @@ postulate
 \end{code}
 
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
 law-double-negation
  : ∀ {ℓ} {P : Type ℓ}
@@ -698,7 +696,7 @@ Law excluded middle and law of double negation are both equivalent.
 
 Weak extensionality principle:
 
-{: .foldable until="5"}
+{: .foldable until="5" }
 \begin{code}
 WeakExtensionalityPrinciple
   : ∀ {ℓ : Level} {A : Type ℓ}  {P : A → Type ℓ}
@@ -713,7 +711,6 @@ WeakExtensionalityPrinciple {A = A}{P} f =
    fx = λ x → π₁ (f x)
 \end{code}
 
-{: .hide }
 \begin{code}
 open import SigmaEquivalence
 \end{code}
@@ -783,7 +780,7 @@ both are sets.
 \end{code}
 
 
-{: .foldable until="3"}
+{: .foldable until="3" }
 \begin{code}
 𝟚-≃-𝟙+𝟙
   : ∀ {ℓ₁ ℓ₂ : Level}
@@ -822,7 +819,7 @@ P𝟚-to-A+B
 P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ₂ A ; 𝟙₂ → ↑ ℓ₁ B}
 \end{code}
 
-{: .foldable until="3"}
+{: .foldable until="3" }
 \begin{code}
 +-≃-∑
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -841,7 +838,7 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
   g (𝟙₂ , Lift b) = inr b
 \end{code}
 
-{: .foldable until="4"}
+{: .foldable until="4" }
 \begin{code}
 +-of-sets-is-set
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}

@@ -113,3 +113,16 @@ blog/_bibliography/reb.bib : blog/_bibliography/library.bib
 			-O=blog/_bibliography/library-temp.bib blog/_bibliography/library-temp.bib
 	- mv blog/_bibliography/library-temp.bib blog/_bibliography/ref.bib
 	- rm -f blog/_bibliography/library-temp.*
+
+stop:
+	pkill -f jekyll
+
+pdf:
+	mkdir -p docs/assets/pdf
+	/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
+		--headless --disable-gpu\
+		--print-to-pdf=docs/assets/pdf/MiniHoTT-Agda-Library.pdf \
+		--no-margins\
+		http://127.0.0.1:4000/mini-hott/
+	make stop
+	@echo "	 $ open docs/assets/pdf/MiniHoTT-Agda-Library.pdfs"
