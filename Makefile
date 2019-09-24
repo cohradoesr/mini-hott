@@ -4,8 +4,8 @@ md      := $(subst src,blog,$(subst .lagda,.md,$(agda)))
 rawagda := $(subst src,docs/agda,$(subst .lagda,.agda,$(agda)))
 
 ipes    := $(wildcard images/*.ipe)
-pngs    := $(subst images/,images/png/,$(subst .ipe,.png,$(ipes)))
-pubpngs := $(subst images/,blog/assets/ipe-images/,$(subst .ipe,.png,$(ipes)))
+pngs    := $(subst images/,images/,$(subst .ipe,.png,$(ipes)))
+pubpngs := $(subst images/,blog/assets/images/,$(subst .ipe,.png,$(ipes)))
 
 all:
 	- @echo "We have these options:"
@@ -41,6 +41,10 @@ latex/%.tex : src/%.lagda
 clean:
 	-@rm -rf docs/* blog/_site
 	-@rm -rf blog/*.tex
+	-@find src -name "*.agdai" -delete -print0
+	-@find src -name "#*" -delete -print0
+	-@find src -name ".*" -delete -print0
+	-@find blog -type f \( -iname "*.md" ! -iname "index.md" \) -delete -print0
 
 
 # ------------------------------------------------------------------------------
@@ -60,11 +64,11 @@ docs/agda/%.agda : src/%.lagda
 	- @mkdir -p docs/agda
 	- @gsed -n '/\\begin/,/\\end/ {/{code}/!p}' $< > $@
 
-blog/assets/ipe-images/%.png : images/png/%.png
-	- @mkdir -p blog/assets/ipe-images/
+blog/assets/images/%.png : images/%.png
+	- @mkdir -p blog/assets/images/
 	- cp $< $@
 
-images/png/%.png : images/%.ipe
+images/%.png : images/%.ipe
 	- @mkdir -p images/png
 	- iperender -png -resolution 400 $< $@
 

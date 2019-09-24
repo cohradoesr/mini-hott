@@ -129,7 +129,6 @@ showcitation: true
 
 {% include_relative HLevelLemmas.md %}
 
-
 [TypesofMorphisms.lagda]({% link TypesofMorphisms.md %})
 
 {% include_relative TypesofMorphisms.md %}

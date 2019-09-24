@@ -232,14 +232,13 @@ suggest, we must include this assumption in the Injective definition.
 \begin{code}
   Bijection
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
-    → {iA : isSet A}
-    → {iB : isSet B}
+    → (iA : isSet A) → (iB : isSet B)
     → (f : A → B)
     → isBijection f iA iB
     ----------------------
     → A ≃ B
 
-  Bijection {A = A}{B} {iA}{iB} f (f-is-injective , f-is-onto)
+  Bijection {A = A}{B} iA iB f (f-is-injective , f-is-onto)
     = qinv-≃ f (g , (H₁ , H₂))
     where
     aux : (b : B) → ∑ A (λ a → f a ≡ b)
@@ -255,6 +254,9 @@ suggest, we must include this assumption in the Injective definition.
     H₂ a = f-is-injective (H₁ (f a))
 \end{code}
 
+\begin{code}
+  is-bijection-to-≃ =  Bijection
+\end{code}
 
 {: .foldable until="6" }
 \begin{code}
@@ -275,23 +277,23 @@ Bijection and being equivalent are equivalent notions:
 
 {: .foldable until="6" }
 \begin{code}
-  bij-≃-≃
+  isBijection-≃-isEquiv
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (iA : isSet A) (iB : isSet B)
     → (f : A → B)
     ----------------------------------
     → isBijection f iA iB  ≃ isEquiv f
 
-  bij-≃-≃ {A = A}{B} iA iB f =
+  isBijection-≃-isEquiv {A = A}{B} iA iB f =
     qinv-≃
-      (λ bij → π₂ (Bijection {iA = iA}{iB} f bij))
+      (λ bij → π₂ (Bijection iA iB f bij))
       ((λ isEquivf → ≃-to-bijection iA iB (f , isEquivf))
       , h1 , h2)
     where
-      h1 : (λ x → π₂ (Bijection {iA = iA}{iB} f (≃-to-bijection iA iB (f , x)))) ∼ id
+      h1 : (λ x → π₂ (Bijection iA iB f (≃-to-bijection iA iB (f , x)))) ∼ id
       h1 e = isContrMapIsProp f _ e
 
-      h2 : (λ x → ≃-to-bijection iA iB (f , π₂ (Bijection {iA = iA}{iB} f x))) ∼ id
+      h2 : (λ x → ≃-to-bijection iA iB (f , π₂ (Bijection iA iB f x))) ∼ id
       h2 bij = ×-is-prop (isInjectiveIsProp iA f) (isSurjectionIsProp f) _ bij
 
   open import QuasiinverseLemmas
@@ -306,7 +308,7 @@ Bijection and being equivalent are equivalent notions:
     ------------------------------
     → isProp (isBijection f iA iB)
 
-  bijIsProp iA iB f = isProp-≃ (≃-sym (bij-≃-≃ iA iB f)) (isEquivIsProp f)
+  bijIsProp iA iB f = isProp-≃ (≃-sym (isBijection-≃-isEquiv iA iB f)) (isEquivIsProp f)
   bijection-is-prop = bijIsProp
 \end{code}
 
@@ -316,19 +318,69 @@ One way I see now is to recover such a function from the equivalence, using `rem
 \begin{code}
   inverse-of-bijection
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
-    → {iA : isSet A}{iB : isSet B}
+    → (iA : isSet A) → (iB : isSet B)
     → (f : A → B)
     → isBijection f iA iB
     ------------------------------
     → B → A
 
-  inverse-of-bijection {iA = iA}{iB} f isBij
-    = remap (Bijection {iA = iA}{iB}f isBij)
+  inverse-of-bijection iA iB f isBij
+    = remap (Bijection iA iB f isBij)
 
   inv-of-bij = inverse-of-bijection
 \end{code}
 
-### Compositions
+{: .foldable until="7"}
+\begin{code}
+  ∘-bijective-and-its-inverse-l
+      : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+      → (A-is-set : isSet A) → (B-is-set : isSet B)
+      → (f : A → B) → (f-is-bij : isBijection f A-is-set B-is-set)
+      --------------------------------------------------------
+      → f ∘ inverse-of-bijection A-is-set B-is-set f f-is-bij ∼ id
+
+  ∘-bijective-and-its-inverse-l A-is-set B-is-set f f-is-bij =
+    lrmap-inverse-h (is-bijection-to-≃ A-is-set B-is-set f f-is-bij)
+\end{code}
+
+{: .foldable until="6"}
+\begin{code}
+  ∘-bijective-and-its-inverse-r
+    : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+    → (A-is-set : isSet A)(B-is-set : isSet B)
+    → (f : A → B) → (f-is-bij : isBijection f A-is-set B-is-set)
+    ------------------------------------------------------------
+    → (inverse-of-bijection A-is-set B-is-set f f-is-bij) ∘ f ∼ id
+
+  ∘-bijective-and-its-inverse-r A-is-set B-is-set f f-is-bij =
+    rlmap-inverse-h (is-bijection-to-≃ A-is-set B-is-set f f-is-bij)
+\end{code}
+
+
+The inverse of a bijection is clearly a bijection as well.
+
+\begin{code}
+  inverse-of-bijection-is-bijection
+    : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : Type ℓ₂}
+    → (A-is-set : isSet A) → (B-is-set : isSet B)
+    → (f : A → B) → (f-is-bij : isBijection f A-is-set B-is-set)
+    ------------------------------------------------------------
+    → isBijection (inverse-of-bijection A-is-set B-is-set f f-is-bij) B-is-set A-is-set
+
+  inverse-of-bijection-is-bijection A-is-set B-is-set f f-is-bij
+    = inv-f-is-inj , inv-f-is-sur
+    where
+
+    inv-f-is-inj : isInjective (inverse-of-bijection A-is-set B-is-set f f-is-bij)
+    inv-f-is-inj {x = x}{y} p =
+      ! ∘-bijective-and-its-inverse-l A-is-set B-is-set f f-is-bij x
+      ·  ap f p
+      · ∘-bijective-and-its-inverse-l A-is-set B-is-set f f-is-bij y
+
+    inv-f-is-sur : isSurjection (inverse-of-bijection A-is-set B-is-set f f-is-bij)
+    inv-f-is-sur a = ∣ f a , ∘-bijective-and-its-inverse-r A-is-set B-is-set f f-is-bij a ∣
+\end{code}
+
 
 {: .foldable until="7"}
 \begin{code}
@@ -362,16 +414,17 @@ to understand better propositional truncation.
     c = step₁ (g-is-surjection c)
     where
     step₁ : ∥ ∑ B (λ b → g b ≡ c) ∥ → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
-    step₁ = trunc-rec ∥∥-is-a-prop e
+    step₁ = trunc-rec ∥∥-is-a-prop step₂
       where
-        step₂ : (b : B) → g b ≡ c → ∥ ∑ A (λ a → f a ≡ b) ∥ → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
-        step₂ b p₁ = trunc-rec ∥∥-is-a-prop r
+      step₂ : ∑ B (λ b → g b ≡ c) → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
+      step₂ (b , p₁) = step₃ b p₁ (f-is-surjection b)
+        where
+        step₃ : (b : B) → g b ≡ c
+          → ∥ ∑ A (λ a → f a ≡ b) ∥ → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
+        step₃ b p₁ = trunc-rec ∥∥-is-a-prop step₄
            where
-             r : ∑ A (λ a → f a ≡ b) → ∥ ∑ A (λ a → (f :> (λ {a = a₁} → g)) a ≡ c) ∥
-             r (a , p) = ∣ a , ((ap g p) · p₁) ∣
-
-        e : ∑ B (λ b → g b ≡ c) → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
-        e (b , p₁) = step₂ b p₁ (f-is-surjection b)
+           step₄ : ∑ A (λ a → f a ≡ b) → ∥ ∑ A (λ a → (f :> (λ {a = a₁} → g)) a ≡ c) ∥
+           step₄ (a , p) = ∣ a , ((ap g p) · p₁) ∣
 \end{code}
 
 Lastly, bijections is also closed by compositions but its proof is just
@@ -391,7 +444,7 @@ but it the condition to talk about the concept of bijection.
     → isBijection (g ∘ f) A-is-set C-is-set
 
   ∘-bijections-is-bijection {A = A}{B}{C}
-    iA iB iC
+    A-is-set B-is-set iC
       f (f-is-injective , f-is-surjection)
       g (g-is-injective , g-is-surjection)
     = ∘-injectives-is-injective f f-is-injective g g-is-injective
