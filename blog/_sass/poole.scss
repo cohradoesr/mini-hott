@@ -12,9 +12,10 @@ body {
 }
 
 html {
-  font-family: Cambria, Helvetica, Arial, sans-serif;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
   font-size: 15px;
 }
+
 @media (min-width: 38em) {
   html {
     font-size: 15px ;
@@ -443,7 +444,8 @@ tbody tr:nth-child(odd) th {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
+  /*font-family: "PT Sans", Helvetica, Arial, sans-serif;*/
   color: #ccc;
   text-align: center;
 }

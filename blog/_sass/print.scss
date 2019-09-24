@@ -2,9 +2,10 @@
 	.page-break	{ display: block; page-break-before: always; }
 
   .only-website { display: none !important;}
+
   .sidebar { display: none !important;}
   .sidebar-overlay { display: none !important;}
-  
+
   .print-version {
     display: inherit !important;
   }
@@ -14,7 +15,8 @@
 
   }
   html {
-  font-family: "PT Serif", Georgia, "Times New Roman", serif !important;
+  font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
+  /*"PT Serif", Georgia, "Times New Roman", serif !important;*/
   }
   a {color: black !important;}
   body {
@@ -22,7 +24,8 @@
     color: black !important;
   }
   h1, h2, h3, h4, h5, h6 {
-    font-family: "PT Serif", Georgia, "Times New Roman", serif !important;
+    font-family: Candara, Calibri, Segoe, "Segoe UI", Optima, Arial, sans-serif !important;
+    /*font-family: "PT Serif", Georgia, "Times New Roman", serif !important;*/
     font-weight: 400 !important;
     color: darken(#6D508B, 30%) !important;
     letter-spacing: -.025rem !important;
