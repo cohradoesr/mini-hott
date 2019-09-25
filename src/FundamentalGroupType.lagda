@@ -47,17 +47,19 @@ Definition of the fundamental group.
 
 \begin{code}
   Ω-gr
-    : ∀ {ℓ : Level} (A : Type ℓ)
-    → (a : A) → Group {ℓ}
-  Ω-gr A a =
+    : ∀ {ℓ : Level} (A : hSet ℓ)
+    → (a : π₁ A) → Group {ℓ}
+  Ω-gr (A , A-is-set) a =
     monoid
       (Ω A a)
       (refl a)
       _·_
-      (λ x y p q → _)
+      (set-is-groupoid A-is-set a a)
       (λ (x : Ω A a) → refl x)
       (λ (x : Ω A a) → ! (·-runit x))
       (λ x y z → ! (·-assoc x y z)  )
     , inv , λ x → ·-rinv x , ·-linv x
-    where open import MonoidType
+    where
+      open import MonoidType
+      open import HLevelLemmas
 \end{code}

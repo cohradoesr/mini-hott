@@ -71,14 +71,17 @@ module
   prop-trunc = ∥_∥
 \end{code}
 
+{: .foldable until="4"}
 \begin{code}
   ∣_∣
     : ∀ {ℓ : Level} {X : Type ℓ}
-    → X
-    → ∥ X ∥
+    ------------
+    → X → ∥ X ∥
 
   ∣ x ∣ = !∣ x ∣
+\end{code}
 
+\begin{code}
   ∥∥-intro = ∣_∣
 \end{code}
 
@@ -92,16 +95,20 @@ Any two elements of the truncated type are equal
 \end{code}
 
 Recursion principle
+
+{: .foldable until="6"}
 \begin{code}
   trunc-rec
     :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : Type ℓ₂}
     → isProp P
     → (A → P)
-    ---------
+    -----------
     → ∥ A ∥ → P
 
   trunc-rec _ f !∣ x ∣ = f x
+\end{code}
 
+\begin{code}
   trunc-elim = trunc-rec
   ∥∥-rec     = trunc-rec
 \end{code}
@@ -122,23 +129,31 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)
 
 #### Truncation Lemmas
 
+{: .foldable until="3"}
 \begin{code}
   truncated-is-prop
     : ∀ {ℓ : Level} {A : Type ℓ}
     → isProp (∥ A ∥)
-  truncated-is-prop = trunc
 
+  truncated-is-prop = trunc
+\end{code}
+
+\begin{code}
   ∥∥-is-a-prop = truncated-is-prop
 \end{code}
 
+{: .foldable until="5"}
 \begin{code}
   prop-≃-truncated
     : ∀ {ℓ : Level} {A : Type ℓ}
     → isProp A
+    -----------
     → ∥ A ∥ ≃ A
 
   prop-≃-truncated pA = lemma333 trunc pA (trunc-rec pA id) ∣_∣
+\end{code}
 
+\begin{code}
   trunc-≃ = prop-≃-truncated
 \end{code}
 
@@ -183,6 +198,7 @@ Conjunction is the product of two mere propositons.
     : ∀ {ℓ : Level}
     → (T : Type ℓ) → (P : T → hProp ℓ)
     → Type ℓ
+
   ∃[ T ] P = ∥ ∑ T (λ x → π₁ (P x)) ∥
 \end{code}
 
@@ -207,6 +223,7 @@ is all the terms in $A$ "connected" with $a$.
     : ∀ {ℓ : Level} {A : Type ℓ}
     → (a : A)
     → Type ℓ
+
   connected-component {A = A} a = ∑ A (λ x → ∥ a ≡ x ∥ )
 \end{code}
 
@@ -217,6 +234,7 @@ there is an element in ∥ x ≡ y ∥.
   _is-in-the-same-component-of_
     : ∀ {ℓ : Level}{A : Type ℓ}
     → (x y : A) → Type ℓ
+
   x is-in-the-same-component-of y = ∥ x ≡ y ∥
 
   infix 100 _is-in-the-same-component-of_
@@ -226,6 +244,7 @@ there is an element in ∥ x ≡ y ∥.
   _is-connected
     : ∀ {ℓ : Level} (A : Type ℓ)
     → Type ℓ
+
   A is-connected =
       (A is-non-empty)
     × ((x y : A) → (x is-in-the-same-component-of y))

@@ -315,6 +315,7 @@ Bijection and being equivalent are equivalent notions:
 For some reasons, we might need to have the inverse, the actual function, of a bijection.
 One way I see now is to recover such a function from the equivalence, using `remap`. Let's see this:
 
+{: .foldable until="7" }
 \begin{code}
   inverse-of-bijection
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -330,7 +331,7 @@ One way I see now is to recover such a function from the equivalence, using `rem
   inv-of-bij = inverse-of-bijection
 \end{code}
 
-{: .foldable until="7"}
+{: .foldable until="6"}
 \begin{code}
   ∘-bijective-and-its-inverse-l
       : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -359,6 +360,7 @@ One way I see now is to recover such a function from the equivalence, using `rem
 
 The inverse of a bijection is clearly a bijection as well.
 
+{: .foldable until="6" }
 \begin{code}
   inverse-of-bijection-is-bijection
     : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : Type ℓ₂}

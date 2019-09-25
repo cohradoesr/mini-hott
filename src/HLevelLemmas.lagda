@@ -883,3 +883,18 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
    H₂ : g ∘ f ∼ id
    H₂ x = pair= (idp , contrIsProp (discrete-base (π₁ x)) _ _)
 \end{code}
+
+
+Another devive to remember the fact being a set implies to be a groupoid, is
+the fact a simple graph can be seen as a multigraph. The graph represents
+the picture of paths of the type in question.
+
+{: .foldable until="4" }
+\begin{code}
+set-is-groupoid
+  : ∀ {ℓ : Level} {A : Type ℓ}
+  → isSet A
+  → isGroupoid A
+
+set-is-groupoid A-is-set a b = prop-is-set (A-is-set a b)
+\end{code}

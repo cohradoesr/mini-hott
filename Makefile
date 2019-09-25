@@ -126,3 +126,6 @@ pdf:
 		http://jonaprieto.github.io/mini-hott
 	make stop
 	@echo "	 $ open docs/assets/pdf/MiniHoTT-Agda-Library.pdfs"
+
+lines:
+	find src -name '*.lagda' | xargs wc -l
