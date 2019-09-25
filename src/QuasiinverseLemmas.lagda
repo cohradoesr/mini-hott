@@ -99,7 +99,7 @@ Equivalence types are equivalence relations.
   -- Synonyms
   compEqv = _:>≃_
   ≃-trans = _:>≃_
-  _∘≃_    = _:>≃_
+
 \end{code}
 
 {: .foldable until="5"}

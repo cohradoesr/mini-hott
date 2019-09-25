@@ -20,7 +20,7 @@ open import Intro public
 
 # Type theory
 
-## Types
+## Basic types
 
 ### Empty type
 

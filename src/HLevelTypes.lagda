@@ -97,9 +97,9 @@ and it's inhabited then it's contractible", and it makes sense perfectly.
 
 \begin{code}
 hProp
-  : ∀ {ℓ : Level} → Type (lsuc ℓ)
+  : ∀ (ℓ : Level) → Type (lsuc ℓ)
 
-hProp {ℓ} = ∑ (Type ℓ) isProp
+hProp ℓ = ∑ (Type ℓ) isProp
 \end{code}
 
 We prove now that the basic type (⊥, ⊤) are indeed (mere) propositions:
@@ -143,9 +143,9 @@ The type of sets
 
 \begin{code}
 hSet
-  :  ∀ {ℓ : Level} → Type (lsuc ℓ)
+  :  ∀ (ℓ : Level) → Type (lsuc ℓ)
 
-hSet {ℓ}= ∑ (Type ℓ) isSet
+hSet ℓ = ∑ (Type ℓ) isSet
 \end{code}
 
 ### Groupoids
@@ -165,7 +165,7 @@ is-groupoid = isGroupoid
 
 \begin{code}
 Groupoid
-  : ∀ {ℓ : Level} → Type (lsuc ℓ)
+  : ∀ (ℓ : Level) → Type (lsuc ℓ)
 
-Groupoid {ℓ} = ∑ (Type ℓ) isGroupoid
+Groupoid ℓ = ∑ (Type ℓ) isGroupoid
 \end{code}

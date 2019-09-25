@@ -10,21 +10,21 @@ linkify: true
 showcitation: true
 ---
 
-![path]({{ site.baseurl }}/assets/png-images/mini-hott.jpeg){: width="150px" align="right" style="padding:5px"}
+Mini-HoTT is a basic [Agda](http://github.com/agda/agda) library that contains
+a few definitions and results of [Homotopy Type Theory (HoTT-UF)](http://homotopytypetheory.org/). This work is the attempt
+to develop Univalent mathematics in the Programming Theory Research Group at [University of Bergen](https://www.uib.no/).
+Be aware we are constantly updating the library, on demand of our formalizations.
 
-Mini-HoTT is a basic library for Homotopy Type Theory in
-[Agda](http://github.com/agda/agda) developed at [University of
-Bergen](https://www.uib.no/) in the Programming Theory Research Group.
+## Quick start
 
-No other libraries are required to use this Agda library. To ease its adoption,
-we have included synonyms and syntax sugar for types, lemmas, and theorems.
-Regarding performance, we would recommend to check out another option like the
-`HoTT-Agda` library.  We encourage to check the references at the end of this
-documment, which might contain better explanation of our exposition.
+The main requeriment is of course Agda. No other libraries are required to load this library.
+To ease its adoption, we have included synonyms and syntax sugar for types, lemmas, and theorems. The website is intended to be the main documentation. It also contains
+a few ilustrations that might help your understanding.
+Regarding the library performance, we recommend to check out another option.
+`HoTT-Agda` is a more bigger and test Agda library for HoTT.
+Other libraries and resources can be found in [References] section.
 
-# Quick start
-
-## Installation
+### Installation
 
 - Install [Agda (v2.6.0+)](http://github.com/agda/agda)
 
@@ -42,7 +42,7 @@ as follows:
 
     - `open import MiniHoTT`
 
-## Code style
+### Code conventions
 
 Definitions and theorems are typed with unicode characters, this to improve
 significantly the readability. We usually present lemmas and theorems as rule
@@ -69,7 +69,7 @@ termName = definition
   helper2 = def...
 ```
 
-## Proof relevancy
+### Proof relevancy
 
 To be consistent with Univalent Type Theory, we tell `Agda` to not use *Axiom K*
 for type-checking by using the option `without-K`.
@@ -125,3 +125,5 @@ record
 
 open ↑ public
 \end{code}
+
+We prove later a type and one of its lifted type version are *equivalent* types.

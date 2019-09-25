@@ -44,7 +44,7 @@ Notes:
  (Such as resizing + funext, or higher inductive types.)
 
 For a different way of formalising trucation see:
-[agd-premises](https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda).
+[agda-premises](https://hub.darcs.net/gylterud/agda-premises/browse/Premises/Truncation.agda).
 
 \begin{code}
 module
@@ -150,3 +150,83 @@ A relation between double implication and the truncation of a type:
      : ∀ {ℓ} {X : Type ℓ}
      → ∥ X ∥ ⇔ (¬ (¬ X))
 \end{code}
+
+
+Using propositional truncation, we are able to define properly the logical
+disjunction and existence as follows.
+
+\begin{code}
+  _∨_
+    : ∀ {ℓ₁ ℓ₂ : Level}
+    → (p : hProp ℓ₁) (q : hProp ℓ₂)
+    → Type (ℓ₁ ⊔ ℓ₂)
+  (P , _) ∨ (Q , _) = ∥ P + Q ∥
+
+  infix 2 _∨_
+\end{code}
+
+Conjunction is the product of two mere propositons.
+
+\begin{code}
+  _∧_
+    : ∀ {ℓ₁ ℓ₂ : Level}
+    → (p : hProp ℓ₁) (q : hProp ℓ₂)
+    → Type (ℓ₁ ⊔ ℓ₂)
+
+  (P , _) ∧ (Q , _) = P × Q
+
+  infix  2 _∧_
+\end{code}
+
+\begin{code}
+  ∃[_]_
+    : ∀ {ℓ : Level}
+    → (T : Type ℓ) → (P : T → hProp ℓ)
+    → Type ℓ
+  ∃[ T ] P = ∥ ∑ T (λ x → π₁ (P x)) ∥
+\end{code}
+
+Another use of propositional truncation is to say a type $A$ is non-empty.
+In this case, we have an element of $∥A∥$
+
+\begin{code}
+  _is-non-empty
+    : ∀ {ℓ : Level}
+    → (A : Type ℓ)
+    → Type ℓ
+  A is-non-empty = ∥ A ∥
+
+  infixl 100 _is-non-empty
+\end{code}
+
+For any type $A$ and a term $a : A$, we shall say the connected commponent of $a$
+is all the terms in $A$ "connected" with $a$.
+
+\begin{code}
+  connected-component
+    : ∀ {ℓ : Level} {A : Type ℓ}
+    → (a : A)
+    → Type ℓ
+  connected-component {A = A} a = ∑ A (λ x → ∥ a ≡ x ∥ )
+\end{code}
+
+Consequently, two terms appear to be in the same component whenever
+there is an element in ∥ x ≡ y ∥.
+
+\begin{code}
+  _is-in-the-same-component-of_
+    : ∀ {ℓ : Level}{A : Type ℓ}
+    → (x y : A) → Type ℓ
+  x is-in-the-same-component-of y = ∥ x ≡ y ∥
+
+  infix 100 _is-in-the-same-component-of_
+\end{code}
+
+\begin{code}
+  _is-connected
+    : ∀ {ℓ : Level} (A : Type ℓ)
+    → Type ℓ
+  A is-connected =
+      (A is-non-empty)
+    × ((x y : A) → (x is-in-the-same-component-of y))
+ \end{code}

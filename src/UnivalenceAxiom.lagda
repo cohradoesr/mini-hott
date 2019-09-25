@@ -53,6 +53,7 @@ Synonyms:
   ==-to-≃ = idtoeqv
   ≡-to-≃  = idtoeqv
   ite     = idtoeqv
+  cast    = idtoeqv  -- Used in the Symmetry Book.
 \end{code}
 
 The **Univalence axiom** induces an equivalence between equalities

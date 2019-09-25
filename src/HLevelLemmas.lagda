@@ -282,7 +282,7 @@ Synomys:
 \begin{code}
   Prop-/-≡
     : ∀ {ℓ : Level} {A : Type ℓ}
-    → (P : A → hProp {ℓ})
+    → (P : A → hProp ℓ)
     → ∀ {a₀ a₁} p₀ p₁ {α : a₀ ≡ a₁}
     ------------------------------
     → p₀ ≡ p₁ [ (# ∘ P) / α ]

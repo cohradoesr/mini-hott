@@ -45,12 +45,12 @@ module UnivalenceComposition where
     → (α : A ≃ B)
     → (β : B ≃ C)
     ---------------------------------
-    → ua (α ∘≃ β) == (ua α) · (ua β)
+    → ua (α :>≃ β) == (ua α) · (ua β)
 
   ua-comp α β  =
    begin
-     ua (α ∘≃ β)
-       ≡⟨ ap ua (∘≃-ite-ua α β) ⟩
+     ua (α :>≃ β)
+       ≡⟨ ap ua (:>≃-ite-ua α β) ⟩
      ua (ite (ua α · ua β))
        ≡⟨ ua-η ((ua α) · (ua β)) ⟩
      (ua α) · (ua β)

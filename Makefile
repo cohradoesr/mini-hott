@@ -123,6 +123,6 @@ pdf:
 		--headless --disable-gpu\
 		--print-to-pdf=docs/assets/pdf/MiniHoTT-Agda-Library.pdf \
 		--no-margins\
-		http://127.0.0.1:4000/mini-hott/
+		http://jonaprieto.github.io/mini-hott
 	make stop
 	@echo "	 $ open docs/assets/pdf/MiniHoTT-Agda-Library.pdfs"

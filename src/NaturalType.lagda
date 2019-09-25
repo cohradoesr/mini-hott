@@ -199,7 +199,26 @@ Associativity
 
 {: .foldable until="3"}
 \begin{code}
-  <-isProp : (n m : ℕ) → isProp (n <ₙ m)
-  <-isProp n m (k1 , p1) (k2 , p2) = Σ-bycomponents (succ-inj (+-inj n (p1 · inv p2)) , nat-isSet _ _ _ _)
+  <-isProp
+    : (n m : ℕ)
+    → isProp (n <ₙ m)
 
+  <-isProp n m (k1 , p1) (k2 , p2) = Σ-bycomponents (succ-inj (+-inj n (p1 · inv p2)) , nat-isSet _ _ _ _)
 \end{code}
+
+We can express the property of being the minimum of some given predicate
+as follows (See the symmetry book).
+
+\begin{code}
+  _is-the-minimum-of_
+    : {ℓ : Level}
+    → (n : ℕ )
+    → (P : ℕ → hProp ℓ)
+    → Type ℓ
+  n is-the-minimum-of P = π₁ (P n) × ((m : ℕ) → π₁ (P m) → n <ₙ (m +ₙ 1))
+\end{code}
+
+Things we want to add here:
+
+  - The pinhole principle
+  - If $m < n$ , Fin n ≠ Fin m.

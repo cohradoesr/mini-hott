@@ -141,7 +141,7 @@ In addition, we can state a similar result with `idtoequiv`:
     → (α : A ≃ B)
     → (β : B ≃ C)
     ---------------------------------------------------
-    → ite (ua α · ua β) ≡ ((ite (ua α)) ∘≃ (ite (ua β)))
+    → ite (ua α · ua β) ≡ ((ite (ua α)) :>≃ (ite (ua β)))
 
   idtoequiv-ua-· α β = sameEqv (coe-ua-· α β)
     where open import HLevelLemmas
@@ -149,19 +149,20 @@ In addition, we can state a similar result with `idtoequiv`:
   ite-ua-· = idtoequiv-ua-·
 \end{code}
 
+{: .foldable until="6"}
 \begin{code}
   postulate
-   ∘≃-ite-ua
+   :>≃-ite-ua
     : ∀ {ℓ : Level} {A B C : Type ℓ}
-    → (α : A ≃ B)
-    → (β : B ≃ C)
-    → (α ∘≃ β) ≡ ite (ua α · ua β)
+    → (α : A ≃ B)    → (β : B ≃ C)
+    ------------------------------
+    → (α :>≃ β) ≡ ite (ua α · ua β)
 
   {- lemma α β =
         begin
-          (α ∘≃ β)
-            ≡⟨ ap₂ (λ x y → x ∘≃ y) (! (ua-β α)) (! (ua-β β)) ⟩
-          (ite (ua α)) ∘≃ (ite (ua β))
+          (α :>≃ β)
+            ≡⟨ ap₂ (λ x y → x :>≃ y) (! (ua-β α)) (! (ua-β β)) ⟩
+          (ite (ua α)) :>≃ (ite (ua β))
             ≡⟨ ! (ite-ua-· α β) ⟩
           ite (ua α · ua β)
   -}
