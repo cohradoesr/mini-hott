@@ -649,6 +649,12 @@ with implicit parameters.
          go f {a} = f a
 \end{code}
 
+\begin{code}
+  𝟘-is-set
+    : ∀ {ℓ} → isSet (𝟘 ℓ)
+  𝟘-is-set = prop-is-set 𝟘-is-prop
+\end{code}
+
 {: .hide}
 \begin{code}
 open HLevelLemmas public
@@ -857,6 +863,23 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
   fact₂ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂}{A = A}{B} 𝟙₂)
   fact₂ = ≃-with-a-set-is-set (lifting-equivalence B) iB
 \end{code}
+
+\begin{code}[hide]
+module _ {ℓ : Level} where
+  open Fin2 ℓ
+\end{code}
+
+{: .foldable until="4" }
+\begin{code}
+  ⟦n⟧-is-set
+    : ∀ {n : ℕ}
+    ---------------
+    → isSet (⟦ n ⟧)
+
+  ⟦n⟧-is-set {zr} = 𝟘-is-set
+  ⟦n⟧-is-set {succ n} = +-of-sets-is-set 𝟙-is-set ⟦n⟧-is-set
+\end{code}
+
 
 {: .foldable until="6" }
 \begin{code}

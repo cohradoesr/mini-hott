@@ -452,3 +452,65 @@ but it the condition to talk about the concept of bijection.
     = ∘-injectives-is-injective f f-is-injective g g-is-injective
     , ∘-surjection-is-surjection f f-is-surjection g g-is-surjection
 \end{code}
+
+Other theorems about +-map
+
+{: .foldable until="7"}
+\begin{code}[hide]
+  inj-from-⊕-injective
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄ : Level}
+    → {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃} {D : Type ℓ₄}
+    → {f : A + B → C + D}
+    → (isInjective f)
+    ---------------------------
+    → (g : B → D) → ((b : B) → inr (g b) ≡ f (inr b))
+    → isInjective g
+
+  inj-from-⊕-injective {C = C} f⊕g-is-inj g g-is-f {x} {y} p  =
+     inr-is-injective
+      (f⊕g-is-inj {x = inr x} (! g-is-f x · ap inr p · g-is-f y))
+\end{code}
+
+{: .foldable until="7"}
+\begin{code}
+  right-is-injective-of-⊕-injective
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄ : Level}
+    → {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃} {D : Type ℓ₄}
+    → {f : A → C} {g : B → D}
+    → (isInjective 〈 f ⊕ g 〉)
+    ---------------------------
+    → isInjective g
+
+  right-is-injective-of-⊕-injective {C = C} f⊕g-is-inj {x} {y} p =
+    inr-is-injective
+      (f⊕g-is-inj {x = inr x}
+        $ ap (λ w → inr {A = C} w) p)
+\end{code}
+
+{: .foldable until="7"}
+\begin{code}
+  left-is-injective-of-⊕-injective
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄ : Level}
+    → {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃} {D : Type ℓ₄}
+    → {f : A → C} {g : B → D}
+    → (isInjective 〈 f ⊕ g 〉)
+    ---------------------------
+    → isInjective f
+
+  left-is-injective-of-⊕-injective {C = C} f⊕g-is-inj {x} {y} p =
+    inl-is-injective
+      (f⊕g-is-inj {x = inl x}
+        $ ap (λ w → inl {A = C} w) p)
+\end{code}
+
+{: .foldable until="6" }
+\begin{code}
+  :>-is-injective-is-inj
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+    → {f : A → B} {g : B → C }
+    → isInjective (f :> g)
+    ----------------------
+    → isInjective f
+
+  :>-is-injective-is-inj {f = f} {g} :>-is-inj p = :>-is-inj (ap g p)
+\end{code}

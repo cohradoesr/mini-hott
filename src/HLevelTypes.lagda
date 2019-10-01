@@ -102,6 +102,22 @@ hProp
 hProp ℓ = ∑ (Type ℓ) isProp
 \end{code}
 
+
+Now with (homotopy) propositional, we can consider the notion of subtype,
+which is, just the ∑-type about the collection of terms that holds some given property,
+we can use the following type `sub-type` for a proposition $P : A → U$ for some type $A$.
+Assuming at least there
+
+\begin{code}
+subtype
+  : ∀ {ℓ : Level} {A : Type ℓ}
+  → (P : A → hProp ℓ)
+  → Type ℓ
+
+subtype P = ∑ (domain P) (π₁ ∘ P)
+\end{code}
+
+
 We prove now that the basic type (⊥, ⊤) are indeed (mere) propositions:
 
 \begin{code}

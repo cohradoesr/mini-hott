@@ -330,9 +330,9 @@ Even though, there are other approaches to define finite sets,
 fin sets as with natural numbers.)
 
 \begin{code}
-module _ {ℓ : Level} where
+module Fin2 (ℓ : Level) where
   ⟦_⟧ : ℕ → Type ℓ
-  ⟦_⟧ zero  = 𝟘 ℓ
+  ⟦_⟧ zero      = 𝟘 ℓ
   ⟦_⟧ (succ n)  = 𝟙 ℓ + ⟦ n ⟧
 
 \end{code}

@@ -10,18 +10,20 @@ linkify: true
 showcitation: true
 ---
 
-Mini-HoTT is a basic [Agda](http://github.com/agda/agda) library that contains
-a few definitions and results of [Homotopy Type Theory (HoTT-UF)](http://homotopytypetheory.org/). This work is the attempt
-to develop Univalent mathematics in the Programming Theory Research Group at [University of Bergen](https://www.uib.no/).
-Be aware we are constantly updating the library, on demand of our formalizations.
+Mini-HoTT is a basic [Agda](http://github.com/agda/agda) library that contains a
+few definitions and results of [Homotopy Type Theory
+(HoTT-UF)](http://homotopytypetheory.org/). This work is the attempt to develop
+Univalent mathematics in the Programming Theory Research Group at [University of
+Bergen](https://www.uib.no/).
 
 ## Quick start
 
-The main requeriment is of course Agda. No other libraries are required to load this library.
-To ease its adoption, we have included synonyms and syntax sugar for types, lemmas, and theorems. The website is intended to be the main documentation. It also contains
-a few ilustrations that might help your understanding.
-Regarding the library performance, we recommend to check out another option.
-`HoTT-Agda` is a more bigger and test Agda library for HoTT.
+The main requeriment is Agda. No other libraries are required to load this
+library. To ease its adoption, we have included synonyms and syntax sugar for
+types, lemmas, and theorems. The website is intended to be the main
+documentation. It also contains a few ilustrations that might help your
+understanding. Regarding the library performance, we recommend to check out
+another option. `HoTT-Agda` is a more bigger and test Agda library for HoTT.
 Other libraries and resources can be found in [References] section.
 
 ### Installation
@@ -42,6 +44,8 @@ as follows:
 
     - `open import MiniHoTT`
 
+<div class="only-website">
+
 ### Code conventions
 
 Definitions and theorems are typed with unicode characters, this to improve
@@ -58,6 +62,7 @@ termName
   → ...                                  -- Conclusion
 ```
 
+
 On the website, we show the type for each term but some term definitions are
 hidden. However, you can expand them by clicking on the code boxes --this
 requires Javascript--.
@@ -68,6 +73,8 @@ termName = definition
   helper1 : ...
   helper2 = def...
 ```
+
+</div>
 
 ### Proof relevancy
 

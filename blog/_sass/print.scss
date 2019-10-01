@@ -1,11 +1,11 @@
 @media print {
 	.page-break	{ display: block; page-break-before: always; }
-
+//
   .only-website { display: none !important;}
-
-  .sidebar { display: none !important;}
-  .sidebar-overlay { display: none !important;}
-
+//
+//   .sidebar { display: none !important;}
+//   .sidebar-overlay { display: none !important;}
+//
   .print-version {
     display: inherit !important;
   }
@@ -37,7 +37,8 @@
   h4 {  font-size: 1.00em !important;  }
   h5 {  font-size: 1.00em !important;  }
   h6 {  font-size: 1.00em !important;  }
-
+	.Agda
+	{font-family: PragmataPro Mono;}
   #citation,
   .post-title,
   .masthead-title,
@@ -109,5 +110,5 @@
     // }
 }
 
-
-// https://getflywheel.com/layout/how-to-style-your-website-for-print-with-css/
+//
+// // https://getflywheel.com/layout/how-to-style-your-website-for-print-with-css/

@@ -49,7 +49,7 @@ module QuasiinverseType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ�
     : (A → B)
     → Type (ℓ₁ ⊔ ℓ₂)
 
-  linv f = Σ (B → A) (λ g → (g ∘ f) ∼ idf A)
+  linv f = Σ (B → A) (λ g → (g ∘ f) ∼ id-on A)
 
   left-inverse = linv
 \end{code}
@@ -59,7 +59,7 @@ module QuasiinverseType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ�
     : (A → B)
     → Type (ℓ₁ ⊔ ℓ₂)
 
-  rinv f = Σ (B → A) (λ g → (f ∘ g) ∼ idf B)
+  rinv f = Σ (B → A) (λ g → (f ∘ g) ∼ id-on B)
 
   right-inverse = rinv
 \end{code}

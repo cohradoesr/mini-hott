@@ -38,12 +38,12 @@ identity = id
 The identity function on a type `A` is `idf A`.
 
 \begin{code}
-idf
+id-on
   : ∀ {ℓ : Level} (A : Type ℓ)
   ---------------
   → (A → A)
 
-idf A = λ x → x
+id-on A = λ x → x
 \end{code}
 
 
@@ -52,18 +52,35 @@ idf A = λ x → x
 Constant function at some point `b` is `cst b`
 
 \begin{code}
-cst
+constant-function
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → (b : B)
   ---------
   → (A → B)
 
-cst b = λ _ → b
-
-constant = cst
+constant-function b = λ _ → b
 \end{code}
 
-### Logical negation
+### Reasoning with negation
+
+\begin{code}
+¬¬ ¬¬¬
+  : ∀ {ℓ : Level}
+  → Type ℓ
+  → Type ℓ
+
+¬¬ A  = ¬(¬ A)
+¬¬¬ A = ¬(¬¬ A)
+\end{code}
+
+\begin{code}
+contrapositive
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A : Type ℓ₁}{B : Type ℓ₂}
+  → (A → B)
+  → ((B → ⊥ ℓ₃) → (A → ⊥ ℓ₃))
+
+contrapositive f v a = v (f a)
+\end{code}
 
 \begin{code}
 neg¬
@@ -71,7 +88,6 @@ neg¬
   → Bool
 
 neg¬ tt = ff
-
 \end{code}
 
 ### Composition
@@ -106,6 +122,43 @@ _:>_
 f :> g = g ∘ f
 
 infixr 90 _:>_
+\end{code}
+
+\begin{code}
+domain
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : Type ℓ₂}
+  → (A → B)
+  → Type ℓ₁
+
+domain {A = A} _ = A
+\end{code}
+
+
+\begin{code}
+codomain
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : Type ℓ₂}
+  → (A → B)
+  → Type ℓ₂
+
+codomain {B = B} _ = B
+\end{code}
+
+
+\begin{code}
+type-of
+  : ∀ {ℓ : Level}{X : Type ℓ}
+  → X → Type ℓ
+
+type-of {X = X} _ = X
+\end{code}
+
+\begin{code}
+level-of
+  : ∀ {ℓ : Level}
+  → (A : Type ℓ)
+  → Level
+
+level-of {ℓ} A = ℓ
 \end{code}
 
 #### Associativity of composition
@@ -259,21 +312,67 @@ infixl 50 _·_
 #### Inverse of paths
 
 \begin{code}
-inv
+_⁻¹
   : ∀ {ℓ : Level} {A : Type ℓ}  {a b : A}
   → a == b
   --------
   → b == a
 
-inv idp = idp
+idp ⁻¹ = idp
 \end{code}
 
 Synonyms for inverse path
 \begin{code}
-_⁻¹ = inv
+inv = _⁻¹
 !_  = inv
 
 infixl 60 _⁻¹ !_
+\end{code}
+
+
+Left and right hand side of the equality:
+
+\begin{code}
+lhs
+  : ∀ {ℓ : Level}{A : Type ℓ}{x y : A}
+  → x ≡ y
+  → A
+
+lhs {x = x} _ = x
+\end{code}
+
+\begin{code}
+rhs
+  : ∀ {ℓ : Level}{A : Type ℓ}{x y : A}
+  → x ≡ y
+  → A
+
+rhs {y = y} _ = y
+\end{code}
+
+
+### Coproducts functions
+
+{: .foldable until="5"}
+\begin{code}
+inr-is-injective
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : Type ℓ₂} {b₁ b₂ : B}
+  → inr {A = A}{B} b₁ ≡ inr b₂
+  ----------------------------
+  → b₁ ≡ b₂
+
+inr-is-injective idp = idp
+\end{code}
+
+{: .foldable until="5"}
+\begin{code}
+inl-is-injective
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : Type ℓ₂} {a₁ a₂ : A}
+  → inl {A = A}{B} a₁ ≡ inl a₂
+  ----------------------------
+  → a₁ ≡ a₂
+
+inl-is-injective idp = idp
 \end{code}
 
 ### Equational reasoning
