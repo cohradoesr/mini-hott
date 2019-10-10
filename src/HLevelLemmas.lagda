@@ -78,6 +78,15 @@ To be contractible is itself a proposition.
   contractible-from-inhabited-prop a p = (a , p a )
 \end{code}
 
+\begin{code}
+  ∑-contr
+    : ∀ {ℓ : Level}{A : Type ℓ}
+    → (x : A)
+    → isContr (∑ A (λ a → a ≡ x ))
+
+  ∑-contr x = (x , refl x) , λ {(a , idp) → pair= (idp , idp) }
+\end{code}
+
 Propositions are Sets:
 
 {: .foldable until="5" }
