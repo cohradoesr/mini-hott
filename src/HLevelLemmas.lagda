@@ -13,7 +13,7 @@ showcitation: true
 
 <div class="hide" >
 \begin{code}
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
 module _ where
 
 open import TransportLemmas

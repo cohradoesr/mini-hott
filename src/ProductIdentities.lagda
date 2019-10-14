@@ -13,7 +13,7 @@ showcitation: true
 
 <div class="hide" >
 \begin{code}
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
 open import BasicTypes
 open import BasicFunctions
 open import Transport
@@ -81,7 +81,7 @@ prodByCompInverse {x = x} idp = refl (refl x)
 
 \begin{code}
 ×-≡
-  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} 
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → {ab ab' : A × B}
   → (p : π₁ ab ≡ π₁ ab') → (π₂ ab) ≡ π₂ ab'
   → ab ≡ ab'

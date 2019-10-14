@@ -13,7 +13,7 @@ showcitation: true
 
 <div class="hide" >
 \begin{code}
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
 open import TransportLemmas
 open import ProductIdentities
 open import EquivalenceType
@@ -46,7 +46,7 @@ decidable equality.
 {: .foldable until="5" }
 \begin{code}
   decEqProd
-    : ∀ {ℓ : Level} {A B : Type ℓ} 
+    : ∀ {ℓ : Level} {A B : Type ℓ}
     → decEq A → decEq B
     -------------------
     → decEq (A × B)

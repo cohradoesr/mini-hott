@@ -18,7 +18,7 @@ Two functions are quasi-inverses if we can construct a function providing
 
 <div class="hide" >
 \begin{code}
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
 open import TransportLemmas
 open import EquivalenceType
 

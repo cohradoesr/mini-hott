@@ -87,7 +87,12 @@ for type-checking by using the option `without-K`.
 
 In addition, without Axiom K, `Agda`'s `Set` is not a good name for universes in HoTT. So, we
 rename `Set` to `Type`. Our type judgments then will include the universe level
-as one explicit argument.
+as one explicit argument. Also, we want to have judgemental equailities for each usage of (=) so
+we use the following option.
+
+\begin{code}
+{-# OPTIONS --exact-split #-}
+\end{code}
 
 \begin{code}
 open import Agda.Primitive

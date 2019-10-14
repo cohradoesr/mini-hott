@@ -14,7 +14,8 @@ showcitation: true
 
 <div class="hide" >
 \begin{code}
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
+
 open import BasicTypes public
 open import AlgebraOnPaths public
 \end{code}

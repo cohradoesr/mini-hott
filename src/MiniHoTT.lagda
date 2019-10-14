@@ -12,7 +12,9 @@ showcitation: true
 
 \begin{code}
 
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
+
+-- I should remove this someday, nowadays I'm using to develop faster.
 {-# OPTIONS --allow-unsolved-metas #-}
 
 module MiniHoTT where

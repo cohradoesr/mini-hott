@@ -16,7 +16,7 @@ There are some well-known equivalences very handy about
 products and coproducts.
 
 \begin{code}
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
 open import BasicTypes
 open import BasicFunctions
 open import AlgebraOnPaths

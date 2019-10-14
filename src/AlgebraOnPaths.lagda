@@ -13,7 +13,7 @@ showcitation: true
 
 <div class="hide" >
 \begin{code} %latex:prop
-{-# OPTIONS --without-K #-}
+{-# OPTIONS --without-K --exact-split #-}
 open import BasicTypes public
 open import BasicFunctions public
 \end{code}
