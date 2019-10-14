@@ -87,3 +87,20 @@ module EquivalenceReasoning where
   begin≃_ e = e
   infix  1 begin≃_
 \end{code}
+
+\begin{code}
+  postulate
+   move-right-from-composition
+     : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+     → (e1 : A → B) → (e2 : B ≃ C) → (e3 : A → C)
+     → e1 :> (e2 ∙) ≡ e3
+     --------------------------------------
+     →           e1 ≡ e3 :> (e2 ∙←)
+
+   2-3-property
+    : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+    → (e1 : A → C) → (e2 : A ≃ B) → (e3 : B ≃ C)
+    → e1 ≡ (e2 ∙) :> (e3 ∙)
+    -------------------------
+    → isEquiv e1
+\end{code}
