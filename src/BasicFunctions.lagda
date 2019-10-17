@@ -277,6 +277,24 @@ uncurry
 uncurry f (x , y) = f x y
 \end{code}
 
+### Finite iteration of a function
+
+For any endo-function in $A$, $f: A \to A$, the following function
+iterates $n$ times $f$
+
+$$ f^{n+1}(x) = f (f^{n} (x))$$
+
+\begin{code}
+infixl 50 _^_
+_^_
+  : ∀ {ℓ : Level}{A : Type ℓ}
+  → (f : A → A) → (n : ℕ)
+  → (A → A)
+
+f ^ zr     = id
+f ^ succ n = λ x → f ((f ^ n) x)
+\end{code}
+
 ### Heterogeneous equality
 
 \begin{code}
