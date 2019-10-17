@@ -59,7 +59,7 @@
   <body class="layout-reverse sidebar-overlay">
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
@@ -669,20 +669,20 @@
 
   <div class="hide">
   <pre class="Agda">
-<a id="180" class="Symbol">{-#</a> <a id="184" class="Keyword">OPTIONS</a> <a id="192" class="Pragma">--without-K</a> <a id="204" class="Symbol">#-}</a>
-<a id="208" class="Keyword">open</a> <a id="213" class="Keyword">import</a> <a id="220" href="BasicTypes.html" class="Module">BasicTypes</a>
+<a id="180" class="Symbol">{-#</a> <a id="184" class="Keyword">OPTIONS</a> <a id="192" class="Pragma">--without-K</a> <a id="204" class="Pragma">--exact-split</a> <a id="218" class="Symbol">#-}</a>
+<a id="222" class="Keyword">open</a> <a id="227" class="Keyword">import</a> <a id="234" href="BasicTypes.html" class="Module">BasicTypes</a>
 
-<a id="232" class="Keyword">open</a> <a id="237" class="Keyword">import</a> <a id="244" href="HLevelTypes.html" class="Module">HLevelTypes</a>
-<a id="256" class="Keyword">open</a> <a id="261" class="Keyword">import</a> <a id="268" href="TruncationType.html" class="Module">TruncationType</a>
+<a id="246" class="Keyword">open</a> <a id="251" class="Keyword">import</a> <a id="258" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="270" class="Keyword">open</a> <a id="275" class="Keyword">import</a> <a id="282" href="TruncationType.html" class="Module">TruncationType</a>
 </pre>
 </div>
 
 <h3 id="the-axiom-of-choice">The Axiom Of Choice</h3>
 
 <pre class="Agda">
-<a id="340" class="Keyword">module</a>
-  <a id="349" href="TheAxiomOfChoice.html" class="Module">TheAxiomOfChoice</a>
-  <a id="368" class="Keyword">where</a>
+<a id="354" class="Keyword">module</a>
+  <a id="363" href="TheAxiomOfChoice.html" class="Module">TheAxiomOfChoice</a>
+  <a id="382" class="Keyword">where</a>
 </pre>
 
 <p>Let’s write in type theory, the following logic formulation of
@@ -692,21 +692,21 @@ of the axiom of choice:</p>
   ⇒ ∃ (g : (b : B) → A b) . ∀ (b : B) . P (b, g(b)) .</script>
 
 <pre class="Agda axiom">
-  <a id="599" class="Keyword">postulate</a>
-    <a id="Choice"></a><a id="613" href="TheAxiomOfChoice.html#613" class="Postulate">Choice</a>
-      <a id="626" class="Symbol">:</a> <a id="628" class="Symbol">∀</a> <a id="630" class="Symbol">{</a><a id="631" href="TheAxiomOfChoice.html#631" class="Bound">ℓ₁</a> <a id="634" href="TheAxiomOfChoice.html#634" class="Bound">ℓ₂</a> <a id="637" href="TheAxiomOfChoice.html#637" class="Bound">ℓ₃</a> <a id="640" class="Symbol">:</a> <a id="642" href="Agda.Primitive.html#408" class="Postulate">Level</a> <a id="648" class="Symbol">}</a>
-      <a id="656" class="Comment">-- Asummption 1:</a>
-        <a id="681" class="Symbol">(</a><a id="682" href="TheAxiomOfChoice.html#682" class="Bound">B</a> <a id="684" class="Symbol">:</a> <a id="686" href="Intro.html#2931" class="Function">Type</a> <a id="691" href="TheAxiomOfChoice.html#631" class="Bound">ℓ₁</a><a id="693" class="Symbol">)</a>
-      <a id="701" class="Symbol">→</a> <a id="703" href="HLevelTypes.html#2626" class="Function">isSet</a> <a id="709" href="TheAxiomOfChoice.html#682" class="Bound">B</a>
-      <a id="717" class="Comment">-- Asummption 2:</a>
-      <a id="740" class="Symbol">→</a> <a id="742" class="Symbol">(</a><a id="743" href="TheAxiomOfChoice.html#743" class="Bound">A</a> <a id="745" class="Symbol">:</a> <a id="747" href="TheAxiomOfChoice.html#682" class="Bound">B</a> <a id="749" class="Symbol">→</a> <a id="751" href="Intro.html#2931" class="Function">Type</a> <a id="756" href="TheAxiomOfChoice.html#634" class="Bound">ℓ₂</a><a id="758" class="Symbol">)</a>
-      <a id="766" class="Symbol">→</a> <a id="768" class="Symbol">∀</a> <a id="770" class="Symbol">(</a><a id="771" href="TheAxiomOfChoice.html#771" class="Bound">b</a> <a id="773" class="Symbol">:</a> <a id="775" href="TheAxiomOfChoice.html#682" class="Bound">B</a><a id="776" class="Symbol">)</a> <a id="778" class="Symbol">→</a> <a id="780" href="HLevelTypes.html#2626" class="Function">isSet</a> <a id="786" class="Symbol">(</a><a id="787" href="TheAxiomOfChoice.html#743" class="Bound">A</a> <a id="789" href="TheAxiomOfChoice.html#771" class="Bound">b</a><a id="790" class="Symbol">)</a>
-      <a id="798" class="Comment">-- Asummption 3:</a>
-      <a id="821" class="Symbol">→</a> <a id="823" class="Symbol">(</a><a id="824" href="TheAxiomOfChoice.html#824" class="Bound">P</a> <a id="826" class="Symbol">:</a> <a id="828" class="Symbol">(</a><a id="829" href="TheAxiomOfChoice.html#829" class="Bound">b</a> <a id="831" class="Symbol">:</a> <a id="833" href="TheAxiomOfChoice.html#682" class="Bound">B</a><a id="834" class="Symbol">)</a> <a id="836" class="Symbol">→</a> <a id="838" class="Symbol">(</a><a id="839" href="TheAxiomOfChoice.html#743" class="Bound">A</a> <a id="841" href="TheAxiomOfChoice.html#829" class="Bound">b</a><a id="842" class="Symbol">)</a> <a id="844" class="Symbol">→</a> <a id="846" href="Intro.html#2931" class="Function">Type</a> <a id="851" href="TheAxiomOfChoice.html#637" class="Bound">ℓ₃</a><a id="853" class="Symbol">)</a>
-      <a id="861" class="Symbol">→</a> <a id="863" class="Symbol">∀</a> <a id="865" class="Symbol">(</a><a id="866" href="TheAxiomOfChoice.html#866" class="Bound">b</a> <a id="868" class="Symbol">:</a> <a id="870" href="TheAxiomOfChoice.html#682" class="Bound">B</a><a id="871" class="Symbol">)(</a><a id="873" href="TheAxiomOfChoice.html#873" class="Bound">a</a> <a id="875" class="Symbol">:</a> <a id="877" href="TheAxiomOfChoice.html#743" class="Bound">A</a> <a id="879" href="TheAxiomOfChoice.html#866" class="Bound">b</a><a id="880" class="Symbol">)</a> <a id="882" class="Symbol">→</a> <a id="884" href="HLevelTypes.html#1205" class="Function">isProp</a> <a id="891" class="Symbol">(</a><a id="892" href="TheAxiomOfChoice.html#824" class="Bound">P</a> <a id="894" href="TheAxiomOfChoice.html#866" class="Bound">b</a> <a id="896" href="TheAxiomOfChoice.html#873" class="Bound">a</a><a id="897" class="Symbol">)</a>
-      <a id="905" class="Comment">-----------------------------------</a>
-      <a id="947" class="Symbol">→</a> <a id="949" class="Symbol">(∀</a> <a id="952" href="TheAxiomOfChoice.html#952" class="Bound">b</a> <a id="954" class="Symbol">→</a> <a id="956" href="TruncationType.html#1161" class="Function Operator">∥</a> <a id="958" href="BasicTypes.html#1555" class="Record">∑</a> <a id="960" class="Symbol">(</a><a id="961" href="TheAxiomOfChoice.html#743" class="Bound">A</a> <a id="963" href="TheAxiomOfChoice.html#952" class="Bound">b</a><a id="964" class="Symbol">)</a> <a id="966" class="Symbol">(λ</a> <a id="969" href="TheAxiomOfChoice.html#969" class="Bound">a</a> <a id="971" class="Symbol">→</a> <a id="973" href="TheAxiomOfChoice.html#824" class="Bound">P</a> <a id="975" href="TheAxiomOfChoice.html#952" class="Bound">b</a> <a id="977" href="TheAxiomOfChoice.html#969" class="Bound">a</a><a id="978" class="Symbol">)</a> <a id="980" href="TruncationType.html#1161" class="Function Operator">∥</a><a id="981" class="Symbol">)</a>
-      <a id="989" class="Symbol">→</a> <a id="991" href="TruncationType.html#1161" class="Function Operator">∥</a> <a id="993" href="BasicTypes.html#1555" class="Record">∑</a> <a id="995" class="Symbol">(</a><a id="996" href="BasicTypes.html#2130" class="Function">∏</a> <a id="998" href="TheAxiomOfChoice.html#682" class="Bound">B</a> <a id="1000" href="TheAxiomOfChoice.html#743" class="Bound">A</a><a id="1001" class="Symbol">)</a> <a id="1003" class="Symbol">(λ</a> <a id="1006" href="TheAxiomOfChoice.html#1006" class="Bound">g</a> <a id="1008" class="Symbol">→</a> <a id="1010" href="TheAxiomOfChoice.html#824" class="Bound">P</a> <a id="1012" href="TheAxiomOfChoice.html#866" class="Bound">b</a> <a id="1014" class="Symbol">(</a><a id="1015" href="TheAxiomOfChoice.html#1006" class="Bound">g</a> <a id="1017" href="TheAxiomOfChoice.html#866" class="Bound">b</a><a id="1018" class="Symbol">))</a> <a id="1021" href="TruncationType.html#1161" class="Function Operator">∥</a>
+  <a id="613" class="Keyword">postulate</a>
+    <a id="Choice"></a><a id="627" href="TheAxiomOfChoice.html#627" class="Postulate">Choice</a>
+      <a id="640" class="Symbol">:</a> <a id="642" class="Symbol">∀</a> <a id="644" class="Symbol">{</a><a id="645" href="TheAxiomOfChoice.html#645" class="Bound">ℓ₁</a> <a id="648" href="TheAxiomOfChoice.html#648" class="Bound">ℓ₂</a> <a id="651" href="TheAxiomOfChoice.html#651" class="Bound">ℓ₃</a> <a id="654" class="Symbol">:</a> <a id="656" href="Agda.Primitive.html#408" class="Postulate">Level</a> <a id="662" class="Symbol">}</a>
+      <a id="670" class="Comment">-- Asummption 1:</a>
+        <a id="695" class="Symbol">(</a><a id="696" href="TheAxiomOfChoice.html#696" class="Bound">B</a> <a id="698" class="Symbol">:</a> <a id="700" href="Intro.html#3576" class="Function">Type</a> <a id="705" href="TheAxiomOfChoice.html#645" class="Bound">ℓ₁</a><a id="707" class="Symbol">)</a>
+      <a id="715" class="Symbol">→</a> <a id="717" href="HLevelTypes.html#3049" class="Function">isSet</a> <a id="723" href="TheAxiomOfChoice.html#696" class="Bound">B</a>
+      <a id="731" class="Comment">-- Asummption 2:</a>
+      <a id="754" class="Symbol">→</a> <a id="756" class="Symbol">(</a><a id="757" href="TheAxiomOfChoice.html#757" class="Bound">A</a> <a id="759" class="Symbol">:</a> <a id="761" href="TheAxiomOfChoice.html#696" class="Bound">B</a> <a id="763" class="Symbol">→</a> <a id="765" href="Intro.html#3576" class="Function">Type</a> <a id="770" href="TheAxiomOfChoice.html#648" class="Bound">ℓ₂</a><a id="772" class="Symbol">)</a>
+      <a id="780" class="Symbol">→</a> <a id="782" class="Symbol">∀</a> <a id="784" class="Symbol">(</a><a id="785" href="TheAxiomOfChoice.html#785" class="Bound">b</a> <a id="787" class="Symbol">:</a> <a id="789" href="TheAxiomOfChoice.html#696" class="Bound">B</a><a id="790" class="Symbol">)</a> <a id="792" class="Symbol">→</a> <a id="794" href="HLevelTypes.html#3049" class="Function">isSet</a> <a id="800" class="Symbol">(</a><a id="801" href="TheAxiomOfChoice.html#757" class="Bound">A</a> <a id="803" href="TheAxiomOfChoice.html#785" class="Bound">b</a><a id="804" class="Symbol">)</a>
+      <a id="812" class="Comment">-- Asummption 3:</a>
+      <a id="835" class="Symbol">→</a> <a id="837" class="Symbol">(</a><a id="838" href="TheAxiomOfChoice.html#838" class="Bound">P</a> <a id="840" class="Symbol">:</a> <a id="842" class="Symbol">(</a><a id="843" href="TheAxiomOfChoice.html#843" class="Bound">b</a> <a id="845" class="Symbol">:</a> <a id="847" href="TheAxiomOfChoice.html#696" class="Bound">B</a><a id="848" class="Symbol">)</a> <a id="850" class="Symbol">→</a> <a id="852" class="Symbol">(</a><a id="853" href="TheAxiomOfChoice.html#757" class="Bound">A</a> <a id="855" href="TheAxiomOfChoice.html#843" class="Bound">b</a><a id="856" class="Symbol">)</a> <a id="858" class="Symbol">→</a> <a id="860" href="Intro.html#3576" class="Function">Type</a> <a id="865" href="TheAxiomOfChoice.html#651" class="Bound">ℓ₃</a><a id="867" class="Symbol">)</a>
+      <a id="875" class="Symbol">→</a> <a id="877" class="Symbol">∀</a> <a id="879" class="Symbol">(</a><a id="880" href="TheAxiomOfChoice.html#880" class="Bound">b</a> <a id="882" class="Symbol">:</a> <a id="884" href="TheAxiomOfChoice.html#696" class="Bound">B</a><a id="885" class="Symbol">)(</a><a id="887" href="TheAxiomOfChoice.html#887" class="Bound">a</a> <a id="889" class="Symbol">:</a> <a id="891" href="TheAxiomOfChoice.html#757" class="Bound">A</a> <a id="893" href="TheAxiomOfChoice.html#880" class="Bound">b</a><a id="894" class="Symbol">)</a> <a id="896" class="Symbol">→</a> <a id="898" href="HLevelTypes.html#1219" class="Function">isProp</a> <a id="905" class="Symbol">(</a><a id="906" href="TheAxiomOfChoice.html#838" class="Bound">P</a> <a id="908" href="TheAxiomOfChoice.html#880" class="Bound">b</a> <a id="910" href="TheAxiomOfChoice.html#887" class="Bound">a</a><a id="911" class="Symbol">)</a>
+      <a id="919" class="Comment">-----------------------------------</a>
+      <a id="961" class="Symbol">→</a> <a id="963" class="Symbol">(∀</a> <a id="966" href="TheAxiomOfChoice.html#966" class="Bound">b</a> <a id="968" class="Symbol">→</a> <a id="970" href="TruncationType.html#1176" class="Function Operator">∥</a> <a id="972" href="BasicTypes.html#1575" class="Record">∑</a> <a id="974" class="Symbol">(</a><a id="975" href="TheAxiomOfChoice.html#757" class="Bound">A</a> <a id="977" href="TheAxiomOfChoice.html#966" class="Bound">b</a><a id="978" class="Symbol">)</a> <a id="980" class="Symbol">(λ</a> <a id="983" href="TheAxiomOfChoice.html#983" class="Bound">a</a> <a id="985" class="Symbol">→</a> <a id="987" href="TheAxiomOfChoice.html#838" class="Bound">P</a> <a id="989" href="TheAxiomOfChoice.html#966" class="Bound">b</a> <a id="991" href="TheAxiomOfChoice.html#983" class="Bound">a</a><a id="992" class="Symbol">)</a> <a id="994" href="TruncationType.html#1176" class="Function Operator">∥</a><a id="995" class="Symbol">)</a>
+      <a id="1003" class="Symbol">→</a> <a id="1005" href="TruncationType.html#1176" class="Function Operator">∥</a> <a id="1007" href="BasicTypes.html#1575" class="Record">∑</a> <a id="1009" class="Symbol">(</a><a id="1010" href="BasicTypes.html#2150" class="Function">∏</a> <a id="1012" href="TheAxiomOfChoice.html#696" class="Bound">B</a> <a id="1014" href="TheAxiomOfChoice.html#757" class="Bound">A</a><a id="1015" class="Symbol">)</a> <a id="1017" class="Symbol">(λ</a> <a id="1020" href="TheAxiomOfChoice.html#1020" class="Bound">g</a> <a id="1022" class="Symbol">→</a> <a id="1024" href="TheAxiomOfChoice.html#838" class="Bound">P</a> <a id="1026" href="TheAxiomOfChoice.html#880" class="Bound">b</a> <a id="1028" class="Symbol">(</a><a id="1029" href="TheAxiomOfChoice.html#1020" class="Bound">g</a> <a id="1031" href="TheAxiomOfChoice.html#880" class="Bound">b</a><a id="1032" class="Symbol">))</a> <a id="1035" href="TruncationType.html#1176" class="Function Operator">∥</a>
 </pre>
 
 
@@ -728,7 +728,7 @@ of the axiom of choice:</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-09-24"
+       data-lastchecked ="2019-10-17"
        data-originalyear =""
        data-title ="TheAxiomOfChoice"
        data-url ="http://jonaprieto.github.io/mini-hott/TheAxiomOfChoice.html"

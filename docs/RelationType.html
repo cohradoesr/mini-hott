@@ -59,7 +59,7 @@
   <body class="layout-reverse sidebar-overlay">
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
@@ -669,23 +669,23 @@
 
   <div class="hide">
   <pre class="Agda">
-<a id="178" class="Symbol">{-#</a> <a id="182" class="Keyword">OPTIONS</a> <a id="190" class="Pragma">--without-K</a> <a id="202" class="Symbol">#-}</a>
-<a id="206" class="Keyword">open</a> <a id="211" class="Keyword">import</a> <a id="218" href="TransportLemmas.html" class="Module">TransportLemmas</a>
-<a id="234" class="Keyword">open</a> <a id="239" class="Keyword">import</a> <a id="246" href="EquivalenceType.html" class="Module">EquivalenceType</a>
-<a id="262" class="Keyword">open</a> <a id="267" class="Keyword">import</a> <a id="274" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="178" class="Symbol">{-#</a> <a id="182" class="Keyword">OPTIONS</a> <a id="190" class="Pragma">--without-K</a> <a id="202" class="Pragma">--exact-split</a> <a id="216" class="Symbol">#-}</a>
+<a id="220" class="Keyword">open</a> <a id="225" class="Keyword">import</a> <a id="232" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="248" class="Keyword">open</a> <a id="253" class="Keyword">import</a> <a id="260" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+<a id="276" class="Keyword">open</a> <a id="281" class="Keyword">import</a> <a id="288" href="HLevelTypes.html" class="Module">HLevelTypes</a>
 </pre>
 </div>
 
 <h3 id="relation">Relation</h3>
 
 <pre class="Agda">
-<a id="332" class="Keyword">module</a> <a id="339" href="RelationType.html" class="Module">RelationType</a> <a id="352" class="Keyword">where</a>
+<a id="346" class="Keyword">module</a> <a id="353" href="RelationType.html" class="Module">RelationType</a> <a id="366" class="Keyword">where</a>
 
-  <a id="361" class="Keyword">record</a> <a id="Rel"></a><a id="368" href="RelationType.html#368" class="Record">Rel</a> <a id="372" class="Symbol">{</a><a id="373" href="RelationType.html#373" class="Bound">ℓ</a> <a id="375" class="Symbol">:</a> <a id="377" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="382" class="Symbol">}</a> <a id="384" class="Symbol">(</a><a id="385" href="RelationType.html#385" class="Bound">A</a> <a id="387" class="Symbol">:</a> <a id="389" href="Intro.html#2931" class="Function">Type</a> <a id="394" href="RelationType.html#373" class="Bound">ℓ</a><a id="395" class="Symbol">)</a> <a id="397" class="Symbol">:</a> <a id="399" href="Intro.html#2931" class="Function">Type</a> <a id="404" class="Symbol">(</a><a id="405" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="410" href="RelationType.html#373" class="Bound">ℓ</a><a id="411" class="Symbol">)</a> <a id="413" class="Keyword">where</a>
-    <a id="423" class="Keyword">field</a>
-      <a id="Rel.R"></a><a id="435" href="RelationType.html#435" class="Field">R</a>     <a id="441" class="Symbol">:</a> <a id="443" href="RelationType.html#385" class="Bound">A</a> <a id="445" class="Symbol">→</a> <a id="447" href="RelationType.html#385" class="Bound">A</a> <a id="449" class="Symbol">→</a> <a id="451" href="Intro.html#2931" class="Function">Type</a> <a id="456" href="RelationType.html#373" class="Bound">ℓ</a>
-      <a id="Rel.Rprop"></a><a id="464" href="RelationType.html#464" class="Field">Rprop</a> <a id="470" class="Symbol">:</a> <a id="472" class="Symbol">(</a><a id="473" href="RelationType.html#473" class="Bound">a</a> <a id="475" href="RelationType.html#475" class="Bound">b</a> <a id="477" class="Symbol">:</a> <a id="479" href="RelationType.html#385" class="Bound">A</a><a id="480" class="Symbol">)</a> <a id="482" class="Symbol">→</a> <a id="484" href="HLevelTypes.html#1205" class="Function">isProp</a> <a id="491" class="Symbol">(</a><a id="492" href="RelationType.html#435" class="Field">R</a> <a id="494" href="RelationType.html#473" class="Bound">a</a> <a id="496" href="RelationType.html#475" class="Bound">b</a><a id="497" class="Symbol">)</a>
-  <a id="501" class="Keyword">open</a> <a id="506" href="RelationType.html#368" class="Module">Rel</a> <a id="510" class="Symbol"></a> <a id="518" class="Keyword">public</a>
+  <a id="375" class="Keyword">record</a> <a id="Rel"></a><a id="382" href="RelationType.html#382" class="Record">Rel</a> <a id="386" class="Symbol">{</a><a id="387" href="RelationType.html#387" class="Bound">ℓ</a> <a id="389" class="Symbol">:</a> <a id="391" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="396" class="Symbol">}</a> <a id="398" class="Symbol">(</a><a id="399" href="RelationType.html#399" class="Bound">A</a> <a id="401" class="Symbol">:</a> <a id="403" href="Intro.html#3576" class="Function">Type</a> <a id="408" href="RelationType.html#387" class="Bound">ℓ</a><a id="409" class="Symbol">)</a> <a id="411" class="Symbol">:</a> <a id="413" href="Intro.html#3576" class="Function">Type</a> <a id="418" class="Symbol">(</a><a id="419" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="424" href="RelationType.html#387" class="Bound">ℓ</a><a id="425" class="Symbol">)</a> <a id="427" class="Keyword">where</a>
+    <a id="437" class="Keyword">field</a>
+      <a id="Rel.R"></a><a id="449" href="RelationType.html#449" class="Field">R</a>     <a id="455" class="Symbol">:</a> <a id="457" href="RelationType.html#399" class="Bound">A</a> <a id="459" class="Symbol">→</a> <a id="461" href="RelationType.html#399" class="Bound">A</a> <a id="463" class="Symbol">→</a> <a id="465" href="Intro.html#3576" class="Function">Type</a> <a id="470" href="RelationType.html#387" class="Bound">ℓ</a>
+      <a id="Rel.Rprop"></a><a id="478" href="RelationType.html#478" class="Field">Rprop</a> <a id="484" class="Symbol">:</a> <a id="486" class="Symbol">(</a><a id="487" href="RelationType.html#487" class="Bound">a</a> <a id="489" href="RelationType.html#489" class="Bound">b</a> <a id="491" class="Symbol">:</a> <a id="493" href="RelationType.html#399" class="Bound">A</a><a id="494" class="Symbol">)</a> <a id="496" class="Symbol">→</a> <a id="498" href="HLevelTypes.html#1219" class="Function">isProp</a> <a id="505" class="Symbol">(</a><a id="506" href="RelationType.html#449" class="Field">R</a> <a id="508" href="RelationType.html#487" class="Bound">a</a> <a id="510" href="RelationType.html#489" class="Bound">b</a><a id="511" class="Symbol">)</a>
+  <a id="515" class="Keyword">open</a> <a id="520" href="RelationType.html#382" class="Module">Rel</a> <a id="524" class="Symbol"></a> <a id="532" class="Keyword">public</a>
 </pre>
 
 
@@ -707,7 +707,7 @@
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-09-24"
+       data-lastchecked ="2019-10-17"
        data-originalyear =""
        data-title ="Relation Type"
        data-url ="http://jonaprieto.github.io/mini-hott/RelationType.html"

@@ -73,7 +73,7 @@ module MiniHoTT where
   open import EquivalenceReasoning public
   open import UnivalenceTransport public
 
-  open import CircleType public
+  -- open import CircleType public
   open import IntervalType public
   open import SuspensionType public
   open import TruncationType public

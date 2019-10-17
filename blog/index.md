@@ -279,7 +279,7 @@ date: "2019-09-27"
 
 {% include_relative FundamentalGroupType.md %}
 
-## Other unclassified
+## Unclassified
 
 ### Logic
 
@@ -304,10 +304,11 @@ date: "2019-09-27"
 - The main reference to develop this library is the book: *Homotopy Type Theory: Univalent Foundations of Mathematics* by The Univalent Foundations Program in 2013.
 - [Introduction to Univalent Foundations of Mathematics with Agda](https://www.cs.bham.ac.uk/~mhe/HoTT-UF-in-Agda-Lecture-Notes/) by M. Escardo is another
 important resource of which I have taken inspiration for its Agda style, mathematical insight, naming of terms and types, useful notation, and so on.
+- The Homotopy Type Theory and Univalent Foundations CAS project. [Symmetry Book](https://github.com/UniMath/SymmetryBook). Centre for Advanced Study, at the Norwegian Academy of Science and Letters, 2019.
 - [Introduction to Homotopy Type Theory](https://github.com/EgbertRijke/HoTT-Intro) by Egbert Rikje is a very nice introduction to type theory and to HoTT. It contains
 a lot of nice remarks and diagrams that has made my journey in HoTT more pleasant.
 - [Agda-premises](https://hub.darcs.net/gylterud/agda-premises) contains interesting Agda functions and types related to sigma-types and pi-types.
-- [HoTT-Agda](https://github.com/HoTT/HoTT-Agda) is may be the most well-known library for HoTT in Agda. Even though, I have not explored it completely,
+- [HoTT-Agda](https://hott.github.io/HoTT-Agda/) is may be the most well-known library for HoTT in Agda. Even though, I have not explored it completely,
 but I am planning to do so.
 - On Github I found the [Agda-HoTT](https://mroman42.github.io/ctlc/agda-hott/Total.html) library by M. Roman. I was looking for a base project to start
 the project of Mini-HoTT. Agda-HoTT is a small but nice coded library that follows (notation and types) the Book HoTT, which suited perfectly for this project.

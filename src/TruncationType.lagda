@@ -248,4 +248,9 @@ there is an element in ∥ x ≡ y ∥.
   A is-connected =
       (A is-non-empty)
     × ((x y : A) → (x is-in-the-same-component-of y))
+
+  postulate
+    is-connected-is-prop
+      : ∀ {ℓ : Level} {A : Type ℓ}
+      → isProp (A is-connected)
  \end{code}

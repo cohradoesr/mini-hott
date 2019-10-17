@@ -10,21 +10,25 @@ linkify: true
 showcitation: true
 ---
 
-Mini-HoTT is a basic [Agda](http://github.com/agda/agda) library that contains a
-few definitions and results of [Homotopy Type Theory
-(HoTT-UF)](http://homotopytypetheory.org/). This work is the attempt to develop
-Univalent mathematics in the Programming Theory Research Group at [University of
+Mini-HoTT is a basic [Agda](http://github.com/agda/agda) library that contains
+a few definitions and results of [Univalent Type Theory (also known as
+HoTT-UF)](http://homotopytypetheory.org/). It is a working in progress,
+currently maintained by Jonathan Prieto-Cubides, and supported by the
+Programming Theory Research Group (PUT) at [University of
 Bergen](https://www.uib.no/).
 
 ## Quick start
 
-The main requeriment is Agda. No other libraries are required to load this
-library. To ease its adoption, we have included synonyms and syntax sugar for
-types, lemmas, and theorems. The website is intended to be the main
-documentation. It also contains a few ilustrations that might help your
+The main requeriment is [Agda](http://github.com/agda/agda). No other
+libraries are required to load this one. To ease its adoption, we have
+included synonyms and syntax sugar for types, lemmas, and theorems. The
+website is intended to be the main documentation, and for now, it presents on
+one page the main source code, however, many files are imported to generate
+the current page. We have also include some ilustrations that might help your
 understanding. Regarding the library performance, we recommend to check out
-another option. `HoTT-Agda` is a more bigger and test Agda library for HoTT.
-Other libraries and resources can be found in [References] section.
+other options. For example, [HoTT-Agda](https://hott.github.io/HoTT-Agda/) is
+a bigger and tested Agda library for HoTT, you might want to check. Other
+libraries and resources can be found in [References] section.
 
 ### Installation
 
@@ -34,13 +38,12 @@ Other libraries and resources can be found in [References] section.
 
   - `git clone http://github.com/jonaprieto/mini-hott`
 
-- Or install the library in `~/.agda` or even better, use [agda-pkg](http://github.com/agda/agda-pkg)
-as follows:
+- Update your Agda libraries file (`~/.agda`). You can also use [agda-pkg](http://github.com/agda/agda-pkg) for that as well.
 
   - `pip install agda-pkg`
   - `apkg install mini-hott` (not indexed at the moment until it's more stable)
 
-- Use the library by including the following import at the top of your source code:
+- Once everything is set for Agda, just include the following import in your source code:
 
     - `open import MiniHoTT`
 
@@ -48,24 +51,21 @@ as follows:
 
 ### Code conventions
 
-Definitions and theorems are typed with unicode characters, this to improve
-significantly the readability. We usually present lemmas and theorems as rule
-inferences as in the following example. Level universes are now included in each
-definition, this apparently improves the time for type-checking.
+Definitions and theorems are typed with unicode characters, this, to improve
+the readability. We usually present lemmas and theorems as rule inferences as
+in the following example. We are explicit about level universes and then, you
+will find them in each definition, unless for definitions in a module.
 
 ```
 termName
-  :  ∀ {ℓ₁ ℓ₂.. : Level} {A : Type ℓ₁}   -- Implicit Assumptions
-  → (B : A → Type ℓ₂)                    -- Explicit Assumptions
-  → ...                                  -- Explicit Assumptions
+  :  ∀ {ℓ₁ ℓ₂.. : Level} {A : Type ℓ₁}   -- Implicit assumptions
+  → (B : A → Type ℓ₂)                    -- Explicit assumptions
+  → ...                                  -- More explicit essumptions
   ---------------------
   → ...                                  -- Conclusion
 ```
 
-
-On the website, we show the type for each term but some term definitions are
-hidden. However, you can expand them by clicking on the code boxes --this
-requires Javascript--.
+On the website some term definitions are hidden, however, you can expand them by clicking on the code boxes (on the top-right icon) -- this requires Javascript--.
 
 ```
 termName = definition
@@ -138,4 +138,4 @@ record
 open ↑ public
 \end{code}
 
-We prove later a type and one of its lifted type version are *equivalent* types.
+A type and lifted types of it are *equivalent* types.

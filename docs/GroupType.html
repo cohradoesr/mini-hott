@@ -59,7 +59,7 @@
   <body class="layout-reverse sidebar-overlay">
     <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
      styles, `#sidebar-checkbox` for behavior. -->
-<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox" checked>
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
 
 <!-- Toggleable sidebar -->
 <div class="sidebar" id="sidebar">
@@ -669,23 +669,23 @@
 
   <div class="hide">
   <pre class="Agda">
-<a id="174" class="Symbol">{-#</a> <a id="178" class="Keyword">OPTIONS</a> <a id="186" class="Pragma">--without-K</a> <a id="198" class="Symbol">#-}</a>
-<a id="202" class="Keyword">open</a> <a id="207" class="Keyword">import</a> <a id="214" href="TransportLemmas.html" class="Module">TransportLemmas</a>
-<a id="230" class="Keyword">open</a> <a id="235" class="Keyword">import</a> <a id="242" href="EquivalenceType.html" class="Module">EquivalenceType</a>
+<a id="174" class="Symbol">{-#</a> <a id="178" class="Keyword">OPTIONS</a> <a id="186" class="Pragma">--without-K</a> <a id="198" class="Pragma">--exact-split</a> <a id="212" class="Symbol">#-}</a>
+<a id="216" class="Keyword">open</a> <a id="221" class="Keyword">import</a> <a id="228" href="TransportLemmas.html" class="Module">TransportLemmas</a>
+<a id="244" class="Keyword">open</a> <a id="249" class="Keyword">import</a> <a id="256" href="EquivalenceType.html" class="Module">EquivalenceType</a>
 
-<a id="259" class="Keyword">open</a> <a id="264" class="Keyword">import</a> <a id="271" href="HomotopyType.html" class="Module">HomotopyType</a>
-<a id="284" class="Keyword">open</a> <a id="289" class="Keyword">import</a> <a id="296" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
-<a id="308" class="Keyword">open</a> <a id="313" class="Keyword">import</a> <a id="320" href="HLevelTypes.html" class="Module">HLevelTypes</a>
-<a id="332" class="Keyword">open</a> <a id="337" class="Keyword">import</a> <a id="344" href="MonoidType.html" class="Module">MonoidType</a>
+<a id="273" class="Keyword">open</a> <a id="278" class="Keyword">import</a> <a id="285" href="HomotopyType.html" class="Module">HomotopyType</a>
+<a id="298" class="Keyword">open</a> <a id="303" class="Keyword">import</a> <a id="310" href="FunExtAxiom.html" class="Module">FunExtAxiom</a>
+<a id="322" class="Keyword">open</a> <a id="327" class="Keyword">import</a> <a id="334" href="HLevelTypes.html" class="Module">HLevelTypes</a>
+<a id="346" class="Keyword">open</a> <a id="351" class="Keyword">import</a> <a id="358" href="MonoidType.html" class="Module">MonoidType</a>
 </pre>
 </div>
 
 <h3 id="groups">Groups</h3>
 
 <pre class="Agda">
-<a id="399" class="Keyword">module</a>
-  <a id="408" href="GroupType.html" class="Module">GroupType</a>
-    <a id="422" class="Keyword">where</a>
+<a id="413" class="Keyword">module</a>
+  <a id="422" href="GroupType.html" class="Module">GroupType</a>
+    <a id="436" class="Keyword">where</a>
 </pre>
 
 <p>A group $G$ is a monoid with something else, <em>inverses</em> for each element.
@@ -699,17 +699,17 @@ This means, there is a function $\mathsf{inverse} : G → G$ such that:</p>
 monoid. This is the following type for groups:</p>
 
 <pre class="Agda">
-  <a id="Group"></a><a id="820" href="GroupType.html#820" class="Function">Group</a>
-    <a id="830" class="Symbol">:</a> <a id="832" class="Symbol">∀</a> <a id="834" class="Symbol">{</a><a id="835" href="GroupType.html#835" class="Bound">ℓ</a> <a id="837" class="Symbol">:</a> <a id="839" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="844" class="Symbol">}</a> <a id="846" class="Symbol">→</a> <a id="848" href="Intro.html#2931" class="Function">Type</a> <a id="853" class="Symbol">(</a><a id="854" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="859" href="GroupType.html#835" class="Bound">ℓ</a><a id="860" class="Symbol">)</a>
+  <a id="Group"></a><a id="834" href="GroupType.html#834" class="Function">Group</a>
+    <a id="844" class="Symbol">:</a> <a id="846" class="Symbol">∀</a> <a id="848" class="Symbol">{</a><a id="849" href="GroupType.html#849" class="Bound">ℓ</a> <a id="851" class="Symbol">:</a> <a id="853" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="858" class="Symbol">}</a> <a id="860" class="Symbol">→</a> <a id="862" href="Intro.html#3576" class="Function">Type</a> <a id="867" class="Symbol">(</a><a id="868" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="873" href="GroupType.html#849" class="Bound">ℓ</a><a id="874" class="Symbol">)</a>
 
-  <a id="865" href="GroupType.html#820" class="Function">Group</a>
-    <a id="875" class="Symbol">=</a> <a id="877" href="BasicTypes.html#1555" class="Record">∑</a> <a id="879" class="Symbol">(</a><a id="880" href="MonoidType.html#872" class="Record">Monoid</a><a id="886" class="Symbol">)</a> <a id="888" class="Symbol">(λ</a> <a id="891" class="Symbol">{(</a><a id="893" href="MonoidType.html#941" class="InductiveConstructor">monoid</a> <a id="900" href="GroupType.html#900" class="Bound">G</a> <a id="902" href="GroupType.html#902" class="Bound">e</a> <a id="904" href="GroupType.html#904" class="Bound Operator">_&lt;&gt;_</a> <a id="909" href="GroupType.html#909" class="Bound">GisSet</a> <a id="916" href="GroupType.html#916" class="Bound">lunit</a> <a id="922" href="GroupType.html#922" class="Bound">runit</a> <a id="928" href="GroupType.html#928" class="Bound">assoc</a><a id="933" class="Symbol">)</a>
-      <a id="941" class="Symbol">→</a> <a id="943" href="BasicTypes.html#1555" class="Record">∑</a> <a id="945" class="Symbol">(</a><a id="946" href="GroupType.html#900" class="Bound">G</a> <a id="948" class="Symbol">→</a> <a id="950" href="GroupType.html#900" class="Bound">G</a><a id="951" class="Symbol">)</a> <a id="953" class="Symbol">(λ</a> <a id="956" href="GroupType.html#956" class="Bound">inverse</a> <a id="964" class="Symbol">→</a>
-        <a id="974" href="BasicTypes.html#2130" class="Function">∏</a> <a id="976" href="GroupType.html#900" class="Bound">G</a> <a id="978" class="Symbol">(λ</a> <a id="981" href="GroupType.html#981" class="Bound">x</a> <a id="983" class="Symbol">→</a>
-          <a id="995" class="Comment">-- properties:</a>
-          <a id="1020" class="Symbol">(</a>   <a id="1024" class="Symbol">(</a><a id="1025" href="GroupType.html#981" class="Bound">x</a> <a id="1027" href="GroupType.html#904" class="Bound Operator">&lt;&gt;</a> <a id="1030" href="GroupType.html#956" class="Bound">inverse</a> <a id="1038" href="GroupType.html#981" class="Bound">x</a><a id="1039" class="Symbol">)</a> <a id="1041" href="BasicTypes.html#6462" class="Datatype Operator">==</a> <a id="1044" href="GroupType.html#902" class="Bound">e</a><a id="1045" class="Symbol">)</a>
-          <a id="1057" href="BasicTypes.html#2247" class="Function Operator">×</a> <a id="1059" class="Symbol">(</a> <a id="1061" class="Symbol">(</a><a id="1062" href="GroupType.html#956" class="Bound">inverse</a> <a id="1070" href="GroupType.html#981" class="Bound">x</a> <a id="1072" href="GroupType.html#904" class="Bound Operator">&lt;&gt;</a> <a id="1075" href="GroupType.html#981" class="Bound">x</a><a id="1076" class="Symbol">)</a> <a id="1078" href="BasicTypes.html#6462" class="Datatype Operator">==</a> <a id="1081" href="GroupType.html#902" class="Bound">e</a> <a id="1083" class="Symbol">))</a>
-          <a id="1096" class="Symbol">)})</a>
+  <a id="879" href="GroupType.html#834" class="Function">Group</a>
+    <a id="889" class="Symbol">=</a> <a id="891" href="BasicTypes.html#1575" class="Record">∑</a> <a id="893" class="Symbol">(</a><a id="894" href="MonoidType.html#887" class="Record">Monoid</a><a id="900" class="Symbol">)</a> <a id="902" class="Symbol">(λ</a> <a id="905" class="Symbol">{(</a><a id="907" href="MonoidType.html#956" class="InductiveConstructor">monoid</a> <a id="914" href="GroupType.html#914" class="Bound">G</a> <a id="916" href="GroupType.html#916" class="Bound">e</a> <a id="918" href="GroupType.html#918" class="Bound Operator">_&lt;&gt;_</a> <a id="923" href="GroupType.html#923" class="Bound">GisSet</a> <a id="930" href="GroupType.html#930" class="Bound">lunit</a> <a id="936" href="GroupType.html#936" class="Bound">runit</a> <a id="942" href="GroupType.html#942" class="Bound">assoc</a><a id="947" class="Symbol">)</a>
+      <a id="955" class="Symbol">→</a> <a id="957" href="BasicTypes.html#1575" class="Record">∑</a> <a id="959" class="Symbol">(</a><a id="960" href="GroupType.html#914" class="Bound">G</a> <a id="962" class="Symbol">→</a> <a id="964" href="GroupType.html#914" class="Bound">G</a><a id="965" class="Symbol">)</a> <a id="967" class="Symbol">(λ</a> <a id="970" href="GroupType.html#970" class="Bound">inverse</a> <a id="978" class="Symbol">→</a>
+        <a id="988" href="BasicTypes.html#2150" class="Function">∏</a> <a id="990" href="GroupType.html#914" class="Bound">G</a> <a id="992" class="Symbol">(λ</a> <a id="995" href="GroupType.html#995" class="Bound">x</a> <a id="997" class="Symbol">→</a>
+          <a id="1009" class="Comment">-- properties:</a>
+          <a id="1034" class="Symbol">(</a>   <a id="1038" class="Symbol">(</a><a id="1039" href="GroupType.html#995" class="Bound">x</a> <a id="1041" href="GroupType.html#918" class="Bound Operator">&lt;&gt;</a> <a id="1044" href="GroupType.html#970" class="Bound">inverse</a> <a id="1052" href="GroupType.html#995" class="Bound">x</a><a id="1053" class="Symbol">)</a> <a id="1055" href="BasicTypes.html#6489" class="Datatype Operator">==</a> <a id="1058" href="GroupType.html#916" class="Bound">e</a><a id="1059" class="Symbol">)</a>
+          <a id="1071" href="BasicTypes.html#2267" class="Function Operator">×</a> <a id="1073" class="Symbol">(</a> <a id="1075" class="Symbol">(</a><a id="1076" href="GroupType.html#970" class="Bound">inverse</a> <a id="1084" href="GroupType.html#995" class="Bound">x</a> <a id="1086" href="GroupType.html#918" class="Bound Operator">&lt;&gt;</a> <a id="1089" href="GroupType.html#995" class="Bound">x</a><a id="1090" class="Symbol">)</a> <a id="1092" href="BasicTypes.html#6489" class="Datatype Operator">==</a> <a id="1095" href="GroupType.html#916" class="Bound">e</a> <a id="1097" class="Symbol">))</a>
+          <a id="1110" class="Symbol">)})</a>
 </pre>
 
 
@@ -731,7 +731,7 @@ monoid. This is the following type for groups:</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-09-24"
+       data-lastchecked ="2019-10-17"
        data-originalyear =""
        data-title ="Group Type"
        data-url ="http://jonaprieto.github.io/mini-hott/GroupType.html"

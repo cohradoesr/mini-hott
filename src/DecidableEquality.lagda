@@ -40,6 +40,14 @@ module DecidableEquality where
   decEq A = (a b : A) → (a == b) + ¬ (a == b)
 \end{code}
 
+and a more convenient name for this:
+
+\begin{code}
+  _is-decidable
+    : ∀ {ℓ : Level} → (A : Type ℓ) → Type ℓ
+  A is-decidable = decEq A
+\end{code}
+
 The product of types with decidable equality is a type with
 decidable equality.
 
