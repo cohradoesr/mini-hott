@@ -52,6 +52,7 @@ Synonym:
 Contractible = isContr
 is-singleton = isContr
 isSingleton  = isContr
+_is-contr    = isContr
 \end{code}
 
 If a type is contractible, any of its points is a center of contraction:
@@ -81,7 +82,7 @@ Synonyms:
 \begin{code}
 is-subsingleton = isProp
 isSubsingleton  = isProp
-is-prop         = isProp
+_is-prop         = isProp
 \end{code}
 
 Let's stop a bit. So, these propositios, also named "mere" propositions
@@ -152,7 +153,7 @@ isSet A = (x y : A) → isProp (x == y)
 Synonyms:
 
 \begin{code}
-is-set = isSet
+_is-set = isSet
 \end{code}
 
 The type of sets
@@ -176,7 +177,7 @@ isGroupoid A  = (a₀ a₁ : A) → isSet (a₀ ≡ a₁)
 Synonyms:
 
 \begin{code}
-is-groupoid = isGroupoid
+_is-groupoid = isGroupoid
 \end{code}
 
 \begin{code}

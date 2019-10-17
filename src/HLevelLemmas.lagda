@@ -930,3 +930,16 @@ set-is-groupoid
 
 set-is-groupoid A-is-set a b = prop-is-set (A-is-set a b)
 \end{code}
+
+Postulated by now, see them in HoTT-Agda:
+
+\begin{code}
+module _ {ℓ : Level}(A : Type ℓ) where
+  postulate
+    contr-is-set : isContr A → isSet A
+    ≡-preserves-prop : {x y : A} → (A is-prop → (x ≡ y) is-prop )
+    ≡-preserves-set : {x y : A} → (A is-set → (x ≡ y) is-set)
+    pathto-is-contr : (x : A) → (Σ A (λ t → t == x) is-contr)
+    pathfrom-is-contr : (x : A) → (Σ A (λ t → x == t) is-contr)
+    contr-has-section : ∀ {j} {B : A → Type j} → (A is-contr → (x : A) → (u : B x) → Π A B)
+\end{code}
