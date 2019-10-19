@@ -103,6 +103,21 @@ hProp
 hProp ℓ = ∑ (Type ℓ) isProp
 \end{code}
 
+In practice, we might want to say a type holds certain property and then
+we can use the convenient following predicate.
+
+
+\begin{code}
+_has-property_
+  : ∀ {ℓ : Level}
+  → (A : Type ℓ)
+  → (P : Type ℓ → hProp ℓ)
+  → Type ℓ
+
+A has-property P = π₁ (P A)
+
+_holds-property = _has-property_
+\end{code}
 
 Now with (homotopy) propositional, we can consider the notion of subtype,
 which is, just the ∑-type about the collection of terms that holds some given property,
