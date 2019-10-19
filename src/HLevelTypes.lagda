@@ -119,6 +119,27 @@ A has-property P = π₁ (P A)
 _holds-property = _has-property_
 \end{code}
 
+Additionally, we may need to say, more explicity that two type share any property
+whenever they are equivalent. Recall, these types do not need to be in the same universe,
+however, for simplicity and to avoid dealing with lifting types, we'll assume they live in the
+same universe. Also, we require a path, instead of the equivalence because at this point,
+we have not define yet its type.
+
+\begin{code}
+_has-all-properties-of_because-of-≡_
+    : ∀ {ℓ : Level}
+    → (A : Type ℓ)
+    → (B : Type ℓ)
+    → A ≡ B
+    -------------------------------------
+    → (P : Type ℓ → hProp ℓ)
+    → B has-property P → A has-property P
+
+A has-all-properties-of B because-of-≡ path
+  = λ P BholdsP → tr (_has-property P) (! path) BholdsP
+  where open import Transport
+\end{code}
+
 Now with (homotopy) propositional, we can consider the notion of subtype,
 which is, just the ∑-type about the collection of terms that holds some given property,
 we can use the following type `sub-type` for a proposition $P : A → U$ for some type $A$.
