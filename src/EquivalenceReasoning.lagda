@@ -97,7 +97,7 @@ module EquivalenceReasoning where
      --------------------------------------
      →           e1 ≡ e3 :> (e2 ∙←)
 
-   2-3-property
+   2-out-of-3-property
     : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
     → (e1 : A → C) → (e2 : A ≃ B) → (e3 : B ≃ C)
     → e1 ≡ (e2 ∙) :> (e3 ∙)
