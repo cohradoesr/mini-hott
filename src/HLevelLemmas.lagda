@@ -950,8 +950,15 @@ module _ {ℓ : Level}(A : Type ℓ) where
 
   ≡-preserves-prop {x}{y} A-is-prop = prop-is-set A-is-prop x y
 
+  ≡-preserves-set
+    : {x y : A}
+    → (A is-set
+    -----------------
+    → (x ≡ y) is-set)
+
+  ≡-preserves-set {x}{y} A-is-set = set-is-groupoid A-is-set x y
+
   postulate
-    ≡-preserves-set : {x y : A} → (A is-set → (x ≡ y) is-set)
     pathto-is-contr : (x : A) → (Σ A (λ t → t ≡ x) is-contr)
     pathfrom-is-contr : (x : A) → (Σ A (λ t → x ≡ t) is-contr)
     contr-has-section : ∀ {j} {B : A → Type j} → (A is-contr → (x : A) → (u : B x) → Π A B)
