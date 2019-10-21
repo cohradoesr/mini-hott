@@ -373,7 +373,7 @@ In HoTT, we have a different interpretation of type theory in which the
 set-theoretical notion of *sets* for *types* is replaced by the topological
 notion of *spaces*.
 
-![higher-structure-type]({{ site.baseurl }}/assets/images/higher-structure-type.png){: width="50%" align="right" }
+![higherstructuretype]({{ site.baseurl }}/assets/images/higher-structure-type.png){: width="50%" align="right" }
 
 The (homogeneous) equality type also called identity type is considered a primary type
 (included in the theory by default). To form this type, we fix a type `A` and a
@@ -389,16 +389,18 @@ data
   idp : a == a
 \end{code}
 
+Synonyms for the identity type:
+
 \begin{code}
--- synonyms for the identity type
 Eq   = _==_
 Id   = _==_
 Path = _==_
 _⇝_  = _==_   -- '\r~'
 _≡_  = _==_   -- '\equiv' (may be not good idea...)
+\end{code}
 
+\begin{code}
 infix 30 _==_ _⇝_ _≡_
-
 {-# BUILTIN EQUALITY _==_  #-}
 \end{code}
 
@@ -406,7 +408,7 @@ infix 30 _==_ _⇝_ _≡_
 refl
   : ∀ {ℓ : Level} {A : Type ℓ}
   → (a : A)
-  -----------------
+  ---------
   → a == a
 
 refl  a = idp

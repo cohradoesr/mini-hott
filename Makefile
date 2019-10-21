@@ -69,7 +69,6 @@ blog/assets/images/%.png : images/%.png
 	- cp $< $@
 
 images/%.png : images/%.ipe
-	- @mkdir -p images/png
 	- iperender -png -resolution 400 $< $@
 
 docs-install:
