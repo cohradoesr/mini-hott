@@ -12,7 +12,7 @@ showcitation: true
 
 <div class="hide" >
 \begin{code}
-{-# OPTIONS --without-K --exact-split #-}
+{-# OPTIONS --without-K --exact-split  --rewriting #-}
 open import TransportLemmas
 open import EquivalenceType
 
@@ -30,70 +30,105 @@ The circle type is constructed by postulating a type with
 a single element (base) and a nontrivial path (loop).
 
 \begin{code}
-module CircleType where
+module CircleType {ℓ : Level} where
+  open import HigherInductiveTypes
 \end{code}
 
 \begin{code}
-  private
-    data !S¹ : Type₀ where
-      !base : !S¹
-
-  S¹ : Type₀
-  S¹ = !S¹
-
-  base : S¹
-  base = !base
-
   postulate
-    loop : base == base
+    S¹ : Type ℓ
+    base : S¹
+    loop : base ≡ base
 \end{code}
 
 Recursion principle on points
-{: .foldable until="6" }
-\begin{code}
-  S¹-rec
-    : ∀ {ℓ : Level} (A : Type ℓ)
-    → (a : A)
-    → (p : a == a)
-    --------------
-    → (S¹ → A)
 
-  S¹-rec A a p !base = a
+\begin{code}
+  postulate
+    S¹-rec
+      : ∀ {ℓ : Level}
+      → (A : Type ℓ)
+      → (a : A)
+      → (p : a ≡ a)
+      --------------
+      → (S¹ → A)
 \end{code}
 
 Recursion principle on paths
-{: .foldable until="7" }
+
 \begin{code}
   postulate
-    S¹-βrec
-      : ∀ {ℓ : Level} (A : Type ℓ)
+    S¹-βrec-base
+      : ∀ {ℓ : Level}
+      → (A : Type ℓ)
       → (a : A)
-      → (p : a == a)
+      → (p : a ≡ a)
       ------------------------------
-      → ap (S¹-rec A a p) loop == p
+      → S¹-rec A a p base ↦ a
+
+  {-# REWRITE S¹-βrec-base #-}
+\end{code}
+
+\begin{code}
+  postulate
+    S¹-βrec-loop
+      : ∀ {ℓ : Level}
+      → (A : Type ℓ)
+      → (a : A)
+      → (p : a ≡ a)
+      ------------------------------
+      → ap (S¹-rec A a p) loop ↦ p
+
+  {-# REWRITE S¹-βrec-loop #-}
 \end{code}
 
 Induction principle on points
-{: .foldable until="6" }
-\begin{code}
-  S¹-ind
-    : ∀ {ℓ : Level}(P : S¹ → Type ℓ)
-    → (x : P base)
-    → (x == x [ P ↓ loop ])
-    --------------------------
-    → ((t : S¹) → P t)
 
-  S¹-ind P x p !base = x
+\begin{code}
+  postulate
+    S¹-ind
+      : ∀ {ℓ : Level}
+      → {P : S¹ → Type ℓ}
+      → (x : P base)
+      → (x == x [ P ↓ loop ])
+      -----------------------
+      → ((t : S¹) → P t)
+\end{code}
+
+\begin{code}
+  postulate
+    S¹-βind-base
+      : ∀ {ℓ : Level}
+      → {P : S¹ → Type ℓ}
+      → (x : P base)
+      → (p : x == x [ P ↓ loop ])
+      ---------------------------
+      → S¹-ind x p base ↦ x
+
+  {-# REWRITE S¹-βind-base #-}
 \end{code}
 
 Induction principle on paths
-{: .foldable until="7" }
+
 \begin{code}
   postulate
-    S¹-βind
-      : ∀ {ℓ : Level} (P : S¹ → Type ℓ)
+    S¹-βind-loop
+      :  ∀ {ℓ : Level}
+      → {P : S¹ → Type ℓ}
       → (x : P base)
       → (p : x == x [ P ↓ loop ])
-      -------------------------------
-      → apd (S¹-ind P x p) loop == p
+      → apd (S¹-ind x p) loop ↦ p
+
+  {-# REWRITE S¹-βind-loop #-}
+\end{code}
+
+\begin{code}
+  this-proofs-rewriting
+      :  ∀ {ℓ : Level}
+      → {P : S¹ → Type ℓ}
+      → (x : P base)
+      → (p : x == x [ P ↓ loop ])
+      → apd (S¹-ind x p) loop ≡ p
+
+  this-proofs-rewriting _ _ = idp
 \end{code}

@@ -14,6 +14,8 @@ date: "2019-09-27"
 
 # MiniHoTT Library
 
+Last update: {{site.time}}.
+
 <div class="only-website">
 [Intro.lagda]({% link Intro.md %})
 </div>
@@ -220,6 +222,9 @@ date: "2019-09-27"
 
 
 ## Higher inductive types
+
+[HigherInductiveTypes.lagda]({% link HigherInductiveTypes.md %})
+
 
 [CircleType.lagda]({% link CircleType.md %})
 

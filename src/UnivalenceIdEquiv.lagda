@@ -11,7 +11,7 @@ linkify: true
 showcitation: true
 ---
 
-#### Univalence Lemma for id Equivalence
+## Univalence Lemma for Identity equivalence
 
 {: .hide}
 \begin{code}

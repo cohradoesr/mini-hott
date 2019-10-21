@@ -12,7 +12,7 @@ showcitation: true
 
 <div class="hide" >
 \begin{code}
-{-# OPTIONS --without-K --exact-split #-}
+{-# OPTIONS --without-K --exact-split --rewriting #-}
 open import TransportLemmas
 open import EquivalenceType
 
