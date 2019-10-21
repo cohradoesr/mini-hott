@@ -548,12 +548,12 @@ from the equivalence and some path algebra. Not happy with this but it works.
     : ∀ {ℓ} {A B : Type ℓ}
     → (α : A ≃ B)
     -----------------------------
-    → ≃-trans α (≃-flip α) == A≃A
+    → ≃-trans α (≃-flip α) ≡ A≃A
 
   ≃-trans-inv α = sameEqv (
     begin
       π₁ (≃-trans α (≃-sym α)) ==⟨ refl _ ⟩
-      π₁ (≃-sym α) ∘ π₁ α     ==⟨ funext (rlmap-inverse-h α) ⟩
+      π₁ (≃-sym α) ∘ π₁ α      ==⟨ funext (rlmap-inverse-h α) ⟩
       id
     ∎)
 \end{code}
@@ -613,7 +613,7 @@ Equivalence of propositions is the same logical equivalence.
 
   isProp-Σ = ∑-prop
   isProp-∑ = ∑-prop
-  Σ-prop = ∑-prop
+  Σ-prop   = ∑-prop
 \end{code}
 
 {: .foldable until="5" }
@@ -638,7 +638,7 @@ Equivalence of propositions is the same logical equivalence.
   Π-set = pi-is-set
 \end{code}
 
-The following was a custom version useful to deal with functions
+The following is a custom version useful to deal with functions
 with implicit parameters.
 
 {: .foldable until="5" }
@@ -830,26 +830,29 @@ type family that maps 𝟘₂ to A and consequently, 𝟙₂ maps to B.
 
 \begin{code}
 P𝟚-to-A+B
-  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+  : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}
+  → (A : Type ℓ₁)(B : Type ℓ₂)
+  -----------------------
   → 𝟚 ℓ₃ → Type (ℓ₁ ⊔ ℓ₂)
-P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ₂ A ; 𝟙₂ → ↑ ℓ₁ B}
+
+P𝟚-to-A+B A B = λ { 𝟘₂ → ↑ (level-of B) A ; 𝟙₂ → ↑ (level-of A) B}
 \end{code}
 
 {: .foldable until="3" }
 \begin{code}
 +-≃-∑
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
-  → A + B ≃ ∑ (𝟚 ℓ₃) (P𝟚-to-A+B {A = A}{B})
+  → A + B ≃ ∑ (𝟚 ℓ₃) (P𝟚-to-A+B A B)
 
 +-≃-∑ {ℓ₁}{ℓ₂}{ℓ₃}{A}{B} = quasiinverse-to-≃ f (g
   , (λ { (𝟘₂ , Lift lower₁) → idp ; (𝟙₂ , Lift lower₁) → idp})
   , λ { (inl x) → idp ; (inr x) → idp})
   where
-  f : A + B → ∑ (𝟚 ℓ₃) (P𝟚-to-A+B {A = A}{B})
+  f : A + B → ∑ (𝟚 ℓ₃) (P𝟚-to-A+B A B)
   f (inl x) = 𝟘₂ , Lift x
   f (inr x) = 𝟙₂ , Lift x
 
-  g : A + B ← ∑ (𝟚 ℓ₃) (P𝟚-to-A+B {A = A}{B})
+  g : A + B ← ∑ (𝟚 ℓ₃) (P𝟚-to-A+B A B)
   g (𝟘₂ , Lift a) = inl a
   g (𝟙₂ , Lift b) = inr b
 \end{code}
@@ -867,10 +870,10 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
     (∑-set 𝟚-is-set λ { 𝟘₂ → fact₁ ; 𝟙₂ → fact₂})
   where
   open import BasicEquivalences
-  fact₁ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂}{A = A}{B} 𝟘₂)
+  fact₁ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂} A B 𝟘₂)
   fact₁ = ≃-with-a-set-is-set (lifting-equivalence A) iA
 
-  fact₂ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂}{A = A}{B} 𝟙₂)
+  fact₂ : isSet (P𝟚-to-A+B {ℓ₃ = ℓ₂} A B 𝟙₂)
   fact₂ = ≃-with-a-set-is-set (lifting-equivalence B) iB
 \end{code}
 
@@ -882,13 +885,13 @@ module _ {ℓ : Level} where
 
 {: .foldable until="4" }
 \begin{code}
-  ⟦n⟧-is-set
+  ⟦⟧-is-set
     : ∀ {n : ℕ}
     ---------------
     → isSet (⟦ n ⟧)
 
-  ⟦n⟧-is-set {zr} = 𝟘-is-set
-  ⟦n⟧-is-set {succ n} = +-of-sets-is-set 𝟙-is-set ⟦n⟧-is-set
+  ⟦⟧-is-set {zr} = 𝟘-is-set
+  ⟦⟧-is-set {succ n} = +-of-sets-is-set 𝟙-is-set ⟦⟧-is-set
 \end{code}
 
 {: .foldable until="6" }

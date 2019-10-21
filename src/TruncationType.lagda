@@ -139,22 +139,19 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)
 \end{code}
 
 \begin{code}
-  ∥∥-is-a-prop = truncated-is-prop
+  ∥∥-is-prop    = truncated-is-prop
+  trunc-is-prop = truncated-is-prop
 \end{code}
 
 {: .foldable until="5"}
 \begin{code}
-  prop-≃-truncated
+  trunc-≃-prop
     : ∀ {ℓ : Level} {A : Type ℓ}
-    → isProp A
+    → A is-prop
     -----------
     → ∥ A ∥ ≃ A
 
-  prop-≃-truncated pA = lemma333 trunc pA (trunc-rec pA id) ∣_∣
-\end{code}
-
-\begin{code}
-  trunc-≃ = prop-≃-truncated
+  trunc-≃-prop pA = lemma333 trunc pA (trunc-rec pA id) ∣_∣
 \end{code}
 
 A relation between double implication and the truncation of a type:
@@ -215,6 +212,14 @@ In this case, we have an element of $∥A∥$
   infixl 100 _is-non-empty
 \end{code}
 
+\begin{code}
+  is-non-empty-is-prop
+    : ∀ {ℓ : Level}{A : Type ℓ}
+    → isProp (A is-non-empty)
+
+  is-non-empty-is-prop = ∥∥-is-prop
+\end{code}
+
 For any type $A$ and a term $a : A$, we shall say the connected commponent of $a$
 is all the terms in $A$ "connected" with $a$.
 
@@ -248,9 +253,17 @@ there is an element in ∥ x ≡ y ∥.
   A is-connected =
       (A is-non-empty)
     × ((x y : A) → (x is-in-the-same-component-of y))
+\end{code}
 
-  postulate
-    is-connected-is-prop
-      : ∀ {ℓ : Level} {A : Type ℓ}
-      → isProp (A is-connected)
+{: .foldable until="4"}
+\begin{code}
+  is-connected-is-prop
+    : ∀ {ℓ : Level} {A : Type ℓ}
+    ---------------------------
+    → isProp (A is-connected)
+
+  is-connected-is-prop =
+    ×-is-prop
+      is-non-empty-is-prop
+      (pi-is-prop (λ x → pi-is-prop λ y → trunc-is-prop))
  \end{code}

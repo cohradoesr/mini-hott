@@ -14,9 +14,6 @@ showcitation: true
 
 {-# OPTIONS --without-K --exact-split #-}
 
--- I should remove this someday, nowadays I'm using to develop faster.
-{-# OPTIONS --allow-unsolved-metas #-}
-
 module MiniHoTT where
 
   open import Intro public
@@ -73,7 +70,7 @@ module MiniHoTT where
   open import EquivalenceReasoning public
   open import UnivalenceTransport public
 
-  -- open import CircleType public
+  open import CircleType public
   open import IntervalType public
   open import SuspensionType public
   open import TruncationType public
