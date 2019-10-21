@@ -63,6 +63,7 @@ Contractible types are Propositions:
 
   -- Synonyms
   isContr→isProp = contrIsProp
+  contr-is-prop  = contrIsProp
 \end{code}
 
 To be contractible is itself a proposition.
@@ -936,7 +937,9 @@ Postulated by now, see them in HoTT-Agda:
 \begin{code}
 module _ {ℓ : Level}(A : Type ℓ) where
 
-    contr-is-set : isContr A → isSet A
+  contr-is-set : isContr A → isSet A
+  contr-is-set A-is-contr = prop-is-set (contr-is-prop A-is-contr)
+
   postulate
     ≡-preserves-prop : {x y : A} → (A is-prop → (x ≡ y) is-prop )
     ≡-preserves-set : {x y : A} → (A is-set → (x ≡ y) is-set)
