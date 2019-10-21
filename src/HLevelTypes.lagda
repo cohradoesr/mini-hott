@@ -58,12 +58,13 @@ _is-contr    = isContr
 If a type is contractible, any of its points is a center of contraction:
 
 \begin{code}
-allAreCenter
+contr-connects
   : ∀ {ℓ : Level} {A : Type ℓ}
-  → (c₁ : A) → (f : (x : A) → c₁ == x)
-  → (∀ (c₂ : A) → (∀ (x : A) → c₂ == x))
+  → A is-contr
+  ----------------------
+  → (a a' : A) → a ≡ a'
 
-allAreCenter c₁ f c₂ x = sym (f c₂) · (f x)
+contr-connects (c₁ , f) c₂ x = ! (f c₂) · (f x)
 \end{code}
 
 ### Propositions

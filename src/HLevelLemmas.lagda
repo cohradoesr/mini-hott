@@ -995,6 +995,16 @@ In a type $A$, fixing an endpoint $x$ makes contractible the sygma type of its p
 
 \begin{code}
   ∑x≡-contr = pathfrom-is-contr
-  postulate
-    contr-has-section : ∀ {j} {B : A → Type j} → (A is-contr → (x : A) → (u : B x) → Π A B)
+\end{code}
+
+Being contractible give you a sections
+{: .foldable until="4"}
+\begin{code}
+  contr-has-section
+    : ∀ {ℓ₂ : Level} {B : A → Type ℓ₂}
+    → A is-contr → (a : A)
+    ----------------------
+    → (u : B a) → Π A B
+
+  contr-has-section {B = B} A-is-contr a u = λ a' → tr B (contr-connects A-is-contr a a') u
 \end{code}
