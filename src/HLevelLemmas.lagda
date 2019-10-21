@@ -937,11 +937,20 @@ Postulated by now, see them in HoTT-Agda:
 \begin{code}
 module _ {ℓ : Level}(A : Type ℓ) where
 
-  contr-is-set : isContr A → isSet A
+  contr-is-set
+    : A is-contr → A is-set
+
   contr-is-set A-is-contr = prop-is-set (contr-is-prop A-is-contr)
 
+  ≡-preserves-prop
+    : ∀ {x y : A}
+    → A is-prop
+    ------------------
+    → (x ≡ y) is-prop
+
+  ≡-preserves-prop {x}{y} A-is-prop = prop-is-set A-is-prop x y
+
   postulate
-    ≡-preserves-prop : {x y : A} → (A is-prop → (x ≡ y) is-prop )
     ≡-preserves-set : {x y : A} → (A is-set → (x ≡ y) is-set)
     pathto-is-contr : (x : A) → (Σ A (λ t → t ≡ x) is-contr)
     pathfrom-is-contr : (x : A) → (Σ A (λ t → x ≡ t) is-contr)
