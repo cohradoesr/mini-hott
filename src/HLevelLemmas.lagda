@@ -932,16 +932,22 @@ set-is-groupoid
 set-is-groupoid A-is-set a b = prop-is-set (A-is-set a b)
 \end{code}
 
-Postulated by now, see them in HoTT-Agda:
+See the following lemmas in HoTT-Agda, provable here as well:
 
 \begin{code}
 module _ {ℓ : Level}(A : Type ℓ) where
+\end{code}
 
+{: .foldable until="2"}
+\begin{code}
   contr-is-set
     : A is-contr → A is-set
 
   contr-is-set A-is-contr = prop-is-set (contr-is-prop A-is-contr)
+\end{code}
 
+{: .foldable until="5"}
+\begin{code}
   ≡-preserves-prop
     : ∀ {x y : A}
     → A is-prop
@@ -949,7 +955,10 @@ module _ {ℓ : Level}(A : Type ℓ) where
     → (x ≡ y) is-prop
 
   ≡-preserves-prop {x}{y} A-is-prop = prop-is-set A-is-prop x y
+\end{code}
 
+{: .foldable until="5"}
+\begin{code}
   ≡-preserves-set
     : {x y : A}
     → (A is-set
@@ -957,9 +966,35 @@ module _ {ℓ : Level}(A : Type ℓ) where
     → (x ≡ y) is-set)
 
   ≡-preserves-set {x}{y} A-is-set = set-is-groupoid A-is-set x y
+\end{code}
 
+In a type $A$, fixing an endpoint $x$ makes contractible the sygma type of its paths ∑ (t : A) (t≡x).
+
+{: .foldable until="4"}
+\begin{code}
+  pathto-is-contr
+    : (x : A)
+    ------------------------------
+    → (Σ A (λ t → t ≡ x)) is-contr
+
+  pathto-is-contr x = (x , refl x) ,  λ {(a , idp) → idp}
+\end{code}
+
+\begin{code}
+  ∑≡x-contr = pathto-is-contr
+\end{code}
+
+{: .foldable until="4"}
+\begin{code}
+  pathfrom-is-contr
+    : (x : A)
+    → (Σ A (λ t → x ≡ t)) is-contr
+
+  pathfrom-is-contr x = (x , refl x) , λ {(a , idp) → idp}
+\end{code}
+
+\begin{code}
+  ∑x≡-contr = pathfrom-is-contr
   postulate
-    pathto-is-contr : (x : A) → (Σ A (λ t → t ≡ x) is-contr)
-    pathfrom-is-contr : (x : A) → (Σ A (λ t → x ≡ t) is-contr)
     contr-has-section : ∀ {j} {B : A → Type j} → (A is-contr → (x : A) → (u : B x) → Π A B)
 \end{code}
