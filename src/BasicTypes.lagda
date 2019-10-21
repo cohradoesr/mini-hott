@@ -373,6 +373,8 @@ In HoTT, we have a different interpretation of type theory in which the
 set-theoretical notion of *sets* for *types* is replaced by the topological
 notion of *spaces*.
 
+![higher-structure-type]({{ site.baseurl }}/assets/images/higher-structure-type.png){: width="50%" align="right" }
+
 The (homogeneous) equality type also called identity type is considered a primary type
 (included in the theory by default). To form this type, we fix a type `A` and a
 term `a : A`, to have the identity type `a == a`, also denoted by `Id(a,a)` or
