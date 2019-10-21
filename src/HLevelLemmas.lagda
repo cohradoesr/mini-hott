@@ -988,6 +988,7 @@ In a type $A$, fixing an endpoint $x$ makes contractible the sygma type of its p
 \begin{code}
   pathfrom-is-contr
     : (x : A)
+    ------------------------------
     → (Σ A (λ t → x ≡ t)) is-contr
 
   pathfrom-is-contr x = (x , refl x) , λ {(a , idp) → idp}
@@ -997,8 +998,9 @@ In a type $A$, fixing an endpoint $x$ makes contractible the sygma type of its p
   ∑x≡-contr = pathfrom-is-contr
 \end{code}
 
-Being contractible give you a sections
-{: .foldable until="4"}
+Being contractible give you a section.
+
+{: .foldable until="5"}
 \begin{code}
   contr-has-section
     : ∀ {ℓ₂ : Level} {B : A → Type ℓ₂}
