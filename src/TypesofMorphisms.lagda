@@ -46,8 +46,9 @@ module TypesofMorphisms where
 
   isSurjection {B = B} f = (b : B) → ∥ fib f b ∥
 
-  isSurjective = isSurjection
-  isOnto       = isSurjection
+  isSurjective   = isSurjection
+  isOnto         = isSurjection
+  _is-surjection = isSurjection
 \end{code}
 
 Do not confuse with the traditional logic notation
@@ -64,6 +65,8 @@ Therefore, we define the concept of *split-surjection*:
     → Type (ℓ₁ ⊔ ℓ₂)
 
   isSplitSurjection {B = B} f = (b  : B) → fib f b
+
+  _is-split-surjection = isSplitSurjection
 \end{code}
 
 Which is equivalent to say $f$ is a **retraction**:
@@ -74,8 +77,9 @@ Which is equivalent to say $f$ is a **retraction**:
     → (f : A → B)
     → Type (ℓ₁ ⊔ ℓ₂)
 
-  isRetraction {A = A}{B} f =
-    ∑ (B → A) (λ g → (b : B) → f (g b) ≡ b)
+  isRetraction {A = A}{B} f = ∑ (B → A) (λ g → (b : B) → f (g b) ≡ b)
+
+  _is-retraction = isRetraction
 \end{code}
 
 As a trivial example, we know the identity function is indeed
@@ -96,6 +100,8 @@ a surjective function. Let us check this.
     → Type (ℓ₁ ⊔ ℓ₂)
 
   isEmbedding {A = A} f = ∀ {x y : A} → isEquiv (ap f {x}{y})
+
+  _is-embedding = isEmbedding
 \end{code}
 
 ### Injections
@@ -109,6 +115,8 @@ a surjective function. Let us check this.
     → Type (ℓ₁ ⊔ ℓ₂)
 
   isInjective {A = A} f = ∀ {x y} → f x ≡ f y → x ≡ y
+
+  _is-injective = isInjective
 \end{code}
 
 As a trivial example, let us prove identity is an injective function:

@@ -853,7 +853,7 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
   g (𝟙₂ , Lift b) = inr b
 \end{code}
 
-{: .foldable until="4" }
+{: .foldable until="5" }
 \begin{code}
 +-of-sets-is-set
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -873,7 +873,8 @@ P𝟚-to-A+B {ℓ₁}{ℓ₂ = ℓ₂}{ℓ₃}{A}{B} = λ { 𝟘₂ → ↑ ℓ�
   fact₂ = ≃-with-a-set-is-set (lifting-equivalence B) iB
 \end{code}
 
-\begin{code}[hide]
+{: .hide }
+\begin{code}
 module _ {ℓ : Level} where
   open Fin2 ℓ
 \end{code}
@@ -888,7 +889,6 @@ module _ {ℓ : Level} where
   ⟦n⟧-is-set {zr} = 𝟘-is-set
   ⟦n⟧-is-set {succ n} = +-of-sets-is-set 𝟙-is-set ⟦n⟧-is-set
 \end{code}
-
 
 {: .foldable until="6" }
 \begin{code}
@@ -935,11 +935,12 @@ Postulated by now, see them in HoTT-Agda:
 
 \begin{code}
 module _ {ℓ : Level}(A : Type ℓ) where
-  postulate
+
     contr-is-set : isContr A → isSet A
+  postulate
     ≡-preserves-prop : {x y : A} → (A is-prop → (x ≡ y) is-prop )
     ≡-preserves-set : {x y : A} → (A is-set → (x ≡ y) is-set)
-    pathto-is-contr : (x : A) → (Σ A (λ t → t == x) is-contr)
-    pathfrom-is-contr : (x : A) → (Σ A (λ t → x == t) is-contr)
+    pathto-is-contr : (x : A) → (Σ A (λ t → t ≡ x) is-contr)
+    pathfrom-is-contr : (x : A) → (Σ A (λ t → x ≡ t) is-contr)
     contr-has-section : ∀ {j} {B : A → Type j} → (A is-contr → (x : A) → (u : B x) → Π A B)
 \end{code}
