@@ -10,7 +10,16 @@ linkify: true
 showcitation: true
 ---
 
-<div class="hide" >
+
+## Equivalences
+
+There are three definitions to say a function is an equivalence. All these
+definitions are required to be mere propositions and to hold the
+bi-implication of begin *quasi-inverse*. We show this clearly in what follows.
+Nevertheless, we want to get the following fact:
+
+
+{: .hide}
 \begin{code}
 {-# OPTIONS --without-K --exact-split #-}
 open import BasicTypes
@@ -19,23 +28,12 @@ open import FibreType
 
 open import Transport
 open import HomotopyType
-\end{code}
-</div>
 
-## Equivalences
-
-\begin{code}
 module EquivalenceType where
 \end{code}
 
-There are three definitions to say a function is an
-equivalence. All these definitions
-are required to be mere propositions and to hold
-the bi-implication of begin *quasi-inverse*. We show
-this clearly in what follows. Nevertheless, we want to get
-the following fact:
+$$ \mathsf{isContr}(f) \cong \mathsf{ishae}(f) \cong \mathsf{biinv}(f). $$
 
-$$ \mathsf{isContr(f)} \cong \mathsf{ishae(f)} \cong \mathsf{biinv(f)} $$
 
 ### Contractible maps
 
@@ -54,11 +52,11 @@ isContrMap {B = B} f = (b : B) → isContr (fib f b)
 Synomyns:
 \begin{code}
 map-contractible = isContrMap
+_is-contr-map    = isContrMap
 \end{code}
 
 There exists an equivalence between two types if there exists a
 contractible function between them.
-
 
 \begin{code}
 isEquiv
@@ -72,8 +70,9 @@ isEquiv f = isContrMap f
 Synomyms:
 
 \begin{code}
-isEquivalence  = isEquiv
-is-equivalence = isEquiv
+isEquivalence   = isEquiv
+_is-equivalence = isEquiv
+_is-equiv       = isEquiv
 \end{code}
 
 ### Equivalence Type

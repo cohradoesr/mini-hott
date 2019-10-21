@@ -29,6 +29,9 @@ open import HedbergLemmas
 
 ### Suspensions
 
+
+![path]({{ site.baseurl }}/assets/images/suspension-type.png){: width="50%" align="right" }
+
 \begin{code}
 module SuspensionType where
 
@@ -43,20 +46,24 @@ module SuspensionType where
       mkSusp : Suspₚ A → (𝟙 ℓ → 𝟙 ℓ) → Suspₓ A
 
   Susp = Suspₓ
+\end{code}
 
-  -- point-constructors
+  - point-constructors
+\begin{code}
   North : ∀ {ℓ} {A : Type ℓ} → Susp A
   North = mkSusp Nₚ _
 
   South : ∀ {ℓ} {A : Type ℓ} → Susp A
   South = mkSusp Sₚ _
 
-  -- path-constructors
+\end{code}
+
+  - path-constructors
+\begin{code}
   postulate
     merid : ∀ {ℓ} {A : Type ℓ}
           → A
           → Path {ℓ}{Susp A} North South
-
 \end{code}
 
 Recursion principle on points

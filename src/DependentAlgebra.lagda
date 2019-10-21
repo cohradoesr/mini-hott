@@ -26,7 +26,7 @@ open import QuasiinverseType
 \end{code}
 </div>
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
 sum-commute
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}

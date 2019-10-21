@@ -36,8 +36,9 @@ Higher levels of the homotopical structure:
 A *contractible* type is a type such that **every**
 element is equal to a point, the *center* of contraction.
 
-\begin{code}
+![path]({{ site.baseurl }}/assets/images/issinglenton.png){: width="50%" align="right" }
 
+\begin{code}
 isContr
   : ∀ {ℓ : Level} (A : Type ℓ)
   --------------

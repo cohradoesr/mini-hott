@@ -10,44 +10,41 @@ linkify: true
 showcitation: true
 ---
 
-Mini-HoTT is a basic [Agda](http://github.com/agda/agda) library that contains
-a few definitions and results of [Univalent Type Theory (also known as
-HoTT-UF)](http://homotopytypetheory.org/). It is a working in progress,
-currently maintained by Jonathan Prieto-Cubides, and supported by the
+Mini-HoTT is a [Agda](http://github.com/agda/agda) library that contains
+definitions and results of [Univalent Type Theory (also known as
+HoTT-UF)](http://homotopytypetheory.org/). The library is working in progress,
+currently, maintained by Jonathan Prieto-Cubides and supported by the
 Programming Theory Research Group (PUT) at [University of
 Bergen](https://www.uib.no/).
 
-## Quick start
+## Installation
 
-The main requeriment is [Agda](http://github.com/agda/agda). No other
-libraries are required to load this one. To ease its adoption, we have
-included synonyms and syntax sugar for types, lemmas, and theorems. The
-website is intended to be the main documentation, and for now, it presents on
-one page the main source code, however, many files are imported to generate
-the current page. We have also include some ilustrations that might help your
-understanding. Regarding the library performance, we recommend to check out
-other options. For example, [HoTT-Agda](https://hott.github.io/HoTT-Agda/) is
-a bigger and tested Agda library for HoTT, you might want to check. Other
-libraries and resources can be found in [References] section.
+- Install [Agda (v2.6.0+)](http://github.com/agda/agda).
 
-### Installation
-
-- Install [Agda (v2.6.0+)](http://github.com/agda/agda)
-
-- Clone this repository [http://github.com/jonaprieto/mini-hott](http://github.com/jonaprieto/mini-hott) with:
+- Clone [this repository](http://github.com/jonaprieto/mini-hott) with the following command.
 
   - `git clone http://github.com/jonaprieto/mini-hott`
 
-- Update your Agda libraries file (`~/.agda`). You can also use [agda-pkg](http://github.com/agda/agda-pkg) for that as well.
+- Update your Agda libraries file manually (`~/.agda`) or use [agda-pkg](http://github.com/agda/agda-pkg).
 
-  - `pip install agda-pkg`
-  - `apkg install mini-hott` (not indexed at the moment until it's more stable)
-
-- Once everything is set for Agda, just include the following import in your source code:
+- Include the following `import` command in your source code.
 
     - `open import MiniHoTT`
 
 <div class="only-website">
+
+## Quick start
+
+This documentation is generated automatically from the repository subfolder `src/` that contains
+all the literate Agda files of MiniHoTT. However, some definitions and theorems are hidden in this view since
+they are not ready to use, but we encourage the curious reader to check out all the files. To use
+MiniHoTT, the only requirement is to have installed [Agda](http://github.com/agda/agda) and a
+text editor (we recommend Emacs or Atom with Agda support) on your computer.
+
+Regarding the library performance, we recommend to check out
+other options. For example, [HoTT-Agda](https://hott.github.io/HoTT-Agda/) is
+a bigger and tested Agda library for HoTT, you might want to check. Other
+libraries and resources can be found in References section.
 
 ### Code conventions
 

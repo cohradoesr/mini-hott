@@ -181,13 +181,6 @@ data
 infixr 31 _+_
 \end{code}
 
-Constructors synonyms:
-
-\begin{code}
--- pattern left  = inl  -- TODO: This is not working as I expected
--- pattern right = inr
-\end{code}
-
 The elimination principle:
 
 \begin{code}
@@ -305,7 +298,6 @@ and we can state the relation $\geq$ as as shortcut for...
 \begin{code}
   _>_ : ℕ → ℕ → Type ℓ
   a > b = b < a
-
 \end{code}
 
 ### Finite sets
@@ -334,7 +326,6 @@ module Fin2 (ℓ : Level) where
   ⟦_⟧ : ℕ → Type ℓ
   ⟦_⟧ zero      = 𝟘 ℓ
   ⟦_⟧ (succ n)  = 𝟙 ℓ + ⟦ n ⟧
-
 \end{code}
 
 In math books, we denote by the finite set of $n$ as $[n]$, we
@@ -353,9 +344,9 @@ we consider sets with at least one element.
 
 $$ ⟦ n ⟧ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$
 
-- $1 :≡ inl unit$
+- $1 :≡ \mathsf{inl}(\mathsf{unit})$
 
-- $n :≡ inr (inr ...)$
+- $n :≡ \mathsf{inr}(\mathsf{inr}\, ...)$
 
 \begin{code}
   ⟦⟧-succ
@@ -369,7 +360,7 @@ $$ ⟦ n ⟧ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$
 \begin{code}
   ⟦⟧-pred
     : ∀ (n : ℕ)
-    → ⟦ n ⟧ →  ⟦ n ⟧ -- clarify why in succ?,
+    → ⟦ n ⟧ → ⟦ n ⟧
 
   ⟦⟧-pred (succ n) (inl x) = inl x
   ⟦⟧-pred (succ n) (inr x) = inr (⟦⟧-pred n x)
@@ -465,7 +456,6 @@ J' {a = a} B d idp = d
 
 ### Decidable type
 
-
 \begin{code}
 data
   Dec {ℓ : Level}(P : Type ℓ)
@@ -473,11 +463,13 @@ data
   where
   yes : ( p : P) → Dec P
   no  : (¬p : P → ⊥ ℓ) → Dec P
-
+\end{code}
+\begin{code}
 ⌊_⌋ : ∀ {ℓ : Level}{P : Type ℓ} → Dec P → 𝟚 ℓ
 ⌊ yes _ ⌋ = 𝟙₂
 ⌊ no  _ ⌋ = 𝟘₂
-
+\end{code}
+\begin{code}
 REL
   : ∀ {ℓ : Level}
   → Type ℓ → Type ℓ
@@ -485,7 +477,8 @@ REL
   → Type (lsuc ℓ)
 
 REL {ℓ} A B = A → B → Type ℓ
-
+\end{code}
+\begin{code}
 Decidable
   : ∀ {ℓ : Level} {A B : Type ℓ}
   → REL A B

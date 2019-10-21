@@ -31,9 +31,8 @@ module
 </div>
 
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
-
 prodComponentwise
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {x y : A × B}
   → (x == y)

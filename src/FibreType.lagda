@@ -19,6 +19,7 @@ open import BasicTypes
 
 ## Fibre type
 
+{: .hide}
 \begin{code}
 module
   FibreType {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}

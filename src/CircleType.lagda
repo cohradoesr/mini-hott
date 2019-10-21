@@ -24,6 +24,8 @@ open import HLevelTypes
 
 ### Circles
 
+![circle]({{ site.baseurl }}/assets/images/circle.png){: width="50%" align="right" }
+
 The circle type is constructed by postulating a type with
 a single element (base) and a nontrivial path (loop).
 

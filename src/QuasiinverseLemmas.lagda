@@ -38,9 +38,8 @@ module QuasiinverseLemmas where
 
 The equivalence types are indeed equivalence
 
-{: .foldable until="7" }
+{: .foldable until="6" }
 \begin{code}
-  -- Composition of quasiinverses
   qinv-comp
     : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
     → Σ (A → B) qinv
@@ -53,9 +52,8 @@ The equivalence types are indeed equivalence
      ,  λ x → ap if (ηg (f x)) · ηf x))
 \end{code}
 
-{: .foldable until="6" }
+{: .foldable until="5" }
 \begin{code}
-  -- Lemma.
   qinv-inv
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → Σ (A → B) qinv
@@ -75,15 +73,16 @@ Equivalence types are equivalence relations.
     → A ≃ A
 
   idEqv = id , λ a → (a , refl a) , λ { (_ , idp) → refl (a , refl a) }
+\end{code}
 
-  -- Synonyms
+Synonyms
+\begin{code}
   ≃-refl = idEqv
   A≃A    = idEqv
 \end{code}
 
-{: .foldable until="7"}
+{: .foldable until="6"}
 \begin{code}
-  -- Lemma.
   _:>≃_
     : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
     → A ≃ B
@@ -95,11 +94,12 @@ Equivalence types are equivalence relations.
    where
      qcomp : Σ (A → C) qinv
      qcomp = qinv-comp (≃-qinv eq-f) (≃-qinv eq-g)
+\end{code}
 
-  -- Synonyms
+Synonyms
+\begin{code}
   compEqv = _:>≃_
   ≃-trans = _:>≃_
-
 \end{code}
 
 {: .foldable until="5"}
@@ -114,8 +114,10 @@ Equivalence types are equivalence relations.
    where
      qcinv : Σ (B → A) qinv
      qcinv = qinv-inv (≃-qinv eq-f)
+\end{code}
 
-  -- Synonyms
+Synonyms
+\begin{code}
   invEqv = ≃-sym
   ≃-flip = ≃-sym
 \end{code}

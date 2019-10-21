@@ -19,7 +19,7 @@ open import Transport public
 \end{code}
 </div>
 
-Some lemmas on the transport operation
+## Transport Lemmas
 
 {: .foldable until="6" }
 \begin{code}
@@ -67,8 +67,10 @@ transport-inv-r
   → tr P (! p) (tr P p b) == b
 
 transport-inv-r idp _ = idp
+\end{code}
 
--- synonyms
+Synonyms:
+\begin{code}
 tr-inverse = transport-inv-r
 \end{code}
 
@@ -109,8 +111,7 @@ transport-concat
 transport-concat idp q = ·-runit q
 \end{code}
 
-
-
+{: .foldable until="7" }
 \begin{code}
 transport-eq-fun
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -135,7 +136,7 @@ transport-comp
 transport-comp {P = P} idp q = refl (transport P q)
 \end{code}
 
-{: .foldable until="6" }
+{: .foldable until="7" }
 \begin{code}
 transport-comp-h
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {a b c : A} {P : A → Type ℓ₂}
@@ -290,7 +291,7 @@ transport-fun idp f = idp
 back-and-forth = transport-fun
 \end{code}
 
-{: .foldable until="7" }
+{: .foldable until="8" }
 \begin{code}
 transport-fun-h
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁}
@@ -304,8 +305,8 @@ transport-fun-h
 transport-fun-h idp f b = idp
 \end{code}
 
+Synonyms:
 \begin{code}
--- synonyms
 back-and-forth-h = transport-fun-h
 \end{code}
 
@@ -328,8 +329,8 @@ transport-fun-dependent-h
 transport-fun-dependent-h idp f a' = idp
 \end{code}
 
+Synonyms:
 \begin{code}
--- synonyms
 dependent-back-and-forth-h = transport-fun-dependent-h
 \end{code}
 
@@ -348,8 +349,8 @@ transport-fun-dependent
 transport-fun-dependent idp f = idp
 \end{code}
 
+Synonyms:
 \begin{code}
--- synonyms
 dependent-back-and-forth = transport-fun-dependent
 \end{code}
 
@@ -371,7 +372,7 @@ apOver f g idp q = ap g q
 \end{code}
 
 
-### Action on dependent paths
+## Action on dependent paths
 
 {: .foldable until="6"}
 \begin{code}

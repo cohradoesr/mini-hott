@@ -10,6 +10,7 @@ linkify: true
 showcitation: true
 ---
 
+## Hedberg theorem
 
 <div class="hide" >
 \begin{code}
@@ -30,7 +31,7 @@ module
 \end{code}
 </div>
 
-A set is a type satisfiying Axiom K.
+A set is a type when it holds Axiom K.
 
 \begin{code}
     axiomKisSet
@@ -79,7 +80,7 @@ A set is a type satisfiying Axiom K.
 
 Lema: if a type is decidable, then ¬¬A is actually A.
 
-{: .foldable untile="5" }
+{: .foldable until="5" }
 \begin{code}
     lemDoubleNeg
       : ∀ {ℓ : Level} {A : Type ℓ}
@@ -99,8 +100,8 @@ Lema: if a type is decidable, then ¬¬A is actually A.
 \begin{code}
   hedberg
     : ∀ {ℓ : Level} {A : Type ℓ}
-    → ((a b : A) → (a == b) + ¬ (a == b))
-    -------------------------------------
+    → ((a b : A) → (a ≡ b) + ¬ (a ≡ b))
+    -----------------------------------
     → isSet A
 
   hedberg {ℓ}{A = A} f
@@ -121,4 +122,10 @@ Lema: if a type is decidable, then ¬¬A is actually A.
       → isProp (¬ (¬ (a == b)))
 
     isPropNeg a b x y = funext λ u → exfalso (x u)
+\end{code}
+
+Synonyms:
+
+\begin{code}
+  decidable-is-set = hedberg
 \end{code}

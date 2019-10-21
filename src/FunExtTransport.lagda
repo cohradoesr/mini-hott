@@ -20,7 +20,7 @@ open import FunExtAxiom
 \end{code}
 </div>
 
-Function extensionality in the transport case
+## Function extensionality transport case
 
 \begin{code}
 module

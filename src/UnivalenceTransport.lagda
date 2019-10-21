@@ -11,7 +11,10 @@ linkify: true
 showcitation: true
 ---
 
-<div class="hide" >
+
+## Transport and Univalence
+
+{: .hide}
 \begin{code}
 {-# OPTIONS --without-K --exact-split #-}
 open import TransportLemmas
@@ -22,14 +25,8 @@ open import FunExtAxiom
 open import QuasiinverseType
 open import QuasiinverseLemmas
 
-
 open import UnivalenceAxiom
-\end{code}
-</div>
 
-## Transport and Univalence
-
-\begin{code}
 module UnivalenceTransport where
 \end{code}
 
@@ -149,7 +146,7 @@ In addition, we can state a similar result with `idtoequiv`:
   ite-ua-· = idtoequiv-ua-·
 \end{code}
 
-{: .foldable until="6"}
+{: .axiom .foldable until="6"}
 \begin{code}
   postulate
    :>≃-ite-ua
@@ -158,7 +155,8 @@ In addition, we can state a similar result with `idtoequiv`:
     ------------------------------
     → (α :>≃ β) ≡ ite (ua α · ua β)
 
-  {- lemma α β =
+  {- -- below is the proof, but it blows up the time of type-checking.
+    lemma α β =
         begin
           (α :>≃ β)
             ≡⟨ ap₂ (λ x y → x :>≃ y) (! (ua-β α)) (! (ua-β β)) ⟩

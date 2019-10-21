@@ -106,7 +106,7 @@ a surjective function. Let us check this.
 
 ### Injections
 
-**Discuss**: should I demand for injective functions have their domains and codomains as sets?
+**Discuss**: should I demand for injective functions to have their domains and codomains as sets?
 
 \begin{code}
   isInjective
@@ -203,18 +203,19 @@ a function $g : B → A$ by the recursion principle of truncation.
 Bijection is a concept from Set Theory, which meeans that if we want
 to define it in Univalent Type Theory, we must talk about only functions
 between (homotopy) sets. Thus, we will find these assumptions in the type
-for bijections.
+for bijections, even though, we do not really need them ¬¬.
 
 \begin{code}
   isBijection
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
     → (f : A → B)
-    → isSet A
-    → isSet B
-    ---------------
+    → isSet A → isSet B
+    -------------------
     → Type (ℓ₁ ⊔ ℓ₂)
 
   isBijection f iA iB = isInjective f × isSurjection f
+
+  _is-bijection = isBijection
 \end{code}
 
 
@@ -236,7 +237,7 @@ let us give an example of a natural bijection, the idenitity function.
 required in the way to check the funciton is injective or surjective. This must
 suggest, we must include this assumption in the Injective definition.
 
-{: .foldable until="8" }
+{: .foldable until="7" }
 \begin{code}
   Bijection
     : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
@@ -424,14 +425,14 @@ to understand better propositional truncation.
     c = step₁ (g-is-surjection c)
     where
     step₁ : ∥ ∑ B (λ b → g b ≡ c) ∥ → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
-    step₁ = trunc-rec ∥∥-is-a-prop step₂
+    step₁ = trunc-rec ∥∥-is-prop step₂
       where
       step₂ : ∑ B (λ b → g b ≡ c) → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
       step₂ (b , p₁) = step₃ b p₁ (f-is-surjection b)
         where
         step₃ : (b : B) → g b ≡ c
           → ∥ ∑ A (λ a → f a ≡ b) ∥ → ∥ ∑ A (λ a → (f :> g) a ≡ c) ∥
-        step₃ b p₁ = trunc-rec ∥∥-is-a-prop step₄
+        step₃ b p₁ = trunc-rec ∥∥-is-prop step₄
            where
            step₄ : ∑ A (λ a → f a ≡ b) → ∥ ∑ A (λ a → (f :> (λ {a = a₁} → g)) a ≡ c) ∥
            step₄ (a , p) = ∣ a , ((ap g p) · p₁) ∣

@@ -430,11 +430,7 @@ Definitional equals:
     → x == y → x == y
 
   _ ==⟨⟩ p = p
-\end{code}
 
-Synonyms:
-
-\begin{code}
   _==⟨idp⟩_  = _==⟨⟩_
   _==⟨refl⟩_ = _==⟨⟩_
   _≡⟨⟩_      = _==⟨⟩_

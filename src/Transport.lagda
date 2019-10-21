@@ -37,8 +37,8 @@ transport
 transport C idp = (λ x → x)
 \end{code}
 
+Synonyms:
 \begin{code}
--- synonyms
 tr     = transport
 tr₁    = transport
 transp = transport
@@ -112,6 +112,7 @@ syntax ≡Over B b α b' = b ≡ b' [ B / α ]
 
 Transport and composition:
 
+{: .foldable until="8"}
 \begin{code}
 tr₁-≡
   : ∀ {ℓ : Level} {A : Type ℓ} {a₀ a₁ a₂ : A}
@@ -143,8 +144,10 @@ tr₂
 tr₂ C idp idp = id
 \end{code}
 
+Gylterud's tr₂-commute:
+
+{: .foldable until="10"}
 \begin{code}
--- Gylterud's tr₂-commute
 tr₂-commute
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂}
   → (C : (a : A) → (B a → Type ℓ₃))
@@ -153,6 +156,7 @@ tr₂-commute
   → ∀ {a a' b b'}
   → (p : a ≡ a')
   → (q : b ≡ b' [ B / p ])
+  ---------------------------------------------------
   → ∀ c → tr₂ D p q (f a b c) ≡ f a' b' (tr₂ C p q c)
 
 tr₂-commute C D f idp idp c = idp

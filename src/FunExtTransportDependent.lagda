@@ -11,7 +11,11 @@ linkify: true
 showcitation: true
 ---
 
-<div class="hide" >
+
+## Dependent function extensionality transport case
+
+
+{: .hide}
 \begin{code}
 {-# OPTIONS --without-K --exact-split #-}
 module _ where
@@ -25,7 +29,6 @@ open import FunExtAxiom
 open import FunExtTransport
 open import QuasiinverseLemmas
 \end{code}
-</div>
 
 \begin{code}
 module

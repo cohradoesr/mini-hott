@@ -23,29 +23,33 @@ open import HomotopyType
 ## Function extensionality
 
 \begin{code}
-
-module FunExtAxiom {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
-  {B : A → Type ℓ₂} {f g : (a : A) → B a} where
+module FunExtAxiom {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂} {f g : (a : A) → B a} where
 \end{code}
 
+Application of an homotopy
+
+{: .foldable until="4"}
 \begin{code}
-  -- Application of an homotopy
   happly
     : f == g
     ------------------------
     → ((x : A) → f x == g x)
 
   happly idp x = refl (f x)
+\end{code}
 
-  -- synonyms:
+Synonyms:
+\begin{code}
   ≡-app = happly
 \end{code}
 
+{: .axiom }
 \begin{code}
   postulate
     axiomFunExt : isEquiv happly
 \end{code}
 
+{: .foldable until="2" }
 \begin{code}
   eqFunExt
     : (f == g) ≃ ((x : A) → f x == g x)
@@ -53,8 +57,10 @@ module FunExtAxiom {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
   eqFunExt = happly , axiomFunExt
 \end{code}
 
+From this, the usual notion of function extensionality follows.
+
+{: .foldable until="4"}
 \begin{code}
-  -- From this, the usual notion of function extensionality follows.
   funext
     : ((x : A) → f x == g x)
     ------------------------
@@ -63,8 +69,10 @@ module FunExtAxiom {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
   funext = remap eqFunExt
 \end{code}
 
+Beta and eta rules for function extensionality
+
+{: .foldable until="4"}
 \begin{code}
-  -- Beta and eta rules for function extensionality
   funext-β
     : (h : ((x : A) → f x == g x))
     ------------------------------
@@ -73,6 +81,7 @@ module FunExtAxiom {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}
   funext-β h = lrmap-inverse eqFunExt
 \end{code}
 
+{: .foldable until="4"}
 \begin{code}
   funext-η
     : (p : f == g)

@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
-<ipe version="70206" creator="Ipe 7.2.7">
-<info created="D:20180317211251" modified="D:20180317213341" tex="pdftex"/>
+<ipe version="70212" creator="Ipe 7.2.12">
+<info created="D:20180317211251" modified="D:20191021151054" tex="pdftex"/>
 <preamble>\usepackage{amsmath}
 
 \DeclareMathOperator*{\PiT}{\Pi}
@@ -194,16 +194,40 @@ h
 <arrowsize name="small" value="5"/>
 <arrowsize name="tiny" value="3"/>
 <color name="black" value="0"/>
+<color name="red" value="1 0 0"/>
+<color name="green" value="0 1 0"/>
+<color name="blue" value="0.274 0.392 0.666"/>
+<color name="yellow" value="1 1 0"/>
+<color name="orange" value="1 0.647 0"/>
+<color name="gold" value="1 0.843 0"/>
+<color name="purple" value="0.627 0.125 0.941"/>
+<color name="gray" value="0.745"/>
+<color name="brown" value="0.647 0.165 0.165"/>
+<color name="navy" value="0 0 0.502"/>
+<color name="pink" value="1 0.753 0.796"/>
+<color name="seagreen" value="0.18 0.545 0.341"/>
+<color name="turquoise" value="0.251 0.878 0.816"/>
+<color name="violet" value="0.933 0.51 0.933"/>
+<color name="darkblue" value="0 0 0.545"/>
+<color name="darkcyan" value="0 0.545 0.545"/>
+<color name="darkgray" value="0.663"/>
+<color name="darkgreen" value="0 0.392 0"/>
+<color name="darkmagenta" value="0.545 0 0.545"/>
+<color name="darkorange" value="1 0.549 0"/>
+<color name="darkred" value="0.545 0 0"/>
+<color name="lightblue" value="0.678 0.847 0.902"/>
+<color name="lightcyan" value="0.878 1 1"/>
+<color name="lightgray" value="0.827"/>
+<color name="lightgreen" value="0.565 0.933 0.565"/>
+<color name="lightyellow" value="1 1 0.878"/>
 <color name="black15" value="0.85"/>
 <color name="black30" value="0.7"/>
 <color name="black50" value="0.5"/>
 <color name="black70" value="0.3"/>
-<color name="blue" value="0.274 0.392 0.666"/>
 <color name="blue15" value="0.891 0.908 0.95"/>
 <color name="blue30" value="0.782 0.817 0.9"/>
 <color name="blue50" value="0.637 0.696 0.833"/>
 <color name="blue70" value="0.492 0.574 0.766"/>
-<color name="brown" value="0.647 0.165 0.165"/>
 <color name="brown15" value="0.944 0.926 0.879"/>
 <color name="brown30" value="0.888 0.852 0.758"/>
 <color name="brown50" value="0.813 0.754 0.598"/>
@@ -213,32 +237,15 @@ h
 <color name="cyanblue30" value="0.794 0.9 0.97"/>
 <color name="cyanblue50" value="0.656 0.833 0.95"/>
 <color name="cyanblue70" value="0.519 0.766 0.931"/>
-<color name="darkblue" value="0 0 0.545"/>
-<color name="darkcyan" value="0 0.545 0.545"/>
-<color name="darkgray" value="0.663"/>
-<color name="darkgreen" value="0 0.392 0"/>
-<color name="darkmagenta" value="0.545 0 0.545"/>
-<color name="darkorange" value="1 0.549 0"/>
-<color name="darkred" value="0.545 0 0"/>
-<color name="gold" value="1 0.843 0"/>
-<color name="gray" value="0.745"/>
-<color name="green" value="0 1 0"/>
 <color name="green15" value="0.85 0.938 0.926"/>
 <color name="green30" value="0.7 0.876 0.852"/>
 <color name="green50" value="0.5 0.794 0.754"/>
 <color name="green70" value="0.3 0.711 0.656"/>
-<color name="lightblue" value="0.678 0.847 0.902"/>
-<color name="lightcyan" value="0.878 1 1"/>
-<color name="lightgray" value="0.827"/>
-<color name="lightgreen" value="0.565 0.933 0.565"/>
-<color name="lightyellow" value="1 1 0.878"/>
 <color name="lilac" value="0.627 0 0.47"/>
 <color name="lilac15" value="0.944 0.85 0.92"/>
 <color name="lilac30" value="0.888 0.7 0.841"/>
 <color name="lilac50" value="0.813 0.5 0.735"/>
 <color name="lilac70" value="0.739 0.3 0.629"/>
-<color name="navy" value="0 0 0.502"/>
-<color name="orange" value="1 0.647 0"/>
 <color name="orange15" value="0.979 0.944 0.867"/>
 <color name="orange30" value="0.958 0.888 0.735"/>
 <color name="orange50" value="0.931 0.813 0.558"/>
@@ -248,9 +255,6 @@ h
 <color name="palegreen30" value="0.852 0.923 0.77"/>
 <color name="palegreen50" value="0.754 0.872 0.617"/>
 <color name="palegreen70" value="0.656 0.821 0.464"/>
-<color name="pink" value="1 0.753 0.796"/>
-<color name="purple" value="0.627 0.125 0.941"/>
-<color name="red" value="1 0 0"/>
 <color name="red15" value="0.944 0.867 0.873"/>
 <color name="red30" value="0.888 0.735 0.747"/>
 <color name="red50" value="0.813 0.558 0.578"/>
@@ -260,10 +264,6 @@ h
 <color name="seablue30" value="0.758 0.794 0.864"/>
 <color name="seablue50" value="0.598 0.656 0.774"/>
 <color name="seablue70" value="0.437 0.519 0.684"/>
-<color name="seagreen" value="0.18 0.545 0.341"/>
-<color name="turquoise" value="0.251 0.878 0.816"/>
-<color name="violet" value="0.933 0.51 0.933"/>
-<color name="yellow" value="1 1 0"/>
 <color name="yellow15" value="0.997 0.985 0.861"/>
 <color name="yellow30" value="0.994 0.97 0.723"/>
 <color name="yellow50" value="0.99 0.95 0.539"/>
@@ -283,9 +283,6 @@ h
 <textstyle name="center" begin="\begin{center}" end="\end{center}"/>
 <textstyle name="itemize" begin="\begin{itemize}" end="\end{itemize}"/>
 <textstyle name="item" begin="\begin{itemize}\item{}" end="\end{itemize}"/>
-<gridsize name="1 pts" value="1"/>
-<gridsize name="2 pts" value="2"/>
-<gridsize name="3 pts" value="3"/>
 <gridsize name="4 pts" value="4"/>
 <gridsize name="8 pts (~3 mm)" value="8"/>
 <gridsize name="16 pts (~6 mm)" value="16"/>
@@ -295,6 +292,9 @@ h
 <gridsize name="14 pts (~5 mm)" value="14"/>
 <gridsize name="28 pts (~10 mm)" value="28"/>
 <gridsize name="56 pts (~20 mm)" value="56"/>
+<gridsize name="1 pts" value="1"/>
+<gridsize name="2 pts" value="2"/>
+<gridsize name="3 pts" value="3"/>
 <anglesize name="90 deg" value="90"/>
 <anglesize name="60 deg" value="60"/>
 <anglesize name="45 deg" value="45"/>
@@ -302,8 +302,8 @@ h
 <anglesize name="22.5 deg" value="22.5"/>
 <opacity name="10%" value="0.1"/>
 <opacity name="30%" value="0.3"/>
-<opacity name="40%" value="0.4"/>
 <opacity name="50%" value="0.5"/>
+<opacity name="40%" value="0.4"/>
 <opacity name="60%" value="0.6"/>
 <opacity name="70%" value="0.75"/>
 <opacity name="80%" value="0.8"/>
@@ -330,42 +330,41 @@ h
 <use matrix="0.771739 0 0 0.714286 -72.9783 214.286" name="mark/disk(sx)" pos="320 720" size="large" stroke="black"/>
 <use matrix="0.771739 0 0 0.714286 -72.9783 214.286" name="mark/disk(sx)" pos="384 704" size="large" stroke="black"/>
 <use matrix="0.771739 0 0 0.714286 -72.9783 214.286" name="mark/disk(sx)" pos="336 640" size="large" stroke="black"/>
-<text matrix="0.771739 0 0 0.714286 -54.4565 233.571" transformations="translations" pos="384 608" stroke="black" type="label" width="15.343" height="11.764" depth="0" valign="baseline" size="LARGE" style="math">X</text>
+<text matrix="0.771739 0 0 0.714286 -54.4565 233.571" transformations="translations" pos="384 608" stroke="black" type="label" width="12.636" height="11.764" depth="0" valign="baseline" size="LARGE" style="math">A</text>
 <use matrix="0.771739 0 0 0.714286 -72.9783 214.286" name="mark/disk(sx)" pos="256 672" size="large" stroke="black"/>
-<text matrix="0.771739 0 0 0.714286 -77.6087 231.429" transformations="translations" pos="261 663" stroke="black" type="label" width="6.046" height="6.177" depth="0" valign="baseline" size="Large" style="math">c</text>
+<text matrix="0.771739 0 0 0.714286 -77.6087 231.429" transformations="translations" pos="261 663" stroke="black" type="label" width="7.374" height="6.177" depth="0" valign="baseline" size="Large" style="math">a</text>
 <text matrix="0.771739 0 0 0.714286 -83.7826 205.714" transformations="translations" pos="174 729" stroke="black" type="label" width="7.982" height="6.177" depth="0" valign="baseline" size="Large" style="math">x</text>
-<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier" arrow="normal/normal">
+<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier">
 256 672 m
 186 702
 160 656 c
 </path>
-<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier" arrow="normal/normal">
+<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier">
 256 672 m
 294 717
 320 720 c
 </path>
-<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier" arrow="normal/normal">
+<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier">
 256 672 m
 324 657
 342 732
 384 704 c
 </path>
-<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier" arrow="normal/normal">
+<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier">
 256 672 m
 237 630
 208 624 c
 </path>
-<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier" arrow="normal/normal">
+<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier">
 256 672 m
 261 618
 297 660
 336 640 c
 </path>
-<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier" arrow="normal/normal">
+<path matrix="0.771739 0 0 0.714286 -72.9783 214.286" stroke="black" pen="heavier">
 256 672 m
 225 738
 176 720 c
 </path>
-<text matrix="1 0 0 1 186 162" transformations="translations" pos="102 552" stroke="black" type="label" width="198.863" height="10.753" depth="10.64" valign="baseline" size="Large">isSingleton$(X) :=  \SigmaT\limits_{c : X}\PiT\limits_{x : X} Id_{X}~c~x$</text>
 </page>
 </ipe>

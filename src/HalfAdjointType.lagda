@@ -17,7 +17,7 @@ Half-adjoints are an auxiliary notion that helps us to define a suitable notion
 of equivalence, meaning that it is a proposition and that it captures the usual
 notion of equivalence.
 
-<div class="hide" >
+{: .hide}
 \begin{code}
 {-# OPTIONS --without-K --exact-split #-}
 
@@ -33,7 +33,6 @@ open import HomotopyType
 open import HomotopyLemmas
 open import FibreType
 \end{code}
-</div>
 
 \begin{code}
 module
@@ -41,7 +40,8 @@ module
     where
 \end{code}
 
-Half adjoint equivalence:
+Half-adjoint equivalence:
+
 \begin{code}
     record
       ishae (f : A → B)
@@ -116,6 +116,7 @@ Half adjoint equivalences give contractible fibers.
 \end{code}
 
 Half-adjointness implies equivalence:
+
 {: .foldable until="5" }
 \begin{code}
     ishae-≃

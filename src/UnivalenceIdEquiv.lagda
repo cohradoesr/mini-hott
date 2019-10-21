@@ -11,7 +11,9 @@ linkify: true
 showcitation: true
 ---
 
-<div class="hide" >
+#### Univalence Lemma for id Equivalence
+
+{: .hide}
 \begin{code}
 {-# OPTIONS --without-K --exact-split #-}
 module _ where
@@ -27,12 +29,7 @@ open import QuasiinverseLemmas
 open import UnivalenceAxiom
 open import UnivalenceTransport
 open import HLevelLemmas
-\end{code}
-</div>
 
-#### Univalence Lemma for id Equivalence
-
-\begin{code}
 module UnivalenceIdEquiv where
 \end{code}
 

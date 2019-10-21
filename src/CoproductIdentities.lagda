@@ -31,18 +31,20 @@ module
 \end{code}
 </div>
 
+{: .foldable until="7"}
 \begin{code}
 ∑-≡
-  :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
   → {ab ab' : ∑ A B}
   → (p : π₁ ab ≡ π₁ ab')
   → π₂ ab ≡ π₂ ab' [ B / p ]
   --------------------------
   → ab ≡ ab'
+
 ∑-≡ B idp idp = idp
 \end{code}
 
-
+{: .foldable until="6"}
 \begin{code}
 π₁-≡
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
@@ -54,9 +56,10 @@ module
 π₁-≡ B idp = idp
 \end{code}
 
+{: .foldable until="6"}
 \begin{code}
 π₂-≡
-  :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} → (B : A → Type ℓ₂)
   → {ab ab' : ∑ A B}
   → (p : ab ≡ ab')
   ---------------------------------------
@@ -65,6 +68,7 @@ module
 π₂-≡ B idp = idp
 \end{code}
 
+{: .foldable until="7"}
 \begin{code}
 ∑-map
   :  ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂}
@@ -77,6 +81,7 @@ module
 ∑-map f g p = (f (π₁ p) , g (π₁ p) (π₂ p))
 \end{code}
 
+{: .foldable until="11"}
 \begin{code}
 ∑-map-compose
   : ∀ {i₀ j₀ i₁ j₁ i₂ j₂}
@@ -93,6 +98,7 @@ module
 ∑-map-compose _ _ _ _ (a , b) = idp
 \end{code}
 
+{: .foldable until="5"}
 \begin{code}
 ∑-lift
   :  ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂} {C : A → Type ℓ₂}
@@ -111,9 +117,8 @@ module Sigma {ℓᵢ ℓⱼ} {A : Type ℓᵢ} {P : A → Type ℓⱼ} where
 
 Two dependent pairs are equal if they are componentwise equal.
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
-
   Σ-componentwise
     : ∀ {v w : Σ A P}
     → v == w
@@ -123,9 +128,8 @@ Two dependent pairs are equal if they are componentwise equal.
   Σ-componentwise  idp = (idp , idp)
 \end{code}
 
-{: .foldable until="6"}
+{: .foldable until="5"}
 \begin{code}
-
   Σ-bycomponents
     : ∀ {v w : Σ A P}
     → Σ (π₁ v == π₁ w) (λ p → (π₂ v) == (π₂ w) [ P ↓ p ] )
@@ -133,13 +137,17 @@ Two dependent pairs are equal if they are componentwise equal.
     → v == w
 
   Σ-bycomponents (idp , idp) = idp
+\end{code}
 
-  -- synonym of Σ-bycomponents
+Synonym of Σ-bycomponents:
+
+\begin{code}
   pair= = Σ-bycomponents
 \end{code}
 
 A trivial consequence is the following identification:
 
+{: .foldable until="5"}
 \begin{code}
   lift-pair=
     : ∀ {x y : A} {u : P x}
@@ -151,15 +159,18 @@ A trivial consequence is the following identification:
 \end{code}
 
 Uniqueness principle property for products
+
+{: .foldable until="1"}
 \begin{code}
   uppt : (x : Σ A P) → (π₁ x , π₂ x) == x
+
   uppt (a , b) = idp
 \end{code}
 
 {: .foldable until="6"}
 \begin{code}
   Σ-ap-π₁
-    : {a₁ a₂ : A} {b₁ : P a₁} {b₂ : P a₂}
+    : ∀ {a₁ a₂ : A} {b₁ : P a₁} {b₂ : P a₂}
     → (α : a₁ == a₂)
     → (γ : b₁ == b₂ [ P ↓ α ])
     ------------------------------
@@ -176,7 +187,6 @@ Uniqueness principle property for products
 \begin{code}
 open Sigma public
 \end{code}
-
 
 {: .foldable until="10"}
 \begin{code}
