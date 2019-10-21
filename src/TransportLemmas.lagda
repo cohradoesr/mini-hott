@@ -135,7 +135,7 @@ transport-comp
 transport-comp {P = P} idp q = refl (transport P q)
 \end{code}
 
-{: .foldable until="7" }
+{: .foldable until="6" }
 \begin{code}
 transport-comp-h
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {a b c : A} {P : A → Type ℓ₂}
@@ -269,13 +269,14 @@ transport-fun-coe
 transport-fun-coe idp _ _ idp = idp
 \end{code}
 
+![path]({{ site.baseurl }}/assets/images/transport-fun.png){: width="50%" align="right" }
 
 {: .foldable until="8" }
 \begin{code}
 transport-fun
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {X : Type ℓ₁} {x y : X}
   → {A : X → Type ℓ₂} {B : X → Type ℓ₃}
-  → (p : x == y)
+  → (p : x ≡ y)
   → (f : A x → B x)
   ------------------------------------------
   → f ≡  ((λ a → tr B p (f (tr A (! p) a))))
@@ -288,8 +289,6 @@ transport-fun idp f = idp
 -- synonyms
 back-and-forth = transport-fun
 \end{code}
-
-![path]({{ site.baseurl }}/assets/images/transport-fun.png){: width="100%" }
 
 {: .foldable until="7" }
 \begin{code}
@@ -312,7 +311,7 @@ back-and-forth-h = transport-fun-h
 
 Now, when we transport dependent functions this is what we got:
 
-![path]({{ site.baseurl }}/assets/images/transport-fun-dependent.png){: width="100%" }
+![path]({{ site.baseurl }}/assets/images/transport-fun-dependent.png){: width="50%" align="right" }
 
 {: .foldable until="9" }
 \begin{code}
@@ -405,29 +404,33 @@ ap2d
 ap2d F idp idp = idp
 \end{code}
 
+{: .foldable until="6"}
 \begin{code}
 ap-idp
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
   → (f : A → B)
-  → {a a' : A}
-  → (p : a == a')
+  → {a a' : A} → (p : a ≡ a')
   ------------------------------------------
-  → ap f p == idp [ (λ x → f x == f a') ↓ p ]
+  → ap f p == idp [ (λ a → f a ≡ f a') ↓ p ]
 
 ap-idp f idp = idp
 \end{code}
 
-{: .foldable until="8" }
+{: .foldable until="6" }
 \begin{code}
-postulate
- ap-idp'
+ap-idp'
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
-  → (f r : A → B)
-  → (σ : ∀ a → f a == r a)
-  → {a a' : A}
-  → (p : a' == a)
+  → (f g : A → B) → (σ : ∀ a → f a ≡ g a)
+  → {a a' : A}    → (p : a' ≡ a)
   --------------------------------------------------------------
-  → (! (σ a') · ap f p) · (σ a) == idp [ (\v → r v == r a) ↓ p ]
+  → (! (σ a') · ap f p) · (σ a) == idp [ (\a' → g a' ≡ g a) ↓ p ]
 
--- ap-idp' f r σ {a = a} idp = {!!}
+ap-idp' f g σ {a = a} idp =
+  begin
+    σ a ⁻¹ · idp · σ a
+      ≡⟨ ap (\p → p · σ a) (! (·-runit (σ a ⁻¹))) ⟩
+     σ a ⁻¹ · σ a
+      ≡⟨ ·-linv (σ a) ⟩
+    idp
+    ∎
 \end{code}

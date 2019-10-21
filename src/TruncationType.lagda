@@ -87,6 +87,7 @@ module
 
 Any two elements of the truncated type are equal
 
+{: .axiom}
 \begin{code}
   postulate
     trunc
@@ -115,7 +116,7 @@ Recursion principle
 
 There exists the possibility to charactherize, propositional truncation
 using an impredicative approach, which means, our definition will lay on
-a larger universe as follows on the right-hand side.
+a larger universe as on the right-hand side in the following formulation.
 
 $$ ∥ X ∥ ⇔ ∏ (P : \mathsf{Type} ), \mathsf{isProp}(P) → (X → P) → P$$
 
