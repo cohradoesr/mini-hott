@@ -13,7 +13,7 @@ showcitation: true
 Mini-HoTT is a [Agda](http://github.com/agda/agda) library that contains
 definitions and results of [Univalent Type Theory (also known as
 HoTT-UF)](http://homotopytypetheory.org/). The library is working in progress,
-currently, maintained by Jonathan Prieto-Cubides and supported by the
+currently, maintained by [Jonathan Prieto-Cubides](mailto:jonathan.cubides@uib.no) and supported by the
 Programming Theory Research Group (PUT) at [University of
 Bergen](https://www.uib.no/).
 
