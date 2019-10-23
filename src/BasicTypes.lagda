@@ -367,7 +367,7 @@ $$ ⟦ n ⟧ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$
 \end{code}
 
 
-### Equality type
+### Equalities
 
 ![higherstructuretype]({{ site.baseurl }}/assets/images/higher-order-structure.png){: width="50%" align="right" }
 

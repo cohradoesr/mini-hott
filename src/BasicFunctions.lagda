@@ -293,6 +293,14 @@ _^_
 
 f ^ zr     = id
 f ^ succ n = λ x → f ((f ^ n) x)
+
+postulate
+  app-comm
+   : ∀ {ℓ : Level}{A : Type ℓ}
+   → (f : A → A) → (n : ℕ)
+   → (x : A)
+   → (f ((f ^ n) x) ≡ ((f ^ n) (f x)))
+
 \end{code}
 
 ### Heterogeneous equality

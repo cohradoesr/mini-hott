@@ -37,6 +37,16 @@ module NaturalType where
 Addition:
 
 \begin{code}
+  max : ℕ → ℕ → ℕ
+  max 0 n = n
+  max (succ n) 0 = succ n
+  max (succ n) (succ m) = succ (max n m)
+
+  min : ℕ → ℕ → ℕ
+  min 0 n = 0
+  min (succ n) 0 = 0
+  min (succ n) (succ m) = succ (min n m)
+
   plus : ℕ → ℕ → ℕ
   plus zero y = y
   plus (succ x) y = succ (plus x y)
@@ -238,6 +248,14 @@ Associativity
       → n < m
     succ-<-inj {zr} {succ m} ∗ = ∗
     succ-<-inj {succ n} {succ m} p = succ-<-inj {n}{m} p
+\end{code}
+
+\begin{code}
+    _≤ₙ_ : ℕ → ℕ → Type ℓ
+    zr ≤ₙ zr = ⊤ ℓ
+    zr ≤ₙ succ b = ⊤ ℓ
+    succ a ≤ₙ zr = ⊥ ℓ
+    succ a ≤ₙ succ b = a ≤ₙ b
 \end{code}
 
 We can express the property of being the minimum of some given predicate
