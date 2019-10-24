@@ -21,8 +21,9 @@ open import BasicFunctions
 \end{code}
 </div>
 
-
 ## Hlevel types
+
+![path]({{ site.baseurl }}/assets/images/classification-first-homotopy-types.png){: width="65%" align="right" }
 
 Higher levels of the homotopical structure:
 
@@ -35,8 +36,6 @@ Higher levels of the homotopical structure:
 
 A *contractible* type is a type such that **every**
 element is equal to a point, the *center* of contraction.
-
-![path]({{ site.baseurl }}/assets/images/issinglenton.png){: width="50%" align="right" }
 
 \begin{code}
 isContr
@@ -57,6 +56,8 @@ _is-contr    = isContr
 \end{code}
 
 If a type is contractible, any of its points is a center of contraction:
+
+![path]({{ site.baseurl }}/assets/images/issinglenton.png){: width="50%" align="right" }
 
 \begin{code}
 contr-connects
