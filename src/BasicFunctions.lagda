@@ -20,6 +20,47 @@ open import BasicTypes public
 
 ## Basic functions
 
+### Path functions
+
+#### Composition of paths
+
+{: .foldable until="6" }
+\begin{code}
+_·_
+  : ∀ {ℓ : Level} {A : Type ℓ}  {x y z : A}
+  → (p : x == y)
+  → (q : y == z)
+  --------------
+  → x == z
+
+_·_ idp q = q
+
+infixl 50 _·_
+\end{code}
+
+![path]({{ site.baseurl }}/assets/images/path-concatenation.png){: width="60%" align="right" }
+
+#### Inverse of paths
+
+\begin{code}
+_⁻¹
+  : ∀ {ℓ : Level} {A : Type ℓ}  {a b : A}
+  → a == b
+  --------
+  → b == a
+
+idp ⁻¹ = idp
+\end{code}
+
+Synonyms for inverse path
+\begin{code}
+inv = _⁻¹
+!_  = inv
+
+infixl 60 _⁻¹ !_
+\end{code}
+
+
 ### Identity functions
 
 The identity function with implicit type.
@@ -209,6 +250,111 @@ f $ x = f x
 infixr 0 _$_
 \end{code}
 
+### Natural number operations
+
+\begin{code}
+plus : ℕ → ℕ → ℕ
+plus zero     y = y
+plus (succ x) y = succ (plus x y)
+\end{code}
+
+\begin{code}
+infixl 60 _+ₙ_
+_+ₙ_ : ℕ → ℕ → ℕ
+_+ₙ_ = plus
+\end{code}
+
+\begin{code}
+max : ℕ → ℕ → ℕ
+max 0        n = n
+max (succ n) 0 = succ n
+max (succ n) (succ m) = succ (max n m)
+\end{code}
+
+\begin{code}
+min : ℕ → ℕ → ℕ
+min 0        n = 0
+min (succ n) 0 = 0
+min (succ n) (succ m) = succ (min n m)
+\end{code}
+
+Now, we prove some lemmas about natural number addition are the following.
+Notice in the proofs, the extensive usage of rewriting, because at this
+point we have not showed that the equality type is a congruent relation.
+
+{: .foldable until="4"}
+\begin{code}
+plus-lunit
+  :  (n : ℕ)
+  ----------------
+  → zero +ₙ n == n
+
+plus-lunit n = refl n
+\end{code}
+
+{: .foldable until="4"}
+\begin{code}
+plus-runit
+  : (n : ℕ)
+  ----------------
+  → n +ₙ zero == n
+
+plus-runit zero     = refl zero
+plus-runit (succ n) rewrite (plus-runit n) = idp
+\end{code}
+
+{: .foldable until="4"}
+\begin{code}
+plus-succ
+  :  (n m : ℕ)
+  ----------------------------------
+  → succ (n +ₙ m) == (n +ₙ (succ m))
+
+plus-succ zero     m = refl (succ m)
+plus-succ (succ n) m rewrite (plus-succ n m) = idp
+\end{code}
+
+{: .foldable until="5"}
+\begin{code}
+plus-succ-rs
+  : (n m o p : ℕ)
+  →        n +ₙ m == o +ₙ p
+  --------------------------------
+  → n +ₙ (succ m) == o +ₙ (succ p)
+
+plus-succ-rs zr m zr p α rewrite α = idp
+plus-succ-rs zr m (succ o) p α rewrite α | plus-succ o p = idp
+plus-succ-rs (succ n) m zr p α rewrite α | ! (plus-succ n m) | α = idp
+plus-succ-rs (succ n) m (succ o) p α rewrite ! α | ! (plus-succ n m) | plus-succ o p | α = idp
+-- other solution, just : ! (plus-succ n m) · ap succ α · (plus-succ o p)
+\end{code}
+
+Commutativity
+
+{: .foldable until="4" }
+\begin{code}
+plus-comm
+  : (n m : ℕ)
+  -----------------
+  → n +ₙ m == m +ₙ n
+
+plus-comm zero     m = inv (plus-runit m)
+plus-comm (succ n) m rewrite (plus-comm n m)  = plus-succ m n
+\end{code}
+
+Associativity
+{: .foldable until="4"}
+\begin{code}
+plus-assoc
+  : (n m p : ℕ)
+  ---------------------------------
+  → n +ₙ (m +ₙ p) == (n +ₙ m) +ₙ p
+
+plus-assoc zero     m p = refl (m +ₙ p)
+plus-assoc (succ n) m p  rewrite (plus-assoc n m p) = idp
+\end{code}
+
+
 ### Coproduct manipulation
 
 Functions handy to manipulate coproducts:
@@ -243,7 +389,6 @@ syntax parallell f g = 〈 f × g 〉
 
 
 ### Curryfication
-
 
 \begin{code}
 curry
@@ -291,91 +436,38 @@ _^_
   → (f : A → A) → (n : ℕ)
   → (A → A)
 
-f ^ zr     = id
+f ^ zr = id
 f ^ succ n = λ x → f ((f ^ n) x)
-
-postulate
-  app-comm
-   : ∀ {ℓ : Level}{A : Type ℓ}
-   → (f : A → A) → (n : ℕ)
-   → (x : A)
-   → (f ((f ^ n) x) ≡ ((f ^ n) (f x)))
-
 \end{code}
-
-### Heterogeneous equality
-
-\begin{code}
-data
-  HEq {ℓ : Level} (A : Type ℓ)
-    : (B : Type ℓ)
-    → (α : A == B) (a : A) (b : B)
-    → Type (lsuc ℓ)
-  where
-  idp : {a : A} → HEq A A idp a a
-\end{code}
-
-### Path functions
-
-#### Composition of paths
 
 {: .foldable until="6" }
 \begin{code}
-_·_
-  : ∀ {ℓ : Level} {A : Type ℓ}  {x y z : A}
-  → (p : x == y)
-  → (q : y == z)
-  --------------
-  → x == z
+app-comm
+  : ∀ {ℓ : Level}{A : Type ℓ}
+  → (f : A → A) → (n : ℕ)
+  → (x : A)
+  ---------------------------------
+  → (f ((f ^ n) x) ≡ ((f ^ n) (f x)))
 
-_·_ idp q = q
-
-infixl 50 _·_
+app-comm f zr x = idp
+app-comm f (succ n) x rewrite app-comm f n x = idp
 \end{code}
 
-![path]({{ site.baseurl }}/assets/images/path-concatenation.png){: width="60%" align="right" }
-
-#### Inverse of paths
-
+{: .foldable until="7" }
 \begin{code}
-_⁻¹
-  : ∀ {ℓ : Level} {A : Type ℓ}  {a b : A}
-  → a == b
-  --------
-  → b == a
+app-comm₂
+  : ∀ {ℓ : Level}{A : Type ℓ}
+  → (f : A → A)
+  → (n k : ℕ)
+  → (x : A)
+  ------------------------------------------
+  → ((f ^ (n +ₙ k)) x) ≡ (f ^ n) ((f ^ k) x)
 
-idp ⁻¹ = idp
+app-comm₂ f zr zr x = idp
+app-comm₂ f zr (succ k) x = idp
+app-comm₂ f (succ n) zr x rewrite plus-runit n  = idp
+app-comm₂ f (succ n) (succ k) x rewrite app-comm₂ f n (succ k) x = idp
 \end{code}
-
-Synonyms for inverse path
-\begin{code}
-inv = _⁻¹
-!_  = inv
-
-infixl 60 _⁻¹ !_
-\end{code}
-
-
-Left and right hand side of the equality:
-
-\begin{code}
-lhs
-  : ∀ {ℓ : Level}{A : Type ℓ}{x y : A}
-  → x ≡ y
-  → A
-
-lhs {x = x} _ = x
-\end{code}
-
-\begin{code}
-rhs
-  : ∀ {ℓ : Level}{A : Type ℓ}{x y : A}
-  → x ≡ y
-  → A
-
-rhs {y = y} _ = y
-\end{code}
-
 
 ### Coproducts functions
 
@@ -400,6 +492,7 @@ inl-is-injective
 
 inl-is-injective idp = idp
 \end{code}
+
 
 ### Equational reasoning
 
@@ -428,7 +521,7 @@ module
   where
 \end{code}
 
-Definitional equals:
+Definitional equalness.
 
 {: .foldable until="4" }
 \begin{code}

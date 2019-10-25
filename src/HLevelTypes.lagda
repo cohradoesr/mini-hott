@@ -225,3 +225,16 @@ Groupoid
 
 Groupoid ℓ = ∑ (Type ℓ) isGroupoid
 \end{code}
+
+And, in case, we go a bit further, we have 2-groupoids. We
+can continue define more h-levels for all natural numbers,
+however, we are not going to use them.
+
+\begin{code}
+is-2-Groupoid
+   : ∀ {ℓ : Level} → Type ℓ → Type ℓ
+
+is-2-Groupoid A  = (a₀ a₁ : A) → isGroupoid (a₀ ≡ a₁)
+
+is-2-groupoid = is-2-Groupoid
+\end{code}

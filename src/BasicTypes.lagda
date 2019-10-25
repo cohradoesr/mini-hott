@@ -78,8 +78,6 @@ record
     : Type ℓ
   where
   constructor unit
-
--- {-# BUILTIN UNIT ⊤ #-}
 \end{code}
 
 Synonyms for the Unit type:
@@ -285,7 +283,7 @@ pattern sc = succ
 An order relation will use in the following type constructor.
 
 \begin{code}
-module ℕ-< {ℓ : Level} where
+module _ {ℓ : Level} where
   _<_ :  ℕ → ℕ → Type ℓ
   zero   < zero   = ⊥ ℓ
   zero   < succ b = ⊤ ℓ
@@ -313,7 +311,6 @@ module Fin (ℓ : Level) where
   mutual
     Fin : ℕ → Type ℓ
     Fin n = Σ (ℕ) (λ m → m < n)
-    open ℕ-< {ℓ}
 \end{code}
 
 
@@ -395,8 +392,8 @@ Synonyms for the identity type:
 Eq   = _==_
 Id   = _==_
 Path = _==_
-_⇝_  = _==_   -- '\r~'
-_≡_  = _==_   -- '\equiv' (may be not good idea...)
+_⇝_  = _==_   -- type this '\r~'
+_≡_  = _==_
 \end{code}
 
 \begin{code}
@@ -489,4 +486,17 @@ Decidable
   → Type ℓ
 
 Decidable _∼_ = ∀ x y → Dec (x ∼ y)
+\end{code}
+
+
+### Heterogeneous equality
+
+\begin{code}
+data
+  HEq {ℓ : Level} (A : Type ℓ)
+    : (B : Type ℓ)
+    → (α : A == B) (a : A) (b : B)
+    → Type (lsuc ℓ)
+  where
+  idp : {a : A} → HEq A A idp a a
 \end{code}

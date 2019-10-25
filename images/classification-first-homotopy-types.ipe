@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <!DOCTYPE ipe SYSTEM "ipe.dtd">
 <ipe version="70212" creator="Ipe 7.2.12">
-<info created="D:20191024152814" modified="D:20191024232435" tex="pdftex"/>
+<info created="D:20191024152814" modified="D:20191025130948" tex="pdftex"/>
 <preamble>\usepackage{amsmath}
 \usepackage{amssymb}
 \usepackage{amsfonts}</preamble>
@@ -418,7 +418,7 @@ h
 12.6491 0 0 12.6491 184 612 e
 </path>
 <text matrix="1 0 0 1 0.692584 46.876" transformations="translations" pos="212 500" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline"></text>
-<text matrix="1 0 0 1 12.6926 50.876" transformations="translations" pos="184 488" stroke="black" type="label" width="31.161" height="6.808" depth="0" valign="baseline">Fermat</text>
+<text matrix="1 0 0 1 12.6926 50.876" transformations="translations" pos="184 488" stroke="black" type="label" width="37.858" height="6.918" depth="0" valign="baseline">Fermat&apos;s</text>
 <text transformations="translations" pos="44 384" stroke="black" type="label" width="0" height="0" depth="0" valign="baseline"></text>
 <text matrix="1 0 0 1 0.692584 66.876" transformations="translations" pos="196 464" stroke="black" type="label" width="23.938" height="6.918" depth="0" valign="baseline">Little</text>
 <text matrix="1 0 0 1 -7.30742 70.876" transformations="translations" pos="204 452" stroke="black" type="label" width="38.771" height="6.918" depth="0" valign="baseline">Theorem</text>
@@ -599,7 +599,6 @@ h
 <text matrix="1 0 0 1 80.6926 -25.124" transformations="translations" pos="96 672" stroke="black" type="label" width="13.39" height="11.955" depth="0" valign="baseline" size="LARGE" style="math">\top</text>
 <text matrix="1 0 0 1 -43.3074 -49.124" transformations="translations" pos="312 500" stroke="black" type="label" width="27.065" height="9.963" depth="0" valign="baseline" size="Large" style="math">\mathsf{Bool}</text>
 <use matrix="1 0 0 1 -11.3074 -21.124" name="mark/disk(sx)" pos="204 556" size="normal" stroke="black"/>
-<use matrix="1 0 0 1 -11.3074 -21.124" name="mark/disk(sx)" pos="264 512" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -11.3074 -21.124" name="mark/disk(sx)" pos="288.058 591.702" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -11.3074 -21.124" name="mark/disk(sx)" pos="288.008 535.965" size="normal" stroke="black"/>
 <use matrix="1 0 0 1 -11.3074 -21.124" name="mark/disk(sx)" pos="342.738 586.562" size="normal" stroke="black"/>

@@ -10,12 +10,15 @@ linkify: true
 showcitation: true
 ---
 
-Mini-HoTT is a [Agda](http://github.com/agda/agda) library that contains
+Mini-HoTT is an [Agda](http://github.com/agda/agda) library that contains
 definitions and results of [Univalent Type Theory (also known as
 HoTT-UF)](http://homotopytypetheory.org/). The library is working in progress,
-currently, maintained by [Jonathan Prieto-Cubides](mailto:jonathan.cubides@uib.no) and supported by the
-Programming Theory Research Group (PUT) at [University of
-Bergen](https://www.uib.no/).
+currently, maintained by [Jonathan
+Prieto-Cubides](mailto:jonathan.cubides@uib.no) with contributions of [Håkon
+Robbestad Gylterud](https://hakon.gylterud.net) and [Marc
+Bezem](https://cas.oslo.no/fellows/marc-bezem-article2086-828.html). This
+development is supported by the Programming Theory Research Group (PUT) at
+[University of Bergen](https://www.uib.no/).
 
 ## Installation
 
@@ -35,11 +38,13 @@ Bergen](https://www.uib.no/).
 
 ## Quick start
 
-This documentation is generated automatically from the repository subfolder `src/` that contains
-all the literate Agda files of MiniHoTT. However, some definitions and theorems are hidden in this view since
-they are not ready to use, but we encourage the curious reader to check out all the files. To use
-MiniHoTT, the only requirement is to have installed [Agda](http://github.com/agda/agda) and a
-text editor (we recommend Emacs or Atom with Agda support) on your computer.
+This documentation is generated automatically from the repository sub-folder
+`src/` that contains all the literate Agda files of MiniHoTT. However, some
+definitions and theorems are hidden in this view since they are not ready to
+use, but we encourage the curious reader to check out all the files. To use
+MiniHoTT, the only requirement is to have installed
+[Agda](http://github.com/agda/agda) and a text editor (we recommend Emacs or
+Atom with Agda support) on your computer.
 
 Regarding the library performance, we recommend to check out
 other options. For example, [HoTT-Agda](https://hott.github.io/HoTT-Agda/) is
@@ -48,7 +53,7 @@ libraries and resources can be found in References section.
 
 ### Code conventions
 
-Definitions and theorems are typed with unicode characters, this, to improve
+Definitions and theorems are typed with Unicode characters, this, to improve
 the readability. We usually present lemmas and theorems as rule inferences as
 in the following example. We are explicit about level universes and then, you
 will find them in each definition, unless for definitions in a module.
@@ -62,7 +67,9 @@ termName
   → ...                                  -- Conclusion
 ```
 
-On the website some term definitions are hidden, however, you can expand them by clicking on the code boxes (on the top-right icon) -- this requires Javascript--.
+On the website some term definitions are hidden, however, you can expand them
+by clicking on the code boxes (on the top-right icon) -- this requires
+Javascript--.
 
 ```
 termName = definition
@@ -84,7 +91,7 @@ for type-checking by using the option `without-K`.
 
 In addition, without Axiom K, `Agda`'s `Set` is not a good name for universes in HoTT. So, we
 rename `Set` to `Type`. Our type judgments then will include the universe level
-as one explicit argument. Also, we want to have judgemental equailities for each usage of (=) so
+as one explicit argument. Also, we want to have judgmental equalities for each usage of (=) so
 we use the following option.
 
 \begin{code}

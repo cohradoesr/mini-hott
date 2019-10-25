@@ -34,95 +34,6 @@ open import MonoidType
 module NaturalType where
 \end{code}
 
-Addition:
-
-\begin{code}
-  max : ℕ → ℕ → ℕ
-  max 0 n = n
-  max (succ n) 0 = succ n
-  max (succ n) (succ m) = succ (max n m)
-
-  min : ℕ → ℕ → ℕ
-  min 0 n = 0
-  min (succ n) 0 = 0
-  min (succ n) (succ m) = succ (min n m)
-
-  plus : ℕ → ℕ → ℕ
-  plus zero y = y
-  plus (succ x) y = succ (plus x y)
-
-  infixl 60 _+ₙ_
-  _+ₙ_ : ℕ → ℕ → ℕ
-  _+ₙ_ = plus
-\end{code}
-
-{: .foldable until="4"}
-\begin{code}
-  plus-lunit
-    :  (n : ℕ)
-    ----------------
-    → zero +ₙ n == n
-
-  plus-lunit n = refl n
-\end{code}
-
-{: .foldable until="4"}
-\begin{code}
-  plus-runit
-    : (n : ℕ)
-    ----------------
-    → n +ₙ zero == n
-
-  plus-runit zero     = refl zero
-  plus-runit (succ n) = ap succ (plus-runit n)
-\end{code}
-
-{: .foldable until="4"}
-\begin{code}
-  plus-succ
-    :  (n m : ℕ)
-    ----------------------------------
-    → succ (n +ₙ m) == (n +ₙ (succ m))
-
-  plus-succ zero     m = refl (succ m)
-  plus-succ (succ n) m = ap succ (plus-succ n m)
-\end{code}
-
-{: .foldable until="5"}
-\begin{code}
-  plus-succ-rs
-    : (n m o p : ℕ)
-    →        n +ₙ m == o +ₙ p
-    --------------------------------
-    → n +ₙ (succ m) == o +ₙ (succ p)
-
-  plus-succ-rs n m o p α = ! (plus-succ n m) · ap succ α · (plus-succ o p)
-\end{code}
-
-Commutativity
-{: .foldable until="4"}
-\begin{code}
-  plus-comm
-    : (n m : ℕ)
-    -----------------
-    → n +ₙ m == m +ₙ n
-
-  plus-comm zero     m = inv (plus-runit m)
-  plus-comm (succ n) m = ap succ (plus-comm n m) · plus-succ m n
-\end{code}
-
-Associativity
-{: .foldable until="4"}
-\begin{code}
-  plus-assoc
-    : (n m p : ℕ)
-    ---------------------------------
-    → n +ₙ (m +ₙ p) == (n +ₙ m) +ₙ p
-
-  plus-assoc zero     m p = refl (m +ₙ p)
-  plus-assoc (succ n) m p = ap succ (plus-assoc n m p)
-\end{code}
-
 {: .foldable until="3"}
 \begin{code}[hide]
   private
@@ -180,8 +91,6 @@ Associativity
 
 {: .foldable until="3"}
 \begin{code}
-
-  -- REMOVE some of the DEC for nats.
   natIsDec : (n m : ℕ) → (n == m) + (¬ (n == m))
   natIsDec zero zero     = inl idp
   natIsDec zero (succ m) = inr (λ ())
@@ -238,16 +147,16 @@ Associativity
 
 \begin{code}
   module _ {ℓ : Level} where
-    open ℕ-< {ℓ}
+
 \end{code}
 
 \begin{code}
-    succ-<-inj
-      : ∀ {n m : ℕ}
-      → succ n < succ m
-      → n < m
-    succ-<-inj {zr} {succ m} ∗ = ∗
-    succ-<-inj {succ n} {succ m} p = succ-<-inj {n}{m} p
+    -- succ-<-inj
+    --   : ∀ {n m : ℕ}
+    --   → succ n < succ m
+    --   → n < m
+    -- succ-<-inj {zr} {succ m} ∗ = ∗
+    -- succ-<-inj {succ n} {succ m} p = succ-<-inj {n}{m} p
 \end{code}
 
 \begin{code}
@@ -267,8 +176,8 @@ as follows (See the symmetry book).
     → (n : ℕ )
     → (P : ℕ → hProp ℓ)
     → Type ℓ
-  n is-the-minimum-of P = π₁ (P n) × ((m : ℕ) → π₁ (P m) → n < (m +ₙ 1))
-    where open ℕ-< {level-of (π₁ (P n))}
+  n is-the-minimum-of P = π₁ (P n) × ((m : ℕ) → π₁ (P m) → n <ₙ (m +ₙ 1))
+    -- where open ℕ-< {level-of (π₁ (P n))}
 \end{code}
 
 
@@ -279,13 +188,12 @@ as follows (See the symmetry book).
     → (P : ℕ → hProp ℓ)
     → Type ℓ
 
-  n is-the-maximum-of P = π₁ (P n) × ((m : ℕ) → π₁ (P m) → m +ₙ 1 < n)
-    where open ℕ-< {level-of (π₁ (P n))}
+  n is-the-maximum-of P = π₁ (P n) × ((m : ℕ) → π₁ (P m) →  (m +ₙ 1) <ₙ n )
 \end{code}
 
 Move this somewhere else:
 
-\begin{code}
+\begin{code}(m +ₙ 1)
   Max
     : ∀ {ℓ : Level}
     → (P : ℕ → hProp ℓ)
