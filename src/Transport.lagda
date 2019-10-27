@@ -110,7 +110,26 @@ infix 30 ≡Over
 syntax ≡Over B b α b' = b ≡ b' [ B / α ]
 \end{code}
 
-Transport and composition:
+### Compositions of Pathovers
+
+\begin{code}
+infixl 50 _∙d_
+_∙d_
+  : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂}
+  → {a₁ a₂ : A} {p : a₁ ≡ a₂} {b₁ : B a₁}{b₂ : B a₂}
+  → (b₁ ≡ b₂ [ B / p ])
+  → {a₃ : A} {q : a₂ ≡ a₃} {b₃ : B a₃}
+  → (b₂ ≡ b₃ [ B / q ])
+  ---------------------------------------------
+  → b₁ ≡ b₃ [ B / (p · q)]
+
+_∙d_ {p = idp} idp {q = idp} β = β
+\end{code}
+
+\begin{code}
+pathover-comp = _∙d_
+_·d_          = _∙d_
+\end{code}
 
 {: .foldable until="8"}
 \begin{code}
