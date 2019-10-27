@@ -4,17 +4,23 @@ toc: true
 agda: true
 gallery: true
 latex: true
-references: false
+references: true
 linkify: true
 showcitation: true
+title: Mini-HoTT
+subtitle: Univalent Type Theory in Agda
 author: "Jonathan Prieto-Cubides"
 author_affiliation: "University of Bergen"
 date: "2019-09-27"
 ---
 
+<div class="only-website">
 # MiniHoTT Library
 
 Last update: {{site.time}}.
+
+</div>
+
 
 <div class="only-website">
 [Intro.lagda]({% link Intro.md %})
@@ -321,13 +327,6 @@ Thus, Mini-HoTT  is a fork of Agda-HoTT because we took some ideas/types and pro
 - [Agda-Base](https://github.com/pcapriotti/agda-base) is another Agda Library that I check time to time for its ideas for my proofs.
 - Higher-inductive types in Agda are defined so far by using the Licata's trick, [Licata's library](https://github.com/dlicata335/hott-agda/) is a resource to see some examples
 of this. Also, it contains interesting proofs about the circle and its fundamental group.
-
-- Talks:
-
-  - [Logic in univalent type theory](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf).
+- [Logic in univalent type theory](https://www.newton.ac.uk/files/seminar/20170711100011001-1442677.pdf).
 
 {% include mathjax.html %}
-
-<div class="only-website">
-<script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5ofvfm0irr4&amp;m=0c&amp;c=ff0000&amp;cr1=ffffff&amp;f=tahoma&amp;l=49&amp;s=192&amp;bv=65&amp;cw=ffffff&amp;cb=000000" async="async"></script>
-</div>

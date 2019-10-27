@@ -3,17 +3,6 @@
 
 {% include head.html %}
 
-{% if page.title contains "Timeline" %}
-    <style>
-      html, body {
-        height:100%;
-        width:100%;
-        padding: 0px;
-        margin: 0px;
-      }
-    </style>
-{% endif %}
-
   <body class="layout-reverse sidebar-overlay">
     {% include sidebar.html %}
     <div class="wrap">
@@ -26,13 +15,9 @@
             {% endif %}</small>
           </h3>
         </div>
-      {% if page.title contains 'Timeline' %}
-        {{ content }}
-      {% else %}
       <div class="container content">
         {{ content }}
       </div>
-      {% endif %}
       </div>
     </div>
     {% if page.toc %}
@@ -88,5 +73,6 @@
       $('p:contains("layout")').remove();
     </script>
     {% endif %}
+
   </body>
 </html>

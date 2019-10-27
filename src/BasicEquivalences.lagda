@@ -15,6 +15,7 @@ showcitation: true
 There are some well-known equivalences very handy about
 products and coproducts.
 
+{: .hide }
 \begin{code}
 {-# OPTIONS --without-K --exact-split #-}
 open import BasicTypes
@@ -117,7 +118,6 @@ module BasicEquivalences where
     X            ≃⟨ ≃-+-runit ⟩
     X + 𝟘 ℓ₂     ≃⟨ ≃-+-comm ⟩
     (𝟘 ℓ₂) + X   ≃∎
-
 \end{code}
 
 {: .foldable until="3"}

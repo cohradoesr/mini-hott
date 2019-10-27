@@ -2,7 +2,7 @@
 repository:          'jonaprieto/mini-hott'
 title:               'Mini-HoTT'
 tagline:             ''
-description:         'Jonathan Prieto-Cubides'
+description:         'Yet another Agda Library for Univalent Type Theory'
 url:                 'http://jonaprieto.github.io/mini-hott'
 baseurl:             '/mini-hott'
 timezone:            'Europe/Oslo'

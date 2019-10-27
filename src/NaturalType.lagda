@@ -27,15 +27,13 @@ open import DecidableEquality
 open import HLevelTypes
 open import HedbergLemmas
 open import MonoidType
+
+module NaturalType where
 \end{code}
 </div>
 
+{: .hide }
 \begin{code}
-module NaturalType where
-\end{code}
-
-{: .foldable until="3"}
-\begin{code}[hide]
   private
     code : ℕ → ℕ → Type₀
     code 0        0        = ⊤ lzero
@@ -60,27 +58,41 @@ module NaturalType where
 
 {: .foldable until="3"}
 \begin{code}
-  zero-not-succ : (n : ℕ) → ¬ (succ n == zero)
+  zero-not-succ
+    : (n : ℕ)
+    → ¬ (succ n == zero)
+
   zero-not-succ n = encode (succ n) 0
 \end{code}
 
-{: .foldable until="3"}
+The successor function is injective.
+
+{: .foldable until="4"}
 \begin{code}
-  -- The successor function is injective
-  succ-inj : {n m : ℕ} → (succ n == succ m) → n == m
+  succ-inj
+    : {n m : ℕ}
+    → (succ n ≡ succ m)
+    → n ≡ m
+
   succ-inj {n} {m} p = decode n m (encode (succ n) (succ m) p)
 \end{code}
 
-{: .foldable until="3"}
+{: .foldable until="4"}
 \begin{code}
-  +-inj : (k : ℕ) {n m : ℕ} → (k +ₙ n == k +ₙ m) → n == m
+  +-inj
+    : (k : ℕ) {n m : ℕ}
+    → (k +ₙ n == k +ₙ m)
+    → n == m
+
   +-inj zero   p = p
   +-inj (succ k) p = +-inj k (succ-inj p)
 \end{code}
 
-{: .foldable until="3"}
+{: .foldable until="2"}
 \begin{code}
-  nat-decEq : decEq ℕ
+  nat-decEq
+    : decEq ℕ
+
   nat-decEq zero zero = inl (refl zero)
   nat-decEq zero (succ m) = inr (λ ())
   nat-decEq (succ n) zero = inr (λ ())
@@ -91,7 +103,10 @@ module NaturalType where
 
 {: .foldable until="3"}
 \begin{code}
-  natIsDec : (n m : ℕ) → (n == m) + (¬ (n == m))
+  natIsDec
+    : (n m : ℕ)
+    → (n ≡ m) + (¬ (n ≡ m))
+
   natIsDec zero zero     = inl idp
   natIsDec zero (succ m) = inr (λ ())
   natIsDec (succ n) zero = inr (λ ())
@@ -113,9 +128,7 @@ module NaturalType where
   nat-isSet = nat-is-set
 \end{code}
 
-{: .foldable until="3"}
 \begin{code}
-  -- Naturals form a monoid with addition
   ℕ-plus-monoid : Monoid
   ℕ-plus-monoid = record
     { M = ℕ
@@ -128,10 +141,8 @@ module NaturalType where
     }
 \end{code}
 
-
 {: .foldable until="3"}
 \begin{code}
-  -- Ordering
   _<ₙ_ : ℕ → ℕ → Type₀
   n <ₙ m = Σ ℕ (λ k → n +ₙ succ k == m)
 \end{code}
@@ -142,14 +153,16 @@ module NaturalType where
     : (n m : ℕ)
     → isProp (n <ₙ m)
 
-  <-isProp n m (k1 , p1) (k2 , p2) = Σ-bycomponents (succ-inj (+-inj n (p1 · inv p2)) , nat-isSet _ _ _ _)
+  <-isProp n m (k1 , p1) (k2 , p2) =
+    Σ-bycomponents (succ-inj (+-inj n (p1 · inv p2)) , nat-isSet _ _ _ _)
 \end{code}
 
+{: .hide }
 \begin{code}
   module _ {ℓ : Level} where
-
 \end{code}
 
+{: .hide }
 \begin{code}
     -- succ-<-inj
     --   : ∀ {n m : ℕ}
@@ -161,9 +174,9 @@ module NaturalType where
 
 \begin{code}
     _≤ₙ_ : ℕ → ℕ → Type ℓ
-    zr ≤ₙ zr = ⊤ ℓ
-    zr ≤ₙ succ b = ⊤ ℓ
-    succ a ≤ₙ zr = ⊥ ℓ
+    zr     ≤ₙ zr     = ⊤ ℓ
+    zr     ≤ₙ succ b = ⊤ ℓ
+    succ a ≤ₙ zr     = ⊥ ℓ
     succ a ≤ₙ succ b = a ≤ₙ b
 \end{code}
 

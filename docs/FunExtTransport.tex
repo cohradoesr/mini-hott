@@ -13,7 +13,7 @@
         Mini-HoTT
     
   </title>
-  <meta name="description" content="Jonathan Prieto-Cubides">
+  <meta name="description" content="Yet another Agda Library for Univalent Type Theory">
 
   <link rel="stylesheet" href="/mini-hott/css/main.css">
   <link rel="preload" as="script" href="/mini-hott/assets/main.js" >
@@ -50,10 +50,7 @@
     gtag('config', 'UA-114360791-1');
   </script>
 
-  
 </head>
-
-
 
 
   <body class="layout-reverse sidebar-overlay">
@@ -89,25 +86,25 @@
     
       
         
-          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
-        
-      
-    
-      
-        
           <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
         
       
     
       
         
           <a class="sidebar-nav-item" href="/UnivalenceAxiom.tex">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
         
       
     
@@ -371,13 +368,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HomotopyLemmas.tex">Homotopy Lemmas</a>
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.tex">Homotopy Lemmas</a>
         
       
     
@@ -407,19 +404,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
-        
-      
-    
-      
-        
           <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
+          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
         
       
     
@@ -432,12 +423,6 @@
       
         
           <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/NaturalType.tex">Natural number Type</a>
         
       
     
@@ -598,10 +583,9 @@
       
      -->
 
-    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
+    <a class="sidebar-nav-item" href="/mini-hott">Main Page</a>
     <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
-    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
-    <!-- <span class="sidebar-nav-item">Currently v</span> -->
+    <span class="sidebar-nav-item">v</span>
   </nav>
 </div>
 
@@ -614,7 +598,6 @@
             <small style="text-decoration:left"></small>
           </h3>
         </div>
-      
       <div class="container content">
         
 
@@ -653,8 +636,6 @@
   </div>
 
   
-  No git information available.
-  
 
   <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Function extensionality and Transport <small style="float:right">(FunExtTransport.tex)</small>
   </h1>
@@ -686,40 +667,40 @@
 
 <pre class="Agda">
 <a id="428" class="Keyword">module</a>
-  <a id="437" href="FunExtTransport.html" class="Module">FunExtTransport</a> <a id="453" class="Symbol">{</a><a id="454" href="FunExtTransport.html#454" class="Bound">ℓ₁</a> <a id="457" href="FunExtTransport.html#457" class="Bound">ℓ₂</a> <a id="460" class="Symbol">:</a> <a id="462" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="467" class="Symbol">}{</a><a id="469" href="FunExtTransport.html#469" class="Bound">X</a> <a id="471" class="Symbol">:</a> <a id="473" href="Intro.html#3620" class="Function">Type</a> <a id="478" href="FunExtTransport.html#454" class="Bound">ℓ₁</a><a id="480" class="Symbol">}</a> <a id="482" class="Symbol">{</a><a id="483" href="FunExtTransport.html#483" class="Bound">A</a> <a id="485" href="FunExtTransport.html#485" class="Bound">B</a> <a id="487" class="Symbol">:</a> <a id="489" href="FunExtTransport.html#469" class="Bound">X</a> <a id="491" class="Symbol">→</a> <a id="493" href="Intro.html#3620" class="Function">Type</a> <a id="498" href="FunExtTransport.html#457" class="Bound">ℓ₂</a><a id="500" class="Symbol">}</a> <a id="502" class="Symbol">{</a><a id="503" href="FunExtTransport.html#503" class="Bound">x</a> <a id="505" href="FunExtTransport.html#505" class="Bound">y</a> <a id="507" class="Symbol">:</a> <a id="509" href="FunExtTransport.html#469" class="Bound">X</a><a id="510" class="Symbol">}</a>
+  <a id="437" href="FunExtTransport.html" class="Module">FunExtTransport</a> <a id="453" class="Symbol">{</a><a id="454" href="FunExtTransport.html#454" class="Bound">ℓ₁</a> <a id="457" href="FunExtTransport.html#457" class="Bound">ℓ₂</a> <a id="460" class="Symbol">:</a> <a id="462" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="467" class="Symbol">}{</a><a id="469" href="FunExtTransport.html#469" class="Bound">X</a> <a id="471" class="Symbol">:</a> <a id="473" href="Intro.html#3611" class="Function">Type</a> <a id="478" href="FunExtTransport.html#454" class="Bound">ℓ₁</a><a id="480" class="Symbol">}</a> <a id="482" class="Symbol">{</a><a id="483" href="FunExtTransport.html#483" class="Bound">A</a> <a id="485" href="FunExtTransport.html#485" class="Bound">B</a> <a id="487" class="Symbol">:</a> <a id="489" href="FunExtTransport.html#469" class="Bound">X</a> <a id="491" class="Symbol">→</a> <a id="493" href="Intro.html#3611" class="Function">Type</a> <a id="498" href="FunExtTransport.html#457" class="Bound">ℓ₂</a><a id="500" class="Symbol">}</a> <a id="502" class="Symbol">{</a><a id="503" href="FunExtTransport.html#503" class="Bound">x</a> <a id="505" href="FunExtTransport.html#505" class="Bound">y</a> <a id="507" class="Symbol">:</a> <a id="509" href="FunExtTransport.html#469" class="Bound">X</a><a id="510" class="Symbol">}</a>
     <a id="516" class="Keyword">where</a>
 </pre>
 
 <pre class="Agda">
   <a id="funext-transport"></a><a id="549" href="FunExtTransport.html#549" class="Function">funext-transport</a>
-    <a id="570" class="Symbol">:</a> <a id="572" class="Symbol">(</a><a id="573" href="FunExtTransport.html#573" class="Bound">p</a> <a id="575" class="Symbol">:</a> <a id="577" href="FunExtTransport.html#503" class="Bound">x</a> <a id="579" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="582" href="FunExtTransport.html#505" class="Bound">y</a><a id="583" class="Symbol">)</a> <a id="585" class="Symbol">→</a> <a id="587" class="Symbol">(</a><a id="588" href="FunExtTransport.html#588" class="Bound">f</a> <a id="590" class="Symbol">:</a> <a id="592" href="FunExtTransport.html#483" class="Bound">A</a> <a id="594" href="FunExtTransport.html#503" class="Bound">x</a> <a id="596" class="Symbol">→</a> <a id="598" href="FunExtTransport.html#485" class="Bound">B</a> <a id="600" href="FunExtTransport.html#503" class="Bound">x</a><a id="601" class="Symbol">)</a> <a id="603" class="Symbol">→</a> <a id="605" class="Symbol">(</a><a id="606" href="FunExtTransport.html#606" class="Bound">g</a> <a id="608" class="Symbol">:</a> <a id="610" href="FunExtTransport.html#483" class="Bound">A</a> <a id="612" href="FunExtTransport.html#505" class="Bound">y</a> <a id="614" class="Symbol">→</a> <a id="616" href="FunExtTransport.html#485" class="Bound">B</a> <a id="618" href="FunExtTransport.html#505" class="Bound">y</a><a id="619" class="Symbol">)</a>
+    <a id="570" class="Symbol">:</a> <a id="572" class="Symbol">(</a><a id="573" href="FunExtTransport.html#573" class="Bound">p</a> <a id="575" class="Symbol">:</a> <a id="577" href="FunExtTransport.html#503" class="Bound">x</a> <a id="579" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="582" href="FunExtTransport.html#505" class="Bound">y</a><a id="583" class="Symbol">)</a> <a id="585" class="Symbol">→</a> <a id="587" class="Symbol">(</a><a id="588" href="FunExtTransport.html#588" class="Bound">f</a> <a id="590" class="Symbol">:</a> <a id="592" href="FunExtTransport.html#483" class="Bound">A</a> <a id="594" href="FunExtTransport.html#503" class="Bound">x</a> <a id="596" class="Symbol">→</a> <a id="598" href="FunExtTransport.html#485" class="Bound">B</a> <a id="600" href="FunExtTransport.html#503" class="Bound">x</a><a id="601" class="Symbol">)</a> <a id="603" class="Symbol">→</a> <a id="605" class="Symbol">(</a><a id="606" href="FunExtTransport.html#606" class="Bound">g</a> <a id="608" class="Symbol">:</a> <a id="610" href="FunExtTransport.html#483" class="Bound">A</a> <a id="612" href="FunExtTransport.html#505" class="Bound">y</a> <a id="614" class="Symbol">→</a> <a id="616" href="FunExtTransport.html#485" class="Bound">B</a> <a id="618" href="FunExtTransport.html#505" class="Bound">y</a><a id="619" class="Symbol">)</a>
     <a id="625" class="Comment">------------------------------------------------------------</a>
-    <a id="690" class="Symbol">→</a> <a id="692" class="Symbol">(</a><a id="693" href="Transport.html#706" class="Function">tr</a> <a id="696" class="Symbol">(λ</a> <a id="699" href="FunExtTransport.html#699" class="Bound">z₁</a> <a id="702" class="Symbol">→</a> <a id="704" class="Symbol">(</a><a id="705" href="FunExtTransport.html#705" class="Bound">x</a> <a id="707" class="Symbol">:</a> <a id="709" href="FunExtTransport.html#483" class="Bound">A</a> <a id="711" href="FunExtTransport.html#699" class="Bound">z₁</a><a id="713" class="Symbol">)</a> <a id="715" class="Symbol">→</a> <a id="717" href="FunExtTransport.html#485" class="Bound">B</a> <a id="719" href="FunExtTransport.html#699" class="Bound">z₁</a><a id="721" class="Symbol">)</a> <a id="723" href="FunExtTransport.html#573" class="Bound">p</a> <a id="725" href="FunExtTransport.html#588" class="Bound">f</a> <a id="727" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="730" href="FunExtTransport.html#606" class="Bound">g</a><a id="731" class="Symbol">)</a>
-    <a id="737" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="739" class="Symbol">((</a><a id="741" href="FunExtTransport.html#741" class="Bound">a</a> <a id="743" class="Symbol">:</a> <a id="745" href="FunExtTransport.html#483" class="Bound">A</a><a id="746" class="Symbol">(</a><a id="747" href="FunExtTransport.html#503" class="Bound">x</a><a id="748" class="Symbol">))</a> <a id="751" class="Symbol">→</a> <a id="753" href="Transport.html#706" class="Function">tr</a> <a id="756" href="FunExtTransport.html#485" class="Bound">B</a> <a id="758" href="FunExtTransport.html#573" class="Bound">p</a> <a id="760" class="Symbol">(</a><a id="761" href="FunExtTransport.html#588" class="Bound">f</a> <a id="763" href="FunExtTransport.html#741" class="Bound">a</a><a id="764" class="Symbol">)</a> <a id="766" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="769" href="FunExtTransport.html#606" class="Bound">g</a> <a id="771" class="Symbol">(</a><a id="772" href="Transport.html#706" class="Function">tr</a> <a id="775" href="FunExtTransport.html#483" class="Bound">A</a> <a id="777" href="FunExtTransport.html#573" class="Bound">p</a> <a id="779" href="FunExtTransport.html#741" class="Bound">a</a><a id="780" class="Symbol">))</a>
+    <a id="690" class="Symbol">→</a> <a id="692" class="Symbol">(</a><a id="693" href="Transport.html#706" class="Function">tr</a> <a id="696" class="Symbol">(λ</a> <a id="699" href="FunExtTransport.html#699" class="Bound">z₁</a> <a id="702" class="Symbol">→</a> <a id="704" class="Symbol">(</a><a id="705" href="FunExtTransport.html#705" class="Bound">x</a> <a id="707" class="Symbol">:</a> <a id="709" href="FunExtTransport.html#483" class="Bound">A</a> <a id="711" href="FunExtTransport.html#699" class="Bound">z₁</a><a id="713" class="Symbol">)</a> <a id="715" class="Symbol">→</a> <a id="717" href="FunExtTransport.html#485" class="Bound">B</a> <a id="719" href="FunExtTransport.html#699" class="Bound">z₁</a><a id="721" class="Symbol">)</a> <a id="723" href="FunExtTransport.html#573" class="Bound">p</a> <a id="725" href="FunExtTransport.html#588" class="Bound">f</a> <a id="727" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="730" href="FunExtTransport.html#606" class="Bound">g</a><a id="731" class="Symbol">)</a>
+    <a id="737" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="739" class="Symbol">((</a><a id="741" href="FunExtTransport.html#741" class="Bound">a</a> <a id="743" class="Symbol">:</a> <a id="745" href="FunExtTransport.html#483" class="Bound">A</a><a id="746" class="Symbol">(</a><a id="747" href="FunExtTransport.html#503" class="Bound">x</a><a id="748" class="Symbol">))</a> <a id="751" class="Symbol">→</a> <a id="753" href="Transport.html#706" class="Function">tr</a> <a id="756" href="FunExtTransport.html#485" class="Bound">B</a> <a id="758" href="FunExtTransport.html#573" class="Bound">p</a> <a id="760" class="Symbol">(</a><a id="761" href="FunExtTransport.html#588" class="Bound">f</a> <a id="763" href="FunExtTransport.html#741" class="Bound">a</a><a id="764" class="Symbol">)</a> <a id="766" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="769" href="FunExtTransport.html#606" class="Bound">g</a> <a id="771" class="Symbol">(</a><a id="772" href="Transport.html#706" class="Function">tr</a> <a id="775" href="FunExtTransport.html#483" class="Bound">A</a> <a id="777" href="FunExtTransport.html#573" class="Bound">p</a> <a id="779" href="FunExtTransport.html#741" class="Bound">a</a><a id="780" class="Symbol">))</a>
 
-  <a id="786" href="FunExtTransport.html#549" class="Function">funext-transport</a> <a id="803" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a> <a id="807" href="FunExtTransport.html#807" class="Bound">f</a> <a id="809" href="FunExtTransport.html#809" class="Bound">g</a> <a id="811" class="Symbol">=</a> <a id="813" href="FunExtAxiom.html#867" class="Function">eqFunExt</a>
+  <a id="786" href="FunExtTransport.html#549" class="Function">funext-transport</a> <a id="803" href="BasicTypes.html#6492" class="InductiveConstructor">idp</a> <a id="807" href="FunExtTransport.html#807" class="Bound">f</a> <a id="809" href="FunExtTransport.html#809" class="Bound">g</a> <a id="811" class="Symbol">=</a> <a id="813" href="FunExtAxiom.html#867" class="Function">eqFunExt</a>
 </pre>
 
 <pre class="Agda">
   <a id="funext-transport-l"></a><a id="849" href="FunExtTransport.html#849" class="Function">funext-transport-l</a>
-    <a id="872" class="Symbol">:</a> <a id="874" class="Symbol">(</a><a id="875" href="FunExtTransport.html#875" class="Bound">p</a> <a id="877" class="Symbol">:</a> <a id="879" href="FunExtTransport.html#503" class="Bound">x</a> <a id="881" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="884" href="FunExtTransport.html#505" class="Bound">y</a><a id="885" class="Symbol">)</a>
+    <a id="872" class="Symbol">:</a> <a id="874" class="Symbol">(</a><a id="875" href="FunExtTransport.html#875" class="Bound">p</a> <a id="877" class="Symbol">:</a> <a id="879" href="FunExtTransport.html#503" class="Bound">x</a> <a id="881" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="884" href="FunExtTransport.html#505" class="Bound">y</a><a id="885" class="Symbol">)</a>
     <a id="891" class="Symbol">→</a> <a id="893" class="Symbol">(</a><a id="894" href="FunExtTransport.html#894" class="Bound">f</a> <a id="896" class="Symbol">:</a> <a id="898" href="FunExtTransport.html#483" class="Bound">A</a> <a id="900" href="FunExtTransport.html#503" class="Bound">x</a> <a id="902" class="Symbol">→</a> <a id="904" href="FunExtTransport.html#485" class="Bound">B</a> <a id="906" href="FunExtTransport.html#503" class="Bound">x</a><a id="907" class="Symbol">)</a>
     <a id="913" class="Symbol">→</a> <a id="915" class="Symbol">(</a><a id="916" href="FunExtTransport.html#916" class="Bound">g</a> <a id="918" class="Symbol">:</a> <a id="920" href="FunExtTransport.html#483" class="Bound">A</a> <a id="922" href="FunExtTransport.html#505" class="Bound">y</a> <a id="924" class="Symbol">→</a> <a id="926" href="FunExtTransport.html#485" class="Bound">B</a> <a id="928" href="FunExtTransport.html#505" class="Bound">y</a><a id="929" class="Symbol">)</a>
-    <a id="935" class="Symbol">→</a> <a id="937" class="Symbol">((</a><a id="939" href="Transport.html#706" class="Function">tr</a> <a id="942" class="Symbol">(λ</a> <a id="945" href="FunExtTransport.html#945" class="Bound">z₁</a> <a id="948" class="Symbol">→</a> <a id="950" class="Symbol">(</a><a id="951" href="FunExtTransport.html#951" class="Bound">x</a> <a id="953" class="Symbol">:</a> <a id="955" href="FunExtTransport.html#483" class="Bound">A</a> <a id="957" href="FunExtTransport.html#945" class="Bound">z₁</a><a id="959" class="Symbol">)</a> <a id="961" class="Symbol">→</a> <a id="963" href="FunExtTransport.html#485" class="Bound">B</a> <a id="965" href="FunExtTransport.html#945" class="Bound">z₁</a><a id="967" class="Symbol">)</a> <a id="969" href="FunExtTransport.html#875" class="Bound">p</a> <a id="971" href="FunExtTransport.html#894" class="Bound">f</a> <a id="973" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="976" href="FunExtTransport.html#916" class="Bound">g</a><a id="977" class="Symbol">)</a>
+    <a id="935" class="Symbol">→</a> <a id="937" class="Symbol">((</a><a id="939" href="Transport.html#706" class="Function">tr</a> <a id="942" class="Symbol">(λ</a> <a id="945" href="FunExtTransport.html#945" class="Bound">z₁</a> <a id="948" class="Symbol">→</a> <a id="950" class="Symbol">(</a><a id="951" href="FunExtTransport.html#951" class="Bound">x</a> <a id="953" class="Symbol">:</a> <a id="955" href="FunExtTransport.html#483" class="Bound">A</a> <a id="957" href="FunExtTransport.html#945" class="Bound">z₁</a><a id="959" class="Symbol">)</a> <a id="961" class="Symbol">→</a> <a id="963" href="FunExtTransport.html#485" class="Bound">B</a> <a id="965" href="FunExtTransport.html#945" class="Bound">z₁</a><a id="967" class="Symbol">)</a> <a id="969" href="FunExtTransport.html#875" class="Bound">p</a> <a id="971" href="FunExtTransport.html#894" class="Bound">f</a> <a id="973" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="976" href="FunExtTransport.html#916" class="Bound">g</a><a id="977" class="Symbol">)</a>
     <a id="983" class="Comment">-------------------------------------------</a>
-    <a id="1031" class="Symbol">→</a> <a id="1033" class="Symbol">((</a><a id="1035" href="FunExtTransport.html#1035" class="Bound">a</a> <a id="1037" class="Symbol">:</a> <a id="1039" href="FunExtTransport.html#483" class="Bound">A</a><a id="1040" class="Symbol">(</a><a id="1041" href="FunExtTransport.html#503" class="Bound">x</a><a id="1042" class="Symbol">))</a> <a id="1045" class="Symbol">→</a> <a id="1047" href="Transport.html#706" class="Function">tr</a> <a id="1050" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1052" href="FunExtTransport.html#875" class="Bound">p</a> <a id="1054" class="Symbol">(</a><a id="1055" href="FunExtTransport.html#894" class="Bound">f</a> <a id="1057" href="FunExtTransport.html#1035" class="Bound">a</a><a id="1058" class="Symbol">)</a> <a id="1060" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1063" href="FunExtTransport.html#916" class="Bound">g</a> <a id="1065" class="Symbol">(</a><a id="1066" href="Transport.html#706" class="Function">tr</a> <a id="1069" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1071" href="FunExtTransport.html#875" class="Bound">p</a> <a id="1073" href="FunExtTransport.html#1035" class="Bound">a</a><a id="1074" class="Symbol">)))</a>
+    <a id="1031" class="Symbol">→</a> <a id="1033" class="Symbol">((</a><a id="1035" href="FunExtTransport.html#1035" class="Bound">a</a> <a id="1037" class="Symbol">:</a> <a id="1039" href="FunExtTransport.html#483" class="Bound">A</a><a id="1040" class="Symbol">(</a><a id="1041" href="FunExtTransport.html#503" class="Bound">x</a><a id="1042" class="Symbol">))</a> <a id="1045" class="Symbol">→</a> <a id="1047" href="Transport.html#706" class="Function">tr</a> <a id="1050" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1052" href="FunExtTransport.html#875" class="Bound">p</a> <a id="1054" class="Symbol">(</a><a id="1055" href="FunExtTransport.html#894" class="Bound">f</a> <a id="1057" href="FunExtTransport.html#1035" class="Bound">a</a><a id="1058" class="Symbol">)</a> <a id="1060" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="1063" href="FunExtTransport.html#916" class="Bound">g</a> <a id="1065" class="Symbol">(</a><a id="1066" href="Transport.html#706" class="Function">tr</a> <a id="1069" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1071" href="FunExtTransport.html#875" class="Bound">p</a> <a id="1073" href="FunExtTransport.html#1035" class="Bound">a</a><a id="1074" class="Symbol">)))</a>
 
   <a id="1081" href="FunExtTransport.html#849" class="Function">funext-transport-l</a> <a id="1100" href="FunExtTransport.html#1100" class="Bound">p</a> <a id="1102" href="FunExtTransport.html#1102" class="Bound">f</a> <a id="1104" href="FunExtTransport.html#1104" class="Bound">g</a> <a id="1106" class="Symbol">=</a> <a id="1108" href="EquivalenceType.html#1782" class="Function">lemap</a> <a id="1114" class="Symbol">(</a><a id="1115" href="FunExtTransport.html#549" class="Function">funext-transport</a> <a id="1132" href="FunExtTransport.html#1100" class="Bound">p</a> <a id="1134" class="Symbol">_</a> <a id="1136" class="Symbol">_)</a>
 </pre>
 
 <pre class="Agda">
   <a id="funext-transport-r"></a><a id="1166" href="FunExtTransport.html#1166" class="Function">funext-transport-r</a>
-    <a id="1189" class="Symbol">:</a> <a id="1191" class="Symbol">(</a><a id="1192" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1194" class="Symbol">:</a> <a id="1196" href="FunExtTransport.html#503" class="Bound">x</a> <a id="1198" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1201" href="FunExtTransport.html#505" class="Bound">y</a><a id="1202" class="Symbol">)</a>
+    <a id="1189" class="Symbol">:</a> <a id="1191" class="Symbol">(</a><a id="1192" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1194" class="Symbol">:</a> <a id="1196" href="FunExtTransport.html#503" class="Bound">x</a> <a id="1198" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="1201" href="FunExtTransport.html#505" class="Bound">y</a><a id="1202" class="Symbol">)</a>
     <a id="1208" class="Symbol">→</a> <a id="1210" class="Symbol">(</a><a id="1211" href="FunExtTransport.html#1211" class="Bound">f</a> <a id="1213" class="Symbol">:</a> <a id="1215" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1217" href="FunExtTransport.html#503" class="Bound">x</a> <a id="1219" class="Symbol">→</a> <a id="1221" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1223" href="FunExtTransport.html#503" class="Bound">x</a><a id="1224" class="Symbol">)</a>
     <a id="1230" class="Symbol">→</a> <a id="1232" class="Symbol">(</a><a id="1233" href="FunExtTransport.html#1233" class="Bound">g</a> <a id="1235" class="Symbol">:</a> <a id="1237" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1239" href="FunExtTransport.html#505" class="Bound">y</a> <a id="1241" class="Symbol">→</a> <a id="1243" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1245" href="FunExtTransport.html#505" class="Bound">y</a><a id="1246" class="Symbol">)</a>
-    <a id="1252" class="Symbol">→</a> <a id="1254" class="Symbol">((</a><a id="1256" href="FunExtTransport.html#1256" class="Bound">a</a> <a id="1258" class="Symbol">:</a> <a id="1260" href="FunExtTransport.html#483" class="Bound">A</a><a id="1261" class="Symbol">(</a><a id="1262" href="FunExtTransport.html#503" class="Bound">x</a><a id="1263" class="Symbol">))</a> <a id="1266" class="Symbol">→</a> <a id="1268" href="Transport.html#706" class="Function">tr</a> <a id="1271" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1273" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1275" class="Symbol">(</a><a id="1276" href="FunExtTransport.html#1211" class="Bound">f</a> <a id="1278" href="FunExtTransport.html#1256" class="Bound">a</a><a id="1279" class="Symbol">)</a> <a id="1281" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1284" href="FunExtTransport.html#1233" class="Bound">g</a> <a id="1286" class="Symbol">(</a><a id="1287" href="Transport.html#706" class="Function">tr</a> <a id="1290" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1292" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1294" href="FunExtTransport.html#1256" class="Bound">a</a><a id="1295" class="Symbol">))</a>
+    <a id="1252" class="Symbol">→</a> <a id="1254" class="Symbol">((</a><a id="1256" href="FunExtTransport.html#1256" class="Bound">a</a> <a id="1258" class="Symbol">:</a> <a id="1260" href="FunExtTransport.html#483" class="Bound">A</a><a id="1261" class="Symbol">(</a><a id="1262" href="FunExtTransport.html#503" class="Bound">x</a><a id="1263" class="Symbol">))</a> <a id="1266" class="Symbol">→</a> <a id="1268" href="Transport.html#706" class="Function">tr</a> <a id="1271" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1273" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1275" class="Symbol">(</a><a id="1276" href="FunExtTransport.html#1211" class="Bound">f</a> <a id="1278" href="FunExtTransport.html#1256" class="Bound">a</a><a id="1279" class="Symbol">)</a> <a id="1281" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="1284" href="FunExtTransport.html#1233" class="Bound">g</a> <a id="1286" class="Symbol">(</a><a id="1287" href="Transport.html#706" class="Function">tr</a> <a id="1290" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1292" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1294" href="FunExtTransport.html#1256" class="Bound">a</a><a id="1295" class="Symbol">))</a>
     <a id="1302" class="Comment">-------------------------------------------</a>
-    <a id="1350" class="Symbol">→</a> <a id="1352" class="Symbol">(</a><a id="1353" href="Transport.html#706" class="Function">tr</a> <a id="1356" class="Symbol">(λ</a> <a id="1359" href="FunExtTransport.html#1359" class="Bound">z₁</a> <a id="1362" class="Symbol">→</a> <a id="1364" class="Symbol">(</a><a id="1365" href="FunExtTransport.html#1365" class="Bound">x</a> <a id="1367" class="Symbol">:</a> <a id="1369" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1371" href="FunExtTransport.html#1359" class="Bound">z₁</a><a id="1373" class="Symbol">)</a> <a id="1375" class="Symbol">→</a> <a id="1377" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1379" href="FunExtTransport.html#1359" class="Bound">z₁</a><a id="1381" class="Symbol">)</a> <a id="1383" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1385" href="FunExtTransport.html#1211" class="Bound">f</a> <a id="1387" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1390" href="FunExtTransport.html#1233" class="Bound">g</a><a id="1391" class="Symbol">)</a>
+    <a id="1350" class="Symbol">→</a> <a id="1352" class="Symbol">(</a><a id="1353" href="Transport.html#706" class="Function">tr</a> <a id="1356" class="Symbol">(λ</a> <a id="1359" href="FunExtTransport.html#1359" class="Bound">z₁</a> <a id="1362" class="Symbol">→</a> <a id="1364" class="Symbol">(</a><a id="1365" href="FunExtTransport.html#1365" class="Bound">x</a> <a id="1367" class="Symbol">:</a> <a id="1369" href="FunExtTransport.html#483" class="Bound">A</a> <a id="1371" href="FunExtTransport.html#1359" class="Bound">z₁</a><a id="1373" class="Symbol">)</a> <a id="1375" class="Symbol">→</a> <a id="1377" href="FunExtTransport.html#485" class="Bound">B</a> <a id="1379" href="FunExtTransport.html#1359" class="Bound">z₁</a><a id="1381" class="Symbol">)</a> <a id="1383" href="FunExtTransport.html#1192" class="Bound">p</a> <a id="1385" href="FunExtTransport.html#1211" class="Bound">f</a> <a id="1387" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="1390" href="FunExtTransport.html#1233" class="Bound">g</a><a id="1391" class="Symbol">)</a>
 
   <a id="1396" href="FunExtTransport.html#1166" class="Function">funext-transport-r</a> <a id="1415" href="FunExtTransport.html#1415" class="Bound">p</a> <a id="1417" href="FunExtTransport.html#1417" class="Bound">f</a> <a id="1419" href="FunExtTransport.html#1419" class="Bound">g</a> <a id="1421" class="Symbol">=</a> <a id="1423" href="EquivalenceType.html#2032" class="Function">remap</a> <a id="1429" class="Symbol">(</a><a id="1430" href="FunExtTransport.html#549" class="Function">funext-transport</a> <a id="1447" href="FunExtTransport.html#1415" class="Bound">p</a> <a id="1449" class="Symbol">_</a> <a id="1451" class="Symbol">_)</a>
 </pre>
@@ -743,7 +724,7 @@
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-25"
+       data-lastchecked ="2019-10-27"
        data-originalyear =""
        data-title ="Function extensionality and Transport"
        data-url ="http://jonaprieto.github.io/mini-hott/FunExtTransport.tex"
@@ -757,7 +738,7 @@
         <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/FunExtTransport.tex" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> .lagda </a>
         <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/FunExtTransport.tex" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> .agda</a>
       
-      <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcFunExtTransport.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/blob/master/src/FunExtTransport.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
       <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/FunExtTransport.tex" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
       <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/FunExtTransport.tex" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
       <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
@@ -914,7 +895,6 @@ window.onscroll = function() {
 
 
       </div>
-      
       </div>
     </div>
     
@@ -1102,5 +1082,6 @@ $('#citation').show();
       $('p:contains("layout")').remove();
     </script>
     
+
   </body>
 </html>

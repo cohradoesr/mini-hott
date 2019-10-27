@@ -15,19 +15,108 @@ layout: default
     </div>
 
     <div class="main-last-date">
-      Latest commit <a href="{{site.github.repository_url}}/commit/{{site.github.build_revision}}">{{site.github.build_revision | slice: -7, 7}} </a> on  {{ site.time | date_to_string  }}
+      Latest commit <a href="{{site.github.repository_url}}/commit/{{site.github.build_revision}}">{{site.github.build_revision | slice: -7, 7}} </a> on {{ site.time | date_to_string  }}
     </div>
   </div>
   {% endif %}
 
-  <div id="search-searchbar"></div>
-  <br/>
-  <!-- <div>{% octicon file %} Table of Content</div> -->
-  <!-- <div class="posts" id="search-hits"> -->
+  <div class="print-version">
+    <center>
+      <h1>{{ page.title }}</h1>
+        <h3>{{ page.subtitle }}</h3><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                {% if page.author %}
+                  {{ page.author}}
+                {% else %}
+                  {{ site.author.name }}
+                {% endif %}
+              </div>
+              <div class="print-author-affiliation">
+                {% if page.author_affiliation %}
+                  {{ page.author_affiliation}}
+                {% else %}
+                  {{ site.affiliation }}
+                {% endif %}
+                </div>
+            </div>
+          </div>
+          {% if page.coauthor %}
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">{{ page.coauthor}}</div>
+              {% if page.coauthor_affiliation %}
+              <div class="print-author-affiliation">{{ page.coauthor_affiliation}}</div>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+          {% if page.coauthor2 %}
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">{{ page.coauthor2}}</div>
+              {% if page.coauthor2_affiliation %}
+              <div class="print-author-affiliation">{{ page.coauthor2_affiliation}}</div>
+              {% endif %}
+            </div>
+          </div>
+          {% endif %}
+        </div>
+        <div class="print-date">{{ page.date | date_to_long_string }}</div>
+        {% if page.abstract %}<div class="print-abstract">{{page.abstract}}</div>{% endif %}
+        {% if page.abstract %}<div class="print-keywords">{{page.keywords}}</div>{% endif %}
+    </center>
+  </div>
+
+
       {{ content }}
-  <!-- </div> -->
+
+  <div class="cited-references" markdown="1">
+  {% bibliography --cited %}
+  </div>
+
+  {% if page.showcitation %}
+  <div id="citation" class="only-website">
+  <h2> Citation </h2>
+  In case you want to reference the content above, please use the following
+  latex bibtex entry (generated automatically).
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag ="{{ page.bibtextag }}"
+       data-bibtexauthors ="{{ page.bibtexauthors }}"
+       data-year ="{{ page.date | date: '%Y' }}"
+       data-lastchecked ="{{ site.time | date: '%Y-%m-%d' }}"
+       data-originalyear ="{{ page.date | date: '%Y-%m-%d' }}"
+       data-title ="{{ page.title}}"
+       data-url ="{{ site.url}}"
+  ></pre>
+  </div>
+  {% endif %}
+
+  <div id="github-links">
+    <div class="view-source">
+      <a href="https://github.com/jonaprieto/mini-hott" target="_blank">{% octicon mark-github height:12 class:"right left" %} Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits/master" target="_blank">{% octicon history height:12 class:"right left" %} History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank">{% octicon file-pdf height:12 class:"right left" %} Print</a>
+      {% if page.showcitation %}<a  href="#citation">{% octicon quote height:12 class:"right left" %} Cite
+      </a>{% endif %}
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]{{ page.title }} - Commit {{latestcommit}}" target="_top">{% octicon mail height:12 class:"right left" %} Send Mail</a>
+
+    </div>
+  </div>
 
 </div>
-<br/>
+<div class="only-website">
+  <script type="text/javascript" src="//rf.revolvermaps.com/0/0/8.js?i=5ofvfm0irr4&amp;m=0c&amp;c=ff0000&amp;cr1=ffffff&amp;f=tahoma&amp;l=49&amp;s=192&amp;bv=65&amp;cw=ffffff&amp;cb=000000" async="async"></script>
+</div>
 
-<div class="written-by"> Written by <a href="{{ site.baseurl }}/about">Jonathan Prieto-Cubides</a> </div>
+<div class="written-by only-website">
+  Written by <a href="{{ site.baseurl }}/about">Jonathan Prieto-Cubides</a> </div>
+</br>
+
+
+
+

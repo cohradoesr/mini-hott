@@ -13,7 +13,7 @@
         Mini-HoTT
     
   </title>
-  <meta name="description" content="Jonathan Prieto-Cubides">
+  <meta name="description" content="Yet another Agda Library for Univalent Type Theory">
 
   <link rel="stylesheet" href="/mini-hott/css/main.css">
   <link rel="preload" as="script" href="/mini-hott/assets/main.js" >
@@ -50,10 +50,7 @@
     gtag('config', 'UA-114360791-1');
   </script>
 
-  
 </head>
-
-
 
 
   <body class="layout-reverse sidebar-overlay">
@@ -89,25 +86,25 @@
     
       
         
-          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
-        
-      
-    
-      
-        
           <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
         
       
     
       
         
           <a class="sidebar-nav-item" href="/UnivalenceAxiom.tex">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
         
       
     
@@ -371,13 +368,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HomotopyLemmas.tex">Homotopy Lemmas</a>
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.tex">Homotopy Lemmas</a>
         
       
     
@@ -407,19 +404,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
-        
-      
-    
-      
-        
           <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/TransportLemmas.tex">Lemmas about transport </a>
+          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
         
       
     
@@ -432,12 +423,6 @@
       
         
           <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
-        
-      
-    
-      
-        
-          <a class="sidebar-nav-item" href="/NaturalType.tex">Natural number Type</a>
         
       
     
@@ -598,10 +583,9 @@
       
      -->
 
-    <!-- <a class="sidebar-nav-item" href="/about/">About</a> -->
+    <a class="sidebar-nav-item" href="/mini-hott">Main Page</a>
     <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
-    <!-- <a class="sidebar-nav-item" href="http://github.com/jonaprieto/jonaprieto.github.io">GitHub</a> -->
-    <!-- <span class="sidebar-nav-item">Currently v</span> -->
+    <span class="sidebar-nav-item">v</span>
   </nav>
 </div>
 
@@ -614,7 +598,6 @@
             <small style="text-decoration:left"></small>
           </h3>
         </div>
-      
       <div class="container content">
         
 
@@ -653,8 +636,6 @@
   </div>
 
   
-  No git information available.
-  
 
   <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Fiber Type <small style="float:right">(FibreType.tex)</small>
   </h1>
@@ -685,7 +666,7 @@
 {: .hide}
 <pre class="Agda">
 <a id="296" class="Keyword">module</a>
-  <a id="305" href="FibreType.html" class="Module">FibreType</a> <a id="315" class="Symbol">{</a><a id="316" href="FibreType.html#316" class="Bound">ℓ₁</a> <a id="319" href="FibreType.html#319" class="Bound">ℓ₂</a> <a id="322" class="Symbol">:</a> <a id="324" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="329" class="Symbol">}</a> <a id="331" class="Symbol">{</a><a id="332" href="FibreType.html#332" class="Bound">A</a> <a id="334" class="Symbol">:</a> <a id="336" href="Intro.html#3620" class="Function">Type</a> <a id="341" href="FibreType.html#316" class="Bound">ℓ₁</a><a id="343" class="Symbol">}{</a><a id="345" href="FibreType.html#345" class="Bound">B</a> <a id="347" class="Symbol">:</a> <a id="349" href="Intro.html#3620" class="Function">Type</a> <a id="354" href="FibreType.html#319" class="Bound">ℓ₂</a><a id="356" class="Symbol">}</a>
+  <a id="305" href="FibreType.html" class="Module">FibreType</a> <a id="315" class="Symbol">{</a><a id="316" href="FibreType.html#316" class="Bound">ℓ₁</a> <a id="319" href="FibreType.html#319" class="Bound">ℓ₂</a> <a id="322" class="Symbol">:</a> <a id="324" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="329" class="Symbol">}</a> <a id="331" class="Symbol">{</a><a id="332" href="FibreType.html#332" class="Bound">A</a> <a id="334" class="Symbol">:</a> <a id="336" href="Intro.html#3611" class="Function">Type</a> <a id="341" href="FibreType.html#316" class="Bound">ℓ₁</a><a id="343" class="Symbol">}{</a><a id="345" href="FibreType.html#345" class="Bound">B</a> <a id="347" class="Symbol">:</a> <a id="349" href="Intro.html#3611" class="Function">Type</a> <a id="354" href="FibreType.html#319" class="Bound">ℓ₂</a><a id="356" class="Symbol">}</a>
     <a id="362" class="Keyword">where</a>
 </pre>
 
@@ -694,9 +675,9 @@
     <a id="405" class="Symbol">:</a> <a id="407" class="Symbol">(</a><a id="408" href="FibreType.html#408" class="Bound">f</a> <a id="410" class="Symbol">:</a> <a id="412" href="FibreType.html#332" class="Bound">A</a> <a id="414" class="Symbol">→</a> <a id="416" href="FibreType.html#345" class="Bound">B</a><a id="417" class="Symbol">)</a>
     <a id="423" class="Symbol">→</a> <a id="425" class="Symbol">(</a><a id="426" href="FibreType.html#426" class="Bound">b</a> <a id="428" class="Symbol">:</a> <a id="430" href="FibreType.html#345" class="Bound">B</a><a id="431" class="Symbol">)</a>
     <a id="437" class="Comment">---------------</a>
-    <a id="457" class="Symbol">→</a> <a id="459" href="Intro.html#3620" class="Function">Type</a> <a id="464" class="Symbol">(</a><a id="465" href="FibreType.html#316" class="Bound">ℓ₁</a> <a id="468" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="470" href="FibreType.html#319" class="Bound">ℓ₂</a><a id="472" class="Symbol">)</a>
+    <a id="457" class="Symbol">→</a> <a id="459" href="Intro.html#3611" class="Function">Type</a> <a id="464" class="Symbol">(</a><a id="465" href="FibreType.html#316" class="Bound">ℓ₁</a> <a id="468" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="470" href="FibreType.html#319" class="Bound">ℓ₂</a><a id="472" class="Symbol">)</a>
 
-  <a id="477" href="FibreType.html#395" class="Function">fibre</a> <a id="483" href="FibreType.html#483" class="Bound">f</a> <a id="485" href="FibreType.html#485" class="Bound">b</a> <a id="487" class="Symbol">=</a> <a id="489" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="491" href="FibreType.html#332" class="Bound">A</a> <a id="493" class="Symbol">(λ</a> <a id="496" href="FibreType.html#496" class="Bound">a</a> <a id="498" class="Symbol">→</a> <a id="500" href="FibreType.html#483" class="Bound">f</a> <a id="502" href="FibreType.html#496" class="Bound">a</a> <a id="504" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="507" href="FibreType.html#485" class="Bound">b</a><a id="508" class="Symbol">)</a>
+  <a id="477" href="FibreType.html#395" class="Function">fibre</a> <a id="483" href="FibreType.html#483" class="Bound">f</a> <a id="485" href="FibreType.html#485" class="Bound">b</a> <a id="487" class="Symbol">=</a> <a id="489" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="491" href="FibreType.html#332" class="Bound">A</a> <a id="493" class="Symbol">(λ</a> <a id="496" href="FibreType.html#496" class="Bound">a</a> <a id="498" class="Symbol">→</a> <a id="500" href="FibreType.html#483" class="Bound">f</a> <a id="502" href="FibreType.html#496" class="Bound">a</a> <a id="504" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="507" href="FibreType.html#485" class="Bound">b</a><a id="508" class="Symbol">)</a>
 </pre>
 
 Synomyms and syntax sugar:
@@ -715,7 +696,7 @@ A function applied over the fiber returns the original point
     <a id="724" class="Symbol">:</a> <a id="726" class="Symbol">∀</a> <a id="728" class="Symbol">{</a><a id="729" href="FibreType.html#729" class="Bound">f</a> <a id="731" class="Symbol">:</a> <a id="733" href="FibreType.html#332" class="Bound">A</a> <a id="735" class="Symbol">→</a> <a id="737" href="FibreType.html#345" class="Bound">B</a><a id="738" class="Symbol">}</a> <a id="740" class="Symbol">{</a><a id="741" href="FibreType.html#741" class="Bound">b</a> <a id="743" class="Symbol">:</a> <a id="745" href="FibreType.html#345" class="Bound">B</a><a id="746" class="Symbol">}</a>
     <a id="752" class="Symbol">→</a> <a id="754" class="Symbol">(</a><a id="755" href="FibreType.html#755" class="Bound">h</a> <a id="757" class="Symbol">:</a> <a id="759" href="FibreType.html#565" class="Function">fib</a> <a id="763" href="FibreType.html#729" class="Bound">f</a> <a id="765" href="FibreType.html#741" class="Bound">b</a><a id="766" class="Symbol">)</a>
     <a id="772" class="Comment">------------------</a>
-    <a id="795" class="Symbol">→</a> <a id="797" href="FibreType.html#729" class="Bound">f</a> <a id="799" class="Symbol">(</a><a id="800" href="BasicTypes.html#1820" class="Function">proj₁</a> <a id="806" href="FibreType.html#755" class="Bound">h</a><a id="807" class="Symbol">)</a> <a id="809" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="812" href="FibreType.html#741" class="Bound">b</a>
+    <a id="795" class="Symbol">→</a> <a id="797" href="FibreType.html#729" class="Bound">f</a> <a id="799" class="Symbol">(</a><a id="800" href="BasicTypes.html#1820" class="Function">proj₁</a> <a id="806" href="FibreType.html#755" class="Bound">h</a><a id="807" class="Symbol">)</a> <a id="809" href="BasicTypes.html#6428" class="Datatype Operator">==</a> <a id="812" href="FibreType.html#741" class="Bound">b</a>
 
   <a id="817" href="FibreType.html#713" class="Function">fib-eq</a> <a id="824" class="Symbol">(</a><a id="825" href="FibreType.html#825" class="Bound">a</a> <a id="827" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="829" href="FibreType.html#829" class="Bound">α</a><a id="830" class="Symbol">)</a> <a id="832" class="Symbol">=</a> <a id="834" href="FibreType.html#829" class="Bound">α</a>
 </pre>
@@ -728,7 +709,7 @@ Each point is on the fiber of its image.
     <a id="943" class="Symbol">:</a>  <a id="946" class="Symbol">∀</a> <a id="948" class="Symbol">{</a><a id="949" href="FibreType.html#949" class="Bound">f</a> <a id="951" class="Symbol">:</a> <a id="953" href="FibreType.html#332" class="Bound">A</a> <a id="955" class="Symbol">→</a> <a id="957" href="FibreType.html#345" class="Bound">B</a><a id="958" class="Symbol">}</a> <a id="960" class="Symbol">→</a> <a id="962" class="Symbol">{</a><a id="963" href="FibreType.html#963" class="Bound">a</a> <a id="965" class="Symbol">:</a> <a id="967" href="FibreType.html#332" class="Bound">A</a><a id="968" class="Symbol">}</a>
     <a id="974" class="Symbol">→</a> <a id="976" href="FibreType.html#565" class="Function">fib</a> <a id="980" href="FibreType.html#949" class="Bound">f</a> <a id="982" class="Symbol">(</a><a id="983" href="FibreType.html#949" class="Bound">f</a> <a id="985" href="FibreType.html#963" class="Bound">a</a><a id="986" class="Symbol">)</a>
 
-  <a id="991" href="FibreType.html#929" class="Function">fib-image</a> <a id="1001" class="Symbol">{</a><a id="1002" href="FibreType.html#1002" class="Bound">f</a><a id="1003" class="Symbol">}</a> <a id="1005" class="Symbol">{</a><a id="1006" href="FibreType.html#1006" class="Bound">a</a><a id="1007" class="Symbol">}</a> <a id="1009" class="Symbol">=</a> <a id="1011" href="FibreType.html#1006" class="Bound">a</a> <a id="1013" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1015" href="BasicTypes.html#6748" class="Function">refl</a> <a id="1020" class="Symbol">(</a><a id="1021" href="FibreType.html#1002" class="Bound">f</a> <a id="1023" href="FibreType.html#1006" class="Bound">a</a><a id="1024" class="Symbol">)</a>
+  <a id="991" href="FibreType.html#929" class="Function">fib-image</a> <a id="1001" class="Symbol">{</a><a id="1002" href="FibreType.html#1002" class="Bound">f</a><a id="1003" class="Symbol">}</a> <a id="1005" class="Symbol">{</a><a id="1006" href="FibreType.html#1006" class="Bound">a</a><a id="1007" class="Symbol">}</a> <a id="1009" class="Symbol">=</a> <a id="1011" href="FibreType.html#1006" class="Bound">a</a> <a id="1013" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1015" href="BasicTypes.html#6747" class="Function">refl</a> <a id="1020" class="Symbol">(</a><a id="1021" href="FibreType.html#1002" class="Bound">f</a> <a id="1023" href="FibreType.html#1006" class="Bound">a</a><a id="1024" class="Symbol">)</a>
 </pre>
 
 
@@ -750,7 +731,7 @@ Each point is on the fiber of its image.
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-25"
+       data-lastchecked ="2019-10-27"
        data-originalyear =""
        data-title ="Fiber Type"
        data-url ="http://jonaprieto.github.io/mini-hott/FibreType.tex"
@@ -764,7 +745,7 @@ Each point is on the fiber of its image.
         <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/FibreType.tex" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> .lagda </a>
         <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/FibreType.tex" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> .agda</a>
       
-      <a href="https://github.com/jonaprieto/mini-hott/blob/master/srcFibreType.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/blob/master/src/FibreType.tex" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
       <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/FibreType.tex" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
       <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/FibreType.tex" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
       <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
@@ -921,7 +902,6 @@ window.onscroll = function() {
 
 
       </div>
-      
       </div>
     </div>
     
@@ -1109,5 +1089,6 @@ $('#citation').show();
       $('p:contains("layout")').remove();
     </script>
     
+
   </body>
 </html>

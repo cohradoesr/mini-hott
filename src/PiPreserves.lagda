@@ -76,13 +76,10 @@ module PiPreserves {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{C : A → Ty
       ∎
 \end{code}
 
-{: .foldable until="3"}
+{: .foldable until="2"}
 \begin{code}
-  -- Lem.
   pi-equivalence
     : Π A C ≃ Π A D -- by (e : (a : A) → (C a ≃ D a))
 
   pi-equivalence = qinv-≃ ΠAC→ΠAD (ΠAD→ΠAC , H₁ , H₂)
-
--- open PiPreserves public
 \end{code}

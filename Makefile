@@ -116,6 +116,7 @@ blog/_bibliography/reb.bib : blog/_bibliography/library.bib
 stop:
 	pkill -f jekyll
 
+# It's better to print directly from the browser.
 pdf:
 	mkdir -p docs/assets/pdf
 	/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome \
@@ -124,7 +125,7 @@ pdf:
 		--no-margins\
 		http://jonaprieto.github.io/mini-hott
 	make stop
-	@echo "	 $ open docs/assets/pdf/MiniHoTT-Agda-Library.pdfs"
+	@echo "	 $ open docs/assets/pdf/MiniHoTT-Agda-Library.pdf"
 
 lines:
 	find src -name '*.lagda' | xargs wc -l

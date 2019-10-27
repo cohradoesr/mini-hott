@@ -8,7 +8,7 @@ layout: default
 {% else %}
   {% assign filepath = page.path %}
 {% endif %}
-{% assign viewsource = site.github.repository_url | append: "/blob/master/src" | append: filepath %}
+{% assign viewsource = site.github.repository_url | append: "/blob/master/src/" | append: filepath %}
 {% assign latestcommit = page.git.last_commit.short_sha %}
 {% assign editsource = site.github.repository_url | append: "/edit/master/src/" | append: filepath %}
 {% assign history = site.github.repository_url | append: "/commits/" | append: "master" | append: "/src/" | append: filepath %}
@@ -79,8 +79,6 @@ layout: default
       Latest commit <a href="{{viewsource}}">{{latestcommit}} </a> on {{ site.time | date_to_string  }}
     </div>
   </div>
-  {% else %}
-  No git information available.
   {% endif %}
 
   <h1 class="post-title" id="stickyTitle">{% octicon bookmark height:22 %} {{ page.title }} <small style="float:right">({{filepath}})</small>

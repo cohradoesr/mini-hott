@@ -180,7 +180,6 @@ Uniqueness principle property for products
 \end{code}
 
 \begin{code}
-  -- synonym for this lemma
   ap-π₁-pair= = Σ-ap-π₁
 \end{code}
 

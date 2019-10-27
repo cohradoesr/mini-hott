@@ -424,8 +424,6 @@ blog/*.tex
 docs/*.tex
 docs/*.md
 
-
-
 #latex folder is generated automatically after "make docs-build":
 blog/assets/ipe-images/
 latex/*

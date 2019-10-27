@@ -70,6 +70,7 @@ transport-inv-r idp _ = idp
 \end{code}
 
 Synonyms:
+
 \begin{code}
 tr-inverse = transport-inv-r
 \end{code}
@@ -94,12 +95,11 @@ transport-concat-l
   → (p : x == y)
   → (q : x == a)
   ----------------------------------
-  → tr (λ x → x == a) p q == ! p · q
+  → tr (λ x → x == a) p q == (! p) · q
 
 transport-concat-l idp q = idp
 \end{code}
 
-{: .foldable until="6" }
 \begin{code}
 transport-concat
   : ∀ {ℓ : Level} {A : Type ℓ} {x y : A}
@@ -284,10 +284,10 @@ transport-fun
       [ (λ x → A x → B x) / p ]
 
 transport-fun idp f = idp
+
 \end{code}
 
 \begin{code}
--- synonyms
 back-and-forth = transport-fun
 \end{code}
 

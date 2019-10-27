@@ -24,7 +24,8 @@ open import CoproductIdentities
 \end{code}
 </div>
 
-\begin{code}[hide]
+{: .hide }
+\begin{code}
 module SigmaEquivalence where
 \end{code}
 
@@ -89,7 +90,7 @@ module SigmaEquivalence where
 \begin{code}
   postulate
     ∑-≃-∑-with-≃
-      : ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄}{A : Type ℓ₁}{B : A → Type ℓ₂}{A' : Type ℓ₃}{B' : A' → Type ℓ₄}
+      : ∀ {ℓ₁ ℓ₂ ℓ₃ ℓ₄ : Level}{A : Type ℓ₁}{B : A → Type ℓ₂}{A' : Type ℓ₃}{B' : A' → Type ℓ₄}
        → (e : A ≃ A')
        → ∑ A B ≃ ∑ A' B'
 \end{code}

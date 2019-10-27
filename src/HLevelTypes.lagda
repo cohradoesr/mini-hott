@@ -23,7 +23,7 @@ open import BasicFunctions
 
 ## Hlevel types
 
-![path]({{ site.baseurl }}/assets/images/classification-first-homotopy-types.png){: width="65%" align="right" }
+![path]({{ site.baseurl }}/assets/images/classification-first-homotopy-types.png){: width="60%" align="right" }
 
 Higher levels of the homotopical structure:
 

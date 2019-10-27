@@ -305,7 +305,6 @@ We opt to use a ∑-type which we believe is clear enough to say what they are.
 A finite set of $n : \mathsf{N}$, $\mathsf{Fin}_{n}$, is the collection of
 numbers less ($<$) than the number $n$. This notion is the following type family.
 
-
 \begin{code}
 module Fin (ℓ : Level) where
   mutual
