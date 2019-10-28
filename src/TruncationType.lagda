@@ -29,14 +29,10 @@ open import HedbergLemmas
 
 ### Propositional truncation
 
+![truncation-type]({{ site.baseurl }}/assets/images/diagram-truncation-type.png){: width="50%" align="right" }
+
 Propositional truncation (or reflection) is the universal
 solution to the problem of mapping $X$ to a proposition $P$:
-
-```
-X  → ∥ X ∥
- ↘    ⇣ (!∃ h)
-    ↘ P
-```
 
 Notes:
 

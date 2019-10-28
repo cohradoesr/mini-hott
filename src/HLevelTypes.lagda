@@ -23,7 +23,7 @@ open import BasicFunctions
 
 ## Hlevel types
 
-![path]({{ site.baseurl }}/assets/images/classification-first-homotopy-types.png){: width="60%" align="right" }
+![classification-first-homotopy-types]({{ site.baseurl }}/assets/images/classification-first-homotopy-types.png){: width="60%" align="right" }
 
 Higher levels of the homotopical structure:
 
@@ -109,7 +109,6 @@ hProp ℓ = ∑ (Type ℓ) isProp
 In practice, we might want to say a type holds certain property and then
 we can use the convenient following predicate.
 
-
 \begin{code}
 _has-property_
   : ∀ {ℓ : Level}
@@ -121,6 +120,17 @@ A has-property P = π₁ (P A)
 
 _holds-property = _has-property_
 \end{code}
+
+\begin{code}
+_has-fun-property_
+  : ∀ {ℓ₁ ℓ₂ : Level} {X : Type ℓ₁}{Y : Type ℓ₂}
+  → (f : X → Y)
+  → (P : ∀ {X : Type ℓ₁}{Y : Type ℓ₂} → (X → Y) → hProp (ℓ₁ ⊔ ℓ₂))
+  → Type (ℓ₁ ⊔ ℓ₂)
+
+f has-fun-property P = π₁ (P f)
+\end{code}
+
 
 Additionally, we may need to say, more explicity that two type share any property
 whenever they are equivalent. Recall, these types do not need to be in the same universe,

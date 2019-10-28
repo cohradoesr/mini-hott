@@ -249,11 +249,11 @@ svg {
 .main-commit-message {
   display: table-cell;
   float: left;
-  width: 190px;
+  width: 350px;
   height: 20px;
   overflow: hidden;
   text-overflow: ellipsis;
-  text-transform: lowercase;
+  text-transform: none;
 }
 
 .main-last-date

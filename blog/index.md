@@ -12,13 +12,13 @@ subtitle: Univalent Type Theory in Agda
 author: "Jonathan Prieto-Cubides"
 author_affiliation: "University of Bergen"
 date: "2019-09-27"
+use_site_title: true
 ---
 
 <div class="only-website">
 # MiniHoTT Library
 
 Last update: {{site.time}}.
-
 </div>
 
 
@@ -290,7 +290,7 @@ Last update: {{site.time}}.
 
 {% include_relative FundamentalGroupType.md %}
 
-## Unclassified
+## Pending to classify
 
 ### Logic
 

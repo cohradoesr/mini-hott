@@ -40,6 +40,10 @@ module
     where
 \end{code}
 
+![half-adjoint-coherence]({{ site.baseurl }}/assets/images/half-adjoint-coherence.png){: width="50%" align="right" }
+
+![half-adjoint]({{ site.baseurl }}/assets/images/half-adjoint.png){: width="50%" align="right" }
+
 Half-adjoint equivalence:
 
 \begin{code}

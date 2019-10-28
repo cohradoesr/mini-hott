@@ -310,6 +310,9 @@ module Fin (ℓ : Level) where
   mutual
     Fin : ℕ → Type ℓ
     Fin n = Σ (ℕ) (λ m → m < n)
+
+  bound-of : ∀ {n : ℕ} → Fin n → ℕ
+  bound-of {n = n} _ = n
 \end{code}
 
 
