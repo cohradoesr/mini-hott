@@ -64,14 +64,20 @@
     <p style="text-decoration:left">Circle Type</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
-    <ol>
-      <li class="sidebar-toc-item"><a href="#circles" class="sidebar-nav-item">Circles</a></li>
-    </ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Circle Type</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Circle Type <small style="float:right">(CircleType.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
+        <ul>
+          <li class="sidebar-toc-item"><a href="#circles" class="sidebar-nav-item">Circles</a></li>
+        </ul>
+      </li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
   </li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+</ul>
 
 
     <!--  -->
@@ -322,6 +328,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -340,13 +352,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -560,6 +572,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -650,9 +668,9 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ol>
+      <ul>
   <li><a href="#circles">Circles</a></li>
-</ol>
+</ul>
 
     </nav>
   </div>
@@ -688,9 +706,9 @@ a single element (base) and a nontrivial path (loop).</p>
 
 <pre class="Agda">
   <a id="702" class="Keyword">postulate</a>
-    <a id="S¹"></a><a id="716" href="CircleType.html#716" class="Postulate">S¹</a> <a id="719" class="Symbol">:</a> <a id="721" href="Intro.html#3636" class="Function">Type</a> <a id="726" href="CircleType.html#623" class="Bound">ℓ</a>
+    <a id="S¹"></a><a id="716" href="CircleType.html#716" class="Postulate">S¹</a> <a id="719" class="Symbol">:</a> <a id="721" href="Intro.html#3612" class="Function">Type</a> <a id="726" href="CircleType.html#623" class="Bound">ℓ</a>
     <a id="base"></a><a id="732" href="CircleType.html#732" class="Postulate">base</a> <a id="737" class="Symbol">:</a> <a id="739" href="CircleType.html#716" class="Postulate">S¹</a>
-    <a id="loop"></a><a id="746" href="CircleType.html#746" class="Postulate">loop</a> <a id="751" class="Symbol">:</a> <a id="753" href="CircleType.html#732" class="Postulate">base</a> <a id="758" href="BasicTypes.html#6633" class="Function Operator">≡</a> <a id="760" href="CircleType.html#732" class="Postulate">base</a>
+    <a id="loop"></a><a id="746" href="CircleType.html#746" class="Postulate">loop</a> <a id="751" class="Symbol">:</a> <a id="753" href="CircleType.html#732" class="Postulate">base</a> <a id="758" href="BasicTypes.html#6656" class="Function Operator">≡</a> <a id="760" href="CircleType.html#732" class="Postulate">base</a>
 </pre>
 
 <p>Recursion principle on points</p>
@@ -699,9 +717,9 @@ a single element (base) and a nontrivial path (loop).</p>
   <a id="823" class="Keyword">postulate</a>
     <a id="S¹-rec"></a><a id="837" href="CircleType.html#837" class="Postulate">S¹-rec</a>
       <a id="850" class="Symbol">:</a> <a id="852" class="Symbol">∀</a> <a id="854" class="Symbol">{</a><a id="855" href="CircleType.html#855" class="Bound">ℓ</a> <a id="857" class="Symbol">:</a> <a id="859" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="864" class="Symbol">}</a>
-      <a id="872" class="Symbol">→</a> <a id="874" class="Symbol">(</a><a id="875" href="CircleType.html#875" class="Bound">A</a> <a id="877" class="Symbol">:</a> <a id="879" href="Intro.html#3636" class="Function">Type</a> <a id="884" href="CircleType.html#855" class="Bound">ℓ</a><a id="885" class="Symbol">)</a>
+      <a id="872" class="Symbol">→</a> <a id="874" class="Symbol">(</a><a id="875" href="CircleType.html#875" class="Bound">A</a> <a id="877" class="Symbol">:</a> <a id="879" href="Intro.html#3612" class="Function">Type</a> <a id="884" href="CircleType.html#855" class="Bound">ℓ</a><a id="885" class="Symbol">)</a>
       <a id="893" class="Symbol">→</a> <a id="895" class="Symbol">(</a><a id="896" href="CircleType.html#896" class="Bound">a</a> <a id="898" class="Symbol">:</a> <a id="900" href="CircleType.html#875" class="Bound">A</a><a id="901" class="Symbol">)</a>
-      <a id="909" class="Symbol">→</a> <a id="911" class="Symbol">(</a><a id="912" href="CircleType.html#912" class="Bound">p</a> <a id="914" class="Symbol">:</a> <a id="916" href="CircleType.html#896" class="Bound">a</a> <a id="918" href="BasicTypes.html#6633" class="Function Operator">≡</a> <a id="920" href="CircleType.html#896" class="Bound">a</a><a id="921" class="Symbol">)</a>
+      <a id="909" class="Symbol">→</a> <a id="911" class="Symbol">(</a><a id="912" href="CircleType.html#912" class="Bound">p</a> <a id="914" class="Symbol">:</a> <a id="916" href="CircleType.html#896" class="Bound">a</a> <a id="918" href="BasicTypes.html#6656" class="Function Operator">≡</a> <a id="920" href="CircleType.html#896" class="Bound">a</a><a id="921" class="Symbol">)</a>
       <a id="929" class="Comment">--------------</a>
       <a id="950" class="Symbol">→</a> <a id="952" class="Symbol">(</a><a id="953" href="CircleType.html#716" class="Postulate">S¹</a> <a id="956" class="Symbol">→</a> <a id="958" href="CircleType.html#875" class="Bound">A</a><a id="959" class="Symbol">)</a>
 </pre>
@@ -712,9 +730,9 @@ a single element (base) and a nontrivial path (loop).</p>
   <a id="1018" class="Keyword">postulate</a>
     <a id="S¹-βrec-base"></a><a id="1032" href="CircleType.html#1032" class="Postulate">S¹-βrec-base</a>
       <a id="1051" class="Symbol">:</a> <a id="1053" class="Symbol">∀</a> <a id="1055" class="Symbol">{</a><a id="1056" href="CircleType.html#1056" class="Bound">ℓ</a> <a id="1058" class="Symbol">:</a> <a id="1060" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1065" class="Symbol">}</a>
-      <a id="1073" class="Symbol">→</a> <a id="1075" class="Symbol">(</a><a id="1076" href="CircleType.html#1076" class="Bound">A</a> <a id="1078" class="Symbol">:</a> <a id="1080" href="Intro.html#3636" class="Function">Type</a> <a id="1085" href="CircleType.html#1056" class="Bound">ℓ</a><a id="1086" class="Symbol">)</a>
+      <a id="1073" class="Symbol">→</a> <a id="1075" class="Symbol">(</a><a id="1076" href="CircleType.html#1076" class="Bound">A</a> <a id="1078" class="Symbol">:</a> <a id="1080" href="Intro.html#3612" class="Function">Type</a> <a id="1085" href="CircleType.html#1056" class="Bound">ℓ</a><a id="1086" class="Symbol">)</a>
       <a id="1094" class="Symbol">→</a> <a id="1096" class="Symbol">(</a><a id="1097" href="CircleType.html#1097" class="Bound">a</a> <a id="1099" class="Symbol">:</a> <a id="1101" href="CircleType.html#1076" class="Bound">A</a><a id="1102" class="Symbol">)</a>
-      <a id="1110" class="Symbol">→</a> <a id="1112" class="Symbol">(</a><a id="1113" href="CircleType.html#1113" class="Bound">p</a> <a id="1115" class="Symbol">:</a> <a id="1117" href="CircleType.html#1097" class="Bound">a</a> <a id="1119" href="BasicTypes.html#6633" class="Function Operator">≡</a> <a id="1121" href="CircleType.html#1097" class="Bound">a</a><a id="1122" class="Symbol">)</a>
+      <a id="1110" class="Symbol">→</a> <a id="1112" class="Symbol">(</a><a id="1113" href="CircleType.html#1113" class="Bound">p</a> <a id="1115" class="Symbol">:</a> <a id="1117" href="CircleType.html#1097" class="Bound">a</a> <a id="1119" href="BasicTypes.html#6656" class="Function Operator">≡</a> <a id="1121" href="CircleType.html#1097" class="Bound">a</a><a id="1122" class="Symbol">)</a>
       <a id="1130" class="Comment">------------------------------</a>
       <a id="1167" class="Symbol">→</a> <a id="1169" href="CircleType.html#837" class="Postulate">S¹-rec</a> <a id="1176" href="CircleType.html#1076" class="Bound">A</a> <a id="1178" href="CircleType.html#1097" class="Bound">a</a> <a id="1180" href="CircleType.html#1113" class="Bound">p</a> <a id="1182" href="CircleType.html#732" class="Postulate">base</a> <a id="1187" href="HigherInductiveTypes.html#496" class="Postulate Operator">↦</a> <a id="1189" href="CircleType.html#1097" class="Bound">a</a>
 
@@ -725,9 +743,9 @@ a single element (base) and a nontrivial path (loop).</p>
   <a id="1250" class="Keyword">postulate</a>
     <a id="S¹-βrec-loop"></a><a id="1264" href="CircleType.html#1264" class="Postulate">S¹-βrec-loop</a>
       <a id="1283" class="Symbol">:</a> <a id="1285" class="Symbol">∀</a> <a id="1287" class="Symbol">{</a><a id="1288" href="CircleType.html#1288" class="Bound">ℓ</a> <a id="1290" class="Symbol">:</a> <a id="1292" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1297" class="Symbol">}</a>
-      <a id="1305" class="Symbol">→</a> <a id="1307" class="Symbol">(</a><a id="1308" href="CircleType.html#1308" class="Bound">A</a> <a id="1310" class="Symbol">:</a> <a id="1312" href="Intro.html#3636" class="Function">Type</a> <a id="1317" href="CircleType.html#1288" class="Bound">ℓ</a><a id="1318" class="Symbol">)</a>
+      <a id="1305" class="Symbol">→</a> <a id="1307" class="Symbol">(</a><a id="1308" href="CircleType.html#1308" class="Bound">A</a> <a id="1310" class="Symbol">:</a> <a id="1312" href="Intro.html#3612" class="Function">Type</a> <a id="1317" href="CircleType.html#1288" class="Bound">ℓ</a><a id="1318" class="Symbol">)</a>
       <a id="1326" class="Symbol">→</a> <a id="1328" class="Symbol">(</a><a id="1329" href="CircleType.html#1329" class="Bound">a</a> <a id="1331" class="Symbol">:</a> <a id="1333" href="CircleType.html#1308" class="Bound">A</a><a id="1334" class="Symbol">)</a>
-      <a id="1342" class="Symbol">→</a> <a id="1344" class="Symbol">(</a><a id="1345" href="CircleType.html#1345" class="Bound">p</a> <a id="1347" class="Symbol">:</a> <a id="1349" href="CircleType.html#1329" class="Bound">a</a> <a id="1351" href="BasicTypes.html#6633" class="Function Operator">≡</a> <a id="1353" href="CircleType.html#1329" class="Bound">a</a><a id="1354" class="Symbol">)</a>
+      <a id="1342" class="Symbol">→</a> <a id="1344" class="Symbol">(</a><a id="1345" href="CircleType.html#1345" class="Bound">p</a> <a id="1347" class="Symbol">:</a> <a id="1349" href="CircleType.html#1329" class="Bound">a</a> <a id="1351" href="BasicTypes.html#6656" class="Function Operator">≡</a> <a id="1353" href="CircleType.html#1329" class="Bound">a</a><a id="1354" class="Symbol">)</a>
       <a id="1362" class="Comment">------------------------------</a>
       <a id="1399" class="Symbol">→</a> <a id="1401" href="AlgebraOnPaths.html#403" class="Function">ap</a> <a id="1404" class="Symbol">(</a><a id="1405" href="CircleType.html#837" class="Postulate">S¹-rec</a> <a id="1412" href="CircleType.html#1308" class="Bound">A</a> <a id="1414" href="CircleType.html#1329" class="Bound">a</a> <a id="1416" href="CircleType.html#1345" class="Bound">p</a><a id="1417" class="Symbol">)</a> <a id="1419" href="CircleType.html#746" class="Postulate">loop</a> <a id="1424" href="HigherInductiveTypes.html#496" class="Postulate Operator">↦</a> <a id="1426" href="CircleType.html#1345" class="Bound">p</a>
 
@@ -740,9 +758,9 @@ a single element (base) and a nontrivial path (loop).</p>
   <a id="1518" class="Keyword">postulate</a>
     <a id="S¹-ind"></a><a id="1532" href="CircleType.html#1532" class="Postulate">S¹-ind</a>
       <a id="1545" class="Symbol">:</a> <a id="1547" class="Symbol">∀</a> <a id="1549" class="Symbol">{</a><a id="1550" href="CircleType.html#1550" class="Bound">ℓ</a> <a id="1552" class="Symbol">:</a> <a id="1554" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1559" class="Symbol">}</a>
-      <a id="1567" class="Symbol">→</a> <a id="1569" class="Symbol">{</a><a id="1570" href="CircleType.html#1570" class="Bound">P</a> <a id="1572" class="Symbol">:</a> <a id="1574" href="CircleType.html#716" class="Postulate">S¹</a> <a id="1577" class="Symbol">→</a> <a id="1579" href="Intro.html#3636" class="Function">Type</a> <a id="1584" href="CircleType.html#1550" class="Bound">ℓ</a><a id="1585" class="Symbol">}</a>
+      <a id="1567" class="Symbol">→</a> <a id="1569" class="Symbol">{</a><a id="1570" href="CircleType.html#1570" class="Bound">P</a> <a id="1572" class="Symbol">:</a> <a id="1574" href="CircleType.html#716" class="Postulate">S¹</a> <a id="1577" class="Symbol">→</a> <a id="1579" href="Intro.html#3612" class="Function">Type</a> <a id="1584" href="CircleType.html#1550" class="Bound">ℓ</a><a id="1585" class="Symbol">}</a>
       <a id="1593" class="Symbol">→</a> <a id="1595" class="Symbol">(</a><a id="1596" href="CircleType.html#1596" class="Bound">x</a> <a id="1598" class="Symbol">:</a> <a id="1600" href="CircleType.html#1570" class="Bound">P</a> <a id="1602" href="CircleType.html#732" class="Postulate">base</a><a id="1606" class="Symbol">)</a>
-      <a id="1614" class="Symbol">→</a> <a id="1616" class="Symbol">(</a><a id="1617" href="CircleType.html#1596" class="Bound">x</a> <a id="1619" href="Transport.html#1679" class="Function">==</a> <a id="1622" href="CircleType.html#1596" class="Bound">x</a> <a id="1624" href="Transport.html#1679" class="Function">[</a> <a id="1626" href="CircleType.html#1570" class="Bound">P</a> <a id="1628" href="Transport.html#1679" class="Function">↓</a> <a id="1630" href="CircleType.html#746" class="Postulate">loop</a> <a id="1635" href="Transport.html#1679" class="Function">]</a><a id="1636" class="Symbol">)</a>
+      <a id="1614" class="Symbol">→</a> <a id="1616" class="Symbol">(</a><a id="1617" href="CircleType.html#1596" class="Bound">x</a> <a id="1619" href="Transport.html#1684" class="Function">==</a> <a id="1622" href="CircleType.html#1596" class="Bound">x</a> <a id="1624" href="Transport.html#1684" class="Function">[</a> <a id="1626" href="CircleType.html#1570" class="Bound">P</a> <a id="1628" href="Transport.html#1684" class="Function">↓</a> <a id="1630" href="CircleType.html#746" class="Postulate">loop</a> <a id="1635" href="Transport.html#1684" class="Function">]</a><a id="1636" class="Symbol">)</a>
       <a id="1644" class="Comment">-----------------------</a>
       <a id="1674" class="Symbol">→</a> <a id="1676" class="Symbol">((</a><a id="1678" href="CircleType.html#1678" class="Bound">t</a> <a id="1680" class="Symbol">:</a> <a id="1682" href="CircleType.html#716" class="Postulate">S¹</a><a id="1684" class="Symbol">)</a> <a id="1686" class="Symbol">→</a> <a id="1688" href="CircleType.html#1570" class="Bound">P</a> <a id="1690" href="CircleType.html#1678" class="Bound">t</a><a id="1691" class="Symbol">)</a>
 </pre>
@@ -751,9 +769,9 @@ a single element (base) and a nontrivial path (loop).</p>
   <a id="1720" class="Keyword">postulate</a>
     <a id="S¹-βind-base"></a><a id="1734" href="CircleType.html#1734" class="Postulate">S¹-βind-base</a>
       <a id="1753" class="Symbol">:</a> <a id="1755" class="Symbol">∀</a> <a id="1757" class="Symbol">{</a><a id="1758" href="CircleType.html#1758" class="Bound">ℓ</a> <a id="1760" class="Symbol">:</a> <a id="1762" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1767" class="Symbol">}</a>
-      <a id="1775" class="Symbol">→</a> <a id="1777" class="Symbol">{</a><a id="1778" href="CircleType.html#1778" class="Bound">P</a> <a id="1780" class="Symbol">:</a> <a id="1782" href="CircleType.html#716" class="Postulate">S¹</a> <a id="1785" class="Symbol">→</a> <a id="1787" href="Intro.html#3636" class="Function">Type</a> <a id="1792" href="CircleType.html#1758" class="Bound">ℓ</a><a id="1793" class="Symbol">}</a>
+      <a id="1775" class="Symbol">→</a> <a id="1777" class="Symbol">{</a><a id="1778" href="CircleType.html#1778" class="Bound">P</a> <a id="1780" class="Symbol">:</a> <a id="1782" href="CircleType.html#716" class="Postulate">S¹</a> <a id="1785" class="Symbol">→</a> <a id="1787" href="Intro.html#3612" class="Function">Type</a> <a id="1792" href="CircleType.html#1758" class="Bound">ℓ</a><a id="1793" class="Symbol">}</a>
       <a id="1801" class="Symbol">→</a> <a id="1803" class="Symbol">(</a><a id="1804" href="CircleType.html#1804" class="Bound">x</a> <a id="1806" class="Symbol">:</a> <a id="1808" href="CircleType.html#1778" class="Bound">P</a> <a id="1810" href="CircleType.html#732" class="Postulate">base</a><a id="1814" class="Symbol">)</a>
-      <a id="1822" class="Symbol">→</a> <a id="1824" class="Symbol">(</a><a id="1825" href="CircleType.html#1825" class="Bound">p</a> <a id="1827" class="Symbol">:</a> <a id="1829" href="CircleType.html#1804" class="Bound">x</a> <a id="1831" href="Transport.html#1679" class="Function">==</a> <a id="1834" href="CircleType.html#1804" class="Bound">x</a> <a id="1836" href="Transport.html#1679" class="Function">[</a> <a id="1838" href="CircleType.html#1778" class="Bound">P</a> <a id="1840" href="Transport.html#1679" class="Function">↓</a> <a id="1842" href="CircleType.html#746" class="Postulate">loop</a> <a id="1847" href="Transport.html#1679" class="Function">]</a><a id="1848" class="Symbol">)</a>
+      <a id="1822" class="Symbol">→</a> <a id="1824" class="Symbol">(</a><a id="1825" href="CircleType.html#1825" class="Bound">p</a> <a id="1827" class="Symbol">:</a> <a id="1829" href="CircleType.html#1804" class="Bound">x</a> <a id="1831" href="Transport.html#1684" class="Function">==</a> <a id="1834" href="CircleType.html#1804" class="Bound">x</a> <a id="1836" href="Transport.html#1684" class="Function">[</a> <a id="1838" href="CircleType.html#1778" class="Bound">P</a> <a id="1840" href="Transport.html#1684" class="Function">↓</a> <a id="1842" href="CircleType.html#746" class="Postulate">loop</a> <a id="1847" href="Transport.html#1684" class="Function">]</a><a id="1848" class="Symbol">)</a>
       <a id="1856" class="Comment">---------------------------</a>
       <a id="1890" class="Symbol">→</a> <a id="1892" href="CircleType.html#1532" class="Postulate">S¹-ind</a> <a id="1899" href="CircleType.html#1804" class="Bound">x</a> <a id="1901" href="CircleType.html#1825" class="Bound">p</a> <a id="1903" href="CircleType.html#732" class="Postulate">base</a> <a id="1908" href="HigherInductiveTypes.html#496" class="Postulate Operator">↦</a> <a id="1910" href="CircleType.html#1804" class="Bound">x</a>
 
@@ -766,10 +784,10 @@ a single element (base) and a nontrivial path (loop).</p>
   <a id="2001" class="Keyword">postulate</a>
     <a id="S¹-βind-loop"></a><a id="2015" href="CircleType.html#2015" class="Postulate">S¹-βind-loop</a>
       <a id="2034" class="Symbol">:</a>  <a id="2037" class="Symbol">∀</a> <a id="2039" class="Symbol">{</a><a id="2040" href="CircleType.html#2040" class="Bound">ℓ</a> <a id="2042" class="Symbol">:</a> <a id="2044" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="2049" class="Symbol">}</a>
-      <a id="2057" class="Symbol">→</a> <a id="2059" class="Symbol">{</a><a id="2060" href="CircleType.html#2060" class="Bound">P</a> <a id="2062" class="Symbol">:</a> <a id="2064" href="CircleType.html#716" class="Postulate">S¹</a> <a id="2067" class="Symbol">→</a> <a id="2069" href="Intro.html#3636" class="Function">Type</a> <a id="2074" href="CircleType.html#2040" class="Bound">ℓ</a><a id="2075" class="Symbol">}</a>
+      <a id="2057" class="Symbol">→</a> <a id="2059" class="Symbol">{</a><a id="2060" href="CircleType.html#2060" class="Bound">P</a> <a id="2062" class="Symbol">:</a> <a id="2064" href="CircleType.html#716" class="Postulate">S¹</a> <a id="2067" class="Symbol">→</a> <a id="2069" href="Intro.html#3612" class="Function">Type</a> <a id="2074" href="CircleType.html#2040" class="Bound">ℓ</a><a id="2075" class="Symbol">}</a>
       <a id="2083" class="Symbol">→</a> <a id="2085" class="Symbol">(</a><a id="2086" href="CircleType.html#2086" class="Bound">x</a> <a id="2088" class="Symbol">:</a> <a id="2090" href="CircleType.html#2060" class="Bound">P</a> <a id="2092" href="CircleType.html#732" class="Postulate">base</a><a id="2096" class="Symbol">)</a>
-      <a id="2104" class="Symbol">→</a> <a id="2106" class="Symbol">(</a><a id="2107" href="CircleType.html#2107" class="Bound">p</a> <a id="2109" class="Symbol">:</a> <a id="2111" href="CircleType.html#2086" class="Bound">x</a> <a id="2113" href="Transport.html#1679" class="Function">==</a> <a id="2116" href="CircleType.html#2086" class="Bound">x</a> <a id="2118" href="Transport.html#1679" class="Function">[</a> <a id="2120" href="CircleType.html#2060" class="Bound">P</a> <a id="2122" href="Transport.html#1679" class="Function">↓</a> <a id="2124" href="CircleType.html#746" class="Postulate">loop</a> <a id="2129" href="Transport.html#1679" class="Function">]</a><a id="2130" class="Symbol">)</a>
-      <a id="2138" class="Symbol">→</a> <a id="2140" href="TransportLemmas.html#8845" class="Function">apd</a> <a id="2144" class="Symbol">(</a><a id="2145" href="CircleType.html#1532" class="Postulate">S¹-ind</a> <a id="2152" href="CircleType.html#2086" class="Bound">x</a> <a id="2154" href="CircleType.html#2107" class="Bound">p</a><a id="2155" class="Symbol">)</a> <a id="2157" href="CircleType.html#746" class="Postulate">loop</a> <a id="2162" href="HigherInductiveTypes.html#496" class="Postulate Operator">↦</a> <a id="2164" href="CircleType.html#2107" class="Bound">p</a>
+      <a id="2104" class="Symbol">→</a> <a id="2106" class="Symbol">(</a><a id="2107" href="CircleType.html#2107" class="Bound">p</a> <a id="2109" class="Symbol">:</a> <a id="2111" href="CircleType.html#2086" class="Bound">x</a> <a id="2113" href="Transport.html#1684" class="Function">==</a> <a id="2116" href="CircleType.html#2086" class="Bound">x</a> <a id="2118" href="Transport.html#1684" class="Function">[</a> <a id="2120" href="CircleType.html#2060" class="Bound">P</a> <a id="2122" href="Transport.html#1684" class="Function">↓</a> <a id="2124" href="CircleType.html#746" class="Postulate">loop</a> <a id="2129" href="Transport.html#1684" class="Function">]</a><a id="2130" class="Symbol">)</a>
+      <a id="2138" class="Symbol">→</a> <a id="2140" href="TransportLemmas.html#8821" class="Function">apd</a> <a id="2144" class="Symbol">(</a><a id="2145" href="CircleType.html#1532" class="Postulate">S¹-ind</a> <a id="2152" href="CircleType.html#2086" class="Bound">x</a> <a id="2154" href="CircleType.html#2107" class="Bound">p</a><a id="2155" class="Symbol">)</a> <a id="2157" href="CircleType.html#746" class="Postulate">loop</a> <a id="2162" href="HigherInductiveTypes.html#496" class="Postulate Operator">↦</a> <a id="2164" href="CircleType.html#2107" class="Bound">p</a>
 
   <a id="2169" class="Symbol">{-#</a> <a id="2173" class="Keyword">REWRITE</a> <a id="2181" href="CircleType.html#2015" class="Postulate">S¹-βind-loop</a> <a id="2194" class="Symbol">#-}</a>
 </pre>
@@ -777,12 +795,12 @@ a single element (base) and a nontrivial path (loop).</p>
 <pre class="Agda">
   <a id="this-proofs-rewriting"></a><a id="2225" href="CircleType.html#2225" class="Function">this-proofs-rewriting</a>
       <a id="2253" class="Symbol">:</a>  <a id="2256" class="Symbol">∀</a> <a id="2258" class="Symbol">{</a><a id="2259" href="CircleType.html#2259" class="Bound">ℓ</a> <a id="2261" class="Symbol">:</a> <a id="2263" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="2268" class="Symbol">}</a>
-      <a id="2276" class="Symbol">→</a> <a id="2278" class="Symbol">{</a><a id="2279" href="CircleType.html#2279" class="Bound">P</a> <a id="2281" class="Symbol">:</a> <a id="2283" href="CircleType.html#716" class="Postulate">S¹</a> <a id="2286" class="Symbol">→</a> <a id="2288" href="Intro.html#3636" class="Function">Type</a> <a id="2293" href="CircleType.html#2259" class="Bound">ℓ</a><a id="2294" class="Symbol">}</a>
+      <a id="2276" class="Symbol">→</a> <a id="2278" class="Symbol">{</a><a id="2279" href="CircleType.html#2279" class="Bound">P</a> <a id="2281" class="Symbol">:</a> <a id="2283" href="CircleType.html#716" class="Postulate">S¹</a> <a id="2286" class="Symbol">→</a> <a id="2288" href="Intro.html#3612" class="Function">Type</a> <a id="2293" href="CircleType.html#2259" class="Bound">ℓ</a><a id="2294" class="Symbol">}</a>
       <a id="2302" class="Symbol">→</a> <a id="2304" class="Symbol">(</a><a id="2305" href="CircleType.html#2305" class="Bound">x</a> <a id="2307" class="Symbol">:</a> <a id="2309" href="CircleType.html#2279" class="Bound">P</a> <a id="2311" href="CircleType.html#732" class="Postulate">base</a><a id="2315" class="Symbol">)</a>
-      <a id="2323" class="Symbol">→</a> <a id="2325" class="Symbol">(</a><a id="2326" href="CircleType.html#2326" class="Bound">p</a> <a id="2328" class="Symbol">:</a> <a id="2330" href="CircleType.html#2305" class="Bound">x</a> <a id="2332" href="Transport.html#1679" class="Function">==</a> <a id="2335" href="CircleType.html#2305" class="Bound">x</a> <a id="2337" href="Transport.html#1679" class="Function">[</a> <a id="2339" href="CircleType.html#2279" class="Bound">P</a> <a id="2341" href="Transport.html#1679" class="Function">↓</a> <a id="2343" href="CircleType.html#746" class="Postulate">loop</a> <a id="2348" href="Transport.html#1679" class="Function">]</a><a id="2349" class="Symbol">)</a>
-      <a id="2357" class="Symbol">→</a> <a id="2359" href="TransportLemmas.html#8845" class="Function">apd</a> <a id="2363" class="Symbol">(</a><a id="2364" href="CircleType.html#1532" class="Postulate">S¹-ind</a> <a id="2371" href="CircleType.html#2305" class="Bound">x</a> <a id="2373" href="CircleType.html#2326" class="Bound">p</a><a id="2374" class="Symbol">)</a> <a id="2376" href="CircleType.html#746" class="Postulate">loop</a> <a id="2381" href="BasicTypes.html#6633" class="Function Operator">≡</a> <a id="2383" href="CircleType.html#2326" class="Bound">p</a>
+      <a id="2323" class="Symbol">→</a> <a id="2325" class="Symbol">(</a><a id="2326" href="CircleType.html#2326" class="Bound">p</a> <a id="2328" class="Symbol">:</a> <a id="2330" href="CircleType.html#2305" class="Bound">x</a> <a id="2332" href="Transport.html#1684" class="Function">==</a> <a id="2335" href="CircleType.html#2305" class="Bound">x</a> <a id="2337" href="Transport.html#1684" class="Function">[</a> <a id="2339" href="CircleType.html#2279" class="Bound">P</a> <a id="2341" href="Transport.html#1684" class="Function">↓</a> <a id="2343" href="CircleType.html#746" class="Postulate">loop</a> <a id="2348" href="Transport.html#1684" class="Function">]</a><a id="2349" class="Symbol">)</a>
+      <a id="2357" class="Symbol">→</a> <a id="2359" href="TransportLemmas.html#8821" class="Function">apd</a> <a id="2363" class="Symbol">(</a><a id="2364" href="CircleType.html#1532" class="Postulate">S¹-ind</a> <a id="2371" href="CircleType.html#2305" class="Bound">x</a> <a id="2373" href="CircleType.html#2326" class="Bound">p</a><a id="2374" class="Symbol">)</a> <a id="2376" href="CircleType.html#746" class="Postulate">loop</a> <a id="2381" href="BasicTypes.html#6656" class="Function Operator">≡</a> <a id="2383" href="CircleType.html#2326" class="Bound">p</a>
 
-  <a id="2388" href="CircleType.html#2225" class="Function">this-proofs-rewriting</a> <a id="2410" class="Symbol">_</a> <a id="2412" class="Symbol">_</a> <a id="2414" class="Symbol">=</a> <a id="2416" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a>
+  <a id="2388" href="CircleType.html#2225" class="Function">this-proofs-rewriting</a> <a id="2410" class="Symbol">_</a> <a id="2412" class="Symbol">_</a> <a id="2414" class="Symbol">=</a> <a id="2416" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a>
 </pre>
 
 
@@ -804,7 +822,7 @@ a single element (base) and a nontrivial path (loop).</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Circle Type"
        data-url ="http://jonaprieto.github.io/mini-hott/CircleType.html"

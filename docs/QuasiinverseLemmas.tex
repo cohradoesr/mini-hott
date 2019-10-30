@@ -64,10 +64,16 @@
     <p style="text-decoration:left">Quasiinverse Lemmas</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Quasiinverse Lemmas</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Quasiinverse Lemmas <small style="float:right">(QuasiinverseLemmas.tex)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
+  </li>
+</ul>
 
 
     <!--  -->
@@ -318,6 +324,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -336,13 +348,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -556,6 +568,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -686,7 +704,7 @@ The equivalence types are indeed equivalence
 {: .foldable until="6" }
 <pre class="Agda">
   <a id="qinv-comp"></a><a id="737" href="QuasiinverseLemmas.html#737" class="Function">qinv-comp</a>
-    <a id="751" class="Symbol">:</a> <a id="753" class="Symbol">∀</a> <a id="755" class="Symbol">{</a><a id="756" href="QuasiinverseLemmas.html#756" class="Bound">ℓ₁</a> <a id="759" href="QuasiinverseLemmas.html#759" class="Bound">ℓ₂</a> <a id="762" href="QuasiinverseLemmas.html#762" class="Bound">ℓ₃</a> <a id="765" class="Symbol">:</a> <a id="767" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="772" class="Symbol">}</a> <a id="774" class="Symbol">{</a><a id="775" href="QuasiinverseLemmas.html#775" class="Bound">A</a> <a id="777" class="Symbol">:</a> <a id="779" href="Intro.html#3612" class="Function">Type</a> <a id="784" href="QuasiinverseLemmas.html#756" class="Bound">ℓ₁</a><a id="786" class="Symbol">}{</a><a id="788" href="QuasiinverseLemmas.html#788" class="Bound">B</a> <a id="790" class="Symbol">:</a> <a id="792" href="Intro.html#3612" class="Function">Type</a> <a id="797" href="QuasiinverseLemmas.html#759" class="Bound">ℓ₂</a><a id="799" class="Symbol">}{</a><a id="801" href="QuasiinverseLemmas.html#801" class="Bound">C</a> <a id="803" class="Symbol">:</a> <a id="805" href="Intro.html#3612" class="Function">Type</a> <a id="810" href="QuasiinverseLemmas.html#762" class="Bound">ℓ₃</a><a id="812" class="Symbol">}</a>
+    <a id="751" class="Symbol">:</a> <a id="753" class="Symbol">∀</a> <a id="755" class="Symbol">{</a><a id="756" href="QuasiinverseLemmas.html#756" class="Bound">ℓ₁</a> <a id="759" href="QuasiinverseLemmas.html#759" class="Bound">ℓ₂</a> <a id="762" href="QuasiinverseLemmas.html#762" class="Bound">ℓ₃</a><a id="764" class="Bound"> </a><a id="765" class="Symbol">:</a> <a id="767" href="Agda.Primitive.html#408" class="Postulate">L</a><a id="768" href="Agda.Primitive.html#408" class="Bound">e</a><a id="769" href="Agda.Primitive.html#408" class="Postulate">v</a><a id="770" href="Agda.Primitive.html#408" class="Function">el</a><a id="772" class="Function">} {</a><a id="775" href="QuasiinverseLemmas.html#775" class="Function">A</a><a id="776" class="Function"> </a><a id="777" class="Symbol">:</a><a id="778" class="Bound"> </a><a id="779" href="Intro.html#3612" class="Function">Type</a> <a id="784" href="QuasiinverseLemmas.html#756" class="Bound">ℓ₁</a><a id="786" class="Symbol">}{</a><a id="788" href="QuasiinverseLemmas.html#788" class="Bound">B</a> <a id="790" class="Symbol">:</a> <a id="792" href="Intro.html#3612" class="Function">Type</a> <a id="797" href="QuasiinverseLemmas.html#759" class="Bound">ℓ₂</a><a id="799" class="Symbol">}{</a><a id="801" href="QuasiinverseLemmas.html#801" class="Bound">C</a> <a id="803" class="Symbol">:</a> <a id="805" href="Intro.html#3612" class="Function">Type</a> <a id="810" href="QuasiinverseLemmas.html#762" class="Bound">ℓ₃</a><a id="812" class="Symbol">}</a>
     <a id="818" class="Symbol">→</a> <a id="820" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="822" class="Symbol">(</a><a id="823" href="QuasiinverseLemmas.html#775" class="Bound">A</a> <a id="825" class="Symbol">→</a> <a id="827" href="QuasiinverseLemmas.html#788" class="Bound">B</a><a id="828" class="Symbol">)</a> <a id="830" href="QuasiinverseType.html#670" class="Function">qinv</a>
     <a id="839" class="Symbol">→</a> <a id="841" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="843" class="Symbol">(</a><a id="844" href="QuasiinverseLemmas.html#788" class="Bound">B</a> <a id="846" class="Symbol">→</a> <a id="848" href="QuasiinverseLemmas.html#801" class="Bound">C</a><a id="849" class="Symbol">)</a> <a id="851" href="QuasiinverseType.html#670" class="Function">qinv</a>
     <a id="860" class="Comment">----------------</a>
@@ -717,7 +735,7 @@ Equivalence types are equivalence relations.
     <a id="1421" class="Comment">-------</a>
     <a id="1433" class="Symbol">→</a> <a id="1435" href="QuasiinverseLemmas.html#1405" class="Bound">A</a> <a id="1437" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="1439" href="QuasiinverseLemmas.html#1405" class="Bound">A</a>
 
-  <a id="1444" href="QuasiinverseLemmas.html#1386" class="Function">idEqv</a> <a id="1450" class="Symbol">=</a> <a id="1452" href="BasicFunctions.html#954" class="Function">id</a> <a id="1455" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1457" class="Symbol">λ</a> <a id="1459" href="QuasiinverseLemmas.html#1459" class="Bound">a</a> <a id="1461" class="Symbol">→</a> <a id="1463" class="Symbol">(</a><a id="1464" href="QuasiinverseLemmas.html#1459" class="Bound">a</a> <a id="1466" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1468" href="BasicTypes.html#6747" class="Function">refl</a> <a id="1473" href="QuasiinverseLemmas.html#1459" class="Bound">a</a><a id="1474" class="Symbol">)</a> <a id="1476" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1478" class="Symbol">λ</a> <a id="1480" class="Symbol">{</a> <a id="1482" class="Symbol">(_</a> <a id="1485" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1487" href="BasicTypes.html#6492" class="InductiveConstructor">idp</a><a id="1490" class="Symbol">)</a> <a id="1492" class="Symbol">→</a> <a id="1494" href="BasicTypes.html#6747" class="Function">refl</a> <a id="1499" class="Symbol">(</a><a id="1500" href="QuasiinverseLemmas.html#1459" class="Bound">a</a> <a id="1502" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1504" href="BasicTypes.html#6747" class="Function">refl</a> <a id="1509" href="QuasiinverseLemmas.html#1459" class="Bound">a</a><a id="1510" class="Symbol">)</a> <a id="1512" class="Symbol">}</a>
+  <a id="1444" href="QuasiinverseLemmas.html#1386" class="Function">idEqv</a> <a id="1450" class="Symbol">=</a> <a id="1452" href="BasicFunctions.html#954" class="Function">id</a> <a id="1455" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1457" class="Symbol">λ</a> <a id="1459" href="QuasiinverseLemmas.html#1459" class="Bound">a</a> <a id="1461" class="Symbol">→</a> <a id="1463" class="Symbol">(</a><a id="1464" href="QuasiinverseLemmas.html#1459" class="Bound">a</a> <a id="1466" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1468" href="BasicTypes.html#6771" class="Function">refl</a> <a id="1473" href="QuasiinverseLemmas.html#1459" class="Bound">a</a><a id="1474" class="Symbol">)</a> <a id="1476" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1478" class="Symbol">λ</a> <a id="1480" class="Symbol">{</a> <a id="1482" class="Symbol">(_</a> <a id="1485" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1487" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a><a id="1490" class="Symbol">)</a> <a id="1492" class="Symbol">→</a> <a id="1494" href="BasicTypes.html#6771" class="Function">refl</a> <a id="1499" class="Symbol">(</a><a id="1500" href="QuasiinverseLemmas.html#1459" class="Bound">a</a> <a id="1502" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1504" href="BasicTypes.html#6771" class="Function">refl</a> <a id="1509" href="QuasiinverseLemmas.html#1459" class="Bound">a</a><a id="1510" class="Symbol">)</a> <a id="1512" class="Symbol">}</a>
 </pre>
 
 Synonyms
@@ -786,7 +804,7 @@ Synonyms
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Quasiinverse Lemmas"
        data-url ="http://jonaprieto.github.io/mini-hott/QuasiinverseLemmas.tex"

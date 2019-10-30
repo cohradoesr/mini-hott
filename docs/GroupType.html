@@ -64,14 +64,20 @@
     <p style="text-decoration:left">Group Type</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
-    <ol>
-      <li class="sidebar-toc-item"><a href="#groups" class="sidebar-nav-item">Groups</a></li>
-    </ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Group Type</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Group Type <small style="float:right">(GroupType.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
+        <ul>
+          <li class="sidebar-toc-item"><a href="#groups" class="sidebar-nav-item">Groups</a></li>
+        </ul>
+      </li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
   </li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+</ul>
 
 
     <!--  -->
@@ -322,6 +328,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -340,13 +352,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -560,6 +572,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -650,9 +668,9 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ol>
+      <ul>
   <li><a href="#groups">Groups</a></li>
-</ol>
+</ul>
 
     </nav>
   </div>
@@ -695,15 +713,15 @@ monoid. This is the following type for groups:</p>
 
 <pre class="Agda">
   <a id="Group"></a><a id="834" href="GroupType.html#834" class="Function">Group</a>
-    <a id="844" class="Symbol">:</a> <a id="846" class="Symbol">∀</a> <a id="848" class="Symbol">{</a><a id="849" href="GroupType.html#849" class="Bound">ℓ</a> <a id="851" class="Symbol">:</a> <a id="853" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="858" class="Symbol">}</a> <a id="860" class="Symbol">→</a> <a id="862" href="Intro.html#3636" class="Function">Type</a> <a id="867" class="Symbol">(</a><a id="868" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="873" href="GroupType.html#849" class="Bound">ℓ</a><a id="874" class="Symbol">)</a>
+    <a id="844" class="Symbol">:</a> <a id="846" class="Symbol">∀</a> <a id="848" class="Symbol">{</a><a id="849" href="GroupType.html#849" class="Bound">ℓ</a> <a id="851" class="Symbol">:</a> <a id="853" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="858" class="Symbol">}</a> <a id="860" class="Symbol">→</a> <a id="862" href="Intro.html#3612" class="Function">Type</a> <a id="867" class="Symbol">(</a><a id="868" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="873" href="GroupType.html#849" class="Bound">ℓ</a><a id="874" class="Symbol">)</a>
 
   <a id="879" href="GroupType.html#834" class="Function">Group</a>
     <a id="889" class="Symbol">=</a> <a id="891" href="BasicTypes.html#1548" class="Record">∑</a> <a id="893" class="Symbol">(</a><a id="894" href="MonoidType.html#887" class="Record">Monoid</a><a id="900" class="Symbol">)</a> <a id="902" class="Symbol">(λ</a> <a id="905" class="Symbol">{(</a><a id="907" href="MonoidType.html#956" class="InductiveConstructor">monoid</a> <a id="914" href="GroupType.html#914" class="Bound">G</a> <a id="916" href="GroupType.html#916" class="Bound">e</a> <a id="918" href="GroupType.html#918" class="Bound Operator">_&lt;&gt;_</a> <a id="923" href="GroupType.html#923" class="Bound">GisSet</a> <a id="930" href="GroupType.html#930" class="Bound">lunit</a> <a id="936" href="GroupType.html#936" class="Bound">runit</a> <a id="942" href="GroupType.html#942" class="Bound">assoc</a><a id="947" class="Symbol">)</a>
       <a id="955" class="Symbol">→</a> <a id="957" href="BasicTypes.html#1548" class="Record">∑</a> <a id="959" class="Symbol">(</a><a id="960" href="GroupType.html#914" class="Bound">G</a> <a id="962" class="Symbol">→</a> <a id="964" href="GroupType.html#914" class="Bound">G</a><a id="965" class="Symbol">)</a> <a id="967" class="Symbol">(λ</a> <a id="970" href="GroupType.html#970" class="Bound">inverse</a> <a id="978" class="Symbol">→</a>
         <a id="988" href="BasicTypes.html#2123" class="Function">∏</a> <a id="990" href="GroupType.html#914" class="Bound">G</a> <a id="992" class="Symbol">(λ</a> <a id="995" href="GroupType.html#995" class="Bound">x</a> <a id="997" class="Symbol">→</a>
           <a id="1009" class="Comment">-- properties:</a>
-          <a id="1034" class="Symbol">(</a>   <a id="1038" class="Symbol">(</a><a id="1039" href="GroupType.html#995" class="Bound">x</a> <a id="1041" href="GroupType.html#918" class="Bound Operator">&lt;&gt;</a> <a id="1044" href="GroupType.html#970" class="Bound">inverse</a> <a id="1052" href="GroupType.html#995" class="Bound">x</a><a id="1053" class="Symbol">)</a> <a id="1055" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1058" href="GroupType.html#916" class="Bound">e</a><a id="1059" class="Symbol">)</a>
-          <a id="1071" href="BasicTypes.html#2240" class="Function Operator">×</a> <a id="1073" class="Symbol">(</a> <a id="1075" class="Symbol">(</a><a id="1076" href="GroupType.html#970" class="Bound">inverse</a> <a id="1084" href="GroupType.html#995" class="Bound">x</a> <a id="1086" href="GroupType.html#918" class="Bound Operator">&lt;&gt;</a> <a id="1089" href="GroupType.html#995" class="Bound">x</a><a id="1090" class="Symbol">)</a> <a id="1092" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1095" href="GroupType.html#916" class="Bound">e</a> <a id="1097" class="Symbol">))</a>
+          <a id="1034" class="Symbol">(</a>   <a id="1038" class="Symbol">(</a><a id="1039" href="GroupType.html#995" class="Bound">x</a> <a id="1041" href="GroupType.html#918" class="Bound Operator">&lt;&gt;</a> <a id="1044" href="GroupType.html#970" class="Bound">inverse</a> <a id="1052" href="GroupType.html#995" class="Bound">x</a><a id="1053" class="Symbol">)</a> <a id="1055" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="1058" href="GroupType.html#916" class="Bound">e</a><a id="1059" class="Symbol">)</a>
+          <a id="1071" href="BasicTypes.html#2240" class="Function Operator">×</a> <a id="1073" class="Symbol">(</a> <a id="1075" class="Symbol">(</a><a id="1076" href="GroupType.html#970" class="Bound">inverse</a> <a id="1084" href="GroupType.html#995" class="Bound">x</a> <a id="1086" href="GroupType.html#918" class="Bound Operator">&lt;&gt;</a> <a id="1089" href="GroupType.html#995" class="Bound">x</a><a id="1090" class="Symbol">)</a> <a id="1092" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="1095" href="GroupType.html#916" class="Bound">e</a> <a id="1097" class="Symbol">))</a>
           <a id="1110" class="Symbol">)})</a>
 </pre>
 
@@ -726,7 +744,7 @@ monoid. This is the following type for groups:</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Group Type"
        data-url ="http://jonaprieto.github.io/mini-hott/GroupType.html"

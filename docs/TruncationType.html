@@ -64,18 +64,24 @@
     <p style="text-decoration:left">Truncation Type</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
-    <ol>
-      <li class="sidebar-toc-item"><a href="#propositional-truncation" class="sidebar-nav-item">Propositional truncation</a>
-        <ol>
-          <li class="sidebar-toc-item"><a href="#truncation-lemmas" class="sidebar-nav-item">Truncation Lemmas</a></li>
-        </ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Truncation Type</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Truncation Type <small style="float:right">(TruncationType.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
+        <ul>
+          <li class="sidebar-toc-item"><a href="#propositional-truncation" class="sidebar-nav-item">Propositional truncation</a>
+            <ul>
+              <li class="sidebar-toc-item"><a href="#truncation-lemmas" class="sidebar-nav-item">Truncation Lemmas</a></li>
+            </ul>
+          </li>
+        </ul>
       </li>
-    </ol>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
   </li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+</ul>
 
 
     <!--  -->
@@ -326,6 +332,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -344,13 +356,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -564,6 +576,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -654,13 +672,13 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ol>
+      <ul>
   <li><a href="#propositional-truncation">Propositional truncation</a>
-    <ol>
+    <ul>
       <li><a href="#truncation-lemmas">Truncation Lemmas</a></li>
-    </ol>
+    </ul>
   </li>
-</ol>
+</ul>
 
     </nav>
   </div>
@@ -748,7 +766,7 @@ solution to the problem of mapping $X$ to a proposition $P$:</p>
   <a id="1614" class="Keyword">postulate</a>
     <a id="trunc"></a><a id="1628" href="TruncationType.html#1628" class="Postulate">trunc</a>
       <a id="1640" class="Symbol">:</a> <a id="1642" class="Symbol">∀</a> <a id="1644" class="Symbol">{</a><a id="1645" href="TruncationType.html#1645" class="Bound">ℓ</a> <a id="1647" class="Symbol">:</a> <a id="1649" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1654" class="Symbol">}</a> <a id="1656" class="Symbol">{</a><a id="1657" href="TruncationType.html#1657" class="Bound">A</a> <a id="1659" class="Symbol">:</a> <a id="1661" href="Intro.html#3612" class="Function">Type</a> <a id="1666" href="TruncationType.html#1645" class="Bound">ℓ</a><a id="1667" class="Symbol">}</a>
-      <a id="1675" class="Symbol">→</a> <a id="1677" href="HLevelTypes.html#1433" class="Function">isProp</a> <a id="1684" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="1686" href="TruncationType.html#1657" class="Bound">A</a> <a id="1688" href="TruncationType.html#1257" class="Function Operator">∥</a>
+      <a id="1675" class="Symbol">→</a> <a id="1677" href="HLevelTypes.html#1464" class="Function">isProp</a> <a id="1684" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="1686" href="TruncationType.html#1657" class="Bound">A</a> <a id="1688" href="TruncationType.html#1257" class="Function Operator">∥</a>
 </pre>
 
 <p>Recursion principle</p>
@@ -756,7 +774,7 @@ solution to the problem of mapping $X$ to a proposition $P$:</p>
 <pre class="Agda foldable" until="6">
   <a id="trunc-rec"></a><a id="1762" href="TruncationType.html#1762" class="Function">trunc-rec</a>
     <a id="1776" class="Symbol">:</a>  <a id="1779" class="Symbol">∀</a> <a id="1781" class="Symbol">{</a><a id="1782" href="TruncationType.html#1782" class="Bound">ℓ₁</a> <a id="1785" href="TruncationType.html#1785" class="Bound">ℓ₂</a> <a id="1788" class="Symbol">:</a> <a id="1790" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1795" class="Symbol">}</a> <a id="1797" class="Symbol">{</a><a id="1798" href="TruncationType.html#1798" class="Bound">A</a> <a id="1800" class="Symbol">:</a> <a id="1802" href="Intro.html#3612" class="Function">Type</a> <a id="1807" href="TruncationType.html#1782" class="Bound">ℓ₁</a><a id="1809" class="Symbol">}{</a><a id="1811" href="TruncationType.html#1811" class="Bound">P</a> <a id="1813" class="Symbol">:</a> <a id="1815" href="Intro.html#3612" class="Function">Type</a> <a id="1820" href="TruncationType.html#1785" class="Bound">ℓ₂</a><a id="1822" class="Symbol">}</a>
-    <a id="1828" class="Symbol">→</a> <a id="1830" href="HLevelTypes.html#1433" class="Function">isProp</a> <a id="1837" href="TruncationType.html#1811" class="Bound">P</a>
+    <a id="1828" class="Symbol">→</a> <a id="1830" href="HLevelTypes.html#1464" class="Function">isProp</a> <a id="1837" href="TruncationType.html#1811" class="Bound">P</a>
     <a id="1843" class="Symbol">→</a> <a id="1845" class="Symbol">(</a><a id="1846" href="TruncationType.html#1798" class="Bound">A</a> <a id="1848" class="Symbol">→</a> <a id="1850" href="TruncationType.html#1811" class="Bound">P</a><a id="1851" class="Symbol">)</a>
     <a id="1857" class="Comment">-----------</a>
     <a id="1873" class="Symbol">→</a> <a id="1875" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="1877" href="TruncationType.html#1798" class="Bound">A</a> <a id="1879" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="1881" class="Symbol">→</a> <a id="1883" href="TruncationType.html#1811" class="Bound">P</a>
@@ -789,7 +807,7 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)</l
 <pre class="Agda foldable" until="3">
   <a id="truncated-is-prop"></a><a id="2709" href="TruncationType.html#2709" class="Function">truncated-is-prop</a>
     <a id="2731" class="Symbol">:</a> <a id="2733" class="Symbol">∀</a> <a id="2735" class="Symbol">{</a><a id="2736" href="TruncationType.html#2736" class="Bound">ℓ</a> <a id="2738" class="Symbol">:</a> <a id="2740" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="2745" class="Symbol">}</a> <a id="2747" class="Symbol">{</a><a id="2748" href="TruncationType.html#2748" class="Bound">A</a> <a id="2750" class="Symbol">:</a> <a id="2752" href="Intro.html#3612" class="Function">Type</a> <a id="2757" href="TruncationType.html#2736" class="Bound">ℓ</a><a id="2758" class="Symbol">}</a>
-    <a id="2764" class="Symbol">→</a> <a id="2766" href="HLevelTypes.html#1433" class="Function">isProp</a> <a id="2773" class="Symbol">(</a><a id="2774" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="2776" href="TruncationType.html#2748" class="Bound">A</a> <a id="2778" href="TruncationType.html#1257" class="Function Operator">∥</a><a id="2779" class="Symbol">)</a>
+    <a id="2764" class="Symbol">→</a> <a id="2766" href="HLevelTypes.html#1464" class="Function">isProp</a> <a id="2773" class="Symbol">(</a><a id="2774" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="2776" href="TruncationType.html#2748" class="Bound">A</a> <a id="2778" href="TruncationType.html#1257" class="Function Operator">∥</a><a id="2779" class="Symbol">)</a>
 
   <a id="2784" href="TruncationType.html#2709" class="Function">truncated-is-prop</a> <a id="2802" class="Symbol">=</a> <a id="2804" href="TruncationType.html#1628" class="Postulate">trunc</a>
 </pre>
@@ -802,7 +820,7 @@ the type (in this case, prop-trunc) and its elimination principle (trunc-rec)</l
 <pre class="Agda foldable" until="5">
   <a id="trunc-≃-prop"></a><a id="2958" href="TruncationType.html#2958" class="Function">trunc-≃-prop</a>
     <a id="2975" class="Symbol">:</a> <a id="2977" class="Symbol">∀</a> <a id="2979" class="Symbol">{</a><a id="2980" href="TruncationType.html#2980" class="Bound">ℓ</a> <a id="2982" class="Symbol">:</a> <a id="2984" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="2989" class="Symbol">}</a> <a id="2991" class="Symbol">{</a><a id="2992" href="TruncationType.html#2992" class="Bound">A</a> <a id="2994" class="Symbol">:</a> <a id="2996" href="Intro.html#3612" class="Function">Type</a> <a id="3001" href="TruncationType.html#2980" class="Bound">ℓ</a><a id="3002" class="Symbol">}</a>
-    <a id="3008" class="Symbol">→</a> <a id="3010" href="TruncationType.html#2992" class="Bound">A</a> <a id="3012" href="HLevelTypes.html#1599" class="Function Operator">is-prop</a>
+    <a id="3008" class="Symbol">→</a> <a id="3010" href="TruncationType.html#2992" class="Bound">A</a> <a id="3012" href="HLevelTypes.html#1630" class="Function Operator">is-prop</a>
     <a id="3024" class="Comment">-----------</a>
     <a id="3040" class="Symbol">→</a> <a id="3042" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="3044" href="TruncationType.html#2992" class="Bound">A</a> <a id="3046" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="3048" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="3050" href="TruncationType.html#2992" class="Bound">A</a>
 
@@ -824,7 +842,7 @@ disjunction and existence as follows.</p>
 <pre class="Agda">
   <a id="_∨_"></a><a id="3426" href="TruncationType.html#3426" class="Function Operator">_∨_</a>
     <a id="3434" class="Symbol">:</a> <a id="3436" class="Symbol">∀</a> <a id="3438" class="Symbol">{</a><a id="3439" href="TruncationType.html#3439" class="Bound">ℓ₁</a> <a id="3442" href="TruncationType.html#3442" class="Bound">ℓ₂</a> <a id="3445" class="Symbol">:</a> <a id="3447" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="3452" class="Symbol">}</a>
-    <a id="3458" class="Symbol">→</a> <a id="3460" class="Symbol">(</a><a id="3461" href="TruncationType.html#3461" class="Bound">p</a> <a id="3463" class="Symbol">:</a> <a id="3465" href="HLevelTypes.html#2190" class="Function">hProp</a> <a id="3471" href="TruncationType.html#3439" class="Bound">ℓ₁</a><a id="3473" class="Symbol">)</a> <a id="3475" class="Symbol">(</a><a id="3476" href="TruncationType.html#3476" class="Bound">q</a> <a id="3478" class="Symbol">:</a> <a id="3480" href="HLevelTypes.html#2190" class="Function">hProp</a> <a id="3486" href="TruncationType.html#3442" class="Bound">ℓ₂</a><a id="3488" class="Symbol">)</a>
+    <a id="3458" class="Symbol">→</a> <a id="3460" class="Symbol">(</a><a id="3461" href="TruncationType.html#3461" class="Bound">p</a> <a id="3463" class="Symbol">:</a> <a id="3465" href="HLevelTypes.html#2221" class="Function">hProp</a> <a id="3471" href="TruncationType.html#3439" class="Bound">ℓ₁</a><a id="3473" class="Symbol">)</a> <a id="3475" class="Symbol">(</a><a id="3476" href="TruncationType.html#3476" class="Bound">q</a> <a id="3478" class="Symbol">:</a> <a id="3480" href="HLevelTypes.html#2221" class="Function">hProp</a> <a id="3486" href="TruncationType.html#3442" class="Bound">ℓ₂</a><a id="3488" class="Symbol">)</a>
     <a id="3494" class="Symbol">→</a> <a id="3496" href="Intro.html#3612" class="Function">Type</a> <a id="3501" class="Symbol">(</a><a id="3502" href="TruncationType.html#3439" class="Bound">ℓ₁</a> <a id="3505" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="3507" href="TruncationType.html#3442" class="Bound">ℓ₂</a><a id="3509" class="Symbol">)</a>
   <a id="3513" class="Symbol">(</a><a id="3514" href="TruncationType.html#3514" class="Bound">P</a> <a id="3516" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="3518" class="Symbol">_)</a> <a id="3521" href="TruncationType.html#3426" class="Function Operator">∨</a> <a id="3523" class="Symbol">(</a><a id="3524" href="TruncationType.html#3524" class="Bound">Q</a> <a id="3526" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="3528" class="Symbol">_)</a> <a id="3531" class="Symbol">=</a> <a id="3533" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="3535" href="TruncationType.html#3514" class="Bound">P</a> <a id="3537" href="BasicTypes.html#2478" class="Datatype Operator">+</a> <a id="3539" href="TruncationType.html#3524" class="Bound">Q</a> <a id="3541" href="TruncationType.html#1257" class="Function Operator">∥</a>
 
@@ -836,7 +854,7 @@ disjunction and existence as follows.</p>
 <pre class="Agda">
   <a id="_∧_"></a><a id="3638" href="TruncationType.html#3638" class="Function Operator">_∧_</a>
     <a id="3646" class="Symbol">:</a> <a id="3648" class="Symbol">∀</a> <a id="3650" class="Symbol">{</a><a id="3651" href="TruncationType.html#3651" class="Bound">ℓ₁</a> <a id="3654" href="TruncationType.html#3654" class="Bound">ℓ₂</a> <a id="3657" class="Symbol">:</a> <a id="3659" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="3664" class="Symbol">}</a>
-    <a id="3670" class="Symbol">→</a> <a id="3672" class="Symbol">(</a><a id="3673" href="TruncationType.html#3673" class="Bound">p</a> <a id="3675" class="Symbol">:</a> <a id="3677" href="HLevelTypes.html#2190" class="Function">hProp</a> <a id="3683" href="TruncationType.html#3651" class="Bound">ℓ₁</a><a id="3685" class="Symbol">)</a> <a id="3687" class="Symbol">(</a><a id="3688" href="TruncationType.html#3688" class="Bound">q</a> <a id="3690" class="Symbol">:</a> <a id="3692" href="HLevelTypes.html#2190" class="Function">hProp</a> <a id="3698" href="TruncationType.html#3654" class="Bound">ℓ₂</a><a id="3700" class="Symbol">)</a>
+    <a id="3670" class="Symbol">→</a> <a id="3672" class="Symbol">(</a><a id="3673" href="TruncationType.html#3673" class="Bound">p</a> <a id="3675" class="Symbol">:</a> <a id="3677" href="HLevelTypes.html#2221" class="Function">hProp</a> <a id="3683" href="TruncationType.html#3651" class="Bound">ℓ₁</a><a id="3685" class="Symbol">)</a> <a id="3687" class="Symbol">(</a><a id="3688" href="TruncationType.html#3688" class="Bound">q</a> <a id="3690" class="Symbol">:</a> <a id="3692" href="HLevelTypes.html#2221" class="Function">hProp</a> <a id="3698" href="TruncationType.html#3654" class="Bound">ℓ₂</a><a id="3700" class="Symbol">)</a>
     <a id="3706" class="Symbol">→</a> <a id="3708" href="Intro.html#3612" class="Function">Type</a> <a id="3713" class="Symbol">(</a><a id="3714" href="TruncationType.html#3651" class="Bound">ℓ₁</a> <a id="3717" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="3719" href="TruncationType.html#3654" class="Bound">ℓ₂</a><a id="3721" class="Symbol">)</a>
 
   <a id="3726" class="Symbol">(</a><a id="3727" href="TruncationType.html#3727" class="Bound">P</a> <a id="3729" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="3731" class="Symbol">_)</a> <a id="3734" href="TruncationType.html#3638" class="Function Operator">∧</a> <a id="3736" class="Symbol">(</a><a id="3737" href="TruncationType.html#3737" class="Bound">Q</a> <a id="3739" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="3741" class="Symbol">_)</a> <a id="3744" class="Symbol">=</a> <a id="3746" href="TruncationType.html#3727" class="Bound">P</a> <a id="3748" href="BasicTypes.html#2240" class="Function Operator">×</a> <a id="3750" href="TruncationType.html#3737" class="Bound">Q</a>
@@ -847,7 +865,7 @@ disjunction and existence as follows.</p>
 <pre class="Agda">
   <a id="∃[_]_"></a><a id="3795" href="TruncationType.html#3795" class="Function Operator">∃[_]_</a>
     <a id="3805" class="Symbol">:</a> <a id="3807" class="Symbol">∀</a> <a id="3809" class="Symbol">{</a><a id="3810" href="TruncationType.html#3810" class="Bound">ℓ</a> <a id="3812" class="Symbol">:</a> <a id="3814" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="3819" class="Symbol">}</a>
-    <a id="3825" class="Symbol">→</a> <a id="3827" class="Symbol">(</a><a id="3828" href="TruncationType.html#3828" class="Bound">T</a> <a id="3830" class="Symbol">:</a> <a id="3832" href="Intro.html#3612" class="Function">Type</a> <a id="3837" href="TruncationType.html#3810" class="Bound">ℓ</a><a id="3838" class="Symbol">)</a> <a id="3840" class="Symbol">→</a> <a id="3842" class="Symbol">(</a><a id="3843" href="TruncationType.html#3843" class="Bound">P</a> <a id="3845" class="Symbol">:</a> <a id="3847" href="TruncationType.html#3828" class="Bound">T</a> <a id="3849" class="Symbol">→</a> <a id="3851" href="HLevelTypes.html#2190" class="Function">hProp</a> <a id="3857" href="TruncationType.html#3810" class="Bound">ℓ</a><a id="3858" class="Symbol">)</a>
+    <a id="3825" class="Symbol">→</a> <a id="3827" class="Symbol">(</a><a id="3828" href="TruncationType.html#3828" class="Bound">T</a> <a id="3830" class="Symbol">:</a> <a id="3832" href="Intro.html#3612" class="Function">Type</a> <a id="3837" href="TruncationType.html#3810" class="Bound">ℓ</a><a id="3838" class="Symbol">)</a> <a id="3840" class="Symbol">→</a> <a id="3842" class="Symbol">(</a><a id="3843" href="TruncationType.html#3843" class="Bound">P</a> <a id="3845" class="Symbol">:</a> <a id="3847" href="TruncationType.html#3828" class="Bound">T</a> <a id="3849" class="Symbol">→</a> <a id="3851" href="HLevelTypes.html#2221" class="Function">hProp</a> <a id="3857" href="TruncationType.html#3810" class="Bound">ℓ</a><a id="3858" class="Symbol">)</a>
     <a id="3864" class="Symbol">→</a> <a id="3866" href="Intro.html#3612" class="Function">Type</a> <a id="3871" href="TruncationType.html#3810" class="Bound">ℓ</a>
 
   <a id="3876" href="TruncationType.html#3795" class="Function Operator">∃[</a> <a id="3879" href="TruncationType.html#3879" class="Bound">T</a> <a id="3881" href="TruncationType.html#3795" class="Function Operator">]</a> <a id="3883" href="TruncationType.html#3883" class="Bound">P</a> <a id="3885" class="Symbol">=</a> <a id="3887" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="3889" href="BasicTypes.html#1548" class="Record">∑</a> <a id="3891" href="TruncationType.html#3879" class="Bound">T</a> <a id="3893" class="Symbol">(λ</a> <a id="3896" href="TruncationType.html#3896" class="Bound">x</a> <a id="3898" class="Symbol">→</a> <a id="3900" href="BasicTypes.html#1655" class="Field">π₁</a> <a id="3903" class="Symbol">(</a><a id="3904" href="TruncationType.html#3883" class="Bound">P</a> <a id="3906" href="TruncationType.html#3896" class="Bound">x</a><a id="3907" class="Symbol">))</a> <a id="3910" href="TruncationType.html#1257" class="Function Operator">∥</a>
@@ -869,7 +887,7 @@ In this case, we have an element of $∥A∥$</p>
 <pre class="Agda">
   <a id="is-non-empty-is-prop"></a><a id="4203" href="TruncationType.html#4203" class="Function">is-non-empty-is-prop</a>
     <a id="4228" class="Symbol">:</a> <a id="4230" class="Symbol">∀</a> <a id="4232" class="Symbol">{</a><a id="4233" href="TruncationType.html#4233" class="Bound">ℓ</a> <a id="4235" class="Symbol">:</a> <a id="4237" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="4242" class="Symbol">}{</a><a id="4244" href="TruncationType.html#4244" class="Bound">A</a> <a id="4246" class="Symbol">:</a> <a id="4248" href="Intro.html#3612" class="Function">Type</a> <a id="4253" href="TruncationType.html#4233" class="Bound">ℓ</a><a id="4254" class="Symbol">}</a>
-    <a id="4260" class="Symbol">→</a> <a id="4262" href="HLevelTypes.html#1433" class="Function">isProp</a> <a id="4269" class="Symbol">(</a><a id="4270" href="TruncationType.html#4244" class="Bound">A</a> <a id="4272" href="TruncationType.html#4057" class="Function Operator">is-non-empty</a><a id="4284" class="Symbol">)</a>
+    <a id="4260" class="Symbol">→</a> <a id="4262" href="HLevelTypes.html#1464" class="Function">isProp</a> <a id="4269" class="Symbol">(</a><a id="4270" href="TruncationType.html#4244" class="Bound">A</a> <a id="4272" href="TruncationType.html#4057" class="Function Operator">is-non-empty</a><a id="4284" class="Symbol">)</a>
 
   <a id="4289" href="TruncationType.html#4203" class="Function">is-non-empty-is-prop</a> <a id="4310" class="Symbol">=</a> <a id="4312" href="TruncationType.html#2837" class="Function">∥∥-is-prop</a>
 </pre>
@@ -883,7 +901,7 @@ is all the terms in $A$ “connected” with $a$.</p>
     <a id="4536" class="Symbol">→</a> <a id="4538" class="Symbol">(</a><a id="4539" href="TruncationType.html#4539" class="Bound">a</a> <a id="4541" class="Symbol">:</a> <a id="4543" href="TruncationType.html#4520" class="Bound">A</a><a id="4544" class="Symbol">)</a>
     <a id="4550" class="Symbol">→</a> <a id="4552" href="Intro.html#3612" class="Function">Type</a> <a id="4557" href="TruncationType.html#4508" class="Bound">ℓ</a>
 
-  <a id="4562" href="TruncationType.html#4479" class="Function">connected-component</a> <a id="4582" class="Symbol">{</a><a id="4583" class="Argument">A</a> <a id="4585" class="Symbol">=</a> <a id="4587" href="TruncationType.html#4587" class="Bound">A</a><a id="4588" class="Symbol">}</a> <a id="4590" href="TruncationType.html#4590" class="Bound">a</a> <a id="4592" class="Symbol">=</a> <a id="4594" href="BasicTypes.html#1548" class="Record">∑</a> <a id="4596" href="TruncationType.html#4587" class="Bound">A</a> <a id="4598" class="Symbol">(λ</a> <a id="4601" href="TruncationType.html#4601" class="Bound">x</a> <a id="4603" class="Symbol">→</a> <a id="4605" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="4607" href="TruncationType.html#4590" class="Bound">a</a> <a id="4609" href="BasicTypes.html#6632" class="Function Operator">≡</a> <a id="4611" href="TruncationType.html#4601" class="Bound">x</a> <a id="4613" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="4615" class="Symbol">)</a>
+  <a id="4562" href="TruncationType.html#4479" class="Function">connected-component</a> <a id="4582" class="Symbol">{</a><a id="4583" class="Argument">A</a> <a id="4585" class="Symbol">=</a> <a id="4587" href="TruncationType.html#4587" class="Bound">A</a><a id="4588" class="Symbol">}</a> <a id="4590" href="TruncationType.html#4590" class="Bound">a</a> <a id="4592" class="Symbol">=</a> <a id="4594" href="BasicTypes.html#1548" class="Record">∑</a> <a id="4596" href="TruncationType.html#4587" class="Bound">A</a> <a id="4598" class="Symbol">(λ</a> <a id="4601" href="TruncationType.html#4601" class="Bound">x</a> <a id="4603" class="Symbol">→</a> <a id="4605" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="4607" href="TruncationType.html#4590" class="Bound">a</a> <a id="4609" href="BasicTypes.html#6656" class="Function Operator">≡</a> <a id="4611" href="TruncationType.html#4601" class="Bound">x</a> <a id="4613" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="4615" class="Symbol">)</a>
 </pre>
 
 <p>Consequently, two terms appear to be in the same component whenever
@@ -894,7 +912,7 @@ there is an element in ∥ x ≡ y ∥.</p>
     <a id="4781" class="Symbol">:</a> <a id="4783" class="Symbol">∀</a> <a id="4785" class="Symbol">{</a><a id="4786" href="TruncationType.html#4786" class="Bound">ℓ</a> <a id="4788" class="Symbol">:</a> <a id="4790" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="4795" class="Symbol">}{</a><a id="4797" href="TruncationType.html#4797" class="Bound">A</a> <a id="4799" class="Symbol">:</a> <a id="4801" href="Intro.html#3612" class="Function">Type</a> <a id="4806" href="TruncationType.html#4786" class="Bound">ℓ</a><a id="4807" class="Symbol">}</a>
     <a id="4813" class="Symbol">→</a> <a id="4815" class="Symbol">(</a><a id="4816" href="TruncationType.html#4816" class="Bound">x</a> <a id="4818" href="TruncationType.html#4818" class="Bound">y</a> <a id="4820" class="Symbol">:</a> <a id="4822" href="TruncationType.html#4797" class="Bound">A</a><a id="4823" class="Symbol">)</a> <a id="4825" class="Symbol">→</a> <a id="4827" href="Intro.html#3612" class="Function">Type</a> <a id="4832" href="TruncationType.html#4786" class="Bound">ℓ</a>
 
-  <a id="4837" href="TruncationType.html#4837" class="Bound">x</a> <a id="4839" href="TruncationType.html#4747" class="Function Operator">is-in-the-same-component-of</a> <a id="4867" href="TruncationType.html#4867" class="Bound">y</a> <a id="4869" class="Symbol">=</a> <a id="4871" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="4873" href="TruncationType.html#4837" class="Bound">x</a> <a id="4875" href="BasicTypes.html#6632" class="Function Operator">≡</a> <a id="4877" href="TruncationType.html#4867" class="Bound">y</a> <a id="4879" href="TruncationType.html#1257" class="Function Operator">∥</a>
+  <a id="4837" href="TruncationType.html#4837" class="Bound">x</a> <a id="4839" href="TruncationType.html#4747" class="Function Operator">is-in-the-same-component-of</a> <a id="4867" href="TruncationType.html#4867" class="Bound">y</a> <a id="4869" class="Symbol">=</a> <a id="4871" href="TruncationType.html#1257" class="Function Operator">∥</a> <a id="4873" href="TruncationType.html#4837" class="Bound">x</a> <a id="4875" href="BasicTypes.html#6656" class="Function Operator">≡</a> <a id="4877" href="TruncationType.html#4867" class="Bound">y</a> <a id="4879" href="TruncationType.html#1257" class="Function Operator">∥</a>
 
   <a id="4884" class="Keyword">infix</a> <a id="4890" class="Number">100</a> <a id="4894" href="TruncationType.html#4747" class="Function Operator">_is-in-the-same-component-of_</a>
 </pre>
@@ -913,7 +931,7 @@ there is an element in ∥ x ≡ y ∥.</p>
   <a id="is-connected-is-prop"></a><a id="5159" href="TruncationType.html#5159" class="Function">is-connected-is-prop</a>
     <a id="5184" class="Symbol">:</a> <a id="5186" class="Symbol">∀</a> <a id="5188" class="Symbol">{</a><a id="5189" href="TruncationType.html#5189" class="Bound">ℓ</a> <a id="5191" class="Symbol">:</a> <a id="5193" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="5198" class="Symbol">}</a> <a id="5200" class="Symbol">{</a><a id="5201" href="TruncationType.html#5201" class="Bound">A</a> <a id="5203" class="Symbol">:</a> <a id="5205" href="Intro.html#3612" class="Function">Type</a> <a id="5210" href="TruncationType.html#5189" class="Bound">ℓ</a><a id="5211" class="Symbol">}</a>
     <a id="5217" class="Comment">---------------------------</a>
-    <a id="5249" class="Symbol">→</a> <a id="5251" href="HLevelTypes.html#1433" class="Function">isProp</a> <a id="5258" class="Symbol">(</a><a id="5259" href="TruncationType.html#5201" class="Bound">A</a> <a id="5261" href="TruncationType.html#4951" class="Function Operator">is-connected</a><a id="5273" class="Symbol">)</a>
+    <a id="5249" class="Symbol">→</a> <a id="5251" href="HLevelTypes.html#1464" class="Function">isProp</a> <a id="5258" class="Symbol">(</a><a id="5259" href="TruncationType.html#5201" class="Bound">A</a> <a id="5261" href="TruncationType.html#4951" class="Function Operator">is-connected</a><a id="5273" class="Symbol">)</a>
 
   <a id="5278" href="TruncationType.html#5159" class="Function">is-connected-is-prop</a> <a id="5299" class="Symbol">=</a>
     <a id="5305" href="HLevelLemmas.html#5641" class="Function">×-is-prop</a>
@@ -940,7 +958,7 @@ there is an element in ∥ x ≡ y ∥.</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Truncation Type"
        data-url ="http://jonaprieto.github.io/mini-hott/TruncationType.html"

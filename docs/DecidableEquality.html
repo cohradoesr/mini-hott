@@ -64,11 +64,17 @@
     <p style="text-decoration:left">Decidable Equality</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
-  <li class="sidebar-toc-item"><a href="#decidable-equality" class="sidebar-nav-item">Decidable equality</a></li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Decidable Equality</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Decidable Equality <small style="float:right">(DecidableEquality.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+      <li class="sidebar-toc-item"><a href="#decidable-equality" class="sidebar-nav-item">Decidable equality</a></li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
+  </li>
+</ul>
 
 
     <!--  -->
@@ -319,6 +325,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -337,13 +349,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -557,6 +569,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -647,9 +665,9 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ol>
+      <ul>
   <li><a href="#decidable-equality">Decidable equality</a></li>
-</ol>
+</ul>
 
     </nav>
   </div>
@@ -682,16 +700,16 @@ assume Excluded Middle.</p>
 
 <pre class="Agda">
   <a id="decEq"></a><a id="686" href="DecidableEquality.html#686" class="Function">decEq</a>
-    <a id="696" class="Symbol">:</a> <a id="698" class="Symbol">∀</a> <a id="700" class="Symbol">{</a><a id="701" href="DecidableEquality.html#701" class="Bound">ℓ</a> <a id="703" class="Symbol">:</a> <a id="705" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="710" class="Symbol">}</a> <a id="712" class="Symbol">→</a> <a id="714" class="Symbol">(</a><a id="715" href="DecidableEquality.html#715" class="Bound">A</a> <a id="717" class="Symbol">:</a> <a id="719" href="Intro.html#3636" class="Function">Type</a> <a id="724" href="DecidableEquality.html#701" class="Bound">ℓ</a><a id="725" class="Symbol">)</a> <a id="727" class="Symbol">→</a> <a id="729" href="Intro.html#3636" class="Function">Type</a> <a id="734" href="DecidableEquality.html#701" class="Bound">ℓ</a>
+    <a id="696" class="Symbol">:</a> <a id="698" class="Symbol">∀</a> <a id="700" class="Symbol">{</a><a id="701" href="DecidableEquality.html#701" class="Bound">ℓ</a> <a id="703" class="Symbol">:</a> <a id="705" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="710" class="Symbol">}</a> <a id="712" class="Symbol">→</a> <a id="714" class="Symbol">(</a><a id="715" href="DecidableEquality.html#715" class="Bound">A</a> <a id="717" class="Symbol">:</a> <a id="719" href="Intro.html#3612" class="Function">Type</a> <a id="724" href="DecidableEquality.html#701" class="Bound">ℓ</a><a id="725" class="Symbol">)</a> <a id="727" class="Symbol">→</a> <a id="729" href="Intro.html#3612" class="Function">Type</a> <a id="734" href="DecidableEquality.html#701" class="Bound">ℓ</a>
 
-  <a id="739" href="DecidableEquality.html#686" class="Function">decEq</a> <a id="745" href="DecidableEquality.html#745" class="Bound">A</a> <a id="747" class="Symbol">=</a> <a id="749" class="Symbol">(</a><a id="750" href="DecidableEquality.html#750" class="Bound">a</a> <a id="752" href="DecidableEquality.html#752" class="Bound">b</a> <a id="754" class="Symbol">:</a> <a id="756" href="DecidableEquality.html#745" class="Bound">A</a><a id="757" class="Symbol">)</a> <a id="759" class="Symbol">→</a> <a id="761" class="Symbol">(</a><a id="762" href="DecidableEquality.html#750" class="Bound">a</a> <a id="764" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="767" href="DecidableEquality.html#752" class="Bound">b</a><a id="768" class="Symbol">)</a> <a id="770" href="BasicTypes.html#2478" class="Datatype Operator">+</a> <a id="772" href="BasicTypes.html#922" class="Function">¬</a> <a id="774" class="Symbol">(</a><a id="775" href="DecidableEquality.html#750" class="Bound">a</a> <a id="777" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="780" href="DecidableEquality.html#752" class="Bound">b</a><a id="781" class="Symbol">)</a>
+  <a id="739" href="DecidableEquality.html#686" class="Function">decEq</a> <a id="745" href="DecidableEquality.html#745" class="Bound">A</a> <a id="747" class="Symbol">=</a> <a id="749" class="Symbol">(</a><a id="750" href="DecidableEquality.html#750" class="Bound">a</a> <a id="752" href="DecidableEquality.html#752" class="Bound">b</a> <a id="754" class="Symbol">:</a> <a id="756" href="DecidableEquality.html#745" class="Bound">A</a><a id="757" class="Symbol">)</a> <a id="759" class="Symbol">→</a> <a id="761" class="Symbol">(</a><a id="762" href="DecidableEquality.html#750" class="Bound">a</a> <a id="764" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="767" href="DecidableEquality.html#752" class="Bound">b</a><a id="768" class="Symbol">)</a> <a id="770" href="BasicTypes.html#2478" class="Datatype Operator">+</a> <a id="772" href="BasicTypes.html#922" class="Function">¬</a> <a id="774" class="Symbol">(</a><a id="775" href="DecidableEquality.html#750" class="Bound">a</a> <a id="777" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="780" href="DecidableEquality.html#752" class="Bound">b</a><a id="781" class="Symbol">)</a>
 </pre>
 
 <p>and a more convenient name for this:</p>
 
 <pre class="Agda">
   <a id="_is-decidable"></a><a id="848" href="DecidableEquality.html#848" class="Function Operator">_is-decidable</a>
-    <a id="866" class="Symbol">:</a> <a id="868" class="Symbol">∀</a> <a id="870" class="Symbol">{</a><a id="871" href="DecidableEquality.html#871" class="Bound">ℓ</a> <a id="873" class="Symbol">:</a> <a id="875" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="880" class="Symbol">}</a> <a id="882" class="Symbol">→</a> <a id="884" class="Symbol">(</a><a id="885" href="DecidableEquality.html#885" class="Bound">A</a> <a id="887" class="Symbol">:</a> <a id="889" href="Intro.html#3636" class="Function">Type</a> <a id="894" href="DecidableEquality.html#871" class="Bound">ℓ</a><a id="895" class="Symbol">)</a> <a id="897" class="Symbol">→</a> <a id="899" href="Intro.html#3636" class="Function">Type</a> <a id="904" href="DecidableEquality.html#871" class="Bound">ℓ</a>
+    <a id="866" class="Symbol">:</a> <a id="868" class="Symbol">∀</a> <a id="870" class="Symbol">{</a><a id="871" href="DecidableEquality.html#871" class="Bound">ℓ</a> <a id="873" class="Symbol">:</a> <a id="875" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="880" class="Symbol">}</a> <a id="882" class="Symbol">→</a> <a id="884" class="Symbol">(</a><a id="885" href="DecidableEquality.html#885" class="Bound">A</a> <a id="887" class="Symbol">:</a> <a id="889" href="Intro.html#3612" class="Function">Type</a> <a id="894" href="DecidableEquality.html#871" class="Bound">ℓ</a><a id="895" class="Symbol">)</a> <a id="897" class="Symbol">→</a> <a id="899" href="Intro.html#3612" class="Function">Type</a> <a id="904" href="DecidableEquality.html#871" class="Bound">ℓ</a>
   <a id="908" href="DecidableEquality.html#908" class="Bound">A</a> <a id="910" href="DecidableEquality.html#848" class="Function Operator">is-decidable</a> <a id="923" class="Symbol">=</a> <a id="925" href="DecidableEquality.html#686" class="Function">decEq</a> <a id="931" href="DecidableEquality.html#908" class="Bound">A</a>
 </pre>
 
@@ -700,7 +718,7 @@ decidable equality.</p>
 
 <pre class="Agda foldable" until="5">
   <a id="decEqProd"></a><a id="1066" href="DecidableEquality.html#1066" class="Function">decEqProd</a>
-    <a id="1080" class="Symbol">:</a> <a id="1082" class="Symbol">∀</a> <a id="1084" class="Symbol">{</a><a id="1085" href="DecidableEquality.html#1085" class="Bound">ℓ</a> <a id="1087" class="Symbol">:</a> <a id="1089" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1094" class="Symbol">}</a> <a id="1096" class="Symbol">{</a><a id="1097" href="DecidableEquality.html#1097" class="Bound">A</a> <a id="1099" href="DecidableEquality.html#1099" class="Bound">B</a> <a id="1101" class="Symbol">:</a> <a id="1103" href="Intro.html#3636" class="Function">Type</a> <a id="1108" href="DecidableEquality.html#1085" class="Bound">ℓ</a><a id="1109" class="Symbol">}</a>
+    <a id="1080" class="Symbol">:</a> <a id="1082" class="Symbol">∀</a> <a id="1084" class="Symbol">{</a><a id="1085" href="DecidableEquality.html#1085" class="Bound">ℓ</a> <a id="1087" class="Symbol">:</a> <a id="1089" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1094" class="Symbol">}</a> <a id="1096" class="Symbol">{</a><a id="1097" href="DecidableEquality.html#1097" class="Bound">A</a> <a id="1099" href="DecidableEquality.html#1099" class="Bound">B</a> <a id="1101" class="Symbol">:</a> <a id="1103" href="Intro.html#3612" class="Function">Type</a> <a id="1108" href="DecidableEquality.html#1085" class="Bound">ℓ</a><a id="1109" class="Symbol">}</a>
     <a id="1115" class="Symbol">→</a> <a id="1117" href="DecidableEquality.html#686" class="Function">decEq</a> <a id="1123" href="DecidableEquality.html#1097" class="Bound">A</a> <a id="1125" class="Symbol">→</a> <a id="1127" href="DecidableEquality.html#686" class="Function">decEq</a> <a id="1133" href="DecidableEquality.html#1099" class="Bound">B</a>
     <a id="1139" class="Comment">-------------------</a>
     <a id="1163" class="Symbol">→</a> <a id="1165" href="DecidableEquality.html#686" class="Function">decEq</a> <a id="1171" class="Symbol">(</a><a id="1172" href="DecidableEquality.html#1097" class="Bound">A</a> <a id="1174" href="BasicTypes.html#2240" class="Function Operator">×</a> <a id="1176" href="DecidableEquality.html#1099" class="Bound">B</a><a id="1177" class="Symbol">)</a>
@@ -733,7 +751,7 @@ decidable equality.</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Decidable Equality"
        data-url ="http://jonaprieto.github.io/mini-hott/DecidableEquality.html"

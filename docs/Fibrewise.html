@@ -64,10 +64,16 @@
     <p style="text-decoration:left">Fiberwise</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Fiberwise</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Fiberwise <small style="float:right">(Fibrewise.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
+  </li>
+</ul>
 
 
     <!--  -->
@@ -318,6 +324,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -336,13 +348,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -556,6 +568,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -667,13 +685,13 @@
 
 <pre class="Agda">
 <a id="fibre-transport"></a><a id="316" href="Fibrewise.html#316" class="Function">fibre-transport</a>
-  <a id="334" class="Symbol">:</a> <a id="336" class="Symbol">∀</a> <a id="338" class="Symbol">{</a><a id="339" href="Fibrewise.html#339" class="Bound">ℓ₁</a> <a id="342" href="Fibrewise.html#342" class="Bound">ℓ₂</a> <a id="345" class="Symbol">:</a> <a id="347" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="352" class="Symbol">}{</a><a id="354" href="Fibrewise.html#354" class="Bound">A</a> <a id="356" class="Symbol">:</a> <a id="358" href="Intro.html#3636" class="Function">Type</a> <a id="363" href="Fibrewise.html#339" class="Bound">ℓ₁</a><a id="365" class="Symbol">}</a> <a id="367" class="Symbol">{</a><a id="368" href="Fibrewise.html#368" class="Bound">B</a> <a id="370" class="Symbol">:</a> <a id="372" href="Intro.html#3636" class="Function">Type</a> <a id="377" href="Fibrewise.html#342" class="Bound">ℓ₂</a><a id="379" class="Symbol">}</a>
+  <a id="334" class="Symbol">:</a> <a id="336" class="Symbol">∀</a> <a id="338" class="Symbol">{</a><a id="339" href="Fibrewise.html#339" class="Bound">ℓ₁</a> <a id="342" href="Fibrewise.html#342" class="Bound">ℓ₂</a> <a id="345" class="Symbol">:</a> <a id="347" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="352" class="Symbol">}{</a><a id="354" href="Fibrewise.html#354" class="Bound">A</a> <a id="356" class="Symbol">:</a> <a id="358" href="Intro.html#3612" class="Function">Type</a> <a id="363" href="Fibrewise.html#339" class="Bound">ℓ₁</a><a id="365" class="Symbol">}</a> <a id="367" class="Symbol">{</a><a id="368" href="Fibrewise.html#368" class="Bound">B</a> <a id="370" class="Symbol">:</a> <a id="372" href="Intro.html#3612" class="Function">Type</a> <a id="377" href="Fibrewise.html#342" class="Bound">ℓ₂</a><a id="379" class="Symbol">}</a>
   <a id="383" class="Symbol">→</a> <a id="385" class="Symbol">(</a><a id="386" href="Fibrewise.html#386" class="Bound">f</a> <a id="388" class="Symbol">:</a> <a id="390" href="Fibrewise.html#354" class="Bound">A</a> <a id="392" class="Symbol">→</a> <a id="394" href="Fibrewise.html#368" class="Bound">B</a><a id="395" class="Symbol">)</a>
-  <a id="399" class="Symbol">→</a> <a id="401" class="Symbol">{</a><a id="402" href="Fibrewise.html#402" class="Bound">b</a> <a id="404" href="Fibrewise.html#404" class="Bound">b&#39;</a> <a id="407" class="Symbol">:</a> <a id="409" href="Fibrewise.html#368" class="Bound">B</a><a id="410" class="Symbol">}</a> <a id="412" class="Symbol">→</a> <a id="414" class="Symbol">(</a><a id="415" href="Fibrewise.html#415" class="Bound">h</a> <a id="417" class="Symbol">:</a> <a id="419" href="Fibrewise.html#402" class="Bound">b</a> <a id="421" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="424" href="Fibrewise.html#404" class="Bound">b&#39;</a><a id="426" class="Symbol">)</a>
+  <a id="399" class="Symbol">→</a> <a id="401" class="Symbol">{</a><a id="402" href="Fibrewise.html#402" class="Bound">b</a> <a id="404" href="Fibrewise.html#404" class="Bound">b&#39;</a> <a id="407" class="Symbol">:</a> <a id="409" href="Fibrewise.html#368" class="Bound">B</a><a id="410" class="Symbol">}</a> <a id="412" class="Symbol">→</a> <a id="414" class="Symbol">(</a><a id="415" href="Fibrewise.html#415" class="Bound">h</a> <a id="417" class="Symbol">:</a> <a id="419" href="Fibrewise.html#402" class="Bound">b</a> <a id="421" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="424" href="Fibrewise.html#404" class="Bound">b&#39;</a><a id="426" class="Symbol">)</a>
   <a id="430" class="Comment">------------------------------------------------</a>
-  <a id="481" class="Symbol">→</a> <a id="483" class="Symbol">∀</a> <a id="485" href="Fibrewise.html#485" class="Bound">a</a> <a id="487" href="Fibrewise.html#487" class="Bound">e</a> <a id="489" class="Symbol">→</a> <a id="491" class="Symbol">(</a><a id="492" href="Fibrewise.html#485" class="Bound">a</a> <a id="494" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="496" href="Fibrewise.html#487" class="Bound">e</a><a id="497" class="Symbol">)</a> <a id="499" href="Transport.html#1679" class="Function">==</a> <a id="502" class="Symbol">(</a><a id="503" href="Fibrewise.html#485" class="Bound">a</a> <a id="505" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="507" class="Symbol">(</a><a id="508" href="Fibrewise.html#487" class="Bound">e</a> <a id="510" href="BasicFunctions.html#395" class="Function Operator">·</a> <a id="512" href="Fibrewise.html#415" class="Bound">h</a><a id="513" class="Symbol">))</a> <a id="516" href="Transport.html#1679" class="Function">[</a> <a id="518" class="Symbol">(</a><a id="519" href="FibreType.html#395" class="Function">fibre</a> <a id="525" href="Fibrewise.html#386" class="Bound">f</a><a id="526" class="Symbol">)</a> <a id="528" href="Transport.html#1679" class="Function">↓</a> <a id="530" href="Fibrewise.html#415" class="Bound">h</a> <a id="532" href="Transport.html#1679" class="Function">]</a>
+  <a id="481" class="Symbol">→</a> <a id="483" class="Symbol">∀</a> <a id="485" href="Fibrewise.html#485" class="Bound">a</a> <a id="487" href="Fibrewise.html#487" class="Bound">e</a> <a id="489" class="Symbol">→</a> <a id="491" class="Symbol">(</a><a id="492" href="Fibrewise.html#485" class="Bound">a</a> <a id="494" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="496" href="Fibrewise.html#487" class="Bound">e</a><a id="497" class="Symbol">)</a> <a id="499" href="Transport.html#1684" class="Function">==</a> <a id="502" class="Symbol">(</a><a id="503" href="Fibrewise.html#485" class="Bound">a</a> <a id="505" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="507" class="Symbol">(</a><a id="508" href="Fibrewise.html#487" class="Bound">e</a> <a id="510" href="BasicFunctions.html#395" class="Function Operator">·</a> <a id="512" href="Fibrewise.html#415" class="Bound">h</a><a id="513" class="Symbol">))</a> <a id="516" href="Transport.html#1684" class="Function">[</a> <a id="518" class="Symbol">(</a><a id="519" href="FibreType.html#395" class="Function">fibre</a> <a id="525" href="Fibrewise.html#386" class="Bound">f</a><a id="526" class="Symbol">)</a> <a id="528" href="Transport.html#1684" class="Function">↓</a> <a id="530" href="Fibrewise.html#415" class="Bound">h</a> <a id="532" href="Transport.html#1684" class="Function">]</a>
 
-<a id="535" href="Fibrewise.html#316" class="Function">fibre-transport</a> <a id="551" href="Fibrewise.html#551" class="Bound">f</a> <a id="553" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a> <a id="557" href="Fibrewise.html#557" class="Bound">a</a> <a id="559" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a> <a id="563" class="Symbol">=</a> <a id="565" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a>
+<a id="535" href="Fibrewise.html#316" class="Function">fibre-transport</a> <a id="551" href="Fibrewise.html#551" class="Bound">f</a> <a id="553" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a> <a id="557" href="Fibrewise.html#557" class="Bound">a</a> <a id="559" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a> <a id="563" class="Symbol">=</a> <a id="565" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a>
 </pre>
 
 
@@ -695,7 +713,7 @@
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Fiberwise"
        data-url ="http://jonaprieto.github.io/mini-hott/Fibrewise.html"

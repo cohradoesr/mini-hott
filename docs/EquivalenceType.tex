@@ -64,10 +64,16 @@
     <p style="text-decoration:left">Equivalence Type</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Equivalence Type</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Equivalence Type <small style="float:right">(EquivalenceType.tex)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
+  </li>
+</ul>
 
 
     <!--  -->
@@ -318,6 +324,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -336,13 +348,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -556,6 +568,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -682,7 +700,7 @@ $$ \mathsf{isContr}(f) \cong \mathsf{ishae}(f) \cong \mathsf{biinv}(f). $$
 
 ### Contractible maps
 
-A map is *contractible* if the fiber in any point is contractible, that is, each
+A m<a id="762" class="Bound">a</a>p<a id="764" class="Bound"> </a>is <a id="768" class="Bound">*</a>c<a id="770" class="Function">ontract</a>i<a id="778" class="Bound">b</a>le* if the fiber in any point is contractible, that is, each
 element has a unique preimagen.
 
 <pre class="Agda">
@@ -782,7 +800,7 @@ The maps of an equivalence are inverses in particular
   <a id="EquivalenceMaps.lrmap-inverse"></a><a id="2344" href="EquivalenceType.html#2344" class="Function">lrmap-inverse</a>
     <a id="2362" class="Symbol">:</a> <a id="2364" class="Symbol">(</a><a id="2365" href="EquivalenceType.html#2365" class="Bound">e</a> <a id="2367" class="Symbol">:</a> <a id="2369" href="EquivalenceType.html#1697" class="Bound">A</a> <a id="2371" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="2373" href="EquivalenceType.html#1710" class="Bound">B</a><a id="2374" class="Symbol">)</a> <a id="2376" class="Symbol">→</a> <a id="2378" class="Symbol">{</a><a id="2379" href="EquivalenceType.html#2379" class="Bound">b</a> <a id="2381" class="Symbol">:</a> <a id="2383" href="EquivalenceType.html#1710" class="Bound">B</a><a id="2384" class="Symbol">}</a>
     <a id="2390" class="Comment">-----------------------</a>
-    <a id="2418" class="Symbol">→</a> <a id="2420" class="Symbol">(</a><a id="2421" href="EquivalenceType.html#2365" class="Bound">e</a> <a id="2423" href="EquivalenceType.html#1929" class="Function Operator">∙→</a><a id="2425" class="Symbol">)</a> <a id="2427" class="Symbol">((</a><a id="2429" href="EquivalenceType.html#2365" class="Bound">e</a> <a id="2431" href="EquivalenceType.html#2186" class="Function Operator">∙←</a><a id="2433" class="Symbol">)</a> <a id="2435" href="EquivalenceType.html#2379" class="Bound">b</a><a id="2436" class="Symbol">)</a> <a id="2438" href="BasicTypes.html#6489" class="Datatype Operator">==</a> <a id="2441" href="EquivalenceType.html#2379" class="Bound">b</a>
+    <a id="2418" class="Symbol">→</a> <a id="2420" class="Symbol">(</a><a id="2421" href="EquivalenceType.html#2365" class="Bound">e</a> <a id="2423" href="EquivalenceType.html#1929" class="Function Operator">∙→</a><a id="2425" class="Symbol">)</a> <a id="2427" class="Symbol">((</a><a id="2429" href="EquivalenceType.html#2365" class="Bound">e</a> <a id="2431" href="EquivalenceType.html#2186" class="Function Operator">∙←</a><a id="2433" class="Symbol">)</a> <a id="2435" href="EquivalenceType.html#2379" class="Bound">b</a><a id="2436" class="Symbol">)</a> <a id="2438" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="2441" href="EquivalenceType.html#2379" class="Bound">b</a>
 
   <a id="2446" href="EquivalenceType.html#2344" class="Function">lrmap-inverse</a> <a id="2460" class="Symbol">(</a><a id="2461" href="EquivalenceType.html#2461" class="Bound">f</a> <a id="2463" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="2465" href="EquivalenceType.html#2465" class="Bound">eqf</a><a id="2468" class="Symbol">)</a> <a id="2470" class="Symbol">{</a><a id="2471" href="EquivalenceType.html#2471" class="Bound">b</a><a id="2472" class="Symbol">}</a> <a id="2474" class="Symbol">=</a> <a id="2476" href="FibreType.html#713" class="Function">fib-eq</a> <a id="2483" class="Symbol">(</a><a id="2484" href="BasicTypes.html#1655" class="Field">π₁</a> <a id="2487" class="Symbol">(</a><a id="2488" href="EquivalenceType.html#2465" class="Bound">eqf</a> <a id="2492" href="EquivalenceType.html#2471" class="Bound">b</a><a id="2493" class="Symbol">))</a>
 </pre>
@@ -796,7 +814,7 @@ The maps of an equivalence are inverses in particular
   <a id="EquivalenceMaps.rlmap-inverse"></a><a id="2597" href="EquivalenceType.html#2597" class="Function">rlmap-inverse</a>
     <a id="2615" class="Symbol">:</a> <a id="2617" class="Symbol">(</a><a id="2618" href="EquivalenceType.html#2618" class="Bound">e</a> <a id="2620" class="Symbol">:</a> <a id="2622" href="EquivalenceType.html#1697" class="Bound">A</a> <a id="2624" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="2626" href="EquivalenceType.html#1710" class="Bound">B</a><a id="2627" class="Symbol">)</a> <a id="2629" class="Symbol">→</a> <a id="2631" class="Symbol">{</a><a id="2632" href="EquivalenceType.html#2632" class="Bound">a</a> <a id="2634" class="Symbol">:</a> <a id="2636" href="EquivalenceType.html#1697" class="Bound">A</a><a id="2637" class="Symbol">}</a>
     <a id="2643" class="Comment">------------------------</a>
-    <a id="2672" class="Symbol">→</a> <a id="2674" class="Symbol">(</a><a id="2675" href="EquivalenceType.html#2618" class="Bound">e</a> <a id="2677" href="EquivalenceType.html#2186" class="Function Operator">∙←</a><a id="2679" class="Symbol">)</a> <a id="2681" class="Symbol">((</a><a id="2683" href="EquivalenceType.html#2618" class="Bound">e</a> <a id="2685" href="EquivalenceType.html#1929" class="Function Operator">∙→</a><a id="2687" class="Symbol">)</a> <a id="2689" href="EquivalenceType.html#2632" class="Bound">a</a><a id="2690" class="Symbol">)</a> <a id="2692" href="BasicTypes.html#6489" class="Datatype Operator">==</a> <a id="2695" href="EquivalenceType.html#2632" class="Bound">a</a>
+    <a id="2672" class="Symbol">→</a> <a id="2674" class="Symbol">(</a><a id="2675" href="EquivalenceType.html#2618" class="Bound">e</a> <a id="2677" href="EquivalenceType.html#2186" class="Function Operator">∙←</a><a id="2679" class="Symbol">)</a> <a id="2681" class="Symbol">((</a><a id="2683" href="EquivalenceType.html#2618" class="Bound">e</a> <a id="2685" href="EquivalenceType.html#1929" class="Function Operator">∙→</a><a id="2687" class="Symbol">)</a> <a id="2689" href="EquivalenceType.html#2632" class="Bound">a</a><a id="2690" class="Symbol">)</a> <a id="2692" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="2695" href="EquivalenceType.html#2632" class="Bound">a</a>
 
   <a id="2700" href="EquivalenceType.html#2597" class="Function">rlmap-inverse</a> <a id="2714" class="Symbol">(</a><a id="2715" href="EquivalenceType.html#2715" class="Bound">f</a> <a id="2717" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="2719" href="EquivalenceType.html#2719" class="Bound">eqf</a><a id="2722" class="Symbol">)</a> <a id="2724" class="Symbol">{</a><a id="2725" href="EquivalenceType.html#2725" class="Bound">a</a><a id="2726" class="Symbol">}</a> <a id="2728" class="Symbol">=</a> <a id="2730" href="AlgebraOnPaths.html#403" class="Function">ap</a> <a id="2733" href="BasicTypes.html#1655" class="Field">π₁</a> <a id="2736" class="Symbol">((</a><a id="2738" href="BasicTypes.html#1666" class="Field">π₂</a> <a id="2741" class="Symbol">(</a><a id="2742" href="EquivalenceType.html#2719" class="Bound">eqf</a> <a id="2746" class="Symbol">(</a><a id="2747" href="EquivalenceType.html#2715" class="Bound">f</a> <a id="2749" href="EquivalenceType.html#2725" class="Bound">a</a><a id="2750" class="Symbol">)))</a> <a id="2754" href="FibreType.html#929" class="Function">fib-image</a><a id="2763" class="Symbol">)</a>
 </pre>
@@ -855,7 +873,7 @@ The maps of an equivalence are inverses in particular
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Equivalence Type"
        data-url ="http://jonaprieto.github.io/mini-hott/EquivalenceType.tex"

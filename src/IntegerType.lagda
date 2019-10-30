@@ -85,10 +85,11 @@ module IntegerType where
   zequiv-succ = qinv-≃ zsucc (zpred , (zsuccpred-id , zpredsucc-id))
 
   -- Negation
-  - : ℤ → ℤ
-  - zer     = zer
-  - (pos x) = neg x
-  - (neg x) = pos x
+  private
+    - : ℤ → ℤ
+    - zer     = zer
+    - (pos x) = neg x
+    - (neg x) = pos x
 
   double- : (z : ℤ) → - (- z) == z
   double- zer = refl _

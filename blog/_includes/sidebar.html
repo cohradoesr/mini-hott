@@ -8,7 +8,7 @@
     <p style="text-decoration:left">{{ page.title }}</p>
   </div>
   <nav class="sidebar-nav">
-    {% include toc.html html=content sanitize=false class='toc-class' id='toc-id' h_min=2 h_max=4 ordered=false item_class='sidebar-toc-item' anchor_class='sidebar-nav-item' %}
+    {% include toc.html html=content sanitize=false class='toc-class' id='toc-id' h_min=1 h_max=4 ordered=false item_class='sidebar-toc-item' anchor_class='sidebar-nav-item' %}
 
     <!-- {% assign pages_list = site.pages | sort:"title" %} -->
     <!-- {% for node in pages_list %}

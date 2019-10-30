@@ -97,6 +97,13 @@ module EquivalenceReasoning where
      --------------------------------------
      →           e1 ≡ e3 :> (e2 ∙←)
 
+   move-left-from-composition
+     : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+     → (e1 : A → B) → (e2 : B ≃ C) → (e3 : A → C)
+     →           e1 ≡ e3 :> (e2 ∙←)
+     --------------------------------------
+     → e1 :> (e2 ∙) ≡ e3
+
    2-out-of-3-property
     : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
     → (e1 : A → C) → (e2 : A ≃ B) → (e3 : B ≃ C)

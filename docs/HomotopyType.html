@@ -64,16 +64,22 @@
     <p style="text-decoration:left">Homotopy</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
-  <li class="sidebar-toc-item"><a href="#homotopies" class="sidebar-nav-item">Homotopies</a>
-    <ol>
-      <li class="sidebar-toc-item"><a href="#homotopy-types" class="sidebar-nav-item">Homotopy types</a></li>
-      <li class="sidebar-toc-item"><a href="#homotopy-is-an-equivalence-relation" class="sidebar-nav-item">Homotopy is an equivalence relation</a></li>
-    </ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Homotopy</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Homotopy <small style="float:right">(HomotopyType.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+      <li class="sidebar-toc-item"><a href="#homotopies" class="sidebar-nav-item">Homotopies</a>
+        <ul>
+          <li class="sidebar-toc-item"><a href="#homotopy-types" class="sidebar-nav-item">Homotopy types</a></li>
+          <li class="sidebar-toc-item"><a href="#homotopy-is-an-equivalence-relation" class="sidebar-nav-item">Homotopy is an equivalence relation</a></li>
+        </ul>
+      </li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
   </li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+</ul>
 
 
     <!--  -->
@@ -324,6 +330,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -342,13 +354,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -562,6 +574,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -652,14 +670,14 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ol>
+      <ul>
   <li><a href="#homotopies">Homotopies</a>
-    <ol>
+    <ul>
       <li><a href="#homotopy-types">Homotopy types</a></li>
       <li><a href="#homotopy-is-an-equivalence-relation">Homotopy is an equivalence relation</a></li>
-    </ol>
+    </ul>
   </li>
-</ol>
+</ul>
 
     </nav>
   </div>
@@ -685,7 +703,7 @@ functions is a family of equalities between their applications.</p>
 
 <p>The context:</p>
 <pre class="Agda">
-<a id="459" class="Keyword">module</a> <a id="466" href="HomotopyType.html" class="Module">HomotopyType</a> <a id="479" class="Symbol">{</a><a id="480" href="HomotopyType.html#480" class="Bound">ℓ₁</a> <a id="483" href="HomotopyType.html#483" class="Bound">ℓ₂</a> <a id="486" class="Symbol">:</a> <a id="488" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="493" class="Symbol">}</a> <a id="495" class="Symbol">{</a><a id="496" href="HomotopyType.html#496" class="Bound">A</a> <a id="498" class="Symbol">:</a> <a id="500" href="Intro.html#3636" class="Function">Type</a> <a id="505" href="HomotopyType.html#480" class="Bound">ℓ₁</a><a id="507" class="Symbol">}</a> <a id="509" class="Symbol">{</a><a id="510" href="HomotopyType.html#510" class="Bound">P</a> <a id="512" class="Symbol">:</a> <a id="514" href="HomotopyType.html#496" class="Bound">A</a> <a id="516" class="Symbol">→</a> <a id="518" href="Intro.html#3636" class="Function">Type</a> <a id="523" href="HomotopyType.html#483" class="Bound">ℓ₂</a><a id="525" class="Symbol">}</a> <a id="527" class="Keyword">where</a>
+<a id="459" class="Keyword">module</a> <a id="466" href="HomotopyType.html" class="Module">HomotopyType</a> <a id="479" class="Symbol">{</a><a id="480" href="HomotopyType.html#480" class="Bound">ℓ₁</a> <a id="483" href="HomotopyType.html#483" class="Bound">ℓ₂</a> <a id="486" class="Symbol">:</a> <a id="488" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="493" class="Symbol">}</a> <a id="495" class="Symbol">{</a><a id="496" href="HomotopyType.html#496" class="Bound">A</a> <a id="498" class="Symbol">:</a> <a id="500" href="Intro.html#3612" class="Function">Type</a> <a id="505" href="HomotopyType.html#480" class="Bound">ℓ₁</a><a id="507" class="Symbol">}</a> <a id="509" class="Symbol">{</a><a id="510" href="HomotopyType.html#510" class="Bound">P</a> <a id="512" class="Symbol">:</a> <a id="514" href="HomotopyType.html#496" class="Bound">A</a> <a id="516" class="Symbol">→</a> <a id="518" href="Intro.html#3612" class="Function">Type</a> <a id="523" href="HomotopyType.html#483" class="Bound">ℓ₂</a><a id="525" class="Symbol">}</a> <a id="527" class="Keyword">where</a>
 </pre>
 
 <p><img src="/mini-hott/assets/images/homotopy.png" alt="homotopy" width="50%" align="right" /></p>
@@ -702,15 +720,15 @@ is a dependent function of type</p>
   <a id="homotopy"></a><a id="928" href="HomotopyType.html#928" class="Function">homotopy</a>
     <a id="941" class="Symbol">:</a> <a id="943" class="Symbol">(</a><a id="944" href="HomotopyType.html#944" class="Bound">f</a> <a id="946" href="HomotopyType.html#946" class="Bound">g</a> <a id="948" class="Symbol">:</a> <a id="950" href="BasicTypes.html#1939" class="Function">Π</a> <a id="952" href="HomotopyType.html#496" class="Bound">A</a> <a id="954" href="HomotopyType.html#510" class="Bound">P</a><a id="955" class="Symbol">)</a>
     <a id="961" class="Comment">---------------</a>
-    <a id="981" class="Symbol">→</a> <a id="983" href="Intro.html#3636" class="Function">Type</a> <a id="988" class="Symbol">(</a><a id="989" href="HomotopyType.html#480" class="Bound">ℓ₁</a> <a id="992" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="994" href="HomotopyType.html#483" class="Bound">ℓ₂</a><a id="996" class="Symbol">)</a>
+    <a id="981" class="Symbol">→</a> <a id="983" href="Intro.html#3612" class="Function">Type</a> <a id="988" class="Symbol">(</a><a id="989" href="HomotopyType.html#480" class="Bound">ℓ₁</a> <a id="992" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="994" href="HomotopyType.html#483" class="Bound">ℓ₂</a><a id="996" class="Symbol">)</a>
 
-  <a id="1001" href="HomotopyType.html#928" class="Function">homotopy</a> <a id="1010" href="HomotopyType.html#1010" class="Bound">f</a> <a id="1012" href="HomotopyType.html#1012" class="Bound">g</a> <a id="1014" class="Symbol">=</a> <a id="1016" class="Symbol">∀</a> <a id="1018" class="Symbol">(</a><a id="1019" href="HomotopyType.html#1019" class="Bound">x</a> <a id="1021" class="Symbol">:</a> <a id="1023" href="HomotopyType.html#496" class="Bound">A</a><a id="1024" class="Symbol">)</a> <a id="1026" class="Symbol">→</a> <a id="1028" href="HomotopyType.html#1010" class="Bound">f</a> <a id="1030" href="HomotopyType.html#1019" class="Bound">x</a> <a id="1032" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1035" href="HomotopyType.html#1012" class="Bound">g</a> <a id="1037" href="HomotopyType.html#1019" class="Bound">x</a>
+  <a id="1001" href="HomotopyType.html#928" class="Function">homotopy</a> <a id="1010" href="HomotopyType.html#1010" class="Bound">f</a> <a id="1012" href="HomotopyType.html#1012" class="Bound">g</a> <a id="1014" class="Symbol">=</a> <a id="1016" class="Symbol">∀</a> <a id="1018" class="Symbol">(</a><a id="1019" href="HomotopyType.html#1019" class="Bound">x</a> <a id="1021" class="Symbol">:</a> <a id="1023" href="HomotopyType.html#496" class="Bound">A</a><a id="1024" class="Symbol">)</a> <a id="1026" class="Symbol">→</a> <a id="1028" href="HomotopyType.html#1010" class="Bound">f</a> <a id="1030" href="HomotopyType.html#1019" class="Bound">x</a> <a id="1032" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="1035" href="HomotopyType.html#1012" class="Bound">g</a> <a id="1037" href="HomotopyType.html#1019" class="Bound">x</a>
 </pre>
 
 <p>Usual notation for homotopy:</p>
 
 <pre class="Agda">
-  <a id="_∼_"></a><a id="1096" href="HomotopyType.html#1096" class="Function Operator">_∼_</a> <a id="1100" class="Symbol">:</a> <a id="1102" class="Symbol">(</a><a id="1103" href="HomotopyType.html#1103" class="Bound">f</a> <a id="1105" href="HomotopyType.html#1105" class="Bound">g</a> <a id="1107" class="Symbol">:</a> <a id="1109" class="Symbol">((</a><a id="1111" href="HomotopyType.html#1111" class="Bound">x</a> <a id="1113" class="Symbol">:</a> <a id="1115" href="HomotopyType.html#496" class="Bound">A</a><a id="1116" class="Symbol">)</a> <a id="1118" class="Symbol">→</a> <a id="1120" href="HomotopyType.html#510" class="Bound">P</a> <a id="1122" href="HomotopyType.html#1111" class="Bound">x</a><a id="1123" class="Symbol">))</a> <a id="1126" class="Symbol">→</a> <a id="1128" href="Intro.html#3636" class="Function">Type</a> <a id="1133" class="Symbol">(</a><a id="1134" href="HomotopyType.html#480" class="Bound">ℓ₁</a> <a id="1137" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1139" href="HomotopyType.html#483" class="Bound">ℓ₂</a><a id="1141" class="Symbol">)</a>
+  <a id="_∼_"></a><a id="1096" href="HomotopyType.html#1096" class="Function Operator">_∼_</a> <a id="1100" class="Symbol">:</a> <a id="1102" class="Symbol">(</a><a id="1103" href="HomotopyType.html#1103" class="Bound">f</a> <a id="1105" href="HomotopyType.html#1105" class="Bound">g</a> <a id="1107" class="Symbol">:</a> <a id="1109" class="Symbol">((</a><a id="1111" href="HomotopyType.html#1111" class="Bound">x</a> <a id="1113" class="Symbol">:</a> <a id="1115" href="HomotopyType.html#496" class="Bound">A</a><a id="1116" class="Symbol">)</a> <a id="1118" class="Symbol">→</a> <a id="1120" href="HomotopyType.html#510" class="Bound">P</a> <a id="1122" href="HomotopyType.html#1111" class="Bound">x</a><a id="1123" class="Symbol">))</a> <a id="1126" class="Symbol">→</a> <a id="1128" href="Intro.html#3612" class="Function">Type</a> <a id="1133" class="Symbol">(</a><a id="1134" href="HomotopyType.html#480" class="Bound">ℓ₁</a> <a id="1137" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="1139" href="HomotopyType.html#483" class="Bound">ℓ₂</a><a id="1141" class="Symbol">)</a>
   <a id="1145" href="HomotopyType.html#1145" class="Bound">f</a> <a id="1147" href="HomotopyType.html#1096" class="Function Operator">∼</a> <a id="1149" href="HomotopyType.html#1149" class="Bound">g</a> <a id="1151" class="Symbol">=</a> <a id="1153" href="HomotopyType.html#928" class="Function">homotopy</a> <a id="1162" href="HomotopyType.html#1145" class="Bound">f</a> <a id="1164" href="HomotopyType.html#1149" class="Bound">g</a>
 </pre>
 
@@ -722,7 +740,7 @@ is a dependent function of type</p>
     <a id="1287" class="Comment">-------------</a>
     <a id="1305" class="Symbol">→</a> <a id="1307" href="HomotopyType.html#1272" class="Bound">f</a> <a id="1309" href="HomotopyType.html#1096" class="Function Operator">∼</a> <a id="1311" href="HomotopyType.html#1272" class="Bound">f</a>
 
-  <a id="1316" href="HomotopyType.html#1258" class="Function">h-refl</a> <a id="1323" href="HomotopyType.html#1323" class="Bound">f</a> <a id="1325" href="HomotopyType.html#1325" class="Bound">x</a> <a id="1327" class="Symbol">=</a> <a id="1329" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a>
+  <a id="1316" href="HomotopyType.html#1258" class="Function">h-refl</a> <a id="1323" href="HomotopyType.html#1323" class="Bound">f</a> <a id="1325" href="HomotopyType.html#1325" class="Bound">x</a> <a id="1327" class="Symbol">=</a> <a id="1329" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a>
 </pre>
 
 <pre class="Agda foldable" until="5">
@@ -776,7 +794,7 @@ is a dependent function of type</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Homotopy"
        data-url ="http://jonaprieto.github.io/mini-hott/HomotopyType.html"

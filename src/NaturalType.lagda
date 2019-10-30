@@ -174,9 +174,9 @@ The successor function is injective.
 
 \begin{code}
     _≤ₙ_ : ℕ → ℕ → Type ℓ
-    zr     ≤ₙ zr     = ⊤ ℓ
-    zr     ≤ₙ succ b = ⊤ ℓ
-    succ a ≤ₙ zr     = ⊥ ℓ
+    0     ≤ₙ 0     = ⊤ ℓ
+    0     ≤ₙ succ b = ⊤ ℓ
+    succ a ≤ₙ 0     = ⊥ ℓ
     succ a ≤ₙ succ b = a ≤ₙ b
 \end{code}
 

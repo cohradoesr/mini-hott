@@ -64,11 +64,17 @@
     <p style="text-decoration:left">Pi preserves equivalence</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
-  <li class="sidebar-toc-item"><a href="#equivalence-with-pi-type" class="sidebar-nav-item">Equivalence with Pi type</a></li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Pi preserves equivalence</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Pi preserves equivalence <small style="float:right">(PiPreserves.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+      <li class="sidebar-toc-item"><a href="#equivalence-with-pi-type" class="sidebar-nav-item">Equivalence with Pi type</a></li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
+  </li>
+</ul>
 
 
     <!--  -->
@@ -319,6 +325,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -337,13 +349,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -557,6 +569,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -647,9 +665,9 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ol>
+      <ul>
   <li><a href="#equivalence-with-pi-type">Equivalence with Pi type</a></li>
-</ol>
+</ul>
 
     </nav>
   </div>
@@ -675,7 +693,7 @@
 <h2 id="equivalence-with-pi-type">Equivalence with Pi type</h2>
 
 <pre class="Agda foldable" until="2">
-<a id="488" class="Keyword">module</a> <a id="495" href="PiPreserves.html" class="Module">PiPreserves</a> <a id="507" class="Symbol">{</a><a id="508" href="PiPreserves.html#508" class="Bound">ℓ₁</a> <a id="511" href="PiPreserves.html#511" class="Bound">ℓ₂</a> <a id="514" href="PiPreserves.html#514" class="Bound">ℓ₃</a> <a id="517" class="Symbol">:</a> <a id="519" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="524" class="Symbol">}</a> <a id="526" class="Symbol">{</a><a id="527" href="PiPreserves.html#527" class="Bound">A</a> <a id="529" class="Symbol">:</a> <a id="531" href="Intro.html#3636" class="Function">Type</a> <a id="536" href="PiPreserves.html#508" class="Bound">ℓ₁</a><a id="538" class="Symbol">}{</a><a id="540" href="PiPreserves.html#540" class="Bound">C</a> <a id="542" class="Symbol">:</a> <a id="544" href="PiPreserves.html#527" class="Bound">A</a> <a id="546" class="Symbol">→</a> <a id="548" href="Intro.html#3636" class="Function">Type</a> <a id="553" href="PiPreserves.html#511" class="Bound">ℓ₂</a><a id="555" class="Symbol">}{</a><a id="557" href="PiPreserves.html#557" class="Bound">D</a> <a id="559" class="Symbol">:</a> <a id="561" href="PiPreserves.html#527" class="Bound">A</a> <a id="563" class="Symbol">→</a> <a id="565" href="Intro.html#3636" class="Function">Type</a> <a id="570" href="PiPreserves.html#514" class="Bound">ℓ₃</a><a id="572" class="Symbol">}</a>
+<a id="488" class="Keyword">module</a> <a id="495" href="PiPreserves.html" class="Module">PiPreserves</a> <a id="507" class="Symbol">{</a><a id="508" href="PiPreserves.html#508" class="Bound">ℓ₁</a> <a id="511" href="PiPreserves.html#511" class="Bound">ℓ₂</a> <a id="514" href="PiPreserves.html#514" class="Bound">ℓ₃</a> <a id="517" class="Symbol">:</a> <a id="519" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="524" class="Symbol">}</a> <a id="526" class="Symbol">{</a><a id="527" href="PiPreserves.html#527" class="Bound">A</a> <a id="529" class="Symbol">:</a> <a id="531" href="Intro.html#3612" class="Function">Type</a> <a id="536" href="PiPreserves.html#508" class="Bound">ℓ₁</a><a id="538" class="Symbol">}{</a><a id="540" href="PiPreserves.html#540" class="Bound">C</a> <a id="542" class="Symbol">:</a> <a id="544" href="PiPreserves.html#527" class="Bound">A</a> <a id="546" class="Symbol">→</a> <a id="548" href="Intro.html#3612" class="Function">Type</a> <a id="553" href="PiPreserves.html#511" class="Bound">ℓ₂</a><a id="555" class="Symbol">}{</a><a id="557" href="PiPreserves.html#557" class="Bound">D</a> <a id="559" class="Symbol">:</a> <a id="561" href="PiPreserves.html#527" class="Bound">A</a> <a id="563" class="Symbol">→</a> <a id="565" href="Intro.html#3612" class="Function">Type</a> <a id="570" href="PiPreserves.html#514" class="Bound">ℓ₃</a><a id="572" class="Symbol">}</a>
     <a id="578" class="Symbol">(</a><a id="579" href="PiPreserves.html#579" class="Bound">e</a> <a id="581" class="Symbol">:</a> <a id="583" class="Symbol">(</a><a id="584" href="PiPreserves.html#584" class="Bound">a</a> <a id="586" class="Symbol">:</a> <a id="588" href="PiPreserves.html#527" class="Bound">A</a><a id="589" class="Symbol">)</a> <a id="591" class="Symbol">→</a> <a id="593" class="Symbol">(</a><a id="594" href="PiPreserves.html#540" class="Bound">C</a> <a id="596" href="PiPreserves.html#584" class="Bound">a</a> <a id="598" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="600" href="PiPreserves.html#557" class="Bound">D</a> <a id="602" href="PiPreserves.html#584" class="Bound">a</a><a id="603" class="Symbol">))</a> <a id="606" class="Keyword">where</a>
 
   <a id="615" class="Keyword">private</a>
@@ -699,27 +717,27 @@
 
     <a id="H₁"></a><a id="1005" href="PiPreserves.html#1005" class="Function">H₁</a> <a id="1008" class="Symbol">:</a> <a id="1010" href="PiPreserves.html#877" class="Function">ΠAC→ΠAD</a> <a id="1018" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="1020" href="PiPreserves.html#940" class="Function">ΠAD→ΠAC</a> <a id="1028" href="HomotopyType.html#1096" class="Function Operator">∼</a> <a id="1030" href="BasicFunctions.html#954" class="Function">id</a>
     <a id="1037" href="PiPreserves.html#1005" class="Function">H₁</a> <a id="1040" href="PiPreserves.html#1040" class="Bound">p</a> <a id="1042" class="Symbol">=</a>
-      <a id="1050" href="BasicFunctions.html#10063" class="Function Operator">begin</a>
+      <a id="1050" href="BasicFunctions.html#10710" class="Function Operator">begin</a>
         <a id="1064" class="Symbol">(</a><a id="1065" href="PiPreserves.html#877" class="Function">ΠAC→ΠAD</a> <a id="1073" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="1075" href="PiPreserves.html#940" class="Function">ΠAD→ΠAC</a><a id="1082" class="Symbol">)</a> <a id="1084" href="PiPreserves.html#1040" class="Bound">p</a>
-          <a id="1096" href="BasicFunctions.html#9722" class="Function Operator">==⟨</a> <a id="1100" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a> <a id="1104" href="BasicFunctions.html#9722" class="Function Operator">⟩</a>
+          <a id="1096" href="BasicFunctions.html#10369" class="Function Operator">==⟨</a> <a id="1100" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a> <a id="1104" href="BasicFunctions.html#10369" class="Function Operator">⟩</a>
         <a id="1114" href="PiPreserves.html#877" class="Function">ΠAC→ΠAD</a> <a id="1122" class="Symbol">(λ</a> <a id="1125" href="PiPreserves.html#1125" class="Bound">a</a> <a id="1127" class="Symbol">→</a> <a id="1129" class="Symbol">(</a><a id="1130" href="PiPreserves.html#678" class="Function">f⁻¹</a> <a id="1134" href="PiPreserves.html#1125" class="Bound">a</a><a id="1135" class="Symbol">)</a> <a id="1137" class="Symbol">(</a><a id="1138" href="PiPreserves.html#1040" class="Bound">p</a> <a id="1140" href="PiPreserves.html#1125" class="Bound">a</a><a id="1141" class="Symbol">))</a>
-          <a id="1154" href="BasicFunctions.html#9722" class="Function Operator">==⟨</a> <a id="1158" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a> <a id="1162" href="BasicFunctions.html#9722" class="Function Operator">⟩</a>
+          <a id="1154" href="BasicFunctions.html#10369" class="Function Operator">==⟨</a> <a id="1158" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a> <a id="1162" href="BasicFunctions.html#10369" class="Function Operator">⟩</a>
         <a id="1172" class="Symbol">(λ</a> <a id="1175" href="PiPreserves.html#1175" class="Bound">aa</a> <a id="1178" class="Symbol">→</a> <a id="1180" class="Symbol">(</a><a id="1181" href="PiPreserves.html#627" class="Function">f</a> <a id="1183" href="PiPreserves.html#1175" class="Bound">aa</a><a id="1185" class="Symbol">)</a> <a id="1187" class="Symbol">(</a><a id="1188" href="PiPreserves.html#678" class="Function">f⁻¹</a> <a id="1192" href="PiPreserves.html#1175" class="Bound">aa</a> <a id="1195" class="Symbol">(</a><a id="1196" href="PiPreserves.html#1040" class="Bound">p</a> <a id="1198" href="PiPreserves.html#1175" class="Bound">aa</a><a id="1200" class="Symbol">)))</a>
-          <a id="1214" href="BasicFunctions.html#9722" class="Function Operator">==⟨</a> <a id="1218" href="FunExtAxiom.html#1067" class="Function">funext</a> <a id="1225" class="Symbol">(λ</a> <a id="1228" href="PiPreserves.html#1228" class="Bound">x</a> <a id="1230" class="Symbol">→</a> <a id="1232" href="PiPreserves.html#733" class="Function">α</a> <a id="1234" href="PiPreserves.html#1228" class="Bound">x</a> <a id="1236" class="Symbol">(</a><a id="1237" href="PiPreserves.html#1040" class="Bound">p</a> <a id="1239" href="PiPreserves.html#1228" class="Bound">x</a><a id="1240" class="Symbol">))</a> <a id="1243" href="BasicFunctions.html#9722" class="Function Operator">⟩</a>
+          <a id="1214" href="BasicFunctions.html#10369" class="Function Operator">==⟨</a> <a id="1218" href="FunExtAxiom.html#1067" class="Function">funext</a> <a id="1225" class="Symbol">(λ</a> <a id="1228" href="PiPreserves.html#1228" class="Bound">x</a> <a id="1230" class="Symbol">→</a> <a id="1232" href="PiPreserves.html#733" class="Function">α</a> <a id="1234" href="PiPreserves.html#1228" class="Bound">x</a> <a id="1236" class="Symbol">(</a><a id="1237" href="PiPreserves.html#1040" class="Bound">p</a> <a id="1239" href="PiPreserves.html#1228" class="Bound">x</a><a id="1240" class="Symbol">))</a> <a id="1243" href="BasicFunctions.html#10369" class="Function Operator">⟩</a>
         <a id="1253" class="Symbol">(λ</a> <a id="1256" href="PiPreserves.html#1256" class="Bound">aa</a> <a id="1259" class="Symbol">→</a> <a id="1261" href="PiPreserves.html#1040" class="Bound">p</a> <a id="1263" href="PiPreserves.html#1256" class="Bound">aa</a><a id="1265" class="Symbol">)</a>
-      <a id="1273" href="BasicFunctions.html#9948" class="Function Operator">∎</a>
+      <a id="1273" href="BasicFunctions.html#10595" class="Function Operator">∎</a>
 
     <a id="H₂"></a><a id="1280" href="PiPreserves.html#1280" class="Function">H₂</a> <a id="1283" class="Symbol">:</a> <a id="1285" href="PiPreserves.html#940" class="Function">ΠAD→ΠAC</a> <a id="1293" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="1295" href="PiPreserves.html#877" class="Function">ΠAC→ΠAD</a> <a id="1303" href="HomotopyType.html#1096" class="Function Operator">∼</a> <a id="1305" href="BasicFunctions.html#954" class="Function">id</a>
     <a id="1312" href="PiPreserves.html#1280" class="Function">H₂</a> <a id="1315" href="PiPreserves.html#1315" class="Bound">p</a> <a id="1317" class="Symbol">=</a>
-      <a id="1325" href="BasicFunctions.html#10063" class="Function Operator">begin</a>
+      <a id="1325" href="BasicFunctions.html#10710" class="Function Operator">begin</a>
         <a id="1339" class="Symbol">(</a><a id="1340" href="PiPreserves.html#940" class="Function">ΠAD→ΠAC</a> <a id="1348" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="1350" href="PiPreserves.html#877" class="Function">ΠAC→ΠAD</a><a id="1357" class="Symbol">)</a> <a id="1359" href="PiPreserves.html#1315" class="Bound">p</a>
-          <a id="1371" href="BasicFunctions.html#9722" class="Function Operator">==⟨</a> <a id="1375" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a> <a id="1379" href="BasicFunctions.html#9722" class="Function Operator">⟩</a>
+          <a id="1371" href="BasicFunctions.html#10369" class="Function Operator">==⟨</a> <a id="1375" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a> <a id="1379" href="BasicFunctions.html#10369" class="Function Operator">⟩</a>
         <a id="1389" href="PiPreserves.html#940" class="Function">ΠAD→ΠAC</a> <a id="1397" class="Symbol">(λ</a> <a id="1400" href="PiPreserves.html#1400" class="Bound">a</a> <a id="1402" class="Symbol">→</a> <a id="1404" class="Symbol">(</a><a id="1405" href="PiPreserves.html#627" class="Function">f</a> <a id="1407" href="PiPreserves.html#1400" class="Bound">a</a><a id="1408" class="Symbol">)</a> <a id="1410" class="Symbol">(</a><a id="1411" href="PiPreserves.html#1315" class="Bound">p</a> <a id="1413" href="PiPreserves.html#1400" class="Bound">a</a><a id="1414" class="Symbol">))</a>
-          <a id="1427" href="BasicFunctions.html#9722" class="Function Operator">==⟨</a> <a id="1431" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a> <a id="1435" href="BasicFunctions.html#9722" class="Function Operator">⟩</a>
+          <a id="1427" href="BasicFunctions.html#10369" class="Function Operator">==⟨</a> <a id="1431" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a> <a id="1435" href="BasicFunctions.html#10369" class="Function Operator">⟩</a>
         <a id="1445" class="Symbol">(λ</a> <a id="1448" href="PiPreserves.html#1448" class="Bound">aa</a> <a id="1451" class="Symbol">→</a> <a id="1453" class="Symbol">(</a><a id="1454" href="PiPreserves.html#678" class="Function">f⁻¹</a> <a id="1458" href="PiPreserves.html#1448" class="Bound">aa</a><a id="1460" class="Symbol">)</a> <a id="1462" class="Symbol">(</a><a id="1463" href="PiPreserves.html#627" class="Function">f</a> <a id="1465" href="PiPreserves.html#1448" class="Bound">aa</a> <a id="1468" class="Symbol">(</a><a id="1469" href="PiPreserves.html#1315" class="Bound">p</a> <a id="1471" href="PiPreserves.html#1448" class="Bound">aa</a><a id="1473" class="Symbol">)))</a>
-          <a id="1487" href="BasicFunctions.html#9722" class="Function Operator">==⟨</a> <a id="1491" href="FunExtAxiom.html#1067" class="Function">funext</a> <a id="1498" class="Symbol">(λ</a> <a id="1501" href="PiPreserves.html#1501" class="Bound">x</a> <a id="1503" class="Symbol">→</a> <a id="1505" href="PiPreserves.html#805" class="Function">β</a> <a id="1507" href="PiPreserves.html#1501" class="Bound">x</a> <a id="1509" class="Symbol">(</a><a id="1510" href="PiPreserves.html#1315" class="Bound">p</a> <a id="1512" href="PiPreserves.html#1501" class="Bound">x</a><a id="1513" class="Symbol">))</a> <a id="1516" href="BasicFunctions.html#9722" class="Function Operator">⟩</a>
+          <a id="1487" href="BasicFunctions.html#10369" class="Function Operator">==⟨</a> <a id="1491" href="FunExtAxiom.html#1067" class="Function">funext</a> <a id="1498" class="Symbol">(λ</a> <a id="1501" href="PiPreserves.html#1501" class="Bound">x</a> <a id="1503" class="Symbol">→</a> <a id="1505" href="PiPreserves.html#805" class="Function">β</a> <a id="1507" href="PiPreserves.html#1501" class="Bound">x</a> <a id="1509" class="Symbol">(</a><a id="1510" href="PiPreserves.html#1315" class="Bound">p</a> <a id="1512" href="PiPreserves.html#1501" class="Bound">x</a><a id="1513" class="Symbol">))</a> <a id="1516" href="BasicFunctions.html#10369" class="Function Operator">⟩</a>
         <a id="1526" class="Symbol">(λ</a> <a id="1529" href="PiPreserves.html#1529" class="Bound">aa</a> <a id="1532" class="Symbol">→</a> <a id="1534" href="PiPreserves.html#1315" class="Bound">p</a> <a id="1536" href="PiPreserves.html#1529" class="Bound">aa</a><a id="1538" class="Symbol">)</a>
-      <a id="1546" href="BasicFunctions.html#9948" class="Function Operator">∎</a>
+      <a id="1546" href="BasicFunctions.html#10595" class="Function Operator">∎</a>
 </pre>
 
 <pre class="Agda foldable" until="2">
@@ -748,7 +766,7 @@
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Pi preserves equivalence"
        data-url ="http://jonaprieto.github.io/mini-hott/PiPreserves.html"

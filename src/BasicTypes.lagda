@@ -274,9 +274,6 @@ Synonyms for natural numbers
 \begin{code}
 Nat = ℕ
 
-pattern zr = zero
-pattern sc = succ
-
 {-# BUILTIN NATURAL ℕ #-}
 \end{code}
 

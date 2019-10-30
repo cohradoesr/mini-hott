@@ -64,14 +64,20 @@
     <p style="text-decoration:left">Dependent Algebra</p>
   </div>
   <nav class="sidebar-nav">
-    <ol id="toc-id" class="toc-class">
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
-    <ol>
-      <li class="sidebar-toc-item"><a href="#when--and--commute" class="sidebar-nav-item">When ∑ and ∏ commute</a></li>
-    </ol>
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Dependent Algebra</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Dependent Algebra <small style="float:right">(DependentAlgebra.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a>
+        <ul>
+          <li class="sidebar-toc-item"><a href="#when--and--commute" class="sidebar-nav-item">When ∑ and ∏ commute</a></li>
+        </ul>
+      </li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
   </li>
-  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
-</ol>
+</ul>
 
 
     <!--  -->
@@ -322,6 +328,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
         
       
@@ -340,13 +352,13 @@
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
         
       
     
       
         
-          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
         
       
     
@@ -560,6 +572,12 @@
     
       
         
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
           <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
         
       
@@ -650,9 +668,9 @@
   <div class="toc">
     <nav>
     <h2 class="table-of-contents"> Table of Contents </h2>
-      <ol>
+      <ul>
   <li><a href="#when--and--commute">When ∑ and ∏ commute</a></li>
-</ol>
+</ul>
 
     </nav>
   </div>
@@ -678,8 +696,8 @@
 
 <pre class="Agda foldable" until="5">
 <a id="sum-commute"></a><a id="451" href="DependentAlgebra.html#451" class="Function">sum-commute</a>
-  <a id="465" class="Symbol">:</a> <a id="467" class="Symbol">∀</a> <a id="469" class="Symbol">{</a><a id="470" href="DependentAlgebra.html#470" class="Bound">ℓ₁</a> <a id="473" href="DependentAlgebra.html#473" class="Bound">ℓ₂</a> <a id="476" href="DependentAlgebra.html#476" class="Bound">ℓ₃</a> <a id="479" class="Symbol">:</a> <a id="481" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="486" class="Symbol">}</a> <a id="488" class="Symbol">{</a><a id="489" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="491" class="Symbol">:</a> <a id="493" href="Intro.html#3636" class="Function">Type</a> <a id="498" href="DependentAlgebra.html#470" class="Bound">ℓ₁</a><a id="500" class="Symbol">}</a>
-  <a id="504" class="Symbol">→</a> <a id="506" class="Symbol">(</a><a id="507" href="DependentAlgebra.html#507" class="Bound">B</a> <a id="509" class="Symbol">:</a> <a id="511" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="513" class="Symbol">→</a> <a id="515" href="Intro.html#3636" class="Function">Type</a> <a id="520" href="DependentAlgebra.html#473" class="Bound">ℓ₂</a><a id="522" class="Symbol">)</a> <a id="524" class="Symbol">(</a><a id="525" href="DependentAlgebra.html#525" class="Bound">C</a> <a id="527" class="Symbol">:</a> <a id="529" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="531" class="Symbol">→</a> <a id="533" href="Intro.html#3636" class="Function">Type</a> <a id="538" href="DependentAlgebra.html#476" class="Bound">ℓ₃</a><a id="540" class="Symbol">)</a>
+  <a id="465" class="Symbol">:</a> <a id="467" class="Symbol">∀</a> <a id="469" class="Symbol">{</a><a id="470" href="DependentAlgebra.html#470" class="Bound">ℓ₁</a> <a id="473" href="DependentAlgebra.html#473" class="Bound">ℓ₂</a> <a id="476" href="DependentAlgebra.html#476" class="Bound">ℓ₃</a> <a id="479" class="Symbol">:</a> <a id="481" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="486" class="Symbol">}</a> <a id="488" class="Symbol">{</a><a id="489" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="491" class="Symbol">:</a> <a id="493" href="Intro.html#3612" class="Function">Type</a> <a id="498" href="DependentAlgebra.html#470" class="Bound">ℓ₁</a><a id="500" class="Symbol">}</a>
+  <a id="504" class="Symbol">→</a> <a id="506" class="Symbol">(</a><a id="507" href="DependentAlgebra.html#507" class="Bound">B</a> <a id="509" class="Symbol">:</a> <a id="511" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="513" class="Symbol">→</a> <a id="515" href="Intro.html#3612" class="Function">Type</a> <a id="520" href="DependentAlgebra.html#473" class="Bound">ℓ₂</a><a id="522" class="Symbol">)</a> <a id="524" class="Symbol">(</a><a id="525" href="DependentAlgebra.html#525" class="Bound">C</a> <a id="527" class="Symbol">:</a> <a id="529" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="531" class="Symbol">→</a> <a id="533" href="Intro.html#3612" class="Function">Type</a> <a id="538" href="DependentAlgebra.html#476" class="Bound">ℓ₃</a><a id="540" class="Symbol">)</a>
     <a id="546" class="Comment">-----------------------------------------</a>
   <a id="590" class="Symbol">→</a> <a id="592" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="594" class="Symbol">(</a><a id="595" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="597" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="599" href="DependentAlgebra.html#507" class="Bound">B</a><a id="600" class="Symbol">)</a> <a id="602" class="Symbol">(</a><a id="603" href="DependentAlgebra.html#525" class="Bound">C</a> <a id="605" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="607" href="BasicTypes.html#1866" class="Function">fst</a><a id="610" class="Symbol">)</a> <a id="612" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="614" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="616" class="Symbol">(</a><a id="617" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="619" href="DependentAlgebra.html#489" class="Bound">A</a> <a id="621" href="DependentAlgebra.html#525" class="Bound">C</a><a id="622" class="Symbol">)</a> <a id="624" class="Symbol">(</a><a id="625" href="DependentAlgebra.html#507" class="Bound">B</a> <a id="627" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="629" href="BasicTypes.html#1866" class="Function">fst</a><a id="632" class="Symbol">)</a>
 
@@ -691,18 +709,18 @@
   <a id="809" href="DependentAlgebra.html#809" class="Function">back</a> <a id="814" class="Symbol">:</a> <a id="816" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="818" class="Symbol">(</a><a id="819" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="821" href="DependentAlgebra.html#652" class="Bound">A</a> <a id="823" href="DependentAlgebra.html#657" class="Bound">C</a><a id="824" class="Symbol">)</a> <a id="826" class="Symbol">(</a><a id="827" href="DependentAlgebra.html#655" class="Bound">B</a> <a id="829" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="831" href="BasicTypes.html#1866" class="Function">fst</a><a id="834" class="Symbol">)</a> <a id="836" class="Symbol">→</a> <a id="838" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="840" class="Symbol">(</a><a id="841" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="843" href="DependentAlgebra.html#652" class="Bound">A</a> <a id="845" href="DependentAlgebra.html#655" class="Bound">B</a><a id="846" class="Symbol">)</a> <a id="848" class="Symbol">(</a><a id="849" href="DependentAlgebra.html#657" class="Bound">C</a> <a id="851" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="853" href="BasicTypes.html#1866" class="Function">fst</a><a id="856" class="Symbol">)</a>
   <a id="860" href="DependentAlgebra.html#809" class="Function">back</a>  <a id="866" class="Symbol">((</a><a id="868" href="DependentAlgebra.html#868" class="Bound">a</a> <a id="870" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="872" href="DependentAlgebra.html#872" class="Bound">c</a> <a id="874" class="Symbol">)</a> <a id="876" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="878" href="DependentAlgebra.html#878" class="Bound">b</a><a id="879" class="Symbol">)</a> <a id="881" class="Symbol">=</a> <a id="883" class="Symbol">((</a><a id="885" href="DependentAlgebra.html#868" class="Bound">a</a> <a id="887" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="889" href="DependentAlgebra.html#878" class="Bound">b</a><a id="890" class="Symbol">)</a> <a id="892" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="894" href="DependentAlgebra.html#872" class="Bound">c</a><a id="895" class="Symbol">)</a>
 
-  <a id="900" href="DependentAlgebra.html#900" class="Function">there-back</a> <a id="911" class="Symbol">:</a> <a id="913" class="Symbol">∀</a> <a id="915" href="DependentAlgebra.html#915" class="Bound">acb</a> <a id="919" class="Symbol">→</a> <a id="921" href="DependentAlgebra.html#717" class="Function">there</a> <a id="927" class="Symbol">(</a><a id="928" href="DependentAlgebra.html#809" class="Function">back</a> <a id="933" href="DependentAlgebra.html#915" class="Bound">acb</a><a id="936" class="Symbol">)</a> <a id="938" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="941" href="DependentAlgebra.html#915" class="Bound">acb</a>
-  <a id="947" href="DependentAlgebra.html#900" class="Function">there-back</a> <a id="958" class="Symbol">((</a><a id="960" href="DependentAlgebra.html#960" class="Bound">a</a> <a id="962" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="964" href="DependentAlgebra.html#964" class="Bound">c</a><a id="965" class="Symbol">)</a> <a id="967" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="969" href="DependentAlgebra.html#969" class="Bound">b</a><a id="970" class="Symbol">)</a> <a id="972" class="Symbol">=</a> <a id="974" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a>
+  <a id="900" href="DependentAlgebra.html#900" class="Function">there-back</a> <a id="911" class="Symbol">:</a> <a id="913" class="Symbol">∀</a> <a id="915" href="DependentAlgebra.html#915" class="Bound">acb</a> <a id="919" class="Symbol">→</a> <a id="921" href="DependentAlgebra.html#717" class="Function">there</a> <a id="927" class="Symbol">(</a><a id="928" href="DependentAlgebra.html#809" class="Function">back</a> <a id="933" href="DependentAlgebra.html#915" class="Bound">acb</a><a id="936" class="Symbol">)</a> <a id="938" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="941" href="DependentAlgebra.html#915" class="Bound">acb</a>
+  <a id="947" href="DependentAlgebra.html#900" class="Function">there-back</a> <a id="958" class="Symbol">((</a><a id="960" href="DependentAlgebra.html#960" class="Bound">a</a> <a id="962" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="964" href="DependentAlgebra.html#964" class="Bound">c</a><a id="965" class="Symbol">)</a> <a id="967" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="969" href="DependentAlgebra.html#969" class="Bound">b</a><a id="970" class="Symbol">)</a> <a id="972" class="Symbol">=</a> <a id="974" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a>
 
-  <a id="981" href="DependentAlgebra.html#981" class="Function">back-there</a> <a id="992" class="Symbol">:</a> <a id="994" class="Symbol">∀</a> <a id="996" href="DependentAlgebra.html#996" class="Bound">abc</a> <a id="1000" class="Symbol">→</a> <a id="1002" href="DependentAlgebra.html#809" class="Function">back</a> <a id="1007" class="Symbol">(</a><a id="1008" href="DependentAlgebra.html#717" class="Function">there</a> <a id="1014" href="DependentAlgebra.html#996" class="Bound">abc</a><a id="1017" class="Symbol">)</a> <a id="1019" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1022" href="DependentAlgebra.html#996" class="Bound">abc</a>
-  <a id="1028" href="DependentAlgebra.html#981" class="Function">back-there</a> <a id="1039" class="Symbol">((</a><a id="1041" href="DependentAlgebra.html#1041" class="Bound">a</a> <a id="1043" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1045" href="DependentAlgebra.html#1045" class="Bound">b</a><a id="1046" class="Symbol">)</a> <a id="1048" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1050" href="DependentAlgebra.html#1050" class="Bound">c</a><a id="1051" class="Symbol">)</a> <a id="1053" class="Symbol">=</a> <a id="1055" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a>
+  <a id="981" href="DependentAlgebra.html#981" class="Function">back-there</a> <a id="992" class="Symbol">:</a> <a id="994" class="Symbol">∀</a> <a id="996" href="DependentAlgebra.html#996" class="Bound">abc</a> <a id="1000" class="Symbol">→</a> <a id="1002" href="DependentAlgebra.html#809" class="Function">back</a> <a id="1007" class="Symbol">(</a><a id="1008" href="DependentAlgebra.html#717" class="Function">there</a> <a id="1014" href="DependentAlgebra.html#996" class="Bound">abc</a><a id="1017" class="Symbol">)</a> <a id="1019" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="1022" href="DependentAlgebra.html#996" class="Bound">abc</a>
+  <a id="1028" href="DependentAlgebra.html#981" class="Function">back-there</a> <a id="1039" class="Symbol">((</a><a id="1041" href="DependentAlgebra.html#1041" class="Bound">a</a> <a id="1043" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1045" href="DependentAlgebra.html#1045" class="Bound">b</a><a id="1046" class="Symbol">)</a> <a id="1048" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1050" href="DependentAlgebra.html#1050" class="Bound">c</a><a id="1051" class="Symbol">)</a> <a id="1053" class="Symbol">=</a> <a id="1055" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a>
 </pre>
 
 <pre class="Agda foldable" until="6">
 <a id="prod-commute"></a><a id="1108" href="DependentAlgebra.html#1108" class="Function">prod-commute</a>
-  <a id="1123" class="Symbol">:</a> <a id="1125" class="Symbol">∀</a> <a id="1127" class="Symbol">{</a><a id="1128" href="DependentAlgebra.html#1128" class="Bound">ℓ₁</a> <a id="1131" href="DependentAlgebra.html#1131" class="Bound">ℓ₂</a> <a id="1134" href="DependentAlgebra.html#1134" class="Bound">ℓ₃</a> <a id="1137" class="Symbol">:</a> <a id="1139" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1144" class="Symbol">}</a> <a id="1146" class="Symbol">{</a><a id="1147" href="DependentAlgebra.html#1147" class="Bound">A</a> <a id="1149" class="Symbol">:</a> <a id="1151" href="Intro.html#3636" class="Function">Type</a> <a id="1156" href="DependentAlgebra.html#1128" class="Bound">ℓ₁</a><a id="1158" class="Symbol">}</a>
-  <a id="1162" class="Symbol">→</a> <a id="1164" class="Symbol">(</a><a id="1165" href="DependentAlgebra.html#1165" class="Bound">B</a> <a id="1167" class="Symbol">:</a> <a id="1169" href="DependentAlgebra.html#1147" class="Bound">A</a> <a id="1171" class="Symbol">→</a> <a id="1173" href="Intro.html#3636" class="Function">Type</a> <a id="1178" href="DependentAlgebra.html#1131" class="Bound">ℓ₂</a><a id="1180" class="Symbol">)</a>
-  <a id="1184" class="Symbol">→</a> <a id="1186" class="Symbol">(</a><a id="1187" href="DependentAlgebra.html#1187" class="Bound">C</a> <a id="1189" class="Symbol">:</a> <a id="1191" class="Symbol">{</a><a id="1192" href="DependentAlgebra.html#1192" class="Bound">a</a> <a id="1194" class="Symbol">:</a> <a id="1196" href="DependentAlgebra.html#1147" class="Bound">A</a><a id="1197" class="Symbol">}</a> <a id="1199" class="Symbol">→</a> <a id="1201" href="DependentAlgebra.html#1165" class="Bound">B</a> <a id="1203" href="DependentAlgebra.html#1192" class="Bound">a</a> <a id="1205" class="Symbol">→</a> <a id="1207" href="Intro.html#3636" class="Function">Type</a> <a id="1212" href="DependentAlgebra.html#1134" class="Bound">ℓ₃</a><a id="1214" class="Symbol">)</a>
+  <a id="1123" class="Symbol">:</a> <a id="1125" class="Symbol">∀</a> <a id="1127" class="Symbol">{</a><a id="1128" href="DependentAlgebra.html#1128" class="Bound">ℓ₁</a> <a id="1131" href="DependentAlgebra.html#1131" class="Bound">ℓ₂</a> <a id="1134" href="DependentAlgebra.html#1134" class="Bound">ℓ₃</a> <a id="1137" class="Symbol">:</a> <a id="1139" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1144" class="Symbol">}</a> <a id="1146" class="Symbol">{</a><a id="1147" href="DependentAlgebra.html#1147" class="Bound">A</a> <a id="1149" class="Symbol">:</a> <a id="1151" href="Intro.html#3612" class="Function">Type</a> <a id="1156" href="DependentAlgebra.html#1128" class="Bound">ℓ₁</a><a id="1158" class="Symbol">}</a>
+  <a id="1162" class="Symbol">→</a> <a id="1164" class="Symbol">(</a><a id="1165" href="DependentAlgebra.html#1165" class="Bound">B</a> <a id="1167" class="Symbol">:</a> <a id="1169" href="DependentAlgebra.html#1147" class="Bound">A</a> <a id="1171" class="Symbol">→</a> <a id="1173" href="Intro.html#3612" class="Function">Type</a> <a id="1178" href="DependentAlgebra.html#1131" class="Bound">ℓ₂</a><a id="1180" class="Symbol">)</a>
+  <a id="1184" class="Symbol">→</a> <a id="1186" class="Symbol">(</a><a id="1187" href="DependentAlgebra.html#1187" class="Bound">C</a> <a id="1189" class="Symbol">:</a> <a id="1191" class="Symbol">{</a><a id="1192" href="DependentAlgebra.html#1192" class="Bound">a</a> <a id="1194" class="Symbol">:</a> <a id="1196" href="DependentAlgebra.html#1147" class="Bound">A</a><a id="1197" class="Symbol">}</a> <a id="1199" class="Symbol">→</a> <a id="1201" href="DependentAlgebra.html#1165" class="Bound">B</a> <a id="1203" href="DependentAlgebra.html#1192" class="Bound">a</a> <a id="1205" class="Symbol">→</a> <a id="1207" href="Intro.html#3612" class="Function">Type</a> <a id="1212" href="DependentAlgebra.html#1134" class="Bound">ℓ₃</a><a id="1214" class="Symbol">)</a>
   <a id="1218" class="Comment">-----------------------------------------------------------</a>
   <a id="1280" class="Symbol">→</a> <a id="1282" class="Symbol">(</a><a id="1283" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="1285" class="Symbol">(</a><a id="1286" href="BasicTypes.html#1939" class="Function">Π</a> <a id="1288" href="DependentAlgebra.html#1147" class="Bound">A</a> <a id="1290" href="DependentAlgebra.html#1165" class="Bound">B</a><a id="1291" class="Symbol">)</a> <a id="1293" class="Symbol">(λ</a> <a id="1296" href="DependentAlgebra.html#1296" class="Bound">f</a> <a id="1298" class="Symbol">→</a> <a id="1300" href="BasicTypes.html#1939" class="Function">Π</a> <a id="1302" href="DependentAlgebra.html#1147" class="Bound">A</a> <a id="1304" class="Symbol">(</a><a id="1305" href="DependentAlgebra.html#1187" class="Bound">C</a> <a id="1307" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="1309" href="DependentAlgebra.html#1296" class="Bound">f</a><a id="1310" class="Symbol">)))</a> <a id="1314" href="EquivalenceType.html#1533" class="Function Operator">≃</a> <a id="1316" class="Symbol">(</a><a id="1317" href="BasicTypes.html#1939" class="Function">Π</a> <a id="1319" href="DependentAlgebra.html#1147" class="Bound">A</a> <a id="1321" class="Symbol">(λ</a> <a id="1324" href="DependentAlgebra.html#1324" class="Bound">x</a> <a id="1326" class="Symbol">→</a> <a id="1328" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="1330" class="Symbol">(</a><a id="1331" href="DependentAlgebra.html#1165" class="Bound">B</a> <a id="1333" href="DependentAlgebra.html#1324" class="Bound">x</a><a id="1334" class="Symbol">)</a> <a id="1336" href="DependentAlgebra.html#1187" class="Bound">C</a><a id="1337" class="Symbol">))</a>
 
@@ -714,11 +732,11 @@
   <a id="1523" href="DependentAlgebra.html#1523" class="Function">back</a> <a id="1528" class="Symbol">:</a> <a id="1530" class="Symbol">(</a><a id="1531" href="BasicTypes.html#1939" class="Function">Π</a> <a id="1533" href="DependentAlgebra.html#1359" class="Bound">A</a> <a id="1535" class="Symbol">(\</a><a id="1537" href="DependentAlgebra.html#1537" class="Bound">x</a> <a id="1539" class="Symbol">→</a> <a id="1541" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="1543" class="Symbol">(</a><a id="1544" href="DependentAlgebra.html#1362" class="Bound">B</a> <a id="1546" href="DependentAlgebra.html#1537" class="Bound">x</a><a id="1547" class="Symbol">)</a> <a id="1549" href="DependentAlgebra.html#1364" class="Bound">C</a><a id="1550" class="Symbol">))</a> <a id="1553" class="Symbol">→</a> <a id="1555" class="Symbol">(</a><a id="1556" href="BasicTypes.html#1747" class="Function">Σ</a> <a id="1558" class="Symbol">(</a><a id="1559" href="BasicTypes.html#1939" class="Function">Π</a> <a id="1561" href="DependentAlgebra.html#1359" class="Bound">A</a> <a id="1563" href="DependentAlgebra.html#1362" class="Bound">B</a><a id="1564" class="Symbol">)</a> <a id="1566" class="Symbol">(\</a><a id="1568" href="DependentAlgebra.html#1568" class="Bound">f</a> <a id="1570" class="Symbol">→</a> <a id="1572" href="BasicTypes.html#1939" class="Function">Π</a> <a id="1574" href="DependentAlgebra.html#1359" class="Bound">A</a> <a id="1576" class="Symbol">(</a><a id="1577" href="DependentAlgebra.html#1364" class="Bound">C</a> <a id="1579" href="BasicFunctions.html#1945" class="Function Operator">∘</a> <a id="1581" href="DependentAlgebra.html#1568" class="Bound">f</a><a id="1582" class="Symbol">)))</a>
   <a id="1588" href="DependentAlgebra.html#1523" class="Function">back</a>  <a id="1594" href="DependentAlgebra.html#1594" class="Bound">F</a> <a id="1596" class="Symbol">=</a> <a id="1598" class="Symbol">(\</a><a id="1600" href="DependentAlgebra.html#1600" class="Bound">x</a> <a id="1602" class="Symbol">→</a> <a id="1604" href="BasicTypes.html#1866" class="Function">fst</a> <a id="1608" class="Symbol">(</a><a id="1609" href="DependentAlgebra.html#1594" class="Bound">F</a> <a id="1611" href="DependentAlgebra.html#1600" class="Bound">x</a><a id="1612" class="Symbol">))</a> <a id="1615" href="BasicTypes.html#1639" class="InductiveConstructor Operator">,</a> <a id="1617" class="Symbol">(\</a><a id="1619" href="DependentAlgebra.html#1619" class="Bound">x</a> <a id="1621" class="Symbol">→</a> <a id="1623" href="BasicTypes.html#1877" class="Function">snd</a> <a id="1627" class="Symbol">(</a><a id="1628" href="DependentAlgebra.html#1594" class="Bound">F</a> <a id="1630" href="DependentAlgebra.html#1619" class="Bound">x</a><a id="1631" class="Symbol">))</a>
 
-  <a id="1637" href="DependentAlgebra.html#1637" class="Function">there-back</a> <a id="1648" class="Symbol">:</a> <a id="1650" class="Symbol">∀</a> <a id="1652" href="DependentAlgebra.html#1652" class="Bound">F</a> <a id="1654" class="Symbol">→</a> <a id="1656" href="DependentAlgebra.html#1424" class="Function">there</a> <a id="1662" class="Symbol">(</a><a id="1663" href="DependentAlgebra.html#1523" class="Function">back</a> <a id="1668" href="DependentAlgebra.html#1652" class="Bound">F</a><a id="1669" class="Symbol">)</a> <a id="1671" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1674" href="DependentAlgebra.html#1652" class="Bound">F</a>
-  <a id="1678" href="DependentAlgebra.html#1637" class="Function">there-back</a> <a id="1689" href="DependentAlgebra.html#1689" class="Bound">F</a> <a id="1691" class="Symbol">=</a> <a id="1693" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a>
+  <a id="1637" href="DependentAlgebra.html#1637" class="Function">there-back</a> <a id="1648" class="Symbol">:</a> <a id="1650" class="Symbol">∀</a> <a id="1652" href="DependentAlgebra.html#1652" class="Bound">F</a> <a id="1654" class="Symbol">→</a> <a id="1656" href="DependentAlgebra.html#1424" class="Function">there</a> <a id="1662" class="Symbol">(</a><a id="1663" href="DependentAlgebra.html#1523" class="Function">back</a> <a id="1668" href="DependentAlgebra.html#1652" class="Bound">F</a><a id="1669" class="Symbol">)</a> <a id="1671" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="1674" href="DependentAlgebra.html#1652" class="Bound">F</a>
+  <a id="1678" href="DependentAlgebra.html#1637" class="Function">there-back</a> <a id="1689" href="DependentAlgebra.html#1689" class="Bound">F</a> <a id="1691" class="Symbol">=</a> <a id="1693" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a>
 
-  <a id="1700" href="DependentAlgebra.html#1700" class="Function">back-there</a> <a id="1711" class="Symbol">:</a> <a id="1713" class="Symbol">∀</a> <a id="1715" href="DependentAlgebra.html#1715" class="Bound">fs</a> <a id="1718" class="Symbol">→</a> <a id="1720" href="DependentAlgebra.html#1523" class="Function">back</a> <a id="1725" class="Symbol">(</a><a id="1726" href="DependentAlgebra.html#1424" class="Function">there</a> <a id="1732" href="DependentAlgebra.html#1715" class="Bound">fs</a><a id="1734" class="Symbol">)</a> <a id="1736" href="BasicTypes.html#6429" class="Datatype Operator">==</a> <a id="1739" href="DependentAlgebra.html#1715" class="Bound">fs</a>
-  <a id="1744" href="DependentAlgebra.html#1700" class="Function">back-there</a> <a id="1755" href="DependentAlgebra.html#1755" class="Bound">fs</a> <a id="1758" class="Symbol">=</a> <a id="1760" href="BasicTypes.html#6493" class="InductiveConstructor">idp</a>
+  <a id="1700" href="DependentAlgebra.html#1700" class="Function">back-there</a> <a id="1711" class="Symbol">:</a> <a id="1713" class="Symbol">∀</a> <a id="1715" href="DependentAlgebra.html#1715" class="Bound">fs</a> <a id="1718" class="Symbol">→</a> <a id="1720" href="DependentAlgebra.html#1523" class="Function">back</a> <a id="1725" class="Symbol">(</a><a id="1726" href="DependentAlgebra.html#1424" class="Function">there</a> <a id="1732" href="DependentAlgebra.html#1715" class="Bound">fs</a><a id="1734" class="Symbol">)</a> <a id="1736" href="BasicTypes.html#6452" class="Datatype Operator">==</a> <a id="1739" href="DependentAlgebra.html#1715" class="Bound">fs</a>
+  <a id="1744" href="DependentAlgebra.html#1700" class="Function">back-there</a> <a id="1755" href="DependentAlgebra.html#1755" class="Bound">fs</a> <a id="1758" class="Symbol">=</a> <a id="1760" href="BasicTypes.html#6516" class="InductiveConstructor">idp</a>
 </pre>
 
 
@@ -740,7 +758,7 @@
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-10-28"
+       data-lastchecked ="2019-10-31"
        data-originalyear =""
        data-title ="Dependent Algebra"
        data-url ="http://jonaprieto.github.io/mini-hott/DependentAlgebra.html"

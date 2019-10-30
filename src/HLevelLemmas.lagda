@@ -890,7 +890,7 @@ module _ {ℓ : Level} where
     ---------------
     → isSet (⟦ n ⟧)
 
-  ⟦⟧-is-set {zr} = 𝟘-is-set
+  ⟦⟧-is-set {0} = 𝟘-is-set
   ⟦⟧-is-set {succ n} = +-of-sets-is-set 𝟙-is-set ⟦⟧-is-set
 \end{code}
 

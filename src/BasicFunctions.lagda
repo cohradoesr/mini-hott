@@ -230,6 +230,33 @@ level-of {ℓ} A = ℓ
 ∘-rassoc h g f = sym (∘-lassoc h g f)
 \end{code}
 
+When using diagramatic composition we use the equivalent lemmas to the above ones:
+
+- Left associativity of (:>)
+
+{: .foldable until="5" }
+\begin{code}
+:>-lassoc
+  : ∀ {ℓ : Level} {A B C D : Type ℓ}
+  → (f : A → B) → (g : B → C) → (h : C → D)
+  -----------------------------------------
+  → (f :> (g :> h)) == ((f :> g) :> h)
+
+:>-lassoc f g h = idp
+\end{code}
+
+- Right associativity of (:>)
+
+{: .foldable until="5" }
+\begin{code}
+:>-rassoc
+  : ∀ {ℓ : Level} {A B C D : Type ℓ}
+  → (f : A → B) → (g : B → C) → (h : C → D)
+  -----------------------------------------
+  → ((f :> g) :>  h) == (f :> (g :> h))
+
+:>-rassoc f g h = sym (:>-lassoc f g h)
+\end{code}
 
 ### Application
 
@@ -322,9 +349,9 @@ plus-succ-rs
   --------------------------------
   → n +ₙ (succ m) == o +ₙ (succ p)
 
-plus-succ-rs zr m zr p α rewrite α = idp
-plus-succ-rs zr m (succ o) p α rewrite α | plus-succ o p = idp
-plus-succ-rs (succ n) m zr p α rewrite α | ! (plus-succ n m) | α = idp
+plus-succ-rs 0 m 0 p α rewrite α = idp
+plus-succ-rs 0 m (succ o) p α rewrite α | plus-succ o p = idp
+plus-succ-rs (succ n) m 0 p α rewrite α | ! (plus-succ n m) | α = idp
 plus-succ-rs (succ n) m (succ o) p α rewrite ! α | ! (plus-succ n m) | plus-succ o p | α = idp
 -- other solution, just : ! (plus-succ n m) · ap succ α · (plus-succ o p)
 \end{code}
@@ -436,7 +463,7 @@ _^_
   → (f : A → A) → (n : ℕ)
   → (A → A)
 
-f ^ zr = id
+f ^ 0 = id
 f ^ succ n = λ x → f ((f ^ n) x)
 \end{code}
 
@@ -449,7 +476,7 @@ app-comm
   ---------------------------------
   → (f ((f ^ n) x) ≡ ((f ^ n) (f x)))
 
-app-comm f zr x = idp
+app-comm f 0 x = idp
 app-comm f (succ n) x rewrite app-comm f n x = idp
 \end{code}
 
@@ -463,9 +490,9 @@ app-comm₂
   ------------------------------------------
   → ((f ^ (n +ₙ k)) x) ≡ (f ^ n) ((f ^ k) x)
 
-app-comm₂ f zr zr x = idp
-app-comm₂ f zr (succ k) x = idp
-app-comm₂ f (succ n) zr x rewrite plus-runit n  = idp
+app-comm₂ f 0 0 x = idp
+app-comm₂ f 0 (succ k) x = idp
+app-comm₂ f (succ n) 0 x rewrite plus-runit n  = idp
 app-comm₂ f (succ n) (succ k) x rewrite app-comm₂ f n (succ k) x = idp
 \end{code}
 
