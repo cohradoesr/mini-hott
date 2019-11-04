@@ -496,6 +496,24 @@ app-comm₂ f (succ n) 0 x rewrite plus-runit n  = idp
 app-comm₂ f (succ n) (succ k) x rewrite app-comm₂ f n (succ k) x = idp
 \end{code}
 
+
+{: .foldable until="7" }
+\begin{code}
+postulate
+  app-comm₃
+    : ∀ {ℓ : Level}{A : Type ℓ}
+    → (f : A → A)
+    → (k n : ℕ)
+    → (x : A)
+    ------------------------------------------
+    → (f ^ k) ((f ^ n) x) ≡ (f ^ n) ((f ^ k) x)
+
+-- app-comm₃ f 0 0 x = idp
+-- app-comm₃ f 0 (succ k) x = idp
+-- app-comm₃ f (succ n) 0 x rewrite plus-runit n  = idp
+-- app-comm₃ f (succ n) (succ k) x rewrite app-comm₃ f n (succ k) x = {!idp!}
+\end{code}
+
 ### Coproducts functions
 
 {: .foldable until="5"}
