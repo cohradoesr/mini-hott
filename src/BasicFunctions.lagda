@@ -370,7 +370,7 @@ plus-comm (succ n) m rewrite (plus-comm n m)  = plus-succ m n
 \end{code}
 
 Associativity
-{: .foldable until="4"}
+{: .foldable until="4" }
 \begin{code}
 plus-assoc
   : (n m p : ℕ)

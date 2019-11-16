@@ -110,6 +110,8 @@ record
 
 infixr 60 _,_
 open ∑ public
+
+{-# BUILTIN SIGMA ∑ #-}
 \end{code}
 
 Symbol synonym:
@@ -273,19 +275,19 @@ Synonyms for natural numbers
 
 \begin{code}
 Nat = ℕ
-
 {-# BUILTIN NATURAL ℕ #-}
 \end{code}
 
 An order relation will use in the following type constructor.
 
 \begin{code}
-module _ {ℓ : Level} where
-  _<_ :  ℕ → ℕ → Type ℓ
-  zero   < zero   = ⊥ ℓ
-  zero   < succ b = ⊤ ℓ
-  succ _ < zero   = ⊥ ℓ
+module ℕ-ordering (ℓ : Level) where
+  _<_ : ℕ → ℕ → Type ℓ
+  zero   < zero   = ⊥ _
+  zero   < succ b = ⊤ _
+  succ _ < zero   = ⊥ _
   succ a < succ b = a < b
+
 \end{code}
 
 and we can state the relation $\geq$ as as shortcut for...
@@ -303,34 +305,29 @@ A finite set of $n : \mathsf{N}$, $\mathsf{Fin}_{n}$, is the collection of
 numbers less ($<$) than the number $n$. This notion is the following type family.
 
 \begin{code}
-module Fin (ℓ : Level) where
-  mutual
-    Fin : ℕ → Type ℓ
-    Fin n = Σ (ℕ) (λ m → m < n)
+Fin : ∀ {ℓ : Level} → ℕ → Type ℓ
+Fin {ℓ} n = Σ ℕ (λ m → m < n)
+  where open ℕ-ordering ℓ
 
-  bound-of : ∀ {n : ℕ} → Fin n → ℕ
-  bound-of {n = n} _ = n
+bound-of : ∀ {ℓ : Level} {n : ℕ} → Fin {ℓ} n → ℕ
+bound-of {n = n} _ = n
+
+⟦_⟧ : ∀ {ℓ : Level} → ℕ → Type ℓ
+⟦ n ⟧ = Fin n
 \end{code}
 
-
-Even though, there are other approaches to define finite sets,
+Another definition for finite sets we use is the following.
 (in the standard-library in Agda, they have defined inductively
 fin sets as with natural numbers.)
 
 \begin{code}
-module Fin2 (ℓ : Level) where
-  ⟦_⟧ : ℕ → Type ℓ
-  ⟦_⟧ zero      = 𝟘 ℓ
-  ⟦_⟧ (succ n)  = 𝟙 ℓ + ⟦ n ⟧
+module _ {ℓ : Level}  where
+
+  ⟦_⟧₂ : ℕ → Type ℓ
+  ⟦_⟧₂ zero      = 𝟘 _
+  ⟦_⟧₂ (succ n)  = 𝟙 ℓ + ⟦ n ⟧₂
 \end{code}
 
-In math books, we denote by the finite set of $n$ as $[n]$, we
-mimic this notation as follows:
-
-Synomym:
-\begin{code}
-  Fin₂ = ⟦_⟧
-\end{code}
 
 Without going further, it's natural to define two essential functions:
 successor, and predecessor.
@@ -338,28 +335,28 @@ successor, and predecessor.
 Succesor function on (finite) natural numbers are well-defined when
 we consider sets with at least one element.
 
-$$ ⟦ n ⟧ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$
+$$ ⟦ n ⟧₂ :≡ 𝟙 + ((((𝟙 + (𝟙 + ⋯ + (𝟙 + 𝟙)))))) $$
 
 - $1 :≡ \mathsf{inl}(\mathsf{unit})$
 
 - $n :≡ \mathsf{inr}(\mathsf{inr}\, ...)$
 
 \begin{code}
-  ⟦⟧-succ
+  ⟦⟧₂-succ
     : {n : ℕ}
-    → ⟦ n ⟧ → ⟦ succ n ⟧
+    → ⟦ n ⟧₂ → ⟦ succ n ⟧₂
 
-  ⟦⟧-succ {succ n} (inl x) = inr (inl unit)
-  ⟦⟧-succ {succ n} (inr x) = inr (⟦⟧-succ x)
+  ⟦⟧₂-succ {succ n} (inl x) = inr (inl unit)
+  ⟦⟧₂-succ {succ n} (inr x) = inr (⟦⟧₂-succ x)
 \end{code}
 
 \begin{code}
-  ⟦⟧-pred
+  ⟦⟧₂-pred
     : ∀ (n : ℕ)
-    → ⟦ n ⟧ → ⟦ n ⟧
+    → ⟦ n ⟧₂ → ⟦ n ⟧₂
 
-  ⟦⟧-pred (succ n) (inl x) = inl x
-  ⟦⟧-pred (succ n) (inr x) = inr (⟦⟧-pred n x)
+  ⟦⟧₂-pred (succ n) (inl x) = inl x
+  ⟦⟧₂-pred (succ n) (inr x) = inr (⟦⟧₂-pred n x)
 \end{code}
 
 
@@ -469,6 +466,7 @@ data
 ⌊ yes _ ⌋ = 𝟙₂
 ⌊ no  _ ⌋ = 𝟘₂
 \end{code}
+
 \begin{code}
 REL
   : ∀ {ℓ : Level}
@@ -482,7 +480,7 @@ REL {ℓ} A B = A → B → Type ℓ
 Decidable
   : ∀ {ℓ : Level} {A B : Type ℓ}
   → REL A B
-  → Type ℓ
+  → Type _
 
 Decidable _∼_ = ∀ x y → Dec (x ∼ y)
 \end{code}
@@ -492,10 +490,10 @@ Decidable _∼_ = ∀ x y → Dec (x ∼ y)
 
 \begin{code}
 data
-  HEq {ℓ : Level} (A : Type ℓ)
+  ≡≡ {ℓ : Level} (A : Type ℓ)
     : (B : Type ℓ)
     → (α : A == B) (a : A) (b : B)
     → Type (lsuc ℓ)
   where
-  idp : {a : A} → HEq A A idp a a
+  idp : {a : A} → ≡≡ A A idp a a
 \end{code}

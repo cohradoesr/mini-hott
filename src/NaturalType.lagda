@@ -164,12 +164,13 @@ The successor function is injective.
 
 {: .hide }
 \begin{code}
-    -- succ-<-inj
-    --   : ∀ {n m : ℕ}
-    --   → succ n < succ m
-    --   → n < m
-    -- succ-<-inj {zr} {succ m} ∗ = ∗
-    -- succ-<-inj {succ n} {succ m} p = succ-<-inj {n}{m} p
+    open ℕ-ordering ℓ
+    succ-<-inj
+      : ∀ {n m : ℕ}
+      → succ n < succ m
+      → n < m
+    succ-<-inj {0} {succ m} ∗ = ∗
+    succ-<-inj {succ n} {succ m} p = succ-<-inj {n}{m} p
 \end{code}
 
 \begin{code}

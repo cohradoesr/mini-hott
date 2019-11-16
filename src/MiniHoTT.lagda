@@ -12,7 +12,7 @@ showcitation: true
 
 \begin{code}
 
-{-# OPTIONS --without-K --exact-split #-}
+{-# OPTIONS --without-K --exact-split  #-}
 
 module MiniHoTT where
 

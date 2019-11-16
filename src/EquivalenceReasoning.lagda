@@ -110,4 +110,12 @@ module EquivalenceReasoning where
     → e1 ≡ (e2 ∙) :> (e3 ∙)
     -------------------------
     → isEquiv e1
+
+   inv-of-equiv-composition
+     : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂}{C : Type ℓ₃}
+     → (f : A ≃ B)
+     → (g : B ≃ C)
+     → remap ((f ∙→) :> (g ∙→) ,  π₂ (≃-trans f g)) ≡ (g ∙←) :> (f ∙←)
+
+
 \end{code}

@@ -131,6 +131,16 @@ _has-fun-property_
 f has-fun-property P = π₁ (P f)
 \end{code}
 
+\begin{code}
+_has-endo-property_
+  : ∀ {ℓ₁ ℓ₂ : Level} {X : Type ℓ₁}
+  → (f : X → X)
+  → (P : ∀ {X : Type ℓ₁} → (X → X) → hProp ℓ₂)
+  → Type ℓ₂
+
+f has-endo-property P = π₁ (P f)
+\end{code}
+
 
 Additionally, we may need to say, more explicity that two type share any property
 whenever they are equivalent. Recall, these types do not need to be in the same universe,

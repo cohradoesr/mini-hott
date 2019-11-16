@@ -288,6 +288,16 @@ Synomys:
   set×set→set   = isSet-prod
 \end{code}
 
+
+{: .foldable until="5" }
+\begin{code}
+  postulate
+    ×-groupoid
+      : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{B : Type ℓ₂}
+      → isGroupoid A → isGroupoid B
+      -------------------
+      → isGroupoid (A × B)
+\end{code}
 {: .foldable until="6" }
 \begin{code}
   Prop-/-≡
@@ -420,6 +430,10 @@ Contractible maps are propositions:
     → isProp (isEquiv f)
 
   isEquivIsProp = isContrMapIsProp
+\end{code}
+
+\begin{code}
+  is-equiv-is-prop = isEquivIsProp
 \end{code}
 
 Equality of same-morphism equivalences
@@ -778,6 +792,10 @@ isSet-∑ = isSet-Σ
 ≡-is-set-from-sets iA iB = equiv-with-a-set-is-set (≃-sym eqvUnivalence) (≃-is-set-from-sets iA iB)
 \end{code}
 
+\begin{code}
+≡-set = ≡-is-set-from-sets
+\end{code}
+
 A handy result is that the two point type is a set. We know
 already that 𝟙 is indeed mere propositions and hence a set.
 The two point type 𝟚 is in fact equivalent to the type 𝟙 + 𝟙.
@@ -877,21 +895,19 @@ P𝟚-to-A+B A B = λ { 𝟘₂ → ↑ (level-of B) A ; 𝟙₂ → ↑ (level-
   fact₂ = ≃-with-a-set-is-set (lifting-equivalence B) iB
 \end{code}
 
-{: .hide }
 \begin{code}
-module _ {ℓ : Level} where
-  open Fin2 ℓ
++-set = +-of-sets-is-set
 \end{code}
 
 {: .foldable until="4" }
 \begin{code}
-  ⟦⟧-is-set
-    : ∀ {n : ℕ}
-    ---------------
-    → isSet (⟦ n ⟧)
+⟦⟧₂-is-set
+  : ∀ {ℓ : Level} {n : ℕ}
+  ---------------
+  → isSet {ℓ} (⟦ n ⟧₂)
 
-  ⟦⟧-is-set {0} = 𝟘-is-set
-  ⟦⟧-is-set {succ n} = +-of-sets-is-set 𝟙-is-set ⟦⟧-is-set
+⟦⟧₂-is-set {ℓ}{0} = 𝟘-is-set {ℓ}
+⟦⟧₂-is-set {ℓ}{succ n} = +-of-sets-is-set 𝟙-is-set ⟦⟧₂-is-set
 \end{code}
 
 {: .foldable until="6" }
@@ -971,7 +987,11 @@ module _ {ℓ : Level}(A : Type ℓ) where
   ≡-preserves-set {x}{y} A-is-set = set-is-groupoid A-is-set x y
 \end{code}
 
-In a type $A$, fixing an endpoint $x$ makes contractible the sygma type of its paths ∑ (t : A) (t≡x).
+In a type $A$, fixing an endpoint $x$
+set-is-groupoid
+  : ∀ {ℓ : Level} {A : Type ℓ}
+  → isSet A
+  → isGroupoid A makes contractible the sygma type of its paths ∑ (t : A) (t≡x).
 
 {: .foldable until="4"}
 \begin{code}
