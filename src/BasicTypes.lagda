@@ -299,7 +299,7 @@ and we can state the relation $\geq$ as as shortcut for...
 
 ### Finite sets
 
-A finite set can be define in so many ways.
+A finite set can be defined in so many ways.
 We opt to use a ∑-type which we believe is clear enough to say what they are.
 A finite set of $n : \mathsf{N}$, $\mathsf{Fin}_{n}$, is the collection of
 numbers less ($<$) than the number $n$. This notion is the following type family.

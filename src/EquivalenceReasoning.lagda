@@ -45,6 +45,7 @@ module EquivalenceReasoning where
   infixr 2 _≃⟨⟩_
 \end{code}
 
+
 \begin{code}
   _≃⟨by-def⟩_
     : ∀ {ℓ₁ ℓ₂} (A : Type ℓ₁) {B : Type ℓ₂}
@@ -116,6 +117,4 @@ module EquivalenceReasoning where
      → (f : A ≃ B)
      → (g : B ≃ C)
      → remap ((f ∙→) :> (g ∙→) ,  π₂ (≃-trans f g)) ≡ (g ∙←) :> (f ∙←)
-
-
 \end{code}
