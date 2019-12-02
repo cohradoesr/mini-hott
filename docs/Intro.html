@@ -716,15 +716,15 @@
   <p>Mini-HoTT is an <a href="http://github.com/agda/agda">Agda</a> library that contains
 definitions and results of <a href="http://homotopytypetheory.org/">Univalent Type Theory (also known as Homotopy Type
 Theory)</a>. The library is working in progress,
-maintained by <a href="mailto:jonathan.cubides@uib.no">Jonathan Prieto-Cubides</a> with support
-by the Programming Theory
-Research Group (PUT) at <a href="https://www.uib.no/">University of Bergen</a>.
-We constantly make changes and add new stuff by means of discussions with <a href="https://cas.oslo.no/fellows/marc-bezem-article2086-828.html">Marc
+maintained by <a href="mailto:jonathan.cubides@uib.no">Jonathan Prieto-Cubides</a> with
+support by the Programming Theory Research Group (PUT) at <a href="https://www.uib.no/">University of
+Bergen</a>. We constantly make changes and add new stuff.
+This library receives collaboration through discussions with <a href="https://cas.oslo.no/fellows/marc-bezem-article2086-828.html">Marc
 Bezem</a> and <a href="https://hakon.gylterud.net">Håkon
 Robbestad Gylterud</a>.</p>
 
-<p class="only-website">Let us know if you are using the library, and maybe want to see some particular lemma
-or function, or any fix. Feel free to open an <a href="https://github.com/jonaprieto/mini-hott/issues">issue on Github</a>.</p>
+<p class="only-website">Let us know if you are using the library and maybe you want to see some particular lemma
+or function, any fix or suggestion. Feel free to open an <a href="https://github.com/jonaprieto/mini-hott/issues">issue on Github</a>.</p>
 
 <h2 id="installation">Installation</h2>
 
@@ -733,7 +733,7 @@ or function, or any fix. Feel free to open an <a href="https://github.com/jonapr
     <p>Install <a href="http://github.com/agda/agda">Agda (v2.6.0+)</a>.</p>
   </li>
   <li>
-    <p>Install Mini-HoTT library (using <a href="http://github.com/agda/agda-pkg">agda-pkg</a>:</p>
+    <p>Install Mini-HoTT library (using <a href="http://github.com/agda/agda-pkg">agda-pkg</a>):</p>
 
     <ul>
       <li><code>apkg install mini-hott</code></li>
@@ -804,7 +804,7 @@ Javascript–.</p>
 for type-checking by using the option <code>without-K</code> on the top of the files.</p>
 
 <pre class="Agda">
-<a id="3235" class="Symbol">{-#</a> <a id="3239" class="Keyword">OPTIONS</a> <a id="3247" class="Pragma">--without-K</a> <a id="3259" class="Symbol">#-}</a>
+<a id="3378" class="Symbol">{-#</a> <a id="3382" class="Keyword">OPTIONS</a> <a id="3390" class="Pragma">--without-K</a> <a id="3402" class="Symbol">#-}</a>
 </pre>
 
 <p>In addition, without Axiom K, <code>Agda</code>’s <code>Set</code> is not a good name for universes in HoTT. So, we
@@ -813,51 +813,51 @@ as one explicit argument. Also, we want to have judgmental equalities for each u
 we use the following option.</p>
 
 <pre class="Agda">
-<a id="3587" class="Symbol">{-#</a> <a id="3591" class="Keyword">OPTIONS</a> <a id="3599" class="Pragma">--exact-split</a> <a id="3613" class="Symbol">#-}</a>
+<a id="3730" class="Symbol">{-#</a> <a id="3734" class="Keyword">OPTIONS</a> <a id="3742" class="Pragma">--exact-split</a> <a id="3756" class="Symbol">#-}</a>
 </pre>
 
 <pre class="Agda">
-<a id="3642" class="Keyword">open</a> <a id="3647" class="Keyword">import</a> <a id="3654" href="Agda.Primitive.html" class="Module">Agda.Primitive</a>
-  <a id="3671" class="Keyword">using</a> <a id="3677" class="Symbol">(</a> <a id="3679" href="Agda.Primitive.html#408" class="Postulate">Level</a> <a id="3685" class="Symbol">;</a> <a id="3687" href="Agda.Primitive.html#627" class="Primitive">lsuc</a><a id="3691" class="Symbol">;</a> <a id="3693" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="3698" class="Symbol">;</a> <a id="3700" href="Agda.Primitive.html#657" class="Primitive Operator">_⊔_</a> <a id="3704" class="Symbol">)</a> <a id="3706" class="Keyword">public</a>
+<a id="3785" class="Keyword">open</a> <a id="3790" class="Keyword">import</a> <a id="3797" href="Agda.Primitive.html" class="Module">Agda.Primitive</a>
+  <a id="3814" class="Keyword">using</a> <a id="3820" class="Symbol">(</a> <a id="3822" href="Agda.Primitive.html#408" class="Postulate">Level</a> <a id="3828" class="Symbol">;</a> <a id="3830" href="Agda.Primitive.html#627" class="Primitive">lsuc</a><a id="3834" class="Symbol">;</a> <a id="3836" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="3841" class="Symbol">;</a> <a id="3843" href="Agda.Primitive.html#657" class="Primitive Operator">_⊔_</a> <a id="3847" class="Symbol">)</a> <a id="3849" class="Keyword">public</a>
 </pre>
 
 <p>Note that <code>l ⊔ q</code> is the maximum of two hierarchy levels <code>l</code> and <code>q</code> and we
 use this later on to define types in full generality.</p>
 
 <pre class="Agda">
-<a id="Type"></a><a id="3869" href="Intro.html#3869" class="Function">Type</a>
-  <a id="3876" class="Symbol">:</a> <a id="3878" class="Symbol">(</a><a id="3879" href="Intro.html#3879" class="Bound">ℓ</a> <a id="3881" class="Symbol">:</a> <a id="3883" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="3888" class="Symbol">)</a>
-  <a id="3892" class="Symbol">→</a> <a id="3894" class="PrimitiveType">Set</a> <a id="3898" class="Symbol">(</a><a id="3899" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="3904" href="Intro.html#3879" class="Bound">ℓ</a><a id="3905" class="Symbol">)</a>
+<a id="Type"></a><a id="4012" href="Intro.html#4012" class="Function">Type</a>
+  <a id="4019" class="Symbol">:</a> <a id="4021" class="Symbol">(</a><a id="4022" href="Intro.html#4022" class="Bound">ℓ</a> <a id="4024" class="Symbol">:</a> <a id="4026" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="4031" class="Symbol">)</a>
+  <a id="4035" class="Symbol">→</a> <a id="4037" class="PrimitiveType">Set</a> <a id="4041" class="Symbol">(</a><a id="4042" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4047" href="Intro.html#4022" class="Bound">ℓ</a><a id="4048" class="Symbol">)</a>
 
-<a id="3908" href="Intro.html#3869" class="Function">Type</a> <a id="3913" href="Intro.html#3913" class="Bound">ℓ</a> <a id="3915" class="Symbol">=</a> <a id="3917" class="PrimitiveType">Set</a> <a id="3921" href="Intro.html#3913" class="Bound">ℓ</a>
+<a id="4051" href="Intro.html#4012" class="Function">Type</a> <a id="4056" href="Intro.html#4056" class="Bound">ℓ</a> <a id="4058" class="Symbol">=</a> <a id="4060" class="PrimitiveType">Set</a> <a id="4064" href="Intro.html#4056" class="Bound">ℓ</a>
 </pre>
 
 <pre class="Agda">
-<a id="Type₀"></a><a id="3948" href="Intro.html#3948" class="Function">Type₀</a>
-  <a id="3956" class="Symbol">:</a> <a id="3958" href="Intro.html#3869" class="Function">Type</a> <a id="3963" class="Symbol">(</a><a id="3964" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="3969" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="3974" class="Symbol">)</a>
+<a id="Type₀"></a><a id="4091" href="Intro.html#4091" class="Function">Type₀</a>
+  <a id="4099" class="Symbol">:</a> <a id="4101" href="Intro.html#4012" class="Function">Type</a> <a id="4106" class="Symbol">(</a><a id="4107" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4112" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="4117" class="Symbol">)</a>
 
-<a id="3977" href="Intro.html#3948" class="Function">Type₀</a> <a id="3983" class="Symbol">=</a> <a id="3985" href="Intro.html#3869" class="Function">Type</a> <a id="3990" href="Agda.Primitive.html#611" class="Primitive">lzero</a>
+<a id="4120" href="Intro.html#4091" class="Function">Type₀</a> <a id="4126" class="Symbol">=</a> <a id="4128" href="Intro.html#4012" class="Function">Type</a> <a id="4133" href="Agda.Primitive.html#611" class="Primitive">lzero</a>
 </pre>
 
 <pre class="Agda">
-<a id="Type₁"></a><a id="4021" href="Intro.html#4021" class="Function">Type₁</a>
-  <a id="4029" class="Symbol">:</a> <a id="4031" href="Intro.html#3869" class="Function">Type</a> <a id="4036" class="Symbol">(</a><a id="4037" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4042" class="Symbol">(</a><a id="4043" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4048" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="4053" class="Symbol">))</a>
+<a id="Type₁"></a><a id="4164" href="Intro.html#4164" class="Function">Type₁</a>
+  <a id="4172" class="Symbol">:</a> <a id="4174" href="Intro.html#4012" class="Function">Type</a> <a id="4179" class="Symbol">(</a><a id="4180" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4185" class="Symbol">(</a><a id="4186" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4191" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="4196" class="Symbol">))</a>
 
-<a id="4057" href="Intro.html#4021" class="Function">Type₁</a> <a id="4063" class="Symbol">=</a> <a id="4065" href="Intro.html#3869" class="Function">Type</a> <a id="4070" class="Symbol">(</a><a id="4071" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4076" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="4081" class="Symbol">)</a>
+<a id="4200" href="Intro.html#4164" class="Function">Type₁</a> <a id="4206" class="Symbol">=</a> <a id="4208" href="Intro.html#4012" class="Function">Type</a> <a id="4213" class="Symbol">(</a><a id="4214" href="Agda.Primitive.html#627" class="Primitive">lsuc</a> <a id="4219" href="Agda.Primitive.html#611" class="Primitive">lzero</a><a id="4224" class="Symbol">)</a>
 </pre>
 
 <p>The following type is to lift a type to a higher universe.</p>
 
 <pre class="Agda">
-<a id="4168" class="Keyword">record</a>
-  <a id="↑"></a><a id="4177" href="Intro.html#4177" class="Record">↑</a> <a id="4179" class="Symbol">{</a><a id="4180" href="Intro.html#4180" class="Bound">a</a> <a id="4182" class="Symbol">:</a> <a id="4184" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="4189" class="Symbol">}</a> <a id="4191" href="Intro.html#4191" class="Bound">ℓ</a> <a id="4193" class="Symbol">(</a><a id="4194" href="Intro.html#4194" class="Bound">A</a> <a id="4196" class="Symbol">:</a> <a id="4198" href="Intro.html#3869" class="Function">Type</a> <a id="4203" href="Intro.html#4180" class="Bound">a</a><a id="4204" class="Symbol">)</a>
-    <a id="4210" class="Symbol">:</a> <a id="4212" href="Intro.html#3869" class="Function">Type</a> <a id="4217" class="Symbol">(</a><a id="4218" href="Intro.html#4180" class="Bound">a</a> <a id="4220" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="4222" href="Intro.html#4191" class="Bound">ℓ</a><a id="4223" class="Symbol">)</a>
-  <a id="4227" class="Keyword">where</a>
-  <a id="4235" class="Keyword">constructor</a> <a id="↑.Lift"></a><a id="4247" href="Intro.html#4247" class="InductiveConstructor">Lift</a>
-  <a id="4254" class="Keyword">field</a>
-    <a id="↑.lower"></a><a id="4264" href="Intro.html#4264" class="Field">lower</a> <a id="4270" class="Symbol">:</a> <a id="4272" href="Intro.html#4194" class="Bound">A</a>
+<a id="4311" class="Keyword">record</a>
+  <a id="↑"></a><a id="4320" href="Intro.html#4320" class="Record">↑</a> <a id="4322" class="Symbol">{</a><a id="4323" href="Intro.html#4323" class="Bound">a</a> <a id="4325" class="Symbol">:</a> <a id="4327" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="4332" class="Symbol">}</a> <a id="4334" href="Intro.html#4334" class="Bound">ℓ</a> <a id="4336" class="Symbol">(</a><a id="4337" href="Intro.html#4337" class="Bound">A</a> <a id="4339" class="Symbol">:</a> <a id="4341" href="Intro.html#4012" class="Function">Type</a> <a id="4346" href="Intro.html#4323" class="Bound">a</a><a id="4347" class="Symbol">)</a>
+    <a id="4353" class="Symbol">:</a> <a id="4355" href="Intro.html#4012" class="Function">Type</a> <a id="4360" class="Symbol">(</a><a id="4361" href="Intro.html#4323" class="Bound">a</a> <a id="4363" href="Agda.Primitive.html#657" class="Primitive Operator">⊔</a> <a id="4365" href="Intro.html#4334" class="Bound">ℓ</a><a id="4366" class="Symbol">)</a>
+  <a id="4370" class="Keyword">where</a>
+  <a id="4378" class="Keyword">constructor</a> <a id="↑.Lift"></a><a id="4390" href="Intro.html#4390" class="InductiveConstructor">Lift</a>
+  <a id="4397" class="Keyword">field</a>
+    <a id="↑.lower"></a><a id="4407" href="Intro.html#4407" class="Field">lower</a> <a id="4413" class="Symbol">:</a> <a id="4415" href="Intro.html#4337" class="Bound">A</a>
 
-<a id="4275" class="Keyword">open</a> <a id="4280" href="Intro.html#4177" class="Module">↑</a> <a id="4282" class="Keyword">public</a>
+<a id="4418" class="Keyword">open</a> <a id="4423" href="Intro.html#4320" class="Module">↑</a> <a id="4425" class="Keyword">public</a>
 </pre>
 
 <p>A type and lifted types of it are <em>equivalent</em> types.</p>
@@ -881,7 +881,7 @@ use this later on to define types in full generality.</p>
        data-bibtextag =""
        data-bibtexauthors =""
        data-year =""
-       data-lastchecked ="2019-11-28"
+       data-lastchecked ="2019-12-02"
        data-originalyear =""
        data-title ="Introduction"
        data-url ="http://jonaprieto.github.io/mini-hott/Intro.html"

@@ -21,7 +21,6 @@ use_site_title: true
 Last update: {{site.time}}.
 </div>
 
-
 <div class="only-website">
 [Intro.lagda]({% link Intro.md %})
 </div>

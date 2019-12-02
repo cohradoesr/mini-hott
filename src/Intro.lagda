@@ -13,22 +13,25 @@ showcitation: true
 Mini-HoTT is an [Agda](http://github.com/agda/agda) library that contains
 definitions and results of [Univalent Type Theory (also known as Homotopy Type
 Theory)](http://homotopytypetheory.org/). The library is working in progress,
-maintained by [Jonathan Prieto-Cubides](mailto:jonathan.cubides@uib.no) with support
-by the Programming Theory
-Research Group (PUT) at [University of Bergen](https://www.uib.no/).
-We constantly make changes and add new stuff by means of discussions with [Marc
+maintained by [Jonathan Prieto-Cubides](mailto:jonathan.cubides@uib.no) with
+support by the Programming Theory Research Group (PUT) at [University of
+Bergen](https://www.uib.no/). We constantly make changes and add new stuff.
+This library receives collaboration through discussions with [Marc
 Bezem](https://cas.oslo.no/fellows/marc-bezem-article2086-828.html) and [Håkon
 Robbestad Gylterud](https://hakon.gylterud.net).
 
 {: .only-website }
-Let us know if you are using the library, and maybe want to see some particular lemma
-or function, or any fix. Feel free to open an [issue on Github](https://github.com/jonaprieto/mini-hott/issues).
+Let us know if you are using the library and maybe you want to see some particular lemma
+or function, any fix or suggestion. Feel free to open an [issue on Github](https://github.com/jonaprieto/mini-hott/issues).
+
+{% include toc.html html=content sanitize=false id='toc-id' h_min=1 h_max=4 ordered=false %}
+
 
 ## Installation
 
 - Install [Agda (v2.6.0+)](http://github.com/agda/agda).
 
-- Install Mini-HoTT library (using [agda-pkg](http://github.com/agda/agda-pkg):
+- Install Mini-HoTT library (using [agda-pkg](http://github.com/agda/agda-pkg)):
 
   - `apkg install mini-hott`
 
