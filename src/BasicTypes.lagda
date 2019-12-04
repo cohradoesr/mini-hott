@@ -118,6 +118,8 @@ Symbol synonym:
 
 \begin{code}
 Σ = ∑ -- \Sigma and \sum
+
+syntax ∑ A (λ a → B) = ∑[ a ∶ A ] B
 \end{code}
 
 Constructor synonyms:
@@ -149,6 +151,7 @@ snd   = π₂
 Synonyms
 \begin{code}
 ∏ = Π   -- \prod vs \Pi
+syntax Π A (λ a → B) = Π[ a ∶ A ] B
 \end{code}
 
 ### Products
@@ -287,7 +290,6 @@ module ℕ-ordering (ℓ : Level) where
   zero   < succ b = ⊤ _
   succ _ < zero   = ⊥ _
   succ a < succ b = a < b
-
 \end{code}
 
 and we can state the relation $\geq$ as as shortcut for...
@@ -309,11 +311,10 @@ Fin : ∀ {ℓ : Level} → ℕ → Type ℓ
 Fin {ℓ} n = Σ ℕ (λ m → m < n)
   where open ℕ-ordering ℓ
 
+syntax Fin n = ⟦ n ⟧
+
 bound-of : ∀ {ℓ : Level} {n : ℕ} → Fin {ℓ} n → ℕ
 bound-of {n = n} _ = n
-
-⟦_⟧ : ∀ {ℓ : Level} → ℕ → Type ℓ
-⟦ n ⟧ = Fin n
 \end{code}
 
 Another definition for finite sets we use is the following.
