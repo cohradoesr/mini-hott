@@ -937,10 +937,6 @@ P𝟚-to-A+B A B = λ { 𝟘₂ → ↑ (level-of B) A ; 𝟙₂ → ↑ (level-
 \end{code}
 
 
-Another devive to remember the fact being a set implies to be a groupoid, is
-the fact a simple graph can be seen as a multigraph. The graph represents
-the picture of paths of the type in question.
-
 {: .foldable until="4" }
 \begin{code}
 set-is-groupoid
@@ -951,7 +947,9 @@ set-is-groupoid
 set-is-groupoid A-is-set a b = prop-is-set (A-is-set a b)
 \end{code}
 
-See the following lemmas in HoTT-Agda, provable here as well:
+Another device to remember this fact (set-is-groupoid) is
+to see that any simple graph can be seen as a multigraph.
+Here, the graph represents the path structure of the type in question.
 
 \begin{code}
 module _ {ℓ : Level}(A : Type ℓ) where
@@ -987,11 +985,8 @@ module _ {ℓ : Level}(A : Type ℓ) where
   ≡-preserves-set {x}{y} A-is-set = set-is-groupoid A-is-set x y
 \end{code}
 
-In a type $A$, fixing an endpoint $x$
-set-is-groupoid
-  : ∀ {ℓ : Level} {A : Type ℓ}
-  → isSet A
-  → isGroupoid A makes contractible the sygma type of its paths ∑ (t : A) (t≡x).
+Quite recurrent are the fixed ∑-types like $∑ (t : A) (t ≡ x)$.
+Such types are contractible as we show with the following lemmas.
 
 {: .foldable until="4"}
 \begin{code}
@@ -1031,5 +1026,6 @@ Being contractible give you a section.
     ----------------------
     → (u : B a) → Π A B
 
-  contr-has-section {B = B} A-is-contr a u = λ a' → tr B (contr-connects A-is-contr a a') u
+  contr-has-section {B = B} A-is-contr a u
+    = λ a' → tr B (contr-connects A-is-contr a a') u
 \end{code}

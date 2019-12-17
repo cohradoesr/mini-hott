@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>
+    
+      
+        Algebra On Pathovers |
+      
+        Mini-HoTT
+    
+  </title>
+  <meta name="description" content="Yet another Agda Library for Univalent Type Theory">
+
+  <link rel="stylesheet" href="/mini-hott/css/main.css">
+  <link rel="preload" as="script" href="/mini-hott/assets/main.js" >
+
+  <!-- Icons -->
+  <link rel="apple-touch-icon" sizes="57x57" href="/mini-hott/assets/favicon/apple-icon-57x57.png">
+  <link rel="apple-touch-icon" sizes="60x60" href="/mini-hott/assets/favicon/apple-icon-60x60.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="/mini-hott/assets/favicon/apple-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="76x76" href="/mini-hott/assets/favicon/apple-icon-76x76.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="/mini-hott/assets/favicon/apple-icon-114x114.png">
+  <link rel="apple-touch-icon" sizes="120x120" href="/mini-hott/assets/favicon/apple-icon-120x120.png">
+  <link rel="apple-touch-icon" sizes="144x144" href="/mini-hott/assets/favicon/apple-icon-144x144.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="/mini-hott/assets/favicon/apple-icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="/mini-hott/assets/favicon/apple-icon-180x180.png">
+  <link rel="icon" type="image/png" sizes="192x192"  href="/mini-hott/assets/favicon/android-icon-192x192.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/mini-hott/assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="96x96" href="/mini-hott/assets/favicon/favicon-96x96.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/mini-hott/assets/favicon/favicon-16x16.png">
+
+  <link rel="manifest" href="/mini-hott/manifest.json">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+  <meta name="theme-color" content="#ffffff">
+
+  <!-- RSS -->
+  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114360791-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114360791-1');
+  </script>
+
+</head>
+
+
+  <body class="layout-reverse sidebar-overlay">
+    <!-- Target for toggling the sidebar `.sidebar-checkbox` is for regular
+     styles, `#sidebar-checkbox` for behavior. -->
+<input type="checkbox" class="sidebar-checkbox" id="sidebar-checkbox">
+
+<!-- Toggleable sidebar -->
+<div class="sidebar" id="sidebar">
+  <div class="sidebar-item" >
+    <p style="text-decoration:left">Algebra On Pathovers</p>
+  </div>
+  <nav class="sidebar-nav">
+    <ul id="toc-id" class="toc-class">
+  <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item">Algebra On Pathovers</a></li>
+  <li class="sidebar-toc-item"><a href="#stickyTitle" class="sidebar-nav-item"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"></path></svg> Algebra On Pathovers <small style="float:right">(AlgebraOnDependentPaths.lagda)</small>
+</a>
+    <ul>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Table of Contents </a></li>
+      <li class="sidebar-toc-item"><a href="#algebra-of-pathovers" class="sidebar-nav-item">Algebra of Pathovers</a></li>
+      <li class="sidebar-toc-item"><a href="#" class="sidebar-nav-item"> Citation </a></li>
+    </ul>
+  </li>
+</ul>
+
+
+    <!--  -->
+    <!-- 
+      
+    
+      
+    
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item active" href="/AlgebraOnDependentPaths.html">Algebra On Pathovers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnDependentPaths.tex">Algebra On Pathovers</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.html">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/AlgebraOnPaths.tex">Algebra On Paths</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.html">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceAxiom.tex">Axiom of Univalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicEquivalences.tex">Basic Equivalences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicEquivalences.html">Basic Equivalences</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.tex">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicFunctions.html">Basic Functions</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.html">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BasicTypes.tex">Basic Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/BiinverseEquivalenceType.html">Biinverse Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.html">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CircleType.tex">Circle Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CoproductIdentities.html">Coproduct identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/CoproductIdentities.tex">Coproduct identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.tex">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DecidableEquality.html">Decidable Equality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DependentAlgebra.html">Dependent Algebra</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/DependentAlgebra.tex">Dependent Algebra</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.tex">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceType.html">Equivalence Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.tex">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/EquivalenceReasoning.html">Equivalence reasoning</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FibreType.tex">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FibreType.html">Fiber Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Fibrewise.html">Fiberwise</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.html">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtAxiom.tex">Function extensionality</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.html">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransport.tex">Function extensionality and Transport</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.html">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FunExtTransportDependent.tex">Function extensionality and transporting dependent functions </a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/FundamentalGroupType.html">Fundamental Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.html">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/GroupType.tex">Group Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.html">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelLemmas.tex">H-Levels Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.html">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HLevelTypes.tex">H-Levels Types</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.tex">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HalfAdjointType.html">Half Adjoint</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.tex">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HedbergLemmas.html">Hedberg Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.tex">Higher Inductive Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HigherInductiveTypes.html">Higher Inductive Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.tex">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyType.html">Homotopy</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.tex">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/HomotopyLemmas.html">Homotopy Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.html">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntegerType.tex">Integer Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.tex">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/IntervalType.html">Interval Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.html">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/Intro.tex">Introduction</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TransportLemmas.html">Lemmas about transport </a>
+        
+      
+    
+      
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MiniHoTT.html">Mini-HoTT</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/NaturalType.tex">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/NaturalType.html">Natural number Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.html">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/PiPreserves.tex">Pi preserves equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.tex">Quasiinverse Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseLemmas.html">Quasiinverse Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.tex">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuasiinverseType.html">Quasiinverse Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.html">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/QuotientType.tex">Quotient Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.tex">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/MonoidType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.html">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/RelationType.tex">Relation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.html">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SetTruncationType.tex">Set Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaEquivalence.tex">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaEquivalence.html">Sigma Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ProductIdentities.html">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/ProductIdentities.tex">Sigma identities</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.tex">Sigma lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SigmaPreserves.html">Sigma lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.tex">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/SuspensionType.html">Suspension Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TheAxiomOfChoice.html">TheAxiomOfChoice</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.tex">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TruncationType.html">Truncation Type</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TypesofMorphisms.tex">Types of Morphisms</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/TypesofMorphisms.html">Types of Morphisms</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceIdEquiv.tex">Univalence Lemma for id Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceIdEquiv.html">Univalence Lemma for id Equivalence</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceLemmas.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.html">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceLemmas.tex">Univalence Lemmas</a>
+        
+      
+    
+      
+        
+          <a class="sidebar-nav-item" href="/UnivalenceTransport.tex">Univalence Lemmas</a>
+        
+      
+     -->
+
+    <!-- <a class="sidebar-nav-item" href="/mini-hott">Main Page</a> -->
+    <!-- <a class="sidebar-nav-item" href="/plans/">Plans</a> -->
+    <span class="sidebar-nav-item">v</span>
+  </nav>
+</div>
+
+    <div class="wrap">
+      <div class="masthead">
+        <div class="container">
+          <h3 class="masthead-title">
+            <a href=""><img alt="@jonaprieto" class="avatar float-left mr-1" src="https://avatars3.githubusercontent.com/u/1428088?s=40&amp;v=4" height="20" width="20"></a>
+            <a href="/mini-hott/" title="Home">Mini-HoTT</a>
+            <small style="text-decoration:left"></small>
+          </h3>
+        </div>
+      <div class="container content">
+        
+
+
+
+
+
+
+
+<div class="post">
+  <div class="print-version">
+    <center>
+      <h1>Algebra On Pathovers</h1><br/>
+        <div class="print-authors">
+          <div class="print-info">
+            <div class="print-author">
+              <div class="print-author-name">
+                
+                  Jonathan Prieto-Cubides
+                
+              </div>
+              <div class="print-author-affiliation">
+                
+                  University of Bergen
+                
+                </div>
+            </div>
+          </div>
+          
+          
+        </div>
+        <div class="print-date"></div>
+        
+        
+    </center>
+  </div>
+
+  
+
+  <h1 class="post-title" id="stickyTitle"><svg height="22" class="octicon octicon-bookmark" viewBox="0 0 10 16" version="1.1" width="13" aria-hidden="true"><path fill-rule="evenodd" d="M9 0H1C.27 0 0 .27 0 1v15l5-3.09L10 16V1c0-.73-.27-1-1-1zm-.78 4.25L6.36 5.61l.72 2.16c.06.22-.02.28-.2.17L5 6.6 3.12 7.94c-.19.11-.25.05-.2-.17l.72-2.16-1.86-1.36c-.17-.16-.14-.23.09-.23l2.3-.03.7-2.16h.25l.7 2.16 2.3.03c.23 0 .27.08.09.23h.01z"/></svg> Algebra On Pathovers <small style="float:right">(AlgebraOnDependentPaths.lagda)</small>
+  </h1>
+
+  <!-- 
+  <div class="toc">
+    <nav>
+    <h2 class="table-of-contents"> Table of Contents </h2>
+      <ul>
+  <li><a href="#algebra-of-pathovers">Algebra of Pathovers</a></li>
+</ul>
+
+    </nav>
+  </div>
+   -->
+
+  <noscript>
+  <div style="font-size:16px;font-weight:700; color:red;"><svg height="18" class="octicon octicon-alert" viewBox="0 0 16 16" version="1.1" width="18" aria-hidden="true"><path fill-rule="evenodd" d="M8.893 1.5c-.183-.31-.52-.5-.887-.5s-.703.19-.886.5L.138 13.499a.98.98 0 0 0 0 1.001c.193.31.53.501.886.501h13.964c.367 0 .704-.19.877-.5a1.03 1.03 0 0 0 .01-1.002L8.893 1.5zm.133 11.497H6.987v-2.003h2.039v2.003zm0-3.004H6.987V5.987h2.039v4.006z"/></svg> Javascript is disabled, please activate it to see correctly this post.</div><br/>
+  </noscript>
+
+  <div class="hide">
+  <pre class="Agda">
+<a id="223" class="Symbol">{-#</a> <a id="227" class="Keyword">OPTIONS</a> <a id="235" class="Pragma">--without-K</a> <a id="247" class="Pragma">--exact-split</a> <a id="261" class="Pragma">--rewriting</a> <a id="273" class="Symbol">#-}</a>
+<a id="277" class="Keyword">open</a> <a id="282" class="Keyword">import</a> <a id="289" href="BasicTypes.html" class="Module">BasicTypes</a> <a id="300" class="Keyword">public</a>
+<a id="307" class="Keyword">open</a> <a id="312" class="Keyword">import</a> <a id="319" href="BasicFunctions.html" class="Module">BasicFunctions</a> <a id="334" class="Keyword">public</a>
+<a id="341" class="Keyword">open</a> <a id="346" class="Keyword">import</a> <a id="353" href="AlgebraOnPaths.html" class="Module">AlgebraOnPaths</a> <a id="368" class="Keyword">public</a>
+<a id="375" class="Keyword">open</a> <a id="380" class="Keyword">import</a> <a id="387" href="Transport.html" class="Module">Transport</a> <a id="397" class="Keyword">public</a>
+<a id="404" class="Keyword">open</a> <a id="409" class="Keyword">import</a> <a id="416" href="TransportLemmas.html" class="Module">TransportLemmas</a> <a id="432" class="Keyword">public</a>
+</pre>
+</div>
+
+<h2 id="algebra-of-pathovers">Algebra of Pathovers</h2>
+
+<p>Some of the following lemmas are a version
+of lemmas found in <code>HoTT-Agda/core/lib/PathOver.agda</code>,
+but customized for our own needs.</p>
+
+<pre class="Agda">
+<a id="!ᵈ"></a><a id="629" href="AlgebraOnDependentPaths.html#629" class="Function">!ᵈ</a>
+  <a id="634" class="Symbol">:</a> <a id="636" class="Symbol">∀</a> <a id="638" class="Symbol">{</a><a id="639" href="AlgebraOnDependentPaths.html#639" class="Bound">ℓ₁</a> <a id="642" href="AlgebraOnDependentPaths.html#642" class="Bound">ℓ₂</a><a id="644" class="Symbol">}{</a><a id="646" href="AlgebraOnDependentPaths.html#646" class="Bound">A</a> <a id="648" class="Symbol">:</a> <a id="650" href="Intro.html#4012" class="Function">Type</a> <a id="655" href="AlgebraOnDependentPaths.html#639" class="Bound">ℓ₁</a><a id="657" class="Symbol">}</a> <a id="659" class="Symbol">{</a><a id="660" href="AlgebraOnDependentPaths.html#660" class="Bound">B</a> <a id="662" class="Symbol">:</a> <a id="664" href="AlgebraOnDependentPaths.html#646" class="Bound">A</a> <a id="666" class="Symbol">→</a> <a id="668" href="Intro.html#4012" class="Function">Type</a> <a id="673" href="AlgebraOnDependentPaths.html#642" class="Bound">ℓ₂</a><a id="675" class="Symbol">}</a> <a id="677" class="Symbol">{</a><a id="678" href="AlgebraOnDependentPaths.html#678" class="Bound">x</a> <a id="680" href="AlgebraOnDependentPaths.html#680" class="Bound">y</a> <a id="682" class="Symbol">:</a> <a id="684" href="AlgebraOnDependentPaths.html#646" class="Bound">A</a><a id="685" class="Symbol">}</a>
+  <a id="689" class="Symbol">→</a> <a id="691" class="Symbol">{</a><a id="692" href="AlgebraOnDependentPaths.html#692" class="Bound">p</a> <a id="694" class="Symbol">:</a> <a id="696" href="AlgebraOnDependentPaths.html#678" class="Bound">x</a> <a id="698" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="701" href="AlgebraOnDependentPaths.html#680" class="Bound">y</a><a id="702" class="Symbol">}</a> <a id="704" class="Symbol">{</a><a id="705" href="AlgebraOnDependentPaths.html#705" class="Bound">u</a> <a id="707" class="Symbol">:</a> <a id="709" href="AlgebraOnDependentPaths.html#660" class="Bound">B</a> <a id="711" href="AlgebraOnDependentPaths.html#678" class="Bound">x</a><a id="712" class="Symbol">}</a> <a id="714" class="Symbol">{</a><a id="715" href="AlgebraOnDependentPaths.html#715" class="Bound">v</a> <a id="717" class="Symbol">:</a> <a id="719" href="AlgebraOnDependentPaths.html#660" class="Bound">B</a> <a id="721" href="AlgebraOnDependentPaths.html#680" class="Bound">y</a><a id="722" class="Symbol">}</a>
+  <a id="726" class="Symbol">→</a> <a id="728" href="AlgebraOnDependentPaths.html#705" class="Bound">u</a> <a id="730" href="Transport.html#1684" class="Function">==</a> <a id="733" href="AlgebraOnDependentPaths.html#715" class="Bound">v</a> <a id="735" href="Transport.html#1684" class="Function">[</a> <a id="737" href="AlgebraOnDependentPaths.html#660" class="Bound">B</a> <a id="739" href="Transport.html#1684" class="Function">↓</a> <a id="741" href="AlgebraOnDependentPaths.html#692" class="Bound">p</a> <a id="743" href="Transport.html#1684" class="Function">]</a>
+  <a id="747" class="Comment">---------------------</a>
+  <a id="771" class="Symbol">→</a> <a id="773" href="AlgebraOnDependentPaths.html#715" class="Bound">v</a> <a id="775" href="Transport.html#1684" class="Function">==</a> <a id="778" href="AlgebraOnDependentPaths.html#705" class="Bound">u</a> <a id="780" href="Transport.html#1684" class="Function">[</a> <a id="782" href="AlgebraOnDependentPaths.html#660" class="Bound">B</a> <a id="784" href="Transport.html#1684" class="Function">↓</a> <a id="786" class="Symbol">(</a><a id="787" href="BasicFunctions.html#833" class="Function Operator">!</a> <a id="789" href="AlgebraOnDependentPaths.html#692" class="Bound">p</a><a id="790" class="Symbol">)</a><a id="791" href="Transport.html#1684" class="Function">]</a>
+
+<a id="794" href="AlgebraOnDependentPaths.html#629" class="Function">!ᵈ</a> <a id="797" class="Symbol">{</a><a id="798" class="Argument">p</a> <a id="800" class="Symbol">=</a> <a id="802" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a><a id="805" class="Symbol">}</a> <a id="807" class="Symbol">=</a> <a id="809" href="BasicFunctions.html#833" class="Function Operator">!_</a>
+</pre>
+
+<pre class="Agda">
+<a id="837" class="Keyword">module</a> <a id="844" href="AlgebraOnDependentPaths.html#844" class="Module">_</a>  <a id="847" class="Symbol">{</a><a id="848" href="AlgebraOnDependentPaths.html#848" class="Bound">ℓ₁</a> <a id="851" href="AlgebraOnDependentPaths.html#851" class="Bound">ℓ₂</a> <a id="854" class="Symbol">:</a> <a id="856" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="861" class="Symbol">}</a> <a id="863" class="Symbol">{</a><a id="864" href="AlgebraOnDependentPaths.html#864" class="Bound">A</a> <a id="866" class="Symbol">:</a> <a id="868" href="Intro.html#4012" class="Function">Type</a> <a id="873" href="AlgebraOnDependentPaths.html#848" class="Bound">ℓ₁</a><a id="875" class="Symbol">}</a> <a id="877" class="Symbol">{</a><a id="878" href="AlgebraOnDependentPaths.html#878" class="Bound">B</a> <a id="880" class="Symbol">:</a> <a id="882" href="Intro.html#4012" class="Function">Type</a> <a id="887" href="AlgebraOnDependentPaths.html#851" class="Bound">ℓ₂</a><a id="889" class="Symbol">}</a> <a id="891" class="Keyword">where</a>
+
+  <a id="900" href="AlgebraOnDependentPaths.html#900" class="Function">↓-cst-in</a> <a id="909" class="Symbol">:</a> <a id="911" class="Symbol">{</a><a id="912" href="AlgebraOnDependentPaths.html#912" class="Bound">x</a> <a id="914" href="AlgebraOnDependentPaths.html#914" class="Bound">y</a> <a id="916" class="Symbol">:</a> <a id="918" href="AlgebraOnDependentPaths.html#864" class="Bound">A</a><a id="919" class="Symbol">}</a> <a id="921" class="Symbol">{</a><a id="922" href="AlgebraOnDependentPaths.html#922" class="Bound">p</a> <a id="924" class="Symbol">:</a> <a id="926" href="AlgebraOnDependentPaths.html#912" class="Bound">x</a> <a id="928" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="931" href="AlgebraOnDependentPaths.html#914" class="Bound">y</a><a id="932" class="Symbol">}</a> <a id="934" class="Symbol">{</a><a id="935" href="AlgebraOnDependentPaths.html#935" class="Bound">u</a> <a id="937" href="AlgebraOnDependentPaths.html#937" class="Bound">v</a> <a id="939" class="Symbol">:</a> <a id="941" href="AlgebraOnDependentPaths.html#878" class="Bound">B</a><a id="942" class="Symbol">}</a>
+    <a id="948" class="Symbol">→</a> <a id="950" href="AlgebraOnDependentPaths.html#935" class="Bound">u</a> <a id="952" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="955" href="AlgebraOnDependentPaths.html#937" class="Bound">v</a>
+    <a id="961" class="Symbol">→</a> <a id="963" href="AlgebraOnDependentPaths.html#935" class="Bound">u</a> <a id="965" href="Transport.html#1684" class="Function">==</a> <a id="968" href="AlgebraOnDependentPaths.html#937" class="Bound">v</a> <a id="970" href="Transport.html#1684" class="Function">[</a> <a id="972" class="Symbol">(λ</a> <a id="975" href="AlgebraOnDependentPaths.html#975" class="Bound">_</a> <a id="977" class="Symbol">→</a> <a id="979" href="AlgebraOnDependentPaths.html#878" class="Bound">B</a><a id="980" class="Symbol">)</a> <a id="982" href="Transport.html#1684" class="Function">↓</a> <a id="984" href="AlgebraOnDependentPaths.html#922" class="Bound">p</a> <a id="986" href="Transport.html#1684" class="Function">]</a>
+  <a id="990" href="AlgebraOnDependentPaths.html#900" class="Function">↓-cst-in</a> <a id="999" class="Symbol">{</a><a id="1000" class="Argument">p</a> <a id="1002" class="Symbol">=</a> <a id="1004" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a><a id="1007" class="Symbol">}</a> <a id="1009" href="AlgebraOnDependentPaths.html#1009" class="Bound">q</a> <a id="1011" class="Symbol">=</a> <a id="1013" href="AlgebraOnDependentPaths.html#1009" class="Bound">q</a>
+
+  <a id="1018" href="AlgebraOnDependentPaths.html#1018" class="Function">↓-cst-out</a> <a id="1028" class="Symbol">:</a> <a id="1030" class="Symbol">{</a><a id="1031" href="AlgebraOnDependentPaths.html#1031" class="Bound">x</a> <a id="1033" href="AlgebraOnDependentPaths.html#1033" class="Bound">y</a> <a id="1035" class="Symbol">:</a> <a id="1037" href="AlgebraOnDependentPaths.html#864" class="Bound">A</a><a id="1038" class="Symbol">}</a> <a id="1040" class="Symbol">{</a><a id="1041" href="AlgebraOnDependentPaths.html#1041" class="Bound">p</a> <a id="1043" class="Symbol">:</a> <a id="1045" href="AlgebraOnDependentPaths.html#1031" class="Bound">x</a> <a id="1047" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1050" href="AlgebraOnDependentPaths.html#1033" class="Bound">y</a><a id="1051" class="Symbol">}</a> <a id="1053" class="Symbol">{</a><a id="1054" href="AlgebraOnDependentPaths.html#1054" class="Bound">u</a> <a id="1056" href="AlgebraOnDependentPaths.html#1056" class="Bound">v</a> <a id="1058" class="Symbol">:</a> <a id="1060" href="AlgebraOnDependentPaths.html#878" class="Bound">B</a><a id="1061" class="Symbol">}</a>
+    <a id="1067" class="Symbol">→</a> <a id="1069" href="AlgebraOnDependentPaths.html#1054" class="Bound">u</a> <a id="1071" href="Transport.html#1684" class="Function">==</a> <a id="1074" href="AlgebraOnDependentPaths.html#1056" class="Bound">v</a> <a id="1076" href="Transport.html#1684" class="Function">[</a> <a id="1078" class="Symbol">(λ</a> <a id="1081" href="AlgebraOnDependentPaths.html#1081" class="Bound">_</a> <a id="1083" class="Symbol">→</a> <a id="1085" href="AlgebraOnDependentPaths.html#878" class="Bound">B</a><a id="1086" class="Symbol">)</a> <a id="1088" href="Transport.html#1684" class="Function">↓</a> <a id="1090" href="AlgebraOnDependentPaths.html#1041" class="Bound">p</a> <a id="1092" href="Transport.html#1684" class="Function">]</a>
+    <a id="1098" class="Symbol">→</a> <a id="1100" href="AlgebraOnDependentPaths.html#1054" class="Bound">u</a> <a id="1102" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1105" href="AlgebraOnDependentPaths.html#1056" class="Bound">v</a>
+  <a id="1109" href="AlgebraOnDependentPaths.html#1018" class="Function">↓-cst-out</a> <a id="1119" class="Symbol">{</a><a id="1120" class="Argument">p</a> <a id="1122" class="Symbol">=</a> <a id="1124" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a><a id="1127" class="Symbol">}</a> <a id="1129" href="AlgebraOnDependentPaths.html#1129" class="Bound">q</a> <a id="1131" class="Symbol">=</a> <a id="1133" href="AlgebraOnDependentPaths.html#1129" class="Bound">q</a>
+
+<a id="1136" class="Keyword">module</a> <a id="1143" href="AlgebraOnDependentPaths.html#1143" class="Module">_</a>  <a id="1146" class="Symbol">{</a><a id="1147" href="AlgebraOnDependentPaths.html#1147" class="Bound">ℓ₁</a> <a id="1150" href="AlgebraOnDependentPaths.html#1150" class="Bound">ℓ₂</a> <a id="1153" class="Symbol">:</a> <a id="1155" href="Agda.Primitive.html#408" class="Postulate">Level</a><a id="1160" class="Symbol">}</a> <a id="1162" class="Symbol">{</a><a id="1163" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a> <a id="1165" class="Symbol">:</a> <a id="1167" href="Intro.html#4012" class="Function">Type</a> <a id="1172" href="AlgebraOnDependentPaths.html#1147" class="Bound">ℓ₁</a><a id="1174" class="Symbol">}</a> <a id="1176" class="Symbol">{</a><a id="1177" href="AlgebraOnDependentPaths.html#1177" class="Bound">B</a> <a id="1179" class="Symbol">:</a> <a id="1181" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a> <a id="1183" class="Symbol">→</a> <a id="1185" href="Intro.html#4012" class="Function">Type</a> <a id="1190" href="AlgebraOnDependentPaths.html#1150" class="Bound">ℓ₂</a><a id="1192" class="Symbol">}</a> <a id="1194" class="Keyword">where</a>
+  <a id="1202" href="AlgebraOnDependentPaths.html#1202" class="Function Operator">_·2ᵈ_</a>
+    <a id="1212" class="Symbol">:</a>  <a id="1215" class="Symbol">{</a><a id="1216" href="AlgebraOnDependentPaths.html#1216" class="Bound">f</a> <a id="1218" href="AlgebraOnDependentPaths.html#1218" class="Bound">g</a> <a id="1220" href="AlgebraOnDependentPaths.html#1220" class="Bound">h</a> <a id="1222" class="Symbol">:</a> <a id="1224" href="BasicTypes.html#2125" class="Function">Π</a> <a id="1226" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a> <a id="1228" href="AlgebraOnDependentPaths.html#1177" class="Bound">B</a><a id="1229" class="Symbol">}</a>
+    <a id="1235" class="Symbol">→</a> <a id="1237" class="Symbol">{</a><a id="1238" href="AlgebraOnDependentPaths.html#1238" class="Bound">a</a> <a id="1240" href="AlgebraOnDependentPaths.html#1240" class="Bound">a&#39;</a> <a id="1243" class="Symbol">:</a> <a id="1245" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a><a id="1246" class="Symbol">}</a> <a id="1248" class="Symbol">{</a><a id="1249" href="AlgebraOnDependentPaths.html#1249" class="Bound">p</a> <a id="1251" class="Symbol">:</a> <a id="1253" href="AlgebraOnDependentPaths.html#1238" class="Bound">a</a> <a id="1255" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1258" href="AlgebraOnDependentPaths.html#1240" class="Bound">a&#39;</a><a id="1260" class="Symbol">}</a> <a id="1262" class="Symbol">{</a><a id="1263" href="AlgebraOnDependentPaths.html#1263" class="Bound">q</a> <a id="1265" class="Symbol">:</a> <a id="1267" href="AlgebraOnDependentPaths.html#1216" class="Bound">f</a> <a id="1269" href="AlgebraOnDependentPaths.html#1238" class="Bound">a</a> <a id="1271" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1274" href="AlgebraOnDependentPaths.html#1218" class="Bound">g</a> <a id="1276" href="AlgebraOnDependentPaths.html#1238" class="Bound">a</a><a id="1277" class="Symbol">}</a> <a id="1279" class="Symbol">{</a><a id="1280" href="AlgebraOnDependentPaths.html#1280" class="Bound">q&#39;</a> <a id="1283" class="Symbol">:</a> <a id="1285" href="AlgebraOnDependentPaths.html#1216" class="Bound">f</a> <a id="1287" href="AlgebraOnDependentPaths.html#1240" class="Bound">a&#39;</a> <a id="1290" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1293" href="AlgebraOnDependentPaths.html#1218" class="Bound">g</a> <a id="1295" href="AlgebraOnDependentPaths.html#1240" class="Bound">a&#39;</a><a id="1297" class="Symbol">}</a>
+    <a id="1303" class="Symbol">→</a> <a id="1305" class="Symbol">{</a><a id="1306" href="AlgebraOnDependentPaths.html#1306" class="Bound">r</a> <a id="1308" class="Symbol">:</a> <a id="1310" href="AlgebraOnDependentPaths.html#1218" class="Bound">g</a> <a id="1312" href="AlgebraOnDependentPaths.html#1238" class="Bound">a</a> <a id="1314" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1317" href="AlgebraOnDependentPaths.html#1220" class="Bound">h</a> <a id="1319" href="AlgebraOnDependentPaths.html#1238" class="Bound">a</a><a id="1320" class="Symbol">}</a> <a id="1322" class="Symbol">{</a><a id="1323" href="AlgebraOnDependentPaths.html#1323" class="Bound">r&#39;</a> <a id="1326" class="Symbol">:</a> <a id="1328" href="AlgebraOnDependentPaths.html#1218" class="Bound">g</a> <a id="1330" href="AlgebraOnDependentPaths.html#1240" class="Bound">a&#39;</a> <a id="1333" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1336" href="AlgebraOnDependentPaths.html#1220" class="Bound">h</a> <a id="1338" href="AlgebraOnDependentPaths.html#1240" class="Bound">a&#39;</a><a id="1340" class="Symbol">}</a>
+    <a id="1346" class="Symbol">→</a> <a id="1348" class="Symbol">(</a><a id="1349" href="AlgebraOnDependentPaths.html#1263" class="Bound">q</a> <a id="1351" href="Transport.html#1684" class="Function">==</a> <a id="1354" href="AlgebraOnDependentPaths.html#1280" class="Bound">q&#39;</a>           <a id="1367" href="Transport.html#1684" class="Function">[</a> <a id="1369" class="Symbol">(λ</a> <a id="1372" href="AlgebraOnDependentPaths.html#1372" class="Bound">a</a> <a id="1374" class="Symbol">→</a> <a id="1376" href="AlgebraOnDependentPaths.html#1216" class="Bound">f</a> <a id="1378" href="AlgebraOnDependentPaths.html#1372" class="Bound">a</a> <a id="1380" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1383" href="AlgebraOnDependentPaths.html#1218" class="Bound">g</a> <a id="1385" href="AlgebraOnDependentPaths.html#1372" class="Bound">a</a><a id="1386" class="Symbol">)</a> <a id="1388" href="Transport.html#1684" class="Function">↓</a> <a id="1390" href="AlgebraOnDependentPaths.html#1249" class="Bound">p</a> <a id="1392" href="Transport.html#1684" class="Function">]</a><a id="1393" class="Symbol">)</a>
+    <a id="1399" class="Symbol">→</a> <a id="1401" class="Symbol">(</a><a id="1402" href="AlgebraOnDependentPaths.html#1306" class="Bound">r</a> <a id="1404" href="Transport.html#1684" class="Function">==</a> <a id="1407" href="AlgebraOnDependentPaths.html#1323" class="Bound">r&#39;</a>           <a id="1420" href="Transport.html#1684" class="Function">[</a> <a id="1422" class="Symbol">(λ</a> <a id="1425" href="AlgebraOnDependentPaths.html#1425" class="Bound">a</a> <a id="1427" class="Symbol">→</a> <a id="1429" href="AlgebraOnDependentPaths.html#1218" class="Bound">g</a> <a id="1431" href="AlgebraOnDependentPaths.html#1425" class="Bound">a</a> <a id="1433" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1436" href="AlgebraOnDependentPaths.html#1220" class="Bound">h</a> <a id="1438" href="AlgebraOnDependentPaths.html#1425" class="Bound">a</a><a id="1439" class="Symbol">)</a> <a id="1441" href="Transport.html#1684" class="Function">↓</a> <a id="1443" href="AlgebraOnDependentPaths.html#1249" class="Bound">p</a> <a id="1445" href="Transport.html#1684" class="Function">]</a><a id="1446" class="Symbol">)</a>
+    <a id="1452" class="Comment">------------------------------------------------</a>
+    <a id="1505" class="Symbol">→</a> <a id="1507" class="Symbol">(</a><a id="1508" href="AlgebraOnDependentPaths.html#1263" class="Bound">q</a> <a id="1510" href="BasicFunctions.html#395" class="Function Operator">·</a> <a id="1512" href="AlgebraOnDependentPaths.html#1306" class="Bound">r</a> <a id="1514" href="Transport.html#1684" class="Function">==</a> <a id="1517" href="AlgebraOnDependentPaths.html#1280" class="Bound">q&#39;</a> <a id="1520" href="BasicFunctions.html#395" class="Function Operator">·</a> <a id="1522" href="AlgebraOnDependentPaths.html#1323" class="Bound">r&#39;</a> <a id="1525" href="Transport.html#1684" class="Function">[</a> <a id="1527" class="Symbol">(λ</a> <a id="1530" href="AlgebraOnDependentPaths.html#1530" class="Bound">a</a> <a id="1532" class="Symbol">→</a> <a id="1534" href="AlgebraOnDependentPaths.html#1216" class="Bound">f</a> <a id="1536" href="AlgebraOnDependentPaths.html#1530" class="Bound">a</a> <a id="1538" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="1541" href="AlgebraOnDependentPaths.html#1220" class="Bound">h</a> <a id="1543" href="AlgebraOnDependentPaths.html#1530" class="Bound">a</a><a id="1544" class="Symbol">)</a> <a id="1546" href="Transport.html#1684" class="Function">↓</a> <a id="1548" href="AlgebraOnDependentPaths.html#1249" class="Bound">p</a> <a id="1550" href="Transport.html#1684" class="Function">]</a><a id="1551" class="Symbol">)</a>
+
+  <a id="1556" href="AlgebraOnDependentPaths.html#1202" class="Function Operator">_·2ᵈ_</a> <a id="1562" class="Symbol">{</a><a id="1563" class="Argument">p</a> <a id="1565" class="Symbol">=</a> <a id="1567" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a><a id="1570" class="Symbol">}</a> <a id="1572" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="1576" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="1580" class="Symbol">=</a> <a id="1582" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="1586" class="Comment">-- α · β</a>
+ </pre>
+
+<pre class="Agda foldable" until="5">
+  <a id="1648" href="AlgebraOnDependentPaths.html#1648" class="Function">apd-·</a>
+    <a id="1658" class="Symbol">:</a> <a id="1660" class="Symbol">(</a><a id="1661" href="AlgebraOnDependentPaths.html#1661" class="Bound">f</a> <a id="1663" class="Symbol">:</a> <a id="1665" href="BasicTypes.html#2309" class="Function">∏</a> <a id="1667" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a> <a id="1669" href="AlgebraOnDependentPaths.html#1177" class="Bound">B</a><a id="1670" class="Symbol">)</a> <a id="1672" class="Symbol">→</a> <a id="1674" class="Symbol">{</a><a id="1675" href="AlgebraOnDependentPaths.html#1675" class="Bound">a₁</a> <a id="1678" href="AlgebraOnDependentPaths.html#1678" class="Bound">a₂</a> <a id="1681" href="AlgebraOnDependentPaths.html#1681" class="Bound">a₃</a> <a id="1684" class="Symbol">:</a> <a id="1686" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a><a id="1687" class="Symbol">}</a>
+    <a id="1693" class="Symbol">→</a> <a id="1695" class="Symbol">(</a><a id="1696" href="AlgebraOnDependentPaths.html#1696" class="Bound">α</a> <a id="1698" class="Symbol">:</a> <a id="1700" href="AlgebraOnDependentPaths.html#1675" class="Bound">a₁</a> <a id="1703" href="BasicTypes.html#6912" class="Function Operator">≡</a> <a id="1705" href="AlgebraOnDependentPaths.html#1678" class="Bound">a₂</a><a id="1707" class="Symbol">)</a> <a id="1709" class="Symbol">→</a> <a id="1711" class="Symbol">(</a><a id="1712" href="AlgebraOnDependentPaths.html#1712" class="Bound">β</a> <a id="1714" class="Symbol">:</a> <a id="1716" href="AlgebraOnDependentPaths.html#1678" class="Bound">a₂</a> <a id="1719" href="BasicTypes.html#6912" class="Function Operator">≡</a> <a id="1721" href="AlgebraOnDependentPaths.html#1681" class="Bound">a₃</a><a id="1723" class="Symbol">)</a>
+    <a id="1729" class="Comment">-----------------------------------------------------------------</a>
+    <a id="1799" class="Symbol">→</a> <a id="1801" href="TransportLemmas.html#9382" class="Function">apd</a> <a id="1805" href="AlgebraOnDependentPaths.html#1661" class="Bound">f</a> <a id="1807" class="Symbol">(</a><a id="1808" href="AlgebraOnDependentPaths.html#1696" class="Bound">α</a> <a id="1810" href="BasicFunctions.html#395" class="Function Operator">·</a> <a id="1812" href="AlgebraOnDependentPaths.html#1712" class="Bound">β</a><a id="1813" class="Symbol">)</a> <a id="1815" href="BasicTypes.html#6912" class="Function Operator">≡</a> <a id="1817" href="Transport.html#2541" class="Function">pathover-comp</a> <a id="1831" class="Symbol">{</a><a id="1832" class="Argument">p</a> <a id="1834" class="Symbol">=</a> <a id="1836" href="AlgebraOnDependentPaths.html#1696" class="Bound">α</a><a id="1837" class="Symbol">}</a> <a id="1839" class="Symbol">(</a><a id="1840" href="TransportLemmas.html#9382" class="Function">apd</a> <a id="1844" href="AlgebraOnDependentPaths.html#1661" class="Bound">f</a> <a id="1846" href="AlgebraOnDependentPaths.html#1696" class="Bound">α</a><a id="1847" class="Symbol">)</a> <a id="1849" class="Symbol">(</a><a id="1850" href="TransportLemmas.html#9382" class="Function">apd</a> <a id="1854" href="AlgebraOnDependentPaths.html#1661" class="Bound">f</a> <a id="1856" href="AlgebraOnDependentPaths.html#1712" class="Bound">β</a><a id="1857" class="Symbol">)</a>
+
+  <a id="1862" href="AlgebraOnDependentPaths.html#1648" class="Function">apd-·</a> <a id="1868" href="AlgebraOnDependentPaths.html#1868" class="Bound">C</a> <a id="1870" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="1874" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="1878" class="Symbol">=</a> <a id="1880" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a>
+</pre>
+
+<pre class="Agda foldable" until="5">
+  <a id="1936" href="AlgebraOnDependentPaths.html#1936" class="Function">apd-!</a>
+    <a id="1946" class="Symbol">:</a> <a id="1948" class="Symbol">(</a><a id="1949" href="AlgebraOnDependentPaths.html#1949" class="Bound">f</a> <a id="1951" class="Symbol">:</a> <a id="1953" href="BasicTypes.html#2309" class="Function">∏</a> <a id="1955" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a> <a id="1957" href="AlgebraOnDependentPaths.html#1177" class="Bound">B</a><a id="1958" class="Symbol">)</a> <a id="1960" class="Symbol">→</a> <a id="1962" class="Symbol">{</a><a id="1963" href="AlgebraOnDependentPaths.html#1963" class="Bound">a₁</a> <a id="1966" href="AlgebraOnDependentPaths.html#1966" class="Bound">a₂</a> <a id="1969" class="Bound">: </a><a id="1971" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a><a id="1972" class="Bound">}</a>
+<a id="1974" class="Bound">  </a>  <a id="1978" class="Symbol">→</a> <a id="1980" class="Bound">(</a><a id="1981" href="AlgebraOnDependentPaths.html#1981" class="Bound">α</a> <a id="1983" class="Function">: </a><a id="1985" href="AlgebraOnDependentPaths.html#1963" class="Bound">a₁</a><a id="1987" class="Bound"> </a><a id="1988" href="BasicTypes.html#6912" class="Function Operator">≡</a><a id="1989" class="Function"> </a><a id="1990" href="AlgebraOnDependentPaths.html#1966" class="Bound">a₂</a><a id="1992" class="Symbol">)</a><a id="1993" class="Function">
+</a> <a id="1995" class="Bound"> </a> <a id="1997" class="Function"> </a><a id="1998" class="Comment">----------------------------------------------------------------------------</a>
+    <a id="2079" class="Symbol">→</a> <a id="2081" href="TransportLemmas.html#9382" class="Function">apd</a> <a id="2085" href="AlgebraOnDependentPaths.html#1949" class="Bound">f</a> <a id="2087" class="Symbol">(</a><a id="2088" href="AlgebraOnDependentPaths.html#1981" class="Bound">α</a> <a id="2090" href="BasicFunctions.html#679" class="Function Operator">⁻¹</a><a id="2092" class="Symbol">)</a> <a id="2094" href="BasicTypes.html#6912" class="Function Operator">≡</a>  <a id="2097" href="BasicFunctions.html#833" class="Function Operator">!</a> <a id="2099" class="Symbol">(</a><a id="2100" href="TransportLemmas.html#1723" class="Function">move-transport</a> <a id="2115" class="Symbol">{</a><a id="2116" class="Argument">α</a> <a id="2118" class="Symbol">=</a> <a id="2120" href="AlgebraOnDependentPaths.html#1981" class="Bound">α</a><a id="2121" class="Symbol">}</a> <a id="2123" class="Symbol">(</a><a id="2124" href="TransportLemmas.html#9382" class="Function">apd</a> <a id="2128" href="AlgebraOnDependentPaths.html#1949" class="Bound">f</a> <a id="2130" href="AlgebraOnDependentPaths.html#1981" class="Bound">α</a><a id="2131" class="Symbol">))</a>
+
+  <a id="2137" href="AlgebraOnDependentPaths.html#1936" class="Function">apd-!</a> <a id="2143" href="AlgebraOnDependentPaths.html#2143" class="Bound">C</a> <a id="2145" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="2149" class="Symbol">=</a> <a id="2151" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a>
+</pre>
+
+<pre class="Agda">
+  <a id="2182" href="AlgebraOnDependentPaths.html#2182" class="Function">·d-lunit</a>
+    <a id="2195" class="Symbol">:</a> <a id="2197" class="Symbol">∀</a> <a id="2199" class="Symbol">{</a><a id="2200" href="AlgebraOnDependentPaths.html#2200" class="Bound">x</a> <a id="2202" href="AlgebraOnDependentPaths.html#2202" class="Bound">y</a> <a id="2204" class="Symbol">:</a> <a id="2206" href="AlgebraOnDependentPaths.html#1163" class="Bound">A</a><a id="2207" class="Symbol">}</a> <a id="2209" class="Symbol">{</a><a id="2210" href="AlgebraOnDependentPaths.html#2210" class="Bound">p</a> <a id="2212" class="Symbol">:</a> <a id="2214" href="AlgebraOnDependentPaths.html#2200" class="Bound">x</a> <a id="2216" href="BasicTypes.html#6708" class="Datatype Operator">==</a> <a id="2219" href="AlgebraOnDependentPaths.html#2202" class="Bound">y</a><a id="2220" class="Symbol">}</a>
+    <a id="2226" class="Symbol">→</a> <a id="2228" class="Symbol">{</a><a id="2229" href="AlgebraOnDependentPaths.html#2229" class="Bound">u</a> <a id="2231" class="Symbol">:</a> <a id="2233" href="AlgebraOnDependentPaths.html#1177" class="Bound">B</a> <a id="2235" href="AlgebraOnDependentPaths.html#2200" class="Bound">x</a><a id="2236" class="Symbol">}</a> <a id="2238" class="Symbol">{</a><a id="2239" href="AlgebraOnDependentPaths.html#2239" class="Bound">v</a> <a id="2241" class="Symbol">:</a> <a id="2243" href="AlgebraOnDependentPaths.html#1177" class="Bound">B</a> <a id="2245" href="AlgebraOnDependentPaths.html#2202" class="Bound">y</a><a id="2246" class="Symbol">}</a>
+    <a id="2252" class="Symbol">→</a> <a id="2254" class="Symbol">(</a><a id="2255" href="AlgebraOnDependentPaths.html#2255" class="Bound">r</a> <a id="2257" class="Symbol">:</a> <a id="2259" href="AlgebraOnDependentPaths.html#2229" class="Bound">u</a> <a id="2261" href="Transport.html#1684" class="Function">==</a> <a id="2264" href="AlgebraOnDependentPaths.html#2239" class="Bound">v</a> <a id="2266" href="Transport.html#1684" class="Function">[</a> <a id="2268" href="AlgebraOnDependentPaths.html#1177" class="Bound">B</a> <a id="2270" href="Transport.html#1684" class="Function">↓</a> <a id="2272" href="AlgebraOnDependentPaths.html#2210" class="Bound">p</a> <a id="2274" href="Transport.html#1684" class="Function">]</a><a id="2275" class="Symbol">)</a>
+    <a id="2281" class="Comment">------------------------</a>
+    <a id="2310" class="Symbol">→</a> <a id="2312" href="Transport.html#2541" class="Function">pathover-comp</a> <a id="2326" class="Symbol">{</a><a id="2327" class="Argument">q</a> <a id="2329" class="Symbol">=</a> <a id="2331" href="AlgebraOnDependentPaths.html#2210" class="Bound">p</a><a id="2332" class="Symbol">}</a> <a id="2334" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="2338" href="AlgebraOnDependentPaths.html#2255" class="Bound">r</a> <a id="2340" href="BasicTypes.html#6708" class="Datatype Operator">==</a><a id="2342" class="Bound"> </a><a id="2343" href="AlgebraOnDependentPaths.html#2255" class="Bound">r</a>
+  <a id="2347" href="AlgebraOnDependentPaths.html#2182" class="Function">·d-lunit</a> <a id="2356" class="Symbol">{</a><a id="2357" class="Argument">p</a> <a id="2359" class="Symbol">=</a> <a id="2361" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a><a id="2364" class="Symbol">}</a><a id="2365" class="Function"> </a><a id="2366" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a> <a id="2370" class="Symbol">=</a> <a id="2372" href="BasicTypes.html#6772" class="InductiveConstructor">idp</a>
+
+<a id="2377" class="Comment">-- ▹idp : {x y : A} {p : x == y}</a>
+<a id="2410" class="Comment">--     {u : B x} {v : B y} (q : u == v [ B ↓ p ])</a>
+<a id="2460" class="Comment">--     → q ▹ idp == q</a>
+<a id="2482" class="Comment">--   ▹idp {p = idp} idp = idp</a>
+</pre>
+
+
+  <div class="cited-references" markdown="1">
+  <ol class="bibliography"></ol>
+  </div>
+
+
+  
+  <div id="citation">
+  <h2> Citation </h2>
+  If you want to cite the content of this post,
+  we suggest to use the following latex bibtex entry.
+  This is generated automatically.
+
+  <br/>
+  <br/>
+  <pre class="bibtex"
+       data-bibtextag =""
+       data-bibtexauthors =""
+       data-year =""
+       data-lastchecked ="2019-12-15"
+       data-originalyear =""
+       data-title ="Algebra On Pathovers"
+       data-url ="http://jonaprieto.github.io/mini-hott/AlgebraOnDependentPaths.html"
+  ></pre>
+  </div>
+  
+
+  <div id="github-links">
+    <div class="view-source">
+      
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/src/AlgebraOnDependentPaths.lagda" download target="_blank"><svg height="12" class="octicon octicon-file right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M6 5H2V4h4v1zM2 8h7V7H2v1zm0 2h7V9H2v1zm0 2h7v-1H2v1zm10-7.5V14c0 .55-.45 1-1 1H1c-.55 0-1-.45-1-1V2c0-.55.45-1 1-1h7.5L12 4.5zM11 5L8 2H1v12h10V5z"/></svg> .lagda </a>
+        <a href="https://raw.githubusercontent.com/jonaprieto/mini-hott/master/docs/agda/AlgebraOnDependentPaths.agda" download target="_blank"><svg height="12" class="octicon octicon-file-code right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1c-.55 0-1 .45-1 1v12c0 .55.45 1 1 1h10c.55 0 1-.45 1-1V4.5L8.5 1zM11 14H1V2h7l3 3v9zM5 6.98L3.5 8.5 5 10l-.5 1L2 8.5 4.5 6l.5.98zM7.5 6L10 8.5 7.5 11l-.5-.98L8.5 8.5 7 7l.5-1z"/></svg> .agda</a>
+      
+      <a href="https://github.com/jonaprieto/mini-hott/blob/master/src/AlgebraOnDependentPaths.lagda" target="_blank"><svg height="12" class="octicon octicon-mark-github right left" viewBox="0 0 16 16" version="1.1" width="12" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg> Github</a>
+      <a href="https://github.com/jonaprieto/mini-hott/edit/master/src/AlgebraOnDependentPaths.lagda" target="_blank"><svg height="12" class="octicon octicon-pencil right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 12v3h3l8-8-3-3-8 8zm3 2H1v-2h1v1h1v1zm10.3-9.3L12 6 9 3l1.3-1.3a.996.996 0 0 1 1.41 0l1.59 1.59c.39.39.39 1.02 0 1.41z"/></svg> Edit</a>
+      <a href="https://github.com/jonaprieto/mini-hott/commits/master/src/AlgebraOnDependentPaths.lagda" target="_blank"><svg height="12" class="octicon octicon-history right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M8 13H6V6h5v2H8v5zM7 1C4.81 1 2.87 2.02 1.59 3.59L0 2v4h4L2.5 4.5C3.55 3.17 5.17 2.3 7 2.3c3.14 0 5.7 2.56 5.7 5.7s-2.56 5.7-5.7 5.7A5.71 5.71 0 0 1 1.3 8c0-.34.03-.67.09-1H.08C.03 7.33 0 7.66 0 8c0 3.86 3.14 7 7 7s7-3.14 7-7-3.14-7-7-7z"/></svg> History</a>
+      <a  href="#" onclick="window.print();return false;" target="_blank"><svg height="12" class="octicon octicon-file-pdf right left" viewBox="0 0 12 16" version="1.1" width="9" aria-hidden="true"><path fill-rule="evenodd" d="M8.5 1H1a1 1 0 0 0-1 1v12a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V4.5L8.5 1zM1 2h4a.68.68 0 0 0-.31.2 1.08 1.08 0 0 0-.23.47 4.22 4.22 0 0 0-.09 1.47c.06.609.173 1.211.34 1.8A21.78 21.78 0 0 1 3.6 8.6c-.5 1-.8 1.66-.91 1.84a7.156 7.156 0 0 0-.69.3c-.362.165-.699.38-1 .64V2zm4.42 4.8a5.65 5.65 0 0 0 1.17 2.09c.275.237.595.417.94.53-.64.09-1.23.2-1.81.33-.618.15-1.223.347-1.81.59s.22-.44.61-1.25c.365-.74.67-1.51.91-2.3l-.01.01zM11 14H1.5a.743.743 0 0 1-.17 0 2.12 2.12 0 0 0 .73-.44 10.14 10.14 0 0 0 1.78-2.38c.31-.13.58-.23.81-.31l.42-.14c.45-.13.94-.23 1.44-.33s1-.16 1.48-.2c.447.216.912.394 1.39.53.403.11.814.188 1.23.23h.38V14H11zm0-4.86a3.743 3.743 0 0 0-.64-.28 4.221 4.221 0 0 0-.75-.11c-.411.003-.822.03-1.23.08a3 3 0 0 1-1-.64 6.07 6.07 0 0 1-1.29-2.33c.111-.661.178-1.33.2-2 .02-.25.02-.5 0-.75a1.05 1.05 0 0 0-.2-.88.82.82 0 0 0-.61-.23H8l3 3v4.14z"/></svg> Print</a>
+      <a  href="#citation"><svg height="12" class="octicon octicon-quote right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M6.16 3.5C3.73 5.06 2.55 6.67 2.55 9.36c.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.9 0-2.99-1.52-2.99-4.25 0-3.8 1.75-6.53 5.02-8.42L6.16 3.5zm7 0c-2.43 1.56-3.61 3.17-3.61 5.86.16-.05.3-.05.44-.05 1.27 0 2.5.86 2.5 2.41 0 1.61-1.03 2.61-2.5 2.61-1.89 0-2.98-1.52-2.98-4.25 0-3.8 1.75-6.53 5.02-8.42l1.14 1.84h-.01z"/></svg> Cite
+      </a>
+
+      <a href="mailto:prieto.jona@gmail.com?Subject=[ ?]Algebra On Pathovers - Commit " target="_top"><svg height="12" class="octicon octicon-mail right left" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M0 4v8c0 .55.45 1 1 1h12c.55 0 1-.45 1-1V4c0-.55-.45-1-1-1H1c-.55 0-1 .45-1 1zm13 0L7 9 1 4h12zM1 5.5l4 3-4 3v-6zM2 12l3.5-3L7 10.5 8.5 9l3.5 3H2zm11-.5l-4-3 4-3v6z"/></svg> Send Mail</a>
+
+    </div>
+  </div>
+
+</div>
+
+
+
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    jax: ["input/TeX", "output/HTML-CSS"],
+    tex2jax: {
+      inlineMath: [['$', '$']],
+      displayMath: [['$$', '$$'],['\\[','\\]']],
+      processEscapes: true,
+      skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+    },
+    messageStyle: "none",
+    "HTML-CSS": { preferredFont: "TeX", availableFonts: ["STIX","TeX"] },
+    TeX: {
+      equationNumbers: { autoNumber: "AMS" },
+      extensions: ["AMSmath.js", "AMSsymbols.js","AMScd.js","color.js"],
+      TagSide: "left",
+      Macros: {
+        field: ['\\mathbb{#1}', 1],
+        C: ['\\field{C}'],
+        F: ['\\field{F}'],
+        N: ['\\field{N}'],
+        Q: ['\\field{Q}'],
+        R: ['\\field{R}'],
+        Z: ['\\field{Z}'],
+
+        U: ['\\mathcal{U}'],
+        to: ['\\rightarrow'],
+        zero: ['\\field{0}'],
+        one: ['\\field{1}'],
+        two: ['\\field{2}'],
+        id: ['\\mathsf{Id}'],
+
+        fun: ['\\mathsf{fun}{#1}', 1],
+
+        true: ['\\mathsf{true}'],
+        false: ['\\mathsf{false}'],
+
+        proj: ['\\mathsf{proj}'],
+
+        trans: ['\\mathsf{trans}'],
+        refl: ['\\mathsf{refl}'],
+        sym: ['\\mathsf{sym}'],
+
+        Fin:['\\mathsf{Fin}\\,'],
+        ind: ['\\mathsf{ind}'],
+        rec:['\\mathsf{rec}'],
+
+        zeros: ['\\mathbf{0}'],
+        ud: ['\\,\\mathrm{d}'],
+
+        vect:['\\boldsymbol{\\mathbf{#1}}',1],
+        abs: ['\\lvert#1\\rvert', 1],
+        abslr:['\\left\\lvert#1\\right\\rvert', 1],
+        norm: ['\\lVert#1\\rVert', 1],
+        normlr: ['\\left\\lVert#1\\right\\rVert', 1],
+
+        lcm: ['\\mathop{\\mathrm{lcm}}'],
+        interior: ['\\mathop{\\mathrm{int}}'],
+        exterior: ['\\mathop{\\mathrm{ext}}'],
+        volume: ['\\mathop{\\mathrm{vol}}'],
+
+        E: ['{\\rm I\\kern-.3em E}'],
+        Var: ['\\mathop{\\mathrm{Var}}'],
+        Cov: ['\\mathop{\\mathrm{Cov}}'],
+        Binom: ['\\mathop{\\mathrm{Binom}}'],
+        Exp: ['\\mathop{\\mathrm{Exp}}'],
+        Poi: ['\\mathop{\\mathrm{Poi}}'],
+
+        GL: ['\\mathrm{GL}'],
+        SL: ['\\mathrm{SL}'],
+        Aut: ['\\mathrm{Aut}'],
+        ker: ['\\mathrm{ker}'],
+
+        Re: ['\\mathop{\\mathrm{Re}}'],
+        Im: ['\\mathop{\\mathrm{Im}}'],
+        Res: ['\\mathop{\\mathrm{Res}}'],
+
+        Type : ['\\mathsf{Type}\\,'],
+        Iso : ['{#1}\\,\\simeq_{\\mathsf{Iso}}{#2}\\,',2],
+        Graph : ['\\mathsf{Graph}\\,'],
+        Face : ['\\mathsf{Face}\\,'],
+        Node : ['\\mathsf{Node}\\,'],
+        Edge : ['\\mathsf{Edge}\\,'],
+        Path : ['\\mathsf{Path}\\,'],
+        Walk : ['\\mathsf{Walk}\\,'],
+
+        isContr:['\\mathsf{isContr{#1}}',1],
+        isProp:['\\mathsf{isProp{#1}}',1],
+        isSet:['\\mathsf{isSet{#1}}',1],
+
+        minimize : ['\\mathsf{minimize}'],
+        maximize : ['\\mathsf{maximize}'],
+        st : ['\\mathsf{st}'],
+        and : ['\\,\\wedge\\, '],
+        or : ['\\,\\vee\\,']
+
+
+
+      }
+    }
+  });
+</script>
+<script
+  type="text/javascript"
+  charset="utf-8"
+  src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"
+>
+</script>
+
+
+
+<script>
+  // When the user scrolls the page, execute myFunction
+function stickyToogle(obj, sticky) {
+  if (window.pageYOffset > sticky) {
+    obj.classList.add("sticky");
+  } else {
+    obj.classList.remove("sticky");
+  }
+};
+
+// Get the header
+function stickyThing(idObj){
+  var obj = document.getElementById(idObj);
+  if (obj){
+    // Get the offset position of the navbar
+    stickyToogle(obj, obj.offsetTop);
+    // Add the sticky class to the obj when you reach its scroll position. Remove "sticky" when you leave the scroll position
+  }
+};
+
+window.onscroll = function() {
+  stickyThing("stickyTitle");
+};
+
+
+</script>
+
+
+
+      </div>
+      </div>
+    </div>
+    
+    <label for="sidebar-checkbox" class="sidebar-toggle"></label>
+    
+    
+<script src="/mini-hott/assets/jquery.min.js"></script>
+
+
+<script src="/mini-hott/assets/linkify.min.js"></script>
+<script src="/mini-hott/assets/linkify-jquery.min.js"></script>
+
+<script type="text/javascript">
+$('.references').linkify();
+$('.bibliography').linkify();
+$('.links').linkify();
+</script>
+
+
+<script type="text/javascript">
+WebFontConfig = {
+ google: { families: [ 'PT+Serif:400,700,400italic:latin', 'PT+Sans:400:latin' ] }
+};
+(function(d) {
+      var wf = d.createElement('script'), s = d.scripts[0];
+      wf.src = 'https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js';
+      wf.async = true;
+      s.parentNode.insertBefore(wf, s);
+   })(document);
+</script>
+
+
+<!-- FOLDABLE  -->
+<script type="text/javascript">
+ $('pre.foldable').each(function(){
+     var lineHeight = parseFloat($(this).css('line-height'));
+     var plus    = $('<div><svg height="12" class="octicon octicon-fold" viewBox="0 0 14 16" version="1.1" width="10" aria-hidden="true"><path fill-rule="evenodd" d="M7 9l3 3H8v3H6v-3H4l3-3zm3-6H8V0H6v3H4l3 3 3-3zm4 2c0-.55-.45-1-1-1h-2.5l-1 1h3l-2 2h-7l-2-2h3l-1-1H1c-.55 0-1 .45-1 1l2.5 2.5L0 10c0 .55.45 1 1 1h2.5l1-1h-3l2-2h7l2 2h-3l1 1H13c.55 0 1-.45 1-1l-2.5-2.5L14 5z"/></svg></div>');
+     var horLine = $("<div></div>");
+     var verLine = $("<div></div>");
+     $(this).prepend(plus);
+     plus.css({
+         'position'         : 'relative',
+         'float'            : 'right',
+         'right'            : '-' + (0.5 * lineHeight - 1.5) + 'px',
+         'width'            : lineHeight,
+         'height'           : lineHeight
+       });
+
+     var until = parseFloat($(this).attr('until'));
+     if ( isNaN(until) ) { until= 1; }
+     if ( until <= 0 ){
+       $(this).hide();
+     }
+     else{
+       var newHeight = ((1.2 * until) + 0.7) + "rem";
+       //                               ^^^----------- for the padding
+       //                ^^-- line-height
+
+       // console.log('afuera-until: ', until);
+       // console.log('afuera-newheight: ', newHeight );
+       $(this).css("padding", "0.5rem 1rem");
+       $(this).css("overflow", "hidden");
+       $(this).css("height", newHeight);
+       $(this).attr("original", "false");
+
+       $(this).click(function(){
+
+         // console.log('dentro-original: ', $(this).attr('original') );
+         // console.log('dentro-newheight: ', newHeight );
+
+         if ( $(this).attr('original') == "true" ) {
+           $(this).css("overflow", "hidden");
+           $(this).css("height", newHeight);
+           $(this).attr("original", "false");
+           $(this).css("padding", "0.5rem 1rem");
+           // plus.show();
+         }
+         else {
+           $(this).height('auto');
+           $(this).attr("original", "true");
+           // plus.hide();
+         }
+       });
+     }
+ });
+</script>
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+var pre, title, id, tag, url, coauthor, year, lastchecked, originalyear;
+
+$('#citation').hide();
+$('#citation pre').each(function(){
+
+    var pre           = $(this);
+    var title         = $(this).data('title');
+    var title         = $(this).data('title');
+    var id            = $(this).data('url');
+    var year          = $(this).data('year');
+    var lastchecked   = $(this).data('lastchecked');
+    var originalyear  = $(this).data('originalyear');
+    var url           = $(this).data('url');
+
+    var bibtextag     = $(this).data('bibtextag');
+    var bibtexauthors = $(this).data('bibtexauthors');
+
+    if (bibtexauthors == ""){
+      bibtexauthors = "Prieto-Cubides, Jonathan";
+    }
+
+    if (bibtextag == "")
+    {
+      bibtextag = "Prieto-Cubides:" + lastchecked
+    }
+
+    pre.append(
+    "@online{ " + bibtextag + ",\n" +
+    "  author  = { " + bibtexauthors +" },\n" +
+    "  title   = { " + title + " },\n" +
+    "  url     = { \\url{" + url   + "} }\n" +
+    "  year    = { " + year  + " }\n" +
+    "  lastchecked  = { " + lastchecked  + " }\n" +
+    "  originalyear = { " + originalyear  + " }\n" +
+    "}\n"
+    );
+  });
+
+$('#citation').show();
+</script>
+
+
+
+
+    <!-- <script>
+      (function(document) {
+        var toggle   = document.querySelector('.sidebar-toggle');
+        var sidebar  = document.querySelector('#sidebar');
+        var checkbox = document.querySelector('#sidebar-checkbox');
+
+        document.addEventListener('click', function(e) {
+          var target = e.target;
+
+          // if(!checkbox.checked ||
+          //    sidebar.contains(target) ||
+          //    (target === checkbox || target === toggle)) return;
+          //
+          if(target === toggle)
+          checkbox.checked = false;
+        }, false);
+      })(document);
+    </script> -->
+
+    
+    <script src="/mini-hott/assets/galleryjs/lightgallery.js"></script>
+    <script src="/mini-hott/assets/galleryjs/lg-thumbnail.min.js"></script>
+    <script src="/mini-hott/assets/galleryjs/lg-fullscreen.min.js"></script>
+
+    <script  type="text/javascript">
+      $(document).ready(function() {
+
+        $('.post img, .home img').wrap(function(){
+          return "<div class='gallery' data-src='" + $( this ).attr("src") + "'></div>";
+        });
+
+        lightGallery(document.querySelector('.post, .home'),
+          { selector     : ".gallery"
+          // , mode         : 'slide'
+          , thumbnail    : true
+          , animateThumb: false
+          , closable     : true
+          , counter      : true
+          , enableTouch  : true
+          , enableDrag   : true
+          , showThumbByDefault   : false
+          , thumbWidth           : 90
+          , thumbMargin          : 5,
+          });
+      });
+      $('p:contains("layout")').remove();
+    </script>
+    
+
+  </body>
+</html>

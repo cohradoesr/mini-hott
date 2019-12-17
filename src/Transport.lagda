@@ -113,22 +113,22 @@ syntax ≡Over B b α b' = b ≡ b' [ B / α ]
 ### Compositions of Pathovers
 
 \begin{code}
-infixl 50 _∙d_
-_∙d_
+infixl 80 _·d_
+_·d_
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁} {B : A → Type ℓ₂}
-  → {a₁ a₂ : A} {p : a₁ ≡ a₂} {b₁ : B a₁}{b₂ : B a₂}
-  → {a₃ : A} {q : a₂ ≡ a₃} {b₃ : B a₃}
+  → {a₁ a₂ a₃ : A} {p : a₁ ≡ a₂} {q : a₂ ≡ a₃}
+  → {b₁ : B a₁}{b₂ : B a₂} {b₃ : B a₃}
   → (b₁ ≡ b₂ [ B / p ])
   → (b₂ ≡ b₃ [ B / q ])
   -------------------------
-  → b₁ ≡ b₃ [ B / (p · q)]
+  → b₁ ≡ b₃ [ B / (p · q) ]
 
-_∙d_ {p = idp} {q = idp} idp β = β
+_·d_ {p = idp} {q = idp} idp idp = idp -- α β = α · β
 \end{code}
 
 \begin{code}
-pathover-comp = _∙d_
-_·d_          = _∙d_
+pathover-comp = _·d_
+_∙d_          = _·d_
 \end{code}
 
 {: .foldable until="8"}

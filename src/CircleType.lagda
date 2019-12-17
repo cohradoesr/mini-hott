@@ -31,7 +31,7 @@ a single element (base) and a nontrivial path (loop).
 
 \begin{code}
 module CircleType {ℓ : Level} where
-  open import HigherInductiveTypes
+  open import Rewriting
 \end{code}
 
 \begin{code}

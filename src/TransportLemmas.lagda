@@ -45,6 +45,20 @@ transport-const
 transport-const idp b = refl b
 \end{code}
 
+{: .foldable until="7" }
+\begin{code}
+transport²
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{P : A → Type ℓ₂}
+  → {x y : A} {p q : x ≡ y}
+  → (r : p ≡ q)
+  → (u : P x)
+  --------------------------------
+  → (tr P p u) ≡ (tr P q u)
+
+transport² idp u = idp
+\end{code}
+
+
 {: .foldable until="6" }
 \begin{code}
 transport-inv-l
@@ -73,6 +87,20 @@ Synonyms:
 
 \begin{code}
 tr-inverse = transport-inv-r
+\end{code}
+
+{: .foldable until="7"}
+\begin{code}
+move-transport
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : A → Type ℓ₂}
+  → {a₁ a₂ : A}
+  → {α : a₁ ≡ a₂}
+  → {b₁ : B a₁}{b₂ : B a₂}
+  → (tr B α b₁ ≡ b₂)
+  ----------------------
+  → (b₁ ≡ tr B (! α) b₂)
+
+move-transport {α = idp} idp = idp
 \end{code}
 
 
@@ -270,7 +298,7 @@ transport-fun-coe
 transport-fun-coe idp _ _ idp = idp
 \end{code}
 
-![path]({{ site.baseurl }}/assets/images/transport-fun.png){: width="50%" align="right" }
+![path]({{ site.baseurl }}/assets/images/transport-fun.png){: width="80%" align="center" }
 
 {: .foldable until="8" }
 \begin{code}
@@ -299,8 +327,9 @@ transport-fun-h
   → {x y : X}
   → (p : x == y) → (f : A x → B x)
   → (b : A y)
-  --------------------------------------------------------------
-  → (tr (λ x → (A x → B x)) p f) b == tr B p (f (tr A (! p) b))
+  ---------------------------------
+  → (tr (λ x → (A x → B x)) p f) b
+  == tr B p (f (tr A (! p) b))
 
 transport-fun-h idp f b = idp
 \end{code}
@@ -312,7 +341,7 @@ back-and-forth-h = transport-fun-h
 
 Now, when we transport dependent functions this is what we got:
 
-![path]({{ site.baseurl }}/assets/images/transport-fun-dependent.png){: width="50%" align="right" }
+![path]({{ site.baseurl }}/assets/images/transport-fun-dependent.png){: width="100%" align="center" }
 
 {: .foldable until="9" }
 \begin{code}
@@ -378,10 +407,10 @@ apOver f g idp q = ap g q
 \begin{code}
 apd
   : ∀ {ℓ₁ ℓ₂ : Level} {A : Type ℓ₁}{P : A → Type ℓ₂}  {a a' : A}
-  → (f : (a : A) → P a)
-  → (p : a == a')
+  → (f : ∏ A P)
+  → (p : a ≡ a')
   --------------------------
-  → (f a) == (f a') [ P ↓ p ]
+  → (f a) ≡ (f a') [ P / p ]
 
 apd f idp = idp
 \end{code}
@@ -390,6 +419,19 @@ Synonyms:
 
 \begin{code}
 fibre-app-≡ = apd
+\end{code}
+
+{: .foldable until="7" }
+\begin{code}
+apd²
+  : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{P : A → Type ℓ₂}
+  → (f : ∏ A P)
+  → {x y : A} {p q : x ≡ y}
+  → (r : p ≡ q)
+  ---------------------------
+  → apd f p  ≡ apd f q [ (λ x≡y → (f x) ≡ (f y) [ P / x≡y ]) / r ]
+
+apd² f idp = idp
 \end{code}
 
 \begin{code}

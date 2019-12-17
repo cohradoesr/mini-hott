@@ -22,10 +22,7 @@ Robbestad Gylterud](https://hakon.gylterud.net).
 
 {: .only-website }
 Let us know if you are using the library and maybe you want to see some particular lemma
-or function, any fix or suggestion. Feel free to open an [issue on Github](https://github.com/jonaprieto/mini-hott/issues).
-
-{% include toc.html html=content sanitize=false id='toc-id' h_min=1 h_max=4 ordered=false %}
-
+or function, any fix or suggestion is welcome. Feel free to open an [issue on Github](https://github.com/jonaprieto/mini-hott/issues).
 
 ## Installation
 
@@ -33,7 +30,7 @@ or function, any fix or suggestion. Feel free to open an [issue on Github](https
 
 - Install Mini-HoTT library (using [agda-pkg](http://github.com/agda/agda-pkg)):
 
-  - `apkg install mini-hott`
+  - `apkg install --github jonaprieto/mini-hott`
 
 - Include the following `import` command in your source code.
 

@@ -2,7 +2,7 @@
 layout: page
 title: "Algebra On Paths"
 category: lemmas functions
-toc: true
+toc: true2
 agda: true
 gallery: true
 latex: true
@@ -13,7 +13,7 @@ showcitation: true
 
 <div class="hide" >
 \begin{code} %latex:prop
-{-# OPTIONS --without-K --exact-split #-}
+{-# OPTIONS --without-K --exact-split --rewriting #-}
 open import BasicTypes public
 open import BasicFunctions public
 \end{code}
@@ -81,14 +81,14 @@ Lastly, we can also define actions on two paths:
 
 {: .foldable until="6" }
 \begin{code}
-ap₂
+ap²
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level} {A : Type ℓ₁}{B : Type ℓ₂} {C : Type ℓ₃}  {a₁ a₂ : A} {b₁ b₂ : B}
   → (f : A → B → C)
   → (a₁ == a₂) → (b₁ == b₂)
   --------------------------
   → f a₁ b₁  == f a₂ b₂
 
-ap₂ f idp idp = idp
+ap² f idp idp = idp
 \end{code}
 
 {: .foldable until="5" }
@@ -168,6 +168,22 @@ Some properties on the groupoid structure of equalities
 ·-runit idp = idp
 \end{code}
 
+For convenience, we add the following rewriting rule.
+
+{: .axiom }
+\begin{code}
+open import Rewriting
+
+postulate
+  runit
+    : ∀ {ℓ : Level} {A : Type ℓ}  {a a' : A}
+    → {p : a == a'}
+    --------------
+    → p · idp ↦ p
+
+{-# REWRITE runit #-}
+\end{code}
+
 {: .foldable until="5" }
 \begin{code}
 ·-lunit
@@ -231,16 +247,17 @@ involution idp = idp
 \begin{code}
 ·-cancellation
   : ∀ {ℓ : Level} {A : Type ℓ} {a : A}
-  → (p : a == a) → (q : a == a) → p · q == p
+  → (p : a == a) → (q : a == a)
+  → p · q == p
   -----------------------------------------
   → q == refl a
 
 ·-cancellation {a = a} p q α =
     begin
-      q             ==⟨ ap (_· q) (! (·-linv p)) ⟩
-      ! p · p · q   ==⟨ (·-assoc (! p) _ _) ⟩
-      ! p · (p · q) ==⟨ (ap (! p ·_) α) ⟩
-      ! p · p       ==⟨ ·-linv p ⟩
+      q               ==⟨ ap (_· q) (! (·-linv p)) ⟩
+      (! p · p) · q   ==⟨ (·-assoc (! p) p q) ⟩
+      ! p · (p · q)   ==⟨ ap (! p ·_) α ⟩
+      ! p · p         ==⟨ ·-linv p ⟩
       refl a
     ∎
 \end{code}

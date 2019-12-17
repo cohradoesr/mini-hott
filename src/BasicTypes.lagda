@@ -120,6 +120,10 @@ Symbol synonym:
 Σ = ∑ -- \Sigma and \sum
 
 syntax ∑ A (λ a → B) = ∑[ a ∶ A ] B
+
+Σ-syntax′ : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁} → (A → Type ℓ₂) → Type (ℓ₁ ⊔ ℓ₂)
+Σ-syntax′ = Σ _
+syntax Σ-syntax′ (λ x → B) = Σ[ x ] B
 \end{code}
 
 Constructor synonyms:
@@ -152,6 +156,10 @@ Synonyms
 \begin{code}
 ∏ = Π   -- \prod vs \Pi
 syntax Π A (λ a → B) = Π[ a ∶ A ] B
+
+Π-syntax′ : ∀ {ℓ₁ ℓ₂} {A : Type ℓ₁} → (A → Type ℓ₂) → Type (ℓ₁ ⊔ ℓ₂)
+Π-syntax′ = Π _
+syntax Π-syntax′ (λ x → B) = Π[ x ] B
 \end{code}
 
 ### Products

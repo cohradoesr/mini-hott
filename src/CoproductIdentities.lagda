@@ -44,6 +44,7 @@ module
 ∑-≡ B idp idp = idp
 \end{code}
 
+
 {: .foldable until="6"}
 \begin{code}
 π₁-≡
@@ -55,6 +56,7 @@ module
 
 π₁-≡ B idp = idp
 \end{code}
+
 
 {: .foldable until="6"}
 \begin{code}

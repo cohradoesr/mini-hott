@@ -1,6 +1,6 @@
 ---
 layout: page
-title: "Higher Inductive Type"
+title: "Rewriting"
 toc: true
 agda: true
 gallery: true
@@ -17,7 +17,7 @@ However, this is unsafe.
 
 \begin{code}
 {-# OPTIONS --without-K --exact-split --rewriting #-}
-module HigherInductiveTypes where
+module Rewriting where
 \end{code}
 
 \begin{code}

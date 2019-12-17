@@ -28,6 +28,7 @@ module MiniHoTT where
   open import Transport public
   open import TransportLemmas public
 
+  open import AlgebraOnDependentPaths public
 
   open import ProductIdentities public
   open import CoproductIdentities public
@@ -70,7 +71,7 @@ module MiniHoTT where
   open import EquivalenceReasoning public
   open import UnivalenceTransport public
 
-  open import HigherInductiveTypes public
+  open import Rewriting public
   open import CircleType public
   open import IntervalType public
   open import SuspensionType public
