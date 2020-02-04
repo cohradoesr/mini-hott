@@ -228,8 +228,6 @@ Last update: {{site.time}}.
 
 ## Higher inductive types
 
-[HigherInductiveTypes.lagda]({% link HigherInductiveTypes.md %})
-
 
 [CircleType.lagda]({% link CircleType.md %})
 
@@ -289,7 +287,14 @@ Last update: {{site.time}}.
 
 {% include_relative FundamentalGroupType.md %}
 
-## Pending to classify
+## Other topics
+
+<div class="only-website">
+[Connectedness.lagda]({% link Connectedness.md %})
+</div>
+
+{% include_relative Connectedness.md %}
+
 
 ### Logic
 

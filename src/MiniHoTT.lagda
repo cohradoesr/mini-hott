@@ -92,6 +92,8 @@ module MiniHoTT where
 
   open import BasicEquivalences public
 
-  --   open import FundamentalGroupType public
+  open import Connectedness public
+
+  open import FundamentalGroupType public
 
 \end{code}

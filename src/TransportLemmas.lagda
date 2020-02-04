@@ -89,7 +89,7 @@ Synonyms:
 tr-inverse = transport-inv-r
 \end{code}
 
-{: .foldable until="7"}
+{: .foldable until="8" }
 \begin{code}
 move-transport
   : ∀ {ℓ₁ ℓ₂ : Level}{A : Type ℓ₁}{B : A → Type ℓ₂}
