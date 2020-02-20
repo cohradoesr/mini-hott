@@ -16,13 +16,15 @@ Theory)](http://homotopytypetheory.org/). The library is working in progress,
 maintained by [Jonathan Prieto-Cubides](mailto:jonathan.cubides@uib.no) with
 support by the Programming Theory Research Group (PUT) at [University of
 Bergen](https://www.uib.no/). We constantly make changes and add new stuff.
-This library receives collaboration through discussions with [Marc
-Bezem](https://cas.oslo.no/fellows/marc-bezem-article2086-828.html) and [Håkon
-Robbestad Gylterud](https://hakon.gylterud.net).
+This library receives collaboration through discussions with [Håkon
+Robbestad Gylterud](https://hakon.gylterud.net)
+and [Marc
+Bezem](https://cas.oslo.no/fellows/marc-bezem-article2086-828.html).
 
 {: .only-website }
-Let us know if you are using the library and maybe you want to see some particular lemma
-or function, any fix or suggestion is welcome. Feel free to open an [issue on Github](https://github.com/jonaprieto/mini-hott/issues).
+Feel free to open an [issue on
+Github](https://github.com/jonaprieto/mini-hott/issues) if you find something
+we can improve.
 
 ## Installation
 
@@ -60,22 +62,22 @@ libraries and resources can be found in References section.
 
 ### Code conventions
 
-Definitions and theorems are typed with Unicode characters, this, to improve
-the readability. We usually present lemmas and theorems as rule inferences as
-in the following example. We are explicit about level universes.
+Definitions and theorems are typed with unicode characters to improve
+readability. Lemmas and theorems are shown as rule inferences. Level universes
+are explicitly given.
 
 ```
 termName
   :  ∀ {ℓ₁ ℓ₂.. : Level} {A : Type ℓ₁}   -- Implicit assumptions
   → (B : A → Type ℓ₂)                    -- Explicit assumptions
-  → ...                                  -- More explicit essumptions
+  → ...                                  -- More explicit assumptions
   ---------------------
   → ...                                  -- Conclusion
 ```
 
 On the website some term definitions are hidden, however, you can expand them
-by clicking on the code boxes (on the top-right icon) -- this requires
-Javascript--.
+by clicking on their code boxes (on the top-right icon) --
+Javascript needs to be enabled--.
 
 ```
 termName = definition

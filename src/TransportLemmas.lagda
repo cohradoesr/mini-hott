@@ -89,6 +89,32 @@ Synonyms:
 tr-inverse = transport-inv-r
 \end{code}
 
+
+{: .foldable until="6" }
+\begin{code}
+transport-concat-r
+  : ∀ {ℓ : Level} {A : Type ℓ} {a : A} {x y : A}
+  → (p : x == y)
+  → (q : a == x)
+  ---------------------------------
+  → tr (λ x → a == x) p q == q · p
+
+transport-concat-r idp q = ·-runit q
+\end{code}
+
+
+{: .foldable until="6" }
+\begin{code}
+transport-concat-l
+  : ∀ {ℓ : Level} {A : Type ℓ} {a : A} {x y : A}
+  → (p : x == y)
+  → (q : x == a)
+  ----------------------------------
+  → tr (λ x → x == a) p q == (! p) · q
+
+transport-concat-l idp q = idp
+\end{code}
+
 {: .foldable until="8" }
 \begin{code}
 move-transport
@@ -103,30 +129,6 @@ move-transport
 move-transport {α = idp} idp = idp
 \end{code}
 
-
-{: .foldable until="6" }
-\begin{code}
-transport-concat-r
-  : ∀ {ℓ : Level} {A : Type ℓ} {a : A} {x y : A}
-  → (p : x == y)
-  → (q : a == x)
-  ---------------------------------
-  → tr (λ x → a == x) p q == q · p
-
-transport-concat-r idp q = ·-runit q
-\end{code}
-
-{: .foldable until="6" }
-\begin{code}
-transport-concat-l
-  : ∀ {ℓ : Level} {A : Type ℓ} {a : A} {x y : A}
-  → (p : x == y)
-  → (q : x == a)
-  ----------------------------------
-  → tr (λ x → x == a) p q == (! p) · q
-
-transport-concat-l idp q = idp
-\end{code}
 
 \begin{code}
 transport-concat

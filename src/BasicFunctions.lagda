@@ -115,20 +115,20 @@ constant-function b = λ _ → b
 \end{code}
 
 \begin{code}
+neg¬
+  : Bool
+  → Bool
+
+neg¬ tt = ff
+\end{code}
+
+\begin{code}
 contrapositive
   : ∀ {ℓ₁ ℓ₂ ℓ₃ : Level}{A : Type ℓ₁}{B : Type ℓ₂}
   → (A → B)
   → ((B → ⊥ ℓ₃) → (A → ⊥ ℓ₃))
 
 contrapositive f v a = v (f a)
-\end{code}
-
-\begin{code}
-neg¬
-  : Bool
-  → Bool
-
-neg¬ tt = ff
 \end{code}
 
 ### Composition
