@@ -7,8 +7,7 @@ latex: true
 references: true
 linkify: true
 showcitation: true
-title: Mini-HoTT
-subtitle: Univalent Type Theory in Agda
+title: Another Agda Library for HoTT
 author: "Jonathan Prieto-Cubides"
 author_affiliation: "University of Bergen"
 date: "2019-09-27"
@@ -16,8 +15,6 @@ use_site_title: true
 ---
 
 <div class="only-website">
-# MiniHoTT Library
-
 Last update: {{site.time}}.
 </div>
 

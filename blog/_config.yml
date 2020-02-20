@@ -1,8 +1,8 @@
 # Setup
 repository:          'jonaprieto/mini-hott'
-title:               'Mini-HoTT'
+title:               'Mini-HoTT Agda Library'
 tagline:             ''
-description:         'Yet another Agda Library for Univalent Type Theory'
+description:         'Another Agda Library for HoTT'
 url:                 'http://jonaprieto.github.io/mini-hott'
 baseurl:             '/mini-hott'
 timezone:            'Europe/Oslo'
